@@ -1,0 +1,93 @@
+﻿#region AUTHOR
+//--------------------------------------------------------------------------
+// @author: Quetzal Rivera          @email: QuetzalDeveloper@outlook.com
+// Project name: Telegram.BotAPI       Date of creation: 13-12-2019
+// Description: Library to access and interact with the Telegram Bot API.
+// Review History:
+// Creation: Creation   |   Date: 13-12-2019
+// Update: Added Bot API 5.0 support | Date: 6-12-2020
+// Description: Library creation. All commands are found
+// and/or methods up to Bot API 5.0 published on November 4, 2020
+// ________________________________________________________________________
+//--------------------------------------------------------------------------
+#endregion
+
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Runtime.InteropServices;
+
+namespace Telegram.BotAPI
+{
+    /// <summary>Telegram Bot Client.</summary>
+    public sealed partial class BotClient : IEquatable<BotClient>
+    {
+        /// <summary>Bot base url for download files. {0} = BotToken, {1} = FilePath</summary>
+        public const string BaseFilesUrl = "https://api.telegram.org/file/bot{0}/{1}";
+        private readonly string botToken;
+        private readonly HttpClient httpClient;
+
+        /// <summary>Initialize a Telegram Bot Client.</summary>
+        /// <param name="botToken">Token granted by BotFather. Required to access the Telegram bot API.</param>
+        /// <param name="httpClient">Provide a specific HttpClient for this instance of BotClient.</param>
+        /// <exception cref="ArgumentNullException">Thrown when accessToken is null or empty.</exception>
+        public BotClient(string botToken, [Optional] HttpClient httpClient)
+        {
+            if (string.IsNullOrEmpty(botToken))
+            {
+                throw new ArgumentNullException(nameof(botToken));
+            }
+            this.botToken = botToken;
+            if (httpClient == default)
+            {
+                if (defaultHttpClient == default)
+                {
+                    SetHttpClient();
+                }
+                this.httpClient = defaultHttpClient;
+            }
+            else
+            {
+                this.httpClient = AddJsonMultipart(httpClient);
+            }
+        }
+        /// <summary>Token granted by BotFather. Required to access the Telegram bot API.</summary>
+        public string Token => botToken;
+        /// <summary>Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.</summary>
+        public bool IgnoreBotExceptions { get; set; }
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as BotClient);
+        }
+
+        public bool Equals(BotClient other)
+        {
+            return other != null &&
+                   botToken == other.botToken &&
+                   EqualityComparer<HttpClient>.Default.Equals(httpClient, other.httpClient) &&
+                   IgnoreBotExceptions == other.IgnoreBotExceptions;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1252002287;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(botToken);
+            hashCode = hashCode * -1521134295 + EqualityComparer<HttpClient>.Default.GetHashCode(httpClient);
+            hashCode = hashCode * -1521134295 + IgnoreBotExceptions.GetHashCode();
+            return hashCode;
+        }
+
+        public static bool operator ==(BotClient left, BotClient right)
+        {
+            return EqualityComparer<BotClient>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(BotClient left, BotClient right)
+        {
+            return !(left == right);
+        }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+    }
+}

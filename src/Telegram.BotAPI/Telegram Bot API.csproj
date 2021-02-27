@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2.0.1</Version>
+    <PackageId>Telegram.BotAPI</PackageId>
+    <Authors>Quetzal Rivera</Authors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>Telegram</RootNamespace>
+    <Copyright>Quetzal Rivera 2021 ©</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Description>Telegram.BotAPI is one of the most complete libraries available to interact with the Telegram Bot API in your NET project.
+ 
+Contains all available methods in the Bot API 5.0 released on November 4, 2020. In addition, it has a complete set of classes with all objects used.</Description>
+    <PackageTags>Telegram Bot API</PackageTags>
+    <Title>Telegram Bot API</Title>
+    <OutputType>Library</OutputType>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>Telegram.BotAPI.pfx</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <LangVersion>latest</LangVersion>
+    <Product>Telegram BotAPI</Product>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
+    <PackageIcon>packicon.png</PackageIcon>
+    <AssemblyVersion>2.0.1.*</AssemblyVersion>
+    <FileVersion>2.0.1.0</FileVersion>
+    <Deterministic>false</Deterministic>
+    <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <AssemblyName>Telegram.BotAPI</AssemblyName>
+    <PackageReleaseNotes>- Removed underscores from namespaces, properties, and parameters.
+- Removed BotTemplate.
+- Added new interfaces.
+- Added abstract classes: TelegramBot and TelegramBotAsync.
+- The ParseMode class was moved to the Telegram.BotAPI.AvailableMethods namespace.
+- Added extension methods to the ParseMode class..</PackageReleaseNotes>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Text.Json" Version="5.0.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="packicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+</Project>
