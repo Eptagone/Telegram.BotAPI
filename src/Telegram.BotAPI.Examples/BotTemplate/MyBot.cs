@@ -42,7 +42,7 @@ namespace BotTemplateSample
         private bool hasText;
         private User appUser;
 
-        public override void OnMessage(Message message)
+        protected override void OnMessage(Message message)
         {
             // Ignore user 777000 (Telegram)
             if (message.From.Id == 777000)
@@ -96,65 +96,65 @@ namespace BotTemplateSample
             }
         }
 
-        public override void OnBotException(BotRequestException exp)
+        protected override void OnBotException(BotRequestException exp)
         {
             Console.WriteLine("New BotException: {0}", exp.Message);
             Console.WriteLine("Error Code: {0}", exp.ErrorCode);
             Console.WriteLine();
         }
 
-        public override void OnException(Exception exp)
+        protected override void OnException(Exception exp)
         {
             Console.WriteLine("New Exception: {0}", exp.Message);
             Console.WriteLine();
         }
 
-        public override void OnCallbackQuery(CallbackQuery callbackQuery)
+        protected override void OnCallbackQuery(CallbackQuery callbackQuery)
         {
 
         }
 
-        public override void OnChannelPost(Message message)
+        protected override void OnChannelPost(Message message)
         {
 
         }
 
-        public override void OnChosenInlineResult(ChosenInlineResult chosenInlineResult)
+        protected override void OnChosenInlineResult(ChosenInlineResult chosenInlineResult)
         {
 
         }
 
-        public override void OnEditedChannelPost(Message message)
+        protected override void OnEditedChannelPost(Message message)
         {
 
         }
 
-        public override void OnEditedMessage(Message message)
+        protected override void OnEditedMessage(Message message)
         {
 
         }
 
-        public override void OnInlineQuery(InlineQuery inlineQuery)
+        protected override void OnInlineQuery(InlineQuery inlineQuery)
         {
 
         }
 
-        public override void OnPoll(Poll poll)
+        protected override void OnPoll(Poll poll)
         {
 
         }
 
-        public override void OnPollAnswer(PollAnswer pollAnswer)
+        protected override void OnPollAnswer(PollAnswer pollAnswer)
         {
 
         }
 
-        public override void OnPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery)
+        protected override void OnPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery)
         {
 
         }
 
-        public override void OnShippingQuery(ShippingQuery shippingQuery)
+        protected override void OnShippingQuery(ShippingQuery shippingQuery)
         {
 
         }

@@ -80,66 +80,66 @@ namespace Telegram.BotAPI
         /// <param name="message">Message.</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnMessageAsync(Message message, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnMessageAsync(Message message, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a edited message.</summary>
         /// <param name="message">Message</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnEditedMessageAsync(Message message, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnEditedMessageAsync(Message message, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a channel post.</summary>
         /// <param name="message">Message</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnChannelPostAsync(Message message, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnChannelPostAsync(Message message, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a edited channel post update.</summary>
         /// <param name="message">Message</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnEditedChannelPostAsync(Message message, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnEditedChannelPostAsync(Message message, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a inline query update.</summary>
         /// <param name="inlineQuery">Inline query.</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnInlineQueryAsync(InlineQuery inlineQuery, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnInlineQueryAsync(InlineQuery inlineQuery, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a chosen inline result update.</summary>
         /// <param name="chosenInlineResult">Chosen Inline Result.</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnChosenInlineResultAsync(ChosenInlineResult chosenInlineResult, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnChosenInlineResultAsync(ChosenInlineResult chosenInlineResult, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a callback query update.</summary>
         /// <param name="callbackQuery">Callback query</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnCallbackQueryAsync(CallbackQuery callbackQuery, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnCallbackQueryAsync(CallbackQuery callbackQuery, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a shipping query update.</summary>
         /// <param name="shippingQuery">Shipping query</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnShippingQueryAsync(ShippingQuery shippingQuery, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnShippingQueryAsync(ShippingQuery shippingQuery, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a pre-checkout query update.</summary>
         /// <param name="preCheckoutQuery">Pre-checkout query.</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnPreCheckoutQueryAsync(PreCheckoutQuery preCheckoutQuery, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnPreCheckoutQueryAsync(PreCheckoutQuery preCheckoutQuery, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a poll update.</summary>
         /// <param name="poll">Poll.</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnPollAsync(Poll poll, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnPollAsync(Poll poll, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a poll answer update.</summary>
         /// <param name="pollAnswer">Poll answer.</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnPollAnswerAsync(PollAnswer pollAnswer, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnPollAnswerAsync(PollAnswer pollAnswer, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a bot exception.</summary>
         /// <param name="exp">Bot exception</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnBotExceptionAsync(BotRequestException exp, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnBotExceptionAsync(BotRequestException exp, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a general exception.</summary>
         /// <param name="exp">Exception</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        public abstract Task OnExceptionAsync(Exception exp, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnExceptionAsync(Exception exp, [Optional] CancellationToken cancellationToken);
     }
 }
