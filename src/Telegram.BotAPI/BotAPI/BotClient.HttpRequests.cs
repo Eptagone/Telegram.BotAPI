@@ -16,7 +16,7 @@ using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI
 {
-    public sealed partial class BotClient
+    public sealed partial class BotClient : IEquatable<BotClient>
     {
         private const string applicationJson = "application/json";
         private const string multipartFormData = "multipart/form-data";
