@@ -35,6 +35,8 @@ namespace Telegram.BotAPI.InlineMode
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public InputMessageContent InputMessageContent { get; set; }
 
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
         {
             return Equals(obj as InlineQueryResultVoice);
@@ -78,5 +80,6 @@ namespace Telegram.BotAPI.InlineMode
         {
             return !(left == right);
         }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
