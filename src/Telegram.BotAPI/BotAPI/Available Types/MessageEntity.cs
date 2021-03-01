@@ -20,11 +20,11 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Offset in UTF-16 code units to the start of the entity.</summary>
         [JsonPropertyName(PropertyNames.Offset)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Offset { get; set; }
+        public int Offset { get; set; }
         /// <summary>Length of the entity in UTF-16 code units.</summary>
         [JsonPropertyName(PropertyNames.Length)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Length { get; set; }
+        public int Length { get; set; }
         /// <summary>Optional. For “text_link” only, url that will be opened after user taps on the text.</summary>
         [JsonPropertyName(PropertyNames.Url)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -37,6 +37,13 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.Language)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Language { get; set; }
+        /// <summary>Get the entity type as enum.</summary>
+        /// <returns><see cref="MessageEntityType"/></returns>
+        public MessageEntityType GetEntityType()
+        {
+            string type = Type.Replace("_", string.Empty);
+            return (MessageEntityType)Enum.Parse(typeof(MessageEntityType), type, true);
+        }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
