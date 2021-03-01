@@ -291,55 +291,55 @@ namespace Telegram.BotAPI
             public override void Write(Utf8JsonWriter writer, InlineKeyboardMarkup value, JsonSerializerOptions options)
             {
                 writer.WriteStartObject();
-                writer.WriteStartArray("inline_keyboard");
+                writer.WriteStartArray(PropertyNames.InlineKeyboard);
                 foreach (var ink in value.InlineKeyboard)
                 {
                     writer.WriteStartArray();
                     foreach (var button in ink)
                     {
                         writer.WriteStartObject();
-                        writer.WriteString("text", button.Text);
+                        writer.WriteString(PropertyNames.Text, button.Text);
                         switch (button.Type)
                         {
                             case InlineKeyboardButtonType.Url:
-                                writer.WriteString("url", button.Url);
+                                writer.WriteString(PropertyNames.Url, button.Url);
                                 break;
                             case InlineKeyboardButtonType.LoginUrl:
-                                writer.WriteStartObject("login_url");
-                                writer.WriteString("url", button.LoginUrl.Url);
+                                writer.WriteStartObject(PropertyNames.LoginUrl);
+                                writer.WriteString(PropertyNames.Url, button.LoginUrl.Url);
                                 if (button.LoginUrl.ForwardText != default)
                                 {
-                                    writer.WriteString("forward_text", button.LoginUrl.ForwardText);
+                                    writer.WriteString(PropertyNames.ForwardText, button.LoginUrl.ForwardText);
                                 }
 
                                 if (button.LoginUrl.BotUsername != default)
                                 {
-                                    writer.WriteString("bot_username", button.LoginUrl.BotUsername);
+                                    writer.WriteString(PropertyNames.BotUsername, button.LoginUrl.BotUsername);
                                 }
 
                                 if (button.LoginUrl.RequestWriteAccess)
                                 {
-                                    writer.WriteBoolean("request_write_access", true);
+                                    writer.WriteBoolean(PropertyNames.RequestWriteAccess, true);
                                 }
 
                                 writer.WriteEndObject();
                                 break;
                             case InlineKeyboardButtonType.CallbackData:
-                                writer.WriteString("callback_data", button.CallbackData);
+                                writer.WriteString(PropertyNames.CallbackData, button.CallbackData);
                                 break;
                             case InlineKeyboardButtonType.SwitchInlineQuery:
-                                writer.WriteString("switch_inline_query", button.SwitchInlineQuery);
+                                writer.WriteString(PropertyNames.SwitchInlineQuery, button.SwitchInlineQuery);
                                 break;
                             case InlineKeyboardButtonType.SwitchInlineQueryCurrentChat:
-                                writer.WriteString("switch_inline_query_current_chat", button.SwitchInlineQueryCurrentChat);
+                                writer.WriteString(PropertyNames.SwitchInlineQueryCurrentChat, button.SwitchInlineQueryCurrentChat);
                                 break;
                             case InlineKeyboardButtonType.CallbackGame:
-                                writer.WriteStartObject("callback_game");
-                                writer.WriteString("game_short_name", button.CallbackGame.GameShortName);
+                                writer.WriteStartObject(PropertyNames.CallbackGame);
+                                writer.WriteString(PropertyNames.GameShortName, button.CallbackGame.GameShortName);
                                 writer.WriteEndObject();
                                 break;
                             case InlineKeyboardButtonType.Pay:
-                                writer.WriteBoolean("pay", button.Pay);
+                                writer.WriteBoolean(PropertyNames.Pay, button.Pay);
                                 break;
                         }
                         writer.WriteEndObject();
@@ -356,19 +356,19 @@ namespace Telegram.BotAPI
             public override ReplyMarkup Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
             {
                 var replymarkup = JsonSerializer.Deserialize<JsonElement>(ref reader, options);
-                if (replymarkup.TryGetProperty("force_reply", out _))
+                if (replymarkup.TryGetProperty(PropertyNames.ForceReply, out _))
                 {
                     return JsonSerializer.Deserialize<ForceReply>(ref reader, options);
                 }
-                if (replymarkup.TryGetProperty("keyboard", out _))
+                if (replymarkup.TryGetProperty(PropertyNames.Keyboard, out _))
                 {
                     return JsonSerializer.Deserialize<ReplyKeyboardMarkup>(ref reader, options);
                 }
-                if (replymarkup.TryGetProperty("inline_keyboard", out _))
+                if (replymarkup.TryGetProperty(PropertyNames.InlineKeyboard, out _))
                 {
                     return JsonSerializer.Deserialize<InlineKeyboardMarkup>(ref reader, options);
                 }
-                if (replymarkup.TryGetProperty("remove_keyboard", out _))
+                if (replymarkup.TryGetProperty(PropertyNames.RemoveKeyboard, out _))
                 {
                     return JsonSerializer.Deserialize<ReplyKeyboardRemove>(ref reader, options);
                 }
@@ -379,10 +379,10 @@ namespace Telegram.BotAPI
                 if (value is ForceReply forceReply)
                 {
                     writer.WriteStartObject();
-                    writer.WriteBoolean("force_reply", true);
+                    writer.WriteBoolean(PropertyNames.ForceReply, true);
                     if (forceReply.Selective)
                     {
-                        writer.WriteBoolean("selective", true);
+                        writer.WriteBoolean(PropertyNames.Selective, true);
                     }
 
                     writer.WriteEndObject();
@@ -401,10 +401,10 @@ namespace Telegram.BotAPI
                 if (value is ReplyKeyboardRemove replyKeyboardRemove)
                 {
                     writer.WriteStartObject();
-                    writer.WriteBoolean("remove_keyboard", true);
+                    writer.WriteBoolean(PropertyNames.RemoveKeyboard, true);
                     if (replyKeyboardRemove.Selective)
                     {
-                        writer.WriteBoolean("selective", true);
+                        writer.WriteBoolean(PropertyNames.Selective, true);
                     }
 
                     writer.WriteEndObject();
