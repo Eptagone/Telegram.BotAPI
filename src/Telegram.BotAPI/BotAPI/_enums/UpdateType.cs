@@ -29,6 +29,10 @@ namespace Telegram.BotAPI
         /// <summary>Poll update</summary>
         Poll,
         /// <summary>Poll answer update</summary>
-        PollAnswer
+        PollAnswer,
+        /// <summary>My chat member update</summary>
+        MyChatMember,
+        /// <summary>Chat member update</summary>
+        ChatMember
     }
 }

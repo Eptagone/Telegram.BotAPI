@@ -21,7 +21,7 @@ namespace Telegram.BotAPI.Stickers
         /// <param name="maskPosition">A <see cref="MaskPosition"/> for position where the mask should be placed on faces.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool AddStickerToSet(this BotClient bot, int userId, string name, [Optional] string pngSticker, [Optional] InputFile tgsSticker, string emojis, [Optional] MaskPosition maskPosition)
+        public static bool AddStickerToSet(this BotClient bot, long userId, string name, [Optional] string pngSticker, [Optional] InputFile tgsSticker, string emojis, [Optional] MaskPosition maskPosition)
         {
             if (bot == default)
             {
@@ -64,7 +64,7 @@ namespace Telegram.BotAPI.Stickers
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> AddStickerToSetAsync(this BotClient bot, int userId, string name, [Optional] string pngSticker, [Optional] InputFile tgsSticker, string emojis, [Optional] MaskPosition maskPosition, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> AddStickerToSetAsync(this BotClient bot, long userId, string name, [Optional] string pngSticker, [Optional] InputFile tgsSticker, string emojis, [Optional] MaskPosition maskPosition, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -106,7 +106,7 @@ namespace Telegram.BotAPI.Stickers
         /// <param name="maskPosition">A <see cref="MaskPosition"/> for position where the mask should be placed on faces.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool AddStickerToSet(this BotClient bot, int userId, string name, [Optional] InputFile pngSticker, [Optional] InputFile tgsSticker, string emojis, [Optional] MaskPosition maskPosition)
+        public static bool AddStickerToSet(this BotClient bot, long userId, string name, [Optional] InputFile pngSticker, [Optional] InputFile tgsSticker, string emojis, [Optional] MaskPosition maskPosition)
         {
             if (bot == default)
             {
@@ -149,7 +149,7 @@ namespace Telegram.BotAPI.Stickers
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> AddStickerToSetAsync(this BotClient bot, int userId, string name, [Optional] InputFile pngSticker, [Optional] InputFile tgsSticker, string emojis, [Optional] MaskPosition maskPosition, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> AddStickerToSetAsync(this BotClient bot, long userId, string name, [Optional] InputFile pngSticker, [Optional] InputFile tgsSticker, string emojis, [Optional] MaskPosition maskPosition, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {

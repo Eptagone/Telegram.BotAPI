@@ -17,7 +17,7 @@ namespace Telegram.BotAPI.Stickers
         /// <param name="pngSticker">Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static File UploadStickerFile(this BotClient bot, int userId, InputFile pngSticker)
+        public static File UploadStickerFile(this BotClient bot, long userId, InputFile pngSticker)
         {
             if (bot == default)
             {
@@ -58,7 +58,7 @@ namespace Telegram.BotAPI.Stickers
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<File> UploadStickerFileAsync(this BotClient bot, int userId, InputFile pngSticker, [Optional] CancellationToken cancellationToken)
+        public static async Task<File> UploadStickerFileAsync(this BotClient bot, long userId, InputFile pngSticker, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {

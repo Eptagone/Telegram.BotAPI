@@ -20,7 +20,7 @@ namespace Telegram.BotAPI.Stickers
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static bool SetStickerSetThumb(this BotClient bot, string name, int userId)
+        public static bool SetStickerSetThumb(this BotClient bot, string name, long userId)
         {
             if (bot == default)
             {
@@ -55,7 +55,7 @@ namespace Telegram.BotAPI.Stickers
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static async Task<bool> SetStickerSetThumbAsync(this BotClient bot, string name, int userId, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> SetStickerSetThumbAsync(this BotClient bot, string name, long userId, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -90,7 +90,7 @@ namespace Telegram.BotAPI.Stickers
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static bool SetStickerSetThumb(this BotClient bot, string name, int userId, string thumb)
+        public static bool SetStickerSetThumb(this BotClient bot, string name, long userId, string thumb)
         {
             if (bot == default)
             {
@@ -132,7 +132,7 @@ namespace Telegram.BotAPI.Stickers
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static async Task<bool> SetStickerSetThumbAsync(this BotClient bot, string name, int userId, string thumb, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> SetStickerSetThumbAsync(this BotClient bot, string name, long userId, string thumb, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -173,7 +173,7 @@ namespace Telegram.BotAPI.Stickers
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static bool SetStickerSetThumb(this BotClient bot, string name, int userId, InputFile thumb)
+        public static bool SetStickerSetThumb(this BotClient bot, string name, long userId, InputFile thumb)
         {
             if (bot == default)
             {
@@ -207,7 +207,7 @@ namespace Telegram.BotAPI.Stickers
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static async Task<bool> SetStickerSetThumbAsync(this BotClient bot, string name, int userId, InputFile thumb, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> SetStickerSetThumbAsync(this BotClient bot, string name, long userId, InputFile thumb, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {

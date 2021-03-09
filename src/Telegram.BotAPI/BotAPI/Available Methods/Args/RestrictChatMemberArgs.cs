@@ -19,7 +19,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <summary>Unique identifier of the target user.</summary>
         [JsonPropertyName(PropertyNames.UserId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         /// <summary>New user permissions.</summary>
         [JsonPropertyName(PropertyNames.Permissions)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

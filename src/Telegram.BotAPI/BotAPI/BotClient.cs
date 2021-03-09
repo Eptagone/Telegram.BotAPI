@@ -5,9 +5,9 @@
 // Description: Library to access and interact with the Telegram Bot API.
 // Review History:
 // Creation: Creation   |   Date: 13-12-2019
-// Update: Added Bot API 5.0 support | Date: 6-12-2020
+// Update: Added Bot API 5.1 support | Date: 09-03-2021
 // Description: Library creation. All commands are found
-// and/or methods up to Bot API 5.0 published on November 4, 2020
+// and/or methods up to Bot API 5.1 published on March 9, 2021
 // ________________________________________________________________________
 //--------------------------------------------------------------------------
 #endregion

@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.Games
         /// <summary>Target user id.</summary>
         [JsonPropertyName(PropertyNames.UserId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         /// <summary>Required if inline_message_id is not specified. Unique identifier for the target chat.</summary>
         [JsonPropertyName(PropertyNames.ChatId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

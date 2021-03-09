@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Unique identifier for this user or bot.</summary>
         [JsonPropertyName(PropertyNames.Id)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int Id { get; set; }
+        public long Id { get; set; }
         /// <summary>True, if this user is a bot.</summary>
         [JsonPropertyName(PropertyNames.IsBot)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

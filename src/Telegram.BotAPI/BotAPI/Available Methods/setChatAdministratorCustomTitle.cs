@@ -23,7 +23,7 @@ namespace Telegram.BotAPI.AvailableMethods
         public static bool SetChatAdministratorCustomTitle(
             this BotClient bot,
             long chatId,
-            int userId,
+            long userId,
             string customTitle)
         {
             if (bot == default)
@@ -54,7 +54,7 @@ namespace Telegram.BotAPI.AvailableMethods
         public static bool SetChatAdministratorCustomTitle(
             this BotClient bot,
             string chatId,
-            int userId,
+            long userId,
             string customTitle)
         {
             if (bot == default)
@@ -82,7 +82,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static async Task<bool> SetChatAdministratorCustomTitleAsync(this BotClient bot, long chatId, int userId, string customTitle, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> SetChatAdministratorCustomTitleAsync(this BotClient bot, long chatId, long userId, string customTitle, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -111,7 +111,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static async Task<bool> SetChatAdministratorCustomTitleAsync(this BotClient bot, string chatId, int userId, string customTitle, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> SetChatAdministratorCustomTitleAsync(this BotClient bot, string chatId, long userId, string customTitle, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {

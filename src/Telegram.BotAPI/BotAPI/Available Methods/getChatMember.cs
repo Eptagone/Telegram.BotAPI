@@ -20,7 +20,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatMember"/></returns>
-        public static ChatMember GetChatMember(this BotClient bot, string chatId, int userId)
+        public static ChatMember GetChatMember(this BotClient bot, string chatId, long userId)
         {
             if (bot == default)
             {
@@ -44,7 +44,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatMember"/></returns>
-        public static ChatMember GetChatMember(this BotClient bot, long chatId, int userId)
+        public static ChatMember GetChatMember(this BotClient bot, long chatId, long userId)
         {
             if (bot == default)
             {
@@ -69,7 +69,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatMember"/></returns>
-        public static async Task<ChatMember> GetChatMemberAsync(this BotClient bot, long chatId, int userId, [Optional] CancellationToken cancellationToken)
+        public static async Task<ChatMember> GetChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -94,7 +94,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatMember"/></returns>
-        public static async Task<ChatMember> GetChatMemberAsync(this BotClient bot, string chatId, int userId, [Optional] CancellationToken cancellationToken)
+        public static async Task<ChatMember> GetChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {

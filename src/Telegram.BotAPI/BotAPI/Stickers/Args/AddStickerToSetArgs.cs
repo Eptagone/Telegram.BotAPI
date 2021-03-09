@@ -15,7 +15,7 @@ namespace Telegram.BotAPI.Stickers
         /// <summary>User identifier of sticker set owner.</summary>
         [JsonPropertyName(PropertyNames.UserId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         /// <summary>Sticker set name.</summary>
         [JsonPropertyName(PropertyNames.Name)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

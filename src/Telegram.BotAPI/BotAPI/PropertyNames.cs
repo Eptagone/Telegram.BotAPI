@@ -34,6 +34,8 @@ namespace Telegram.BotAPI
         public const string CanEditMessages = "can_edit_messages";
         public const string CanInviteUsers = "can_invite_users";
         public const string CanJoinGroups = "can_join_groups";
+        public const string CanManageChat = "can_manage_chat";
+        public const string CanManageVoiceChats = "can_manage_voice_chats";
         public const string CanPinMessages = "can_pin_messages";
         public const string CanPostMessages = "can_post_messages";
         public const string CanPromoteMembers = "can_promote_members";
@@ -52,6 +54,7 @@ namespace Telegram.BotAPI
         public const string Chat = "chat";
         public const string ChatId = "chat_id";
         public const string ChatInstance = "chat_instance";
+        public const string ChatMember = "chat_member";
         public const string ChosenInlineResult = "chosen_inline_result";
         public const string City = "city";
         public const string CloseDate = "close_date";
@@ -61,6 +64,7 @@ namespace Telegram.BotAPI
         public const string ContainsMasks = "contains_masks";
         public const string CorrectOptionId = "correct_option_id";
         public const string CountryCode = "country_code";
+        public const string Creator = "creator";
         public const string Credentials = "credentials";
         public const string Currency = "currency";
         public const string CustomTitle = "custom_title";
@@ -92,6 +96,7 @@ namespace Telegram.BotAPI
         public const string Explanation = "explanation";
         public const string ExplanationEntities = "explanation_entities";
         public const string ExplanationParseMode = "explanation_parse_mode";
+        public const string ExpireDate = "expire_date";
         public const string FieldName = "field_name";
         public const string FileDate = "file_date";
         public const string FileHash = "file_hash";
@@ -150,6 +155,8 @@ namespace Telegram.BotAPI
         public const string IsFlexible = "is_flexible";
         public const string IsMember = "is_member";
         public const string IsPersonal = "is_personal";
+        public const string IsPrimary = "is_primary";
+        public const string IsRevoked = "is_revoked";
         public const string Keyboard = "keyboard";
         public const string Label = "label";
         public const string Language = "language";
@@ -170,7 +177,10 @@ namespace Telegram.BotAPI
         public const string MaxConnections = "max_connections";
         public const string Media = "media";
         public const string MediaGroupId = "media_group_id";
+        public const string MemberLimit = "member_limit";
         public const string Message = "message";
+        public const string MessageAutoDeleteTime = "message_auto_delete_time";
+        public const string MessageAutoDeleteTimerChanged = "message_auto_delete_timer_changed ";
         public const string MessageId = "message_id";
         public const string MessageText = "message_text";
         public const string MigrateFromChatId = "migrate_from_chat_id";
@@ -181,16 +191,19 @@ namespace Telegram.BotAPI
         public const string Mpeg4Height = "mpeg4_height";
         public const string Mpeg4Url = "mpeg4_url";
         public const string Mpeg4Width = "mpeg4_width";
+        public const string MyChatMember = "my_chat_member";
         public const string Name = "name";
         public const string NeedEmail = "need_email";
         public const string NeedName = "need_name";
         public const string NeedPhoneNumber = "need_phone_number";
         public const string NeedShippingAddress = "need_shipping_address";
+        public const string NewChatMember = "new_chat_member";
         public const string NewChatMembers = "new_chat_members";
         public const string NewChatPhoto = "new_chat_photo";
         public const string NewChatTitle = "new_chat_title";
         public const string NextOffset = "next_offset";
         public const string Offset = "offset";
+        public const string OldChatMember = "old_chat_member";
         public const string OneTimeKeyboard = "one_time_keyboard";
         public const string OpenPeriod = "open_period";
         public const string OptionIds = "option_ids";
@@ -240,6 +253,7 @@ namespace Telegram.BotAPI
         public const string ResultId = "result_id";
         public const string Results = "results";
         public const string RetryAfter = "retry_after";
+        public const string RevokeMessages = "revoke_messages";
         public const string ReverseSide = "reverse_side";
         public const string Scale = "scale";
         public const string Score = "score";
@@ -298,6 +312,7 @@ namespace Telegram.BotAPI
         public const string User = "user";
         public const string UserId = "user_id";
         public const string Username = "username";
+        public const string Users = "users";
         public const string Value = "value";
         public const string Vcard = "vcard";
         public const string Venue = "venue";
@@ -310,6 +325,9 @@ namespace Telegram.BotAPI
         public const string VideoUrl = "video_url";
         public const string VideoWidth = "video_width";
         public const string Voice = "voice";
+        public const string VoiceChatStarted = "voice_chat_started";
+        public const string VoiceChatEnded = "voice_chat_ended";
+        public const string VoiceChatParticipantsInvited = "voice_chat_participants_invited";
         public const string VoiceDuration = "voice_duration";
         public const string VoiceFileId = "voice_file_id";
         public const string VoiceUrl = "voice_url";

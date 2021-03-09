@@ -21,7 +21,7 @@ namespace Telegram.BotAPI.TelegramPassport
         /// <param name="errors">An array of <see cref="PassportElementError"/> describing the errors</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool SetPassportDataErrors(this BotClient bot, int userId, IEnumerable<PassportElementError> errors)
+        public static bool SetPassportDataErrors(this BotClient bot, long userId, IEnumerable<PassportElementError> errors)
         {
             if (bot == default)
             {
@@ -57,7 +57,7 @@ namespace Telegram.BotAPI.TelegramPassport
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         public static async Task<bool> SetPassportDataErrorsAsync(
             this BotClient bot,
-            int userId,
+            long userId,
             IEnumerable<PassportElementError> errors,
             [Optional] CancellationToken cancellationToken)
         {

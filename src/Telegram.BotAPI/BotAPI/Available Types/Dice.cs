@@ -17,7 +17,7 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.Emoji)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Emoji { get; set; }
-        /// <summary>Value of the dice, 1-6 for “🎲” and “🎯” base emoji, 1-5 for “🏀” and “⚽” base emoji, 1-64 for “🎰” base emoji.</summary>
+        /// <summary>Value of the dice, 1-6 for “🎲”, “🎯” and “🎳” base emoji, 1-5 for “🏀” and “⚽” base emoji, 1-64 for “🎰” base emoji.</summary>
         [JsonPropertyName(PropertyNames.Value)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public ushort Value { get; set; }
@@ -55,7 +55,7 @@ namespace Telegram.BotAPI.AvailableTypes
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 
-    /// <summary>Dice base emojis. Choose between different animations (dice, darts, basketball, football, slot machine) by specifying the emoji parameter in the method sendDice.</summary>
+    /// <summary>Dice base emojis. Choose between different animations (dice, darts, basketball, football, bowling, slot machine) by specifying the emoji parameter in the method sendDice.</summary>
     public sealed class DiceValue
     {
         /// <summary>Dice: 🎲 1 - 6 </summary>
@@ -66,6 +66,8 @@ namespace Telegram.BotAPI.AvailableTypes
         public const string Basketball = "🏀";
         /// <summary>Football: 🏀 </summary>
         public const string Football = "⚽";
+        /// <summary>Bowling: 🎳 </summary>
+        public const string Bowling = "🎳";
         /// <summary>Slot machine: 🏀 </summary>
         public const string SlotMachine = "🎰";
     }

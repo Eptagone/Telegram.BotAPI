@@ -19,7 +19,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool UnbanChatMember(this BotClient bot, long chatId, int userId, [Optional] bool onlyIfBanned)
+        public static bool UnbanChatMember(this BotClient bot, long chatId, long userId, [Optional] bool onlyIfBanned)
         {
             if (bot == default)
             {
@@ -48,7 +48,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool UnbanChatMember(this BotClient bot, string chatId, int userId, [Optional] bool onlyIfBanned)
+        public static bool UnbanChatMember(this BotClient bot, string chatId, long userId, [Optional] bool onlyIfBanned)
         {
             if (bot == default)
             {
@@ -78,7 +78,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> UnbanChatMemberAsync(this BotClient bot, long chatId, int userId, [Optional] bool onlyIfBanned, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> UnbanChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] bool onlyIfBanned, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -109,7 +109,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> UnbanChatMemberAsync(this BotClient bot, string chatId, int userId, [Optional] bool onlyIfBanned, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> UnbanChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] bool onlyIfBanned, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {

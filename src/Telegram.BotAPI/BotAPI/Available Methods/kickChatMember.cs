@@ -16,10 +16,11 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="bot">BotClient</param>
         /// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @channelusername).</param>
         /// <param name="userId">Unique identifier of the target user.</param>
-        /// /// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+        /// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+        /// <param name="revokeMessages">Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool KickChatMember(this BotClient bot, long chatId, int userId, [Optional] uint untilDate)
+        public static bool KickChatMember(this BotClient bot, long chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages)
         {
             if (bot == default)
             {
@@ -35,7 +36,10 @@ namespace Telegram.BotAPI.AvailableMethods
             {
                 json.WriteNumber(PropertyNames.UntilDate, untilDate);
             }
-
+            if(revokeMessages)
+            {
+                json.WriteBoolean(PropertyNames.RevokeMessages, true);
+            }
             json.WriteEndObject();
             json.Flush(); json.Dispose();
             stream.Seek(0, SeekOrigin.Begin);
@@ -45,10 +49,11 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="bot">BotClient</param>
         /// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @channelusername).</param>
         /// <param name="userId">Unique identifier of the target user.</param>
-        /// /// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+        /// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+        /// <param name="revokeMessages">Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool KickChatMember(this BotClient bot, string chatId, int userId, [Optional] uint untilDate)
+        public static bool KickChatMember(this BotClient bot, string chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages)
         {
             if (bot == default)
             {
@@ -64,7 +69,10 @@ namespace Telegram.BotAPI.AvailableMethods
             {
                 json.WriteNumber(PropertyNames.UntilDate, untilDate);
             }
-
+            if (revokeMessages)
+            {
+                json.WriteBoolean(PropertyNames.RevokeMessages, true);
+            }
             json.WriteEndObject();
             json.Flush(); json.Dispose();
             stream.Seek(0, SeekOrigin.Begin);
@@ -74,11 +82,12 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="bot">BotClient</param>
         /// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @channelusername).</param>
         /// <param name="userId">Unique identifier of the target user.</param>
-        /// /// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+        /// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+        /// <param name="revokeMessages">Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> KickChatMemberAsync(this BotClient bot, long chatId, int userId, [Optional] uint untilDate, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> KickChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -94,7 +103,10 @@ namespace Telegram.BotAPI.AvailableMethods
             {
                 json.WriteNumber(PropertyNames.UntilDate, untilDate);
             }
-
+            if (revokeMessages)
+            {
+                json.WriteBoolean(PropertyNames.RevokeMessages, true);
+            }
             json.WriteEndObject();
             await json.FlushAsync(cancellationToken).ConfigureAwait(false);
             await json.DisposeAsync().ConfigureAwait(false);
@@ -105,11 +117,12 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="bot">BotClient</param>
         /// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @channelusername).</param>
         /// <param name="userId">Unique identifier of the target user.</param>
-        /// /// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+        /// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+        /// <param name="revokeMessages">Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> KickChatMemberAsync(this BotClient bot, string chatId, int userId, [Optional] uint untilDate, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> KickChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -125,7 +138,10 @@ namespace Telegram.BotAPI.AvailableMethods
             {
                 json.WriteNumber(PropertyNames.UntilDate, untilDate);
             }
-
+            if (revokeMessages)
+            {
+                json.WriteBoolean(PropertyNames.RevokeMessages, true);
+            }
             json.WriteEndObject();
             await json.FlushAsync(cancellationToken).ConfigureAwait(false);
             await json.DisposeAsync().ConfigureAwait(false);

@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.Games
         /// <summary>User identifier.</summary>
         [JsonPropertyName(PropertyNames.UserId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint UserId { get; set; }
+        public ulong UserId { get; set; }
         /// <summary>New score.</summary>
         [JsonPropertyName(PropertyNames.Score)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

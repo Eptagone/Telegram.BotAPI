@@ -185,6 +185,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.ChannelChatCreated)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool ChannelChatCreated { get; set; }
+        ///<summary>Optional. Service message: auto-delete timer settings changed in the chat.</summary>
+        [JsonPropertyName(PropertyNames.MessageAutoDeleteTimerChanged)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public MessageAutoDeleteTimerChanged MessageAutoDeleteTimerChanged { get; set; }
         ///<summary>Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.</summary>
         [JsonPropertyName(PropertyNames.MigrateToChatId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -217,6 +221,18 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.ProximityAlertTriggered)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public ProximityAlertTriggered ProximityAlertTriggered { get; set; }
+        ///<summary>Optional. Service message: voice chat started.</summary>
+        [JsonPropertyName(PropertyNames.VoiceChatStarted)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public VoiceChatStarted VoiceChatStarted { get; set; }
+        ///<summary>Optional. Service message: voice chat ended.</summary>
+        [JsonPropertyName(PropertyNames.VoiceChatEnded)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public VoiceChatEnded VoiceChatEnded { get; set; }
+        ///<summary>Optional. Service message: new participants invited to a voice chat.</summary>
+        [JsonPropertyName(PropertyNames.VoiceChatParticipantsInvited)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public VoiceChatParticipantsInvited VoiceChatParticipantsInvited { get; set; }
 
         ///<summary>Optional. Inline keyboard attached to the message. login_url buttons are represented as ordinary url buttons.</summary>
         [JsonPropertyName(PropertyNames.ReplyMarkup)]
@@ -274,6 +290,7 @@ namespace Telegram.BotAPI.AvailableTypes
                    GroupChatCreated == other.GroupChatCreated &&
                    SupergroupChatCreated == other.SupergroupChatCreated &&
                    ChannelChatCreated == other.ChannelChatCreated &&
+                   EqualityComparer<MessageAutoDeleteTimerChanged>.Default.Equals(MessageAutoDeleteTimerChanged, other.MessageAutoDeleteTimerChanged) &&
                    MigrateToChatId == other.MigrateToChatId &&
                    MigrateFromChatId == other.MigrateFromChatId &&
                    EqualityComparer<Message>.Default.Equals(PinnedMessage, other.PinnedMessage) &&
@@ -282,12 +299,15 @@ namespace Telegram.BotAPI.AvailableTypes
                    ConnectedWebsite == other.ConnectedWebsite &&
                    EqualityComparer<PassportData>.Default.Equals(PassportData, other.PassportData) &&
                    EqualityComparer<ProximityAlertTriggered>.Default.Equals(ProximityAlertTriggered, other.ProximityAlertTriggered) &&
+                   EqualityComparer<VoiceChatStarted>.Default.Equals(VoiceChatStarted, other.VoiceChatStarted) &&
+                   EqualityComparer<VoiceChatEnded>.Default.Equals(VoiceChatEnded, other.VoiceChatEnded) &&
+                   EqualityComparer<VoiceChatParticipantsInvited>.Default.Equals(VoiceChatParticipantsInvited, other.VoiceChatParticipantsInvited) &&
                    EqualityComparer<InlineKeyboardMarkup>.Default.Equals(ReplyMarkup, other.ReplyMarkup);
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 1266883443;
+            int hashCode = 977829403;
             hashCode = hashCode * -1521134295 + MessageId.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(From);
             hashCode = hashCode * -1521134295 + EqualityComparer<Chat>.Default.GetHashCode(SenderChat);
@@ -330,6 +350,7 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + GroupChatCreated.GetHashCode();
             hashCode = hashCode * -1521134295 + SupergroupChatCreated.GetHashCode();
             hashCode = hashCode * -1521134295 + ChannelChatCreated.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<MessageAutoDeleteTimerChanged>.Default.GetHashCode(MessageAutoDeleteTimerChanged);
             hashCode = hashCode * -1521134295 + MigrateToChatId.GetHashCode();
             hashCode = hashCode * -1521134295 + MigrateFromChatId.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Message>.Default.GetHashCode(PinnedMessage);
@@ -338,6 +359,9 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ConnectedWebsite);
             hashCode = hashCode * -1521134295 + EqualityComparer<PassportData>.Default.GetHashCode(PassportData);
             hashCode = hashCode * -1521134295 + EqualityComparer<ProximityAlertTriggered>.Default.GetHashCode(ProximityAlertTriggered);
+            hashCode = hashCode * -1521134295 + EqualityComparer<VoiceChatStarted>.Default.GetHashCode(VoiceChatStarted);
+            hashCode = hashCode * -1521134295 + EqualityComparer<VoiceChatEnded>.Default.GetHashCode(VoiceChatEnded);
+            hashCode = hashCode * -1521134295 + EqualityComparer<VoiceChatParticipantsInvited>.Default.GetHashCode(VoiceChatParticipantsInvited);
             hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup>.Default.GetHashCode(ReplyMarkup);
             return hashCode;
         }
@@ -351,6 +375,7 @@ namespace Telegram.BotAPI.AvailableTypes
         {
             return !(left == right);
         }
+
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

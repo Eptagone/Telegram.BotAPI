@@ -281,7 +281,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string TextMention(string input, int userId, StyleMode parseMode = StyleMode.Markdown, bool useFixer = false)
+        public virtual string TextMention(string input, long userId, StyleMode parseMode = StyleMode.Markdown, bool useFixer = false)
         {
             if (string.IsNullOrEmpty(input))
             {

@@ -12,6 +12,7 @@ namespace Telegram.BotAPI.AvailableTypes
     ///<summary>This object contains information about one member of a chat.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class ChatMember : IEquatable<ChatMember>
+
     // : ChatPermissions // #NOTE: Can inherit ChatPermissions class
     {
         ///<summary>Information about the user.</summary>
@@ -34,6 +35,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.CanBeEdited)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool CanBeEdited { get; set; }
+        ///<summary>Optional. Administrators only. True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergoups and ignore slow mode. Implied by any other administrator privilege.</summary>
+        [JsonPropertyName(PropertyNames.CanManageChat)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool CanManageChat { get; set; }
         ///<summary>Optional. Administrators only. True, if the administrator can post in the channel, channels only.</summary>
         [JsonPropertyName(PropertyNames.CanPostMessages)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -46,6 +51,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.CanDeleteMessages)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool CanDeleteMessages { get; set; }
+        ///<summary>Optional. Administrators only. True, if the administrator can manage voice chats.</summary>
+        [JsonPropertyName(PropertyNames.CanManageVoiceChats)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool CanManageVoiceChats { get; set; }
         ///<summary>Optional. Administrators only. True, if the administrator can restrict, ban or unban chat members.</summary>
         [JsonPropertyName(PropertyNames.CanRestrictMembers)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -109,9 +118,11 @@ namespace Telegram.BotAPI.AvailableTypes
                    CustomTitle == other.CustomTitle &&
                    IsAnonymous == other.IsAnonymous &&
                    CanBeEdited == other.CanBeEdited &&
+                   CanManageChat == other.CanManageChat &&
                    CanPostMessages == other.CanPostMessages &&
                    CanEditMessages == other.CanEditMessages &&
                    CanDeleteMessages == other.CanDeleteMessages &&
+                   CanManageVoiceChats == other.CanManageVoiceChats &&
                    CanRestrictMembers == other.CanRestrictMembers &&
                    CanPromoteMembers == other.CanPromoteMembers &&
                    CanChangeInfo == other.CanChangeInfo &&
@@ -128,15 +139,17 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public override int GetHashCode()
         {
-            int hashCode = -1844988819;
+            int hashCode = 1446341596;
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(User);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Status);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CustomTitle);
             hashCode = hashCode * -1521134295 + IsAnonymous.GetHashCode();
             hashCode = hashCode * -1521134295 + CanBeEdited.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanManageChat.GetHashCode();
             hashCode = hashCode * -1521134295 + CanPostMessages.GetHashCode();
             hashCode = hashCode * -1521134295 + CanEditMessages.GetHashCode();
             hashCode = hashCode * -1521134295 + CanDeleteMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanManageVoiceChats.GetHashCode();
             hashCode = hashCode * -1521134295 + CanRestrictMembers.GetHashCode();
             hashCode = hashCode * -1521134295 + CanPromoteMembers.GetHashCode();
             hashCode = hashCode * -1521134295 + CanChangeInfo.GetHashCode();
@@ -161,6 +174,7 @@ namespace Telegram.BotAPI.AvailableTypes
         {
             return !(left == right);
         }
+
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
     ///<summary>The member's status in the chat. Can be “creator”, “administrator”, “member”, “restricted”, “left” or “kicked”.</summary>

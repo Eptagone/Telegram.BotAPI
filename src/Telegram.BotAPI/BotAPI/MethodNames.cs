@@ -15,12 +15,14 @@ namespace Telegram.BotAPI
         public const string BotCommand = "BotCommand";
         public const string Close = "close";
         public const string CopyMessage = "copyMessage";
+        public const string CreateChatInviteLink = "createChatInviteLink";
         public const string CreateNewStickerSet = "createNewStickerSet";
         public const string DeleteChatPhoto = "deleteChatPhoto";
         public const string DeleteChatStickerSet = "deleteChatStickerSet";
         public const string DeleteMessage = "deleteMessage";
         public const string DeleteStickerFromSet = "deleteStickerFromSet";
         public const string DeleteWebhook = "deleteWebhook";
+        public const string EditChatInviteLink = "editChatInviteLink";
         public const string EditMessageCaption = "editMessageCaption";
         public const string EditMessageLiveLocation = "editMessageLiveLocation";
         public const string EditMessageMedia = "editMessageMedia";
@@ -47,6 +49,7 @@ namespace Telegram.BotAPI
         public const string PromoteChatMember = "promoteChatMember";
         public const string ReplyKeyboardMarkup = "ReplyKeyboardMarkup";
         public const string RestrictChatMember = "restrictChatMember";
+        public const string RevokeChatInviteLink = "revokeChatInviteLink";
         public const string SendAnimation = "sendAnimation";
         public const string SendAudio = "sendAudio";
         public const string SendChatAction = "sendChatAction";

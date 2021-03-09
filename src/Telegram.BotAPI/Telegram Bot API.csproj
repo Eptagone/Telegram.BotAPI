@@ -13,7 +13,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Description>Telegram.BotAPI is one of the most complete libraries available to interact with the Telegram Bot API in your NET project.
  
-Contains all available methods in the Bot API 5.0 released on November 4, 2020. In addition, it has a complete set of classes with all objects used.</Description>
+Contains all available methods in the Bot API 5.1 released on March 9, 2020. In addition, it has a complete set of classes with all objects used.</Description>
     <PackageTags>Telegram Bot API</PackageTags>
     <Title>Telegram Bot API</Title>
     <OutputType>Library</OutputType>
@@ -31,12 +31,7 @@ Contains all available methods in the Bot API 5.0 released on November 4, 2020. 
     <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <AssemblyName>Telegram.BotAPI</AssemblyName>
-    <PackageReleaseNotes>- Removed underscores from namespaces, properties, and parameters.
-- Removed BotTemplate.
-- Added new interfaces.
-- Added abstract classes: TelegramBot and TelegramBotAsync.
-- The ParseMode class was moved to the Telegram.BotAPI.AvailableMethods namespace.
-- Added extension methods to the ParseMode class..</PackageReleaseNotes>
+    <PackageReleaseNotes>- Updated to Bot API 5.1</PackageReleaseNotes>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 

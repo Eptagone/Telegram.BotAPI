@@ -23,7 +23,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <returns>UserProfilePhotos Object.</returns>
         public static UserProfilePhotos GetUserProfilePhotos(
             this BotClient bot,
-            int userId,
+            long userId,
             [Optional] int offset,
             [Optional] ushort limit)
         {
@@ -62,7 +62,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <returns>UserProfilePhotos Object.</returns>
         public static async Task<UserProfilePhotos> GetUserProfilePhotosAsync(
             this BotClient bot,
-            int userId,
+            long userId,
             [Optional] int offset,
             [Optional] ushort limit,
             [Optional] CancellationToken cancellationToken)

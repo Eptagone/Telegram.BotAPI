@@ -31,17 +31,19 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
         /// <param name="userId">Unique identifier of the target user.</param>
         /// <param name="isAnonymous">Pass True, if the administrator's presence in the chat is hidden.</param>
+        /// <param name="canManageChat">Pass True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergoups and ignore slow mode. Implied by any other administrator privilege.</param>
         /// <param name="canChangeInfo">Optional. Pass True, if the administrator can change chat title, photo and other settings.</param>
         /// <param name="canPostMessages">Optional. Pass True, if the administrator can create channel posts, channels only.</param>
         /// <param name="canEditMessages">Optional. Pass True, if the administrator can edit messages of other users and can pin messages, channels only.</param>
         /// <param name="canDeleteMessages">Optional. Pass True, if the administrator can delete messages of other users.</param>
+        /// <param name="canManageVoiceChats">True, if the administrator can manage voice chats.</param>
         /// <param name="canInviteUsers">Optional. Pass True, if the administrator can invite new users to the chat.</param>
         /// <param name="canRestrictMembers">Optional. Pass True, if the administrator can restrict, ban or unban chat members</param>
         /// <param name="canPinMessages">Optional. Pass True, if the administrator can pin messages, supergroups only.</param>
         /// <param name="canPromoteMembers">Optional. Pass True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool PromoteChatMember(this BotClient bot, string chatId, int userId, [Optional] bool isAnonymous, [Optional] bool canChangeInfo, [Optional] bool canPostMessages, [Optional] bool canEditMessages, [Optional] bool canDeleteMessages, [Optional] bool canInviteUsers, [Optional] bool canRestrictMembers, [Optional] bool canPinMessages, [Optional] bool canPromoteMembers)
+        public static bool PromoteChatMember(this BotClient bot, string chatId, long userId, [Optional] bool isAnonymous, [Optional] bool canManageChat, [Optional] bool canChangeInfo, [Optional] bool canPostMessages, [Optional] bool canEditMessages, [Optional] bool canDeleteMessages, [Optional] bool canManageVoiceChats, [Optional] bool canInviteUsers, [Optional] bool canRestrictMembers, [Optional] bool canPinMessages, [Optional] bool canPromoteMembers)
         {
             if (bot == default)
             {
@@ -59,10 +61,12 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
             json.WriteBoolean(PropertyNames.IsAnonymous, isAnonymous);
+            json.WriteBoolean(PropertyNames.CanManageChat, canManageVoiceChats);
             json.WriteBoolean(PropertyNames.CanChangeInfo, canChangeInfo);
             json.WriteBoolean(PropertyNames.CanPostMessages, canPostMessages);
             json.WriteBoolean(PropertyNames.CanEditMessages, canEditMessages);
             json.WriteBoolean(PropertyNames.CanDeleteMessages, canDeleteMessages);
+            json.WriteBoolean(PropertyNames.CanManageVoiceChats, canManageVoiceChats);
             json.WriteBoolean(PropertyNames.CanInviteUsers, canInviteUsers);
             json.WriteBoolean(PropertyNames.CanRestrictMembers, canRestrictMembers);
             json.WriteBoolean(PropertyNames.CanPinMessages, canPinMessages);
@@ -77,17 +81,19 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
         /// <param name="userId">Unique identifier of the target user.</param>
         /// <param name="isAnonymous">Pass True, if the administrator's presence in the chat is hidden.</param>
+        /// <param name="canManageChat">Pass True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergoups and ignore slow mode. Implied by any other administrator privilege.</param>
         /// <param name="canChangeInfo">Optional. Pass True, if the administrator can change chat title, photo and other settings.</param>
         /// <param name="canPostMessages">Optional. Pass True, if the administrator can create channel posts, channels only.</param>
         /// <param name="canEditMessages">Optional. Pass True, if the administrator can edit messages of other users and can pin messages, channels only.</param>
         /// <param name="canDeleteMessages">Optional. Pass True, if the administrator can delete messages of other users.</param>
+        /// <param name="canManageVoiceChats">True, if the administrator can manage voice chats.</param>
         /// <param name="canInviteUsers">Optional. Pass True, if the administrator can invite new users to the chat.</param>
         /// <param name="canRestrictMembers">Optional. Pass True, if the administrator can restrict, ban or unban chat members</param>
         /// <param name="canPinMessages">Optional. Pass True, if the administrator can pin messages, supergroups only.</param>
         /// <param name="canPromoteMembers">Optional. Pass True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool PromoteChatMember(this BotClient bot, long chatId, int userId, [Optional] bool isAnonymous, [Optional] bool canChangeInfo, [Optional] bool canPostMessages, [Optional] bool canEditMessages, [Optional] bool canDeleteMessages, [Optional] bool canInviteUsers, [Optional] bool canRestrictMembers, [Optional] bool canPinMessages, [Optional] bool canPromoteMembers)
+        public static bool PromoteChatMember(this BotClient bot, long chatId, long userId, [Optional] bool isAnonymous, [Optional] bool canManageChat, [Optional] bool canChangeInfo, [Optional] bool canPostMessages, [Optional] bool canEditMessages, [Optional] bool canDeleteMessages, [Optional] bool canManageVoiceChats, [Optional] bool canInviteUsers, [Optional] bool canRestrictMembers, [Optional] bool canPinMessages, [Optional] bool canPromoteMembers)
         {
             if (bot == default)
             {
@@ -100,10 +106,12 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
             json.WriteBoolean(PropertyNames.IsAnonymous, isAnonymous);
+            json.WriteBoolean(PropertyNames.CanManageChat, canManageChat);
             json.WriteBoolean(PropertyNames.CanChangeInfo, canChangeInfo);
             json.WriteBoolean(PropertyNames.CanPostMessages, canPostMessages);
             json.WriteBoolean(PropertyNames.CanEditMessages, canEditMessages);
             json.WriteBoolean(PropertyNames.CanDeleteMessages, canDeleteMessages);
+            json.WriteBoolean(PropertyNames.CanManageVoiceChats, canManageVoiceChats);
             json.WriteBoolean(PropertyNames.CanInviteUsers, canInviteUsers);
             json.WriteBoolean(PropertyNames.CanRestrictMembers, canRestrictMembers);
             json.WriteBoolean(PropertyNames.CanPinMessages, canPinMessages);
@@ -138,10 +146,12 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
         /// <param name="userId">Unique identifier of the target user.</param>
         /// <param name="isAnonymous">Pass True, if the administrator's presence in the chat is hidden.</param>
+        /// <param name="canManageChat">Pass True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergoups and ignore slow mode. Implied by any other administrator privilege.</param>
         /// <param name="canChangeInfo">Optional. Pass True, if the administrator can change chat title, photo and other settings.</param>
         /// <param name="canPostMessages">Optional. Pass True, if the administrator can create channel posts, channels only.</param>
         /// <param name="canEditMessages">Optional. Pass True, if the administrator can edit messages of other users and can pin messages, channels only.</param>
         /// <param name="canDeleteMessages">Optional. Pass True, if the administrator can delete messages of other users.</param>
+        /// <param name="canManageVoiceChats">True, if the administrator can manage voice chats.</param>
         /// <param name="canInviteUsers">Optional. Pass True, if the administrator can invite new users to the chat.</param>
         /// <param name="canRestrictMembers">Optional. Pass True, if the administrator can restrict, ban or unban chat members</param>
         /// <param name="canPinMessages">Optional. Pass True, if the administrator can pin messages, supergroups only.</param>
@@ -149,7 +159,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> PromoteChatMemberAsync(this BotClient bot, string chatId, int userId, [Optional] bool isAnonymous, [Optional] bool canChangeInfo, [Optional] bool canPostMessages, [Optional] bool canEditMessages, [Optional] bool canDeleteMessages, [Optional] bool canInviteUsers, [Optional] bool canRestrictMembers, [Optional] bool canPinMessages, [Optional] bool canPromoteMembers, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> PromoteChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] bool isAnonymous, [Optional] bool canManageChat, [Optional] bool canChangeInfo, [Optional] bool canPostMessages, [Optional] bool canEditMessages, [Optional] bool canDeleteMessages, [Optional] bool canManageVoiceChats, [Optional] bool canInviteUsers, [Optional] bool canRestrictMembers, [Optional] bool canPinMessages, [Optional] bool canPromoteMembers, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -167,6 +177,7 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
             json.WriteBoolean(PropertyNames.IsAnonymous, isAnonymous);
+            json.WriteBoolean(PropertyNames.CanManageChat, canManageChat);
             json.WriteBoolean(PropertyNames.CanChangeInfo, canChangeInfo);
             json.WriteBoolean(PropertyNames.CanPostMessages, canPostMessages);
             json.WriteBoolean(PropertyNames.CanEditMessages, canEditMessages);
@@ -186,10 +197,12 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
         /// <param name="userId">Unique identifier of the target user.</param>
         /// <param name="isAnonymous">Pass True, if the administrator's presence in the chat is hidden.</param>
+        /// <param name="canManageChat">Pass True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergoups and ignore slow mode. Implied by any other administrator privilege.</param>
         /// <param name="canChangeInfo">Optional. Pass True, if the administrator can change chat title, photo and other settings.</param>
         /// <param name="canPostMessages">Optional. Pass True, if the administrator can create channel posts, channels only.</param>
         /// <param name="canEditMessages">Optional. Pass True, if the administrator can edit messages of other users and can pin messages, channels only.</param>
         /// <param name="canDeleteMessages">Optional. Pass True, if the administrator can delete messages of other users.</param>
+        /// <param name="canManageVoiceChats">True, if the administrator can manage voice chats.</param>
         /// <param name="canInviteUsers">Optional. Pass True, if the administrator can invite new users to the chat.</param>
         /// <param name="canRestrictMembers">Optional. Pass True, if the administrator can restrict, ban or unban chat members</param>
         /// <param name="canPinMessages">Optional. Pass True, if the administrator can pin messages, supergroups only.</param>
@@ -197,7 +210,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> PromoteChatMemberAsync(this BotClient bot, long chatId, int userId, [Optional] bool isAnonymous, [Optional] bool canChangeInfo, [Optional] bool canPostMessages, [Optional] bool canEditMessages, [Optional] bool canDeleteMessages, [Optional] bool canInviteUsers, [Optional] bool canRestrictMembers, [Optional] bool canPinMessages, [Optional] bool canPromoteMembers, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> PromoteChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] bool isAnonymous, [Optional] bool canManageChat, [Optional] bool canChangeInfo, [Optional] bool canPostMessages, [Optional] bool canEditMessages, [Optional] bool canDeleteMessages, [Optional] bool canManageVoiceChats, [Optional] bool canInviteUsers, [Optional] bool canRestrictMembers, [Optional] bool canPinMessages, [Optional] bool canPromoteMembers, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -214,6 +227,7 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteBoolean(PropertyNames.CanPostMessages, canPostMessages);
             json.WriteBoolean(PropertyNames.CanEditMessages, canEditMessages);
             json.WriteBoolean(PropertyNames.CanDeleteMessages, canDeleteMessages);
+            json.WriteBoolean(PropertyNames.CanManageVoiceChats, canManageVoiceChats);
             json.WriteBoolean(PropertyNames.CanInviteUsers, canInviteUsers);
             json.WriteBoolean(PropertyNames.CanRestrictMembers, canRestrictMembers);
             json.WriteBoolean(PropertyNames.CanPinMessages, canPinMessages);

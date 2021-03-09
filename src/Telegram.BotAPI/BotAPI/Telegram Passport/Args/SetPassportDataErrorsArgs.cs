@@ -15,7 +15,7 @@ namespace Telegram.BotAPI.TelegramPassport
         /// <summary>User identifier.</summary>
         [JsonPropertyName(PropertyNames.UserId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         /// <summary>A <see cref="PassportElementError"/> array describing the errors.</summary>
         [JsonPropertyName(PropertyNames.Errors)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
