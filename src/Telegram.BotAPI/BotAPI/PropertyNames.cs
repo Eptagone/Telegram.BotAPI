@@ -55,6 +55,7 @@ namespace Telegram.BotAPI
         public const string ChatId = "chat_id";
         public const string ChatInstance = "chat_instance";
         public const string ChatMember = "chat_member";
+        public const string ChatType = "chat_type";
         public const string ChosenInlineResult = "chosen_inline_result";
         public const string City = "city";
         public const string CloseDate = "close_date";

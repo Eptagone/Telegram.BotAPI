@@ -144,9 +144,11 @@ namespace Telegram.BotAPI.AvailableTypes
         }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
-    /// <summary>Type of chat, can be either “private”, “group”, “supergroup” or “channel”.</summary>
+    /// <summary>Type of chat, can be either “private”, “group”, “supergroup” or “channel”. Can be either “sender” for a private chat with the inline query sender.</summary>
     public static class ChatType
     {
+        /// <summary>Private chat with the inline query sender</summary>
+        public const string Sender = "sender";
         /// <summary>Private chat</summary>
         public const string Private = "private";
         /// <summary>Group chat</summary>

@@ -22,10 +22,6 @@ namespace Telegram.BotAPI.InlineMode
         [JsonPropertyName(PropertyNames.From)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public User From { get; set; }
-        ///<summary>Optional. Sender location, only for bots that request user location.</summary>
-        [JsonPropertyName(PropertyNames.Location)]
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public Location Location { get; set; }
         ///<summary>Text of the query (up to 512 characters).</summary>
         [JsonPropertyName(PropertyNames.Query)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -34,6 +30,14 @@ namespace Telegram.BotAPI.InlineMode
         [JsonPropertyName(PropertyNames.Offset)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Offset { get; set; }
+        ///<summary>Optional. Type of the chat, from which the inline query was sent. Can be either “sender” for a private chat with the inline query sender, “private”, “group”, “supergroup”, or “channel”. The chat type should be always known for requests sent from official clients and most third-party clients, unless the request was sent from a secret chat.</summary>
+        [JsonPropertyName(PropertyNames.ChatType)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string ChatType { get; set; }
+        ///<summary>Optional. Sender location, only for bots that request user location.</summary>
+        [JsonPropertyName(PropertyNames.Location)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public Location Location { get; set; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
@@ -46,19 +50,21 @@ namespace Telegram.BotAPI.InlineMode
             return other != null &&
                    Id == other.Id &&
                    EqualityComparer<User>.Default.Equals(From, other.From) &&
-                   EqualityComparer<Location>.Default.Equals(Location, other.Location) &&
                    Query == other.Query &&
-                   Offset == other.Offset;
+                   Offset == other.Offset &&
+                   ChatType == other.ChatType &&
+                   EqualityComparer<Location>.Default.Equals(Location, other.Location);
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 1662393144;
+            int hashCode = -297749477;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Id);
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(From);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Location>.Default.GetHashCode(Location);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Query);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Offset);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ChatType);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Location>.Default.GetHashCode(Location);
             return hashCode;
         }
 
