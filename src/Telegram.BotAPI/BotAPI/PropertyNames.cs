@@ -175,6 +175,7 @@ namespace Telegram.BotAPI
         public const string Longitude = "longitude";
         public const string MaskPosition = "mask_position";
         public const string MaxConnections = "max_connections";
+        public const string MaxTipAmount = "max_tip_amount";
         public const string Media = "media";
         public const string MediaGroupId = "media_group_id";
         public const string MemberLimit = "member_limit";
@@ -282,6 +283,7 @@ namespace Telegram.BotAPI
         public const string StreetLine1 = "street_line1";
         public const string StreetLine2 = "street_line2";
         public const string SuccessfulPayment = "successful_payment";
+        public const string SuggestedTipAmounts = "suggested_tip_amounts";
         public const string SupergroupChatCreated = "supergroup_chat_created";
         public const string SupportsInlineQueries = "supports_inline_queries";
         public const string SupportsStreaming = "supports_streaming";
