@@ -274,6 +274,7 @@ namespace Telegram.BotAPI
         public const string SmallFileId = "small_file_id";
         public const string SmallFileUniqueId = "small_file_unique_id";
         public const string Source = "source";
+        public const string StartDate = "start_date";
         public const string StartParameter = "start_parameter";
         public const string State = "state";
         public const string Status = "status";
@@ -328,6 +329,7 @@ namespace Telegram.BotAPI
         public const string VideoUrl = "video_url";
         public const string VideoWidth = "video_width";
         public const string Voice = "voice";
+        public const string VoiceChatScheduled = "voice_chat_scheduled ";
         public const string VoiceChatStarted = "voice_chat_started";
         public const string VoiceChatEnded = "voice_chat_ended";
         public const string VoiceChatParticipantsInvited = "voice_chat_participants_invited";

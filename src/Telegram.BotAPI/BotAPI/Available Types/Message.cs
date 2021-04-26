@@ -221,6 +221,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.ProximityAlertTriggered)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public ProximityAlertTriggered ProximityAlertTriggered { get; set; }
+        ///<summary>Optional. Service message: voice chat scheduled.</summary>
+        [JsonPropertyName(PropertyNames.VoiceChatScheduled)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public VoiceChatScheduled VoiceChatScheduled { get; set; }
         ///<summary>Optional. Service message: voice chat started.</summary>
         [JsonPropertyName(PropertyNames.VoiceChatStarted)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -299,6 +303,7 @@ namespace Telegram.BotAPI.AvailableTypes
                    ConnectedWebsite == other.ConnectedWebsite &&
                    EqualityComparer<PassportData>.Default.Equals(PassportData, other.PassportData) &&
                    EqualityComparer<ProximityAlertTriggered>.Default.Equals(ProximityAlertTriggered, other.ProximityAlertTriggered) &&
+                   EqualityComparer<VoiceChatScheduled>.Default.Equals(VoiceChatScheduled, other.VoiceChatScheduled) &&
                    EqualityComparer<VoiceChatStarted>.Default.Equals(VoiceChatStarted, other.VoiceChatStarted) &&
                    EqualityComparer<VoiceChatEnded>.Default.Equals(VoiceChatEnded, other.VoiceChatEnded) &&
                    EqualityComparer<VoiceChatParticipantsInvited>.Default.Equals(VoiceChatParticipantsInvited, other.VoiceChatParticipantsInvited) &&
@@ -307,7 +312,7 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public override int GetHashCode()
         {
-            int hashCode = 977829403;
+            int hashCode = -650007175;
             hashCode = hashCode * -1521134295 + MessageId.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(From);
             hashCode = hashCode * -1521134295 + EqualityComparer<Chat>.Default.GetHashCode(SenderChat);
@@ -359,6 +364,7 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ConnectedWebsite);
             hashCode = hashCode * -1521134295 + EqualityComparer<PassportData>.Default.GetHashCode(PassportData);
             hashCode = hashCode * -1521134295 + EqualityComparer<ProximityAlertTriggered>.Default.GetHashCode(ProximityAlertTriggered);
+            hashCode = hashCode * -1521134295 + EqualityComparer<VoiceChatScheduled>.Default.GetHashCode(VoiceChatScheduled);
             hashCode = hashCode * -1521134295 + EqualityComparer<VoiceChatStarted>.Default.GetHashCode(VoiceChatStarted);
             hashCode = hashCode * -1521134295 + EqualityComparer<VoiceChatEnded>.Default.GetHashCode(VoiceChatEnded);
             hashCode = hashCode * -1521134295 + EqualityComparer<VoiceChatParticipantsInvited>.Default.GetHashCode(VoiceChatParticipantsInvited);
@@ -375,7 +381,6 @@ namespace Telegram.BotAPI.AvailableTypes
         {
             return !(left == right);
         }
-
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
