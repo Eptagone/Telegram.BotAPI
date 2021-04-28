@@ -1,6 +1,7 @@
 // Copyright (c) 2021 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Text.Json.Serialization;
@@ -12,10 +13,10 @@ namespace Telegram.BotAPI.Payments
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class SendInvoiceArgs : BaseReplySendArgs, IReplyMarkup<InlineKeyboardMarkup>
     {
-        /// <summary>Unique identifier for the target private chat.</summary>
+        /// <summary><see cref="long"/> or <see cref="string"/>. Unique identifier for the target private chat.</summary>
         [JsonPropertyName(PropertyNames.ChatId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public long ChatId { get; set; }
+        public object ChatId { get; set; }
         /// <summary>Product name, 1-32 characters.</summary>
         [JsonPropertyName(PropertyNames.Title)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -31,10 +32,6 @@ namespace Telegram.BotAPI.Payments
         /// <summary>Payments provider token, obtained via Botfather.</summary>
         [JsonPropertyName(PropertyNames.ProviderToken)]
         public string ProviderToken { get; set; }
-        /// <summary>Unique deep-linking parameter that can be used to generate this invoice when used as a start parameter.</summary>
-        [JsonPropertyName(PropertyNames.StartParameter)]
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string StartParameter { get; set; }
         /// <summary>Three-letter ISO 4217 currency code, see more <a href="https://core.telegram.org/bots/payments#supported-currencies">on currencies</a>.</summary>
         [JsonPropertyName(PropertyNames.Currency)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -42,7 +39,19 @@ namespace Telegram.BotAPI.Payments
         /// <summary>Price breakdown, a list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)</summary>
         [JsonPropertyName(PropertyNames.Prices)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public LabeledPrice Prices { get; set; }
+        public IEnumerable<LabeledPrice> Prices { get; set; }
+        ///<summary>Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0.</summary>
+        [JsonPropertyName(PropertyNames.MaxTipAmount)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public uint MaxTipAmount { get; set; }
+        ///<summary>Optional. An array of suggested amounts of tip in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed max_tip_amount.</summary>
+        [JsonPropertyName(PropertyNames.SuggestedTipAmounts)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public IEnumerable<uint> SuggestedTipAmounts { get; set; }
+        /// <summary>Optional. Unique deep-linking parameter. If left empty, forwarded copies of the sent message will have a Pay button, allowing multiple users to pay directly from the forwarded message, using the same invoice. If non-empty, forwarded copies of the sent message will have a URL button with a deep link to the bot (instead of a Pay button), with the value used as the start parameter</summary>
+        [JsonPropertyName(PropertyNames.StartParameter)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string StartParameter { get; set; }
         /// <summary>Optional. JSON-encoded data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.</summary>
         [JsonPropertyName(PropertyNames.ProviderData)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
