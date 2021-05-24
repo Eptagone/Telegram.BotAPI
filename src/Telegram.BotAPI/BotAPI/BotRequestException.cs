@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI
 {
@@ -17,16 +18,16 @@ namespace Telegram.BotAPI
         ///<summary>Error description.</summary>
         public string Description { get; }
         ///<summary>Parameters.</summary>
-        public Dictionary<string, object> Parameters { get; }
+        public ResponseParameters Parameters { get; }
         /// <summary>Initializes a new instance of the Telegram.BotAPI.BotRequestException class with the specified error code and description message.</summary>
         /// <param name="errorCode">Error code.</param>
         /// <param name="description">Description.</param>
         /// <param name="parameters">Parameters.</param>
-        public BotRequestException(int errorCode, string description, [Optional] Dictionary<string, object> parameters) : base(description)
+        public BotRequestException(int errorCode, string description, [Optional] ResponseParameters parameters) : base(description)
         {
             ErrorCode = errorCode;
             Description = description;
-            Parameters = parameters ?? new Dictionary<string, object>();
+            Parameters = parameters;
         }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
@@ -48,7 +49,7 @@ namespace Telegram.BotAPI
                    EqualityComparer<MethodBase>.Default.Equals(TargetSite, other.TargetSite) &&
                    ErrorCode == other.ErrorCode &&
                    Description == other.Description &&
-                   EqualityComparer<Dictionary<string, object>>.Default.Equals(Parameters, other.Parameters);
+                   EqualityComparer<ResponseParameters>.Default.Equals(Parameters, other.Parameters);
         }
 
         public override int GetHashCode()
@@ -64,7 +65,7 @@ namespace Telegram.BotAPI
             hashCode = hashCode * -1521134295 + EqualityComparer<MethodBase>.Default.GetHashCode(TargetSite);
             hashCode = hashCode * -1521134295 + ErrorCode.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Description);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Dictionary<string, object>>.Default.GetHashCode(Parameters);
+            hashCode = hashCode * -1521134295 + EqualityComparer<ResponseParameters>.Default.GetHashCode(Parameters);
             return hashCode;
         }
 

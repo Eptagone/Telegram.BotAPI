@@ -15,12 +15,12 @@ namespace Telegram.BotAPI
     }
     /// <summary>Base object for message-sending methods arguments with reply markup property.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public abstract class BaseSendArgsReplyMarkup<T> : BaseSendArgs, IReplyMarkup<T>
-        where T : ReplyMarkup
+    public abstract class BaseSendArgsReplyMarkup<TReplyMarkup> : BaseSendArgs, ICustomizableReplyMarkup<TReplyMarkup>
+        where TReplyMarkup : ReplyMarkup
     {
         /// <summary>Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></summary>
         [JsonPropertyName(PropertyNames.ReplyMarkup)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public T ReplyMarkup { get; set; }
+        public TReplyMarkup ReplyMarkup { get; set; }
     }
 }

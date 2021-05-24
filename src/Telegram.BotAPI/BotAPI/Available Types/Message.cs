@@ -15,7 +15,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents a message.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Message : IReplyMarkup<InlineKeyboardMarkup>, IEquatable<Message>
+    public sealed class Message : ICustomizableReplyMarkup<InlineKeyboardMarkup>, IEquatable<Message>
     {
         /// <summary>Unique message identifier inside this chat.</summary>
         [JsonPropertyName(PropertyNames.MessageId)]

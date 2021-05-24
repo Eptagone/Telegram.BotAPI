@@ -6,7 +6,7 @@ using Telegram.BotAPI.AvailableTypes;
 namespace Telegram.BotAPI
 {
     /// <summary>Interface for <see cref="InputMedia"/> objects</summary>
-    public interface IInputMedia : IParseMode, ICaption
+    public interface IInputMedia : IFormattableMessage, ICaption
     {
         ///<summary>Type of the result.</summary>
         public string Type { get; }

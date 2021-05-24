@@ -6,7 +6,7 @@ using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI
 {
-    /// <summary>Interface for objects that includes AttachFiles property.</summary>
+    /// <summary>Defines a property that implements a class or value type to add attach files for file messages.</summary>
     public interface IAttachFiles
     {
         /// <summary>Attached files.</summary>

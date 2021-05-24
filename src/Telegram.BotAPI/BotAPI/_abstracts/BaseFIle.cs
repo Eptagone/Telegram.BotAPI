@@ -9,7 +9,7 @@ namespace Telegram.BotAPI
 {
     /// <summary>Base class for file objects.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public abstract class BaseFile : IFile
+    public abstract class BaseFile : IFileInfo
     {
         ///<summary>Identifier for this file, which can be used to download or reuse the file.</summary>
         [JsonPropertyName(PropertyNames.FileId)]

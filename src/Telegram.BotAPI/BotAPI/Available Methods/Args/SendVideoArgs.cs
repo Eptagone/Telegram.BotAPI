@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendVideo method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendVideoArgs : BaseSendArgsReplyMarkup, ICaption, IParseMode, IAttachFiles
+    public sealed class SendVideoArgs : BaseSendArgsReplyMarkup, ICaption, IFormattableMessage, IAttachFiles
     {
         ///<summary>Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data.</summary>
         [JsonPropertyName(PropertyNames.Video)]

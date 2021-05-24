@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents a Telegram user or bot.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class User : IEquatable<User>
+    public sealed class User : IEquatable<User>, ITelegramUser
     {
         /// <summary>Unique identifier for this user or bot.</summary>
         [JsonPropertyName(PropertyNames.Id)]

@@ -6,6 +6,7 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI
 {
@@ -33,7 +34,7 @@ namespace Telegram.BotAPI
         ///<summary>Parameters.</summary>
         [JsonPropertyName("parameters")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public Dictionary<string, object> Parameters { get; set; }
+        public ResponseParameters Parameters { get; set; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
@@ -48,7 +49,7 @@ namespace Telegram.BotAPI
                    EqualityComparer<T>.Default.Equals(Result, other.Result) &&
                    ErrorCode == other.ErrorCode &&
                    Description == other.Description &&
-                   EqualityComparer<Dictionary<string, object>>.Default.Equals(Parameters, other.Parameters);
+                   EqualityComparer<ResponseParameters>.Default.Equals(Parameters, other.Parameters);
         }
 
         public override int GetHashCode()
@@ -58,7 +59,7 @@ namespace Telegram.BotAPI
             hashCode = hashCode * -1521134295 + EqualityComparer<T>.Default.GetHashCode(Result);
             hashCode = hashCode * -1521134295 + ErrorCode.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Description);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Dictionary<string, object>>.Default.GetHashCode(Parameters);
+            hashCode = hashCode * -1521134295 + EqualityComparer<ResponseParameters>.Default.GetHashCode(Parameters);
             return hashCode;
         }
 

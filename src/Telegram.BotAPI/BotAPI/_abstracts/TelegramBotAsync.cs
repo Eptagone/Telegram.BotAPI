@@ -12,8 +12,8 @@ using Telegram.BotAPI.Payments;
 
 namespace Telegram.BotAPI
 {
-    /// <summary>Interface for Telegram Bots</summary>
-    public abstract class TelegramBotAsync : ITelegramBotAsync
+    /// <summary>Base class for Telegram Bots using async methods.</summary>
+    public abstract class TelegramBotAsync : IAsyncTelegramBot
     {
         /// <summary>Call the corresponding method according to the type of update provided.</summary>
         /// <param name="update">Update</param>
@@ -61,6 +61,12 @@ namespace Telegram.BotAPI
                         break;
                     case UpdateType.PollAnswer:
                         await OnPollAnswerAsync(update.PollAnswer, cancellationToken).ConfigureAwait(false);
+                        break;
+                    case UpdateType.MyChatMember:
+                        await OnMyChatMemberAsync(update.MyChatMember, cancellationToken).ConfigureAwait(false);
+                        break;
+                    case UpdateType.ChatMember:
+                        await OnChatMemberAsync(update.ChatMember, cancellationToken).ConfigureAwait(false);
                         break;
                     case UpdateType.Unknown:
                     default:
@@ -131,6 +137,16 @@ namespace Telegram.BotAPI
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
         protected abstract Task OnPollAnswerAsync(PollAnswer pollAnswer, [Optional] CancellationToken cancellationToken);
+        /// <summary>Instructions for my chat member updated.</summary>
+        /// <param name="myChatMemberUpdated">Poll answer.</param>
+        /// <param name="cancellationToken">Optional. Cancelation Token.</param>
+        /// <returns><see cref="Task"/></returns>
+        protected abstract Task OnMyChatMemberAsync(ChatMemberUpdated myChatMemberUpdated, [Optional] CancellationToken cancellationToken);
+        /// <summary>Instructions for chat member updated.</summary>
+        /// <param name="chatMemberUpdated">Poll answer.</param>
+        /// <param name="cancellationToken">Optional. Cancelation Token.</param>
+        /// <returns><see cref="Task"/></returns>
+        protected abstract Task OnChatMemberAsync(ChatMemberUpdated chatMemberUpdated, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a bot exception.</summary>
         /// <param name="exp">Bot exception</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>

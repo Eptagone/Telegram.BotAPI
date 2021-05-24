@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendAnimation method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendAnimationArgs : BaseSendArgsReplyMarkup, ICaption, IParseMode, IAttachFiles, IThumb<object>
+    public sealed class SendAnimationArgs : BaseSendArgsReplyMarkup, ICaption, IFormattableMessage, IAttachFiles, IThumbnail<object>
     {
         ///<summary>Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data.</summary>
         [JsonPropertyName(PropertyNames.Animation)]

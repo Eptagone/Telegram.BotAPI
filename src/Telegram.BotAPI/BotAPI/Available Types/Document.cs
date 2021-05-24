@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents a general file (as opposed to photos, voice messages and audio files).</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Document : BaseFile, IThumb<PhotoSize>, IEquatable<Document>
+    public sealed class Document : BaseFile, IThumbnail<PhotoSize>, IEquatable<Document>
     {
         ///<summary>Optional. Document thumbnail as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Thumb)]

@@ -3,7 +3,7 @@
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-    /// <summary>This object represents a phone contact.</summary>
+    /// <summary>This object represents a phone contact. Used by <see cref="Contact"/></summary>
     public interface IContact
     {
         /// <summary>Contact's phone number.</summary>

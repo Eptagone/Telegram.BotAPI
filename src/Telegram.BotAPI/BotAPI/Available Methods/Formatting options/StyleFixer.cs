@@ -2,13 +2,13 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections.Generic;
 
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 {
-    /// <summary>Use this class to correct text with incorrect style tags or to create custom StyleFixers for use with the StyleParser.</summary>
+    /// <summary>Use this class to fix text with incorrect style tags or to create custom StyleFixers for use with the StyleParser.</summary>
     public class StyleFixer
     {
         /// <summary>Default StyleFixer.</summary>
@@ -17,13 +17,13 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="input">Input text.</param>
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <returns><see cref="string"/></returns>
-        public string FixTo(string input, StyleMode parseMode)
+        public string FixTo(string input, ParseModeKind parseMode)
         {
             return parseMode switch
             {
-                StyleMode.Markdown => FixToMarkdown(input),
-                StyleMode.MarkdownV2 => FixToMarkdownV2(input),
-                StyleMode.HTML => FixToHTML(input),
+                ParseModeKind.Markdown => FixToMarkdown(input),
+                ParseModeKind.MarkdownV2 => FixToMarkdownV2(input),
+                ParseModeKind.HTML => FixToHTML(input),
                 _ => input,
             };
         }

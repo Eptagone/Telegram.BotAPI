@@ -4,7 +4,7 @@
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 {
     /// <summary>Basic styles formatting for messages.</summary>
-    public enum StyleMode
+    public enum ParseModeKind
     {
         /// <summary>To use this mode, pass Markdown in the parse_mode field. Use the following syntax in your message:
         /// <para>*bold text*<br/>

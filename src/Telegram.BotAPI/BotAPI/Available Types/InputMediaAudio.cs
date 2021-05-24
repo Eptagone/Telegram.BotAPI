@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     ///<summary>Represents an audio file to be treated as music to be sent.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InputMediaAudio : InputMedia, IInputMedia, ICaption, IParseMode, IThumb<string>, IEquatable<InputMediaAudio>
+    public sealed class InputMediaAudio : InputMedia, IInputMedia, ICaption, IFormattableMessage, IThumbnail<string>, IEquatable<InputMediaAudio>
     {
         ///<summary>Type of the result, must be audio.</summary>
         [JsonPropertyName(PropertyNames.Type)]

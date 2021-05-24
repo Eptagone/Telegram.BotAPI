@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendDocument method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendDocumentArgs : BaseSendArgsReplyMarkup, ICaption, IParseMode, IAttachFiles, IThumb<object>
+    public sealed class SendDocumentArgs : BaseSendArgsReplyMarkup, ICaption, IFormattableMessage, IAttachFiles, IThumbnail<object>
     {
         ///<summary>File to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.</summary>
         [JsonPropertyName(PropertyNames.Document)]

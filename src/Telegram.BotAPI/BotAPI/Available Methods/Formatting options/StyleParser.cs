@@ -2,9 +2,9 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections.Generic;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
@@ -35,7 +35,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="entities">Message entities.</param>
         /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string FromEntities<T>(string input, StyleMode parseMode, T entities, bool useFixer = true)
+        public virtual string FromEntities<T>(string input, ParseModeKind parseMode, T entities, bool useFixer = true)
             where T : IEnumerable<MessageEntity>
         {
             if (string.IsNullOrEmpty(input))
@@ -116,7 +116,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string Bold(string input, StyleMode parseMode = StyleMode.Markdown, bool useFixer = false)
+        public virtual string Bold(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -125,9 +125,9 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             string text = useFixer ? _styleFixer.FixTo(input, parseMode) : input;
             return parseMode switch
             {
-                StyleMode.Markdown => $"*{text}*",
-                StyleMode.MarkdownV2 => $"*{text}*",
-                StyleMode.HTML => $"<b>{text}</b>",
+                ParseModeKind.Markdown => $"*{text}*",
+                ParseModeKind.MarkdownV2 => $"*{text}*",
+                ParseModeKind.HTML => $"<b>{text}</b>",
                 _ => text,
             };
         }
@@ -136,7 +136,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string Italic(string input, StyleMode parseMode = StyleMode.Markdown, bool useFixer = false)
+        public virtual string Italic(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -145,9 +145,9 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             string text = useFixer ? _styleFixer.FixTo(input, parseMode) : input;
             return parseMode switch
             {
-                StyleMode.Markdown => $"_{text}_",
-                StyleMode.MarkdownV2 => $"_{text}_",
-                StyleMode.HTML => $"<i>{text}</i>",
+                ParseModeKind.Markdown => $"_{text}_",
+                ParseModeKind.MarkdownV2 => $"_{text}_",
+                ParseModeKind.HTML => $"<i>{text}</i>",
                 _ => text,
             };
         }
@@ -156,7 +156,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string Underline(string input, StyleMode parseMode = StyleMode.Markdown, bool useFixer = false)
+        public virtual string Underline(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -165,9 +165,9 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             string text = useFixer ? _styleFixer.FixTo(input, parseMode) : input;
             return parseMode switch
             {
-                StyleMode.Markdown => $"__{text}__",
-                StyleMode.MarkdownV2 => $"__{text}__",
-                StyleMode.HTML => $"<u>{text}</u>",
+                ParseModeKind.Markdown => $"__{text}__",
+                ParseModeKind.MarkdownV2 => $"__{text}__",
+                ParseModeKind.HTML => $"<u>{text}</u>",
                 _ => text,
             };
         }
@@ -176,7 +176,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string Strikethrough(string input, StyleMode parseMode = StyleMode.Markdown, bool useFixer = false)
+        public virtual string Strikethrough(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -185,8 +185,8 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             string text = useFixer ? _styleFixer.FixTo(input, parseMode) : input;
             return parseMode switch
             {
-                StyleMode.MarkdownV2 => $"~{text}~",
-                StyleMode.HTML => $"<s>{text}</s>",
+                ParseModeKind.MarkdownV2 => $"~{text}~",
+                ParseModeKind.HTML => $"<s>{text}</s>",
                 _ => text,
             };
         }
@@ -195,7 +195,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string Code(string input, StyleMode parseMode = StyleMode.Markdown, bool useFixer = false)
+        public virtual string Code(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -204,9 +204,9 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             string text = useFixer ? _styleFixer.FixTo(input, parseMode) : input;
             return parseMode switch
             {
-                StyleMode.Markdown => $"`{text}`",
-                StyleMode.MarkdownV2 => $"`{text}`",
-                StyleMode.HTML => $"<code>{text}</code>",
+                ParseModeKind.Markdown => $"`{text}`",
+                ParseModeKind.MarkdownV2 => $"`{text}`",
+                ParseModeKind.HTML => $"<code>{text}</code>",
                 _ => input,
             };
         }
@@ -214,7 +214,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="input">Input text.</param>
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string Pre(string input, StyleMode parseMode = StyleMode.Markdown)
+        public virtual string Pre(string input, ParseModeKind parseMode = ParseModeKind.Markdown)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -222,9 +222,9 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             }
             return parseMode switch
             {
-                StyleMode.Markdown => $"```\n{input}\n```",
-                StyleMode.MarkdownV2 => $"```\n{input}\n```",
-                StyleMode.HTML => $"<pre>{input}</pre>",
+                ParseModeKind.Markdown => $"```\n{input}\n```",
+                ParseModeKind.MarkdownV2 => $"```\n{input}\n```",
+                ParseModeKind.HTML => $"<pre>{input}</pre>",
                 _ => input,
             };
         }
@@ -233,7 +233,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="language">Programming language. Ex: python</param>
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string Pre(string input, string language, StyleMode parseMode = StyleMode.Markdown)
+        public virtual string Pre(string input, string language, ParseModeKind parseMode = ParseModeKind.Markdown)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -245,9 +245,9 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             }
             return parseMode switch
             {
-                StyleMode.Markdown => $"```\n```{language}\n{input}\n```",
-                StyleMode.MarkdownV2 => $"```\n```{language}\n{input}\n```",
-                StyleMode.HTML => $"<pre><code class=\"language-{language}\">{input}</code></pre>",
+                ParseModeKind.Markdown => $"```\n```{language}\n{input}\n```",
+                ParseModeKind.MarkdownV2 => $"```\n```{language}\n{input}\n```",
+                ParseModeKind.HTML => $"<pre><code class=\"language-{language}\">{input}</code></pre>",
                 _ => input,
             };
         }
@@ -257,7 +257,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string TextLink(string input, string url, StyleMode parseMode = StyleMode.Markdown, bool useFixer = false)
+        public virtual string TextLink(string input, string url, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -270,8 +270,8 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             string text = useFixer ? _styleFixer.FixTo(input, parseMode) : input;
             return parseMode switch
             {
-                StyleMode.Markdown or StyleMode.MarkdownV2 => $"[{text}]({url})",
-                StyleMode.HTML => $"<a href=\"{url}\">{text}</a>",
+                ParseModeKind.Markdown or ParseModeKind.MarkdownV2 => $"[{text}]({url})",
+                ParseModeKind.HTML => $"<a href=\"{url}\">{text}</a>",
                 _ => text,
             };
         }
@@ -281,7 +281,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
         /// <returns>Stylized <see cref="string"/></returns>
-        public virtual string TextMention(string input, long userId, StyleMode parseMode = StyleMode.Markdown, bool useFixer = false)
+        public virtual string TextMention(string input, long userId, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
         {
             if (string.IsNullOrEmpty(input))
             {
@@ -290,8 +290,8 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             string text = useFixer ? _styleFixer.FixTo(input, parseMode) : input;
             return parseMode switch
             {
-                StyleMode.Markdown or StyleMode.MarkdownV2 => $"[{text}](tg://user?id={userId})",
-                StyleMode.HTML => $"<a href=\"tg://user?id={userId}\">{text}</a>",
+                ParseModeKind.Markdown or ParseModeKind.MarkdownV2 => $"[{text}](tg://user?id={userId})",
+                ParseModeKind.HTML => $"<a href=\"tg://user?id={userId}\">{text}</a>",
                 _ => text,
             };
         }

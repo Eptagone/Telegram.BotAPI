@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     ///<summary>Represents a photo to be sent.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InputMediaPhoto : InputMedia, IInputMedia, ICaption, IParseMode, IEquatable<InputMediaPhoto>
+    public sealed class InputMediaPhoto : InputMedia, IInputMedia, ICaption, IFormattableMessage, IEquatable<InputMediaPhoto>
     {
         ///<summary>Type of the result, must be photo.</summary>
         [JsonPropertyName(PropertyNames.Type)]

@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     ///<summary>Represents an animation file (GIF or H.264/MPEG-4 AVC video without sound) to be sent.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InputMediaAnimation : InputMedia, IInputMedia, ICaption, IParseMode, IThumb<string>, IEquatable<InputMediaAnimation>
+    public sealed class InputMediaAnimation : InputMedia, IInputMedia, ICaption, IFormattableMessage, IThumbnail<string>, IEquatable<InputMediaAnimation>
     {
         ///<summary>Type of the result, must be animation.</summary>
         [JsonPropertyName(PropertyNames.Type)]
