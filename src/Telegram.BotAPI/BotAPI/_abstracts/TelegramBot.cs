@@ -61,7 +61,7 @@ namespace Telegram.BotAPI
                         OnMyChatMember(update.MyChatMember);
                         break;
                     case UpdateType.ChatMember:
-                        OnMyChatMember(update.ChatMember);
+                        OnChatMember(update.ChatMember);
                         break;
                     case UpdateType.Unknown:
                     default:
