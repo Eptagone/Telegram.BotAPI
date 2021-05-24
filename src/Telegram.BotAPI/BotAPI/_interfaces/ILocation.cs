@@ -5,7 +5,7 @@ using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI
 {
-    ///<summary>Interface for <see cref="Location"/>.</summary>
+    ///<summary>Represents a point on the map. Used by <see cref="Location"/>.</summary>
     public interface ILocation
     {
         ///<summary>Longitude as defined by sender.</summary>

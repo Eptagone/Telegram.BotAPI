@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>CopyMessage method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class CopyMessageArgs : BaseSendArgsReplyMarkup, ICaption, IParseMode
+    public sealed class CopyMessageArgs : BaseSendArgsReplyMarkup, ICaption, IFormattableMessage
     {
         ///<summary><see cref="long"/> or <see cref="string"/>. Unique identifier for the chat where the original message was sent (or channel username in the format @channelusername).</summary>
         [JsonPropertyName(PropertyNames.FromChatId)]
@@ -35,7 +35,7 @@ namespace Telegram.BotAPI.AvailableMethods
     }
     /// <summary>CopyMessage method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class CopyMessageArgs<T> : BaseSendArgsReplyMarkup<T>, ICaption, IParseMode
+    public sealed class CopyMessageArgs<T> : BaseSendArgsReplyMarkup<T>, ICaption, IFormattableMessage
         where T : ReplyMarkup
     {
         ///<summary><see cref="long"/> or <see cref="string"/>. Unique identifier for the chat where the original message was sent (or channel username in the format @channelusername).</summary>

@@ -9,7 +9,7 @@ using Telegram.BotAPI.Payments;
 
 namespace Telegram.BotAPI
 {
-    /// <summary>Interface for Telegram Bots</summary>
+    /// <summary>Base class for Telegram Bots.</summary>
     public abstract class TelegramBot : ITelegramBot
     {
         /// <summary>Call the corresponding method according to the type of update provided.</summary>
@@ -56,6 +56,12 @@ namespace Telegram.BotAPI
                         break;
                     case UpdateType.PollAnswer:
                         OnPollAnswer(update.PollAnswer);
+                        break;
+                    case UpdateType.MyChatMember:
+                        OnMyChatMember(update.MyChatMember);
+                        break;
+                    case UpdateType.ChatMember:
+                        OnMyChatMember(update.ChatMember);
                         break;
                     case UpdateType.Unknown:
                     default:
@@ -104,6 +110,12 @@ namespace Telegram.BotAPI
         /// <summary>Instructions for a poll answer update.</summary>
         /// <param name="pollAnswer">Poll answer.</param>
         protected abstract void OnPollAnswer(PollAnswer pollAnswer);
+        /// <summary>Instructions for my chat member updated.</summary>
+        /// <param name="myChatMemberUpdated">Poll answer.</param>
+        protected abstract void OnMyChatMember(ChatMemberUpdated myChatMemberUpdated);
+        /// <summary>Instructions for chat member updated.</summary>
+        /// <param name="chatMemberUpdated">Poll answer.</param>
+        protected abstract void OnChatMember(ChatMemberUpdated chatMemberUpdated);
         /// <summary>Instructions for a bot exception.</summary>
         /// <param name="exp">Bot exception</param>
         protected abstract void OnBotException(BotRequestException exp);

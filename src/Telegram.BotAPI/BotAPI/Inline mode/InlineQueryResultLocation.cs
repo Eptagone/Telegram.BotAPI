@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a location on a map. By default, the location will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the location.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultLocation : InlineQueryResultWithEntities, ILocation, IInlineQueryResult, IThumbUWH, IEquatable<InlineQueryResultLocation>
+    public sealed class InlineQueryResultLocation : InlineQueryResultWithEntities, ILocation, IInlineQueryResult, IExternalThumbnail, IEquatable<InlineQueryResultLocation>
     {
         /// <summary>Type of the result, must be location.</summary>
         [JsonPropertyName(PropertyNames.Type)]

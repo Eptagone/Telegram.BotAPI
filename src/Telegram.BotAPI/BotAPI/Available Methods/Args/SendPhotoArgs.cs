@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendPhoto method arguments</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendPhotoArgs : BaseSendArgsReplyMarkup, ICaption, IParseMode
+    public sealed class SendPhotoArgs : BaseSendArgsReplyMarkup, ICaption, IFormattableMessage
     {
         ///<summary>InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</summary>
         [JsonPropertyName(PropertyNames.Photo)]

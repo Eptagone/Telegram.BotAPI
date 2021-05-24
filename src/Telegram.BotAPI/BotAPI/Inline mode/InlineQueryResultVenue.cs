@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a venue. By default, the venue will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the venue.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultVenue : InlineQueryResult, IInlineQueryResult, IVenue, IThumbUWH, IEquatable<InlineQueryResultVenue>
+    public sealed class InlineQueryResultVenue : InlineQueryResult, IInlineQueryResult, IVenue, IExternalThumbnail, IEquatable<InlineQueryResultVenue>
     {
         /// <summary>Type of the result, must be venue.</summary>
         [JsonPropertyName(PropertyNames.Type)]

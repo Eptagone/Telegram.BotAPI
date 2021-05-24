@@ -4,11 +4,10 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Telegram.BotAPI.UpdatingMessages
 {

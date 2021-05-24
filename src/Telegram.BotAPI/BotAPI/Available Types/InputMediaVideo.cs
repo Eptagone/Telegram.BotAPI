@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     ///<summary>Represents a video to be sent.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InputMediaVideo : InputMedia, IInputMedia, ICaption, IParseMode, IThumb<string>, IEquatable<InputMediaVideo>
+    public sealed class InputMediaVideo : InputMedia, IInputMedia, ICaption, IFormattableMessage, IThumbnail<string>, IEquatable<InputMediaVideo>
     {
         ///<summary>Type of the result, must be video.</summary>
         [JsonPropertyName(PropertyNames.Type)]

@@ -1,15 +1,11 @@
 // Copyright (c) 2021 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System;
-using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.GettingUpdates;
-using Telegram.BotAPI.InlineMode;
-using Telegram.BotAPI.Payments;
 
 namespace Telegram.BotAPI
 {
-    /// <summary>Interface for Telegram Bots</summary>
+    /// <summary>Defines the OnUpdate method, used by basic Telegram bots.</summary>
     public interface ITelegramBot
     {
         /// <summary>Call the corresponding method according to the type of update provided.</summary>

@@ -1,3 +1,5 @@
+using System;
+
 namespace Telegram_Calendar
 {
     public class Month
@@ -9,7 +11,7 @@ namespace Telegram_Calendar
             var leapyear = Year % 4 == 0;
             var days = Name == MonthName.February ? (leapyear ? 29 : 28) : (Name == MonthName.April || Name == MonthName.June || Name == MonthName.September || Name == MonthName.November ? 30 : 31);
             Days = new Day[days];
-            var firstday = year * 365 + (leapyear ? -1 : 0) + (((year - (year % 4)) / 4)) - (((year - (year % 400)) / 400)) + 3;
+            var firstday = year * 365 + (leapyear ? -1 : 0) + ((year - (year % 4)) / 4) - ((year - (year % 400)) / 400) + 4;
             var month = (int)monthName;
             firstday += month < 1 ? 0 : 31;
             firstday += month < 2 ? 0 : (leapyear ? 29 : 28);
@@ -24,7 +26,7 @@ namespace Telegram_Calendar
             firstday += month < 11 ? 0 : 30;
             firstday = firstday % 7;
             for (int i = 0; i < Days.Length; i++)
-                Days[i] = new Day((DayName)((i + firstday) % 7), (ushort)(i + 1));
+                Days[i] = new Day((DayOfWeek)((i + firstday) % 7), (ushort)(i + 1));
         }
         public uint Year { get; set; }
         public MonthName Name { get; set; }

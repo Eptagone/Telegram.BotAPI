@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents an audio file to be treated as music by the Telegram clients.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Audio : BaseFile, IThumb<PhotoSize>, IEquatable<Audio>
+    public sealed class Audio : BaseFile, IThumbnail<PhotoSize>, IEquatable<Audio>
     {
         ///<summary>Duration of the audio in seconds as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Duration)]

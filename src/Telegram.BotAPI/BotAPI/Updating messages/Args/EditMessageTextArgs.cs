@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.UpdatingMessages
 {
     /// <summary>EditMessage method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class EditMessageTextArgs : IParseMode
+    public sealed class EditMessageTextArgs : IFormattableMessage
     {
         ///<summary>Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername).</summary>
         [JsonPropertyName(PropertyNames.ChatId)]

@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents a video file.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Video : BaseFile, IThumb<PhotoSize>, IEquatable<Video>
+    public sealed class Video : BaseFile, IThumbnail<PhotoSize>, IEquatable<Video>
     {
         ///<summary>Video width as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Width)]

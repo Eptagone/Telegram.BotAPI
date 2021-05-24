@@ -3,8 +3,8 @@
 
 namespace Telegram.BotAPI
 {
-    /// <summary>Interface for objects that includes the parse_mode property.</summary>
-    public interface IParseMode
+    /// <summary>Defines a property that implements a class or value type to add basic formatting for messages.</summary>
+    public interface IFormattableMessage
     {
         ///<summary>Optional. Mode for parsing. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</summary>
         public string ParseMode { get; set; }

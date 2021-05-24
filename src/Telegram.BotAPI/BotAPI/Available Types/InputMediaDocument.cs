@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>Represents a general file to be sent.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InputMediaDocument : InputMedia, IInputMedia, ICaption, IParseMode, IThumb<string>, IEquatable<InputMediaDocument>
+    public sealed class InputMediaDocument : InputMedia, IInputMedia, ICaption, IFormattableMessage, IThumbnail<string>, IEquatable<InputMediaDocument>
     {
         ///<summary>Type of the result, must be document.</summary>
         [JsonPropertyName(PropertyNames.Type)]

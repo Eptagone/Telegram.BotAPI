@@ -58,7 +58,7 @@ namespace Telegram.BotAPI.InlineMode
     /// • <see cref="InlineQueryResultVideo"/><br />
     /// • <see cref="InlineQueryResultVoice"/></summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public abstract class InlineQueryResultWithEntities : InlineQueryResult, IParseMode
+    public abstract class InlineQueryResultWithEntities : InlineQueryResult, IFormattableMessage
     {
         ///<summary>Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</summary>
         [JsonPropertyName(PropertyNames.ParseMode)]

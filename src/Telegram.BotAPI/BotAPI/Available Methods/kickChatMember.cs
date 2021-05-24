@@ -36,7 +36,7 @@ namespace Telegram.BotAPI.AvailableMethods
             {
                 json.WriteNumber(PropertyNames.UntilDate, untilDate);
             }
-            if(revokeMessages)
+            if (revokeMessages)
             {
                 json.WriteBoolean(PropertyNames.RevokeMessages, true);
             }

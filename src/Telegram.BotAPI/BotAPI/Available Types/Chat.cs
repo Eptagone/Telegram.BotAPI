@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents a chat.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Chat : IEquatable<Chat>
+    public sealed class Chat : IEquatable<Chat>, ITelegramChat
     {
         /// <summary>Unique identifier for this chat.</summary>
         [JsonPropertyName(PropertyNames.Id)]

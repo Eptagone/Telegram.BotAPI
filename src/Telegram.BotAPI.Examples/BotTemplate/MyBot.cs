@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Telegram.BotAPI;
-using Telegram.BotAPI.GettingUpdates;
 using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.GettingUpdates;
 using Telegram.BotAPI.InlineMode;
 using Telegram.BotAPI.Payments;
 
@@ -155,6 +155,16 @@ namespace BotTemplateSample
         }
 
         protected override void OnShippingQuery(ShippingQuery shippingQuery)
+        {
+
+        }
+
+        protected override void OnMyChatMember(ChatMemberUpdated myChatMemberUpdated)
+        {
+
+        }
+
+        protected override void OnChatMember(ChatMemberUpdated chatMemberUpdated)
         {
 
         }

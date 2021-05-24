@@ -1,9 +1,9 @@
 // Copyright (c) 2021 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.Payments
 {
     /// <summary>SendInvoice method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendInvoiceArgs : BaseReplySendArgs, IReplyMarkup<InlineKeyboardMarkup>
+    public sealed class SendInvoiceArgs : BaseReplySendArgs, ICustomizableReplyMarkup<InlineKeyboardMarkup>
     {
         /// <summary><see cref="long"/> or <see cref="string"/>. Unique identifier for the target private chat.</summary>
         [JsonPropertyName(PropertyNames.ChatId)]

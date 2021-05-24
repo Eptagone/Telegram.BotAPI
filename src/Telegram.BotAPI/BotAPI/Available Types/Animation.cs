@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound).</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Animation : BaseFile, IThumb<PhotoSize>, IEquatable<Animation>
+    public sealed class Animation : BaseFile, IThumbnail<PhotoSize>, IEquatable<Animation>
     {
         ///<summary>Video width as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Width)]

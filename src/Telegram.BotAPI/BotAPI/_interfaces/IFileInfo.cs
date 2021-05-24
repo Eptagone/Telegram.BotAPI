@@ -3,8 +3,8 @@
 
 namespace Telegram.BotAPI
 {
-    /// <summary>Interface for file objects.</summary>
-    public interface IFile
+    /// <summary>Defines properties that implements a class or value type for file objects.</summary>
+    public interface IFileInfo
     {
         ///<summary>Identifier for this file, which can be used to download or reuse the file.</summary>
         public string FileId { get; set; }

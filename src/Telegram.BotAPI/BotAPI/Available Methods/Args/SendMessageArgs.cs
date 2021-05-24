@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendMessage method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendMessageArgs : BaseSendArgsReplyMarkup, IParseMode
+    public sealed class SendMessageArgs : BaseSendArgsReplyMarkup, IFormattableMessage
     {
         ///<summary>Text of the message to be sent.</summary>
         [JsonPropertyName(PropertyNames.Text)]

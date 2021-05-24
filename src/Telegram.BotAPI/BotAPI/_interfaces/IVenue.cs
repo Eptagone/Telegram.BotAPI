@@ -5,7 +5,7 @@ using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI
 {
-    ///<summary>Interface of <see cref="Venue"/>.</summary>
+    ///<summary>Represents a venue. Used by <see cref="Venue"/></summary>
     public interface IVenue
     {
         ///<summary>Name of the venue.</summary>
