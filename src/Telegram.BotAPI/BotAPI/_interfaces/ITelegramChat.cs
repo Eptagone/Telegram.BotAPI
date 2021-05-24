@@ -10,7 +10,7 @@ namespace Telegram.BotAPI
         public long Id { get; set; }
         /// <summary>Type of chat, can be either “private”, “group”, “supergroup” or “channel”.</summary>
         public string Type { get; set; }
-        /// <summary>Title, for supergroups, channels and group chats.</summary
+        /// <summary>Title, for supergroups, channels and group chats.</summary>
         public string Title { get; set; }
         /// <summary>Username, for private chats, supergroups and channels if available.</summary>
         public string Username { get; set; }

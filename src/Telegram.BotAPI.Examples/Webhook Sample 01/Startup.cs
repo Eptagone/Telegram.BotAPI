@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Telegram.BotAPI.GettingUpdates;
+using WebhookSample01.Services;
 
 namespace WebhookSample01
 {
