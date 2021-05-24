@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.GettingUpdates;
+using WebhookSample01.Services;
 
 namespace WebhookSample01.Controllers
 {
@@ -9,6 +9,11 @@ namespace WebhookSample01.Controllers
     [Route("[controller]")]
     public class UpdatesController : ControllerBase
     {
+        private readonly MyBot _bot;
+        public UpdatesController() : base()
+        {
+            _bot = new MyBot();
+        }
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Update update)
         {
@@ -16,8 +21,7 @@ namespace WebhookSample01.Controllers
             {
                 return BadRequest();
             }
-            var bot = new TBot();
-            await bot.OnUpdateAsync(update).ConfigureAwait(false);
+            await _bot.OnUpdateAsync(update).ConfigureAwait(false);
             return Ok();
         }
     }

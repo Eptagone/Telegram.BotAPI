@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Telegram.BotAPI;
-using Telegram.BotAPI.GettingUpdates;
 using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.GettingUpdates;
 using Telegram.BotAPI.UpdatingMessages;
 
 namespace CallbackQueryButton01

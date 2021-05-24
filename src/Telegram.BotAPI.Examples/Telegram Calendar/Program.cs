@@ -102,11 +102,11 @@ namespace Telegram_Calendar
             {
                 InlineKeyboardButton.SetCallbackData($"{mon.Name} {mon.Year}", $"year {mon.Year}")
             };
-            var days = new[] { "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su" };
+            var days = new[] { "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" };
             calendar[1] = new InlineKeyboardButton[7];
             for (int i = 0; i < 7; i++)
             {
-                calendar[1][i] = InlineKeyboardButton.SetCallbackData(days[i], $"{((DayName)i)}");
+                calendar[1][i] = InlineKeyboardButton.SetCallbackData(days[i], $"{((DayOfWeek)i)}");
             }
             for (int i = 2; i < mon.Weeks + 2; i++)
             {

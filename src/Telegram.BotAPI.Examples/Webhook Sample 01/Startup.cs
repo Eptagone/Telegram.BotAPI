@@ -12,8 +12,8 @@ namespace WebhookSample01
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            TBot.Bot.DeleteWebhook();
-            TBot.Bot.SetWebhook(new SetWebhookArgs { Url = "https://mywebhook.com/updates" });
+            MyBot.Bot.DeleteWebhook();
+            MyBot.Bot.SetWebhook(new SetWebhookArgs { Url = "https://mywebhook.com/updates" });
         }
 
         public IConfiguration Configuration { get; }
