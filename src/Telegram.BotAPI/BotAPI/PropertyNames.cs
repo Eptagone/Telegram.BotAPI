@@ -60,6 +60,7 @@ namespace Telegram.BotAPI
         public const string City = "city";
         public const string CloseDate = "close_date";
         public const string Command = "command";
+        public const string Commands = "commands";
         public const string ConnectedWebsite = "connected_website";
         public const string Contact = "contact";
         public const string ContainsMasks = "contains_masks";
@@ -259,6 +260,7 @@ namespace Telegram.BotAPI
         public const string ReverseSide = "reverse_side";
         public const string Scale = "scale";
         public const string Score = "score";
+        public const string Scope = "scope";
         public const string Secret = "secret";
         public const string Selective = "selective";
         public const string Selfie = "selfie";

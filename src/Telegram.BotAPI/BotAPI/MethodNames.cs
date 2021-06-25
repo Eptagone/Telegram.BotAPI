@@ -20,6 +20,7 @@ namespace Telegram.BotAPI
         public const string DeleteChatPhoto = "deleteChatPhoto";
         public const string DeleteChatStickerSet = "deleteChatStickerSet";
         public const string DeleteMessage = "deleteMessage";
+        public const string DeleteMyCommands = "deleteMyCommands";
         public const string DeleteStickerFromSet = "deleteStickerFromSet";
         public const string DeleteWebhook = "deleteWebhook";
         public const string EditChatInviteLink = "editChatInviteLink";
