@@ -45,6 +45,7 @@ namespace Telegram.BotAPI
                     || value is double
                     || value is decimal;
         }
+
         public class InputMediaJsonConverter : JsonConverter<InputMedia>
         {
             public override InputMedia Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -380,7 +381,7 @@ namespace Telegram.BotAPI
                 {
                     writer.WriteStartObject();
                     writer.WriteBoolean(PropertyNames.ForceReply, true);
-                    if (forceReply.Selective)
+                    if (forceReply.Selective == true)
                     {
                         writer.WriteBoolean(PropertyNames.Selective, true);
                     }

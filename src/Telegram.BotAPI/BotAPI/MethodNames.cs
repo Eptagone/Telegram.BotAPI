@@ -12,7 +12,7 @@ namespace Telegram.BotAPI
         public const string AnswerInlineQuery = "answerInlineQuery";
         public const string AnswerPreCheckoutQuery = "answerPreCheckoutQuery";
         public const string AnswerShippingQuery = "answerShippingQuery";
-        public const string BotCommand = "BotCommand";
+        public const string BanChatMember = "banChatMember";
         public const string Close = "close";
         public const string CopyMessage = "copyMessage";
         public const string CreateChatInviteLink = "createChatInviteLink";
@@ -34,6 +34,7 @@ namespace Telegram.BotAPI
         public const string GetChat = "getChat";
         public const string GetChatAdministrators = "getChatAdministrators";
         public const string GetChatMember = "getChatMember";
+        public const string GetChatMemberCount = "getChatMemberCount";
         public const string GetChatMembersCount = "getChatMembersCount";
         public const string GetFile = "getFile";
         public const string GetGameHighScores = "getGameHighScores";
