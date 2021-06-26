@@ -145,6 +145,7 @@ namespace Telegram.BotAPI
         public const string InlineMessageId = "inline_message_id";
         public const string InlineQuery = "inline_query";
         public const string InlineQueryId = "inline_query_id";
+        public const string InputFieldPlaceholder = "input_field_placeholder";
         public const string InputMessageContent = "input_message_content";
         public const string InviteLink = "invite_link";
         public const string Invoice = "invoice";

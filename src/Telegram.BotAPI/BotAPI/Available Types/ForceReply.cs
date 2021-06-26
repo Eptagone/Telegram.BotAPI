@@ -15,12 +15,16 @@ namespace Telegram.BotAPI.AvailableTypes
     {
         ///<summary>Shows reply interface to the user, as if they manually selected the bot‘s message and tapped ’Reply'.</summary>
         [JsonPropertyName(PropertyNames.ForceReply)]
+        [JsonProperty(PropertyName = PropertyNames.ForceReply, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool ForceReplyTag => true;
+        ///<summary>Optional. The placeholder to be shown in the input field when the reply is active; 1-64 characters.</summary>
+        [JsonPropertyName(PropertyNames.InputFieldPlaceholder)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public static bool ForceReplyTag => true;
+        public string InputFieldPlaceholder { get; set; }
         ///<summary>Optional. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.</summary>
         [JsonPropertyName(PropertyNames.Selective)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool Selective { get; set; }
+        public bool? Selective { get; set; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
@@ -31,12 +35,16 @@ namespace Telegram.BotAPI.AvailableTypes
         public bool Equals(ForceReply other)
         {
             return other != null &&
+                   InputFieldPlaceholder == other.InputFieldPlaceholder &&
                    Selective == other.Selective;
         }
 
         public override int GetHashCode()
         {
-            return 1578763193 + Selective.GetHashCode();
+            int hashCode = -854258181;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(InputFieldPlaceholder);
+            hashCode = hashCode * -1521134295 + Selective.GetHashCode();
+            return hashCode;
         }
 
         public static bool operator ==(ForceReply left, ForceReply right)

@@ -34,32 +34,19 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <param name="keyboard">Array of button rows, each represented by an Array of KeyboardButton objects.</param>
         /// <param name="resizeKeyboard">Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboards.</param>
         /// <param name="oneTimeKeyboard">Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat – the user can press a special button in the input field to see the custom keyboard again. Defaults to false.</param>
+        /// <param name="inputFieldPlaceholder">Optional. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters</param>
         /// <param name="selective">Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.<para>Example: A user requests to change the bot‘s language, bot replies to the request with a keyboard to select the new language. Other users in the group don’t see the keyboard.</para></param>
         public ReplyKeyboardMarkup(
             IEnumerable<IEnumerable<KeyboardButton>> keyboard,
-            [Optional] bool resizeKeyboard,
-            [Optional] bool oneTimeKeyboard,
-            [Optional] bool selective)
+            [Optional] bool? resizeKeyboard,
+            [Optional] bool? oneTimeKeyboard,
+            [Optional] string inputFieldPlaceholder,
+            [Optional] bool? selective)
         {
             Keyboard = keyboard;
             ResizeKeyboard = resizeKeyboard;
             OneTimeKeyboard = oneTimeKeyboard;
-            Selective = selective;
-        }
-        /// <summary>This object represents a custom keyboard with reply options (see Introduction to bots for details and examples).</summary>
-        /// <param name="resizeKeyboard">Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboards.</param>
-        /// <param name="oneTimeKeyboard">Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat – the user can press a special button in the input field to see the custom keyboard again. Defaults to false.</param>
-        /// <param name="selective">Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.<para>Example: A user requests to change the bot‘s language, bot replies to the request with a keyboard to select the new language. Other users in the group don’t see the keyboard.</para></param>
-        /// <param name="keyboard">Array of button rows, each represented by an Array of KeyboardButton objects.</param>
-        public ReplyKeyboardMarkup(
-            KeyboardButton[][] keyboard,
-            bool resizeKeyboard,
-            bool oneTimeKeyboard,
-            bool selective)
-        {
-            Keyboard = keyboard;
-            ResizeKeyboard = resizeKeyboard;
-            OneTimeKeyboard = oneTimeKeyboard;
+            InputFieldPlaceholder = inputFieldPlaceholder;
             Selective = selective;
         }
 
@@ -70,15 +57,22 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboards.</summary>
         [JsonPropertyName(PropertyNames.ResizeKeyboard)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool ResizeKeyboard { get; set; }
+        public bool? ResizeKeyboard { get; set; }
         ///<summary>Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat – the user can press a special button in the input field to see the custom keyboard again. Defaults to false.</summary>
         [JsonPropertyName(PropertyNames.OneTimeKeyboard)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool OneTimeKeyboard { get; set; }
-        ///<summary>Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.<para>Example: A user requests to change the bot‘s language, bot replies to the request with a keyboard to select the new language. Other users in the group don’t see the keyboard.</para></summary>
+        public bool? OneTimeKeyboard { get; set; }
+        ///<summary>Optional. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters.</summary>
+        [JsonPropertyName(PropertyNames.InputFieldPlaceholder)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string InputFieldPlaceholder { get; set; }
+        ///<summary>
+        ///Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.
+        ///<para>Example: A user requests to change the bot‘s language, bot replies to the request with a keyboard to select the new language. Other users in the group don’t see the keyboard.</para>
+        ///</summary>
         [JsonPropertyName(PropertyNames.Selective)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool Selective { get; set; }
+        public bool? Selective { get; set; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
@@ -92,15 +86,17 @@ namespace Telegram.BotAPI.AvailableTypes
                    EqualityComparer<IEnumerable<IEnumerable<KeyboardButton>>>.Default.Equals(Keyboard, other.Keyboard) &&
                    ResizeKeyboard == other.ResizeKeyboard &&
                    OneTimeKeyboard == other.OneTimeKeyboard &&
+                   InputFieldPlaceholder == other.InputFieldPlaceholder &&
                    Selective == other.Selective;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 1321663856;
+            int hashCode = 1966068018;
             hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<IEnumerable<KeyboardButton>>>.Default.GetHashCode(Keyboard);
             hashCode = hashCode * -1521134295 + ResizeKeyboard.GetHashCode();
             hashCode = hashCode * -1521134295 + OneTimeKeyboard.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(InputFieldPlaceholder);
             hashCode = hashCode * -1521134295 + Selective.GetHashCode();
             return hashCode;
         }
