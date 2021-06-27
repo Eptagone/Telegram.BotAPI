@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2.3</Version>
+    <PackageId>Telegram.BotAPI</PackageId>
+    <Authors>Quetzal Rivera</Authors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>Telegram.BotAPI</RootNamespace>
+    <Copyright>Quetzal Rivera 2021 ©</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Description>Telegram.BotAPI is one of the most complete libraries available to interact with the Telegram Bot API in your NET project.
+ 
+Contains all available methods in the Bot API 5.3 released on June 25, 2021. In addition, it has a complete set of classes with all objects used.</Description>
+    <PackageTags>Telegram Bot API</PackageTags>
+    <Title>Telegram Bot API</Title>
+    <OutputType>Library</OutputType>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>Telegram.BotAPI.pfx</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <LangVersion>latest</LangVersion>
+    <Product>Telegram BotAPI</Product>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
+    <PackageIcon>packicon.png</PackageIcon>
+    <AssemblyVersion>2.3.0.*</AssemblyVersion>
+    <FileVersion>2.3.0.0</FileVersion>
+    <Deterministic>false</Deterministic>
+    <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <AssemblyName>Telegram.BotAPI</AssemblyName>
+    <PackageReleaseNotes>- Updated to Bot API 5.3</PackageReleaseNotes>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Text.Json" Version="5.0.2" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="packicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+</Project>
