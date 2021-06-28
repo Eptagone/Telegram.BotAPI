@@ -18,19 +18,19 @@ namespace Telegram.BotAPI.GettingUpdates
         /// <param name="dropPendingUpdates">Pass True to drop all pending updates.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool DeleteWebhook(this BotClient bot, [Optional] bool dropPendingUpdates)
+        public static bool DeleteWebhook(this BotClient bot, [Optional] bool? dropPendingUpdates)
         {
             if (bot == default)
             {
                 throw new ArgumentNullException(nameof(bot));
             }
 
-            if (dropPendingUpdates)
+            if (dropPendingUpdates != null)
             {
                 var stream = new MemoryStream();
                 using var json = new Utf8JsonWriter(stream);
                 json.WriteStartObject();
-                json.WriteBoolean("dropPendingUpdates", dropPendingUpdates);
+                json.WriteBoolean(PropertyNames.DropPendingUpdates, (bool)dropPendingUpdates);
                 json.WriteEndObject();
                 json.Flush(); json.Dispose();
                 stream.Seek(0, SeekOrigin.Begin);
@@ -47,19 +47,19 @@ namespace Telegram.BotAPI.GettingUpdates
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> DeleteWebhookAsync(this BotClient bot, [Optional] bool dropPendingUpdates, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> DeleteWebhookAsync(this BotClient bot, [Optional] bool? dropPendingUpdates, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
                 throw new ArgumentNullException(nameof(bot));
             }
 
-            if (dropPendingUpdates)
+            if (dropPendingUpdates != null)
             {
                 var stream = new MemoryStream();
                 using var json = new Utf8JsonWriter(stream);
                 json.WriteStartObject();
-                json.WriteBoolean("dropPendingUpdates", dropPendingUpdates);
+                json.WriteBoolean(PropertyNames.DropPendingUpdates, (bool)dropPendingUpdates);
                 json.WriteEndObject();
                 await json.FlushAsync(cancellationToken).ConfigureAwait(false);
                 await json.DisposeAsync().ConfigureAwait(false);

@@ -19,7 +19,7 @@ namespace Telegram.BotAPI.AvailableMethods
         ///<summary>Required if inline_message_id is not specified. Identifier of the sent message.</summary>
         [JsonPropertyName(PropertyNames.MessageId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int MessageId { get; set; }
+        public int? MessageId { get; set; }
         ///<summary>Required if chat_id and message_id are not specified. Identifier of the inline message.</summary>
         [JsonPropertyName(PropertyNames.InlineMessageId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

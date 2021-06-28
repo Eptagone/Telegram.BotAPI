@@ -9,8 +9,8 @@ namespace Telegram.BotAPI
         /// <summary>Optional. Url of the thumbnail for the result.</summary>
         public string ThumbUrl { get; set; }
         /// <summary>Optional. Thumbnail width.</summary>
-        public uint ThumbWidth { get; set; }
+        public uint? ThumbWidth { get; set; }
         /// <summary>Optional. Thumbnail height.</summary>
-        public uint ThumbHeight { get; set; }
+        public uint? ThumbHeight { get; set; }
     }
 }

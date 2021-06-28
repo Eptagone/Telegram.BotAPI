@@ -21,15 +21,15 @@ namespace Telegram.BotAPI.AvailableMethods
         ///<summary>Optional. Duration of sent video in seconds.</summary>
         [JsonPropertyName(PropertyNames.Duration)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Duration { get; set; }
+        public uint? Duration { get; set; }
         ///<summary>Optional. Video width.</summary>
         [JsonPropertyName(PropertyNames.Width)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Width { get; set; }
+        public uint? Width { get; set; }
         ///<summary>Optional. Video height.</summary>
         [JsonPropertyName(PropertyNames.Height)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Height { get; set; }
+        public uint? Height { get; set; }
         ///<summary>Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.</summary>
         [JsonPropertyName(PropertyNames.Thumb)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -49,7 +49,7 @@ namespace Telegram.BotAPI.AvailableMethods
         ///<summary>Optional. Pass True, if the uploaded video is suitable for streaming.</summary>
         [JsonPropertyName(PropertyNames.SupportsStreaming)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool SupportsStreaming { get; set; }
+        public bool? SupportsStreaming { get; set; }
         /// <summary>Attached files.</summary>
         [System.Text.Json.Serialization.JsonIgnore]
         public List<AttachFile> AttachFiles { get; set; } = new List<AttachFile>();

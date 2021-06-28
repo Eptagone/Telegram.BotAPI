@@ -33,7 +33,7 @@ namespace Telegram.BotAPI.InlineMode
         /// <summary>Optional. Pass True, if you don't want the URL to be shown in the message.</summary>
         [JsonPropertyName(PropertyNames.HideUrl)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool HideUrl { get; set; }
+        public bool? HideUrl { get; set; }
         /// <summary>Optional. Short description of the result.</summary>
         [JsonPropertyName(PropertyNames.Description)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -45,11 +45,11 @@ namespace Telegram.BotAPI.InlineMode
         /// <summary>Optional. Thumbnail width.</summary>
         [JsonPropertyName(PropertyNames.ThumbWidth)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint ThumbWidth { get; set; }
+        public uint? ThumbWidth { get; set; }
         /// <summary>Optional. Thumbnail height.</summary>
         [JsonPropertyName(PropertyNames.ThumbHeight)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint ThumbHeight { get; set; }
+        public uint? ThumbHeight { get; set; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)

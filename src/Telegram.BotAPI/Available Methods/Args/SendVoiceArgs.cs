@@ -31,7 +31,7 @@ namespace Telegram.BotAPI.AvailableMethods
         ///<summary>Optional. Duration of the voice message in seconds.</summary>
         [JsonPropertyName(PropertyNames.Duration)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Duration { get; set; }
+        public uint? Duration { get; set; }
         /// <summary>Attached files.</summary>
         internal bool UseMultipart()
         {

@@ -68,7 +68,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendMessage(this BotClient bot, object chatId, string text, [Optional] string parseMode, [Optional] MessageEntity[] entities, [Optional] bool disableWebPagePreview, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] bool allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup)
+        public static Message SendMessage(this BotClient bot, object chatId, string text, [Optional] string parseMode, [Optional] MessageEntity[] entities, [Optional] bool? disableWebPagePreview, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup)
         {
             if (bot == default)
             {
@@ -120,7 +120,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendMessageAsync(this BotClient bot, object chatId, string text, [Optional] string parseMode, [Optional] MessageEntity[] entities, [Optional] bool disableWebPagePreview, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] bool allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendMessageAsync(this BotClient bot, object chatId, string text, [Optional] string parseMode, [Optional] MessageEntity[] entities, [Optional] bool? disableWebPagePreview, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -170,7 +170,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendMessage(this BotClient bot, long chatId, string text, [Optional] string parseMode, [Optional] bool disableWebPagePreview, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] bool allowSendingWithoutReply)
+        public static Message SendMessage(this BotClient bot, long chatId, string text, [Optional] string parseMode, [Optional] bool? disableWebPagePreview, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply)
         {
             if (bot == default)
             {
@@ -187,24 +187,24 @@ namespace Telegram.BotAPI.AvailableMethods
                 json.WriteString(PropertyNames.ParseMode, parseMode);
             }
 
-            if (disableWebPagePreview)
+            if (disableWebPagePreview != null)
             {
-                json.WriteBoolean(PropertyNames.DisableWebPagePreview, disableWebPagePreview);
+                json.WriteBoolean(PropertyNames.DisableWebPagePreview, (bool)disableWebPagePreview);
             }
 
-            if (disableNotification)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             if (replyToMessageId != default)
             {
-                json.WriteNumber(PropertyNames.ReplyToMessageId, replyToMessageId);
+                json.WriteNumber(PropertyNames.ReplyToMessageId, (int)replyToMessageId);
             }
 
-            if (allowSendingWithoutReply)
+            if (allowSendingWithoutReply != null)
             {
-                json.WriteBoolean(PropertyNames.AllowSendingWithoutReply, allowSendingWithoutReply);
+                json.WriteBoolean(PropertyNames.AllowSendingWithoutReply, (bool)allowSendingWithoutReply);
             }
 
             json.WriteEndObject();
@@ -225,7 +225,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendMessageAsync(this BotClient bot, long chatId, string text, [Optional] string parseMode, [Optional] bool disableWebPagePreview, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] bool allowSendingWithoutReply, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendMessageAsync(this BotClient bot, long chatId, string text, [Optional] string parseMode, [Optional] bool? disableWebPagePreview, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -242,24 +242,24 @@ namespace Telegram.BotAPI.AvailableMethods
                 json.WriteString(PropertyNames.ParseMode, parseMode);
             }
 
-            if (disableWebPagePreview)
+            if (disableWebPagePreview != null)
             {
-                json.WriteBoolean(PropertyNames.DisableWebPagePreview, disableWebPagePreview);
+                json.WriteBoolean(PropertyNames.DisableWebPagePreview, (bool)disableWebPagePreview);
             }
 
-            if (disableNotification)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
-            if (allowSendingWithoutReply)
+            if (allowSendingWithoutReply != null)
             {
-                json.WriteBoolean(PropertyNames.AllowSendingWithoutReply, allowSendingWithoutReply);
+                json.WriteBoolean(PropertyNames.AllowSendingWithoutReply, (bool)allowSendingWithoutReply);
             }
 
             if (replyToMessageId != default)
             {
-                json.WriteNumber(PropertyNames.ReplyToMessageId, replyToMessageId);
+                json.WriteNumber(PropertyNames.ReplyToMessageId, (int)replyToMessageId);
             }
 
             json.WriteEndObject();

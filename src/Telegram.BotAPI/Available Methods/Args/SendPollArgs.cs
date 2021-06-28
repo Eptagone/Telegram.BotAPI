@@ -21,23 +21,23 @@ namespace Telegram.BotAPI.AvailableMethods
         [JsonPropertyName(PropertyNames.Options)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public IEnumerable<string> Options { get; set; }
-        ///<summary>True, if the poll needs to be anonymous, defaults to True.</summary>
+        ///<summary>Optional. True, if the poll needs to be anonymous, defaults to True.</summary>
         [JsonPropertyName(PropertyNames.IsAnonymous)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
-        public bool IsAnonymous { get; set; } = true;
-        ///<summary>Poll type, “quiz” or “regular”, defaults to “regular”.</summary>
+        public bool? IsAnonymous { get; set; } = true;
+        ///<summary>Optional. Poll type, “quiz” or “regular”, defaults to “regular”.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Type { get; set; }
-        ///<summary>True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to False.</summary>
+        ///<summary>Optional. True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to False.</summary>
         [JsonPropertyName(PropertyNames.AllowsMultipleAnswers)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool AllowsMultipleAnswers { get; set; }
-        ///<summary>0-based identifier of the correct answer option, required for polls in quiz mode.</summary>
+        public bool? AllowsMultipleAnswers { get; set; }
+        ///<summary>Optional. 0-based identifier of the correct answer option, required for polls in quiz mode.</summary>
         [JsonPropertyName(PropertyNames.CorrectOptionId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint CorrectOptionId { get; set; }
-        ///<summary>Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing.</summary>
+        public uint? CorrectOptionId { get; set; }
+        ///<summary>Optional. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing.</summary>
         [JsonPropertyName(PropertyNames.Explanation)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Explanation { get; set; }
@@ -45,22 +45,22 @@ namespace Telegram.BotAPI.AvailableMethods
         [JsonPropertyName(PropertyNames.ExplanationParseMode)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string ExplanationParseMode { get; set; }
-        ///<summary>TList of special entities that appear in the poll explanation, which can be specified instead of parse_mode.</summary>
+        ///<summary>Optional. List of special entities that appear in the poll explanation, which can be specified instead of parse_mode.</summary>
         [JsonPropertyName(PropertyNames.ExplanationEntities)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public IEnumerable<MessageEntity> ExplanationEntities { get; set; }
-        ///<summary>Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with close_date.</summary>
+        ///<summary>Optional. Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with close_date.</summary>
         [JsonPropertyName(PropertyNames.OpenPeriod)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public ushort OpenPeriod { get; set; }
-        ///<summary>Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with open_period.</summary>
+        public ushort? OpenPeriod { get; set; }
+        ///<summary>Optional. Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with open_period.</summary>
         [JsonPropertyName(PropertyNames.CloseDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint CloseDate { get; set; }
-        ///<summary>Pass True, if the poll needs to be immediately closed.</summary>
+        public uint? CloseDate { get; set; }
+        ///<summary>Optional. Pass True, if the poll needs to be immediately closed.</summary>
         [JsonPropertyName(PropertyNames.IsClosed)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool IsClosed { get; set; }
+        public bool? IsClosed { get; set; }
     }
     /// <summary>Poll type, “quiz” or “regular”, defaults to “regular”</summary>
     public static class PollType

@@ -18,6 +18,6 @@ namespace Telegram.BotAPI
         /// <summary>Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</summary>
         [JsonPropertyName(PropertyNames.DisableNotification)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool DisableNotification { get; set; }
+        public bool? DisableNotification { get; set; }
     }
 }

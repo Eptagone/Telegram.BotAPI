@@ -14,10 +14,10 @@ namespace Telegram.BotAPI
         /// <summary>Optional. If the message is a reply, ID of the original message.</summary>
         [JsonPropertyName(PropertyNames.ReplyToMessageId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int ReplyToMessageId { get; set; }
+        public int? ReplyToMessageId { get; set; }
         /// <summary>Pass True, if the message should be sent even if the specified replied-to message is not found.</summary>
         [JsonPropertyName(PropertyNames.AllowSendingWithoutReply)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool AllowSendingWithoutReply { get; set; }
+        public bool? AllowSendingWithoutReply { get; set; }
     }
 }

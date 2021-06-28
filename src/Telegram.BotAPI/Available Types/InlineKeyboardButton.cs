@@ -83,7 +83,7 @@ namespace Telegram.BotAPI.AvailableTypes
                     return InlineKeyboardButtonType.CallbackGame;
                 }
 
-                if (Pay != null)
+                if (Pay != default)
                 {
                     return InlineKeyboardButtonType.Pay;
                 }

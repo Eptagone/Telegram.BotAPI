@@ -27,6 +27,6 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <summary>Optional. Disables link previews for links in this message.</summary>
         [JsonPropertyName(PropertyNames.DisableWebPagePreview)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool DisableWebPagePreview { get; set; }
+        public bool? DisableWebPagePreview { get; set; }
     }
 }

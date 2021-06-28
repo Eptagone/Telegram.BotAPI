@@ -22,7 +22,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatInviteLink"/></returns>
-        public static ChatInviteLink EditChatInviteLink(this BotClient bot, long chatId, string inviteLink, [Optional] uint expireDate, [Optional] uint memberLimit)
+        public static ChatInviteLink EditChatInviteLink(this BotClient bot, long chatId, string inviteLink, [Optional] uint? expireDate, [Optional] uint? memberLimit)
         {
             if (bot == default)
             {
@@ -37,13 +37,13 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.InviteLink, inviteLink);
-            if (expireDate != default)
+            if (expireDate != null)
             {
-                json.WriteNumber(PropertyNames.ExpireDate, expireDate);
+                json.WriteNumber(PropertyNames.ExpireDate, (uint)expireDate);
             }
-            if (memberLimit != default)
+            if (memberLimit != null)
             {
-                json.WriteNumber(PropertyNames.MemberLimit, memberLimit);
+                json.WriteNumber(PropertyNames.MemberLimit, (uint)memberLimit);
             }
             json.WriteEndObject();
             json.Flush(); json.Dispose();
@@ -59,7 +59,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatInviteLink"/></returns>
-        public static ChatInviteLink EditChatInviteLink(this BotClient bot, string chatId, string inviteLink, [Optional] uint expireDate, [Optional] uint memberLimit)
+        public static ChatInviteLink EditChatInviteLink(this BotClient bot, string chatId, string inviteLink, [Optional] uint? expireDate, [Optional] uint? memberLimit)
         {
             if (bot == default)
             {
@@ -74,13 +74,13 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.InviteLink, inviteLink);
-            if (expireDate != default)
+            if (expireDate != null)
             {
-                json.WriteNumber(PropertyNames.ExpireDate, expireDate);
+                json.WriteNumber(PropertyNames.ExpireDate, (uint)expireDate);
             }
-            if (memberLimit != default)
+            if (memberLimit != null)
             {
-                json.WriteNumber(PropertyNames.MemberLimit, memberLimit);
+                json.WriteNumber(PropertyNames.MemberLimit, (uint)memberLimit);
             }
             json.WriteEndObject();
             json.Flush(); json.Dispose();
@@ -97,7 +97,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatInviteLink"/></returns>
-        public static async Task<ChatInviteLink> EditChatInviteLink(this BotClient bot, long chatId, string inviteLink, [Optional] uint expireDate, [Optional] uint memberLimit, [Optional] CancellationToken cancellationToken)
+        public static async Task<ChatInviteLink> EditChatInviteLink(this BotClient bot, long chatId, string inviteLink, [Optional] uint? expireDate, [Optional] uint? memberLimit, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -112,13 +112,13 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.InviteLink, inviteLink);
-            if (expireDate != default)
+            if (expireDate != null)
             {
-                json.WriteNumber(PropertyNames.ExpireDate, expireDate);
+                json.WriteNumber(PropertyNames.ExpireDate, (uint)expireDate);
             }
-            if (memberLimit != default)
+            if (memberLimit != null)
             {
-                json.WriteNumber(PropertyNames.MemberLimit, memberLimit);
+                json.WriteNumber(PropertyNames.MemberLimit, (uint)memberLimit);
             }
             json.WriteEndObject();
             await json.FlushAsync(cancellationToken).ConfigureAwait(false);
@@ -136,7 +136,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatInviteLink"/></returns>
-        public static async Task<ChatInviteLink> EditChatInviteLink(this BotClient bot, string chatId, string inviteLink, [Optional] uint expireDate, [Optional] uint memberLimit, [Optional] CancellationToken cancellationToken)
+        public static async Task<ChatInviteLink> EditChatInviteLink(this BotClient bot, string chatId, string inviteLink, [Optional] uint? expireDate, [Optional] uint? memberLimit, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -151,13 +151,13 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.InviteLink, inviteLink);
-            if (expireDate != default)
+            if (expireDate != null)
             {
-                json.WriteNumber(PropertyNames.ExpireDate, expireDate);
+                json.WriteNumber(PropertyNames.ExpireDate, (uint)expireDate);
             }
-            if (memberLimit != default)
+            if (memberLimit != null)
             {
-                json.WriteNumber(PropertyNames.MemberLimit, memberLimit);
+                json.WriteNumber(PropertyNames.MemberLimit, (uint)memberLimit);
             }
             json.WriteEndObject();
             await json.FlushAsync(cancellationToken).ConfigureAwait(false);

@@ -209,6 +209,7 @@ namespace Telegram.BotAPI
         public const string Offset = "offset";
         public const string OldChatMember = "old_chat_member";
         public const string OneTimeKeyboard = "one_time_keyboard";
+        public const string OnlyIfBanned = "only_if_banned";
         public const string OpenPeriod = "open_period";
         public const string OptionIds = "option_ids";
         public const string Options = "options";

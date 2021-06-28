@@ -63,7 +63,7 @@ namespace Telegram.BotAPI.GettingUpdates
         /// <param name="dropPendingUpdates">Pass True to drop all pending updates.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool SetWebhook(this BotClient bot, string url, [Optional] InputFile certificate, [Optional] string ipAddress, [Optional] uint maxConnections, [Optional] IEnumerable<string> allowedUpdates, [Optional] bool dropPendingUpdates)
+        public static bool SetWebhook(this BotClient bot, string url, [Optional] InputFile certificate, [Optional] string ipAddress, [Optional] uint? maxConnections, [Optional] IEnumerable<string> allowedUpdates, [Optional] bool? dropPendingUpdates)
         {
             if (bot == default)
             {
@@ -81,9 +81,9 @@ namespace Telegram.BotAPI.GettingUpdates
                     json.WriteString(PropertyNames.IpAddress, ipAddress);
                 }
 
-                if (maxConnections != default)
+                if (maxConnections != null)
                 {
-                    json.WriteNumber(PropertyNames.MaxConnections, maxConnections);
+                    json.WriteNumber(PropertyNames.MaxConnections, (uint)maxConnections);
                 }
 
                 if (allowedUpdates != default)
@@ -95,9 +95,9 @@ namespace Telegram.BotAPI.GettingUpdates
                     }
                     json.WriteEndArray();
                 }
-                if (dropPendingUpdates)
+                if (dropPendingUpdates != null)
                 {
-                    json.WriteBoolean(PropertyNames.DropPendingUpdates, dropPendingUpdates);
+                    json.WriteBoolean(PropertyNames.DropPendingUpdates, (bool)dropPendingUpdates);
                 }
 
                 json.WriteEndObject();
@@ -107,26 +107,15 @@ namespace Telegram.BotAPI.GettingUpdates
             }
             else
             {
-                var args = new SetWebhookArgs { Url = url, Certificate = certificate };
-                if (!string.IsNullOrEmpty(ipAddress))
+                var args = new SetWebhookArgs
                 {
-                    args.IpAddress = ipAddress;
-                }
-
-                if (maxConnections != default)
-                {
-                    args.MaxConnections = maxConnections;
-                }
-
-                if (allowedUpdates != default)
-                {
-                    args.AllowedUpdates = allowedUpdates;
-                }
-
-                if (dropPendingUpdates)
-                {
-                    args.DropPendingUpdates = dropPendingUpdates;
-                }
+                    Url = url,
+                    Certificate = certificate,
+                    IpAddress = ipAddress,
+                    MaxConnections = maxConnections,
+                    AllowedUpdates = allowedUpdates,
+                    DropPendingUpdates = dropPendingUpdates
+                };
 
                 return bot.RPCF<bool>(MethodNames.SetWebhook, args);
             }
@@ -142,7 +131,7 @@ namespace Telegram.BotAPI.GettingUpdates
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> SetWebhookAsync(this BotClient bot, string url, [Optional] InputFile certificate, [Optional] string ipAddress, [Optional] uint maxConnections, [Optional] IEnumerable<string> allowedUpdates, [Optional] bool dropPendingUpdates, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> SetWebhookAsync(this BotClient bot, string url, [Optional] InputFile certificate, [Optional] string ipAddress, [Optional] uint? maxConnections, [Optional] IEnumerable<string> allowedUpdates, [Optional] bool? dropPendingUpdates, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -160,9 +149,9 @@ namespace Telegram.BotAPI.GettingUpdates
                     json.WriteString(PropertyNames.IpAddress, ipAddress);
                 }
 
-                if (maxConnections != default)
+                if (maxConnections != null)
                 {
-                    json.WriteNumber(PropertyNames.MaxConnections, maxConnections);
+                    json.WriteNumber(PropertyNames.MaxConnections, (uint)maxConnections);
                 }
 
                 if (allowedUpdates != default)
@@ -174,9 +163,9 @@ namespace Telegram.BotAPI.GettingUpdates
                     }
                     json.WriteEndArray();
                 }
-                if (dropPendingUpdates)
+                if (dropPendingUpdates != null)
                 {
-                    json.WriteBoolean(PropertyNames.DropPendingUpdates, dropPendingUpdates);
+                    json.WriteBoolean(PropertyNames.DropPendingUpdates, (bool)dropPendingUpdates);
                 }
 
                 json.WriteEndObject();
@@ -186,26 +175,15 @@ namespace Telegram.BotAPI.GettingUpdates
             }
             else
             {
-                var args = new SetWebhookArgs { Url = url, Certificate = certificate };
-                if (!string.IsNullOrEmpty(ipAddress))
+                var args = new SetWebhookArgs
                 {
-                    args.IpAddress = ipAddress;
-                }
-
-                if (maxConnections != default)
-                {
-                    args.MaxConnections = maxConnections;
-                }
-
-                if (allowedUpdates != default)
-                {
-                    args.AllowedUpdates = allowedUpdates;
-                }
-
-                if (dropPendingUpdates)
-                {
-                    args.DropPendingUpdates = dropPendingUpdates;
-                }
+                    Url = url,
+                    Certificate = certificate,
+                    IpAddress = ipAddress,
+                    MaxConnections = maxConnections,
+                    AllowedUpdates = allowedUpdates,
+                    DropPendingUpdates = dropPendingUpdates
+                };
 
                 return await bot.RPCAF<bool>(MethodNames.SetWebhook, args, cancellationToken: cancellationToken).ConfigureAwait(false);
             }

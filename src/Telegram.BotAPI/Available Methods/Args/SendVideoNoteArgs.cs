@@ -21,11 +21,11 @@ namespace Telegram.BotAPI.AvailableMethods
         ///<summary>Optional. Duration of sent video in seconds.</summary>
         [JsonPropertyName(PropertyNames.Duration)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Duration { get; set; }
+        public uint? Duration { get; set; }
         ///<summary>Optional. Video width and height, i.e. diameter of the video message.</summary>
         [JsonPropertyName(PropertyNames.Length)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Length { get; set; }
+        public uint? Length { get; set; }
         ///<summary>Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.</summary>
         [JsonPropertyName(PropertyNames.Thumb)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

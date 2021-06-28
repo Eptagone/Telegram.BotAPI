@@ -86,7 +86,7 @@ namespace Telegram.BotAPI.GettingUpdates
         /// <param name="allowedUpdates">List the types of updates you want your bot to receive. For example, specify [“message”, “edited_channel_post”, “callback_query”] to only receive updates of these types. See Update for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.<para>Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.</para></param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static Update[] GetUpdates(this BotClient bot, [Optional] int offset, [Optional] ushort limit, [Optional] uint timeout, [Optional] IEnumerable<string> allowedUpdates)
+        public static Update[] GetUpdates(this BotClient bot, [Optional] int? offset, [Optional] ushort? limit, [Optional] uint? timeout, [Optional] IEnumerable<string> allowedUpdates)
         {
             if (bot == default)
             {
@@ -96,19 +96,19 @@ namespace Telegram.BotAPI.GettingUpdates
             var stream = new MemoryStream();
             using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
-            if (offset != default)
+            if (offset != null)
             {
-                json.WriteNumber(PropertyNames.Offset, offset);
+                json.WriteNumber(PropertyNames.Offset, (int)offset);
             }
 
-            if (limit != default)
+            if (limit != null)
             {
-                json.WriteNumber(PropertyNames.Limit, limit);
+                json.WriteNumber(PropertyNames.Limit, (ushort)limit);
             }
 
-            if (timeout != default)
+            if (timeout != null)
             {
-                json.WriteNumber(PropertyNames.Timeout, timeout);
+                json.WriteNumber(PropertyNames.Timeout, (uint)timeout);
             }
 
             if (allowedUpdates != default)
@@ -134,7 +134,7 @@ namespace Telegram.BotAPI.GettingUpdates
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<Update[]> GetUpdatesAsync(this BotClient bot, [Optional] int offset, [Optional] ushort limit, [Optional] uint timeout, [Optional] IEnumerable<string> allowedUpdates, [Optional] CancellationToken cancellationToken)
+        public static async Task<Update[]> GetUpdatesAsync(this BotClient bot, [Optional] int? offset, [Optional] ushort? limit, [Optional] uint? timeout, [Optional] IEnumerable<string> allowedUpdates, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -144,19 +144,19 @@ namespace Telegram.BotAPI.GettingUpdates
             var stream = new MemoryStream();
             using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
-            if (offset != default)
+            if (offset != null)
             {
-                json.WriteNumber(PropertyNames.Offset, offset);
+                json.WriteNumber(PropertyNames.Offset, (int)offset);
             }
 
-            if (limit != default)
+            if (limit != null)
             {
-                json.WriteNumber(PropertyNames.Limit, limit);
+                json.WriteNumber(PropertyNames.Limit, (ushort)limit);
             }
 
-            if (timeout != default)
+            if (timeout != null)
             {
-                json.WriteNumber(PropertyNames.Timeout, timeout);
+                json.WriteNumber(PropertyNames.Timeout, (uint)timeout);
             }
 
             if (allowedUpdates != default)
@@ -250,7 +250,7 @@ namespace Telegram.BotAPI.GettingUpdates
         /// <param name="allowedUpdates">List the types of updates you want your bot to receive. For example, specify [“message”, “edited_channel_post”, “callback_query”] to only receive updates of these types. See Update for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.<para>Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.</para></param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static T GetUpdates<T>(this BotClient bot, [Optional] int offset, [Optional] ushort limit, [Optional] uint timeout, [Optional] IEnumerable<string> allowedUpdates)
+        public static T GetUpdates<T>(this BotClient bot, [Optional] int? offset, [Optional] ushort? limit, [Optional] uint? timeout, [Optional] IEnumerable<string> allowedUpdates)
             where T : IEnumerable<Update>
         {
             if (bot == default)
@@ -261,19 +261,19 @@ namespace Telegram.BotAPI.GettingUpdates
             var stream = new MemoryStream();
             using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
-            if (offset != default)
+            if (offset != null)
             {
-                json.WriteNumber(PropertyNames.Offset, offset);
+                json.WriteNumber(PropertyNames.Offset, (int)offset);
             }
 
-            if (limit != default)
+            if (limit != null)
             {
-                json.WriteNumber(PropertyNames.Limit, limit);
+                json.WriteNumber(PropertyNames.Limit, (ushort)limit);
             }
 
-            if (timeout != default)
+            if (timeout != null)
             {
-                json.WriteNumber(PropertyNames.Timeout, timeout);
+                json.WriteNumber(PropertyNames.Timeout, (uint)timeout);
             }
 
             if (allowedUpdates != default)
@@ -299,7 +299,7 @@ namespace Telegram.BotAPI.GettingUpdates
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<T> GetUpdatesAsync<T>(this BotClient bot, [Optional] int offset, [Optional] ushort limit, [Optional] uint timeout, [Optional] IEnumerable<string> allowedUpdates, [Optional] CancellationToken cancellationToken)
+        public static async Task<T> GetUpdatesAsync<T>(this BotClient bot, [Optional] int? offset, [Optional] ushort? limit, [Optional] uint? timeout, [Optional] IEnumerable<string> allowedUpdates, [Optional] CancellationToken cancellationToken)
             where T : IEnumerable<Update>
         {
             if (bot == default)
@@ -309,17 +309,17 @@ namespace Telegram.BotAPI.GettingUpdates
             var stream = new MemoryStream();
             using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
-            if (offset != default)
+            if (offset != null)
             {
-                json.WriteNumber(PropertyNames.Offset, offset);
+                json.WriteNumber(PropertyNames.Offset, (int)offset);
             }
-            if (limit != default)
+            if (limit != null)
             {
-                json.WriteNumber(PropertyNames.Limit, limit);
+                json.WriteNumber(PropertyNames.Limit, (ushort)limit);
             }
-            if (timeout != default)
+            if (timeout != null)
             {
-                json.WriteNumber(PropertyNames.Timeout, timeout);
+                json.WriteNumber(PropertyNames.Timeout, (uint)timeout);
             }
             if (allowedUpdates != default)
             {

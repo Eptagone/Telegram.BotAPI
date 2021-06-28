@@ -42,9 +42,9 @@ namespace Telegram.BotAPI.AvailableMethods
             this BotClient bot,
             string callbackQueryId,
             [Optional] string text,
-            [Optional] bool showAlert,
+            [Optional] bool? showAlert,
             [Optional] string url,
-            [Optional] uint cacheTime)
+            [Optional] uint? cacheTime)
         {
             if (bot == default)
             {
@@ -62,7 +62,7 @@ namespace Telegram.BotAPI.AvailableMethods
 
             if (showAlert != default)
             {
-                json.WriteBoolean(PropertyNames.ShowAlert, showAlert);
+                json.WriteBoolean(PropertyNames.ShowAlert, (bool)showAlert);
             }
 
             if (url != default)
@@ -70,9 +70,9 @@ namespace Telegram.BotAPI.AvailableMethods
                 json.WriteString(PropertyNames.Url, url);
             }
 
-            if (cacheTime != default)
+            if (cacheTime != null)
             {
-                json.WriteNumber(PropertyNames.CacheTime, cacheTime);
+                json.WriteNumber(PropertyNames.CacheTime, (uint)cacheTime);
             }
 
             json.WriteEndObject();
@@ -117,9 +117,9 @@ namespace Telegram.BotAPI.AvailableMethods
             this BotClient bot,
             string callbackQueryId,
             [Optional] string text,
-            [Optional] bool showAlert,
+            [Optional] bool? showAlert,
             [Optional] string url,
-            [Optional] uint cacheTime,
+            [Optional] uint? cacheTime,
             [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
@@ -138,7 +138,7 @@ namespace Telegram.BotAPI.AvailableMethods
 
             if (showAlert != default)
             {
-                json.WriteBoolean(PropertyNames.ShowAlert, showAlert);
+                json.WriteBoolean(PropertyNames.ShowAlert, (bool)showAlert);
             }
 
             if (url != default)
@@ -146,9 +146,9 @@ namespace Telegram.BotAPI.AvailableMethods
                 json.WriteString(PropertyNames.Url, url);
             }
 
-            if (cacheTime != default)
+            if (cacheTime != null)
             {
-                json.WriteNumber(PropertyNames.CacheTime, cacheTime);
+                json.WriteNumber(PropertyNames.CacheTime, (uint)cacheTime);
             }
 
             json.WriteEndObject();

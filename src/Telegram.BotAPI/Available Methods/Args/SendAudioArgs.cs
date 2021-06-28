@@ -33,7 +33,7 @@ namespace Telegram.BotAPI.AvailableMethods
         ///<summary>Optional. Duration of the audio in seconds.</summary>
         [JsonPropertyName(PropertyNames.Duration)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Duration { get; set; }
+        public uint? Duration { get; set; }
         ///<summary>Optional. Performer.</summary>
         [JsonPropertyName(PropertyNames.Performer)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

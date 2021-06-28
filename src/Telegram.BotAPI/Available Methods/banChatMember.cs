@@ -21,7 +21,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True on success.</returns>
-        public static bool BanChatMember(this BotClient bot, long chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages)
+        public static bool BanChatMember(this BotClient bot, long chatId, long userId, [Optional] uint? untilDate, [Optional] bool? revokeMessages)
         {
             if (bot == default)
             {
@@ -33,11 +33,11 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (untilDate != default)
+            if (untilDate != null)
             {
-                json.WriteNumber(PropertyNames.UntilDate, untilDate);
+                json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
-            if (revokeMessages)
+            if (revokeMessages == true)
             {
                 json.WriteBoolean(PropertyNames.RevokeMessages, true);
             }
@@ -55,7 +55,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True on success.</returns>
-        public static bool BanChatMember(this BotClient bot, string chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages)
+        public static bool BanChatMember(this BotClient bot, string chatId, long userId, [Optional] uint? untilDate, [Optional] bool? revokeMessages)
         {
             if (bot == default)
             {
@@ -69,9 +69,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.UserId, userId);
             if (untilDate != default)
             {
-                json.WriteNumber(PropertyNames.UntilDate, untilDate);
+                json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
-            if (revokeMessages)
+            if (revokeMessages == true)
             {
                 json.WriteBoolean(PropertyNames.RevokeMessages, true);
             }
@@ -90,7 +90,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True on success.</returns>
-        public static async Task<bool> BanChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> BanChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] uint? untilDate, [Optional] bool? revokeMessages, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -104,9 +104,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.UserId, userId);
             if (untilDate != default)
             {
-                json.WriteNumber(PropertyNames.UntilDate, untilDate);
+                json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
-            if (revokeMessages)
+            if (revokeMessages == true)
             {
                 json.WriteBoolean(PropertyNames.RevokeMessages, true);
             }
@@ -126,7 +126,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True on success.</returns>
-        public static async Task<bool> BanChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> BanChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] uint? untilDate, [Optional] bool? revokeMessages, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -140,9 +140,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.UserId, userId);
             if (untilDate != default)
             {
-                json.WriteNumber(PropertyNames.UntilDate, untilDate);
+                json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
-            if (revokeMessages)
+            if (revokeMessages == true)
             {
                 json.WriteBoolean(PropertyNames.RevokeMessages, true);
             }
@@ -164,7 +164,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True on success.</returns>
         [Obsolete("This method has been replaced by BanChatMember and will be removed in future releases.")]
-        public static bool KickChatMember(this BotClient bot, long chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages)
+        public static bool KickChatMember(this BotClient bot, long chatId, long userId, [Optional] uint? untilDate, [Optional] bool? revokeMessages)
         {
             if (bot == default)
             {
@@ -178,9 +178,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.UserId, userId);
             if (untilDate != default)
             {
-                json.WriteNumber(PropertyNames.UntilDate, untilDate);
+                json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
-            if (revokeMessages)
+            if (revokeMessages == true)
             {
                 json.WriteBoolean(PropertyNames.RevokeMessages, true);
             }
@@ -199,7 +199,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True on success.</returns>
         [Obsolete("This method has been replaced by BanChatMember and will be removed in future releases.")]
-        public static bool KickChatMember(this BotClient bot, string chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages)
+        public static bool KickChatMember(this BotClient bot, string chatId, long userId, [Optional] uint? untilDate, [Optional] bool? revokeMessages)
         {
             if (bot == default)
             {
@@ -213,9 +213,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.UserId, userId);
             if (untilDate != default)
             {
-                json.WriteNumber(PropertyNames.UntilDate, untilDate);
+                json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
-            if (revokeMessages)
+            if (revokeMessages == true)
             {
                 json.WriteBoolean(PropertyNames.RevokeMessages, true);
             }
@@ -234,7 +234,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         [Obsolete("This method has been replaced by BanChatMemberAsync and will be removed in future releases.")]
-        public static async Task<bool> KickChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> KickChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] uint? untilDate, [Optional] bool? revokeMessages, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -248,9 +248,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.UserId, userId);
             if (untilDate != default)
             {
-                json.WriteNumber(PropertyNames.UntilDate, untilDate);
+                json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
-            if (revokeMessages)
+            if (revokeMessages == true)
             {
                 json.WriteBoolean(PropertyNames.RevokeMessages, true);
             }
@@ -270,7 +270,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         [Obsolete("This method has been replaced by BanChatMemberAsync and will be removed in future releases.")]
-        public static async Task<bool> KickChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] uint untilDate, [Optional] bool revokeMessages, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> KickChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] uint? untilDate, [Optional] bool? revokeMessages, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -284,9 +284,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.UserId, userId);
             if (untilDate != default)
             {
-                json.WriteNumber(PropertyNames.UntilDate, untilDate);
+                json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
-            if (revokeMessages)
+            if (revokeMessages == true)
             {
                 json.WriteBoolean(PropertyNames.RevokeMessages, true);
             }

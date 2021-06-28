@@ -23,7 +23,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message ForwardMessage(this BotClient bot, string chatId, string fromChatId, int messageId, [Optional] bool disableNotification)
+        public static Message ForwardMessage(this BotClient bot, string chatId, string fromChatId, int messageId, [Optional] bool? disableNotification)
         {
             if (bot == default)
             {
@@ -36,9 +36,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.FromChatId, fromChatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification != default)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -55,7 +55,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message ForwardMessage(this BotClient bot, long chatId, long fromChatId, int messageId, [Optional] bool disableNotification)
+        public static Message ForwardMessage(this BotClient bot, long chatId, long fromChatId, int messageId, [Optional] bool? disableNotification)
         {
             if (bot == default)
             {
@@ -68,9 +68,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.FromChatId, fromChatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification != default)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -87,7 +87,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message ForwardMessage(this BotClient bot, string chatId, long fromChatId, int messageId, [Optional] bool disableNotification)
+        public static Message ForwardMessage(this BotClient bot, string chatId, long fromChatId, int messageId, [Optional] bool? disableNotification)
         {
             if (bot == default)
             {
@@ -100,9 +100,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.FromChatId, fromChatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification != default)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -119,7 +119,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message ForwardMessage(this BotClient bot, long chatId, string fromChatId, int messageId, [Optional] bool disableNotification)
+        public static Message ForwardMessage(this BotClient bot, long chatId, string fromChatId, int messageId, [Optional] bool? disableNotification)
         {
             if (bot == default)
             {
@@ -132,9 +132,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.FromChatId, fromChatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification != default)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -152,7 +152,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> ForwardMessageAsync(this BotClient bot, string chatId, string fromChatId, int messageId, [Optional] bool disableNotification, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> ForwardMessageAsync(this BotClient bot, string chatId, string fromChatId, int messageId, [Optional] bool? disableNotification, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -165,9 +165,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.FromChatId, fromChatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification != default)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -186,7 +186,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> ForwardMessageAsync(this BotClient bot, long chatId, long fromChatId, int messageId, [Optional] bool disableNotification, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> ForwardMessageAsync(this BotClient bot, long chatId, long fromChatId, int messageId, [Optional] bool? disableNotification, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -199,9 +199,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.FromChatId, fromChatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification != default)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -220,7 +220,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> ForwardMessageAsync(this BotClient bot, string chatId, long fromChatId, int messageId, [Optional] bool disableNotification, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> ForwardMessageAsync(this BotClient bot, string chatId, long fromChatId, int messageId, [Optional] bool? disableNotification, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -233,9 +233,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.FromChatId, fromChatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification != default)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -254,7 +254,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> ForwardMessageAsync(this BotClient bot, long chatId, string fromChatId, int messageId, [Optional] bool disableNotification, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> ForwardMessageAsync(this BotClient bot, long chatId, string fromChatId, int messageId, [Optional] bool? disableNotification, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -267,9 +267,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.FromChatId, fromChatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification != default)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, disableNotification);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();

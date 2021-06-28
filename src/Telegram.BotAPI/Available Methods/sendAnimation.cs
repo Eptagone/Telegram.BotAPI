@@ -49,7 +49,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendAnimation(this BotClient bot, string chatId, string animation, [Optional] uint duration, [Optional] uint width, [Optional] uint height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles)
+        public static Message SendAnimation(this BotClient bot, string chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles)
         {
             return bot.SendAnimation(new SendAnimationArgs
             {
@@ -85,7 +85,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendAnimation(this BotClient bot, long chatId, string animation, [Optional] uint duration, [Optional] uint width, [Optional] uint height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles)
+        public static Message SendAnimation(this BotClient bot, long chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles)
         {
             return bot.SendAnimation(new SendAnimationArgs
             {
@@ -120,7 +120,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendAnimation(this BotClient bot, string chatId, InputFile animation, [Optional] uint duration, [Optional] uint width, [Optional] uint height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] ReplyMarkup replyMarkup)
+        public static Message SendAnimation(this BotClient bot, string chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup)
         {
             return bot.SendAnimation(new SendAnimationArgs
             {
@@ -154,7 +154,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendAnimation(this BotClient bot, long chatId, InputFile animation, [Optional] uint duration, [Optional] uint width, [Optional] uint height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] ReplyMarkup replyMarkup)
+        public static Message SendAnimation(this BotClient bot, long chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup)
         {
             return bot.SendAnimation(new SendAnimationArgs
             {
@@ -211,7 +211,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendAnimationAsync(this BotClient bot, string chatId, string animation, [Optional] uint duration, [Optional] uint width, [Optional] uint height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendAnimationAsync(this BotClient bot, string chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles, [Optional] CancellationToken cancellationToken)
         {
             return await bot.SendAnimationAsync(new SendAnimationArgs
             {
@@ -248,7 +248,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendAnimationAsync(this BotClient bot, long chatId, string animation, [Optional] uint duration, [Optional] uint width, [Optional] uint height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendAnimationAsync(this BotClient bot, long chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles, [Optional] CancellationToken cancellationToken)
         {
             return await bot.SendAnimationAsync(new SendAnimationArgs
             {
@@ -284,7 +284,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendAnimationAsync(this BotClient bot, string chatId, InputFile animation, [Optional] uint duration, [Optional] uint width, [Optional] uint height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendAnimationAsync(this BotClient bot, string chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
         {
             return await bot.SendAnimationAsync(new SendAnimationArgs
             {
@@ -319,7 +319,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendAnimationAsync(this BotClient bot, long chatId, InputFile animation, [Optional] uint duration, [Optional] uint width, [Optional] uint height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool disableNotification, [Optional] int replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendAnimationAsync(this BotClient bot, long chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
         {
             return await bot.SendAnimationAsync(new SendAnimationArgs
             {

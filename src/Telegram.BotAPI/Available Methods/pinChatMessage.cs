@@ -19,7 +19,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="disableNotification">Optional. Pass True, if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool PinChatMessage(this BotClient bot, long chatId, int messageId, [Optional] bool disableNotification)
+        public static bool PinChatMessage(this BotClient bot, long chatId, int messageId, [Optional] bool? disableNotification)
         {
             if (bot == default)
             {
@@ -31,9 +31,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, true);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -48,7 +48,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="disableNotification">Optional. Pass True, if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool PinChatMessage(this BotClient bot, string chatId, int messageId, [Optional] bool disableNotification)
+        public static bool PinChatMessage(this BotClient bot, string chatId, int messageId, [Optional] bool? disableNotification)
         {
             if (bot == default)
             {
@@ -60,9 +60,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, true);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -78,7 +78,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> PinChatMessageAsync(this BotClient bot, long chatId, int messageId, [Optional] bool disableNotification, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> PinChatMessageAsync(this BotClient bot, long chatId, int messageId, [Optional] bool? disableNotification, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -90,9 +90,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, true);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();
@@ -109,7 +109,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> PinChatMessageAsync(this BotClient bot, string chatId, int messageId, [Optional] bool disableNotification, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> PinChatMessageAsync(this BotClient bot, string chatId, int messageId, [Optional] bool? disableNotification, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -121,9 +121,9 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.MessageId, messageId);
-            if (disableNotification)
+            if (disableNotification != null)
             {
-                json.WriteBoolean(PropertyNames.DisableNotification, true);
+                json.WriteBoolean(PropertyNames.DisableNotification, (bool)disableNotification);
             }
 
             json.WriteEndObject();

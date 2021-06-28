@@ -24,8 +24,8 @@ namespace Telegram.BotAPI.AvailableMethods
         public static UserProfilePhotos GetUserProfilePhotos(
             this BotClient bot,
             long userId,
-            [Optional] int offset,
-            [Optional] ushort limit)
+            [Optional] int? offset,
+            [Optional] ushort? limit)
         {
             if (bot == default)
             {
@@ -36,14 +36,14 @@ namespace Telegram.BotAPI.AvailableMethods
             using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (offset != default)
+            if (offset != null)
             {
-                json.WriteNumber(PropertyNames.Offset, offset);
+                json.WriteNumber(PropertyNames.Offset, (int)offset);
             }
 
             if (limit != default)
             {
-                json.WriteNumber(PropertyNames.Limit, limit);
+                json.WriteNumber(PropertyNames.Limit, (ushort)limit);
             }
 
             json.WriteEndObject();
@@ -63,8 +63,8 @@ namespace Telegram.BotAPI.AvailableMethods
         public static async Task<UserProfilePhotos> GetUserProfilePhotosAsync(
             this BotClient bot,
             long userId,
-            [Optional] int offset,
-            [Optional] ushort limit,
+            [Optional] int? offset,
+            [Optional] ushort? limit,
             [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
@@ -76,14 +76,14 @@ namespace Telegram.BotAPI.AvailableMethods
             using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (offset != default)
+            if (offset != null)
             {
-                json.WriteNumber(PropertyNames.Offset, offset);
+                json.WriteNumber(PropertyNames.Offset, (int)offset);
             }
 
             if (limit != default)
             {
-                json.WriteNumber(PropertyNames.Limit, limit);
+                json.WriteNumber(PropertyNames.Limit, (ushort)limit);
             }
 
             json.WriteEndObject();

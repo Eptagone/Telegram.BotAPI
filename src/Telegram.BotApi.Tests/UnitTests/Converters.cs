@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.AvailableMethods;
 using Xunit;
@@ -9,7 +10,6 @@ using RKR = Telegram.BotAPI.AvailableTypes.ReplyKeyboardRemove;
 using KB = Telegram.BotAPI.AvailableTypes.KeyboardButton;
 using IKM = Telegram.BotAPI.AvailableTypes.InlineKeyboardMarkup;
 using IKB = Telegram.BotAPI.AvailableTypes.InlineKeyboardButton;
-using System.Text.Json.Serialization;
 
 namespace UnitTests
 {
