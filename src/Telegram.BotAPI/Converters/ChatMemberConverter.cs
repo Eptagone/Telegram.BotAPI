@@ -8,10 +8,12 @@ using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Converters
 {
-    /// <summary>Converts an IChatMember to or from JSON.</summary>
+    /// <summary>Converts an <see cref="IChatMember"/> to or from JSON.</summary>
     public sealed class ChatMemberConverter : JsonConverter<IChatMember>
     {
-        /// <summary>Reads and converts the JSON to type IChatMember.</summary>
+        /// <summary>
+        /// Reads and converts the JSON to type <see cref="IChatMember"/>.
+        /// </summary>
         /// <param name="reader">The reader.</param>
         /// <param name="typeToConvert">The type to convert.</param>
         /// <param name="options">An object that specifies serialization options to use.</param>
@@ -50,7 +52,9 @@ namespace Telegram.BotAPI.Converters
             }
         }
 
-        /// <summary>Writes a IChatMember object as JSON.</summary>
+        /// <summary>
+        /// Writes a <see cref="IChatMember"/> object as JSON.
+        /// </summary>
         /// <param name="writer">The writer to write to.</param>
         /// <param name="value">The value to convert to JSON.</param>
         /// <param name="options">An object that specifies serialization options to use.</param>
