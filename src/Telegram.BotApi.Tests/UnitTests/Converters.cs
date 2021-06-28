@@ -1,8 +1,15 @@
-﻿using Telegram.BotAPI.AvailableTypes;
+﻿using System.Text.Json;
+using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.AvailableMethods;
 using Xunit;
-using System.Text.Json;
-using Telegram.BotAPI.Converters;
 using Xunit.Abstractions;
+
+using RKM = Telegram.BotAPI.AvailableTypes.ReplyKeyboardMarkup;
+using RKR = Telegram.BotAPI.AvailableTypes.ReplyKeyboardRemove;
+using KB = Telegram.BotAPI.AvailableTypes.KeyboardButton;
+using IKM = Telegram.BotAPI.AvailableTypes.InlineKeyboardMarkup;
+using IKB = Telegram.BotAPI.AvailableTypes.InlineKeyboardButton;
+using System.Text.Json.Serialization;
 
 namespace UnitTests
 {
@@ -54,9 +61,7 @@ namespace UnitTests
     }")]
         public void DeserializeChatMemberReturnsIChatMember(string jsonChatMember)
         {
-            var options = new JsonSerializerOptions();
-            options.Converters.Add(new ChatMemberConverter());
-            var chatMember = JsonSerializer.Deserialize<IChatMember>(jsonChatMember, options);
+            var chatMember = JsonSerializer.Deserialize<ChatMember>(jsonChatMember);
             switch (chatMember.Status)
             {
                 case ChatMemberStatus.Member:
@@ -85,7 +90,7 @@ namespace UnitTests
         [Fact]
         public void SerializeChatMemberReturnsJsonString()
         {
-            var members = new IChatMember[]
+            var members = new ChatMember[]
             {
                 new ChatMemberMember
                 {
@@ -130,14 +135,218 @@ namespace UnitTests
                     CanManageVoiceChats = true
                 }
             };
-            var options = new JsonSerializerOptions();
-            options.Converters.Add(new ChatMemberConverter());
+            var options = new JsonSerializerOptions
+            {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
             foreach (var chatMember in members)
             {
                 var jsonObject = JsonSerializer.Serialize(chatMember, options);
                 _outputHelper.WriteLine(jsonObject);
                 Assert.NotNull(jsonObject);
             }
+        }
+
+        [Theory]
+        [InlineData(777000, "Hello world")]
+        [InlineData(123456789, "Hello world Again")]
+        public void SerializeSendMessageArgsWithReplyMarkup(long chatId, string text)
+        {
+            var argsInline = new SendMessageArgs()
+            {
+                ChatId = chatId,
+                Text = text,
+                ReplyMarkup = new IKM
+                {
+                    InlineKeyboard = new IKB[][]
+                    {
+                        new IKB[]
+                        {
+                            IKB.SetCallbackData("Your text", text),
+                            IKB.SetCallbackData("Your chatId", chatId.ToString())
+                        },
+                        new IKB[]
+                        {
+                            IKB.SetCallbackData("Your text", text)
+                        }
+                    }
+                }
+            };
+            Assert.True(argsInline.ReplyMarkup is ReplyMarkup);
+            var argsReply = new SendMessageArgs()
+            {
+                ChatId = chatId,
+                Text = text,
+                ReplyMarkup = new RKM
+                {
+                    Keyboard = new KB[][]
+                    {
+                        new KB[]
+                        {
+                            new KB(text),
+                            new KB(chatId.ToString()){
+                                RequestLocation = true,
+                                RequestPoll = new KeyboardButtonPollType{
+                                    Type = PollType.Quiz
+                                }
+                            }
+                        },
+                        new KB[]
+                        {
+                            new KB(text)
+                        }
+                    }
+                }
+            };
+            Assert.True(argsReply.ReplyMarkup is ReplyMarkup);
+            var argsRemove = new SendMessageArgs()
+            {
+                ChatId = chatId,
+                Text = text,
+                ReplyMarkup = new RKR()
+            };
+            Assert.True(argsRemove.ReplyMarkup is ReplyMarkup);
+            var argsForceReply = new SendMessageArgs()
+            {
+                ChatId = chatId,
+                Text = text,
+                ReplyMarkup = new ForceReply()
+            };
+            Assert.True(argsForceReply.ReplyMarkup is ReplyMarkup);
+
+            var options = new JsonSerializerOptions
+            {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+
+            var rawArgsInline = JsonSerializer.Serialize(argsInline, options);
+            _outputHelper.WriteLine(rawArgsInline);
+            Assert.NotNull(rawArgsInline);
+            var rawArgsReply = JsonSerializer.Serialize(argsReply, options);
+            _outputHelper.WriteLine(rawArgsReply);
+            Assert.NotNull(rawArgsReply);
+            var rawArgsRemove = JsonSerializer.Serialize(argsRemove, options);
+            _outputHelper.WriteLine(rawArgsRemove);
+            Assert.NotNull(rawArgsRemove);
+            var rawArgsFR = JsonSerializer.Serialize(argsForceReply, options);
+            _outputHelper.WriteLine(rawArgsFR);
+            Assert.NotNull(rawArgsFR);
+        }
+
+        [Theory]
+        [InlineData(777000, "PHOTO UwU")]
+        [InlineData(123456789, "PHOTO")]
+        public void SerializeSendPhotoArgsWithReplyMarkup(long chatId, string text)
+        {
+            var argsInline = new SendPhotoArgs()
+            {
+                ChatId = chatId,
+                Photo = text,
+                ReplyMarkup = new IKM
+                {
+                    InlineKeyboard = new IKB[][]
+                    {
+                        new IKB[]
+                        {
+                            IKB.SetCallbackData("Your text", text),
+                            IKB.SetCallbackData("Your chatId", chatId.ToString())
+                        },
+                        new IKB[]
+                        {
+                            IKB.SetCallbackData("Your text", text)
+                        }
+                    }
+                }
+            };
+            Assert.True(argsInline.ReplyMarkup is ReplyMarkup);
+            var argsReply = new SendPhotoArgs()
+            {
+                ChatId = chatId,
+                Photo = text,
+                ReplyMarkup = new RKM
+                {
+                    Keyboard = new KB[][]
+                    {
+                        new KB[]
+                        {
+                            new KB(text),
+                            new KB(chatId.ToString()){
+                                RequestLocation = true,
+                                RequestPoll = new KeyboardButtonPollType{
+                                    Type = PollType.Quiz
+                                }
+                            }
+                        },
+                        new KB[]
+                        {
+                            new KB(text)
+                        }
+                    }
+                }
+            };
+            Assert.True(argsReply.ReplyMarkup is ReplyMarkup);
+            var argsRemove = new SendPhotoArgs()
+            {
+                ChatId = chatId,
+                Photo = text,
+                ReplyMarkup = new RKR()
+            };
+            Assert.True(argsRemove.ReplyMarkup is ReplyMarkup);
+            var argsForceReply = new SendPhotoArgs()
+            {
+                ChatId = chatId,
+                Photo = text,
+                ReplyMarkup = new ForceReply()
+            };
+            Assert.True(argsForceReply.ReplyMarkup is ReplyMarkup);
+
+            var options = new JsonSerializerOptions
+            {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+
+            var rawArgsInline = JsonSerializer.Serialize(argsInline, options);
+            _outputHelper.WriteLine(rawArgsInline);
+            Assert.NotNull(rawArgsInline);
+            var rawArgsReply = JsonSerializer.Serialize(argsReply, options);
+            _outputHelper.WriteLine(rawArgsReply);
+            Assert.NotNull(rawArgsReply);
+            var rawArgsRemove = JsonSerializer.Serialize(argsRemove, options);
+            _outputHelper.WriteLine(rawArgsRemove);
+            Assert.NotNull(rawArgsRemove);
+            var rawArgsFR = JsonSerializer.Serialize(argsForceReply, options);
+            _outputHelper.WriteLine(rawArgsFR);
+            Assert.NotNull(rawArgsFR);
+        }
+
+        [Fact]
+        public void SerializeAndDeserializeInlineKeyboardMarkup()
+        {
+            var keyboard = new IKM
+            {
+                InlineKeyboard = new IKB[][]
+                    {
+                        new IKB[]
+                        {
+                            IKB.SetCallbackData("Your text", "example"),
+                            IKB.SetCallbackData("Your chatId", "example")
+                        },
+                        new IKB[]
+                        {
+IKB.SetCallbackData("Your text", "example")
+                        }
+                    }
+            };
+
+            var options = new JsonSerializerOptions
+            {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+
+            var rawText = JsonSerializer.Serialize(keyboard, options);
+            _outputHelper.WriteLine(rawText);
+            var keyboardAgain = JsonSerializer.Deserialize<IKM>(rawText, options);
+            Assert.Equal(keyboard.InlineKeyboard, keyboardAgain.InlineKeyboard);
         }
     }
 }

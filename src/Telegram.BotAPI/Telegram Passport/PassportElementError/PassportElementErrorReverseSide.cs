@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.TelegramPassport
         /// <summary>Error source, must be reverse_side.</summary>
         [JsonPropertyName(PropertyNames.Source)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public override string Source => "reverse_side";
+        public override string Source => PassportElementErrorSource.ReverseSide;
         /// <summary>The section of the user's Telegram Passport which has the issue, one of “driver_license”, “identity_card”.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

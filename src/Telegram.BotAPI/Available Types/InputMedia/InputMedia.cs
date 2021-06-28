@@ -4,6 +4,9 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Text.Json.Serialization;
+using Telegram.BotAPI.Converters;
+
+using JsonConverter = System.Text.Json.Serialization.JsonConverterAttribute;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
@@ -14,6 +17,7 @@ namespace Telegram.BotAPI.AvailableTypes
     /// • <see cref="InputMediaPhoto"/><br />
     /// • <see cref="InputMediaVideo"/></summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+    [JsonConverter(typeof(InputMediaConverter))]
     public abstract class InputMedia : ICaption, IFormattableMessage
     {
         ///<summary>Type of the result.</summary>

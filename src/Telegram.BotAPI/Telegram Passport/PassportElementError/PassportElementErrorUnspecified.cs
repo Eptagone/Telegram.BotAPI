@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.TelegramPassport
         /// <summary>Error source, must be unspecified.</summary>
         [JsonPropertyName(PropertyNames.Source)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public override string Source => "unspecified";
+        public override string Source => PassportElementErrorSource.Unspecified;
         /// <summary>Type of element of the user's Telegram Passport which has the issue.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.TelegramPassport
         /// <summary>Error source, must be selfie.</summary>
         [JsonPropertyName(PropertyNames.Source)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public override string Source => "selfie";
+        public override string Source => PassportElementErrorSource.Selfie;
         /// <summary>The section of the user's Telegram Passport which has the issue, one of “passport”, “driver_license”, “identity_card”, “internal_passport”.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

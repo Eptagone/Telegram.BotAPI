@@ -15,6 +15,7 @@ namespace Telegram.BotAPI
         public const string ChatMember = "chat_member";
         public const string ChosenInlineResult = "chosen_inline_result";
         public const string Contact = "contact";
+        public const string Data = "data";
         public const string Document = "document";
         public const string EditedChannelPost = "edited_channel_post";
         public const string EditedMessage = "edited_message";

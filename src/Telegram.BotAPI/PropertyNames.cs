@@ -70,7 +70,7 @@ namespace Telegram.BotAPI
         public const string Credentials = "credentials";
         public const string Currency = "currency";
         public const string CustomTitle = "custom_title";
-        public const string Data = "data";
+        public const string Data = CommonNames.Data;
         public const string DataHash = "data_hash";
         public const string Date = "date";
         public const string DeleteChatPhoto = "delete_chat_photo";

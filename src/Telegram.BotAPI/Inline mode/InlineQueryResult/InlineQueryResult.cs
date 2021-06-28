@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Text.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.Converters;
+
+using JsonConverter = System.Text.Json.Serialization.JsonConverterAttribute;
 
 namespace Telegram.BotAPI.InlineMode
 {
@@ -29,6 +32,7 @@ namespace Telegram.BotAPI.InlineMode
     /// • <see cref="InlineQueryResultVenue"/><br />
     /// • <see cref="InlineQueryResultVideo"/><br />
     /// • <see cref="InlineQueryResultVoice"/></summary>
+    [JsonConverter(typeof(InlineQueryResultConverter))]
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public abstract class InlineQueryResult : ICustomizableReplyMarkup<InlineKeyboardMarkup>
     {

@@ -34,7 +34,6 @@ namespace Telegram.BotAPI.TelegramPassport
             }
 
             var options = new JsonSerializerOptions { IgnoreNullValues = true };
-            options.Converters.Add(new Tools.PassportElementErrorJsonConverter());
             var args = new SetPassportDataErrorsArgs
             {
                 UserId = userId,
@@ -72,7 +71,6 @@ namespace Telegram.BotAPI.TelegramPassport
             }
 
             var options = new JsonSerializerOptions { IgnoreNullValues = true };
-            options.Converters.Add(new Tools.PassportElementErrorJsonConverter());
             var args = new SetPassportDataErrorsArgs
             {
                 UserId = userId,

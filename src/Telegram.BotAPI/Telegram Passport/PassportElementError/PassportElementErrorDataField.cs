@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.TelegramPassport
         /// <summary>Error source, must be data.</summary>
         [JsonPropertyName(PropertyNames.Source)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public override string Source => "data";
+        public override string Source => PassportElementErrorSource.Data;
         /// <summary>The section of the user's Telegram Passport which has the error, one of “personal_details”, “passport”, “driver_license”, “identity_card”, “internal_passport”, “address”.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

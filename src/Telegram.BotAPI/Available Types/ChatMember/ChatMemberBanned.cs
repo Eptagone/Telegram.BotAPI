@@ -11,16 +11,12 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     ///<summary>Represents a chat member that was banned in the chat and can't return to the chat or view chat messages.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class ChatMemberBanned : IChatMember, IEquatable<ChatMemberBanned>
+    public sealed class ChatMemberBanned : ChatMember, IEquatable<ChatMemberBanned>
     {
         ///<summary>The member's status in the chat, always “kicked”.</summary>
         [JsonPropertyName(PropertyNames.Status)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Status => ChatMemberStatus.Kicked;
-        ///<summary>Information about the user.</summary>
-        [JsonPropertyName(PropertyNames.User)]
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public User User { get; set; }
+        public override string Status => ChatMemberStatus.Kicked;
         ///<summary>Date when restrictions will be lifted for this user; unix time.</summary>
         [JsonPropertyName(PropertyNames.UntilDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

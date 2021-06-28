@@ -52,6 +52,7 @@ namespace Telegram.BotAPI
                 this.httpClient = AddJsonMultipart(httpClient);
             }
         }
+
         /// <summary>Initialize a Telegram Bot Client.</summary>
         /// <param name="botToken">Token granted by BotFather. Required to access the Telegram bot API.</param>
         /// <param name="ignoreBotExceptions">Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.</param>
@@ -65,6 +66,7 @@ namespace Telegram.BotAPI
         public string Token => botToken;
         /// <summary>Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.</summary>
         public bool IgnoreBotExceptions { get; set; }
+
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)

@@ -13,16 +13,22 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
-using Telegram.BotAPI.Converters;
 
 namespace Telegram.BotAPI
 {
     public sealed partial class BotClient : IEquatable<BotClient>
     {
+        internal static readonly JsonSerializerOptions DefaultSerializerOptions = new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        };
+
         private const string applicationJson = "application/json";
         private const string multipartFormData = "multipart/form-data";
+
         /// <summary>Default HttpClient for bot requets.</summary>
         public static HttpClient defaultHttpClient { get; private set; }
+
         /// <summary>Set the default HttpClient for bot requets.</summary>
         /// <param name="client"><see cref="HttpClient"/> for http requets.</param>
         /// <exception cref="ArgumentNullException">Thrown when client is null.</exception>
@@ -31,6 +37,7 @@ namespace Telegram.BotAPI
             defaultHttpClient = client ?? new HttpClient();
             AddJsonMultipart(defaultHttpClient);
         }
+
         private static HttpClient AddJsonMultipart(HttpClient client)
         {
             if (!client.DefaultRequestHeaders.Accept.Any(u => u.MediaType == applicationJson))
@@ -60,6 +67,7 @@ namespace Telegram.BotAPI
                 throw exp.InnerException;
             }
         }
+
         /// <summary>Makes a bot request using HTTP GET and returns the response.</summary>
         /// <typeparam name="T">Response type.</typeparam>
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
@@ -72,6 +80,7 @@ namespace Telegram.BotAPI
             var streamResponse = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
             return await JsonSerializer.DeserializeAsync<BotResponse<T>>(streamResponse, cancellationToken: cancellationToken);
         }
+
         /// <summary>Makes a bot request using HTTP POST and returns the response.</summary>
         /// <typeparam name="T">Response type.</typeparam>
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
@@ -91,6 +100,7 @@ namespace Telegram.BotAPI
                 throw exp.InnerException;
             }
         }
+
         /// <summary>Makes a bot request using HTTP POST and returns the response.</summary>
         /// <typeparam name="T">Response type.</typeparam>
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
@@ -109,6 +119,7 @@ namespace Telegram.BotAPI
                 throw exp.InnerException;
             }
         }
+
         /// <summary>Makes a bot request using HTTP POST and returns the response.</summary>
         /// <typeparam name="T">Response type.</typeparam>
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
@@ -123,10 +134,15 @@ namespace Telegram.BotAPI
             {
                 throw new ArgumentException(nameof(args));
             }
+            if (serializeOptions == default)
+            {
+                serializeOptions = DefaultSerializerOptions;
+            }
             var stream = await Tools.SerializeAsStreamAsync(args, serializeOptions, cancellationToken)
                 .ConfigureAwait(false);
             return await PostRequestAsync<T>(method, stream, deserializeOptions, cancellationToken).ConfigureAwait(false);
         }
+
         /// <summary>Makes a bot request using HTTP POST and returns the response.</summary>
         /// <typeparam name="T">Response type.</typeparam>
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
@@ -168,6 +184,7 @@ namespace Telegram.BotAPI
                 }
             }
         }
+
         /// <summary>RPC async</summary>
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
@@ -191,6 +208,7 @@ namespace Telegram.BotAPI
                 }
             }
         }
+
         /// <summary>RPC</summary>
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
@@ -215,6 +233,7 @@ namespace Telegram.BotAPI
                 }
             }
         }
+
         /// <summary>RPC</summary>
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
@@ -238,6 +257,7 @@ namespace Telegram.BotAPI
                 }
             }
         }
+
         /// <summary>RPC async</summary>
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
@@ -263,6 +283,7 @@ namespace Telegram.BotAPI
                 }
             }
         }
+
         /// <summary>RPC async</summary>
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
@@ -288,6 +309,7 @@ namespace Telegram.BotAPI
                 }
             }
         }
+
         /// <summary>RPC for files</summary>
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
@@ -305,6 +327,7 @@ namespace Telegram.BotAPI
                 throw exp.InnerException;
             }
         }
+
         /// <summary>RPC async for files</summary>
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
@@ -313,13 +336,6 @@ namespace Telegram.BotAPI
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         internal async Task<T> RPCAF<T>(string method, object args, [Optional] JsonSerializerOptions serializeoptions, [Optional] CancellationToken cancellationToken)
         {
-            if (serializeoptions == default)
-            {
-                serializeoptions = new JsonSerializerOptions { IgnoreNullValues = true };
-                serializeoptions.Converters.Add(new ReplyMarkupConverter());
-                serializeoptions.Converters.Add(new Tools.InlineKeyboardMarkupConverter());
-                serializeoptions.Converters.Add(new InputMediaConverter());
-            }
             var properties = args.GetType().GetProperties();
             using var content = new MultipartFormDataContent(Guid.NewGuid().ToString() + DateTime.UtcNow.Ticks);
             foreach (var prop in properties)

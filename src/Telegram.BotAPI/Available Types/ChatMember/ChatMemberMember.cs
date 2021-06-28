@@ -11,16 +11,12 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     ///<summary>Represents a chat member that has no additional privileges or restrictions.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class ChatMemberMember : IChatMember, IEquatable<ChatMemberMember>
+    public sealed class ChatMemberMember : ChatMember, IEquatable<ChatMemberMember>
     {
         ///<summary>The member's status in the chat, always “member”.</summary>
         [JsonPropertyName(PropertyNames.Status)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Status => ChatMemberStatus.Member;
-        ///<summary>Information about the user.</summary>
-        [JsonPropertyName(PropertyNames.User)]
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public User User { get; set; }
+        public override string Status => ChatMemberStatus.Member;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)

@@ -8,17 +8,17 @@ using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Converters
 {
-    /// <summary>Converts an <see cref="IChatMember"/> to or from JSON.</summary>
-    public sealed class ChatMemberConverter : JsonConverter<IChatMember>
+    /// <summary>Converts an <see cref="ChatMember"/> to or from JSON.</summary>
+    public sealed class ChatMemberConverter : JsonConverter<ChatMember>
     {
         /// <summary>
-        /// Reads and converts the JSON to type <see cref="IChatMember"/>.
+        /// Reads and converts the JSON to type <see cref="ChatMember"/>.
         /// </summary>
         /// <param name="reader">The reader.</param>
         /// <param name="typeToConvert">The type to convert.</param>
         /// <param name="options">An object that specifies serialization options to use.</param>
         /// <returns>The converted value.</returns>
-        public override IChatMember Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override ChatMember Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             var jsonDoc = JsonSerializer.Deserialize<JsonDocument>(ref reader, options);
             var isValid = jsonDoc.RootElement.TryGetProperty(PropertyNames.Status, out JsonElement prop);
@@ -53,12 +53,12 @@ namespace Telegram.BotAPI.Converters
         }
 
         /// <summary>
-        /// Writes a <see cref="IChatMember"/> object as JSON.
+        /// Writes a <see cref="ChatMember"/> object as JSON.
         /// </summary>
         /// <param name="writer">The writer to write to.</param>
         /// <param name="value">The value to convert to JSON.</param>
         /// <param name="options">An object that specifies serialization options to use.</param>
-        public override void Write(Utf8JsonWriter writer, IChatMember value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, ChatMember value, JsonSerializerOptions options)
         {
             if (value == null)
             {

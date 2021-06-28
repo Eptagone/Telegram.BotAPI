@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.TelegramPassport
         /// <summary>Error source, must be file.</summary>
         [JsonPropertyName(PropertyNames.Source)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public override string Source => "file";
+        public override string Source => PassportElementErrorSource.File;
         /// <summary>The section of the user's Telegram Passport which has the issue, one of “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration”, “temporary_registration”.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

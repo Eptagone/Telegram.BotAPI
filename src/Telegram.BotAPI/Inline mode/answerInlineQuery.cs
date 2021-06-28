@@ -32,13 +32,9 @@ namespace Telegram.BotAPI.InlineMode
                 throw new ArgumentNullException(nameof(args));
             }
 
-            var options = new JsonSerializerOptions { IgnoreNullValues = true };
-            options.Converters.Add(new InlineQueryResultConverter());
-            options.Converters.Add(new Tools.InputMessageContentConverter());
-            options.Converters.Add(new Tools.InlineKeyboardMarkupConverter());
             var stream = new MemoryStream();
             using var json = new Utf8JsonWriter(stream);
-            JsonSerializer.Serialize(json, args, typeof(AnswerInlineQueryArgs), options);
+            JsonSerializer.Serialize(json, args, typeof(AnswerInlineQueryArgs), BotClient.DefaultSerializerOptions);
             json.Flush(); json.Dispose();
             stream.Seek(0, SeekOrigin.Begin);
             return bot.RPC<bool>(MethodNames.AnswerInlineQuery, stream);
@@ -62,12 +58,8 @@ namespace Telegram.BotAPI.InlineMode
                 throw new ArgumentNullException(nameof(args));
             }
 
-            var options = new JsonSerializerOptions { IgnoreNullValues = true };
-            options.Converters.Add(new InlineQueryResultConverter());
-            options.Converters.Add(new Tools.InputMessageContentConverter());
-            options.Converters.Add(new Tools.InlineKeyboardMarkupConverter());
             var stream = new MemoryStream();
-            await JsonSerializer.SerializeAsync(stream, args, typeof(AnswerInlineQueryArgs), options, cancellationToken: cancellationToken).ConfigureAwait(false);
+            await JsonSerializer.SerializeAsync(stream, args, typeof(AnswerInlineQueryArgs), BotClient.DefaultSerializerOptions, cancellationToken: cancellationToken).ConfigureAwait(false);
             stream.Seek(0, SeekOrigin.Begin);
             return await bot.RPCA<bool>(MethodNames.AnswerInlineQuery, stream, cancellationToken).ConfigureAwait(false);
         }

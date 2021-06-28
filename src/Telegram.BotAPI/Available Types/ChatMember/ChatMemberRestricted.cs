@@ -3,22 +3,20 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
     ///<summary>Represents a chat member that is under certain restrictions in the chat. Supergroups only.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class ChatMemberRestricted : IChatMember
+    public sealed class ChatMemberRestricted : ChatMember, IEquatable<ChatMemberRestricted>
     {
         ///<summary>The member's status in the chat, always “restricted”.</summary>
         [JsonPropertyName(PropertyNames.Status)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Status => ChatMemberStatus.Restricted;
-        ///<summary>Information about the user.</summary>
-        [JsonPropertyName(PropertyNames.User)]
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public User User { get; set; }
+        public override string Status => ChatMemberStatus.Restricted;
         ///<summary>True, if the user is a member of the chat at the moment of the request.</summary>
         [JsonPropertyName(PropertyNames.IsMember)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -59,5 +57,59 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.UntilDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public uint UntilDate { get; set; }
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as ChatMemberRestricted);
+        }
+
+        public bool Equals(ChatMemberRestricted other)
+        {
+            return other != null &&
+                   Status == other.Status &&
+                   EqualityComparer<User>.Default.Equals(User, other.User) &&
+                   Status == other.Status &&
+                   IsMember == other.IsMember &&
+                   CanChangeInfo == other.CanChangeInfo &&
+                   CanInviteUsers == other.CanInviteUsers &&
+                   CanPinMessages == other.CanPinMessages &&
+                   CanSendMessages == other.CanSendMessages &&
+                   CanSendMediaMessages == other.CanSendMediaMessages &&
+                   CanSendPolls == other.CanSendPolls &&
+                   CanSendOtherMessages == other.CanSendOtherMessages &&
+                   CanAddWebPagePreviews == other.CanAddWebPagePreviews &&
+                   UntilDate == other.UntilDate;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1477798765;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Status);
+            hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(User);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Status);
+            hashCode = hashCode * -1521134295 + IsMember.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanChangeInfo.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanInviteUsers.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanPinMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanSendMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanSendMediaMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanSendPolls.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanSendOtherMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanAddWebPagePreviews.GetHashCode();
+            hashCode = hashCode * -1521134295 + UntilDate.GetHashCode();
+            return hashCode;
+        }
+
+        public static bool operator ==(ChatMemberRestricted left, ChatMemberRestricted right)
+        {
+            return EqualityComparer<ChatMemberRestricted>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(ChatMemberRestricted left, ChatMemberRestricted right)
+        {
+            return !(left == right);
+        }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

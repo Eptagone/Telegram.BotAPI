@@ -4,6 +4,9 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Text.Json.Serialization;
+using Telegram.BotAPI.Converters;
+
+using JsonConverter = System.Text.Json.Serialization.JsonConverterAttribute;
 
 namespace Telegram.BotAPI.TelegramPassport
 {
@@ -17,6 +20,7 @@ namespace Telegram.BotAPI.TelegramPassport
     /// • <see cref="PassportElementErrorTranslationFile"/><br/>
     /// • <see cref="PassportElementErrorTranslationFiles"/><br/>
     /// • <see cref="PassportElementErrorUnspecified"/><br/></summary>
+    [JsonConverter(typeof(PassportElementErrorConverter))]
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public abstract class PassportElementError
     {

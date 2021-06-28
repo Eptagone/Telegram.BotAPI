@@ -47,8 +47,7 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public bool Equals(InlineKeyboardMarkup other)
         {
-            return other != null &&
-                EqualityComparer<IEnumerable<IEnumerable<InlineKeyboardButton>>>.Default.Equals(InlineKeyboard, other.InlineKeyboard);
+            return other != null && EqualityComparer<IEnumerable<IEnumerable<InlineKeyboardButton>>>.Default.Equals(InlineKeyboard, other.InlineKeyboard);
         }
 
         public override int GetHashCode()

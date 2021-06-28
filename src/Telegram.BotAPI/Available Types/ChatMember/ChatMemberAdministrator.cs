@@ -11,16 +11,12 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     ///<summary>Represents a chat member that has some additional privileges.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class ChatMemberAdministrator : IChatMember, IEquatable<ChatMemberAdministrator>
+    public sealed class ChatMemberAdministrator : ChatMember, IEquatable<ChatMemberAdministrator>
     {
         ///<summary>The member's status in the chat, always “administrator”.</summary>
         [JsonPropertyName(PropertyNames.Status)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Status => ChatMemberStatus.Administrator;
-        ///<summary>Information about the user.</summary>
-        [JsonPropertyName(PropertyNames.User)]
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public User User { get; set; }
+        public override string Status => ChatMemberStatus.Administrator;
         ///<summary>True, if the bot is allowed to edit administrator privileges of that user.</summary>
         [JsonPropertyName(PropertyNames.CanBeEdited)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
