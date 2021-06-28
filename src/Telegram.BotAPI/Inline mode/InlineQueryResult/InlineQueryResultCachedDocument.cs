@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a link to a file stored on the Telegram servers. By default, this file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the file.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultCachedDocument : InlineQueryResultWithEntities, IInlineQueryResult, ICaption, IEquatable<InlineQueryResultCachedDocument>
+    public sealed class InlineQueryResultCachedDocument : InlineQueryResultWithEntities, ICaption, IEquatable<InlineQueryResultCachedDocument>
     {
         /// <summary>Type of the result, must be document.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "document";
+        public override string Type => InlineQueryResultType.Document;
         /// <summary>A valid file identifier for the file.</summary>
         [JsonPropertyName(PropertyNames.DocumentFileId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

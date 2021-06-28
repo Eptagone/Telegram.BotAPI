@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Scope type, must be chat.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "chat";
+        public string Type => BotCommandScopeType.Chat;
         /// <summary><see cref="long"/> or <see cref="string"/>. Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</summary>
         [JsonPropertyName(PropertyNames.ChatId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

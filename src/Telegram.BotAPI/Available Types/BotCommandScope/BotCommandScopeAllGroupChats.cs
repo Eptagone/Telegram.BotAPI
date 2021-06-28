@@ -14,6 +14,6 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Scope type, must be all_group_chats.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "all_group_chats";
+        public string Type => BotCommandScopeType.AllGroupChats;
     }
 }

@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a link to a voice message stored on the Telegram servers. By default, this voice message will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the voice message.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultCachedVoice : InlineQueryResultWithEntities, IInlineQueryResult, ICaption, IEquatable<InlineQueryResultCachedVoice>
+    public sealed class InlineQueryResultCachedVoice : InlineQueryResultWithEntities, ICaption, IEquatable<InlineQueryResultCachedVoice>
     {
         /// <summary>Type of the result, must be voice</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "voice";
+        public override string Type => InlineQueryResultType.Voice;
         /// <summary>A valid file identifier for the voice message.</summary>
         [JsonPropertyName(PropertyNames.VoiceFileId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

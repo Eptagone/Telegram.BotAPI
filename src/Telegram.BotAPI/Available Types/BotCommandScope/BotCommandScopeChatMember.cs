@@ -13,10 +13,10 @@ namespace Telegram.BotAPI.AvailableTypes
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class BotCommandScopeChatMember : IBotCommandScope, IEquatable<BotCommandScopeChatMember>
     {
-        /// <summary>Scope type, must be chat.</summary>
+        /// <summary>Scope type, must be chat_member.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "chat";
+        public string Type => BotCommandScopeType.ChatMember;
         /// <summary><see cref="long"/> or <see cref="string"/>. Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</summary>
         [JsonPropertyName(PropertyNames.ChatId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

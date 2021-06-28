@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a link to a voice recording in an .ogg container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the the voice message.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultVoice : InlineQueryResultWithEntities, IInlineQueryResult, ICaption, IEquatable<InlineQueryResultVoice>
+    public sealed class InlineQueryResultVoice : InlineQueryResultWithEntities, ICaption, IEquatable<InlineQueryResultVoice>
     {
         /// <summary>Type of the result, must be voice.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "voice";
+        public override string Type => InlineQueryResultType.Voice;
         ///<summary>A valid URL for the voice recording.</summary>
         [JsonPropertyName(PropertyNames.VoiceUrl)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a Game.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultGame : InlineQueryResult, IInlineQueryResult, IEquatable<InlineQueryResultGame>
+    public sealed class InlineQueryResultGame : InlineQueryResult, IEquatable<InlineQueryResultGame>
     {
         /// <summary>Type of the result, must be game.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "game";
+        public override string Type => InlineQueryResultType.Game;
         /// <summary>Short name of the game.</summary>
         [JsonPropertyName(PropertyNames.GameShortName)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

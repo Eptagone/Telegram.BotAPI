@@ -30,8 +30,10 @@ namespace Telegram.BotAPI.InlineMode
     /// • <see cref="InlineQueryResultVideo"/><br />
     /// • <see cref="InlineQueryResultVoice"/></summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public abstract class InlineQueryResult
+    public abstract class InlineQueryResult : ICustomizableReplyMarkup<InlineKeyboardMarkup>
     {
+        /// <summary>Type of the result.</summary>
+        public abstract string Type { get; }
         /// <summary>Unique identifier for this result, 1-64 Bytes.</summary>
         [JsonPropertyName(PropertyNames.Id)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

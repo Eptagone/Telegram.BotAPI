@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a contact with a phone number. By default, this contact will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the contact.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultContact : InlineQueryResult, IInlineQueryResult, IContact, IExternalThumbnail, IEquatable<InlineQueryResultContact>
+    public sealed class InlineQueryResultContact : InlineQueryResult, IContact, IExternalThumbnail, IEquatable<InlineQueryResultContact>
     {
         /// <summary>Type of the result, must be contact.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "contact";
+        public override string Type => InlineQueryResultType.Contact;
         /// <summary>Contact's phone number.</summary>
         [JsonPropertyName(PropertyNames.PhoneNumber)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

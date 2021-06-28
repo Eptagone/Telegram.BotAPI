@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a link to an article or web page.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultArticle : InlineQueryResult, IInlineQueryResult, IExternalThumbnail, IEquatable<InlineQueryResultArticle>
+    public sealed class InlineQueryResultArticle : InlineQueryResult, IExternalThumbnail, IEquatable<InlineQueryResultArticle>
     {
         /// <summary>Type of the result, must be article.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "article";
+        public override string Type => InlineQueryResultType.Article;
         /// <summary>Title of the result.</summary>
         [JsonPropertyName(PropertyNames.Title)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

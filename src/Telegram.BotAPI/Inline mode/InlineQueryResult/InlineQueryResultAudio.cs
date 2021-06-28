@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a link to an mp3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the audio.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultAudio : InlineQueryResultWithEntities, IInlineQueryResult, ICaption, IEquatable<InlineQueryResultAudio>
+    public sealed class InlineQueryResultAudio : InlineQueryResultWithEntities, ICaption, IEquatable<InlineQueryResultAudio>
     {
         /// <summary>Type of the result, must be audio.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "audio";
+        public override string Type => InlineQueryResultType.Audio;
         ///<summary>A valid URL for the audio file.</summary>
         [JsonPropertyName(PropertyNames.AudioUrl)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

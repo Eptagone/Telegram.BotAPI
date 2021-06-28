@@ -197,37 +197,6 @@ namespace Telegram.BotAPI.GettingUpdates
             return !(left == right);
         }
 
-
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
-    }
-    /// <summary>Allowed updates</summary>
-    public static class AllowUpdate
-    {
-        /// <summary>Message update: New incoming message of any kind — text, photo, sticker, etc.</summary>
-        public const string Message = PropertyNames.Message;
-        /// <summary>Edited message update: New version of a message that is known to the bot and was edited.</summary>
-        public const string EditedMessage = PropertyNames.EditedMessage;
-        /// <summary>Channel post update: New version of a channel post that is known to the bot and was edited.</summary>
-        public const string ChannelPost = PropertyNames.ChannelPost;
-        /// <summary>Edited channel post update: New version of a channel post that is known to the bot and was edited.</summary>
-        public const string EditedChannelPost = PropertyNames.EditedChannelPost;
-        /// <summary>Inline query update. New incoming inline query.</summary>
-        public const string InlineQuery = PropertyNames.InlineQuery;
-        /// <summary>Chosen inline result update: The result of an inline query that was chosen by a user and sent to their chat partner. Please see our documentation on the feedback collecting for details on how to enable these updates for your bot.</summary>
-        public const string ChosenInlineResult = PropertyNames.ChosenInlineResult;
-        /// <summary>Callback query update: New incoming callback query.</summary>
-        public const string CallbackQuery = PropertyNames.CallbackQuery;
-        /// <summary>Shipping query update: New incoming shipping query. Only for invoices with flexible price.</summary>
-        public const string ShippingQuery = PropertyNames.ShippingQuery;
-        /// <summary>Pre checkout query update: New incoming pre-checkout query. Contains full information about checkout.</summary>
-        public const string PreCheckoutQuery = PropertyNames.PreCheckoutQuery;
-        /// <summary>Poll update: New poll state. Bots receive only updates about stopped polls and polls, which are sent by the bot.</summary>
-        public const string Poll = PropertyNames.Poll;
-        /// <summary>Poll answer update: A user changed their answer in a non-anonymous poll. Bots receive new votes only in polls that were sent by the bot itself.</summary>
-        public const string PollAnswer = PropertyNames.PollAnswer;
-        /// <summary>My chat member update: The bot's chat member status was updated in a chat. For private chats, this update is received only when the bot is blocked or unblocked by the user.</summary>
-        public const string MyChatMember = PropertyNames.MyChatMember;
-        /// <summary>Chat member update: A chat member's status was updated in a chat. The bot must be an administrator in the chat and must explicitly specify “chat_member” in the list of allowed_updates to receive these updates.</summary>
-        public const string ChatMember = PropertyNames.ChatMember;
     }
 }

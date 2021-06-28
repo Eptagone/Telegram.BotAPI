@@ -13,6 +13,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.Converters;
 
 namespace Telegram.BotAPI
 {
@@ -315,9 +316,9 @@ namespace Telegram.BotAPI
             if (serializeoptions == default)
             {
                 serializeoptions = new JsonSerializerOptions { IgnoreNullValues = true };
-                serializeoptions.Converters.Add(new Tools.ReplyMarkupConverter());
+                serializeoptions.Converters.Add(new ReplyMarkupConverter());
                 serializeoptions.Converters.Add(new Tools.InlineKeyboardMarkupConverter());
-                serializeoptions.Converters.Add(new Tools.InputMediaJsonConverter());
+                serializeoptions.Converters.Add(new InputMediaConverter());
             }
             var properties = args.GetType().GetProperties();
             using var content = new MultipartFormDataContent(Guid.NewGuid().ToString() + DateTime.UtcNow.Ticks);

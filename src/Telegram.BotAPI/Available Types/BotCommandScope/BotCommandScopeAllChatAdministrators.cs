@@ -14,6 +14,6 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Scope type, must be all_chat_administrators.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "all_chat_administrators";
+        public string Type => BotCommandScopeType.AllChatAdministrators;
     }
 }

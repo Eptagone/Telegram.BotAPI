@@ -14,6 +14,6 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Scope type, must be default.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "default";
+        public string Type => BotCommandScopeType.Default;
     }
 }

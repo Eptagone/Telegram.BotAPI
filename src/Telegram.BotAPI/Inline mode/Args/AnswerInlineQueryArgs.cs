@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.InlineMode
         [JsonPropertyName(PropertyNames.InlineQueryId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string InlineQueryId { get; set; }
-        ///<summary>A <see cref="IInlineQueryResult"/> array of results for the inline query.</summary>
+        ///<summary>A <see cref="InlineQueryResult"/> array of results for the inline query.</summary>
         [JsonPropertyName(PropertyNames.Results)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public IEnumerable<InlineQueryResult> Results { get; set; }

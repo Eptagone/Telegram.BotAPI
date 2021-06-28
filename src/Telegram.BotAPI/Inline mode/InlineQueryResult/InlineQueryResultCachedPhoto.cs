@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a link to a photo stored on the Telegram servers. By default, this photo will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the photo.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultCachedPhoto : InlineQueryResultWithEntities, IInlineQueryResult, ICaption, IEquatable<InlineQueryResultCachedPhoto>
+    public sealed class InlineQueryResultCachedPhoto : InlineQueryResultWithEntities, ICaption, IEquatable<InlineQueryResultCachedPhoto>
     {
         /// <summary>Type of the result, must be photo.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "photo";
+        public override string Type => InlineQueryResultType.Photo;
         /// <summary>A valid file identifier of the photo.</summary>
         [JsonPropertyName(PropertyNames.PhotoFileId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

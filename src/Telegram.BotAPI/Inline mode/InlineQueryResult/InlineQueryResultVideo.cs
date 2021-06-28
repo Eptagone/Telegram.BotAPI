@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a link to a page containing an embedded video player or a video file. By default, this video file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the video.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultVideo : InlineQueryResultWithEntities, IInlineQueryResult, ICaption, IEquatable<InlineQueryResultVideo>
+    public sealed class InlineQueryResultVideo : InlineQueryResultWithEntities, ICaption, IEquatable<InlineQueryResultVideo>
     {
         /// <summary>Type of the result, must be video.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "video";
+        public override string Type => InlineQueryResultType.Video;
         ///<summary>A valid URL for the embedded video player or video file.</summary>
         [JsonPropertyName(PropertyNames.VideoUrl)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

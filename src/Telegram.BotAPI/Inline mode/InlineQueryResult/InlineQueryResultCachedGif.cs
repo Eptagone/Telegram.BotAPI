@@ -12,12 +12,12 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>Represents a link to an animated GIF file stored on the Telegram servers. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with specified content instead of the animation.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class InlineQueryResultCachedGif : InlineQueryResultWithEntities, IInlineQueryResult, ICaption, IEquatable<InlineQueryResultCachedGif>
+    public sealed class InlineQueryResultCachedGif : InlineQueryResultWithEntities, ICaption, IEquatable<InlineQueryResultCachedGif>
     {
         /// <summary>Type of the result, must be gif.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Type => "gif";
+        public override string Type => InlineQueryResultType.Gif;
         /// <summary>A valid file identifier for the GIF file..</summary>
         [JsonPropertyName(PropertyNames.GifFileId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

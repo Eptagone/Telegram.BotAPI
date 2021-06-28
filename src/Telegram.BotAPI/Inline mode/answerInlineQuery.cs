@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Telegram.BotAPI.Converters;
 
 namespace Telegram.BotAPI.InlineMode
 {
@@ -32,7 +33,7 @@ namespace Telegram.BotAPI.InlineMode
             }
 
             var options = new JsonSerializerOptions { IgnoreNullValues = true };
-            options.Converters.Add(new Tools.InlineQueryResultConverter());
+            options.Converters.Add(new InlineQueryResultConverter());
             options.Converters.Add(new Tools.InputMessageContentConverter());
             options.Converters.Add(new Tools.InlineKeyboardMarkupConverter());
             var stream = new MemoryStream();
@@ -62,7 +63,7 @@ namespace Telegram.BotAPI.InlineMode
             }
 
             var options = new JsonSerializerOptions { IgnoreNullValues = true };
-            options.Converters.Add(new Tools.InlineQueryResultConverter());
+            options.Converters.Add(new InlineQueryResultConverter());
             options.Converters.Add(new Tools.InputMessageContentConverter());
             options.Converters.Add(new Tools.InlineKeyboardMarkupConverter());
             var stream = new MemoryStream();
