@@ -14,18 +14,18 @@ namespace Telegram.BotAPI.AvailableMethods
     public sealed class GetMyCommandsArgs
     {
         /// <summary>Inititalize a new instance of <see cref="GetMyCommandsArgs"/>.</summary>
-        /// <param name="scope">A <see cref="IBotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+        /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
         /// <param name="languageCode">A two-letter ISO 639-1 language code or an empty string.</param>
-        public GetMyCommandsArgs([Optional] IBotCommandScope scope, [Optional] string languageCode)
+        public GetMyCommandsArgs([Optional] BotCommandScope scope, [Optional] string languageCode)
         {
             Scope = scope;
             LanguageCode = languageCode;
         }
 
-        /// <summary>Optional. A <see cref="IBotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</summary>
+        /// <summary>Optional. A <see cref="BotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</summary>
         [JsonPropertyName(PropertyNames.Scope)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public IBotCommandScope Scope { get; set; }
+        public BotCommandScope Scope { get; set; }
         /// <summary>Optional. A two-letter ISO 639-1 language code or an empty string.</summary>
         [JsonPropertyName(PropertyNames.LanguageCode)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

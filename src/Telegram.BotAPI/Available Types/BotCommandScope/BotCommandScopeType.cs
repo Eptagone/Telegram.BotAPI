@@ -3,7 +3,7 @@
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-    /// <summary>Available types of <see cref="IBotCommandScope"/>.</summary>
+    /// <summary>Available types of <see cref="BotCommandScope"/>.</summary>
     public static class BotCommandScopeType
     {
         /// <summary>All chat administrators. Represents the scope of bot commands, covering all group and supergroup chat administrators.</summary>

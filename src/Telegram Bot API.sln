@@ -3,12 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotApi", "Telegram.BotAPI\Telegram.BotApi.csproj", "{333CEF37-B947-47CA-A339-9B14D4D7E20A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{905E4149-FBB0-4419-890C-7939E6728CB7}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI", "Telegram.BotAPI\Telegram.BotAPI.csproj", "{333CEF37-B947-47CA-A339-9B14D4D7E20A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LibrayCore", "LibrayCore", "{E90CDF4A-2731-4F91-9BD7-4A40E04DF290}"
 EndProject

@@ -13,10 +13,10 @@ namespace Telegram.BotAPI.AvailableMethods
     {
         /// <summary>Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users.</summary>
         /// <param name="bot">BotClient</param>
-        /// <param name="scope">A <see cref="IBotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+        /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
         /// <param name="languageCode">	A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands.</param>
         /// <returns>True on success.</returns>
-        public static bool DeleteMyCommands(this BotClient bot, [Optional] IBotCommandScope scope, [Optional] string languageCode)
+        public static bool DeleteMyCommands(this BotClient bot, [Optional] BotCommandScope scope, [Optional] string languageCode)
         {
             if (bot == null)
             {
@@ -47,11 +47,11 @@ namespace Telegram.BotAPI.AvailableMethods
 
         /// <summary>Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users.</summary>
         /// <param name="bot">BotClient</param>
-        /// <param name="scope">A <see cref="IBotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+        /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
         /// <param name="languageCode">	A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <returns>True on success.</returns>
-        public static async Task<bool> DeleteMyCommandsAsync(this BotClient bot, [Optional] IBotCommandScope scope, [Optional] string languageCode, CancellationToken cancellationToken)
+        public static async Task<bool> DeleteMyCommandsAsync(this BotClient bot, [Optional] BotCommandScope scope, [Optional] string languageCode, CancellationToken cancellationToken)
         {
             if (bot == null)
             {

@@ -1,6 +1,13 @@
 ﻿// Copyright (c) 2021 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
+using Telegram.BotAPI.Converters;
+
+using JsonConverter = System.Text.Json.Serialization.JsonConverterAttribute;
+
 namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents the scope to which bot commands are applied. Currently, the following 7 scopes are supported: <br /><br />
@@ -12,9 +19,13 @@ namespace Telegram.BotAPI.AvailableTypes
     /// • <see cref="BotCommandScopeChatAdministrators"/><br />
     /// • <see cref="BotCommandScopeChatMember"/><br />
     /// </summary>
-    public interface IBotCommandScope
+    [JsonConverter(typeof(BotCommandScopeConverter))]
+    [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+    public abstract class BotCommandScope
     {
         /// <summary>Scope type</summary>
-        public string Type { get; }
+        [JsonPropertyName(PropertyNames.Type)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public abstract string Type { get; }
     }
 }

@@ -14,21 +14,21 @@ namespace Telegram.BotAPI.AvailableMethods
     {
         /// <summary>Use this method to get the current list of the bot's commands for the given scope and user language.</summary>
         /// <param name="bot">BotClient</param>
-        /// <param name="scope">A <see cref="IBotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+        /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
         /// <param name="languageCode">A two-letter ISO 639-1 language code or an empty string.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Array of <see cref="BotCommand"/> on success. If commands aren't set, an empty list is returned.</returns>
-        public static BotCommand[] GetMyCommands(this BotClient bot, [Optional] IBotCommandScope scope, [Optional] string languageCode) => bot.GetMyCommands<BotCommand[]>(scope, languageCode);
+        public static BotCommand[] GetMyCommands(this BotClient bot, [Optional] BotCommandScope scope, [Optional] string languageCode) => bot.GetMyCommands<BotCommand[]>(scope, languageCode);
 
         /// <summary>Use this method to get the current list of the bot's commands for the given scope and user language.</summary>
         /// <param name="bot">BotClient</param>
-        /// <param name="scope">A <see cref="IBotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+        /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
         /// <param name="languageCode">A two-letter ISO 639-1 language code or an empty string.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Array of <see cref="BotCommand"/> on success. If commands aren't set, an empty list is returned.</returns>
-        public static TValue GetMyCommands<TValue>(this BotClient bot, [Optional] IBotCommandScope scope, [Optional] string languageCode)
+        public static TValue GetMyCommands<TValue>(this BotClient bot, [Optional] BotCommandScope scope, [Optional] string languageCode)
             where TValue : IEnumerable<BotCommand>
         {
             if (bot == null)
@@ -70,23 +70,23 @@ namespace Telegram.BotAPI.AvailableMethods
 
         /// <summary>Use this method to get the current list of the bot's commands for the given scope and user language.</summary>
         /// <param name="bot">BotClient</param>
-        /// <param name="scope">A <see cref="IBotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+        /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
         /// <param name="languageCode">A two-letter ISO 639-1 language code or an empty string.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Array of <see cref="BotCommand"/> on success. If commands aren't set, an empty list is returned.</returns>
-        public static async Task<BotCommand[]> GetMyCommandsAsync(this BotClient bot, [Optional] IBotCommandScope scope, [Optional] string languageCode, [Optional] CancellationToken cancellationToken) => await bot.GetMyCommandsAsync<BotCommand[]>(scope, languageCode, cancellationToken);
+        public static async Task<BotCommand[]> GetMyCommandsAsync(this BotClient bot, [Optional] BotCommandScope scope, [Optional] string languageCode, [Optional] CancellationToken cancellationToken) => await bot.GetMyCommandsAsync<BotCommand[]>(scope, languageCode, cancellationToken);
 
         /// <summary>Use this method to get the current list of the bot's commands for the given scope and user language.</summary>
         /// <param name="bot">BotClient</param>
-        /// <param name="scope">A <see cref="IBotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+        /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
         /// <param name="languageCode">A two-letter ISO 639-1 language code or an empty string.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Array of <see cref="BotCommand"/> on success. If commands aren't set, an empty list is returned. on success. If commands aren't set, an empty list is returned.</returns>
-        public static async Task<TValue> GetMyCommandsAsync<TValue>(this BotClient bot, [Optional] IBotCommandScope scope, [Optional] string languageCode, [Optional] CancellationToken cancellationToken)
+        public static async Task<TValue> GetMyCommandsAsync<TValue>(this BotClient bot, [Optional] BotCommandScope scope, [Optional] string languageCode, [Optional] CancellationToken cancellationToken)
             where TValue : IEnumerable<BotCommand>
         {
             if (bot == null)

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.3</Version>
+    <Version>3.0-beta2</Version>
     <PackageId>Telegram.BotAPI</PackageId>
     <Authors>Quetzal Rivera</Authors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -11,9 +11,9 @@
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Description>Telegram.BotAPI is one of the most complete libraries available to interact with the Telegram Bot API in your NET project.
- 
-Contains all available methods in the Bot API 5.3 released on June 25, 2021. In addition, it has a complete set of classes with all objects used.</Description>
+    <Description>This is a very complete library to use Telegram Bot Api in your NET project. Full support for Bot API v5.3 (June 25, 2021).
+
+It contains all classes and methods available from the Bot Api.</Description>
     <PackageTags>Telegram Bot API</PackageTags>
     <Title>Telegram Bot API</Title>
     <OutputType>Library</OutputType>
@@ -25,8 +25,8 @@ Contains all available methods in the Bot API 5.3 released on June 25, 2021. In 
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
     <PackageIcon>packicon.png</PackageIcon>
-    <AssemblyVersion>2.3.0.*</AssemblyVersion>
-    <FileVersion>2.3.0.0</FileVersion>
+    <AssemblyVersion>3.0.0.*</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
     <Deterministic>false</Deterministic>
     <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>

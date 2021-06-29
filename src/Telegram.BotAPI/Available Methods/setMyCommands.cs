@@ -52,12 +52,12 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <summary>Use this method to change the list of the bot's commands. See https://core.telegram.org/bots#commands for more details about bot commands. Returns True on success.</summary>
         /// <param name="bot">BotClient</param>
         /// <param name="commands">A <see cref="BotCommand"/> list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</param>
-        /// <param name="scope">A <see cref="IBotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+        /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
         /// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static bool SetMyCommands(this BotClient bot, IEnumerable<BotCommand> commands, [Optional] IBotCommandScope scope, [Optional] string languageCode)
+        public static bool SetMyCommands(this BotClient bot, IEnumerable<BotCommand> commands, [Optional] BotCommandScope scope, [Optional] string languageCode)
         {
             if (bot == null)
             {
@@ -90,13 +90,13 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <summary>Use this method to change the list of the bot's commands. See https://core.telegram.org/bots#commands for more details about bot commands. Returns True on success.</summary>
         /// <param name="bot">BotClient</param>
         /// <param name="commands">A list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</param>
-        /// <param name="scope">A <see cref="IBotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+        /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
         /// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>True</returns>
-        public static async Task<bool> SetMyCommandsAsync(this BotClient bot, IEnumerable<BotCommand> commands, [Optional] IBotCommandScope scope, [Optional] string languageCode, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> SetMyCommandsAsync(this BotClient bot, IEnumerable<BotCommand> commands, [Optional] BotCommandScope scope, [Optional] string languageCode, [Optional] CancellationToken cancellationToken)
         {
             if (bot == null)
             {
