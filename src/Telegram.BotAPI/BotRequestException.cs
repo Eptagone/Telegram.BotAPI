@@ -4,8 +4,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI
@@ -19,15 +19,39 @@ namespace Telegram.BotAPI
         public string Description { get; }
         ///<summary>Parameters.</summary>
         public ResponseParameters Parameters { get; }
-        /// <summary>Initializes a new instance of the Telegram.BotAPI.BotRequestException class with the specified error code and description message.</summary>
+
+        /// <summary>The original http response. Only available if the http response message could not be read as a valid BotRequest.</summary>
+        public HttpResponseMessage ResponseMessage { get; }
+
+        /// <summary>Initializes a new instance of the <see cref="BotRequestException"/> class with the specified error code and description message.</summary>
         /// <param name="errorCode">Error code.</param>
         /// <param name="description">Description.</param>
         /// <param name="parameters">Parameters.</param>
-        public BotRequestException(int errorCode, string description, [Optional] ResponseParameters parameters) : base(description)
+        public BotRequestException(int errorCode, string description, ResponseParameters parameters) : base(description)
         {
             ErrorCode = errorCode;
             Description = description;
             Parameters = parameters;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BotRequestException"/> class.
+        /// </summary>
+        /// <param name="httpRequestException">The http request exception that is the cause of the current exception.</param>
+        /// <param name="httpResponseMessage">The failed http response.</param>
+        public BotRequestException(HttpRequestException httpRequestException, HttpResponseMessage httpResponseMessage) : base("The response message cannot be read as a valid Bot Response.", httpRequestException)
+        {
+            if (httpRequestException == null)
+            {
+                throw new ArgumentNullException(nameof(httpRequestException));
+            }
+            if (httpResponseMessage == null)
+            {
+                throw new ArgumentNullException(nameof(httpResponseMessage));
+            }
+            ErrorCode = (int)httpResponseMessage.StatusCode;
+            Description = httpRequestException.Message;
+            ResponseMessage = httpResponseMessage;
         }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
@@ -49,12 +73,13 @@ namespace Telegram.BotAPI
                    EqualityComparer<MethodBase>.Default.Equals(TargetSite, other.TargetSite) &&
                    ErrorCode == other.ErrorCode &&
                    Description == other.Description &&
-                   EqualityComparer<ResponseParameters>.Default.Equals(Parameters, other.Parameters);
+                   EqualityComparer<ResponseParameters>.Default.Equals(Parameters, other.Parameters) &&
+                   EqualityComparer<HttpResponseMessage>.Default.Equals(ResponseMessage, other.ResponseMessage);
         }
 
         public override int GetHashCode()
         {
-            int hashCode = -857194374;
+            int hashCode = -840958873;
             hashCode = hashCode * -1521134295 + EqualityComparer<IDictionary>.Default.GetHashCode(Data);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(HelpLink);
             hashCode = hashCode * -1521134295 + HResult.GetHashCode();
@@ -66,6 +91,7 @@ namespace Telegram.BotAPI
             hashCode = hashCode * -1521134295 + ErrorCode.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Description);
             hashCode = hashCode * -1521134295 + EqualityComparer<ResponseParameters>.Default.GetHashCode(Parameters);
+            hashCode = hashCode * -1521134295 + EqualityComparer<HttpResponseMessage>.Default.GetHashCode(ResponseMessage);
             return hashCode;
         }
 

@@ -2,12 +2,12 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
+using System.Text;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
@@ -71,14 +71,12 @@ namespace Telegram.BotAPI
         /// <summary>Makes a bot request using HTTP GET and returns the response.</summary>
         /// <typeparam name="T">Response type.</typeparam>
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
-        /// <param name="cancellationToken"></param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <returns><see cref="BotResponse{T}"/></returns>
         public async Task<BotResponse<T>> GetRequestAsync<T>(string method, [Optional] CancellationToken cancellationToken)
         {
             using var request = new HttpRequestMessage(HttpMethod.Get, $"https://api.telegram.org/bot{botToken}/{method}");
-            var response = await httpClient.SendAsync(request, cancellationToken).ConfigureAwait(false);
-            var streamResponse = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-            return await JsonSerializer.DeserializeAsync<BotResponse<T>>(streamResponse, cancellationToken: cancellationToken);
+            return await SendRequestAsync<T>(request, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Makes a bot request using HTTP POST and returns the response.</summary>
@@ -86,11 +84,10 @@ namespace Telegram.BotAPI
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
         /// <param name="args">json parameters</param>
         /// <param name="serializeOptions">Options to control serialization behavior.</param>
-        /// <param name="deserializeOptions">Json options to control serializer behavior during writting.</param>
         /// <returns><see cref="BotResponse{T}"/></returns>
-        public BotResponse<T> PostRequest<T>(string method, object args, [Optional] JsonSerializerOptions serializeOptions, [Optional] JsonSerializerOptions deserializeOptions)
+        public BotResponse<T> PostRequest<T>(string method, object args, [Optional] JsonSerializerOptions serializeOptions)
         {
-            var response = PostRequestAsync<T>(method, args, serializeOptions, deserializeOptions);
+            var response = PostRequestAsync<T>(method, args, serializeOptions);
             try
             {
                 return response.Result;
@@ -125,10 +122,9 @@ namespace Telegram.BotAPI
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
         /// <param name="args">json parameters</param>
         /// <param name="serializeOptions">Options to control serialization behavior.</param>
-        /// <param name="deserializeOptions">Json options to control serializer behavior during writting.</param>
-        /// <param name="cancellationToken"></param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <returns><see cref="BotResponse{T}"/></returns>
-        public async Task<BotResponse<T>> PostRequestAsync<T>(string method, object args, [Optional] JsonSerializerOptions serializeOptions, [Optional] JsonSerializerOptions deserializeOptions, [Optional] CancellationToken cancellationToken)
+        public async Task<BotResponse<T>> PostRequestAsync<T>(string method, object args, [Optional] JsonSerializerOptions serializeOptions, [Optional] CancellationToken cancellationToken)
         {
             if (args == default)
             {
@@ -140,26 +136,61 @@ namespace Telegram.BotAPI
             }
             var stream = await Tools.SerializeAsStreamAsync(args, serializeOptions, cancellationToken)
                 .ConfigureAwait(false);
-            return await PostRequestAsync<T>(method, stream, deserializeOptions, cancellationToken).ConfigureAwait(false);
+            return await PostRequestAsync<T>(method, stream, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Makes a bot request using HTTP POST and returns the response.</summary>
         /// <typeparam name="T">Response type.</typeparam>
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
         /// <param name="args">json parameters</param>
-        /// <param name="options">Json options to control serializer behavior during reading.</param>
-        /// <param name="cancellationToken"></param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <returns><see cref="BotResponse{T}"/></returns>
-        public async Task<BotResponse<T>> PostRequestAsync<T>(string method, Stream args, [Optional] JsonSerializerOptions options, [Optional] CancellationToken cancellationToken)
+        public async Task<BotResponse<T>> PostRequestAsync<T>(string method, Stream args, [Optional] CancellationToken cancellationToken)
         {
             using var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.telegram.org/bot{botToken}/{method}")
             {
                 Content = new StreamContent(args)
             };
             request.Content.Headers.ContentType = new MediaTypeHeaderValue(applicationJson);
+            return await SendRequestAsync<T>(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>Makes a bot request using HTTP POST and Multipart Form Data and returns the response.</summary>
+        /// <typeparam name="T">Response type.</typeparam>
+        /// <param name="method">Method name. See <see cref="MethodNames"/>.</param>
+        /// <param name="args">Parameters encoded using multipart/form-data.</param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <returns><see cref="BotResponse{T}"/></returns>
+        public async Task<BotResponse<T>> PostRequestAsyncMultipartFormData<T>(string method, MultipartFormDataContent args, CancellationToken cancellationToken)
+        {
+            using var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.telegram.org/bot{botToken}/{method}")
+            {
+                Content = args
+            };
+            return await SendRequestAsync<T>(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        internal async Task<BotResponse<T>> SendRequestAsync<T>(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
             var response = await httpClient.SendAsync(request, cancellationToken).ConfigureAwait(false);
-            var streamResponse = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-            return await JsonSerializer.DeserializeAsync<BotResponse<T>>(streamResponse, options, cancellationToken: cancellationToken);
+            try
+            {
+                response.EnsureSuccessStatusCode();
+                var streamResponse = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+                return await JsonSerializer.DeserializeAsync<BotResponse<T>>(streamResponse, cancellationToken: cancellationToken);
+            }
+            catch (HttpRequestException exp)
+            {
+                if (response.Content.Headers.ContentType.MediaType == applicationJson)
+                {
+                    var streamResponse = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+                    return await JsonSerializer.DeserializeAsync<BotResponse<T>>(streamResponse, cancellationToken: cancellationToken);
+                }
+                else
+                {
+                    throw new BotRequestException(exp, response);
+                }
+            }
         }
 
         /// <summary>RPC</summary>
@@ -381,8 +412,7 @@ namespace Telegram.BotAPI
                     }
                 }
             }
-            var stream = await PostRequestAsyncFormData($"bot{Token}/{method}", content, cancellationToken == null ? default : cancellationToken).ConfigureAwait(false);
-            var response = await JsonSerializer.DeserializeAsync<BotResponse<T>>(stream, cancellationToken: cancellationToken);
+            var response = await PostRequestAsyncMultipartFormData<T>(method, content, cancellationToken == null ? default : cancellationToken).ConfigureAwait(false);
             content.Dispose();
             if (response.Ok == true)
             {
@@ -399,16 +429,6 @@ namespace Telegram.BotAPI
                     throw new BotRequestException(response.ErrorCode, response.Description, response.Parameters);
                 }
             }
-        }
-
-        internal async Task<Stream> PostRequestAsyncFormData(string path, MultipartFormDataContent args, CancellationToken cancellationToken)
-        {
-            using var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.telegram.org/{path}")
-            {
-                Content = args
-            };
-            var response = await httpClient.SendAsync(request, cancellationToken).ConfigureAwait(false);
-            return await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         }
     }
 }

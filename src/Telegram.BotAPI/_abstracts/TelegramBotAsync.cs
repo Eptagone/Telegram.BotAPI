@@ -12,8 +12,8 @@ using Telegram.BotAPI.Payments;
 
 namespace Telegram.BotAPI
 {
-    /// <summary>Base class for Telegram Bots using async methods.</summary>
-    public abstract class TelegramBotAsync : IAsyncTelegramBot
+    /// <summary>Base class for Telegram Bots using tasks and/or async methods.</summary>
+    public abstract class TelegramBotAsync : ITelegramBot
     {
         /// <summary>Call the corresponding method according to the type of update provided.</summary>
         /// <param name="update">Update</param>
@@ -157,5 +157,12 @@ namespace Telegram.BotAPI
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
         protected abstract Task OnExceptionAsync(Exception exp, [Optional] CancellationToken cancellationToken);
+
+        /// <summary>Call the corresponding method according to the type of update provided.</summary>
+        /// <param name="update">Update</param>
+        void ITelegramBot.OnUpdate(Update update)
+        {
+            OnUpdateAsync(update).Wait();
+        }
     }
 }
