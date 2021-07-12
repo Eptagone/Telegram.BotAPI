@@ -102,25 +102,6 @@ namespace Telegram.BotAPI
         /// <typeparam name="T">Response type.</typeparam>
         /// <param name="method">Method name. See <see cref="MethodNames"/></param>
         /// <param name="args">json parameters</param>
-        /// <param name="options">Json options to control serializer behavior during writting.</param>
-        /// <returns><see cref="BotResponse{T}"/></returns>
-        public BotResponse<T> PostRequest<T>(string method, Stream args, [Optional] JsonSerializerOptions options)
-        {
-            var response = PostRequestAsync<T>(method, args, options);
-            try
-            {
-                return response.Result;
-            }
-            catch (AggregateException exp)
-            {
-                throw exp.InnerException;
-            }
-        }
-
-        /// <summary>Makes a bot request using HTTP POST and returns the response.</summary>
-        /// <typeparam name="T">Response type.</typeparam>
-        /// <param name="method">Method name. See <see cref="MethodNames"/></param>
-        /// <param name="args">json parameters</param>
         /// <param name="serializeOptions">Options to control serialization behavior.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <returns><see cref="BotResponse{T}"/></returns>
@@ -137,6 +118,24 @@ namespace Telegram.BotAPI
             var stream = await Tools.SerializeAsStreamAsync(args, serializeOptions, cancellationToken)
                 .ConfigureAwait(false);
             return await PostRequestAsync<T>(method, stream, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>Makes a bot request using HTTP POST and returns the response.</summary>
+        /// <typeparam name="T">Response type.</typeparam>
+        /// <param name="method">Method name. See <see cref="MethodNames"/></param>
+        /// <param name="args">json parameters</param>
+        /// <returns><see cref="BotResponse{T}"/></returns>
+        public BotResponse<T> PostRequest<T>(string method, Stream args)
+        {
+            var response = PostRequestAsync<T>(method, args);
+            try
+            {
+                return response.Result;
+            }
+            catch (AggregateException exp)
+            {
+                throw exp.InnerException;
+            }
         }
 
         /// <summary>Makes a bot request using HTTP POST and returns the response.</summary>
@@ -322,8 +321,7 @@ namespace Telegram.BotAPI
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         internal async Task<T> RPCA<T>(string method, Stream args, [Optional] CancellationToken cancellationToken)
         {
-            var options = new JsonSerializerOptions();
-            var response = await PostRequestAsync<T>(method, args, options, cancellationToken).ConfigureAwait(false);
+            var response = await PostRequestAsync<T>(method, args, cancellationToken).ConfigureAwait(false);
             if (response.Ok == true)
             {
                 return response.Result;
