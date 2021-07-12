@@ -1,7 +1,7 @@
 # Telegram.BotAPI NET Documentation
 
 [![NuGet version (Telegram.BotAPI)](https://img.shields.io/nuget/v/Telegram.BotAPI.svg?style=flat-square)](https://www.nuget.org/packages/Telegram.BotAPI/)
-[![Compatible with Bot API v5.1](https://img.shields.io/badge/Bot%20API%20version-v5.1-blue?style=flat-square)](https://core.telegram.org/bots/api#march-9-2021)
+[![Compatible with Bot API v5.3](https://img.shields.io/badge/Bot%20API%20version-v5.3-blue?style=flat-square)](https://core.telegram.org/bots/api#june-25-2021)
 
 ## Getting started
 
@@ -37,8 +37,9 @@ All methods and object types used in the Telegram Bot API are separated into nam
 | Telegram.BotAPI.Stickers         | Contains methods and types for stickers          |
 | Telegram.BotAPI.InlineMode       | Contains methods and types for inline mode       |
 | Telegram.BotAPI.Payments         | Contains methods and types for payments          |
-| Telegram.BotAPI.TelegramPassport | Contains methods and types for Telegram Passport  |
+| Telegram.BotAPI.TelegramPassport | Contains methods and types for Telegram Passport |
 | Telegram.BotAPI.Games            | Contains methods and types for games             |
+| Telegram.BotAPI.Converters       | Contains converters to use with System.Text.json |
 
 For more detail of what each method does and the properties of each type, it is recommended to consult on the official website of the [Telegram Bot API](https://core.telegram.org/bots/api) while using the library.
 
