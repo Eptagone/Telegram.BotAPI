@@ -21,6 +21,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.Creator)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public User Creator { get; set; }
+        ///<summary>True, if users joining the chat via the link need to be approved by chat administrators.</summary>
+        [JsonPropertyName(PropertyNames.CreatesJoinRequest)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool CreatesJoinRequest { get; set; }
         ///<summary>True, if the link is primary.</summary>
         [JsonPropertyName(PropertyNames.IsPrimary)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -29,6 +33,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.IsRevoked)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool IsRevoked { get; set; }
+        ///<summary>Optional. Invite link name.</summary>
+        [JsonPropertyName(PropertyNames.Name)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Name { get; set; }
         ///<summary>Optional. Point in time (Unix timestamp) when the link will expire or has been expired.</summary>
         [JsonPropertyName(PropertyNames.ExpireDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -37,8 +45,12 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.MemberLimit)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public uint MemberLimit { get; set; }
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        ///<summary>Optional. Number of pending join requests created using this link.</summary>
+        [JsonPropertyName(PropertyNames.PendingJoinRequestCount)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public uint PendingJoinRequestCount { get; set; }
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
         {
             return Equals(obj as ChatInviteLink);
@@ -49,21 +61,27 @@ namespace Telegram.BotAPI.AvailableTypes
             return other != null &&
                    InviteLink == other.InviteLink &&
                    EqualityComparer<User>.Default.Equals(Creator, other.Creator) &&
+                   CreatesJoinRequest == other.CreatesJoinRequest &&
                    IsPrimary == other.IsPrimary &&
                    IsRevoked == other.IsRevoked &&
+                   Name == other.Name &&
                    ExpireDate == other.ExpireDate &&
-                   MemberLimit == other.MemberLimit;
+                   MemberLimit == other.MemberLimit &&
+                   PendingJoinRequestCount == other.PendingJoinRequestCount;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = -967213823;
+            int hashCode = 2030292606;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(InviteLink);
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(Creator);
+            hashCode = hashCode * -1521134295 + CreatesJoinRequest.GetHashCode();
             hashCode = hashCode * -1521134295 + IsPrimary.GetHashCode();
             hashCode = hashCode * -1521134295 + IsRevoked.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
             hashCode = hashCode * -1521134295 + ExpireDate.GetHashCode();
             hashCode = hashCode * -1521134295 + MemberLimit.GetHashCode();
+            hashCode = hashCode * -1521134295 + PendingJoinRequestCount.GetHashCode();
             return hashCode;
         }
 

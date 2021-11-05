@@ -16,12 +16,14 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <summary>Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as <see cref="ChatInviteLink"/> object.</summary>
         /// <param name="bot">BotClient</param>
         /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="name">Invite link name; 0-32 characters</param>
         /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire.</param>
         /// <param name="memberLimit">Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999.</param>
+        /// <param name="createsJoinRequest">True, if users joining the chat via the link need to be approved by chat administrators. If True, member_limit can't be specified</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatInviteLink"/></returns>
-        public static ChatInviteLink CreateChatInviteLink(this BotClient bot, long chatId, [Optional] uint? expireDate, [Optional] uint? memberLimit)
+        public static ChatInviteLink CreateChatInviteLink(this BotClient bot, long chatId, [Optional] string name, [Optional] uint? expireDate, [Optional] uint? memberLimit, [Optional] bool? createsJoinRequest)
         {
             if (bot == default)
             {
@@ -31,6 +33,10 @@ namespace Telegram.BotAPI.AvailableMethods
             using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
+            if (!string.IsNullOrEmpty(name))
+            {
+                json.WriteString(PropertyNames.Name, name);
+            }
             if (expireDate != null)
             {
                 json.WriteNumber(PropertyNames.ExpireDate, (uint)expireDate);
@@ -38,6 +44,10 @@ namespace Telegram.BotAPI.AvailableMethods
             if (memberLimit != null)
             {
                 json.WriteNumber(PropertyNames.MemberLimit, (uint)memberLimit);
+            }
+            if (createsJoinRequest != null)
+            {
+                json.WriteBoolean(PropertyNames.CreatesJoinRequest, (bool)createsJoinRequest);
             }
             json.WriteEndObject();
             json.Flush(); json.Dispose();
@@ -47,12 +57,14 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <summary>Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as <see cref="ChatInviteLink"/> object.</summary>
         /// <param name="bot">BotClient</param>
         /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="name">Invite link name; 0-32 characters</param>
         /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire.</param>
         /// <param name="memberLimit">Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999.</param>
+        /// <param name="createsJoinRequest">True, if users joining the chat via the link need to be approved by chat administrators. If True, member_limit can't be specified</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatInviteLink"/></returns>
-        public static ChatInviteLink CreateChatInviteLink(this BotClient bot, string chatId, [Optional] uint? expireDate, [Optional] uint? memberLimit)
+        public static ChatInviteLink CreateChatInviteLink(this BotClient bot, string chatId, [Optional] string name, [Optional] uint? expireDate, [Optional] uint? memberLimit, [Optional] bool? createsJoinRequest)
         {
             if (bot == default)
             {
@@ -63,6 +75,10 @@ namespace Telegram.BotAPI.AvailableMethods
             using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
+            if (!string.IsNullOrEmpty(name))
+            {
+                json.WriteString(PropertyNames.Name, name);
+            }
             if (expireDate != null)
             {
                 json.WriteNumber(PropertyNames.ExpireDate, (uint)expireDate);
@@ -70,6 +86,10 @@ namespace Telegram.BotAPI.AvailableMethods
             if (memberLimit != null)
             {
                 json.WriteNumber(PropertyNames.MemberLimit, (uint)memberLimit);
+            }
+            if (createsJoinRequest != null)
+            {
+                json.WriteBoolean(PropertyNames.CreatesJoinRequest, (bool)createsJoinRequest);
             }
             json.WriteEndObject();
             json.Flush(); json.Dispose();
@@ -79,13 +99,15 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <summary>Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as <see cref="ChatInviteLink"/> object.</summary>
         /// <param name="bot">BotClient</param>
         /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="name">Invite link name; 0-32 characters</param>
         /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire.</param>
         /// <param name="memberLimit">Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999.</param>
+        /// <param name="createsJoinRequest">True, if users joining the chat via the link need to be approved by chat administrators. If True, member_limit can't be specified</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatInviteLink"/></returns>
-        public static async Task<ChatInviteLink> CreateChatInviteLink(this BotClient bot, long chatId, [Optional] uint? expireDate, [Optional] uint? memberLimit, [Optional] CancellationToken cancellationToken)
+        public static async Task<ChatInviteLink> CreateChatInviteLink(this BotClient bot, long chatId, [Optional] string name, [Optional] uint? expireDate, [Optional] uint? memberLimit, [Optional] bool? createsJoinRequest, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -96,6 +118,10 @@ namespace Telegram.BotAPI.AvailableMethods
             using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
+            if (!string.IsNullOrEmpty(name))
+            {
+                json.WriteString(PropertyNames.Name, name);
+            }
             if (expireDate != null)
             {
                 json.WriteNumber(PropertyNames.ExpireDate, (uint)expireDate);
@@ -103,6 +129,10 @@ namespace Telegram.BotAPI.AvailableMethods
             if (memberLimit != null)
             {
                 json.WriteNumber(PropertyNames.MemberLimit, (uint)memberLimit);
+            }
+            if (createsJoinRequest != null)
+            {
+                json.WriteBoolean(PropertyNames.CreatesJoinRequest, (bool)createsJoinRequest);
             }
             json.WriteEndObject();
             await json.FlushAsync(cancellationToken).ConfigureAwait(false);
@@ -113,13 +143,15 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <summary>Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as <see cref="ChatInviteLink"/> object.</summary>
         /// <param name="bot">BotClient</param>
         /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="name">Invite link name; 0-32 characters</param>
         /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire.</param>
         /// <param name="memberLimit">Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999.</param>
+        /// <param name="createsJoinRequest">True, if users joining the chat via the link need to be approved by chat administrators. If True, member_limit can't be specified</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns><see cref="ChatInviteLink"/></returns>
-        public static async Task<ChatInviteLink> CreateChatInviteLink(this BotClient bot, string chatId, [Optional] uint? expireDate, [Optional] uint? memberLimit, [Optional] CancellationToken cancellationToken)
+        public static async Task<ChatInviteLink> CreateChatInviteLink(this BotClient bot, string chatId, [Optional] string name, [Optional] uint? expireDate, [Optional] uint? memberLimit, [Optional] bool? createsJoinRequest, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -130,6 +162,10 @@ namespace Telegram.BotAPI.AvailableMethods
             using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
+            if (!string.IsNullOrEmpty(name))
+            {
+                json.WriteString(PropertyNames.Name, name);
+            }
             if (expireDate != null)
             {
                 json.WriteNumber(PropertyNames.ExpireDate, (uint)expireDate);
@@ -137,6 +173,10 @@ namespace Telegram.BotAPI.AvailableMethods
             if (memberLimit != null)
             {
                 json.WriteNumber(PropertyNames.MemberLimit, (uint)memberLimit);
+            }
+            if (createsJoinRequest != null)
+            {
+                json.WriteBoolean(PropertyNames.CreatesJoinRequest, (bool)createsJoinRequest);
             }
             json.WriteEndObject();
             await json.FlushAsync(cancellationToken).ConfigureAwait(false);

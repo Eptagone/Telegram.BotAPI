@@ -10,21 +10,19 @@ using Telegram.BotAPI.AvailableTypes;
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 {
     /// <summary>This class contains a set of useful methods for formatting the text of messages.</summary>
-    public class StyleParser
+    public class FormattingBuilder
     {
-        /// <summary>Default StyleParser.</summary>
-        public static readonly StyleParser Default = new StyleParser();
         /// <summary>StyleFixer</summary>
         protected StyleFixer StyleFixer => _styleFixer;
         private readonly StyleFixer _styleFixer;
         /// <summary>Initialize a new instance of StyleParser.</summary>
-        public StyleParser()
+        public FormattingBuilder()
         {
             _styleFixer = StyleFixer.Default;
         }
         /// <summary>Initialize a new instance of StyleParser.</summary>
         /// <param name="styleFixer">Custom StyleFixer.</param>
-        public StyleParser(StyleFixer styleFixer)
+        public FormattingBuilder(StyleFixer styleFixer)
         {
             _styleFixer = styleFixer ?? StyleFixer.Default;
         }
@@ -295,5 +293,88 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
                 _ => text,
             };
         }
+    }
+
+    /// <summary>This class contains a set of useful methods for formatting the text of messages.</summary>
+    [Obsolete("This class has been replaced by FormattingBuilder and will be removed in future releases.")]
+    public class StyleParser
+    {
+        private FormattingBuilder _builder;
+        /// <summary>Default StyleParser.</summary>
+        public static readonly StyleParser Default = new StyleParser();
+        /// <summary>Initialize a new instance of StyleParser.</summary>
+        public StyleParser()
+        {
+            _builder = new FormattingBuilder();
+        }
+        /// <summary>Initialize a new instance of StyleParser.</summary>
+        /// <param name="styleFixer">Custom StyleFixer.</param>
+        public StyleParser(StyleFixer styleFixer)
+        {
+            _builder = new FormattingBuilder(styleFixer);
+        }
+        /// <summary>Create new stylized text from message entities.</summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="input">Input text.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <param name="entities">Message entities.</param>
+        /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string FromEntities<T>(string input, ParseModeKind parseMode, T entities, bool useFixer = true) where T : IEnumerable<MessageEntity> => _builder.FromEntities<T>(input, parseMode, entities, useFixer);
+        /// <summary> Format text. Bold. </summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string Bold(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true) => _builder.Bold(input, parseMode, useFixer);
+        /// <summary> Format text. Italic. </summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string Italic(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true) => _builder.Italic(input, parseMode, useFixer);
+        /// <summary> Format text. Underline. </summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string Underline(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true) => _builder.Underline(input, parseMode, useFixer);
+        /// <summary> Format text. Strikethrough. </summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string Strikethrough(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true) => _builder.Strikethrough(input, parseMode, useFixer);
+        /// <summary> Format text. Code. </summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string Code(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true) => _builder.Code(input, parseMode, useFixer);
+        /// <summary> Format text. Pre. </summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string Pre(string input, ParseModeKind parseMode = ParseModeKind.Markdown) => _builder.Pre(input, parseMode);
+        /// <summary> Format text. Pre. </summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="language">Programming language. Ex: python</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string Pre(string input, string language, ParseModeKind parseMode = ParseModeKind.Markdown) => _builder.Pre(input, language, parseMode);
+        /// <summary> Format text. Text link. </summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="url">Url.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string TextLink(string input, string url, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true) => _builder.TextLink(input, url, parseMode, useFixer);
+        /// <summary> Format text. Text Mention. </summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="userId">Unique identifier for this user or bot.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+        /// <returns>Stylized <see cref="string"/></returns>
+        public virtual string TextMention(string input, long userId, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true) => _builder.TextMention(input, userId, parseMode, useFixer);
     }
 }

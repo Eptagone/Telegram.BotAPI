@@ -1,7 +1,7 @@
 ﻿// Copyright (c) 2021 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-namespace Telegram.BotAPI
+namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>Defines the basic properties of a Telegram chat.</summary>
     public interface ITelegramChat
@@ -19,6 +19,6 @@ namespace Telegram.BotAPI
         /// <summary>Optional. Chat invite link, for supergroups and channel chats.</summary>
         public string InviteLink { get; set; }
         /// <summary>Optional. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats.</summary>
-        public long LinkedChatId { get; set; }
+        public long? LinkedChatId { get; set; }
     }
 }

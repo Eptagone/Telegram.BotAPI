@@ -12,11 +12,13 @@ namespace Telegram.BotAPI
         public const string AnswerInlineQuery = "answerInlineQuery";
         public const string AnswerPreCheckoutQuery = "answerPreCheckoutQuery";
         public const string AnswerShippingQuery = "answerShippingQuery";
+        public const string ApproveChatJoinRequest = "approveChatJoinRequest";
         public const string BanChatMember = "banChatMember";
         public const string Close = "close";
         public const string CopyMessage = "copyMessage";
         public const string CreateChatInviteLink = "createChatInviteLink";
         public const string CreateNewStickerSet = "createNewStickerSet";
+        public const string DeclineChatJoinRequest = "declineChatJoinRequest";
         public const string DeleteChatPhoto = "deleteChatPhoto";
         public const string DeleteChatStickerSet = "deleteChatStickerSet";
         public const string DeleteMessage = "deleteMessage";

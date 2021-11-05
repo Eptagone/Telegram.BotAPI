@@ -73,6 +73,10 @@ namespace Telegram.BotAPI.GettingUpdates
         [JsonPropertyName(PropertyNames.ChatMember)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public ChatMemberUpdated ChatMember { get; set; }
+        ///<summary>Optional. A request to join the chat has been sent. The bot must have the can_invite_users administrator right in the chat to receive these updates.</summary>
+        [JsonPropertyName(PropertyNames.ChatJoinRequest)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public ChatJoinRequest ChatJoinRequest { get; set; }
 
         /// <summary>Update type.</summary>
         [System.Text.Json.Serialization.JsonIgnore]
@@ -133,6 +137,10 @@ namespace Telegram.BotAPI.GettingUpdates
                 {
                     return UpdateType.ChatMember;
                 }
+                else if (ChatJoinRequest != default)
+                {
+                    return UpdateType.ChatMember;
+                }
                 else
                 {
                     return UpdateType.Unknown;
@@ -163,12 +171,13 @@ namespace Telegram.BotAPI.GettingUpdates
                    EqualityComparer<PollAnswer>.Default.Equals(PollAnswer, other.PollAnswer) &&
                    EqualityComparer<ChatMemberUpdated>.Default.Equals(MyChatMember, other.MyChatMember) &&
                    EqualityComparer<ChatMemberUpdated>.Default.Equals(ChatMember, other.ChatMember) &&
+                   EqualityComparer<ChatJoinRequest>.Default.Equals(ChatJoinRequest, other.ChatJoinRequest) &&
                    Type == other.Type;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 588287350;
+            int hashCode = 990428338;
             hashCode = hashCode * -1521134295 + UpdateId.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Message>.Default.GetHashCode(Message);
             hashCode = hashCode * -1521134295 + EqualityComparer<Message>.Default.GetHashCode(EditedMessage);
@@ -183,6 +192,7 @@ namespace Telegram.BotAPI.GettingUpdates
             hashCode = hashCode * -1521134295 + EqualityComparer<PollAnswer>.Default.GetHashCode(PollAnswer);
             hashCode = hashCode * -1521134295 + EqualityComparer<ChatMemberUpdated>.Default.GetHashCode(MyChatMember);
             hashCode = hashCode * -1521134295 + EqualityComparer<ChatMemberUpdated>.Default.GetHashCode(ChatMember);
+            hashCode = hashCode * -1521134295 + EqualityComparer<ChatJoinRequest>.Default.GetHashCode(ChatJoinRequest);
             hashCode = hashCode * -1521134295 + Type.GetHashCode();
             return hashCode;
         }
@@ -196,7 +206,6 @@ namespace Telegram.BotAPI.GettingUpdates
         {
             return !(left == right);
         }
-
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

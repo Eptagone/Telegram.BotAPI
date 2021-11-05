@@ -22,11 +22,11 @@ namespace Telegram.BotAPI.AvailableMethods
         [JsonPropertyName(PropertyNames.Thumb)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public object Thumb { get; set; }
-        ///<summary>Document caption (may also be used when resending documents by file_id), 0-1024 characters.</summary>
+        ///<summary>Document caption (may also be used when resending documents by file_id), 0-1024 characters after entities parsing.</summary>
         [JsonPropertyName(PropertyNames.Caption)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Caption { get; set; }
-        /// <summary>Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</summary>
+        /// <summary>Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</summary>
         [JsonPropertyName(PropertyNames.ParseMode)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string ParseMode { get; set; }
@@ -34,6 +34,11 @@ namespace Telegram.BotAPI.AvailableMethods
         [JsonPropertyName(PropertyNames.CaptionEntities)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public MessageEntity[] CaptionEntities { get; set; }
+        /// <summary>Optional. Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always true, if the document is sent as part of an album.</summary>
+        [JsonPropertyName(PropertyNames.DisableContentTypeDetection)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? DisableContentTypeDetection { get; set; }
+
         /// <summary>Attached files.</summary>
         [System.Text.Json.Serialization.JsonIgnore]
         public List<AttachFile> AttachFiles { get; set; } = new List<AttachFile>();

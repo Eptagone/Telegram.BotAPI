@@ -33,6 +33,8 @@ namespace Telegram.BotAPI
         /// <summary>My chat member update</summary>
         MyChatMember,
         /// <summary>Chat member update</summary>
-        ChatMember
+        ChatMember,
+        /// <summary>Chat join request update</summary>
+        ChatJoinRequest
     }
 }

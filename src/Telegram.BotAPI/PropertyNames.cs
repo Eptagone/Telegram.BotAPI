@@ -54,6 +54,7 @@ namespace Telegram.BotAPI
         public const string Chat = CommonNames.Chat;
         public const string ChatId = "chat_id";
         public const string ChatInstance = "chat_instance";
+        public const string ChatJoinRequest = CommonNames.ChatJoinRequest;
         public const string ChatMember = CommonNames.ChatMember;
         public const string ChatType = "chat_type";
         public const string ChosenInlineResult = CommonNames.ChosenInlineResult;
@@ -66,6 +67,7 @@ namespace Telegram.BotAPI
         public const string ContainsMasks = "contains_masks";
         public const string CorrectOptionId = "correct_option_id";
         public const string CountryCode = "country_code";
+        public const string CreatesJoinRequest = "creates_join_request";
         public const string Creator = "creator";
         public const string Credentials = "credentials";
         public const string Currency = "currency";
@@ -218,6 +220,7 @@ namespace Telegram.BotAPI
         public const string PassportData = "passport_data";
         public const string Pay = "pay";
         public const string Payload = "payload";
+        public const string PendingJoinRequestCount = "pending_join_request_count";
         public const string PendingUpdateCount = "pending_update_count";
         public const string Performer = "performer";
         public const string Permissions = "permissions";

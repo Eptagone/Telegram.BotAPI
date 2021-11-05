@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>3.0</Version>
+    <Version>4.0</Version>
     <PackageId>Telegram.BotAPI</PackageId>
     <Authors>Quetzal Rivera</Authors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -11,9 +11,8 @@
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Description>This is a very complete library to use Telegram Bot Api in your NET project. Full support for Bot API v5.3 (June 25, 2021).
-
-It contains all classes and methods available from the Bot Api.</Description>
+    <Description>A very complete library to use Telegram Bot Api in your NET project. Full support for Bot API v5.4 (November 5, 2021).
+- Contains all classes and methods available from the Bot Api.</Description>
     <PackageTags>Telegram Bot API</PackageTags>
     <Title>Telegram Bot API</Title>
     <OutputType>Library</OutputType>
@@ -25,13 +24,17 @@ It contains all classes and methods available from the Bot Api.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
     <PackageIcon>packicon.png</PackageIcon>
-    <AssemblyVersion>3.0.0.*</AssemblyVersion>
-    <FileVersion>3.0.0.0</FileVersion>
+    <AssemblyVersion>4.0.0.*</AssemblyVersion>
+    <FileVersion>4.0.0.0</FileVersion>
     <Deterministic>false</Deterministic>
     <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <AssemblyName>Telegram.BotAPI</AssemblyName>
-    <PackageReleaseNotes>- Updated to Bot API 5.3</PackageReleaseNotes>
+    <PackageReleaseNotes>- Updated to Bot API 5.4
+- Added more overloaded methods
+- ParseMode has been moved to Telegram.BotAPI.AvailableMethods.FormattingOptions-
+- Build or copy formatted text using FormattingBuilder.
+- ITelegramChat and ITelegramUser interfaces have been moved to AvailableTypes</PackageReleaseNotes>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 

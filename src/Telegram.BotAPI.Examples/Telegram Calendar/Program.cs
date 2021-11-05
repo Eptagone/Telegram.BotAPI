@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using Telegram.BotAPI;
+using Telegram.BotAPI.AvailableMethods.FormattingOptions;
 using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.GettingUpdates;
@@ -48,7 +49,7 @@ namespace Telegram_Calendar
             {
                 var rm = new InlineKeyboardMarkup
                 {
-                    InlineKeyboard = CreateCalendar(2021)
+                    InlineKeyboard = CreateCalendar(DateTime.Now)
                 };
                 bot.SendMessage(message.Chat.Id, "🗓 <b>Telegram Bot Calendar</b> 🗓", parseMode: ParseMode.HTML, replyMarkup: rm);
             }
@@ -93,6 +94,32 @@ namespace Telegram_Calendar
                     break;
             }
 
+        }
+        public static InlineKeyboardButton[][] CreateCalendar(DateTime dateTime)
+        {
+            var year = dateTime.Year;
+            var keyboard = new InlineKeyboardButton[6][];
+            keyboard[0] = new InlineKeyboardButton[1]{
+                InlineKeyboardButton.SetCallbackData($"{year}", $"Year {year}")
+            };
+            for (int i = 1, n = 0; i < 5; i++)
+            {
+                keyboard[i] = new InlineKeyboardButton[3];
+                for (int j = 0; j < 3; j++, n++)
+                {
+                    var month = (MonthName)n;
+                    keyboard[i][j] = new InlineKeyboardButton
+                    {
+                        Text = $"{month}",
+                        CallbackData = $"month {year} {n}"
+                    };
+                }
+            }
+            keyboard[5] = new InlineKeyboardButton[2]{
+                InlineKeyboardButton.SetCallbackData($"{year - 1}",$"year {year - 1}"),
+                InlineKeyboardButton.SetCallbackData($"{year + 1}",$"year {year + 1}")
+            };
+            return keyboard;
         }
         public static InlineKeyboardButton[][] CreateCalendar(Month mon)
         {

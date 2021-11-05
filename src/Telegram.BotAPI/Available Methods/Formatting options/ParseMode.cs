@@ -1,10 +1,7 @@
 // Copyright (c) 2021 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System;
-using Telegram.BotAPI.AvailableMethods.FormattingOptions;
-
-namespace Telegram.BotAPI.AvailableMethods
+namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 {
     /// <summary><b>Formatting options</b><br/>
     /// <para>The Bot API supports basic formatting for messages. You can use bold, italic, underlined and strikethrough text, as well as inline links and pre-formatted code in your bots' messages. Telegram clients will render them accordingly. You can use either markdown-style or HTML-style formatting.</para>
@@ -83,22 +80,5 @@ namespace Telegram.BotAPI.AvailableMethods
         /// • Use nested <i>pre</i> and <i>code</i> tags, to define programming language for <i>pre</i> entity. <br/>
         /// • Programming language can't be specified for standalone <i>code</i> tags.</para></summary>
         public const string HTML = "HTML";
-        /// <summary>Replaces symbols that are not part of an HTML tag or entity with HTML entities (&lt; with &amp;lt;, &gt; with &amp;gt; and &amp; with &amp;amp;).
-        /// <br/><b>OBSOLETE</b>: This method has been renamed and moved to <see cref="StyleFixer.FixToHTML(string)"/></summary>
-        /// <param name="input">Input text.</param>
-        /// <returns>String with HTML entities.</returns>
-        [Obsolete("This method will be removed in future versions.")]
-        public static string ParseHTML(this string input) => StyleFixer.Default.FixToHTML(input);
-
-        /// <summary>Prepends the character '\' for the escape characters: '_', '*', '`', '['.
-        /// <br/><b>OBSOLETE</b>: This method has been renamed and moved to <see cref="StyleFixer.FixToMarkdown(string)"/></summary>
-        /// <param name="input">Input text.</param>
-        [Obsolete("This method will be removed in future versions.")]
-        public static string ParseMarkdown(this string input) => StyleFixer.Default.FixToMarkdown(input);
-        /// <summary>Prepends the character '\' for the escape characters: '_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'.
-        /// <br/><b>OBSOLETE</b>: This method has been renamed and moved to <see cref="StyleFixer.FixToMarkdownV2(string)"/></summary>
-        /// <param name="input">Input text.</param>
-        [Obsolete("This method will be removed in future versions.")]
-        public static string ParseMarkdownV2(this string input) => StyleFixer.Default.FixToMarkdownV2(input);
     }
 }

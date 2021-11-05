@@ -17,6 +17,7 @@ namespace BotTemplateSample
         public static User Me = Bot.GetMe();
         public static void StartPolling()
         {
+            Bot.DeleteWebhook();
             var updates = Bot.GetUpdates<IEnumerable<Update>>();
             while (true)
             {

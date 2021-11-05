@@ -76,7 +76,7 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Optional. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier. Returned only in getChat.</summary>
         [JsonPropertyName(PropertyNames.LinkedChatId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public long LinkedChatId { get; set; }
+        public long? LinkedChatId { get; set; }
         /// <summary>Optional. For supergroups, the location to which the supergroup is connected. Returned only in getChat.</summary>
         [JsonPropertyName(PropertyNames.Location)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

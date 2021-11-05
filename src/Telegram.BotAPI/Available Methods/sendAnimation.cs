@@ -42,14 +42,16 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="thumb">Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt; <a href="https://core.telegram.org/bots/api#sending-files">More Info in Sending Files</a></param>
         /// <param name="caption">Optional. Animation caption (may also be used when resending animation by file_id), 0-1024 characters.</param>
         /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
+        /// <param name="captionEntities">List of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
         /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
         /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
         /// <param name="replyMarkup">Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
         /// <param name="attachFiles">Attached files.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendAnimation(this BotClient bot, string chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles)
+        public static Message SendAnimation(this BotClient bot, string chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] MessageEntity[] captionEntities, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles)
         {
             return bot.SendAnimation(new SendAnimationArgs
             {
@@ -61,8 +63,10 @@ namespace Telegram.BotAPI.AvailableMethods
                 Thumb = thumb,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup,
                 AttachFiles = attachFiles
             });
@@ -78,14 +82,16 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="thumb">Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt; <a href="https://core.telegram.org/bots/api#sending-files">More Info in Sending Files</a></param>
         /// <param name="caption">Optional. Animation caption (may also be used when resending animation by file_id), 0-1024 characters.</param>
         /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
+        /// <param name="captionEntities">List of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
         /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
         /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
         /// <param name="replyMarkup">Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
         /// <param name="attachFiles">Attached files.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendAnimation(this BotClient bot, long chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles)
+        public static Message SendAnimation(this BotClient bot, long chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] MessageEntity[] captionEntities, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles)
         {
             return bot.SendAnimation(new SendAnimationArgs
             {
@@ -97,8 +103,10 @@ namespace Telegram.BotAPI.AvailableMethods
                 Thumb = thumb,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup,
                 AttachFiles = attachFiles
             });
@@ -114,13 +122,15 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="thumb">Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt; <a href="https://core.telegram.org/bots/api#sending-files">More Info in Sending Files</a></param>
         /// <param name="caption">Optional. Animation caption (may also be used when resending animation by file_id), 0-1024 characters.</param>
         /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
+        /// <param name="captionEntities">List of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
         /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
         /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
         /// <param name="replyMarkup">Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendAnimation(this BotClient bot, string chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup)
+        public static Message SendAnimation(this BotClient bot, string chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] MessageEntity[] captionEntities, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup)
         {
             return bot.SendAnimation(new SendAnimationArgs
             {
@@ -132,8 +142,10 @@ namespace Telegram.BotAPI.AvailableMethods
                 Thumb = thumb,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup
             });
         }
@@ -148,13 +160,15 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="thumb">Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt; <a href="https://core.telegram.org/bots/api#sending-files">More Info in Sending Files</a></param>
         /// <param name="caption">Optional. Animation caption (may also be used when resending animation by file_id), 0-1024 characters.</param>
         /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
+        /// <param name="captionEntities">List of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
         /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
         /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
         /// <param name="replyMarkup">Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static Message SendAnimation(this BotClient bot, long chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup)
+        public static Message SendAnimation(this BotClient bot, long chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] MessageEntity[] captionEntities, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup)
         {
             return bot.SendAnimation(new SendAnimationArgs
             {
@@ -166,8 +180,10 @@ namespace Telegram.BotAPI.AvailableMethods
                 Thumb = thumb,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup
             });
         }
@@ -203,15 +219,17 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="thumb">Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt; <a href="https://core.telegram.org/bots/api#sending-files">More Info in Sending Files</a></param>
         /// <param name="caption">Optional. Animation caption (may also be used when resending animation by file_id), 0-1024 characters.</param>
         /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
+        /// <param name="captionEntities">List of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
         /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
         /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
         /// <param name="replyMarkup">Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
         /// <param name="attachFiles">Attached files.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendAnimationAsync(this BotClient bot, string chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendAnimationAsync(this BotClient bot, string chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] MessageEntity[] captionEntities, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles, [Optional] CancellationToken cancellationToken)
         {
             return await bot.SendAnimationAsync(new SendAnimationArgs
             {
@@ -223,8 +241,10 @@ namespace Telegram.BotAPI.AvailableMethods
                 Thumb = thumb,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup,
                 AttachFiles = attachFiles
             }, cancellationToken).ConfigureAwait(false);
@@ -240,15 +260,17 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="thumb">Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt; <a href="https://core.telegram.org/bots/api#sending-files">More Info in Sending Files</a></param>
         /// <param name="caption">Optional. Animation caption (may also be used when resending animation by file_id), 0-1024 characters.</param>
         /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
+        /// <param name="captionEntities">List of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
         /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
         /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
         /// <param name="replyMarkup">Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
         /// <param name="attachFiles">Attached files.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendAnimationAsync(this BotClient bot, long chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendAnimationAsync(this BotClient bot, long chatId, string animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string thumb, [Optional] string caption, [Optional] string parseMode, [Optional] MessageEntity[] captionEntities, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] List<AttachFile> attachFiles, [Optional] CancellationToken cancellationToken)
         {
             return await bot.SendAnimationAsync(new SendAnimationArgs
             {
@@ -260,8 +282,10 @@ namespace Telegram.BotAPI.AvailableMethods
                 Thumb = thumb,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup,
                 AttachFiles = attachFiles
             }, cancellationToken).ConfigureAwait(false);
@@ -277,14 +301,16 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="thumb">Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt; <a href="https://core.telegram.org/bots/api#sending-files">More Info in Sending Files</a></param>
         /// <param name="caption">Optional. Animation caption (may also be used when resending animation by file_id), 0-1024 characters.</param>
         /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
+        /// <param name="captionEntities">List of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
         /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
         /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
         /// <param name="replyMarkup">Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendAnimationAsync(this BotClient bot, string chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendAnimationAsync(this BotClient bot, string chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] MessageEntity[] captionEntities, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
         {
             return await bot.SendAnimationAsync(new SendAnimationArgs
             {
@@ -296,8 +322,10 @@ namespace Telegram.BotAPI.AvailableMethods
                 Thumb = thumb,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup,
             }, cancellationToken).ConfigureAwait(false);
         }
@@ -312,14 +340,16 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="thumb">Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt; <a href="https://core.telegram.org/bots/api#sending-files">More Info in Sending Files</a></param>
         /// <param name="caption">Optional. Animation caption (may also be used when resending animation by file_id), 0-1024 characters.</param>
         /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
+        /// <param name="captionEntities">List of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
         /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
         /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
         /// <param name="replyMarkup">Optional. Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
         /// <returns>Message Object.</returns>
-        public static async Task<Message> SendAnimationAsync(this BotClient bot, long chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendAnimationAsync(this BotClient bot, long chatId, InputFile animation, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile thumb, [Optional] string caption, [Optional] string parseMode, [Optional] MessageEntity[] captionEntities, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
         {
             return await bot.SendAnimationAsync(new SendAnimationArgs
             {
@@ -331,8 +361,10 @@ namespace Telegram.BotAPI.AvailableMethods
                 Thumb = thumb,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup,
             }, cancellationToken).ConfigureAwait(false);
         }

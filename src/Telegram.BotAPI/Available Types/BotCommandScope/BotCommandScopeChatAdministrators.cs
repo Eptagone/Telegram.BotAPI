@@ -13,6 +13,23 @@ namespace Telegram.BotAPI.AvailableTypes
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class BotCommandScopeChatAdministrators : BotCommandScope, IEquatable<BotCommandScopeChatAdministrators>
     {
+        /// <summary>Inititalize a new instance of <see cref="BotCommandScopeAllChatAdministrators"/>.</summary>
+        public BotCommandScopeChatAdministrators()
+        {
+        }
+        /// <summary>Inititalize a new instance of <see cref="BotCommandScopeAllChatAdministrators"/>.</summary>
+        /// <param name="chatId"><see cref="long"/> or <see cref="string"/>. Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
+        public BotCommandScopeChatAdministrators(long chatId)
+        {
+            ChatId = chatId;
+        }
+        /// <summary>Inititalize a new instance of <see cref="BotCommandScopeAllChatAdministrators"/>.</summary>
+        /// <param name="chatId"><see cref="long"/> or <see cref="string"/>. Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
+        public BotCommandScopeChatAdministrators(string chatId)
+        {
+            ChatId = chatId;
+        }
+
         /// <summary>Scope type, must be chat_administrators.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

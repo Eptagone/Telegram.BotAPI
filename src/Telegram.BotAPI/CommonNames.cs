@@ -12,6 +12,7 @@ namespace Telegram.BotAPI
         public const string CallbackQuery = "callback_query";
         public const string Chat = "chat";
         public const string ChannelPost = "channel_post";
+        public const string ChatJoinRequest = "chat_join_request";
         public const string ChatMember = "chat_member";
         public const string ChosenInlineResult = "chosen_inline_result";
         public const string Contact = "contact";

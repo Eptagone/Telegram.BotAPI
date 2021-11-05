@@ -1,7 +1,7 @@
 ﻿// Copyright (c) 2021 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-namespace Telegram.BotAPI
+namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>Defines the basic properties of a Telegram user.</summary>
     public interface ITelegramUser
