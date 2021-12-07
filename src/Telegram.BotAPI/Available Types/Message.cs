@@ -61,6 +61,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.ForwardDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public uint ForwardDate { get; set; }
+        /// <summary>Optional. True, if the message is a channel post that was automatically forwarded to the connected discussion group.</summary>
+        [JsonPropertyName(PropertyNames.IsAutomaticForward)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool IsAutomaticForward { get; set; }
         ///<summary>Optional. For replies, the original message. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply.</summary>
         [JsonPropertyName(PropertyNames.ReplyToMessage)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -73,6 +77,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.EditDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public uint EditDate { get; set; }
+        ///<summary>Optional. True, if the message can't be forwarded.</summary>
+        [JsonPropertyName(PropertyNames.HasProtectedContent)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool HasProtectedContent { get; set; }
         ///<summary>Optional. The unique identifier of a media message group this message belongs to.</summary>
         [JsonPropertyName(PropertyNames.MediaGroupId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -133,7 +141,7 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.Contact)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public Contact Contact { get; set; }
-        ///<summary>Optional. Message is a dice with random value from 1 to 6</summary>
+        ///<summary>Optional. Message is a dice with random value.</summary>
         [JsonPropertyName(PropertyNames.Dice)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public Dice Dice { get; set; }
@@ -263,9 +271,11 @@ namespace Telegram.BotAPI.AvailableTypes
                    ForwardSignature == other.ForwardSignature &&
                    ForwardSenderName == other.ForwardSenderName &&
                    ForwardDate == other.ForwardDate &&
+                   IsAutomaticForward == other.IsAutomaticForward &&
                    EqualityComparer<Message>.Default.Equals(ReplyToMessage, other.ReplyToMessage) &&
                    EqualityComparer<User>.Default.Equals(ViaBot, other.ViaBot) &&
                    EditDate == other.EditDate &&
+                   HasProtectedContent == other.HasProtectedContent &&
                    MediaGroupId == other.MediaGroupId &&
                    AuthorSignature == other.AuthorSignature &&
                    Text == other.Text &&
@@ -312,7 +322,7 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public override int GetHashCode()
         {
-            int hashCode = -650007175;
+            int hashCode = -606725346;
             hashCode = hashCode * -1521134295 + MessageId.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(From);
             hashCode = hashCode * -1521134295 + EqualityComparer<Chat>.Default.GetHashCode(SenderChat);
@@ -324,9 +334,11 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ForwardSignature);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ForwardSenderName);
             hashCode = hashCode * -1521134295 + ForwardDate.GetHashCode();
+            hashCode = hashCode * -1521134295 + IsAutomaticForward.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Message>.Default.GetHashCode(ReplyToMessage);
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(ViaBot);
             hashCode = hashCode * -1521134295 + EditDate.GetHashCode();
+            hashCode = hashCode * -1521134295 + HasProtectedContent.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(MediaGroupId);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(AuthorSignature);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Text);
@@ -381,6 +393,7 @@ namespace Telegram.BotAPI.AvailableTypes
         {
             return !(left == right);
         }
+
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

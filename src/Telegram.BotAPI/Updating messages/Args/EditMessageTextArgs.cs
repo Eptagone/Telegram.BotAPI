@@ -40,7 +40,7 @@ namespace Telegram.BotAPI.UpdatingMessages
         ///<summary>Disables link previews for links in this message</summary>
         [JsonPropertyName(PropertyNames.DisableWebPagePreview)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool DisableWebPagePreview { get; set; }
+        public bool? DisableWebPagePreview { get; set; }
         ///<summary>A <see cref="InlineKeyboardMarkup"/> object for an inline keyboard.</summary>
         [JsonPropertyName(PropertyNames.ReplyMarkup)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

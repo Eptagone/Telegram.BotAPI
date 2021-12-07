@@ -75,7 +75,7 @@ namespace Telegram.BotAPI
         /// <returns><see cref="BotResponse{T}"/></returns>
         public async Task<BotResponse<T>> GetRequestAsync<T>(string method, [Optional] CancellationToken cancellationToken)
         {
-            using var request = new HttpRequestMessage(HttpMethod.Get, $"https://api.telegram.org/bot{botToken}/{method}");
+            using var request = new HttpRequestMessage(HttpMethod.Get, $"https://api.telegram.org/bot{Token}/{method}");
             return await SendRequestAsync<T>(request, cancellationToken).ConfigureAwait(false);
         }
 
@@ -146,7 +146,7 @@ namespace Telegram.BotAPI
         /// <returns><see cref="BotResponse{T}"/></returns>
         public async Task<BotResponse<T>> PostRequestAsync<T>(string method, Stream args, [Optional] CancellationToken cancellationToken)
         {
-            using var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.telegram.org/bot{botToken}/{method}")
+            using var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.telegram.org/bot{Token}/{method}")
             {
                 Content = new StreamContent(args)
             };
@@ -162,7 +162,7 @@ namespace Telegram.BotAPI
         /// <returns><see cref="BotResponse{T}"/></returns>
         public async Task<BotResponse<T>> PostRequestAsyncMultipartFormData<T>(string method, MultipartFormDataContent args, CancellationToken cancellationToken)
         {
-            using var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.telegram.org/bot{botToken}/{method}")
+            using var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.telegram.org/bot{Token}/{method}")
             {
                 Content = args
             };
@@ -410,7 +410,7 @@ namespace Telegram.BotAPI
                     }
                 }
             }
-            var response = await PostRequestAsyncMultipartFormData<T>(method, content, cancellationToken == null ? default : cancellationToken).ConfigureAwait(false);
+            var response = await PostRequestAsyncMultipartFormData<T>(method, content, cancellationToken).ConfigureAwait(false);
             content.Dispose();
             if (response.Ok == true)
             {

@@ -138,6 +138,8 @@ namespace Telegram.BotAPI
         public const string GroupChatCreated = "group_chat_created";
         public const string HasCustomCertificate = "has_custom_certificate";
         public const string Hash = "hash";
+        public const string HasPrivateForwards = "has_private_forwards";
+        public const string HasProtectedContent = "has_protected_content";
         public const string Heading = "heading";
         public const string Height = "height";
         public const string HideUrl = "hide_url";
@@ -155,6 +157,7 @@ namespace Telegram.BotAPI
         public const string IpAddress = "ip_address";
         public const string IsAnimated = "is_animated";
         public const string IsAnonymous = "is_anonymous";
+        public const string IsAutomaticForward = "is_automatic_forward";
         public const string IsBot = "is_bot";
         public const string IsClosed = "is_closed";
         public const string IsFlexible = "is_flexible";
@@ -271,6 +274,7 @@ namespace Telegram.BotAPI
         public const string Selfie = "selfie";
         public const string SendEmailToProvider = "send_email_to_provider";
         public const string SenderChat = "sender_chat";
+        public const string SenderChatId = "sender_chat_id";
         public const string SendPhoneNumberToProvider = "send_phone_number_to_provider";
         public const string SetName = "set_name";
         public const string ShippingAddress = "shipping_address";

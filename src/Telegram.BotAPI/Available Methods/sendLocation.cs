@@ -47,5 +47,160 @@ namespace Telegram.BotAPI.AvailableMethods
 
             return await bot.RPCA<Message>(MethodNames.SendLocation, args, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
+
+        /// <summary>Use this method to send point on the map. On success, the sent Message is returned.</summary>
+        /// <param name="bot">BotClient</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
+        /// <param name="latitude">Latitude of the location</param>
+        /// <param name="longitude">Longitude of the location</param>
+        /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
+        /// <param name="livePeriod">Period in seconds for which the location will be updated (see Live Locations, should be between 60 and 86400.</param>
+        /// <param name="heading">For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
+        /// <param name="proximityAlertRadius">For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+
+        public static Message SendLocation(this BotClient bot, long chatId, float latitude, float longitude, [Optional] float? horizontalAccuracy, [Optional] uint? livePeriod, [Optional] ushort? heading, [Optional] uint? proximityAlertRadius, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup)
+        {
+            if (bot == default)
+            {
+                throw new ArgumentNullException(nameof(bot));
+            }
+            var args = new SendLocationArgs
+            {
+                ChatId = chatId,
+                Latitude = latitude,
+                Longitude = longitude,
+                HorizontalAccuracy = horizontalAccuracy,
+                LivePeriod = livePeriod,
+                Heading = heading,
+                ProximityAlertRadius = proximityAlertRadius,
+                DisableNotification = disableNotification,
+                ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
+                ReplyMarkup = replyMarkup
+            };
+            return bot.SendLocation(args);
+        }
+        /// <summary>Use this method to send point on the map. On success, the sent Message is returned.</summary>
+        /// <param name="bot">BotClient</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
+        /// <param name="latitude">Latitude of the location</param>
+        /// <param name="longitude">Longitude of the location</param>
+        /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
+        /// <param name="livePeriod">Period in seconds for which the location will be updated (see Live Locations, should be between 60 and 86400.</param>
+        /// <param name="heading">For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
+        /// <param name="proximityAlertRadius">For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+
+        public static Message SendLocation(this BotClient bot, string chatId, float latitude, float longitude, [Optional] float? horizontalAccuracy, [Optional] uint? livePeriod, [Optional] ushort? heading, [Optional] uint? proximityAlertRadius, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup)
+        {
+            if (bot == default)
+            {
+                throw new ArgumentNullException(nameof(bot));
+            }
+            var args = new SendLocationArgs
+            {
+                ChatId = chatId,
+                Latitude = latitude,
+                Longitude = longitude,
+                HorizontalAccuracy = horizontalAccuracy,
+                LivePeriod = livePeriod,
+                Heading = heading,
+                ProximityAlertRadius = proximityAlertRadius,
+                DisableNotification = disableNotification,
+                ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
+                ReplyMarkup = replyMarkup
+            };
+            return bot.SendLocation(args);
+        }
+        /// <summary>Use this method to send point on the map. On success, the sent Message is returned.</summary>
+        /// <param name="bot">BotClient</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
+        /// <param name="latitude">Latitude of the location</param>
+        /// <param name="longitude">Longitude of the location</param>
+        /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
+        /// <param name="livePeriod">Period in seconds for which the location will be updated (see Live Locations, should be between 60 and 86400.</param>
+        /// <param name="heading">For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
+        /// <param name="proximityAlertRadius">For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+
+        public static async Task<Message> SendLocationAsync(this BotClient bot, long chatId, float latitude, float longitude, [Optional] float? horizontalAccuracy, [Optional] uint? livePeriod, [Optional] ushort? heading, [Optional] uint? proximityAlertRadius, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        {
+            if (bot == default)
+            {
+                throw new ArgumentNullException(nameof(bot));
+            }
+            var args = new SendLocationArgs
+            {
+                ChatId = chatId,
+                Latitude = latitude,
+                Longitude = longitude,
+                HorizontalAccuracy = horizontalAccuracy,
+                LivePeriod = livePeriod,
+                Heading = heading,
+                ProximityAlertRadius = proximityAlertRadius,
+                DisableNotification = disableNotification,
+                ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
+                ReplyMarkup = replyMarkup
+            };
+            return await bot.SendLocationAsync(args, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>Use this method to send point on the map. On success, the sent Message is returned.</summary>
+        /// <param name="bot">BotClient</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
+        /// <param name="latitude">Latitude of the location</param>
+        /// <param name="longitude">Longitude of the location</param>
+        /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
+        /// <param name="livePeriod">Period in seconds for which the location will be updated (see Live Locations, should be between 60 and 86400.</param>
+        /// <param name="heading">For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
+        /// <param name="proximityAlertRadius">For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+
+        public static async Task<Message> SendLocationAsync(this BotClient bot, string chatId, float latitude, float longitude, [Optional] float? horizontalAccuracy, [Optional] uint? livePeriod, [Optional] ushort? heading, [Optional] uint? proximityAlertRadius, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        {
+            if (bot == default)
+            {
+                throw new ArgumentNullException(nameof(bot));
+            }
+            var args = new SendLocationArgs
+            {
+                ChatId = chatId,
+                Latitude = latitude,
+                Longitude = longitude,
+                HorizontalAccuracy = horizontalAccuracy,
+                LivePeriod = livePeriod,
+                Heading = heading,
+                ProximityAlertRadius = proximityAlertRadius,
+                DisableNotification = disableNotification,
+                ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
+                ReplyMarkup = replyMarkup
+            };
+            return await bot.SendLocationAsync(args, cancellationToken).ConfigureAwait(false);
+        }
     }
 }

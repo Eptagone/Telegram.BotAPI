@@ -13,6 +13,26 @@ namespace Telegram.BotAPI.AvailableTypes
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class BotCommandScopeChatMember : BotCommandScope, IEquatable<BotCommandScopeChatMember>
     {
+        /// <summary>Inititalize a new instance of <see cref="BotCommandScopeChatMember"/>.</summary>
+        public BotCommandScopeChatMember()
+        {
+        }
+        /// <summary>Inititalize a new instance of <see cref="BotCommandScopeChatMember"/>.</summary>
+        /// <param name="chatId"><see cref="long"/> or <see cref="string"/>. Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
+        /// <param name="userId">Unique identifier of the target user.</param>
+        public BotCommandScopeChatMember(string chatId, long userId)
+        {
+            ChatId = chatId;
+            UserId = userId;
+        }
+        /// <summary>Inititalize a new instance of <see cref="BotCommandScopeChatMember"/>.</summary>
+        /// <param name="chatId"><see cref="long"/> or <see cref="string"/>. Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
+        /// <param name="userId">Unique identifier of the target user.</param>
+        public BotCommandScopeChatMember(long chatId, long userId)
+        {
+            ChatId = chatId;
+            UserId = userId;
+        }
         /// <summary>Scope type, must be chat_member.</summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

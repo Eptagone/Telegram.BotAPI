@@ -68,6 +68,9 @@ namespace Telegram.BotAPI
                     case UpdateType.ChatMember:
                         await OnChatMemberAsync(update.ChatMember, cancellationToken).ConfigureAwait(false);
                         break;
+                    case UpdateType.ChatJoinRequest:
+                        await OnChatMemberAsync(update.ChatJoinRequest).ConfigureAwait(false);
+                        break;
                     case UpdateType.Unknown:
                     default:
                         throw new ArgumentException("The update parameter does not correspond to a valid update.", nameof(update));
@@ -137,16 +140,21 @@ namespace Telegram.BotAPI
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
         protected abstract Task OnPollAnswerAsync(PollAnswer pollAnswer, [Optional] CancellationToken cancellationToken);
-        /// <summary>Instructions for my chat member updated.</summary>
+        /// <summary>Instructions for my chat member update.</summary>
         /// <param name="myChatMemberUpdated">Poll answer.</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
         protected abstract Task OnMyChatMemberAsync(ChatMemberUpdated myChatMemberUpdated, [Optional] CancellationToken cancellationToken);
-        /// <summary>Instructions for chat member updated.</summary>
+        /// <summary>Instructions for chat member update.</summary>
         /// <param name="chatMemberUpdated">Poll answer.</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
         protected abstract Task OnChatMemberAsync(ChatMemberUpdated chatMemberUpdated, [Optional] CancellationToken cancellationToken);
+        /// <summary>Instructions for chat join request update.</summary>
+        /// <param name="chatJoinRequest">Chat join request.</param>
+        /// <param name="cancellationToken">Optional. Cancelation Token.</param>
+        /// <returns><see cref="Task"/></returns>
+        protected abstract Task OnChatMemberAsync(ChatJoinRequest chatJoinRequest, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a bot exception.</summary>
         /// <param name="exp">Bot exception</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>

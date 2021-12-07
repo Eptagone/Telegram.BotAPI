@@ -14,6 +14,7 @@ namespace Telegram.BotAPI
         public const string AnswerShippingQuery = "answerShippingQuery";
         public const string ApproveChatJoinRequest = "approveChatJoinRequest";
         public const string BanChatMember = "banChatMember";
+        public const string BanChatSenderChat = "banChatSenderChat";
         public const string Close = "close";
         public const string CopyMessage = "copyMessage";
         public const string CreateChatInviteLink = "createChatInviteLink";
@@ -86,6 +87,7 @@ namespace Telegram.BotAPI
         public const string StopMessageLiveLocation = "stopMessageLiveLocation";
         public const string StopPoll = "stopPoll";
         public const string UnbanChatMember = "unbanChatMember";
+        public const string UnbanChatSenderChat = "unbanChatSenderChat";
         public const string UnpinAllChatMessages = "unpinAllChatMessages";
         public const string UnpinChatMessage = "unpinChatMessage";
         public const string UploadStickerFile = "uploadStickerFile";

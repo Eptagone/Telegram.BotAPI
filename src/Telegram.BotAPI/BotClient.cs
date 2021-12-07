@@ -25,11 +25,10 @@ namespace Telegram.BotAPI
     {
         /// <summary>Bot base url for download files. {0} = BotToken, {1} = FilePath</summary>
         public const string BaseFilesUrl = "https://api.telegram.org/file/bot{0}/{1}";
-        private readonly string botToken;
         private readonly HttpClient httpClient;
 
         /// <summary>Initialize a Telegram Bot Client.</summary>
-        /// <param name="botToken">Token granted by BotFather. Required to access the Telegram bot API.</param>
+        /// <param name="botToken">Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</param>
         /// <param name="httpClient">Provide a specific HttpClient for this instance of BotClient.</param>
         /// <exception cref="ArgumentNullException">Thrown when accessToken is null or empty.</exception>
         public BotClient(string botToken, [Optional] HttpClient httpClient)
@@ -38,7 +37,7 @@ namespace Telegram.BotAPI
             {
                 throw new ArgumentNullException(nameof(botToken));
             }
-            this.botToken = botToken;
+            Token = botToken;
             if (httpClient == default)
             {
                 if (defaultHttpClient == default)
@@ -54,7 +53,7 @@ namespace Telegram.BotAPI
         }
 
         /// <summary>Initialize a Telegram Bot Client.</summary>
-        /// <param name="botToken">Token granted by BotFather. Required to access the Telegram bot API.</param>
+        /// <param name="botToken">Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</param>
         /// <param name="ignoreBotExceptions">Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.</param>
         /// <param name="httpClient">Provide a specific HttpClient for this instance of BotClient.</param>
         /// <exception cref="ArgumentNullException">Thrown when accessToken is null or empty.</exception>
@@ -62,11 +61,10 @@ namespace Telegram.BotAPI
         {
             IgnoreBotExceptions = ignoreBotExceptions;
         }
-        /// <summary>Token granted by BotFather. Required to access the Telegram bot API.</summary>
-        public string Token => botToken;
+        /// <summary>Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</summary>
+        public string Token { get; }
         /// <summary>Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.</summary>
-        public bool IgnoreBotExceptions { get; set; }
-
+        public bool IgnoreBotExceptions { get; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
@@ -77,7 +75,7 @@ namespace Telegram.BotAPI
         public bool Equals(BotClient other)
         {
             return other != null &&
-                   botToken == other.botToken &&
+                   Token == other.Token &&
                    EqualityComparer<HttpClient>.Default.Equals(httpClient, other.httpClient) &&
                    IgnoreBotExceptions == other.IgnoreBotExceptions;
         }
@@ -85,7 +83,7 @@ namespace Telegram.BotAPI
         public override int GetHashCode()
         {
             int hashCode = 1252002287;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(botToken);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Token);
             hashCode = hashCode * -1521134295 + EqualityComparer<HttpClient>.Default.GetHashCode(httpClient);
             hashCode = hashCode * -1521134295 + IgnoreBotExceptions.GetHashCode();
             return hashCode;

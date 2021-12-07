@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents a chat.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Chat : IEquatable<Chat>, ITelegramChat
+    public sealed class Chat : ITelegramChat, IEquatable<Chat>
     {
         /// <summary>Unique identifier for this chat.</summary>
         [JsonPropertyName(PropertyNames.Id)]
@@ -45,6 +45,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.Bio)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Bio { get; set; }
+        /// <summary>Optional. True, if privacy settings of the other party in the private chat allows to use <i>tg://user?id=&lt;user_id&gt;</i> links only in chats with the user. Returned only in getChat.</summary>
+        [JsonPropertyName(PropertyNames.HasPrivateForwards)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool HasPrivateForwards { get; set; }
         /// <summary>Optional. Description, for supergroups and channel chats. Returned only in getChat.</summary>
         [JsonPropertyName(PropertyNames.Description)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -65,6 +69,14 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.SlowModeDelay)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public uint SlowModeDelay { get; set; }
+        /// <summary>Optional. The time after which all messages sent to the chat will be automatically deleted; in seconds. Returned only in getChat.</summary>
+        [JsonPropertyName(PropertyNames.MessageAutoDeleteTime)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public uint MessageAutoDeleteTime { get; set; }
+        /// <summary>Optional. True, if messages from the chat can't be forwarded to other chats. Returned only in getChat.</summary>
+        [JsonPropertyName(PropertyNames.HasProtectedContent)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool HasProtectedContent { get; set; }
         /// <summary>Optional. For supergroups, name of group sticker set. Returned only in getChat.</summary>
         [JsonPropertyName(PropertyNames.StickerSetName)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -99,11 +111,14 @@ namespace Telegram.BotAPI.AvailableTypes
                    LastName == other.LastName &&
                    EqualityComparer<ChatPhoto>.Default.Equals(Photo, other.Photo) &&
                    Bio == other.Bio &&
+                   HasPrivateForwards == other.HasPrivateForwards &&
                    Description == other.Description &&
                    InviteLink == other.InviteLink &&
                    EqualityComparer<Message>.Default.Equals(PinnedMessage, other.PinnedMessage) &&
                    EqualityComparer<ChatPermissions>.Default.Equals(Permissions, other.Permissions) &&
                    SlowModeDelay == other.SlowModeDelay &&
+                   MessageAutoDeleteTime == other.MessageAutoDeleteTime &&
+                   HasProtectedContent == other.HasProtectedContent &&
                    StickerSetName == other.StickerSetName &&
                    CanSetStickerSet == other.CanSetStickerSet &&
                    LinkedChatId == other.LinkedChatId &&
@@ -112,7 +127,7 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public override int GetHashCode()
         {
-            int hashCode = 1108793801;
+            int hashCode = -1929137122;
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Type);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
@@ -121,11 +136,14 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(LastName);
             hashCode = hashCode * -1521134295 + EqualityComparer<ChatPhoto>.Default.GetHashCode(Photo);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Bio);
+            hashCode = hashCode * -1521134295 + HasPrivateForwards.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Description);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(InviteLink);
             hashCode = hashCode * -1521134295 + EqualityComparer<Message>.Default.GetHashCode(PinnedMessage);
             hashCode = hashCode * -1521134295 + EqualityComparer<ChatPermissions>.Default.GetHashCode(Permissions);
             hashCode = hashCode * -1521134295 + SlowModeDelay.GetHashCode();
+            hashCode = hashCode * -1521134295 + MessageAutoDeleteTime.GetHashCode();
+            hashCode = hashCode * -1521134295 + HasProtectedContent.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(StickerSetName);
             hashCode = hashCode * -1521134295 + CanSetStickerSet.GetHashCode();
             hashCode = hashCode * -1521134295 + LinkedChatId.GetHashCode();
@@ -142,6 +160,7 @@ namespace Telegram.BotAPI.AvailableTypes
         {
             return !(left == right);
         }
+
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
     /// <summary>Type of chat, can be either “private”, “group”, “supergroup” or “channel”. Can be either “sender” for a private chat with the inline query sender.</summary>

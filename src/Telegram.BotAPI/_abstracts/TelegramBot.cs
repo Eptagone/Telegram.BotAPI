@@ -63,6 +63,9 @@ namespace Telegram.BotAPI
                     case UpdateType.ChatMember:
                         OnChatMember(update.ChatMember);
                         break;
+                    case UpdateType.ChatJoinRequest:
+                        OnChatJoinRequest(update.ChatJoinRequest);
+                        break;
                     case UpdateType.Unknown:
                     default:
                         throw new ArgumentException("The update parameter does not correspond to a valid update.", nameof(update));
@@ -110,12 +113,15 @@ namespace Telegram.BotAPI
         /// <summary>Instructions for a poll answer update.</summary>
         /// <param name="pollAnswer">Poll answer.</param>
         protected abstract void OnPollAnswer(PollAnswer pollAnswer);
-        /// <summary>Instructions for my chat member updated.</summary>
+        /// <summary>Instructions for my chat member update.</summary>
         /// <param name="myChatMemberUpdated">Poll answer.</param>
         protected abstract void OnMyChatMember(ChatMemberUpdated myChatMemberUpdated);
-        /// <summary>Instructions for chat member updated.</summary>
+        /// <summary>Instructions for chat member update.</summary>
         /// <param name="chatMemberUpdated">Poll answer.</param>
         protected abstract void OnChatMember(ChatMemberUpdated chatMemberUpdated);
+        /// <summary>Instructions for chat join request update.</summary>
+        /// <param name="chatJoinRequest">Chat join request.</param>
+        protected abstract void OnChatJoinRequest(ChatJoinRequest chatJoinRequest);
         /// <summary>Instructions for a bot exception.</summary>
         /// <param name="exp">Bot exception</param>
         protected abstract void OnBotException(BotRequestException exp);
