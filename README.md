@@ -22,7 +22,7 @@ All objects and methods are sorted in namespaces in the same order of sections a
 ## .NET platforms support
 
 - NET Standard >= 2.0
-- NET Core >= 2.0 and NET 5
+- NET Core >= 2.0 and NET 5|6
 - NET Framework >= 4.6.1
 
 ## Installation
@@ -39,11 +39,11 @@ $ dotnet add PROJECT package Telegram.BotAPI
 
 ## Documentation
 
-- [Getting started](docs/readme.md)
+[Getting started](https://github.com/Eptagone/Telegram.BotAPI/blob/main/docs/readme.md)
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/Eptagone/Telegram.BotAPI/blob/main/LICENSE)
 
 ## Release notes
 

@@ -85,48 +85,48 @@ namespace Telegram.BotAPI
         protected abstract void OnMessage(Message message);
         /// <summary>Instructions for a edited message.</summary>
         /// <param name="message">Message</param>
-        protected abstract void OnEditedMessage(Message message);
+        protected virtual void OnEditedMessage(Message message) { }
         /// <summary>Instructions for a channel post.</summary>
         /// <param name="message">Message</param>
-        protected abstract void OnChannelPost(Message message);
+        protected virtual void OnChannelPost(Message message) { }
         /// <summary>Instructions for a edited channel post update.</summary>
         /// <param name="message">Message</param>
-        protected abstract void OnEditedChannelPost(Message message);
+        protected virtual void OnEditedChannelPost(Message message) { }
         /// <summary>Instructions for a inline query update.</summary>
         /// <param name="inlineQuery">Inline query.</param>
-        protected abstract void OnInlineQuery(InlineQuery inlineQuery);
+        protected virtual void OnInlineQuery(InlineQuery inlineQuery) { }
         /// <summary>Instructions for a chosen inline result update.</summary>
         /// <param name="chosenInlineResult">Chosen Inline Result.</param>
-        protected abstract void OnChosenInlineResult(ChosenInlineResult chosenInlineResult);
+        protected virtual void OnChosenInlineResult(ChosenInlineResult chosenInlineResult) { }
         /// <summary>Instructions for a callback query update.</summary>
         /// <param name="callbackQuery">Callback query</param>
-        protected abstract void OnCallbackQuery(CallbackQuery callbackQuery);
+        protected virtual void OnCallbackQuery(CallbackQuery callbackQuery) { }
         /// <summary>Instructions for a shipping query update.</summary>
         /// <param name="shippingQuery">Shipping query</param>
-        protected abstract void OnShippingQuery(ShippingQuery shippingQuery);
+        protected virtual void OnShippingQuery(ShippingQuery shippingQuery) { }
         /// <summary>Instructions for a pre-checkout query update.</summary>
         /// <param name="preCheckoutQuery">Pre-checkout query.</param>
-        protected abstract void OnPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery);
+        protected virtual void OnPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery) { }
         /// <summary>Instructions for a poll update.</summary>
         /// <param name="poll">Poll.</param>
-        protected abstract void OnPoll(Poll poll);
+        protected virtual void OnPoll(Poll poll) { }
         /// <summary>Instructions for a poll answer update.</summary>
         /// <param name="pollAnswer">Poll answer.</param>
-        protected abstract void OnPollAnswer(PollAnswer pollAnswer);
+        protected virtual void OnPollAnswer(PollAnswer pollAnswer) { }
         /// <summary>Instructions for my chat member update.</summary>
         /// <param name="myChatMemberUpdated">Poll answer.</param>
-        protected abstract void OnMyChatMember(ChatMemberUpdated myChatMemberUpdated);
+        protected virtual void OnMyChatMember(ChatMemberUpdated myChatMemberUpdated) { }
         /// <summary>Instructions for chat member update.</summary>
         /// <param name="chatMemberUpdated">Poll answer.</param>
-        protected abstract void OnChatMember(ChatMemberUpdated chatMemberUpdated);
+        protected virtual void OnChatMember(ChatMemberUpdated chatMemberUpdated) { }
         /// <summary>Instructions for chat join request update.</summary>
         /// <param name="chatJoinRequest">Chat join request.</param>
-        protected abstract void OnChatJoinRequest(ChatJoinRequest chatJoinRequest);
+        protected virtual void OnChatJoinRequest(ChatJoinRequest chatJoinRequest) { }
         /// <summary>Instructions for a bot exception.</summary>
         /// <param name="exp">Bot exception</param>
-        protected abstract void OnBotException(BotRequestException exp);
+        protected virtual void OnBotException(BotRequestException exp) { }
         /// <summary>Instructions for a general exception.</summary>
         /// <param name="exp">Exception</param>
-        protected abstract void OnException(Exception exp);
+        protected virtual void OnException(Exception exp) { }
     }
 }

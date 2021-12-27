@@ -9,6 +9,9 @@
 // Description: Added all methods and objects of Bot API 5.1 published on March 9, 2021
 // Update: Added Bot API 5.2 support | Date: 05-27-2021
 // Description: Added all methods and objects of Bot API 5.2 published on April 26, 2021
+// Update: Added Bot API 5.5 support | Date: 12-07-2021
+// Description: Added all methods and objects of Bot API 5.5 published on December 7, 2021
+// Update: Updated TelegramBot base class | Date: 12-26-2021
 // ________________________________________________________________________
 //--------------------------------------------------------------------------
 #endregion

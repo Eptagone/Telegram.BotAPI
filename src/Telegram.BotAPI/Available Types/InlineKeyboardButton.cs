@@ -45,7 +45,7 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. Specify True, to send a Pay button.<para>NOTE: This type of button must always be the first button in the first row.</para></summary>
         [JsonPropertyName(PropertyNames.Pay)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool Pay { get; set; }
+        public bool? Pay { get; set; }
         ///<summary>Button Type.</summary>
         [System.Text.Json.Serialization.JsonIgnore]
         [Newtonsoft.Json.JsonIgnore]

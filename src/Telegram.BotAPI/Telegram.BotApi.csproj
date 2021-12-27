@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>4.1</Version>
+    <Version>4.2</Version>
     <PackageId>Telegram.BotAPI</PackageId>
     <Authors>Quetzal Rivera</Authors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -24,8 +24,8 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
     <PackageIcon>packicon.png</PackageIcon>
-    <AssemblyVersion>4.1.0.*</AssemblyVersion>
-    <FileVersion>4.1.0.0</FileVersion>
+    <AssemblyVersion>4.2.0.*</AssemblyVersion>
+    <FileVersion>4.2.0.0</FileVersion>
     <Deterministic>false</Deterministic>
     <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
