@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2021 Quetzal Rivera.
+﻿// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 namespace Telegram.BotAPI
@@ -227,6 +227,7 @@ namespace Telegram.BotAPI
         public const string PendingUpdateCount = "pending_update_count";
         public const string Performer = "performer";
         public const string Permissions = "permissions";
+        public const string ProtectContent = "protect_content";
         public const string PhoneNumber = "phone_number";
         public const string Photo = CommonNames.Photo;
         public const string PhotoFileId = "photo_file_id";

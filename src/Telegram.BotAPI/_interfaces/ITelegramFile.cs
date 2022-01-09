@@ -1,10 +1,10 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 namespace Telegram.BotAPI
 {
     /// <summary>Defines properties that implements a class or value type for file objects.</summary>
-    public interface IFileInfo
+    public interface ITelegramFile
     {
         ///<summary>Identifier for this file, which can be used to download or reuse the file.</summary>
         public string FileId { get; set; }

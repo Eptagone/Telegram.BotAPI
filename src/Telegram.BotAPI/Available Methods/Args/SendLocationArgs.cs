@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -9,16 +9,39 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendLocation method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendLocationArgs : BaseSendArgsReplyMarkup, ILocation
+    public sealed class SendLocationArgs : SendMessageWithReplyMarkupBase, ILocation
     {
+        /// <summary>
+        /// Initialize a new instance of <see cref="SendLocationArgs"/>.
+        /// </summary>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="longitude">Longitude as defined by sender.</param>
+        /// <param name="latitude">Latitude as defined by sender.</param>
+        public SendLocationArgs(long chatId, float longitude, float latitude) : base(chatId)
+        {
+            Longitude = longitude;
+            Latitude = latitude;
+        }
+        /// <summary>
+        /// Initialize a new instance of <see cref="SendLocationArgs"/>.
+        /// </summary>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="longitude">Longitude as defined by sender.</param>
+        /// <param name="latitude">Latitude as defined by sender.</param>
+        public SendLocationArgs(string chatId, float longitude, float latitude) : base(chatId)
+        {
+            Longitude = longitude;
+            Latitude = latitude;
+        }
+
         ///<summary>Longitude as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Longitude)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public float Longitude { get; set; }
+        public float Longitude { get; }
         ///<summary>Latitude as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Latitude)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public float Latitude { get; set; }
+        public float Latitude { get; }
         ///<summary>Optional. The radius of uncertainty for the location, measured in meters; 0-1500.</summary>
         [JsonPropertyName(PropertyNames.HorizontalAccuracy)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

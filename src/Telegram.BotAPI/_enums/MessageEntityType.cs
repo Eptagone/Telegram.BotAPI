@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2021 Quetzal Rivera.
+﻿// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 namespace Telegram.BotAPI
@@ -27,6 +27,8 @@ namespace Telegram.BotAPI
         /// <summary>“underline” (underlined text)</summary>
         Underline,
         /// <summary>“strikethrough” (strikethrough text)</summary>
+        Spoiler,
+        /// <summary>“spoiler” (spoiler message)</summary>
         Strikethrough,
         /// <summary>“code” (monowidth string)</summary>
         Code,

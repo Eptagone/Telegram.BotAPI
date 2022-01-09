@@ -1,8 +1,8 @@
 using System;
 
-namespace Telegram_Calendar
+namespace TelegramCalendar
 {
-    public class Day
+    public sealed class Day
     {
         public Day(DayOfWeek name, ushort number)
         {

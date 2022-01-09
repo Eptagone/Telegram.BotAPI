@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -52,7 +52,7 @@ namespace Telegram.BotAPI.Games
                    Description == other.Description &&
                    EqualityComparer<PhotoSize[]>.Default.Equals(Photo, other.Photo) &&
                    Text == other.Text &&
-                   EqualityComparer<MessageEntity[]>.Default.Equals(TextEntities, other.TextEntities) &&
+                   EqualityComparer<IEnumerable<MessageEntity>>.Default.Equals(TextEntities, other.TextEntities) &&
                    EqualityComparer<Animation>.Default.Equals(Animation, other.Animation);
         }
 
@@ -63,7 +63,7 @@ namespace Telegram.BotAPI.Games
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Description);
             hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize[]>.Default.GetHashCode(Photo);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Text);
-            hashCode = hashCode * -1521134295 + EqualityComparer<MessageEntity[]>.Default.GetHashCode(TextEntities);
+            hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>>.Default.GetHashCode(TextEntities);
             hashCode = hashCode * -1521134295 + EqualityComparer<Animation>.Default.GetHashCode(Animation);
             return hashCode;
         }

@@ -13,8 +13,11 @@ namespace CallbackQueryButton01
         static void Main()
         {
             Console.WriteLine("Start!");
+
             var bot = new BotClient("<your bot token>");
             bot.SetMyCommands(new BotCommand("callback", "new callback"));
+
+            // Long Polling
             var updates = bot.GetUpdates();
             while (true)
             {

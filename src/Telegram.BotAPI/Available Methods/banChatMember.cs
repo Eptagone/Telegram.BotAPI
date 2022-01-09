@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
@@ -67,7 +67,7 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (untilDate != default)
+            if (untilDate != null)
             {
                 json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
@@ -102,7 +102,7 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (untilDate != default)
+            if (untilDate != null)
             {
                 json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
@@ -138,7 +138,7 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (untilDate != default)
+            if (untilDate != null)
             {
                 json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
@@ -176,7 +176,7 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (untilDate != default)
+            if (untilDate != null)
             {
                 json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
@@ -211,7 +211,7 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (untilDate != default)
+            if (untilDate != null)
             {
                 json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
@@ -246,7 +246,7 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (untilDate != default)
+            if (untilDate != null)
             {
                 json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }
@@ -282,7 +282,7 @@ namespace Telegram.BotAPI.AvailableMethods
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.UserId, userId);
-            if (untilDate != default)
+            if (untilDate != null)
             {
                 json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
             }

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
@@ -13,6 +13,7 @@ using Telegram.BotAPI.Payments;
 namespace Telegram.BotAPI
 {
     /// <summary>Base class for Telegram Bots using tasks and/or async methods.</summary>
+    [Obsolete("This class has been replaced by AsyncTelegamBotBase and will be removed in future releases.")]
     public abstract class TelegramBotAsync : ITelegramBot
     {
         /// <summary>Call the corresponding method according to the type of update provided.</summary>
@@ -69,7 +70,7 @@ namespace Telegram.BotAPI
                         await OnChatMemberAsync(update.ChatMember, cancellationToken).ConfigureAwait(false);
                         break;
                     case UpdateType.ChatJoinRequest:
-                        await OnChatMemberAsync(update.ChatJoinRequest).ConfigureAwait(false);
+                        await OnChatJoinRequestAsync(update.ChatJoinRequest).ConfigureAwait(false);
                         break;
                     case UpdateType.Unknown:
                     default:
@@ -154,7 +155,7 @@ namespace Telegram.BotAPI
         /// <param name="chatJoinRequest">Chat join request.</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>
         /// <returns><see cref="Task"/></returns>
-        protected abstract Task OnChatMemberAsync(ChatJoinRequest chatJoinRequest, [Optional] CancellationToken cancellationToken);
+        protected abstract Task OnChatJoinRequestAsync(ChatJoinRequest chatJoinRequest, [Optional] CancellationToken cancellationToken);
         /// <summary>Instructions for a bot exception.</summary>
         /// <param name="exp">Bot exception</param>
         /// <param name="cancellationToken">Optional. Cancelation Token.</param>

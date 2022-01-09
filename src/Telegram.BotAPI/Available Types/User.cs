@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents a Telegram user or bot.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class User : IEquatable<User>, ITelegramUser
+    public sealed class User : ITelegramUser, IEquatable<User>
     {
         /// <summary>Unique identifier for this user or bot.</summary>
         [JsonPropertyName(PropertyNames.Id)]
@@ -40,15 +40,15 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Optional. True, if the bot can be invited to groups. Returned only in getMe.</summary>
         [JsonPropertyName(PropertyNames.CanJoinGroups)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool CanJoinGroups { get; set; }
+        public bool? CanJoinGroups { get; set; }
         /// <summary>Optional. True, if privacy mode is disabled for the bot. Returned only in getMe.</summary>
         [JsonPropertyName(PropertyNames.CanReadAllGroupMessages)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool CanReadAllGroupMessages { get; set; }
+        public bool? CanReadAllGroupMessages { get; set; }
         /// <summary>Optional. True, if the bot supports inline queries. Returned only in getMe.</summary>
         [JsonPropertyName(PropertyNames.SupportsInlineQueries)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool SupportsInlineQueries { get; set; }
+        public bool? SupportsInlineQueries { get; set; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)

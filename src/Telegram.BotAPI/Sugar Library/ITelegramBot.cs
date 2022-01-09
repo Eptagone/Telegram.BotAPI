@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Telegram.BotAPI.GettingUpdates;
@@ -10,6 +10,6 @@ namespace Telegram.BotAPI
     {
         /// <summary>Call the corresponding method according to the type of update provided.</summary>
         /// <param name="update">Update</param>
-        public void OnUpdate(Update update);
+        void OnUpdate(Update update);
     }
 }

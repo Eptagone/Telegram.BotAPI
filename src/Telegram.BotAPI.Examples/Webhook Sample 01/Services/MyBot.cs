@@ -1,26 +1,46 @@
-﻿using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Telegram.BotAPI;
 using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.GettingUpdates;
+using Microsoft.Extensions.Logging;
 
 namespace WebhookSample01.Services
 {
-    public class MyBot
+    public sealed class MyBot : AsyncTelegramBotBase
     {
         public static readonly BotClient Bot = new BotClient("<your bot token>");
-        public async Task OnUpdateAsync(Update update)
+
+        private readonly ILogger<MyBot> _logger;
+
+        public MyBot(ILogger<MyBot> logger)
         {
-            switch (update.Type)
+            _logger = logger;
+        }
+
+        protected override async Task OnMessageAsync(Message message, [Optional] CancellationToken cancellationToken)
+        {
+            if (message is null)
             {
-                case UpdateType.Message:
-                    await OnMessageAsync(update.Message);
-                    break;
+                throw new ArgumentNullException(nameof(message));
             }
+            await Bot.SendMessageAsync(message.Chat.Id, "Hello world!", cancellationToken: cancellationToken).ConfigureAwait(false);
         }
-        public async Task OnMessageAsync(Message message)
+
+        protected override async Task OnBotExceptionAsync(BotRequestException exp, [Optional] CancellationToken cancellationToken)
         {
-            await Bot.SendMessageAsync(message.Chat.Id, "Hello world!");
+            _logger.LogError("Bot Exception: {0}", exp?.Message);
+            await Task.CompletedTask;
         }
+
+        protected override async Task OnExceptionAsync(Exception exp, [Optional] CancellationToken cancellationToken)
+        {
+            _logger.LogError("Exception: {0}", exp?.Message);
+            await Task.CompletedTask;
+        }
+
     }
 }

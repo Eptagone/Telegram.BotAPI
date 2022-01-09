@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -10,6 +10,8 @@ using Telegram.BotAPI.Games;
 using Telegram.BotAPI.Payments;
 using Telegram.BotAPI.Stickers;
 using Telegram.BotAPI.TelegramPassport;
+
+#nullable restore
 
 namespace Telegram.BotAPI.AvailableTypes
 {
@@ -48,7 +50,7 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Optional. For messages forwarded from channels, identifier of the original message in the channel.</summary>
         [JsonPropertyName(PropertyNames.ForwardFromMessageId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint ForwardFromMessageId { get; set; }
+        public int? ForwardFromMessageId { get; set; }
         /// <summary>Optional. For messages forwarded from channels, signature of the post author if present.</summary>
         [JsonPropertyName(PropertyNames.ForwardSignature)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -60,11 +62,11 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Optional. For forwarded messages, date the original message was sent in Unix time.</summary>
         [JsonPropertyName(PropertyNames.ForwardDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint ForwardDate { get; set; }
+        public uint? ForwardDate { get; set; }
         /// <summary>Optional. True, if the message is a channel post that was automatically forwarded to the connected discussion group.</summary>
         [JsonPropertyName(PropertyNames.IsAutomaticForward)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool IsAutomaticForward { get; set; }
+        public bool? IsAutomaticForward { get; set; }
         ///<summary>Optional. For replies, the original message. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply.</summary>
         [JsonPropertyName(PropertyNames.ReplyToMessage)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -76,11 +78,11 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. Date the message was last edited in Unix time.</summary>
         [JsonPropertyName(PropertyNames.EditDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint EditDate { get; set; }
+        public uint? EditDate { get; set; }
         ///<summary>Optional. True, if the message can't be forwarded.</summary>
         [JsonPropertyName(PropertyNames.HasProtectedContent)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool HasProtectedContent { get; set; }
+        public bool? HasProtectedContent { get; set; }
         ///<summary>Optional. The unique identifier of a media message group this message belongs to.</summary>
         [JsonPropertyName(PropertyNames.MediaGroupId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -96,7 +98,7 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text.</summary>
         [JsonPropertyName(PropertyNames.Entities)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public MessageEntity[] Entities { get; set; }
+        public IEnumerable<MessageEntity> Entities { get; set; }
         ///<summary>Optional. Message is an animation, information about the animation. For backward compatibility, when this field is set, the document field will also be set.</summary>
         [JsonPropertyName(PropertyNames.Animation)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -136,7 +138,7 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption.</summary>
         [JsonPropertyName(PropertyNames.CaptionEntities)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public MessageEntity[] CaptionEntities { get; set; }
+        public IEnumerable<MessageEntity> CaptionEntities { get; set; }
         ///<summary>Optional. Message is a shared contact, information about the contact.</summary>
         [JsonPropertyName(PropertyNames.Contact)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -180,19 +182,19 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. Service message: the chat photo was deleted.</summary>
         [JsonPropertyName(PropertyNames.DeleteChatPhoto)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool DeleteChatPhoto { get; set; }
+        public bool? DeleteChatPhoto { get; set; }
         ///<summary>Optional. Service message: the group has been created.</summary>
         [JsonPropertyName(PropertyNames.GroupChatCreated)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool GroupChatCreated { get; set; }
+        public bool? GroupChatCreated { get; set; }
         ///<summary>Optional. Service message: the supergroup has been created. This field can‘t be received in a message coming through updates, because bot can’t be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup.</summary>
         [JsonPropertyName(PropertyNames.SupergroupChatCreated)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool SupergroupChatCreated { get; set; }
+        public bool? SupergroupChatCreated { get; set; }
         ///<summary>Optional. Service message: the channel has been created. This field can‘t be received in a message coming through updates, because bot can’t be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel.</summary>
         [JsonPropertyName(PropertyNames.ChannelChatCreated)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool ChannelChatCreated { get; set; }
+        public bool? ChannelChatCreated { get; set; }
         ///<summary>Optional. Service message: auto-delete timer settings changed in the chat.</summary>
         [JsonPropertyName(PropertyNames.MessageAutoDeleteTimerChanged)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -200,11 +202,11 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.</summary>
         [JsonPropertyName(PropertyNames.MigrateToChatId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public long MigrateToChatId { get; set; }
+        public long? MigrateToChatId { get; set; }
         ///<summary>Optional. The supergroup has been migrated from a group with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.</summary>
         [JsonPropertyName(PropertyNames.MigrateFromChatId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public long MigrateFromChatId { get; set; }
+        public long? MigrateFromChatId { get; set; }
         ///<summary>Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it is itself a reply.</summary>
         [JsonPropertyName(PropertyNames.PinnedMessage)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -279,7 +281,7 @@ namespace Telegram.BotAPI.AvailableTypes
                    MediaGroupId == other.MediaGroupId &&
                    AuthorSignature == other.AuthorSignature &&
                    Text == other.Text &&
-                   EqualityComparer<MessageEntity[]>.Default.Equals(Entities, other.Entities) &&
+                   EqualityComparer<IEnumerable<MessageEntity>>.Default.Equals(Entities, other.Entities) &&
                    EqualityComparer<Animation>.Default.Equals(Animation, other.Animation) &&
                    EqualityComparer<Audio>.Default.Equals(Audio, other.Audio) &&
                    EqualityComparer<Document>.Default.Equals(Document, other.Document) &&
@@ -289,7 +291,7 @@ namespace Telegram.BotAPI.AvailableTypes
                    EqualityComparer<VideoNote>.Default.Equals(VideoNote, other.VideoNote) &&
                    EqualityComparer<Voice>.Default.Equals(Voice, other.Voice) &&
                    Caption == other.Caption &&
-                   EqualityComparer<MessageEntity[]>.Default.Equals(CaptionEntities, other.CaptionEntities) &&
+                   EqualityComparer<IEnumerable<MessageEntity>>.Default.Equals(CaptionEntities, other.CaptionEntities) &&
                    EqualityComparer<Contact>.Default.Equals(Contact, other.Contact) &&
                    EqualityComparer<Dice>.Default.Equals(Dice, other.Dice) &&
                    EqualityComparer<Game>.Default.Equals(Game, other.Game) &&
@@ -342,7 +344,7 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(MediaGroupId);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(AuthorSignature);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Text);
-            hashCode = hashCode * -1521134295 + EqualityComparer<MessageEntity[]>.Default.GetHashCode(Entities);
+            hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>>.Default.GetHashCode(Entities);
             hashCode = hashCode * -1521134295 + EqualityComparer<Animation>.Default.GetHashCode(Animation);
             hashCode = hashCode * -1521134295 + EqualityComparer<Audio>.Default.GetHashCode(Audio);
             hashCode = hashCode * -1521134295 + EqualityComparer<Document>.Default.GetHashCode(Document);
@@ -352,7 +354,7 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<VideoNote>.Default.GetHashCode(VideoNote);
             hashCode = hashCode * -1521134295 + EqualityComparer<Voice>.Default.GetHashCode(Voice);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Caption);
-            hashCode = hashCode * -1521134295 + EqualityComparer<MessageEntity[]>.Default.GetHashCode(CaptionEntities);
+            hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>>.Default.GetHashCode(CaptionEntities);
             hashCode = hashCode * -1521134295 + EqualityComparer<Contact>.Default.GetHashCode(Contact);
             hashCode = hashCode * -1521134295 + EqualityComparer<Dice>.Default.GetHashCode(Dice);
             hashCode = hashCode * -1521134295 + EqualityComparer<Game>.Default.GetHashCode(Game);

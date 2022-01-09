@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -9,7 +9,7 @@ namespace Telegram.BotAPI
 {
     /// <summary>Base class for file objects.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public abstract class BaseFile : IFileInfo
+    public abstract class TelegramFileBase : ITelegramFile
     {
         ///<summary>Identifier for this file, which can be used to download or reuse the file.</summary>
         [JsonPropertyName(PropertyNames.FileId)]

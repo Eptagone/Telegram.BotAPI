@@ -152,10 +152,8 @@ namespace UnitTests
         [InlineData(123456789, "Hello world Again")]
         public void SerializeSendMessageArgsWithReplyMarkup(long chatId, string text)
         {
-            var argsInline = new SendMessageArgs()
+            var argsInline = new SendMessageArgs(chatId, text)
             {
-                ChatId = chatId,
-                Text = text,
                 ReplyMarkup = new IKM
                 {
                     InlineKeyboard = new IKB[][]
@@ -173,10 +171,8 @@ namespace UnitTests
                 }
             };
             Assert.True(argsInline.ReplyMarkup is ReplyMarkup);
-            var argsReply = new SendMessageArgs()
+            var argsReply = new SendMessageArgs(chatId, text)
             {
-                ChatId = chatId,
-                Text = text,
                 ReplyMarkup = new RKM
                 {
                     Keyboard = new KB[][]
@@ -199,17 +195,13 @@ namespace UnitTests
                 }
             };
             Assert.True(argsReply.ReplyMarkup is ReplyMarkup);
-            var argsRemove = new SendMessageArgs()
+            var argsRemove = new SendMessageArgs(chatId, text)
             {
-                ChatId = chatId,
-                Text = text,
                 ReplyMarkup = new RKR()
             };
             Assert.True(argsRemove.ReplyMarkup is ReplyMarkup);
-            var argsForceReply = new SendMessageArgs()
+            var argsForceReply = new SendMessageArgs(chatId, text)
             {
-                ChatId = chatId,
-                Text = text,
                 ReplyMarkup = new ForceReply()
             };
             Assert.True(argsForceReply.ReplyMarkup is ReplyMarkup);
@@ -236,40 +228,36 @@ namespace UnitTests
         [Theory]
         [InlineData(777000, "PHOTO UwU")]
         [InlineData(123456789, "PHOTO")]
-        public void SerializeSendPhotoArgsWithReplyMarkup(long chatId, string text)
+        public void SerializeSendPhotoArgsWithReplyMarkup(long chatId, string photo)
         {
-            var argsInline = new SendPhotoArgs()
+            var argsInline = new SendPhotoArgs(chatId, photo)
             {
-                ChatId = chatId,
-                Photo = text,
                 ReplyMarkup = new IKM
                 {
                     InlineKeyboard = new IKB[][]
                     {
                         new IKB[]
                         {
-                            IKB.SetCallbackData("Your text", text),
+                            IKB.SetCallbackData("Your text", photo),
                             IKB.SetCallbackData("Your chatId", chatId.ToString())
                         },
                         new IKB[]
                         {
-                            IKB.SetCallbackData("Your text", text)
+                            IKB.SetCallbackData("Your text", photo)
                         }
                     }
                 }
             };
             Assert.True(argsInline.ReplyMarkup is ReplyMarkup);
-            var argsReply = new SendPhotoArgs()
+            var argsReply = new SendPhotoArgs(chatId, photo)
             {
-                ChatId = chatId,
-                Photo = text,
                 ReplyMarkup = new RKM
                 {
                     Keyboard = new KB[][]
                     {
                         new KB[]
                         {
-                            new KB(text),
+                            new KB(photo),
                             new KB(chatId.ToString()){
                                 RequestLocation = true,
                                 RequestPoll = new KeyboardButtonPollType{
@@ -279,23 +267,19 @@ namespace UnitTests
                         },
                         new KB[]
                         {
-                            new KB(text)
+                            new KB(photo)
                         }
                     }
                 }
             };
             Assert.True(argsReply.ReplyMarkup is ReplyMarkup);
-            var argsRemove = new SendPhotoArgs()
+            var argsRemove = new SendPhotoArgs(chatId, photo)
             {
-                ChatId = chatId,
-                Photo = text,
                 ReplyMarkup = new RKR()
             };
             Assert.True(argsRemove.ReplyMarkup is ReplyMarkup);
-            var argsForceReply = new SendPhotoArgs()
+            var argsForceReply = new SendPhotoArgs(chatId, photo)
             {
-                ChatId = chatId,
-                Photo = text,
                 ReplyMarkup = new ForceReply()
             };
             Assert.True(argsForceReply.ReplyMarkup is ReplyMarkup);

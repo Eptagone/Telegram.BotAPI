@@ -1,8 +1,9 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Telegram.BotAPI.Converters;
 
@@ -35,7 +36,7 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Optional. List of special entities that appear in the caption, which can be specified instead of parse_mode.</summary>
         [JsonPropertyName(PropertyNames.CaptionEntities)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public MessageEntity[] CaptionEntities { get; set; }
+        public IEnumerable<MessageEntity> CaptionEntities { get; set; }
 
         ///<summary>Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</summary>
         [JsonPropertyName(PropertyNames.ParseMode)]

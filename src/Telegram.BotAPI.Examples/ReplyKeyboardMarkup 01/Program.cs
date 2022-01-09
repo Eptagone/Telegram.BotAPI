@@ -12,9 +12,12 @@ namespace ReplyKeyboardMarkup_01
         static void Main()
         {
             Console.WriteLine("Start!");
+
             var bot = new BotClient("<your bot token>");
-            var updates = bot.GetUpdates();
             bot.SetMyCommands(new BotCommand("reply", "ReplyMarkup"), new BotCommand("del", "Delete"));
+
+            // Long Polling
+            var updates = bot.GetUpdates();
             while (true)
             {
                 if (updates.Length > 0)

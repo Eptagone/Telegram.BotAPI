@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents a video file.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Video : BaseFile, IThumbnail<PhotoSize>, IEquatable<Video>
+    public sealed class Video : TelegramFileBase, IThumbnail<PhotoSize>, IEquatable<Video>
     {
         ///<summary>Video width as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Width)]

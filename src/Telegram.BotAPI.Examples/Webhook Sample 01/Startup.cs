@@ -13,6 +13,7 @@ namespace WebhookSample01
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
             MyBot.Bot.DeleteWebhook();
             MyBot.Bot.SetWebhook(new SetWebhookArgs { Url = "https://mywebhook.com/updates" });
         }
@@ -23,6 +24,9 @@ namespace WebhookSample01
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // Add telegram bot as a service
+            services.AddScoped<MyBot>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

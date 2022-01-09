@@ -1,4 +1,4 @@
-namespace Telegram_Calendar
+namespace TelegramCalendar
 {
     public enum MonthName
     {

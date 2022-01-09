@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents a voice note.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Voice : BaseFile, IEquatable<Voice>
+    public sealed class Voice : TelegramFileBase, IEquatable<Voice>
     {
         ///<summary>Duration of the audio in seconds as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Duration)]

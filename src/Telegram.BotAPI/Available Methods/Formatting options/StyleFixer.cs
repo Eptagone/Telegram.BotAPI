@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2021 Quetzal Rivera.
+﻿// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 {
     /// <summary>Use this class to fix text with incorrect style tags or to create custom StyleFixers for use with the StyleParser.</summary>
-    public class StyleFixer
+    public class StyleFixer : IStyleParser
     {
         /// <summary>Default StyleFixer.</summary>
         public static readonly StyleFixer Default = new StyleFixer();
@@ -89,5 +89,10 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             }
             return sb.ToString();
         }
+
+        string IStyleParser.To(string input, ParseModeKind parseMode) => FixTo(input, parseMode);
+        string IStyleParser.ToHTML(string input) => FixToHTML(input);
+        string IStyleParser.ToMarkdown(string input) => FixToMarkdown(input);
+        string IStyleParser.ToMarkdownV2(string input) => FixToMarkdownV2(input);
     }
 }

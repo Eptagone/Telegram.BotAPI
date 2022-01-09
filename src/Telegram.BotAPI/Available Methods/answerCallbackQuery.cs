@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
@@ -7,6 +7,8 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+
+#nullable enable
 
 namespace Telegram.BotAPI.AvailableMethods
 {
@@ -41,9 +43,9 @@ namespace Telegram.BotAPI.AvailableMethods
         public static bool AnswerCallbackQuery(
             this BotClient bot,
             string callbackQueryId,
-            [Optional] string text,
+            [Optional] string? text,
             [Optional] bool? showAlert,
-            [Optional] string url,
+            [Optional] string? url,
             [Optional] uint? cacheTime)
         {
             if (bot == default)
@@ -55,17 +57,17 @@ namespace Telegram.BotAPI.AvailableMethods
             var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteString(PropertyNames.CallbackQueryId, callbackQueryId);
-            if (text != default)
+            if (string.IsNullOrEmpty(text))
             {
                 json.WriteString(PropertyNames.Text, text);
             }
 
-            if (showAlert != default)
+            if (showAlert != null)
             {
                 json.WriteBoolean(PropertyNames.ShowAlert, (bool)showAlert);
             }
 
-            if (url != default)
+            if (string.IsNullOrEmpty(url))
             {
                 json.WriteString(PropertyNames.Url, url);
             }
@@ -116,9 +118,9 @@ namespace Telegram.BotAPI.AvailableMethods
         public static async Task<bool> AnswerCallbackQueryAsync(
             this BotClient bot,
             string callbackQueryId,
-            [Optional] string text,
+            [Optional] string? text,
             [Optional] bool? showAlert,
-            [Optional] string url,
+            [Optional] string? url,
             [Optional] uint? cacheTime,
             [Optional] CancellationToken cancellationToken)
         {
@@ -131,17 +133,17 @@ namespace Telegram.BotAPI.AvailableMethods
             using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteString(PropertyNames.CallbackQueryId, callbackQueryId);
-            if (text != default)
+            if (string.IsNullOrEmpty(text))
             {
                 json.WriteString(PropertyNames.Text, text);
             }
 
-            if (showAlert != default)
+            if (showAlert != null)
             {
                 json.WriteBoolean(PropertyNames.ShowAlert, (bool)showAlert);
             }
 
-            if (url != default)
+            if (string.IsNullOrEmpty(url))
             {
                 json.WriteString(PropertyNames.Url, url);
             }

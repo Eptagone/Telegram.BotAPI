@@ -12,8 +12,11 @@ namespace Poll_Quiz_01
         static void Main()
         {
             Console.WriteLine("Start!");
-            var bot = new BotClient("<your bot token>");
+
+            var bot = new BotClient("<BOT TOKEN>");
             bot.SetMyCommands(new BotCommand("quiz", "New quiz"));
+
+            // Long Polling
             var updates = bot.GetUpdates();
             while (true)
             {
@@ -26,16 +29,15 @@ namespace Poll_Quiz_01
                             case UpdateType.Message:
                                 if (update.Message.Text.Contains("/quiz"))
                                 {
-                                    bot.SendPoll(new SendPollArgs
-                                    {
-                                        ChatId = update.Message.Chat.Id,
-                                        Question = "¿5 + 5?",
-                                        Options = new string[]{
-                                            "56", "7", "10", "-4"
-                                        },
-                                        Type = "quiz",
-                                        CorrectOptionId = 2
-                                    });
+                                    bot.SendPoll(
+                                        new SendPollArgs(
+                                            update.Message.Chat.Id, 
+                                            "¿5 + 5?", 
+                                            new string[] { "56", "7", "10", "-4" })
+                                        {
+                                            Type = "quiz",
+                                            CorrectOptionId = 2
+                                        });
                                 }
                                 break;
                         }

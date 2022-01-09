@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Telegram.BotAPI.AvailableTypes;
@@ -9,9 +9,9 @@ namespace Telegram.BotAPI
     public interface ILocation
     {
         ///<summary>Longitude as defined by sender.</summary>
-        public float Longitude { get; set; }
+        public float Longitude { get; }
         ///<summary>Latitude as defined by sender.</summary>
-        public float Latitude { get; set; }
+        public float Latitude { get; }
         ///<summary>Optional. The radius of uncertainty for the location, measured in meters; 0-1500.</summary>
         public float? HorizontalAccuracy { get; set; }
         ///<summary>Optional. Time relative to the message sending date, during which the location can be updated, in seconds. For active live locations only.</summary>

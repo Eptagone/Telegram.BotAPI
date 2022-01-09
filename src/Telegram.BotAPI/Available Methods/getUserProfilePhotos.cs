@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
@@ -41,7 +41,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 json.WriteNumber(PropertyNames.Offset, (int)offset);
             }
 
-            if (limit != default)
+            if (limit != null)
             {
                 json.WriteNumber(PropertyNames.Limit, (ushort)limit);
             }
@@ -81,7 +81,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 json.WriteNumber(PropertyNames.Offset, (int)offset);
             }
 
-            if (limit != default)
+            if (limit != null)
             {
                 json.WriteNumber(PropertyNames.Limit, (ushort)limit);
             }

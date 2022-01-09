@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Telegram.BotAPI.AvailableTypes;
@@ -9,9 +9,9 @@ namespace Telegram.BotAPI
     public interface IVenue
     {
         ///<summary>Name of the venue.</summary>
-        public string Title { get; set; }
+        public string Title { get; }
         ///<summary>Address of the venue.</summary>
-        public string Address { get; set; }
+        public string Address { get; }
         ///<summary>Optional. Foursquare identifier of the venue.</summary>
         public string FoursquareId { get; set; }
         ///<summary>Optional. Foursquare type of the venue. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)</summary>

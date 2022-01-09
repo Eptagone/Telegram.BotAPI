@@ -1,13 +1,13 @@
-﻿// Copyright (c) 2021 Quetzal Rivera.
+﻿// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
-using System.Text;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
@@ -176,14 +176,14 @@ namespace Telegram.BotAPI
             {
                 response.EnsureSuccessStatusCode();
                 var streamResponse = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-                return await JsonSerializer.DeserializeAsync<BotResponse<T>>(streamResponse, cancellationToken: cancellationToken);
+                return await JsonSerializer.DeserializeAsync<BotResponse<T>>(streamResponse, DefaultSerializerOptions, cancellationToken: cancellationToken);
             }
             catch (HttpRequestException exp)
             {
                 if (response.Content.Headers.ContentType.MediaType == applicationJson)
                 {
                     var streamResponse = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-                    return await JsonSerializer.DeserializeAsync<BotResponse<T>>(streamResponse, cancellationToken: cancellationToken);
+                    return await JsonSerializer.DeserializeAsync<BotResponse<T>>(streamResponse, DefaultSerializerOptions, cancellationToken: cancellationToken);
                 }
                 else
                 {
@@ -243,10 +243,9 @@ namespace Telegram.BotAPI
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
         /// <param name="args">parameters</param>
-        /// <param name="options">Provides options to be used with JsonSerializer.Serialize.</param>
-        internal T RPC<T>(string method, object args, [Optional] JsonSerializerOptions options)
+        internal T RPC<T>(string method, object args)
         {
-            var response = PostRequest<T>(method, args, options);
+            var response = PostRequest<T>(method, args);
             if (response.Ok)
             {
                 return response.Result;
@@ -292,11 +291,10 @@ namespace Telegram.BotAPI
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
         /// <param name="args">parameters</param>
-        /// <param name="serializeoptions">Provides options to be used with JsonSerializer.Serialize.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-        internal async Task<T> RPCA<T>(string method, object args, [Optional] JsonSerializerOptions serializeoptions, [Optional] CancellationToken cancellationToken)
+        internal async Task<T> RPCA<T>(string method, object args, [Optional] CancellationToken cancellationToken)
         {
-            var response = await PostRequestAsync<T>(method, args, serializeoptions, cancellationToken: cancellationToken).ConfigureAwait(false);
+            var response = await PostRequestAsync<T>(method, args, cancellationToken: cancellationToken).ConfigureAwait(false);
             if (response.Ok)
             {
                 return response.Result;
@@ -343,10 +341,16 @@ namespace Telegram.BotAPI
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
         /// <param name="args">parameters</param>
-        /// <param name="serializeoptions">Provides options to be used with JsonSerializer.Serialize.</param>
-        internal T RPCF<T>(string method, object args, [Optional] JsonSerializerOptions serializeoptions)
+        internal T RPCF<T>(string method, object args)
         {
-            var rpcf = RPCAF<T>(method, args, serializeoptions, default);
+            if (args is IMultipartForm mf)
+            {
+                if (!mf.UseMultipart())
+                {
+                    return RPC<T>(method, args);
+                }
+            }
+            var rpcf = RPCAF<T>(method, args, default);
             try
             {
                 return rpcf.Result;
@@ -361,10 +365,16 @@ namespace Telegram.BotAPI
         /// <typeparam name="T">return type.</typeparam>
         /// <param name="method">method name</param>
         /// <param name="args">parameters</param>
-        /// <param name="serializeoptions">Provides options to be used with JsonSerializer.Serialize.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-        internal async Task<T> RPCAF<T>(string method, object args, [Optional] JsonSerializerOptions serializeoptions, [Optional] CancellationToken cancellationToken)
+        internal async Task<T> RPCAF<T>(string method, object args, [Optional] CancellationToken cancellationToken)
         {
+            if (args is IMultipartForm mf)
+            {
+                if (!mf.UseMultipart())
+                {
+                    return await RPCA<T>(method, args, cancellationToken).ConfigureAwait(false);
+                }
+            }
             var properties = args.GetType().GetProperties();
             using var content = new MultipartFormDataContent(Guid.NewGuid().ToString() + DateTime.UtcNow.Ticks);
             foreach (var prop in properties)
@@ -391,7 +401,7 @@ namespace Telegram.BotAPI
                             }
                             else
                             {
-                                string jvalue = JsonSerializer.Serialize(value, value.GetType(), serializeoptions);
+                                string jvalue = JsonSerializer.Serialize(value, value.GetType());
                                 var scon = new { Name = pname, Content = new StringContent(jvalue, Encoding.UTF8) };
                                 content.Add(scon.Content, scon.Name);
                             }
@@ -401,7 +411,7 @@ namespace Telegram.BotAPI
                     {
                         if (args is IAttachFiles)
                         {
-                            var attachfiles = (args as IAttachFiles).AttachFiles;
+                            var attachfiles = (args as IAttachFiles).AttachedFiles;
                             foreach (var attachfile in attachfiles)
                             {
                                 content.Add(attachfile.File.Content, attachfile.Name, attachfile.File.Filename);

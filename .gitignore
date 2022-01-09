@@ -359,3 +359,6 @@ MigrationBackup/
 
 # Powershell Scripts
 *.ps1
+
+# Tools Folder
+tools/

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -75,8 +75,8 @@ namespace Telegram.BotAPI.AvailableTypes
         }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
-    /// <summary>This object represents a attachfile.</summary>
-    public sealed class AttachFile
+    /// <summary>This object represents a attached file.</summary>
+    public sealed class AttachedFile
     {
         /// <summary>AttachFile Name</summary>
         public string Name { get; }
@@ -85,7 +85,7 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>New AttachFile</summary>
         /// <param name="name">File attach name.</param>
         /// <param name="inputFile">This object represents the contents of a file to be uploaded.</param>
-        public AttachFile(string name, InputFile inputFile)
+        public AttachedFile(string name, InputFile inputFile)
         {
             Name = name;
             File = inputFile;

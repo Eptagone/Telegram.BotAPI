@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents an audio file to be treated as music by the Telegram clients.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class Audio : BaseFile, IThumbnail<PhotoSize>, IEquatable<Audio>
+    public sealed class Audio : TelegramFileBase, IThumbnail<PhotoSize>, IEquatable<Audio>
     {
         ///<summary>Duration of the audio in seconds as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Duration)]

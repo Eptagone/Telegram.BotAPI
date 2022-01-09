@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -34,12 +34,14 @@ namespace Telegram.BotAPI.UpdatingMessages
         [JsonPropertyName(PropertyNames.ReplyMarkup)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public InlineKeyboardMarkup ReplyMarkup { get; set; }
+
         /// <summary>Attached files.</summary>
         [System.Text.Json.Serialization.JsonIgnore]
-        public List<AttachFile> AttachFiles { get; set; } = new List<AttachFile>();
-        internal bool UseMultipart()
+        public ICollection<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
+
+        bool IMultipartForm.UseMultipart()
         {
-            return AttachFiles.Any();
+            return AttachedFiles.Any();
         }
     }
 }

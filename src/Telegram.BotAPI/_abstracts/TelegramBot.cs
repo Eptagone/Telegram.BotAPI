@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
@@ -10,6 +10,7 @@ using Telegram.BotAPI.Payments;
 namespace Telegram.BotAPI
 {
     /// <summary>Base class for Telegram Bots.</summary>
+    [Obsolete("This class has been replaced by TelegamBotBase and will be removed in future releases.")]
     public abstract class TelegramBot : ITelegramBot
     {
         /// <summary>Call the corresponding method according to the type of update provided.</summary>

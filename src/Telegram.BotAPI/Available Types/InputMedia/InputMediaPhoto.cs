@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -32,7 +32,7 @@ namespace Telegram.BotAPI.AvailableTypes
         {
             return other != null &&
                    Media == other.Media &&
-                   EqualityComparer<MessageEntity[]>.Default.Equals(CaptionEntities, other.CaptionEntities) &&
+                   EqualityComparer<IEnumerable<MessageEntity>>.Default.Equals(CaptionEntities, other.CaptionEntities) &&
                    Type == other.Type &&
                    Caption == other.Caption &&
                    ParseMode == other.ParseMode;
@@ -42,7 +42,7 @@ namespace Telegram.BotAPI.AvailableTypes
         {
             int hashCode = -1830701226;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Media);
-            hashCode = hashCode * -1521134295 + EqualityComparer<MessageEntity[]>.Default.GetHashCode(CaptionEntities);
+            hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>>.Default.GetHashCode(CaptionEntities);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Type);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Caption);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ParseMode);

@@ -11,7 +11,10 @@ namespace HelloWorld
         static void Main()
         {
             Console.WriteLine("Start!");
+
             var bot = new BotClient("<your bot token>");
+
+            // Long POlling
             var updates = bot.GetUpdates();
             while (true)
             {

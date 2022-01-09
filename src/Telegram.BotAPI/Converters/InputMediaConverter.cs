@@ -1,10 +1,10 @@
-﻿// Copyright (c) 2021 Quetzal Rivera.
+﻿// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
-using Telegram.BotAPI.AvailableTypes;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Converters
 {

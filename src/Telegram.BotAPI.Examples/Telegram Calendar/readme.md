@@ -20,7 +20,7 @@ using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.GettingUpdates;
 using Telegram.BotAPI.UpdatingMessages;
 
-namespace Telegram_Calendar
+namespace TelegramCalendar
 {
     class Program
     {

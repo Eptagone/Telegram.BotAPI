@@ -1,12 +1,12 @@
-﻿// Copyright (c) 2021 Quetzal Rivera.
+﻿// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
-using Telegram.BotAPI.AvailableTypes;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json.Serialization;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods
 {

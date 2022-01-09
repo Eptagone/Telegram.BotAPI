@@ -1,8 +1,8 @@
 using System;
 
-namespace Telegram_Calendar
+namespace TelegramCalendar
 {
-    public class Month
+    public sealed class Month
     {
         public Month(MonthName monthName, uint year)
         {

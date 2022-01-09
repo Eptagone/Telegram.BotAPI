@@ -1,11 +1,14 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
+
+#nullable enable
 
 namespace Telegram.BotAPI.AvailableMethods
 {
@@ -21,128 +24,17 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <returns>Message Object.</returns>
         public static Message SendPhoto(this BotClient bot, SendPhotoArgs args)
         {
-            if (bot == default)
+            if (bot == null)
             {
                 throw new ArgumentNullException(nameof(bot));
             }
 
-            if (args == default)
+            if (args == null)
             {
                 throw new ArgumentNullException(nameof(args));
             }
 
             return bot.RPCF<Message>(MethodNames.SendPhoto, args);
-        }
-        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="chatId">>Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-        /// <param name="photo">InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</param>
-        /// <param name="caption">Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</param>
-        /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
-        /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
-        /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
-        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static Message SendPhoto(this BotClient bot, long chatId, string photo, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup)
-        {
-            return bot.SendPhoto(new SendPhotoArgs
-            {
-                ChatId = chatId,
-                Photo = photo,
-                Caption = caption,
-                ParseMode = parseMode,
-                DisableNotification = disableNotification,
-                ReplyToMessageId = replyToMessageId,
-                ReplyMarkup = replyMarkup
-            });
-        }
-
-        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="chatId">>Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-        /// <param name="photo">InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</param>
-        /// <param name="caption">Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</param>
-        /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
-        /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
-        /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
-        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static Message SendPhoto(this BotClient bot, string chatId, string photo, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup)
-        {
-            return bot.SendPhoto(new SendPhotoArgs
-            {
-                ChatId = chatId,
-                Photo = photo,
-                Caption = caption,
-                ParseMode = parseMode,
-                DisableNotification = disableNotification,
-                ReplyToMessageId = replyToMessageId,
-                ReplyMarkup = replyMarkup
-            });
-        }
-
-        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="chatId">>Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-        /// <param name="photo">InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</param>
-        /// <param name="caption">Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</param>
-        /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
-        /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
-        /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
-        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static Message SendPhoto(this BotClient bot, long chatId, InputFile photo, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup)
-        {
-            return bot.SendPhoto(new SendPhotoArgs
-            {
-                ChatId = chatId,
-                Photo = photo,
-                Caption = caption,
-                ParseMode = parseMode,
-                DisableNotification = disableNotification,
-                ReplyToMessageId = replyToMessageId,
-                ReplyMarkup = replyMarkup
-            });
-        }
-
-        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="chatId">>Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-        /// <param name="photo">InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</param>
-        /// <param name="caption">Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</param>
-        /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
-        /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
-        /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
-        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static Message SendPhoto(this BotClient bot, string chatId, InputFile photo, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup)
-        {
-            return bot.SendPhoto(new SendPhotoArgs
-            {
-                ChatId = chatId,
-                Photo = photo,
-                Caption = caption,
-                ParseMode = parseMode,
-                DisableNotification = disableNotification,
-                ReplyToMessageId = replyToMessageId,
-                ReplyMarkup = replyMarkup
-            });
         }
 
         /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
@@ -156,132 +48,269 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <returns>Message Object.</returns>
         public static async Task<Message> SendPhotoAsync(this BotClient bot, SendPhotoArgs args, [Optional] CancellationToken cancellationToken)
         {
-            if (bot == default)
+            if (bot == null)
             {
                 throw new ArgumentNullException(nameof(bot));
             }
 
-            if (args == default)
+            if (args == null)
             {
                 throw new ArgumentNullException(nameof(args));
             }
 
-            return await bot.RPCAF<Message>(MethodNames.SendPhoto, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="chatId">>Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-        /// <param name="photo">InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</param>
-        /// <param name="caption">Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</param>
-        /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
-        /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
-        /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
-        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
-        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static async Task<Message> SendPhotoAsync(this BotClient bot, long chatId, string photo, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
-        {
-            return await bot.SendPhotoAsync(new SendPhotoArgs
-            {
-                ChatId = chatId,
-                Photo = photo,
-                Caption = caption,
-                ParseMode = parseMode,
-                DisableNotification = disableNotification,
-                ReplyToMessageId = replyToMessageId,
-                ReplyMarkup = replyMarkup
-            }, cancellationToken).ConfigureAwait(false);
+            return await bot.RPCAF<Message>(MethodNames.SendPhoto, args, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="chatId">>Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-        /// <param name="photo">InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</param>
-        /// <param name="caption">Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</param>
-        /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
-        /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
-        /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
-        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
-        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <param name="api">The bot client.</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="photo">Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. More info on Sending Files ».</param>
+        /// <param name="caption">Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing.</param>
+        /// <param name="parseMode">Mode for parsing entities in the photo caption. See formatting options for more details.</param>
+        /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static async Task<Message> SendPhotoAsync(this BotClient bot, string chatId, string photo, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        public static Message SendPhoto(this BotClient api, long chatId, InputFile photo, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
         {
-            return await bot.SendPhotoAsync(new SendPhotoArgs
+            if (api == null) { throw new ArgumentNullException(nameof(api)); }
+            var args = new SendPhotoArgs(chatId, photo)
             {
-                ChatId = chatId,
-                Photo = photo,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
+                ProtectContent = protectContent,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup
-            }, cancellationToken).ConfigureAwait(false);
+            };
+            return api.RPCF<Message>(MethodNames.SendPhoto, args);
         }
 
         /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="chatId">>Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-        /// <param name="photo">InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</param>
-        /// <param name="caption">Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</param>
-        /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
-        /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
-        /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
-        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
-        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <param name="api">The bot client.</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="photo">Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. More info on Sending Files ».</param>
+        /// <param name="caption">Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing.</param>
+        /// <param name="parseMode">Mode for parsing entities in the photo caption. See formatting options for more details.</param>
+        /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static async Task<Message> SendPhotoAsync(this BotClient bot, long chatId, InputFile photo, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        public static Message SendPhoto(this BotClient api, long chatId, string photo, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
         {
-            return await bot.SendPhotoAsync(new SendPhotoArgs
+            if (api == null) { throw new ArgumentNullException(nameof(api)); }
+            var args = new SendPhotoArgs(chatId, photo)
             {
-                ChatId = chatId,
-                Photo = photo,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
+                ProtectContent = protectContent,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup
-            }, cancellationToken).ConfigureAwait(false);
+            };
+            return api.RPCF<Message>(MethodNames.SendPhoto, args);
         }
 
         /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="chatId">>Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-        /// <param name="photo">InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</param>
-        /// <param name="caption">Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</param>
-        /// <param name="parseMode">Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</param>
-        /// <param name="disableNotification">Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
-        /// <param name="replyToMessageId">Optional. If the message is a reply, ID of the original message.</param>
-        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user. <see cref="InlineKeyboardMarkup"/> or <see cref="ReplyKeyboardMarkup"/> or <see cref="ReplyKeyboardRemove"/> or <see cref="ForceReply"/></param>
+        /// <param name="api">The bot client.</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="photo">Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. More info on Sending Files ».</param>
+        /// <param name="caption">Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing.</param>
+        /// <param name="parseMode">Mode for parsing entities in the photo caption. See formatting options for more details.</param>
+        /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+        public static Message SendPhoto(this BotClient api, string chatId, InputFile photo, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+        {
+            if (api == null) { throw new ArgumentNullException(nameof(api)); }
+            var args = new SendPhotoArgs(chatId, photo)
+            {
+                Caption = caption,
+                ParseMode = parseMode,
+                CaptionEntities = captionEntities,
+                DisableNotification = disableNotification,
+                ProtectContent = protectContent,
+                ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
+                ReplyMarkup = replyMarkup
+            };
+            return api.RPCF<Message>(MethodNames.SendPhoto, args);
+        }
+
+        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
+        /// <param name="api">The bot client.</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="photo">Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. More info on Sending Files ».</param>
+        /// <param name="caption">Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing.</param>
+        /// <param name="parseMode">Mode for parsing entities in the photo caption. See formatting options for more details.</param>
+        /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+        public static Message SendPhoto(this BotClient api, string chatId, string photo, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+        {
+            if (api == null) { throw new ArgumentNullException(nameof(api)); }
+            var args = new SendPhotoArgs(chatId, photo)
+            {
+                Caption = caption,
+                ParseMode = parseMode,
+                CaptionEntities = captionEntities,
+                DisableNotification = disableNotification,
+                ProtectContent = protectContent,
+                ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
+                ReplyMarkup = replyMarkup
+            };
+            return api.RPCF<Message>(MethodNames.SendPhoto, args);
+        }
+
+        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
+        /// <param name="api">The bot client.</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="photo">Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. More info on Sending Files ».</param>
+        /// <param name="caption">Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing.</param>
+        /// <param name="parseMode">Mode for parsing entities in the photo caption. See formatting options for more details.</param>
+        /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static async Task<Message> SendPhotoAsync(this BotClient bot, string chatId, InputFile photo, [Optional] string caption, [Optional] string parseMode, [Optional] bool? disableNotification, [Optional] int? replyToMessageId, [Optional] ReplyMarkup replyMarkup, [Optional] CancellationToken cancellationToken)
+        public static async Task<Message> SendPhotoAsync(this BotClient api, long chatId, InputFile photo, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
         {
-            return await bot.SendPhotoAsync(new SendPhotoArgs
+            if (api == null) { throw new ArgumentNullException(nameof(api)); }
+            var args = new SendPhotoArgs(chatId, photo)
             {
-                ChatId = chatId,
-                Photo = photo,
                 Caption = caption,
                 ParseMode = parseMode,
+                CaptionEntities = captionEntities,
                 DisableNotification = disableNotification,
+                ProtectContent = protectContent,
                 ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
                 ReplyMarkup = replyMarkup
-            }, cancellationToken).ConfigureAwait(false);
+            };
+            return await api.RPCAF<Message>(MethodNames.SendPhoto, args, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
+        /// <param name="api">The bot client.</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="photo">Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. More info on Sending Files ».</param>
+        /// <param name="caption">Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing.</param>
+        /// <param name="parseMode">Mode for parsing entities in the photo caption. See formatting options for more details.</param>
+        /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+        public static async Task<Message> SendPhotoAsync(this BotClient api, long chatId, string photo, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+        {
+            if (api == null) { throw new ArgumentNullException(nameof(api)); }
+            var args = new SendPhotoArgs(chatId, photo)
+            {
+                Caption = caption,
+                ParseMode = parseMode,
+                CaptionEntities = captionEntities,
+                DisableNotification = disableNotification,
+                ProtectContent = protectContent,
+                ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
+                ReplyMarkup = replyMarkup
+            };
+            return await api.RPCAF<Message>(MethodNames.SendPhoto, args, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
+        /// <param name="api">The bot client.</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="photo">Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. More info on Sending Files ».</param>
+        /// <param name="caption">Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing.</param>
+        /// <param name="parseMode">Mode for parsing entities in the photo caption. See formatting options for more details.</param>
+        /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+        public static async Task<Message> SendPhotoAsync(this BotClient api, string chatId, InputFile photo, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+        {
+            if (api == null) { throw new ArgumentNullException(nameof(api)); }
+            var args = new SendPhotoArgs(chatId, photo)
+            {
+                Caption = caption,
+                ParseMode = parseMode,
+                CaptionEntities = captionEntities,
+                DisableNotification = disableNotification,
+                ProtectContent = protectContent,
+                ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
+                ReplyMarkup = replyMarkup
+            };
+            return await api.RPCAF<Message>(MethodNames.SendPhoto, args, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>Use this method to send photos. On success, the sent Message is returned.</summary>
+        /// <param name="api">The bot client.</param>
+        /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
+        /// <param name="photo">Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. More info on Sending Files ».</param>
+        /// <param name="caption">Photo caption (may also be used when resending photos by file_id), 0-1024 characters after entities parsing.</param>
+        /// <param name="parseMode">Mode for parsing entities in the photo caption. See formatting options for more details.</param>
+        /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
+        /// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
+        /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
+        /// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
+        /// <param name="allowSendingWithoutReply">Pass True, if the message should be sent even if the specified replied-to message is not found.</param>
+        /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+        public static async Task<Message> SendPhotoAsync(this BotClient api, string chatId, string photo, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+        {
+            if (api == null) { throw new ArgumentNullException(nameof(api)); }
+            var args = new SendPhotoArgs(chatId, photo)
+            {
+                Caption = caption,
+                ParseMode = parseMode,
+                CaptionEntities = captionEntities,
+                DisableNotification = disableNotification,
+                ProtectContent = protectContent,
+                ReplyToMessageId = replyToMessageId,
+                AllowSendingWithoutReply = allowSendingWithoutReply,
+                ReplyMarkup = replyMarkup
+            };
+            return await api.RPCAF<Message>(MethodNames.SendPhoto, args, cancellationToken).ConfigureAwait(false);
         }
     }
 }

@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>4.2</Version>
+    <Version>5.0</Version>
     <PackageId>Telegram.BotAPI</PackageId>
     <Authors>Quetzal Rivera</Authors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RootNamespace>Telegram.BotAPI</RootNamespace>
-    <Copyright>Quetzal Rivera 2021 ©</Copyright>
+    <Copyright>Quetzal Rivera 2022 ©</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -24,22 +24,27 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
     <PackageIcon>packicon.png</PackageIcon>
-    <AssemblyVersion>4.2.0.*</AssemblyVersion>
-    <FileVersion>4.2.0.0</FileVersion>
+    <AssemblyVersion>5.0.0.*</AssemblyVersion>
+    <FileVersion>5.0.0.0</FileVersion>
     <Deterministic>false</Deterministic>
     <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <AssemblyName>Telegram.BotAPI</AssemblyName>
-    <PackageReleaseNotes>- Updated to Bot API 5.5
+    <PackageReleaseNotes>- Updated to Bot API 5.6
 - Added more overloaded methods.
-- Build or copy formatted text using FormattingBuilder.</PackageReleaseNotes>
+- New sugar library: Create bots more easily using the TelegramBotBase, CommandHelper and FormattingHelper classes.</PackageReleaseNotes>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>latest</AnalysisLevel>
+<<<<<<< HEAD
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+=======
+    <PackageReadmeFile>README</PackageReadmeFile>
+>>>>>>> f78d377 (More Overloads)
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="System.Text.Json" Version="6.0.0" />
+    <PackageReference Include="System.Text.Json" Version="6.0.1" />
   </ItemGroup>
   
   <ItemGroup>
@@ -50,6 +55,13 @@
     <None Include="packicon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="README">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 </Project>

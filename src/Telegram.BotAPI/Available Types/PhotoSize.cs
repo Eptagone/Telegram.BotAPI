@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes
 {
     /// <summary>This object represents one size of a photo or a file / sticker thumbnail.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class PhotoSize : BaseFile, IEquatable<PhotoSize>
+    public sealed class PhotoSize : TelegramFileBase, IEquatable<PhotoSize>
     {
         ///<summary>Photo width.</summary>
         [JsonPropertyName(PropertyNames.Width)]

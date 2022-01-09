@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Quetzal Rivera.
+// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
@@ -25,6 +25,10 @@ namespace Telegram.BotAPI.AvailableMethods
             if (bot == null)
             {
                 throw new ArgumentNullException(nameof(bot));
+            }
+            if (commands == null)
+            {
+                throw new ArgumentNullException(nameof(commands));
             }
 
             var stream = new MemoryStream();
@@ -108,7 +112,7 @@ namespace Telegram.BotAPI.AvailableMethods
             }
 
             var args = new SetMyCommandsArgs(commands, scope, languageCode);
-            return await bot.RPCA<bool>(MethodNames.SetMyCommands, args, default, cancellationToken).ConfigureAwait(false);
+            return await bot.RPCA<bool>(MethodNames.SetMyCommands, args, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Use this method to change the list of the bot's commands. See https://core.telegram.org/bots#commands for more details about bot commands. Returns True on success.</summary>
@@ -129,7 +133,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 throw new ArgumentNullException(nameof(args));
             }
 
-            return await bot.RPCA<bool>(MethodNames.SetMyCommands, args, default, cancellationToken).ConfigureAwait(false);
+            return await bot.RPCA<bool>(MethodNames.SetMyCommands, args, cancellationToken).ConfigureAwait(false);
         }
     }
 }
