@@ -7,9 +7,9 @@ namespace Telegram.BotAPI.AvailableTypes
     public interface ITelegramUser
     {
         /// <summary>Unique identifier for this user or bot.</summary>
-        public long Id { get; set; }
+        public long Id { get; }
         /// <summary>True, if this user is a bot.</summary>
-        public bool IsBot { get; set; }
+        public bool IsBot { get; }
         /// <summary>User‘s or bot’s first name.</summary>
         public string FirstName { get; set; }
         /// <summary>Optional. User‘s or bot’s last name.</summary>
