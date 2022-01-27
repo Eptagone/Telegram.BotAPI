@@ -78,7 +78,7 @@ Once the namespaces are included, you are ready to start managing your bot. For 
 using Telegram.BotAPI.AvailableMethods;
 
 var me = api.GetMe();
-Console.WriteLine("Mi name is {0}.", me.FirstName);
+Console.WriteLine("My name is {0}.", me.FirstName);
 ```
 
 ## Getting updates
@@ -200,3 +200,10 @@ You can see more examples [here](https://github.com/Eptagone/Telegram.BotAPI/tre
 ## Release notes
 
 [See release notes](https://github.com/Eptagone/Telegram.BotAPI/releases)
+
+# Support this project
+
+If you wish, you can donate through the following methods:
+
+- Bitcoin: bc1q0w43tprjn80zn248k7xlztu7lvhkzgy6dak8mt
+- Toncoin: [EQC3SWZxs_4ive2aD-njns1KnB4S2RUgaxDKJ7X44VA52SsY](ton://transfer/EQC3SWZxs_4ive2aD-njns1KnB4S2RUgaxDKJ7X44VA52SsY)
