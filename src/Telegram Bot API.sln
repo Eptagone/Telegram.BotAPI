@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{E90CDF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{576E0D2C-631B-4C68-9AF4-0D99DC4E5951}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "Telegram.BotApi.Tests\UnitTests\UnitTests.csproj", "{14B3773F-CA9B-4AB7-A799-4CAD7A43D927}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "Telegram.BotAPI.Tests\UnitTests\UnitTests.csproj", "{14B3773F-CA9B-4AB7-A799-4CAD7A43D927}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI.Experimental", "Telegram.BotAPI.Experimental\Telegram.BotAPI.Experimental.csproj", "{BC2BDF60-4DD0-4979-AF17-E58984CAE9F3}"
 EndProject

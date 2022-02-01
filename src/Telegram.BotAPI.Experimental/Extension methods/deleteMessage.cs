@@ -2,10 +2,10 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
+using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
-using System.Threading;
-using System.Runtime.InteropServices;
 
 namespace Telegram.BotAPI.UpdatingMessages
 {

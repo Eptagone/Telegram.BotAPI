@@ -1,5 +1,5 @@
 [*.cs]
-csharp_indent_braces=true
+csharp_indent_braces=false
 insert_final_newline=true
 dotnet_diagnostic.CA1200.severity=suggestion
 dotnet_diagnostic.CA1805.severity=suggestion

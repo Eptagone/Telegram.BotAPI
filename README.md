@@ -1,19 +1,19 @@
-| <img src="./docs/icon.png" alt="Logo" width="64"/> | <h1>Telegram.BotAPI NET</h1> |
+| <img src="./docs/icon.png" alt="Logo" width="64"/> | <h1>Telegram.BotAPI for NET</h1> |
 | -------------------------------------------------- | ---------------------------- |
 
 [![NuGet version (Telegram.BotAPI)](https://img.shields.io/nuget/v/Telegram.BotAPI.svg?style=flat-square)](https://www.nuget.org/packages/Telegram.BotAPI/)
-[![Compatible with Bot API v5.6](https://img.shields.io/badge/Bot%20API%20version-v5.6-blue?style=flat-square)](https://core.telegram.org/bots/api#december-30-2021)
+[![Compatible with Bot API v5.7](https://img.shields.io/badge/Bot%20API%20version-v5.7-blue?style=flat-square)](https://core.telegram.org/bots/api#january-31-2022)
 
 **Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. Free and open source.
 
-It contains all the methods and types available in the Bot API 5.6 released on December 30, 2021.
+It contains all the methods and types available in the Bot API 5.7 released on January 31, 2022.
 
 ---
 
 ## Features
 
-- Contains pre-defined methods for all Bot API 5.6 methods.
-- Contains classes for each object type used in the Bot API 5.6.
+- Contains pre-defined methods for all Bot API 5.7 methods.
+- Contains classes for each object type used in the Bot API 5.7.
 - Sync and async methods.
 - Support [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) and [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/).
 

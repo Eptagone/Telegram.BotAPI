@@ -34,10 +34,14 @@ namespace Telegram.BotAPI.Stickers
         [JsonPropertyName(PropertyNames.IsAnimated)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool IsAnimated { get; set; }
+        ///<summary>True, if the sticker is a video sticker.</summary>
+        [JsonPropertyName(PropertyNames.IsVideo)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool IsVideo { get; set; }
         ///<summary>Optional. Sticker thumbnail in the .webp or .jpg format.</summary>
         [JsonPropertyName(PropertyNames.Thumb)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public AvailableTypes.PhotoSize Thumb { get; set; }
+        public PhotoSize Thumb { get; set; }
         ///<summary>Optional. Emoji associated with the sticker.</summary>
         [JsonPropertyName(PropertyNames.Emoji)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -69,6 +73,7 @@ namespace Telegram.BotAPI.Stickers
                    Width == other.Width &&
                    Height == other.Height &&
                    IsAnimated == other.IsAnimated &&
+                   IsVideo == other.IsVideo &&
                    EqualityComparer<PhotoSize>.Default.Equals(Thumb, other.Thumb) &&
                    Emoji == other.Emoji &&
                    SetName == other.SetName &&
@@ -84,6 +89,7 @@ namespace Telegram.BotAPI.Stickers
             hashCode = hashCode * -1521134295 + Width.GetHashCode();
             hashCode = hashCode * -1521134295 + Height.GetHashCode();
             hashCode = hashCode * -1521134295 + IsAnimated.GetHashCode();
+            hashCode = hashCode * -1521134295 + IsVideo.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize>.Default.GetHashCode(Thumb);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Emoji);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(SetName);

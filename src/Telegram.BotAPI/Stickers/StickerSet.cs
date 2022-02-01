@@ -26,6 +26,10 @@ namespace Telegram.BotAPI.Stickers
         [JsonPropertyName(PropertyNames.IsAnimated)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool IsAnimated { get; set; }
+        ///<summary>True, if the sticker set contains video stickers.</summary>
+        [JsonPropertyName(PropertyNames.IsVideo)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool IsVideo { get; set; }
         ///<summary>True, if the sticker set contains masks.</summary>
         [JsonPropertyName(PropertyNames.ContainsMasks)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -51,6 +55,7 @@ namespace Telegram.BotAPI.Stickers
                    Name == other.Name &&
                    Title == other.Title &&
                    IsAnimated == other.IsAnimated &&
+                   IsVideo == other.IsVideo &&
                    ContainsMasks == other.ContainsMasks &&
                    EqualityComparer<IEnumerable<Sticker>>.Default.Equals(Stickers, other.Stickers) &&
                    EqualityComparer<PhotoSize>.Default.Equals(Thumb, other.Thumb);
@@ -62,6 +67,7 @@ namespace Telegram.BotAPI.Stickers
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
             hashCode = hashCode * -1521134295 + IsAnimated.GetHashCode();
+            hashCode = hashCode * -1521134295 + IsVideo.GetHashCode();
             hashCode = hashCode * -1521134295 + ContainsMasks.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<Sticker>>.Default.GetHashCode(Stickers);
             hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize>.Default.GetHashCode(Thumb);

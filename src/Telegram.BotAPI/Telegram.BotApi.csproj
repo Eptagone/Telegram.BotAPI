@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>5.0</Version>
+    <Version>5.1</Version>
     <PackageId>Telegram.BotAPI</PackageId>
     <Authors>Quetzal Rivera</Authors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -24,7 +24,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
     <PackageIcon>packicon.png</PackageIcon>
-    <AssemblyVersion>5.0.0.*</AssemblyVersion>
+    <AssemblyVersion>5.1.0.*</AssemblyVersion>
     <FileVersion>5.0.0.0</FileVersion>
     <Deterministic>false</Deterministic>
     <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
@@ -35,11 +35,7 @@
 - New sugar library: Create bots more easily using the TelegramBotBase, CommandHelper and FormattingHelper classes.</PackageReleaseNotes>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>latest</AnalysisLevel>
-<<<<<<< HEAD
     <PackageReadmeFile>README.md</PackageReadmeFile>
-=======
-    <PackageReadmeFile>README</PackageReadmeFile>
->>>>>>> f78d377 (More Overloads)
   </PropertyGroup>
 
   <ItemGroup>

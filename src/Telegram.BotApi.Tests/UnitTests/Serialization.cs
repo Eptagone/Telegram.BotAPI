@@ -1,8 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.AvailableMethods;
-using Telegram.BotAPI.UpdatingMessages;
 using Xunit;
 using Xunit.Abstractions;
 

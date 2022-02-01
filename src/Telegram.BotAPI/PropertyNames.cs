@@ -165,6 +165,7 @@ namespace Telegram.BotAPI
         public const string IsPersonal = "is_personal";
         public const string IsPrimary = "is_primary";
         public const string IsRevoked = "is_revoked";
+        public const string IsVideo = "is_video";
         public const string Keyboard = "keyboard";
         public const string Label = "label";
         public const string Language = "language";
@@ -350,6 +351,7 @@ namespace Telegram.BotAPI
         public const string VoiceUrl = "voice_url";
         public const string VoterCount = "voter_count";
         public const string Watcher = "watcher";
+        public const string WebmSticker = "webm_sticker";
         public const string Width = "width";
         public const string XShift = "x_shift";
         public const string YShift = "y_shift";
