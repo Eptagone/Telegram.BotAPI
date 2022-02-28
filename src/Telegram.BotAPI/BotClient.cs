@@ -5,13 +5,6 @@
 // Description: Library to access and interact with the Telegram Bot API.
 // Review History:
 // Creation: Creation   |   Date: 13-12-2019
-// Update: Added Bot API 5.1 support | Date: 03-09-2021
-// Description: Added all methods and objects of Bot API 5.1 published on March 9, 2021
-// Update: Added Bot API 5.2 support | Date: 05-27-2021
-// Description: Added all methods and objects of Bot API 5.2 published on April 26, 2021
-// Update: Added Bot API 5.5 support | Date: 12-07-2021
-// Description: Added all methods and objects of Bot API 5.5 published on December 7, 2021
-// Update: Updated TelegramBot base class | Date: 12-26-2021
 // ________________________________________________________________________
 //--------------------------------------------------------------------------
 #endregion
@@ -64,6 +57,7 @@ namespace Telegram.BotAPI
         {
             IgnoreBotExceptions = ignoreBotExceptions;
         }
+        
         /// <summary>Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</summary>
         public string Token { get; }
         /// <summary>Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.</summary>

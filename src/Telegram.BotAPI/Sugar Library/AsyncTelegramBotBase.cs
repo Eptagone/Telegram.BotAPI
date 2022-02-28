@@ -56,10 +56,8 @@ namespace Telegram.BotAPI
         /// <exception cref="ArgumentNullException"></exception>
         protected override async Task OnMessageAsync(Message message, [Optional] CancellationToken cancellationToken)
         {
-            if (message == null)
-            {
-                throw new ArgumentNullException(nameof(message));
-            }
+            Message = message ?? throw new ArgumentNullException(nameof(message));
+
             var cmdMatch = _properties.CommandHelper.Match(message.Text);
             if (cmdMatch.Success)
             {
@@ -135,7 +133,7 @@ namespace Telegram.BotAPI
                         await OnChatMemberAsync(update.ChatMember, cancellationToken).ConfigureAwait(false);
                         break;
                     case UpdateType.ChatJoinRequest:
-                        await OnChatJoinRequestAsync(update.ChatJoinRequest).ConfigureAwait(false);
+                        await OnChatJoinRequestAsync(update.ChatJoinRequest, cancellationToken).ConfigureAwait(false);
                         break;
                     case UpdateType.Unknown:
                     default:
@@ -157,7 +155,7 @@ namespace Telegram.BotAPI
         /// <param name="cancellationToken">Optional. The cancelation token.</param>
         /// <returns><see cref="Task"/></returns>
         protected abstract Task OnMessageAsync(Message message, [Optional] CancellationToken cancellationToken);
-        /// <summary>Instructions for a edited message.</summary>
+        /// <summary>Instructions for an edited message.</summary>
         /// <param name="message">Message</param>
         /// <param name="cancellationToken">Optional. The cancelation token.</param>
         /// <returns><see cref="Task"/></returns>
@@ -167,12 +165,12 @@ namespace Telegram.BotAPI
         /// <param name="cancellationToken">Optional. The cancelation token.</param>
         /// <returns><see cref="Task"/></returns>
         protected virtual Task OnChannelPostAsync(Message message, [Optional] CancellationToken cancellationToken) => Task.CompletedTask;
-        /// <summary>Instructions for a edited channel post update.</summary>
+        /// <summary>Instructions for an edited channel post update.</summary>
         /// <param name="message">Message</param>
         /// <param name="cancellationToken">Optional. The cancelation token.</param>
         /// <returns><see cref="Task"/></returns>
         protected virtual Task OnEditedChannelPostAsync(Message message, [Optional] CancellationToken cancellationToken) => Task.CompletedTask;
-        /// <summary>Instructions for a inline query update.</summary>
+        /// <summary>Instructions for an inline query update.</summary>
         /// <param name="inlineQuery">Inline query.</param>
         /// <param name="cancellationToken">Optional. The cancelation token.</param>
         /// <returns><see cref="Task"/></returns>
@@ -208,12 +206,12 @@ namespace Telegram.BotAPI
         /// <returns><see cref="Task"/></returns>
         protected virtual Task OnPollAnswerAsync(PollAnswer pollAnswer, [Optional] CancellationToken cancellationToken) => Task.CompletedTask;
         /// <summary>Instructions for my chat member update.</summary>
-        /// <param name="myChatMemberUpdated">Poll answer.</param>
+        /// <param name="myChatMemberUpdated">My chat member updated.</param>
         /// <param name="cancellationToken">Optional. The cancelation token.</param>
         /// <returns><see cref="Task"/></returns>
         protected virtual Task OnMyChatMemberAsync(ChatMemberUpdated myChatMemberUpdated, [Optional] CancellationToken cancellationToken) => Task.CompletedTask;
         /// <summary>Instructions for chat member update.</summary>
-        /// <param name="chatMemberUpdated">Poll answer.</param>
+        /// <param name="chatMemberUpdated">Chat member updated.</param>
         /// <param name="cancellationToken">Optional. The cancelation token.</param>
         /// <returns><see cref="Task"/></returns>
         protected virtual Task OnChatMemberAsync(ChatMemberUpdated chatMemberUpdated, [Optional] CancellationToken cancellationToken) => Task.CompletedTask;
@@ -234,9 +232,7 @@ namespace Telegram.BotAPI
         /// <returns><see cref="Task"/></returns>
         protected abstract Task OnExceptionAsync(Exception exp, [Optional] CancellationToken cancellationToken);
 
-#pragma warning disable CA1033 // Interface methods should be callable by child types
         void ITelegramBot.OnUpdate(Update update)
-#pragma warning restore CA1033 // Interface methods should be callable by child types
         {
             OnUpdateAsync(update).Wait();
         }

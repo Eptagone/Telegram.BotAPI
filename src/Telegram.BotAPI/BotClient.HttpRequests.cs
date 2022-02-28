@@ -401,7 +401,7 @@ namespace Telegram.BotAPI
                             }
                             else
                             {
-                                string jvalue = JsonSerializer.Serialize(value, value.GetType());
+                                string jvalue = JsonSerializer.Serialize(value, value.GetType(), DefaultSerializerOptions);
                                 var scon = new { Name = pname, Content = new StringContent(jvalue, Encoding.UTF8) };
                                 content.Add(scon.Content, scon.Name);
                             }

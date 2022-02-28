@@ -1,9 +1,7 @@
 ﻿// Copyright (c) 2022 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using Telegram.BotAPI.AvailableTypes;
-
-namespace Telegram.BotAPI.Experimental
+namespace Telegram.BotAPI.AvailableTypes
 {
     public static class ChatMemberExtensions
     {

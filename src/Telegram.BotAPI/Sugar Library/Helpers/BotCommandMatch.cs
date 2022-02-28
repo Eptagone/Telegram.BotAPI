@@ -14,12 +14,12 @@ namespace Telegram.BotAPI
         }
         /// <summary>Initialize a new instance of <see cref="BotCommandMatch"/>.</summary>
         /// <param name="name">Command name.</param>
-        /// <param name="args">Command parameters.</param>
-        internal BotCommandMatch(string name, string args)
+        /// <param name="params">Command parameters.</param>
+        internal BotCommandMatch(string name, string @params)
         {
             Success = true;
             Name = name;
-            Params = args;
+            Params = @params;
         }
 
         /// <summary>Gets a value indicating whether the match is successful.</summary>

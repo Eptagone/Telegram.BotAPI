@@ -35,6 +35,28 @@ namespace Telegram.BotAPI.AvailableMethods
             return bot.RPCF<Message>(MethodNames.SendDocument, args);
         }
 
+        /// <summary>Use this method to send general files. On success, the sent Message is returned.</summary>
+        /// <param name="bot">BotClient</param>
+        /// <param name="args">Parameters.</param>
+        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <returns>Message Object.</returns>
+        public static async Task<Message> SendDocumentAsync(this BotClient bot, SendDocumentArgs args, [Optional] CancellationToken cancellationToken)
+        {
+            if (bot == default)
+            {
+                throw new ArgumentNullException(nameof(bot));
+            }
+
+            if (args == default)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
+            return await bot.RPCAF<Message>(MethodNames.SendDocument, args, cancellationToken).ConfigureAwait(false);
+        }
+
         /// <summary>Use this method to send general files. On success, the sent Message is returned. Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.</summary>
         /// <param name="api">The bot client.</param>
         /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>

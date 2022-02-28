@@ -47,10 +47,8 @@ namespace Telegram.BotAPI
         /// <exception cref="ArgumentNullException"></exception>
         protected override void OnMessage(Message message)
         {
-            if (message == null)
-            {
-                throw new ArgumentNullException(nameof(message));
-            }
+            Message = message ?? throw new ArgumentNullException(nameof(message));
+
             var cmdMatch = _properties.CommandHelper.Match(message.Text);
             if (cmdMatch.Success)
             {
@@ -142,16 +140,16 @@ namespace Telegram.BotAPI
         /// <summary>Instructions for a message update.</summary>
         /// <param name="message">Message.</param>
         protected abstract void OnMessage(Message message);
-        /// <summary>Instructions for a edited message.</summary>
+        /// <summary>Instructions for an edited message.</summary>
         /// <param name="message">Message</param>
         protected virtual void OnEditedMessage(Message message) { }
         /// <summary>Instructions for a channel post.</summary>
         /// <param name="message">Message</param>
         protected virtual void OnChannelPost(Message message) { }
-        /// <summary>Instructions for a edited channel post update.</summary>
+        /// <summary>Instructions for an edited channel post update.</summary>
         /// <param name="message">Message</param>
         protected virtual void OnEditedChannelPost(Message message) { }
-        /// <summary>Instructions for a inline query update.</summary>
+        /// <summary>Instructions for an inline query update.</summary>
         /// <param name="inlineQuery">Inline query.</param>
         protected virtual void OnInlineQuery(InlineQuery inlineQuery) { }
         /// <summary>Instructions for a chosen inline result update.</summary>
@@ -173,10 +171,10 @@ namespace Telegram.BotAPI
         /// <param name="pollAnswer">Poll answer.</param>
         protected virtual void OnPollAnswer(PollAnswer pollAnswer) { }
         /// <summary>Instructions for my chat member update.</summary>
-        /// <param name="myChatMemberUpdated">Poll answer.</param>
+        /// <param name="myChatMemberUpdated">My chat member updated.</param>
         protected virtual void OnMyChatMember(ChatMemberUpdated myChatMemberUpdated) { }
         /// <summary>Instructions for chat member update.</summary>
-        /// <param name="chatMemberUpdated">Poll answer.</param>
+        /// <param name="chatMemberUpdated">Chat member updated.</param>
         protected virtual void OnChatMember(ChatMemberUpdated chatMemberUpdated) { }
         /// <summary>Instructions for chat join request update.</summary>
         /// <param name="chatJoinRequest">Chat join request.</param>
