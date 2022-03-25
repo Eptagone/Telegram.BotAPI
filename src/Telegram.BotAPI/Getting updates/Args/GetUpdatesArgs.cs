@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.GettingUpdates
 {
     /// <summary>GetUpdate method arguments</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class GetUpdatesArgs
+    public class GetUpdatesArgs
     {
         ///<summary>Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned.</summary>
         [JsonPropertyName(PropertyNames.Offset)]

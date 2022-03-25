@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SetMyCommands method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SetMyCommandsArgs
+    public class SetMyCommandsArgs
     {
         /// <summary>Inititalize a new instance of <see cref="SetMyCommandsArgs"/>.</summary>
         public SetMyCommandsArgs()

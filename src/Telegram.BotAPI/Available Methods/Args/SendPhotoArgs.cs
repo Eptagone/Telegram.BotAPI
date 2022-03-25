@@ -13,7 +13,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendPhoto method arguments</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendPhotoArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IMultipartForm
+    public class SendPhotoArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IMultipartForm
     {
         /// <summary>
         /// Initialize a new isntance of <see cref="SendPhotoArgs"/>.

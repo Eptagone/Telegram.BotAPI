@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.UpdatingMessages
 {
     /// <summary>EditMessageCaption method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class EditMessageCaptionArgs : ICaption, IFormattableMessage
+    public class EditMessageCaptionArgs : ICaption, IFormattableMessage
     {
         /// <summary>
         /// Initialize a new instance of <see cref="EditMessageCaptionArgs"/>.

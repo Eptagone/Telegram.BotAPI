@@ -15,7 +15,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendDocument method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendDocumentArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IThumbnail<object>
+    public class SendDocumentArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IThumbnail<object>
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendDocumentArgs"/>.

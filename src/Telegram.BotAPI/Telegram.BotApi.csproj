@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>5.2-beta</Version>
+		<Version>5.2.1</Version>
 		<PackageId>Telegram.BotAPI</PackageId>
 		<Authors>Quetzal Rivera</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -11,10 +11,8 @@
 		<NeutralLanguage>en</NeutralLanguage>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Description>
-			A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v5.7 (January 31, 2022).
-			- Contains all classes and methods available from the Bot API.
-		</Description>
+		<Description>A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v5.7 (January 31, 2022).
+- Contains all classes and methods available from the Bot API.</Description>
 		<PackageTags>Telegram Bot API</PackageTags>
 		<Title>Telegram Bot API</Title>
 		<OutputType>Library</OutputType>
@@ -26,17 +24,15 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
 		<PackageIcon>packicon.png</PackageIcon>
-		<AssemblyVersion>5.2.0.*</AssemblyVersion>
-		<FileVersion>5.2.0.0</FileVersion>
+		<AssemblyVersion>5.2.1.*</AssemblyVersion>
+		<FileVersion>5.2.1.0</FileVersion>
 		<Deterministic>false</Deterministic>
 		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<AssemblyName>Telegram.BotAPI</AssemblyName>
-		<PackageReleaseNotes>
-			- Updated to Bot API 5.7
-			- Added more overloaded methods.
-			- Fixed a serialization issue in methods with InputFile parameters.
-		</PackageReleaseNotes>
+		<PackageReleaseNotes>- Updated to Bot API 5.7
+- Added more overloaded methods.
+- Fixed a serialization issue in methods with InputFile parameters.		</PackageReleaseNotes>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

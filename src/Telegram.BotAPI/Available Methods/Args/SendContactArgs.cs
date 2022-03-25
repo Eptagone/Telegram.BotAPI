@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendContact method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendContactArgs : SendMessageWithReplyMarkupBase
+    public class SendContactArgs : SendMessageWithReplyMarkupBase
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendContactArgs"/>.

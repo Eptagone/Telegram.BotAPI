@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SetMyCommands method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class DeleteMyCommandsArgs
+    public class DeleteMyCommandsArgs
     {
         /// <summary>Inititalize a new instance of <see cref="DeleteMyCommandsArgs"/>.</summary>
         /// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>

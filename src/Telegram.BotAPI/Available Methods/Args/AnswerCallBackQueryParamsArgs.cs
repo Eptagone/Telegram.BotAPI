@@ -9,7 +9,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>AnswerCallbackQuery method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class AnswerCallbackQueryArgs
+    public class AnswerCallbackQueryArgs
     {
         ///<summary>Unique identifier for the query to be answered.</summary>
         [JsonPropertyName(PropertyNames.CallbackQueryId)]

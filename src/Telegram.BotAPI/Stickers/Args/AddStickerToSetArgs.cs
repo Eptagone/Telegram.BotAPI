@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.Stickers
 {
     /// <summary>AddStickerToSet method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class AddStickerToSetArgs : IMultipartForm
+    public class AddStickerToSetArgs : IMultipartForm
     {
         /// <summary>
         /// Initialize a new instance of <see cref="AddStickerToSetArgs"/>.

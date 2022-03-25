@@ -7,7 +7,7 @@ namespace Telegram.BotAPI.Stickers
 {
     /// <summary>UploadStickerFile method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class UploadStickerFileArgs
+    public class UploadStickerFileArgs
     {
         /// <summary>User identifier of sticker file owner.</summary>
         [JsonPropertyName(PropertyNames.UserId)]

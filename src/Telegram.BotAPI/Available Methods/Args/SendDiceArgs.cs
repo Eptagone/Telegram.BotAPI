@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendDice method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendDiceArgs : SendMessageWithReplyMarkupBase
+    public class SendDiceArgs : SendMessageWithReplyMarkupBase
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendDiceArgs"/>.

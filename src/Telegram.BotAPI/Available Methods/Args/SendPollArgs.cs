@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendPoll method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendPollArgs : SendMessageWithReplyMarkupBase
+    public class SendPollArgs : SendMessageWithReplyMarkupBase
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendPollArgs"/>.

@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.InlineMode
 {
     /// <summary>AnswerInlineQuery method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class AnswerInlineQueryArgs
+    public class AnswerInlineQueryArgs
     {
         ///<summary>Unique identifier for the answered query.</summary>
         [JsonPropertyName(PropertyNames.InlineQueryId)]

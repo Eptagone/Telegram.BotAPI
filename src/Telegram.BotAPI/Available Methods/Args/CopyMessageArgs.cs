@@ -13,7 +13,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>CopyMessage method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class CopyMessageArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage
+    public class CopyMessageArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage
     {
         /// <summary>
         /// Initialize a new instance of <see cref="CopyMessageArgs"/>.

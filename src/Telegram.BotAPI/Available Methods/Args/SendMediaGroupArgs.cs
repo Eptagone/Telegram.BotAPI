@@ -13,7 +13,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendMediaGroud method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendMediaGroupArgs : SendMessageBase, IAttachFiles
+    public class SendMediaGroupArgs : SendMessageBase, IAttachFiles
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendMediaGroupArgs"/>.

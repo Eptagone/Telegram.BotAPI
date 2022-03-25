@@ -57,7 +57,7 @@ namespace Telegram.BotAPI.AvailableMethods
             var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteString(PropertyNames.CallbackQueryId, callbackQueryId);
-            if (string.IsNullOrEmpty(text))
+            if (!string.IsNullOrEmpty(text))
             {
                 json.WriteString(PropertyNames.Text, text);
             }
@@ -67,7 +67,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 json.WriteBoolean(PropertyNames.ShowAlert, (bool)showAlert);
             }
 
-            if (string.IsNullOrEmpty(url))
+            if (!string.IsNullOrEmpty(url))
             {
                 json.WriteString(PropertyNames.Url, url);
             }
@@ -133,7 +133,7 @@ namespace Telegram.BotAPI.AvailableMethods
             using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
             json.WriteStartObject();
             json.WriteString(PropertyNames.CallbackQueryId, callbackQueryId);
-            if (string.IsNullOrEmpty(text))
+            if (!string.IsNullOrEmpty(text))
             {
                 json.WriteString(PropertyNames.Text, text);
             }
@@ -143,7 +143,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 json.WriteBoolean(PropertyNames.ShowAlert, (bool)showAlert);
             }
 
-            if (string.IsNullOrEmpty(url))
+            if (!string.IsNullOrEmpty(url))
             {
                 json.WriteString(PropertyNames.Url, url);
             }

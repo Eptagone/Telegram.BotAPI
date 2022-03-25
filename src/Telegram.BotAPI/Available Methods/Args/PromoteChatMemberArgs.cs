@@ -9,7 +9,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>PromoteChatMember method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class PromoteChatMemberArgs
+    public class PromoteChatMemberArgs
     {
         ///<summary>Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</summary>
         [JsonPropertyName(PropertyNames.ChatId)]

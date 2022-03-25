@@ -9,7 +9,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendLocation method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendLocationArgs : SendMessageWithReplyMarkupBase, ILocation
+    public class SendLocationArgs : SendMessageWithReplyMarkupBase, ILocation
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendLocationArgs"/>.

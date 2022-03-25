@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>StopMessageLiveLocation method arguments</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class StopMessageLiveLocationArgs : ICustomizableReplyMarkup<InlineKeyboardMarkup>
+    public class StopMessageLiveLocationArgs : ICustomizableReplyMarkup<InlineKeyboardMarkup>
     {
         ///<summary>Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername).</summary>
         [JsonPropertyName(PropertyNames.ChatId)]

@@ -13,7 +13,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendMessage method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendMessageArgs : SendMessageWithReplyMarkupBase, IFormattableMessage
+    public class SendMessageArgs : SendMessageWithReplyMarkupBase, IFormattableMessage
     {
         /// <summary>Initialize a new instance of <see cref="SendMessageArgs"/>.</summary>
         /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>

@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendVoice method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendVoiceArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IMultipartForm
+    public class SendVoiceArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IMultipartForm
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendVoiceArgs"/>.

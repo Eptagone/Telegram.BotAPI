@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SetChatPhoto method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SetChatPhotoArgs
+    public class SetChatPhotoArgs
     {
         /// <summary>Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</summary>
         [JsonPropertyName(PropertyNames.ChatId)]

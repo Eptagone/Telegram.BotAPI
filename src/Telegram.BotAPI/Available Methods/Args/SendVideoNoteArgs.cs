@@ -15,7 +15,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendVideoNote method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendVideoNoteArgs : SendMessageWithReplyMarkupBase, IAttachFiles
+    public class SendVideoNoteArgs : SendMessageWithReplyMarkupBase, IAttachFiles
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendVideoNoteArgs"/>.

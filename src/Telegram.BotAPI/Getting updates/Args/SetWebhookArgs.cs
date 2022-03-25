@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.GettingUpdates
 {
     /// <summary>SetWebhook method arguments</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SetWebhookArgs
+    public class SetWebhookArgs
     {
         ///<summary>HTTPS url to send updates to. Use an empty string to remove webhook integration.</summary>
         [JsonPropertyName(PropertyNames.Url)]

@@ -15,7 +15,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendAudio method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendAudioArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IMultipartForm, IThumbnail<object>
+    public class SendAudioArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IMultipartForm, IThumbnail<object>
     {
         /// <summary>Initialize a new instance of <see cref="SendAudioArgs"/>.</summary>
         /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>

@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.Payments
 {
     /// <summary>SendInvoice method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendInvoiceArgs : SendMessageBase, ICustomizableReplyMarkup<InlineKeyboardMarkup>
+    public class SendInvoiceArgs : SendMessageBase, ICustomizableReplyMarkup<InlineKeyboardMarkup>
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendInvoiceArgs"/>.

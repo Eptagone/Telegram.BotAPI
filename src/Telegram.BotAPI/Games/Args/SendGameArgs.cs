@@ -13,7 +13,7 @@ namespace Telegram.BotAPI.Games
 {
     /// <summary>SendGame method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendGameArgs : SendMessageBase<long>, ICustomizableReplyMarkup<InlineKeyboardMarkup>
+    public class SendGameArgs : SendMessageBase<long>, ICustomizableReplyMarkup<InlineKeyboardMarkup>
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendGameArgs"/>.

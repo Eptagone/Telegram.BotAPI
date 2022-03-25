@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendAnimation method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendAnimationArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IMultipartForm, IThumbnail<object>
+    public class SendAnimationArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IMultipartForm, IThumbnail<object>
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendAnimationArgs"/>.

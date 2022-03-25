@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.UpdatingMessages
 {
     /// <summary>EditMessageMedia method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class EditMessageMediaArgs : IAttachFiles
+    public class EditMessageMediaArgs : IAttachFiles
     {
         ///<summary>Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername).</summary>
         [JsonPropertyName(PropertyNames.ChatId)]

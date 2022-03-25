@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>SendVideo method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendVideoArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IMultipartForm
+    public class SendVideoArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IMultipartForm
     {
         /// <summary>Initialize a new instance of <see cref="SendVideoArgs"/>.</summary>
         /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>

@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
     /// <summary>Send Venue.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SendVenueArgs : SendMessageWithReplyMarkupBase, IVenue
+    public class SendVenueArgs : SendMessageWithReplyMarkupBase, IVenue
     {
         /// <summary>
         /// Initialize a new instance of <see cref="SendVenueArgs"/>.

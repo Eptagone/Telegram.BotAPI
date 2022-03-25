@@ -9,7 +9,7 @@ namespace Telegram.BotAPI.Games
 {
     /// <summary>SetGameScore method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SetGameScoreArgs
+    public class SetGameScoreArgs
     {
         /// <summary>User identifier.</summary>
         [JsonPropertyName(PropertyNames.UserId)]

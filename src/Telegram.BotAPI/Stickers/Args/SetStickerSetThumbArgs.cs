@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.Stickers
 {
     /// <summary>SetStickerSetThumb method arguments.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class SetStickerSetThumbArgs
+    public class SetStickerSetThumbArgs
     {
         /// <summary>Sticker set name</summary>
         [JsonPropertyName(PropertyNames.Name)]
