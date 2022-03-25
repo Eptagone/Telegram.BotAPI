@@ -29,7 +29,13 @@ namespace Telegram.BotAPI
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public BotClient Api { get; }
         public User User { get; }
-        public BotCommandHelper CommandHelper { get; }
+        IBotCommandHelper IBotProperties.CommandHelper => CommandHelper;
+
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+
+        /// <summary>
+        /// The bot command helper.
+        /// </summary>
+        public BotCommandHelper CommandHelper { get; }
     }
 }

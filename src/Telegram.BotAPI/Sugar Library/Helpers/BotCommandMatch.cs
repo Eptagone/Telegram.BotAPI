@@ -4,10 +4,10 @@
 namespace Telegram.BotAPI
 {
     /// <summary>This object represents the result of a bot command match.</summary>
-    public sealed class BotCommandMatch
+    public class BotCommandMatch
     {
         /// <summary>Initialize a new instance of <see cref="BotCommandMatch"/>.</summary>
-        internal BotCommandMatch()
+        public BotCommandMatch()
         {
             Name = string.Empty;
             Params = string.Empty;
@@ -15,7 +15,7 @@ namespace Telegram.BotAPI
         /// <summary>Initialize a new instance of <see cref="BotCommandMatch"/>.</summary>
         /// <param name="name">Command name.</param>
         /// <param name="params">Command parameters.</param>
-        internal BotCommandMatch(string name, string @params)
+        public BotCommandMatch(string name, string @params)
         {
             Success = true;
             Name = name;

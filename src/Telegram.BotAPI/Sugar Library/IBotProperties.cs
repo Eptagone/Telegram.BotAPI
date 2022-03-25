@@ -21,6 +21,6 @@ namespace Telegram.BotAPI
         /// <summary>
         /// The bot command helper.
         /// </summary>
-        BotCommandHelper CommandHelper { get; }
+        IBotCommandHelper CommandHelper { get; }
     }
 }

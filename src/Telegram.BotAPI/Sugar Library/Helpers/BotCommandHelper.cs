@@ -10,15 +10,15 @@ using System.Text.RegularExpressions;
 namespace Telegram.BotAPI
 {
     /// <summary>Helper class for command detection.</summary>
-    public sealed class BotCommandHelper
+    public sealed class BotCommandHelper : IBotCommandHelper
     {
         private const string COMMAND = "command";
         private const string PARAMS = "params";
         private const string BASE_COMMAND_PATTERN = @"^\/(?<command>\w*)(?:|@{0})(?:$|\s(?<params>.*))";
         // /([^"'\s]*)|"([^\n"]*)"|'([^\n']*)'/gimus
         private const string ARGS_PATTERN = @"/([^""'\s]*)|""([^\n""]*)""|'([^\n']*)'";
-        private static Regex rxArgs = new Regex(ARGS_PATTERN, RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
 
+        private static readonly Regex rxArgs = new(ARGS_PATTERN, RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
         private readonly Regex _rx;
 
         /// <summary>Initialize a new instance of <see cref="BotCommandHelper"/>.</summary>
@@ -40,10 +40,9 @@ namespace Telegram.BotAPI
             _rx = new Regex(pattern, options);
         }
 
-        /// <summary>Extracts the command name and parameters from the specified input string using the following format:<br/><b>/commandName[@BotUsername] [Params]</b>.</summary>
-        /// <param name="text">Input string. The message text.</param>
-        /// <returns>A <see cref="BotCommandMatch"/> object with the result information.</returns>
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public BotCommandMatch Match(string text)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             if (string.IsNullOrEmpty(text))
             {
@@ -68,7 +67,16 @@ namespace Telegram.BotAPI
         /// <param name="_">Command helper.</param>
         /// <param name="params">Command parameter string</param>
         /// <returns>An array of <see cref="string"/></returns>
-        public IEnumerable<string> MatchArgs(string @params)
+        [Obsolete("This method will be removed in future versions. Please use BotCommandHelper.MatchParameters(@params) instead!")]
+        public IEnumerable<string> MatchArgs(string @params) => MatchParameters(@params);
+        
+        /// <summary>
+        /// Extract args from the command parameters.
+        /// </summary>
+        /// <param name="_">Command helper.</param>
+        /// <param name="params">Command parameter string</param>
+        /// <returns>An array of <see cref="string"/></returns>
+        public static IEnumerable<string> MatchParameters(string @params)
         {
             var match = rxArgs.Match(@params);
             if (match.Success)
