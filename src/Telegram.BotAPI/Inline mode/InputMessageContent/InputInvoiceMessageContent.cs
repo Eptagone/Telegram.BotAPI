@@ -14,30 +14,50 @@ namespace Telegram.BotAPI.InlineMode
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class InputInvoiceMessageContent : InputMessageContent, IEquatable<InputInvoiceMessageContent>
     {
+        /// <summary>
+        /// Initialize a new instance of <see cref="InputInvoiceMessageContent"/>.
+        /// </summary>
+        /// <param name="title">Product name, 1-32 characters.</param>
+        /// <param name="description">Product description, 1-255 characters.</param>
+        /// <param name="payload">Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.</param>
+        /// <param name="providerToken">Payment provider token, obtained via Botfather.</param>
+        /// <param name="currency">Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a>.</param>
+        /// <param name="prices">Price breakdown, a list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.).</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public InputInvoiceMessageContent(string title, string description, string payload, string providerToken, string currency, IEnumerable<LabeledPrice> prices)
+        {
+            Title = title ?? throw new ArgumentNullException(nameof(title));
+            Description = description ?? throw new ArgumentNullException(nameof(description));
+            Payload = payload ?? throw new ArgumentNullException(nameof(payload));
+            ProviderToken = providerToken ?? throw new ArgumentNullException(nameof(providerToken));
+            Currency = currency ?? throw new ArgumentNullException(nameof(currency));
+            Prices = prices ?? throw new ArgumentNullException(nameof(prices));
+        }
+
         ///<summary>Product name, 1-32 characters.</summary>
         [JsonPropertyName(PropertyNames.Title)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Title { get; set; }
+        public string Title { get; }
         ///<summary>Product description, 1-255 characters.</summary>
         [JsonPropertyName(PropertyNames.Description)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Description { get; set; }
+        public string Description { get; }
         ///<summary>Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.</summary>
         [JsonPropertyName(PropertyNames.Payload)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Payload { get; set; }
+        public string Payload { get; }
         ///<summary>Payment provider token, obtained via Botfather.</summary>
         [JsonPropertyName(PropertyNames.ProviderToken)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string ProviderToken { get; set; }
+        public string ProviderToken { get; }
         ///<summary>Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a>.</summary>
         [JsonPropertyName(PropertyNames.Currency)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Currency { get; set; }
+        public string Currency { get; }
         ///<summary>Price breakdown, a list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.).</summary>
         [JsonPropertyName(PropertyNames.Prices)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public IEnumerable<LabeledPrice> Prices { get; set; }
+        public IEnumerable<LabeledPrice> Prices { get; }
         ///<summary>Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0.</summary>
         [JsonPropertyName(PropertyNames.MaxTipAmount)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

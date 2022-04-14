@@ -15,6 +15,6 @@ namespace Telegram.BotAPI.InlineMode
     [JsonConverter(typeof(InputMessageContentConverter))]
     public abstract class InputMessageContent
     {
-        //Base empty class
+        // Base empty class
     }
 }

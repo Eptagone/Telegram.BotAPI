@@ -13,14 +13,42 @@ namespace Telegram.BotAPI.InlineMode
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class InputLocationMessageContent : InputMessageContent, ILocation, IEquatable<InputLocationMessageContent>
     {
+        /// <summary>
+        /// Initialize a new instance of <see cref="InputLocationMessageContent"/>.
+        /// </summary>
+        /// <param name="longitude">Longitude as defined by sender.</param>
+        /// <param name="latitude">Latitude as defined by sender.</param>
+        public InputLocationMessageContent(float longitude, float latitude)
+        {
+            Longitude = longitude;
+            Latitude = latitude;
+        }
+
+        /// <summary>
+        /// Initialize a new instance of <see cref="InputLocationMessageContent"/>.
+        /// </summary>
+        /// <param name="location">Location.</param>
+        public InputLocationMessageContent(ILocation location) : this(location.Longitude, location.Latitude)
+        {
+            if (location == null)
+            {
+                throw new ArgumentNullException(nameof(location));
+            }
+
+            HorizontalAccuracy = location.HorizontalAccuracy;
+            LivePeriod = location.LivePeriod;
+            Heading = location.Heading;
+            ProximityAlertRadius = location.ProximityAlertRadius;
+        }
+
         ///<summary>Longitude as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Longitude)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public float Longitude { get; set; }
+        public float Longitude { get; }
         ///<summary>Latitude as defined by sender.</summary>
         [JsonPropertyName(PropertyNames.Latitude)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public float Latitude { get; set; }
+        public float Latitude { get; }
         ///<summary>Optional. The radius of uncertainty for the location, measured in meters; 0-1500.</summary>
         [JsonPropertyName(PropertyNames.HorizontalAccuracy)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

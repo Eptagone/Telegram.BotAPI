@@ -96,6 +96,7 @@ namespace Telegram.BotAPI
         public const string Emoji = "emoji";
         public const string Emojis = "emojis";
         public const string Entities = "entities";
+        public const string ErrorMessage = "error_message";
         public const string Errors = "errors";
         public const string Explanation = "explanation";
         public const string ExplanationEntities = "explanation_entities";
@@ -213,6 +214,7 @@ namespace Telegram.BotAPI
         public const string NewChatTitle = "new_chat_title";
         public const string NextOffset = "next_offset";
         public const string Offset = "offset";
+        public const string Ok = "ok";
         public const string OldChatMember = "old_chat_member";
         public const string OneTimeKeyboard = "one_time_keyboard";
         public const string OnlyIfBanned = "only_if_banned";
@@ -281,7 +283,9 @@ namespace Telegram.BotAPI
         public const string SetName = "set_name";
         public const string ShippingAddress = "shipping_address";
         public const string ShippingOptionId = "shipping_option_id";
+        public const string ShippingOptions = "shipping_options";
         public const string ShippingQuery = CommonNames.ShippingQuery;
+        public const string ShippingQueryId = "shipping_query_id";
         public const string ShowAlert = "show_alert";
         public const string SlowModeDelay = "slow_mode_delay";
         public const string SmallFileId = "small_file_id";

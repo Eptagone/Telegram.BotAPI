@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.InlineMode
@@ -10,10 +11,35 @@ namespace Telegram.BotAPI.InlineMode
     /// <summary>Represents the content of a contact message to be sent as the result of an inline query.</summary>
     public sealed class InputContactMessageContent : InputMessageContent, IContact, IEquatable<InputContactMessageContent>
     {
+        /// <summary>
+        /// Initialize a new instance of <see cref="InputContactMessageContent"/>.
+        /// </summary>
+        /// <param name="phoneNumber">Contact's phone number.</param>
+        /// <param name="firstName">Contact's first name.</param>
+        /// <param name="lastName">Contact's last name.</param>
+        /// <param name="vcard">Additional data about the contact in the form of a vCard.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public InputContactMessageContent(string phoneNumber, string firstName, [Optional] string lastName, [Optional] string vcard)
+        {
+            PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));
+            FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
+            LastName = lastName;
+            Vcard = vcard;
+        }
+
+        /// <summary>
+        /// Initialize a new instance of <see cref="InputContactMessageContent"/>.
+        /// </summary>
+        /// <param name="contact">Contact.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public InputContactMessageContent(IContact contact) : this(contact.PhoneNumber, contact.FirstName, contact.LastName, contact.Vcard)
+        {
+        }
+
         /// <summary>Contact's phone number.</summary>
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; }
         /// <summary>Contact's first name.</summary>
-        public string FirstName { get; set; }
+        public string FirstName { get; }
         /// <summary>Optional. Contact's last name.</summary>
         public string LastName { get; set; }
         /// <summary>Optional. Additional data about the contact in the form of a vCard.</summary>

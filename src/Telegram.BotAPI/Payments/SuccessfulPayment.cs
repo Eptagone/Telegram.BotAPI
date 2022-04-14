@@ -20,7 +20,7 @@ namespace Telegram.BotAPI.Payments
         /// <summary>Total price in the <i>smallest units</i> of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the <i>exp</i> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).</summary>
         [JsonPropertyName(PropertyNames.TotalAmount)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string TotalAmount { get; set; }
+        public uint TotalAmount { get; set; }
         /// <summary>Bot specified invoice payload.</summary>
         [JsonPropertyName(PropertyNames.InvoicePayload)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -64,7 +64,7 @@ namespace Telegram.BotAPI.Payments
         {
             int hashCode = 1627006191;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Currency);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TotalAmount);
+            hashCode = hashCode * -1521134295 + EqualityComparer<uint>.Default.GetHashCode(TotalAmount);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(InvoicePayload);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ShippingOptionId);
             hashCode = hashCode * -1521134295 + EqualityComparer<OrderInfo>.Default.GetHashCode(OrderInfo);

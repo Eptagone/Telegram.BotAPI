@@ -13,22 +13,62 @@ namespace Telegram.BotAPI.InlineMode
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class InputVenueMessageContent : InputMessageContent, IVenue, IEquatable<InputVenueMessageContent>
     {
+        /// <summary>
+        /// Initialize a new instance of <see cref="InputVenueMessageContent"/>.
+        /// </summary>
+        /// <param name="latitude">Latitude of the venue in degrees.</param>
+        /// <param name="longitude">Longitude of the venue in degrees.</param>
+        /// <param name="title">Name of the venue.</param>
+        /// <param name="address">Address of the venue.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public InputVenueMessageContent(float latitude, float longitude, string title, string address)
+        {
+            Latitude = latitude;
+            Longitude = longitude;
+            Title = title ?? throw new ArgumentNullException(nameof(title));
+            Address = address ?? throw new ArgumentNullException(nameof(address));
+        }
+
+        /// <summary>
+        /// Initialize a new instance of <see cref="InputVenueMessageContent"/>.
+        /// </summary>
+        /// <param name="latitude">Latitude of the venue in degrees.</param>
+        /// <param name="longitude">Longitude of the venue in degrees.</param>
+        /// <param name="venue">Venue.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public InputVenueMessageContent(float latitude, float longitude, IVenue venue)
+        {
+            if (venue == null)
+            {
+                throw new ArgumentNullException(nameof(venue));
+            }
+
+            Latitude = latitude;
+            Longitude = longitude;
+            Title = venue.Title ?? throw new ArgumentNullException(nameof(venue.Title));
+            Address = venue.Address ?? throw new ArgumentNullException(nameof(venue.Address));
+            FoursquareId = venue.FoursquareId;
+            FoursquareType = venue.FoursquareType;
+            GooglePlaceId = venue.GooglePlaceId;
+            GooglePlaceType = venue.GooglePlaceType;
+        }
+
         ///<summary>Latitude of the venue in degrees.</summary>
         [JsonPropertyName(PropertyNames.Latitude)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public float Latitude { get; set; }
+        public float Latitude { get; }
         ///<summary>Longitude of the venue in degrees.</summary>
         [JsonPropertyName(PropertyNames.Longitude)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public float Longitude { get; set; }
+        public float Longitude { get; }
         ///<summary>Name of the venue.</summary>
         [JsonPropertyName(PropertyNames.Title)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Title { get; set; }
+        public string Title { get; }
         ///<summary>Address of the venue.</summary>
         [JsonPropertyName(PropertyNames.Address)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Address { get; set; }
+        public string Address { get; }
         ///<summary>Optional. Foursquare identifier of the venue.</summary>
         [JsonPropertyName(PropertyNames.FoursquareId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
