@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
-using Telegram.BotAPI.AvailableMethods.FormattingOptions;
 
 namespace Telegram.BotAPI.InlineMode
 {

@@ -34,14 +34,14 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="canPostMessages">Optional. Pass True, if the administrator can create channel posts, channels only.</param>
         /// <param name="canEditMessages">Optional. Pass True, if the administrator can edit messages of other users and can pin messages, channels only.</param>
         /// <param name="canDeleteMessages">Optional. Pass True, if the administrator can delete messages of other users.</param>
-        /// <param name="canManageVoiceChats">True, if the administrator can manage voice chats.</param>
+        /// <param name="canManageVideoChats">True, if the administrator can manage video chats.</param>
         /// <param name="canInviteUsers">Optional. Pass True, if the administrator can invite new users to the chat.</param>
         /// <param name="canRestrictMembers">Optional. Pass True, if the administrator can restrict, ban or unban chat members</param>
         /// <param name="canPinMessages">Optional. Pass True, if the administrator can pin messages, supergroups only.</param>
         /// <param name="canPromoteMembers">Optional. Pass True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool PromoteChatMember(this BotClient bot, string chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canChangeInfo, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVoiceChats, [Optional] bool? canInviteUsers, [Optional] bool? canRestrictMembers, [Optional] bool? canPinMessages, [Optional] bool? canPromoteMembers)
+        public static bool PromoteChatMember(this BotClient bot, string chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canChangeInfo, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVideoChats, [Optional] bool? canInviteUsers, [Optional] bool? canRestrictMembers, [Optional] bool? canPinMessages, [Optional] bool? canPromoteMembers)
         {
             if (bot == default)
             {
@@ -63,7 +63,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 CanDeleteMessages = canDeleteMessages,
                 CanInviteUsers = canInviteUsers,
                 CanManageChat = canManageChat,
-                CanManageVoiceChats = canManageVoiceChats,
+                CanManageVideoChats = canManageVideoChats,
                 CanPinMessages = canPinMessages,
                 CanPostMessages = canPostMessages,
                 CanPromoteMembers = canPromoteMembers,
@@ -81,14 +81,14 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="canPostMessages">Optional. Pass True, if the administrator can create channel posts, channels only.</param>
         /// <param name="canEditMessages">Optional. Pass True, if the administrator can edit messages of other users and can pin messages, channels only.</param>
         /// <param name="canDeleteMessages">Optional. Pass True, if the administrator can delete messages of other users.</param>
-        /// <param name="canManageVoiceChats">True, if the administrator can manage voice chats.</param>
+        /// <param name="canManageVideoChats">True, if the administrator can manage video chats.</param>
         /// <param name="canInviteUsers">Optional. Pass True, if the administrator can invite new users to the chat.</param>
         /// <param name="canRestrictMembers">Optional. Pass True, if the administrator can restrict, ban or unban chat members</param>
         /// <param name="canPinMessages">Optional. Pass True, if the administrator can pin messages, supergroups only.</param>
         /// <param name="canPromoteMembers">Optional. Pass True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static bool PromoteChatMember(this BotClient bot, long chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canChangeInfo, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVoiceChats, [Optional] bool? canInviteUsers, [Optional] bool? canRestrictMembers, [Optional] bool? canPinMessages, [Optional] bool? canPromoteMembers)
+        public static bool PromoteChatMember(this BotClient bot, long chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canChangeInfo, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVideoChats, [Optional] bool? canInviteUsers, [Optional] bool? canRestrictMembers, [Optional] bool? canPinMessages, [Optional] bool? canPromoteMembers)
         {
             if (bot == default)
             {
@@ -105,7 +105,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 CanDeleteMessages = canDeleteMessages,
                 CanInviteUsers = canInviteUsers,
                 CanManageChat = canManageChat,
-                CanManageVoiceChats = canManageVoiceChats,
+                CanManageVideoChats = canManageVideoChats,
                 CanPinMessages = canPinMessages,
                 CanPostMessages = canPostMessages,
                 CanPromoteMembers = canPromoteMembers,
@@ -143,7 +143,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="canPostMessages">Optional. Pass True, if the administrator can create channel posts, channels only.</param>
         /// <param name="canEditMessages">Optional. Pass True, if the administrator can edit messages of other users and can pin messages, channels only.</param>
         /// <param name="canDeleteMessages">Optional. Pass True, if the administrator can delete messages of other users.</param>
-        /// <param name="canManageVoiceChats">True, if the administrator can manage voice chats.</param>
+        /// <param name="canManageVideoChats">True, if the administrator can manage video chats.</param>
         /// <param name="canInviteUsers">Optional. Pass True, if the administrator can invite new users to the chat.</param>
         /// <param name="canRestrictMembers">Optional. Pass True, if the administrator can restrict, ban or unban chat members</param>
         /// <param name="canPinMessages">Optional. Pass True, if the administrator can pin messages, supergroups only.</param>
@@ -151,7 +151,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> PromoteChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canChangeInfo, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVoiceChats, [Optional] bool? canInviteUsers, [Optional] bool? canRestrictMembers, [Optional] bool? canPinMessages, [Optional] bool? canPromoteMembers, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> PromoteChatMemberAsync(this BotClient bot, string chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canChangeInfo, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVideoChats, [Optional] bool? canInviteUsers, [Optional] bool? canRestrictMembers, [Optional] bool? canPinMessages, [Optional] bool? canPromoteMembers, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -173,7 +173,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 CanDeleteMessages = canDeleteMessages,
                 CanInviteUsers = canInviteUsers,
                 CanManageChat = canManageChat,
-                CanManageVoiceChats = canManageVoiceChats,
+                CanManageVideoChats = canManageVideoChats,
                 CanPinMessages = canPinMessages,
                 CanPostMessages = canPostMessages,
                 CanPromoteMembers = canPromoteMembers,
@@ -193,7 +193,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="canPostMessages">Optional. Pass True, if the administrator can create channel posts, channels only.</param>
         /// <param name="canEditMessages">Optional. Pass True, if the administrator can edit messages of other users and can pin messages, channels only.</param>
         /// <param name="canDeleteMessages">Optional. Pass True, if the administrator can delete messages of other users.</param>
-        /// <param name="canManageVoiceChats">True, if the administrator can manage voice chats.</param>
+        /// <param name="canManageVideoChats">True, if the administrator can manage video chats.</param>
         /// <param name="canInviteUsers">Optional. Pass True, if the administrator can invite new users to the chat.</param>
         /// <param name="canRestrictMembers">Optional. Pass True, if the administrator can restrict, ban or unban chat members</param>
         /// <param name="canPinMessages">Optional. Pass True, if the administrator can pin messages, supergroups only.</param>
@@ -201,7 +201,7 @@ namespace Telegram.BotAPI.AvailableMethods
         /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
         /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
         /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<bool> PromoteChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canChangeInfo, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVoiceChats, [Optional] bool? canInviteUsers, [Optional] bool? canRestrictMembers, [Optional] bool? canPinMessages, [Optional] bool? canPromoteMembers, [Optional] CancellationToken cancellationToken)
+        public static async Task<bool> PromoteChatMemberAsync(this BotClient bot, long chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canChangeInfo, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVideoChats, [Optional] bool? canInviteUsers, [Optional] bool? canRestrictMembers, [Optional] bool? canPinMessages, [Optional] bool? canPromoteMembers, [Optional] CancellationToken cancellationToken)
         {
             if (bot == default)
             {
@@ -218,7 +218,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 CanDeleteMessages = canDeleteMessages,
                 CanInviteUsers = canInviteUsers,
                 CanManageChat = canManageChat,
-                CanManageVoiceChats = canManageVoiceChats,
+                CanManageVideoChats = canManageVideoChats,
                 CanPinMessages = canPinMessages,
                 CanPostMessages = canPostMessages,
                 CanPromoteMembers = canPromoteMembers,

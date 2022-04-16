@@ -9,11 +9,11 @@ using System.Text.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-    /// <summary>This object represents a service message about new members invited to a voice chat.</summary>
+    /// <summary>This object represents a service message about new members invited to a video chat.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class VoiceChatParticipantsInvited : IEquatable<VoiceChatParticipantsInvited>
+    public sealed class VideoChatParticipantsInvited : IEquatable<VideoChatParticipantsInvited>
     {
-        ///<summary>Optional. New members that were invited to the voice chat.</summary>
+        ///<summary>Optional. New members that were invited to the video chat.</summary>
         [JsonPropertyName(PropertyNames.Users)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public User[] Users { get; set; }
@@ -21,10 +21,10 @@ namespace Telegram.BotAPI.AvailableTypes
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
         {
-            return Equals(obj as VoiceChatParticipantsInvited);
+            return Equals(obj as VideoChatParticipantsInvited);
         }
 
-        public bool Equals(VoiceChatParticipantsInvited other)
+        public bool Equals(VideoChatParticipantsInvited other)
         {
             return other != null &&
                    EqualityComparer<User[]>.Default.Equals(Users, other.Users);
@@ -35,12 +35,12 @@ namespace Telegram.BotAPI.AvailableTypes
             return 471895467 + EqualityComparer<User[]>.Default.GetHashCode(Users);
         }
 
-        public static bool operator ==(VoiceChatParticipantsInvited left, VoiceChatParticipantsInvited right)
+        public static bool operator ==(VideoChatParticipantsInvited left, VideoChatParticipantsInvited right)
         {
-            return EqualityComparer<VoiceChatParticipantsInvited>.Default.Equals(left, right);
+            return EqualityComparer<VideoChatParticipantsInvited>.Default.Equals(left, right);
         }
 
-        public static bool operator !=(VoiceChatParticipantsInvited left, VoiceChatParticipantsInvited right)
+        public static bool operator !=(VideoChatParticipantsInvited left, VideoChatParticipantsInvited right)
         {
             return !(left == right);
         }

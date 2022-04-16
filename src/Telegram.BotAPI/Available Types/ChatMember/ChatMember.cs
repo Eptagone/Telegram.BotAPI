@@ -26,7 +26,9 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.Status)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public abstract string Status { get; }
-        ///<summary>Information about the user.</summary>
+        /// <summary>
+        /// Information about the user.
+        /// </summary>
         [JsonPropertyName(PropertyNames.User)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public User User { get; set; }

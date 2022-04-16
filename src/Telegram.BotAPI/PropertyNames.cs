@@ -22,6 +22,7 @@ namespace Telegram.BotAPI
         public const string BigFileUniqueId = "big_file_unique_id";
         public const string Bio = "bio";
         public const string BotUsername = "bot_username";
+        public const string ButtonText = "button_text";
         public const string CacheTime = "cache_time";
         public const string CallbackData = "callback_data";
         public const string CallbackGame = "callback_game";
@@ -36,6 +37,7 @@ namespace Telegram.BotAPI
         public const string CanJoinGroups = "can_join_groups";
         public const string CanManageChat = "can_manage_chat";
         public const string CanManageVoiceChats = "can_manage_voice_chats";
+        public const string CanManageVideoChats = "can_manage_video_chats";
         public const string CanPinMessages = "can_pin_messages";
         public const string CanPostMessages = "can_post_messages";
         public const string CanPromoteMembers = "can_promote_members";
@@ -113,6 +115,7 @@ namespace Telegram.BotAPI
         public const string FileSize = "file_size";
         public const string FileUniqueId = "file_unique_id";
         public const string FirstName = "first_name";
+        public const string ForChannels = "for_channels";
         public const string Force = "force";
         public const string ForceReply = "force_reply";
         public const string ForwardDate = "forward_date";
@@ -174,6 +177,7 @@ namespace Telegram.BotAPI
         public const string LastErrorDate = "Last_error_date";
         public const string LastErrorMessage = "last_error_message";
         public const string LastName = "last_name";
+        public const string LastSynchronizationErrorDate = "last_synchronization_error_date";
         public const string Latitude = "latitude";
         public const string LeftChatMember = "left_chat_member";
         public const string Length = "length";
@@ -189,6 +193,7 @@ namespace Telegram.BotAPI
         public const string Media = "media";
         public const string MediaGroupId = "media_group_id";
         public const string MemberLimit = "member_limit";
+        public const string MenuButton = "menu_button";
         public const string Message = CommonNames.Message;
         public const string MessageAutoDeleteTime = "message_auto_delete_time";
         public const string MessageAutoDeleteTimerChanged = "message_auto_delete_timer_changed ";
@@ -257,6 +262,7 @@ namespace Telegram.BotAPI
         public const string Query = "query";
         public const string Question = "question";
         public const string RemoveKeyboard = "remove_keyboard";
+        public const string Rights = "rights";
         public const string ReplyMarkup = "reply_markup";
         public const string ReplyToMessage = "reply_to_message";
         public const string ReplyToMessageId = "reply_to_message_id";
@@ -266,6 +272,7 @@ namespace Telegram.BotAPI
         public const string RequestWriteAccess = "request_write_access";
         public const string ResizeKeyboard = "resize_keyboard";
         public const string ResultId = "result_id";
+        public const string Result = "result";
         public const string Results = "results";
         public const string RetryAfter = "retry_after";
         public const string RevokeMessages = "revoke_messages";
@@ -339,6 +346,10 @@ namespace Telegram.BotAPI
         public const string Venue = CommonNames.Venue;
         public const string ViaBot = "via_bot";
         public const string Video = CommonNames.Video;
+        public const string VideoChatEnded = "video_chat_ended";
+        public const string VideoChatParticipantsInvited = "video_chat_participants_invited";
+        public const string VideoChatScheduled = "video_chat_scheduled ";
+        public const string VideoChatStarted = "video_chat_started";
         public const string VideoDuration = "video_duration";
         public const string VideoFileId = "video_file_id";
         public const string VideoHeight = "video_height";
@@ -346,15 +357,20 @@ namespace Telegram.BotAPI
         public const string VideoUrl = "video_url";
         public const string VideoWidth = "video_width";
         public const string Voice = CommonNames.Voice;
+        // -- Obsolete -- {
         public const string VoiceChatScheduled = "voice_chat_scheduled ";
         public const string VoiceChatStarted = "voice_chat_started";
         public const string VoiceChatEnded = "voice_chat_ended";
         public const string VoiceChatParticipantsInvited = "voice_chat_participants_invited";
+        // -- Obsolete -- }
         public const string VoiceDuration = "voice_duration";
         public const string VoiceFileId = "voice_file_id";
         public const string VoiceUrl = "voice_url";
         public const string VoterCount = "voter_count";
         public const string Watcher = "watcher";
+        public const string WebApp = CommonNames.WebApp;
+        public const string WebAppData = "web_app_data";
+        public const string WebAppQueryId = "web_app_query_id";
         public const string WebmSticker = "webm_sticker";
         public const string Width = "width";
         public const string XShift = "x_shift";

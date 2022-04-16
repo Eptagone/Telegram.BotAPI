@@ -19,7 +19,7 @@ namespace Telegram.BotAPI.Payments
         /// <param name="label">Portion label.</param>
         /// <param name="amount">Price of the product in the smallest units of the <a href="https://core.telegram.org/bots/payments#supported-currencies">currency</a> (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public LabeledPrice(string label, uint amount)
+        public LabeledPrice(string label, int amount)
         {
             Label = label ?? throw new ArgumentNullException(nameof(label));
             Amount = amount;
@@ -32,7 +32,7 @@ namespace Telegram.BotAPI.Payments
         /// <summary>Price of the product in the smallest units of the <a href="https://core.telegram.org/bots/payments#supported-currencies">currency</a> (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).</summary>
         [JsonPropertyName(PropertyNames.Amount)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint Amount { get; }
+        public int Amount { get; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
