@@ -9,38 +9,38 @@ using System.Text.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-    /// <summary>This object represents a service message about a voice chat scheduled in the chat.</summary>
+    /// <summary>Contains information about a Web App.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class VoiceChatScheduled : IEquatable<VoiceChatScheduled>
+    public sealed class WebAppInfo : IEquatable<WebAppInfo>
     {
-        ///<summary>Point in time (Unix timestamp) when the voice chat is supposed to be started by a chat administrator.</summary>
-        [JsonPropertyName(PropertyNames.StartDate)]
+        /// <summary>An HTTPS URL of a Web App to be opened with additional data as specified in Initializing Web Apps.</summary>
+        [JsonPropertyName(PropertyNames.Url)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint StartDate { get; set; }
+        public string Url { get; set; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
         {
-            return Equals(obj as VoiceChatScheduled);
+            return Equals(obj as WebAppInfo);
         }
 
-        public bool Equals(VoiceChatScheduled other)
+        public bool Equals(WebAppInfo other)
         {
             return other != null &&
-                   StartDate == other.StartDate;
+                   Url == other.Url;
         }
 
         public override int GetHashCode()
         {
-            return 1472038579 + StartDate.GetHashCode();
+            return -1915121810 + EqualityComparer<string>.Default.GetHashCode(Url);
         }
 
-        public static bool operator ==(VoiceChatScheduled left, VoiceChatScheduled right)
+        public static bool operator ==(WebAppInfo left, WebAppInfo right)
         {
-            return EqualityComparer<VoiceChatScheduled>.Default.Equals(left, right);
+            return EqualityComparer<WebAppInfo>.Default.Equals(left, right);
         }
 
-        public static bool operator !=(VoiceChatScheduled left, VoiceChatScheduled right)
+        public static bool operator !=(WebAppInfo left, WebAppInfo right)
         {
             return !(left == right);
         }

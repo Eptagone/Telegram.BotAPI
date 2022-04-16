@@ -68,7 +68,7 @@ namespace Telegram.BotAPI
         /// <returns>An array of <see cref="string"/></returns>
         [Obsolete("This method will be removed in future versions. Please use BotCommandHelper.MatchParameters(@params) instead!")]
         public IEnumerable<string> MatchArgs(string @params) => MatchParameters(@params);
-        
+
         /// <summary>
         /// Extract args from the command parameters.
         /// </summary>

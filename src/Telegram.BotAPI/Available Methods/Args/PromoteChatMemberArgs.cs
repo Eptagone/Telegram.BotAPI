@@ -3,6 +3,7 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System;
 using System.Text.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableMethods
@@ -46,7 +47,12 @@ namespace Telegram.BotAPI.AvailableMethods
         ///<summary>Optional. True, if the administrator can manage voice chats.</summary>
         [JsonPropertyName(PropertyNames.CanManageVoiceChats)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [Obsolete("This field has been replaced by CanManageVideoChats and will be removed in future releases.")]
         public bool? CanManageVoiceChats { get; set; }
+        ///<summary>Optional. True, if the administrator can manage video chats.</summary>
+        [JsonPropertyName(PropertyNames.CanManageVideoChats)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? CanManageVideoChats { get; set; }
         ///<summary>Optional. Pass True, if the administrator can invite new users to the chat.</summary>
         [JsonPropertyName(PropertyNames.CanInviteUsers)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

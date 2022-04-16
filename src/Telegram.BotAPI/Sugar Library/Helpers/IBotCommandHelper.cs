@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Telegram.BotAPI
+﻿namespace Telegram.BotAPI
 {
     /// <summary>
     /// Defines a method to match the bot command of a text.

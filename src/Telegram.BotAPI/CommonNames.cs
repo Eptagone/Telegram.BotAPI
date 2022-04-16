@@ -34,6 +34,7 @@ namespace Telegram.BotAPI
         public const string Venue = "venue";
         public const string Video = "video";
         public const string Voice = "voice";
+        public const string WebApp = "web_app";
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

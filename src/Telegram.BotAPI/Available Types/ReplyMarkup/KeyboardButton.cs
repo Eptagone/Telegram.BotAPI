@@ -7,11 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
+#nullable enable
+
 namespace Telegram.BotAPI.AvailableTypes
 {
     ///<summary>This object represents one button of the reply keyboard. For simple text buttons String can be used instead of this object to specify text of the button. Optional fields are mutually exclusive.</summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-    public sealed class KeyboardButton : IEquatable<KeyboardButton>
+    public sealed class KeyboardButton : IEquatable<KeyboardButton?>
     {
         /// <summary>Creates a new keyboard button.</summary>
         /// <param name="text">Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed.</param>
@@ -27,47 +29,53 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. If True, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only.</summary>
         [JsonPropertyName(PropertyNames.RequestContact)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool RequestContact { get; set; }
+        public bool? RequestContact { get; set; }
         ///<summary>Optional. If True, the user's current location will be sent when the button is pressed. Available in private chats only.</summary>
         [JsonPropertyName(PropertyNames.RequestLocation)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool RequestLocation { get; set; }
-        ///<summary>Optional. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. Available in private chats only.</summary>
+        public bool? RequestLocation { get; set; }
+        /// <summary>Optional. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. Available in private chats only.</summary>
         [JsonPropertyName(PropertyNames.RequestPoll)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public KeyboardButtonPollType RequestPoll { get; set; }
+        public KeyboardButtonPollType? RequestPoll { get; set; }
+        /// <summary>Optional. If specified, the described Web App will be launched when the button is pressed. The Web App will be able to send a “web_app_data” service message. Available in private chats only.</summary>
+        [JsonPropertyName(PropertyNames.WebApp)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public WebAppInfo? WebApp { get; set; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return Equals(obj as KeyboardButton);
         }
 
-        public bool Equals(KeyboardButton other)
+        public bool Equals(KeyboardButton? other)
         {
             return other != null &&
                    Text == other.Text &&
                    RequestContact == other.RequestContact &&
                    RequestLocation == other.RequestLocation &&
-                   EqualityComparer<KeyboardButtonPollType>.Default.Equals(RequestPoll, other.RequestPoll);
+                   EqualityComparer<KeyboardButtonPollType?>.Default.Equals(RequestPoll, other.RequestPoll) &&
+                   EqualityComparer<WebAppInfo?>.Default.Equals(WebApp, other.WebApp);
         }
 
         public override int GetHashCode()
         {
-            int hashCode = -21297012;
+            int hashCode = 786331036;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Text);
             hashCode = hashCode * -1521134295 + RequestContact.GetHashCode();
             hashCode = hashCode * -1521134295 + RequestLocation.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<KeyboardButtonPollType>.Default.GetHashCode(RequestPoll);
+            hashCode = hashCode * -1521134295 + EqualityComparer<KeyboardButtonPollType?>.Default.GetHashCode(RequestPoll);
+            hashCode = hashCode * -1521134295 + EqualityComparer<WebAppInfo?>.Default.GetHashCode(WebApp);
             return hashCode;
         }
 
-        public static bool operator ==(KeyboardButton left, KeyboardButton right)
+        public static bool operator ==(KeyboardButton? left, KeyboardButton? right)
         {
             return EqualityComparer<KeyboardButton>.Default.Equals(left, right);
         }
 
-        public static bool operator !=(KeyboardButton left, KeyboardButton right)
+        public static bool operator !=(KeyboardButton? left, KeyboardButton? right)
         {
             return !(left == right);
         }

@@ -12,6 +12,7 @@ namespace Telegram.BotAPI
         public const string AnswerInlineQuery = "answerInlineQuery";
         public const string AnswerPreCheckoutQuery = "answerPreCheckoutQuery";
         public const string AnswerShippingQuery = "answerShippingQuery";
+        public const string AnswerWebAppQuery = "answerWebAppQuery";
         public const string ApproveChatJoinRequest = "approveChatJoinRequest";
         public const string BanChatMember = "banChatMember";
         public const string BanChatSenderChat = "banChatSenderChat";
@@ -39,10 +40,12 @@ namespace Telegram.BotAPI
         public const string GetChatMember = "getChatMember";
         public const string GetChatMemberCount = "getChatMemberCount";
         public const string GetChatMembersCount = "getChatMembersCount";
+        public const string GetChatMenuButton = "getChatMenuButton";
         public const string GetFile = "getFile";
         public const string GetGameHighScores = "getGameHighScores";
         public const string GetMe = "getMe";
         public const string GetMyCommands = "getMyCommands";
+        public const string GetMyDefaultAdministratorRights = "getMyDefaultAdministratorRights";
         public const string GetStickerSet = "getStickerSet";
         public const string GetUpdates = "getUpdates";
         public const string GetUserProfilePhotos = "getUserProfilePhotos";
@@ -74,12 +77,14 @@ namespace Telegram.BotAPI
         public const string SendVideoNote = "sendVideoNote";
         public const string SendVoice = "sendVoice";
         public const string SetChatDescription = "setChatDescription";
+        public const string SetChatMenuButton = "setChatMenuButton";
         public const string SetChatPermissions = "setChatPermissions";
         public const string SetChatPhoto = "setChatPhoto";
         public const string SetChatStickerSet = "setChatStickerSet";
         public const string SetChatTitle = "setChatTitle";
         public const string SetGameScore = "setGameScore";
         public const string SetMyCommands = "setMyCommands";
+        public const string SetMyDefaultAdministratorRights = "setMyDefaultAdministratorRights";
         public const string SetPassportDataErrors = "setPassportDataErrors";
         public const string SetStickerPositionInSet = "setStickerPositionInSet";
         public const string SetStickerSetThumb = "setStickerSetThumb";

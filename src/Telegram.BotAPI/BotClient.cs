@@ -57,7 +57,7 @@ namespace Telegram.BotAPI
         {
             IgnoreBotExceptions = ignoreBotExceptions;
         }
-        
+
         /// <summary>Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</summary>
         public string Token { get; }
         /// <summary>Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.</summary>
