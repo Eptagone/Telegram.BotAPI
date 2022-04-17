@@ -1,5 +1,5 @@
 | <img src="./docs/icon.png" alt="Logo" width="64"/> | <h1>Telegram.BotAPI for NET</h1> |
-| -------------------------------------------------- | ---------------------------- |
+| -------------------------------------------------- | -------------------------------- |
 
 [![NuGet version (Telegram.BotAPI)](https://img.shields.io/nuget/v/Telegram.BotAPI.svg?style=flat-square)](https://www.nuget.org/packages/Telegram.BotAPI/)
 [![Compatible with Bot API v6.0](https://img.shields.io/badge/Bot%20API%20version-v6.0-blue?style=flat-square)](https://core.telegram.org/bots/api#april-16-2022)
@@ -119,6 +119,8 @@ while (true)
 To receive updates through webhook, you must create a web application. In your ASP NET application, create a new api controller for your bot and define a function to receive the update as shown below.
 
 ```CSharp
+using Telegram.BotAPI.GettingUpdates;
+
 [HttpPost]
 public IActionResult Post([FromBody] Update update)
 {
