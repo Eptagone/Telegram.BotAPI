@@ -131,7 +131,7 @@ namespace UnitTests
                         },
                     CanBeEdited = true,
                     CanRestrictMembers = true,
-                    CanManageVoiceChats = true
+                    CanManageVideoChats = true
                 }
             };
             var options = new JsonSerializerOptions

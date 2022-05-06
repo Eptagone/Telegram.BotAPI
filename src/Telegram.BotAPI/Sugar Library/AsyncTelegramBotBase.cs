@@ -27,8 +27,6 @@ namespace Telegram.BotAPI
 
         /// <summary>Current update instance.</summary>
         protected Update Update { get; private set; }
-        /// <summary>Current message instance.</summary>
-        protected Message Message { get; set; }
 
         /// <summary>
         /// Initialize a new instance of <see cref="AsyncTelegramBotBase"/>.
@@ -56,8 +54,6 @@ namespace Telegram.BotAPI
         /// <exception cref="ArgumentNullException"></exception>
         protected override async Task OnMessageAsync(Message message, [Optional] CancellationToken cancellationToken)
         {
-            Message = message ?? throw new ArgumentNullException(nameof(message));
-
             var cmdMatch = _properties.CommandHelper.Match(message.Text);
             if (cmdMatch.Success)
             {

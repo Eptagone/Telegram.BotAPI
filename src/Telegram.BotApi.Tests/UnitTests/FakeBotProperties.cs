@@ -21,5 +21,7 @@ namespace UnitTests
 
         public User User { get; }
         public BotCommandHelper CommandHelper { get; }
+
+        IBotCommandHelper IBotProperties.CommandHelper => CommandHelper;
     }
 }

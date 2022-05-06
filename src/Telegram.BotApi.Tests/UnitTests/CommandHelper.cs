@@ -50,7 +50,7 @@ namespace UnitTests
 {
             _outputHelper.WriteLine("Input text: {0}", @params);
 
-            var args = _botProperties.CommandHelper.MatchArgs(@params);
+            var args = BotCommandHelper.MatchParameters(@params);
 
             _outputHelper.WriteLine("{0} parameters has been detected", args.Count());
             foreach (var arg in args)

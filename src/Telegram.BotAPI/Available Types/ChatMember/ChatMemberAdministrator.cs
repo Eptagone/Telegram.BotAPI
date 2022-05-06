@@ -49,7 +49,7 @@ namespace Telegram.BotAPI.AvailableTypes
         /// True, if the administrator can manage voice chats.<br/>
         /// [Advice]: This field has been replaced by CanManageVideoChats and will be removed in future releases.
         /// </summary>
-        [JsonPropertyName(PropertyNames.CanManageVideoChats)]
+        [JsonPropertyName(PropertyNames.CanManageVoiceChats)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         [Obsolete("This field has been replaced by CanManageVideoChats and will be removed in future releases.")]
         public bool? CanManageVoiceChats { get; set; }

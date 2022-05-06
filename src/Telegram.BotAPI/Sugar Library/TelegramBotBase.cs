@@ -24,8 +24,6 @@ namespace Telegram.BotAPI
 
         /// <summary>Current update instance.</summary>
         protected Update Update { get; private set; }
-        /// <summary>Current message instance.</summary>
-        protected Message Message { get; set; }
 
         /// <summary>Initialize a new instance of <see cref="TelegramBotBase"/>.</summary>
         /// <param name="botProperties">Bot properties.</param>
@@ -47,8 +45,6 @@ namespace Telegram.BotAPI
         /// <exception cref="ArgumentNullException"></exception>
         protected override void OnMessage(Message message)
         {
-            Message = message ?? throw new ArgumentNullException(nameof(message));
-
             var cmdMatch = _properties.CommandHelper.Match(message.Text);
             if (cmdMatch.Success)
             {

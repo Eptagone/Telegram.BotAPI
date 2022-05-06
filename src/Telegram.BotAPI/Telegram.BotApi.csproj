@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>5.9</Version>
+		<Version>5.9.1</Version>
 		<PackageId>Telegram.BotAPI</PackageId>
 		<Authors>Quetzal Rivera</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -24,15 +24,11 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
 		<PackageIcon>packicon.png</PackageIcon>
-		<AssemblyVersion>5.9.0.*</AssemblyVersion>
-		<FileVersion>5.9.0.0</FileVersion>
 		<Deterministic>false</Deterministic>
 		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<AssemblyName>Telegram.BotAPI</AssemblyName>
-		<PackageReleaseNotes>- Updated to Bot API 6.0
-- Added more overloaded methods.
-- Fixed a serialization issue in methods with InputFile parameters.		</PackageReleaseNotes>
+		<PackageReleaseNotes>- Updated to Bot API 6.0</PackageReleaseNotes>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
