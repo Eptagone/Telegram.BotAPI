@@ -10,8 +10,8 @@ namespace BotTemplateSample
 {
     public sealed class MyBot : TelegramBotBase
     {
-        public static BotClient Bot = new BotClient("<BOT TOKEN>");
-        public static User Me = Bot.GetMe();
+        public static readonly BotClient Bot = new("<BOT TOKEN>");
+        public static readonly User Me = Bot.GetMe();
 
         private Message message;
         private bool hasText;

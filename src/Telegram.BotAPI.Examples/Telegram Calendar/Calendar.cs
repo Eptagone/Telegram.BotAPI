@@ -18,9 +18,8 @@ namespace TelegramCalendar
                 for (int j = 0; j < 3; j++, n++)
                 {
                     var month = (MonthName)n;
-                    keyboard[i][j] = new InlineKeyboardButton
+                    keyboard[i][j] = new InlineKeyboardButton($"{month}")
                     {
-                        Text = $"{month}",
                         CallbackData = $"month {year} {n}"
                     };
                 }
@@ -89,9 +88,8 @@ namespace TelegramCalendar
                 for (int j = 0; j < 3; j++, n++)
                 {
                     var month = (MonthName)n;
-                    keyboard[i][j] = new InlineKeyboardButton
+                    keyboard[i][j] = new InlineKeyboardButton($"{month}")
                     {
-                        Text = $"{month}",
                         CallbackData = $"month {year} {n}"
                     };
                 }

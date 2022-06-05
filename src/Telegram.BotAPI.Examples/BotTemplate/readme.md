@@ -131,56 +131,6 @@ namespace BotTemplateSample
             Console.WriteLine("New Exception: {0}", exp.Message);
             Console.WriteLine();
         }
-
-        public override void OnCallbackQuery(CallbackQuery callbackQuery)
-        {
-
-        }
-
-        public override void OnChannelPost(Message message)
-        {
-
-        }
-
-        public override void OnChosenInlineResult(ChosenInlineResult chosenInlineResult)
-        {
-
-        }
-
-        public override void OnEditedChannelPost(Message message)
-        {
-
-        }
-
-        public override void OnEditedMessage(Message message)
-        {
-
-        }
-
-        public override void OnInlineQuery(InlineQuery inlineQuery)
-        {
-
-        }
-
-        public override void OnPoll(Poll poll)
-        {
-
-        }
-
-        public override void OnPollAnswer(PollAnswer pollAnswer)
-        {
-
-        }
-
-        public override void OnPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery)
-        {
-
-        }
-
-        public override void OnShippingQuery(ShippingQuery shippingQuery)
-        {
-
-        }
     }
 }
 ```

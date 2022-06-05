@@ -19,6 +19,13 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>
         /// Initialize a new instance of <see cref="InlineKeyboardButton"/>.
         /// </summary>
+        public InlineKeyboardButton()
+        {
+        }
+        
+        /// <summary>
+        /// Initialize a new instance of <see cref="InlineKeyboardButton"/>.
+        /// </summary>
         /// <param name="text">Label text on the button.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public InlineKeyboardButton(string text)
@@ -29,7 +36,7 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Label text on the button.</summary>
         [JsonPropertyName(PropertyNames.Text)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Text { get; }
+        public string Text { get; set; }
         ///<summary>Optional. HTTP or tg:// url to be opened when button is pressed.</summary>
         [JsonPropertyName(PropertyNames.Url)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -111,6 +118,7 @@ namespace Telegram.BotAPI.AvailableTypes
                 return InlineKeyboardButtonType.Unknown;
             }
         }
+
         /// <summary>Create a new <see cref="InlineKeyboardButton"/> with a url.</summary>
         /// <param name="text">Button text.</param>
         /// <param name="url">Url.</param>
@@ -171,6 +179,15 @@ namespace Telegram.BotAPI.AvailableTypes
         public static InlineKeyboardButton SetPay(string text)
         {
             return new InlineKeyboardButton(text) { Pay = true };
+        }
+
+        /// <summary>Create a new <see cref="InlineKeyboardButton"/> for pay.</summary>
+        /// <param name="text">Button text.</param>
+        /// <param name="webApp">Description of the Web App that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method answerWebAppQuery. Available only in private chats between a user and the bot.</param>
+        /// <returns><see cref="InlineKeyboardButton"/></returns>
+        public static InlineKeyboardButton SetWebApp(string text, WebAppInfo webApp)
+        {
+            return new InlineKeyboardButton(text) { WebApp = webApp };
         }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
