@@ -36,7 +36,7 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. File size.</summary>
         [JsonPropertyName(PropertyNames.FileSize)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint FileSize { get; set; }
+        public ulong FileSize { get; set; }
         ///<summary>Optional. Thumbnail of the album cover to which the music file belongs.</summary>
         [JsonPropertyName(PropertyNames.Thumb)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

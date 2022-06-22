@@ -24,7 +24,7 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. File size.</summary>
         [JsonPropertyName(PropertyNames.FileSize)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint FileSize { get; set; }
+        public ulong FileSize { get; set; }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)

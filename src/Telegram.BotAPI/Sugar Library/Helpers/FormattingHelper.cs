@@ -4,23 +4,34 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 {
     /// <summary>This class contains a set of useful methods for formatting the text of messages.</summary>
+    public class FormattingHelper : FormattingHelper<StyleParser>
+    {
+        /// <summary>Initialize a new instance of StyleParser.</summary>
+        /// <param name="styleParser">Custom StyleFixer.</param>
+        public FormattingHelper([Optional] StyleParser styleParser) : base(styleParser ?? StyleParser.Default)
+        {
+        }
+    }
+
+    /// <summary>This class contains a set of useful methods for formatting the text of messages.</summary>
     public class FormattingHelper<TStyleParser>
         where TStyleParser : IStyleParser
     {
         /// <summary>StyleFixer</summary>
-        protected readonly IStyleParser StyleParser;
+        protected readonly IStyleParser Parser;
 
         /// <summary>Initialize a new instance of StyleParser.</summary>
         /// <param name="styleParser">Custom StyleFixer.</param>
         public FormattingHelper(TStyleParser styleParser)
         {
-            StyleParser = styleParser ?? throw new ArgumentNullException(nameof(styleParser));
+            Parser = styleParser ?? throw new ArgumentNullException(nameof(styleParser));
         }
         /// <summary>Create new stylized text from message entities.</summary>
         /// <typeparam name="T"></typeparam>
@@ -51,7 +62,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
                     if (offset < e.Offset)
                     {
                         nFsubText = input.Substring(offset, e.Offset - offset);
-                        subText = useFixer ? StyleParser.To(nFsubText, parseMode) : nFsubText;
+                        subText = useFixer ? Parser.To(nFsubText, parseMode) : nFsubText;
                         buffer.Append(subText);
                         offset = e.Offset;
                     }
@@ -88,7 +99,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
                         default:
                             if (useFixer)
                             {
-                                subText = StyleParser.To(subText, parseMode);
+                                subText = Parser.To(subText, parseMode);
                             }
                             buffer.Append(subText);
                             break;
@@ -98,14 +109,14 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
                 if (offset < input.Length)
                 {
                     nFsubText = input.Substring(offset, input.Length - offset);
-                    subText = useFixer ? StyleParser.To(nFsubText, parseMode) : nFsubText;
+                    subText = useFixer ? Parser.To(nFsubText, parseMode) : nFsubText;
                     buffer.Append(subText);
                 }
                 return buffer.ToString();
             }
             else
             {
-                return useFixer ? StyleParser.To(input, parseMode) : input;
+                return useFixer ? Parser.To(input, parseMode) : input;
             }
         }
         /// <summary> Format text. Bold. </summary>
@@ -119,7 +130,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             {
                 throw new ArgumentNullException(nameof(input));
             }
-            string text = useFixer ? StyleParser.To(input, parseMode) : input;
+            string text = useFixer ? Parser.To(input, parseMode) : input;
             return parseMode switch
             {
                 ParseModeKind.Markdown => $"*{text}*",
@@ -139,7 +150,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             {
                 throw new ArgumentNullException(nameof(input));
             }
-            string text = useFixer ? StyleParser.To(input, parseMode) : input;
+            string text = useFixer ? Parser.To(input, parseMode) : input;
             return parseMode switch
             {
                 ParseModeKind.Markdown => $"_{text}_",
@@ -159,7 +170,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             {
                 throw new ArgumentNullException(nameof(input));
             }
-            string text = useFixer ? StyleParser.To(input, parseMode) : input;
+            string text = useFixer ? Parser.To(input, parseMode) : input;
             return parseMode switch
             {
                 ParseModeKind.Markdown => $"__{text}__",
@@ -179,7 +190,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             {
                 throw new ArgumentNullException(nameof(input));
             }
-            string text = useFixer ? StyleParser.To(input, parseMode) : input;
+            string text = useFixer ? Parser.To(input, parseMode) : input;
             return parseMode switch
             {
                 ParseModeKind.MarkdownV2 => $"~{text}~",
@@ -198,7 +209,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             {
                 throw new ArgumentNullException(nameof(input));
             }
-            string text = useFixer ? StyleParser.To(input, parseMode) : input;
+            string text = useFixer ? Parser.To(input, parseMode) : input;
             return parseMode switch
             {
                 ParseModeKind.MarkdownV2 => $"||{text}||",
@@ -217,7 +228,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             {
                 throw new ArgumentNullException(nameof(input));
             }
-            string text = useFixer ? StyleParser.To(input, parseMode) : input;
+            string text = useFixer ? Parser.To(input, parseMode) : input;
             return parseMode switch
             {
                 ParseModeKind.Markdown => $"`{text}`",
@@ -283,7 +294,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             {
                 throw new ArgumentNullException(nameof(url));
             }
-            string text = useFixer ? StyleParser.To(input, parseMode) : input;
+            string text = useFixer ? Parser.To(input, parseMode) : input;
             return parseMode switch
             {
                 ParseModeKind.Markdown or ParseModeKind.MarkdownV2 => $"[{text}]({url})",
@@ -303,7 +314,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             {
                 throw new ArgumentNullException(nameof(input));
             }
-            string text = useFixer ? StyleParser.To(input, parseMode) : input;
+            string text = useFixer ? Parser.To(input, parseMode) : input;
             return parseMode switch
             {
                 ParseModeKind.Markdown or ParseModeKind.MarkdownV2 => $"[{text}](tg://user?id={userId})",

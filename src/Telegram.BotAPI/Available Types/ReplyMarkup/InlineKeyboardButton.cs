@@ -41,7 +41,7 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.Url)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string? Url { get; set; }
-        ///<summary>Optional. An HTTP URL used to automatically authorize the user. Can be used as a replacement for the Telegram Login Widget.</summary>
+        ///<summary>Optional. An HTTPS URL used to automatically authorize the user. Can be used as a replacement for the Telegram Login Widget.</summary>
         [JsonPropertyName(PropertyNames.LoginUrl)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public LoginUrl? LoginUrl { get; set; }

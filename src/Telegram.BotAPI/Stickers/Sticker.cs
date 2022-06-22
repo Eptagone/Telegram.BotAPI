@@ -50,6 +50,12 @@ namespace Telegram.BotAPI.Stickers
         [JsonPropertyName(PropertyNames.SetName)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string SetName { get; set; }
+        /// <summary>
+		/// Optional. Premium animation for the sticker, if the sticker is premium
+		/// </summary>
+        [JsonPropertyName(PropertyNames.PremiumAnimation)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public File? PremiumAnimation { get; set; }
         ///<summary>Optional. For mask stickers, the position where the mask should be placed.</summary>
         [JsonPropertyName(PropertyNames.MaskPosition)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

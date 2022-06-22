@@ -49,6 +49,18 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.HasPrivateForwards)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool HasPrivateForwards { get; set; }
+        /// <summary>
+		/// Optional. True, if users need to join the supergroup before they can send messages. Returned only in getChat.
+		/// </summary>
+        [JsonPropertyName(PropertyNames.JoinToSendMessages)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? JoinToSendMessages { get; set; }
+        /// <summary>
+        /// Optional. True, if all users directly joining the supergroup need to be approved by supergroup administrators. Returned only in getChat.
+        /// </summary>
+        [JsonPropertyName(PropertyNames.JoinByRequest)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? JoinByRequest { get; set; }
         /// <summary>Optional. Description, for supergroups and channel chats. Returned only in getChat.</summary>
         [JsonPropertyName(PropertyNames.Description)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

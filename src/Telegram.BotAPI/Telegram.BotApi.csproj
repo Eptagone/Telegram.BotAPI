@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>5.9.1</Version>
+		<Version>6.1</Version>
 		<PackageId>Telegram.BotAPI</PackageId>
 		<Authors>Quetzal Rivera</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -11,7 +11,7 @@
 		<NeutralLanguage>en</NeutralLanguage>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Description>A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v6.0 (April 16, 2022).
+		<Description>A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v6.1 (June 20, 2022).
 - Contains all classes and methods available from the Bot API.</Description>
 		<PackageTags>Telegram Bot API</PackageTags>
 		<Title>Telegram Bot API</Title>
@@ -28,7 +28,7 @@
 		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<AssemblyName>Telegram.BotAPI</AssemblyName>
-		<PackageReleaseNotes>- Updated to Bot API 6.0</PackageReleaseNotes>
+		<PackageReleaseNotes>- Updated to Bot API 6.1</PackageReleaseNotes>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -36,7 +36,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-		<PackageReference Include="System.Text.Json" Version="6.0.3" />
+		<PackageReference Include="System.Text.Json" Version="6.0.5" />
 	</ItemGroup>
 
 	<ItemGroup>
