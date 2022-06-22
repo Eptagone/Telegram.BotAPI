@@ -7,6 +7,7 @@ namespace Telegram.BotAPI
     public static class PropertyNames
     {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public const string AddedToAttachmentMenu = "added_to_attachment_menu";
         public const string Address = "address";
         public const string AllowedUpdates = "allowed_updates";
         public const string AllowSendingWithoutReply = "allow_sending_without_reply";
@@ -167,9 +168,12 @@ namespace Telegram.BotAPI
         public const string IsFlexible = "is_flexible";
         public const string IsMember = "is_member";
         public const string IsPersonal = "is_personal";
+        public const string IsPremium = "is_premium";
         public const string IsPrimary = "is_primary";
         public const string IsRevoked = "is_revoked";
         public const string IsVideo = "is_video";
+        public const string JoinByRequest = "join_by_request";
+        public const string JoinToSendMessages = "join_to_send_messages";
         public const string Keyboard = "keyboard";
         public const string Label = "label";
         public const string Language = "language";
@@ -236,6 +240,7 @@ namespace Telegram.BotAPI
         public const string Performer = "performer";
         public const string Permissions = "permissions";
         public const string ProtectContent = "protect_content";
+        public const string PremiumAnimation = "premium_animation";
         public const string PhoneNumber = "phone_number";
         public const string Photo = CommonNames.Photo;
         public const string PhotoFileId = "photo_file_id";
@@ -281,6 +286,7 @@ namespace Telegram.BotAPI
         public const string Score = "score";
         public const string Scope = "scope";
         public const string Secret = "secret";
+        public const string SecretToken = "secret_token";
         public const string Selective = "selective";
         public const string Selfie = "selfie";
         public const string SendEmailToProvider = "send_email_to_provider";

@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.AvailableTypes
         ///<summary>Optional. File size, if known.</summary>
         [JsonPropertyName(PropertyNames.FileSize)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public uint FileSize { get; set; }
+        public ulong FileSize { get; set; }
         ///<summary>Optional. File path. Use https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt; to get the file.</summary>
         [JsonPropertyName(PropertyNames.FilePath)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

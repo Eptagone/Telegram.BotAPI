@@ -3,6 +3,7 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
@@ -13,10 +14,27 @@ namespace Telegram.BotAPI.GettingUpdates
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public class SetWebhookArgs
     {
+        /// <summary>
+        /// Initialize a new instance of <see cref="SetWebhookArgs"/>.
+        /// </summary>
+        public SetWebhookArgs()
+        {
+            Url = string.Empty;
+        }
+        /// <summary>
+        /// Initialize a new instance of <see cref="SetWebhookArgs"/>.
+        /// </summary>
+        /// <param name="url">HTTPS url to send updates to. Use an empty string to remove webhook integration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public SetWebhookArgs(string url)
+        {
+            Url = url ?? throw new ArgumentNullException(nameof(url));
+        }
+
         ///<summary>HTTPS url to send updates to. Use an empty string to remove webhook integration.</summary>
         [JsonPropertyName(PropertyNames.Url)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Url { get; set; }
+        public string Url { get; }
         ///<summary>Upload your public key certificate so that the root certificate in use can be checked. See our <a href="https://core.telegram.org/bots/self-signed">self-signed guide</a> for details.</summary>
         [JsonPropertyName(PropertyNames.Certificate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -37,5 +55,11 @@ namespace Telegram.BotAPI.GettingUpdates
         [JsonPropertyName(PropertyNames.DropPendingUpdates)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool? DropPendingUpdates { get; set; }
+        /// <summary>
+		/// A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters A-Z, a-z, 0-9, _ and - are allowed. The header is useful to ensure that the request comes from a webhook set by you.
+		/// </summary>
+        [JsonPropertyName(PropertyNames.SecretToken)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string SecretToken { get; set; }
     }
 }

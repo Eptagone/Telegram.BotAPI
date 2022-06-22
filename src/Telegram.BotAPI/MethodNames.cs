@@ -19,6 +19,7 @@ namespace Telegram.BotAPI
         public const string Close = "close";
         public const string CopyMessage = "copyMessage";
         public const string CreateChatInviteLink = "createChatInviteLink";
+        public const string CreateInvoiceLink = "createInvoiceLink";
         public const string CreateNewStickerSet = "createNewStickerSet";
         public const string DeclineChatJoinRequest = "declineChatJoinRequest";
         public const string DeleteChatPhoto = "deleteChatPhoto";
