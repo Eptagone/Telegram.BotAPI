@@ -8,30 +8,34 @@ using System.Text;
 
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 {
-    /// <summary>Use this class to fix text with incorrect style tags or to create custom StyleFixers for use with the StyleParser.</summary>
-    public class StyleFixer : IStyleParser
+    /// <summary>
+    /// Use this class to fix text with incorrect style tags or to create custom StyleFixers for use with the StyleParser.
+    /// </summary>
+    public class StyleParser : IStyleParser
     {
         /// <summary>Default StyleFixer.</summary>
-        public static readonly StyleFixer Default = new StyleFixer();
+        public static readonly StyleParser Default = new();
+
         /// <summary>Fix specified text with wrong style tags.</summary>
         /// <param name="input">Input text.</param>
         /// <param name="parseMode">Style to be applied to the new text.</param>
         /// <returns><see cref="string"/></returns>
-        public string FixTo(string input, ParseModeKind parseMode)
+        public string To(string input, ParseModeKind parseMode)
         {
             return parseMode switch
             {
-                ParseModeKind.Markdown => FixToMarkdown(input),
-                ParseModeKind.MarkdownV2 => FixToMarkdownV2(input),
-                ParseModeKind.HTML => FixToHTML(input),
+                ParseModeKind.Markdown => ToMarkdown(input),
+                ParseModeKind.MarkdownV2 => ToMarkdownV2(input),
+                ParseModeKind.HTML => ToHTML(input),
                 _ => input,
             };
         }
+
         /// <summary>Replaces symbols that are not part of an HTML tag or entity with HTML entities (&lt; with &amp;lt;, &gt; with &amp;gt; and &amp; with &amp;amp;).</summary>
         /// <param name="input">Input text.</param>
         /// <returns>String with HTML entities.</returns>
         /// <returns><see cref="string"/></returns>
-        public virtual string FixToHTML(string input)
+        public virtual string ToHTML(string input)
         {
             if (input == null)
             {
@@ -46,7 +50,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
         /// <summary>Prepends the character '\' for the escape characters: '_', '*', '`', '['.</summary>
         /// <param name="input">Input text.</param>
         /// <returns><see cref="string"/></returns>
-        public virtual string FixToMarkdown(string input)
+        public virtual string ToMarkdown(string input)
         {
             if (input == null)
             {
@@ -55,10 +59,11 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             var chars = "_*`[";
             return Prepends(input, '\\', chars);
         }
+
         /// <summary>Prepends the character '\' for the escape characters: '_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'.</summary>
         /// <param name="input">Input text.</param>
         /// <returns><see cref="string"/></returns>
-        public virtual string FixToMarkdownV2(string input)
+        public virtual string ToMarkdownV2(string input)
         {
             if (input == null)
             {
@@ -67,12 +72,13 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             var chars = "_*[]()~`>#+-=|{}.!";
             return Prepends(input, '\\', chars);
         }
+
         /// <summary>Returns a new string in which all occurrences of the specified Unicode characters in this instance are prepended with another specified Unicode character.</summary>
         /// <param name="text">The string to be prepends.</param>
         /// <param name="pChar">The character to be prepended to the other characters.</param>
         /// <param name="characters">The Unicode characters to be prepended by the specified character.</param>
         /// <returns><see cref="string"/></returns>
-        protected string Prepends(string text, char pChar, IEnumerable<char> characters)
+        protected static string Prepends(string text, char pChar, IEnumerable<char> characters)
         {
             if (string.IsNullOrEmpty(text))
             {
@@ -89,6 +95,35 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
             }
             return sb.ToString();
         }
+    }
+
+    /// <summary>
+    /// Use this class to fix text with incorrect style tags or to create custom StyleFixers for use with the StyleParser.
+    /// </summary>
+    [Obsolete("This class has been replaced by StyleParser and will be removed in future releases.")]
+    public class StyleFixer : StyleParser, IStyleParser
+    {
+        /// <summary>Default StyleFixer.</summary>
+        public static new readonly StyleFixer Default = new StyleFixer();
+        /// <summary>Fix specified text with wrong style tags.</summary>
+        /// <param name="input">Input text.</param>
+        /// <param name="parseMode">Style to be applied to the new text.</param>
+        /// <returns><see cref="string"/></returns>
+        public string FixTo(string input, ParseModeKind parseMode) => StyleParser.Default.To(input, parseMode);
+        /// <summary>Replaces symbols that are not part of an HTML tag or entity with HTML entities (&lt; with &amp;lt;, &gt; with &amp;gt; and &amp; with &amp;amp;).</summary>
+        /// <param name="input">Input text.</param>
+        /// <returns>String with HTML entities.</returns>
+        /// <returns><see cref="string"/></returns>
+        public virtual string FixToHTML(string input) => StyleParser.Default.ToHTML(input);
+
+        /// <summary>Prepends the character '\' for the escape characters: '_', '*', '`', '['.</summary>
+        /// <param name="input">Input text.</param>
+        /// <returns><see cref="string"/></returns>
+        public virtual string FixToMarkdown(string input) => StyleParser.Default.ToMarkdown(input);
+        /// <summary>Prepends the character '\' for the escape characters: '_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'.</summary>
+        /// <param name="input">Input text.</param>
+        /// <returns><see cref="string"/></returns>
+        public virtual string FixToMarkdownV2(string input) => StyleParser.Default.ToMarkdownV2(input);
 
         string IStyleParser.To(string input, ParseModeKind parseMode) => FixTo(input, parseMode);
         string IStyleParser.ToHTML(string input) => FixToHTML(input);

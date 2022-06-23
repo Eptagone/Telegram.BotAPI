@@ -24,4 +24,8 @@
     <ProjectReference Include="..\Telegram.BotAPI\Telegram.BotAPI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
 </Project>
