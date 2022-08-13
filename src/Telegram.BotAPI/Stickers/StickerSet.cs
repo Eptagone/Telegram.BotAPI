@@ -22,6 +22,10 @@ namespace Telegram.BotAPI.Stickers
         [JsonPropertyName(PropertyNames.Title)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Title { get; set; }
+        ///<summary>Type of stickers in the set, currently one of “regular”, “mask”, “custom_emoji”.</summary>
+        [JsonPropertyName(PropertyNames.StickerType)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string StickerType { get; set; }
         ///<summary>True, if the sticker is animated.</summary>
         [JsonPropertyName(PropertyNames.IsAnimated)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -33,6 +37,7 @@ namespace Telegram.BotAPI.Stickers
         ///<summary>True, if the sticker set contains masks.</summary>
         [JsonPropertyName(PropertyNames.ContainsMasks)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [Obsolete("The field contains_masks has been removed from the documentation of the class StickerSet. The field is still returned in the object for backward compatibility, but new bots should use the field sticker_type instead.")]
         public bool ContainsMasks { get; set; }
         ///<summary>List of all set stickers.</summary>
         [JsonPropertyName(PropertyNames.Stickers)]
@@ -54,9 +59,9 @@ namespace Telegram.BotAPI.Stickers
             return other != null &&
                    Name == other.Name &&
                    Title == other.Title &&
+                   StickerType == other.StickerType &&
                    IsAnimated == other.IsAnimated &&
                    IsVideo == other.IsVideo &&
-                   ContainsMasks == other.ContainsMasks &&
                    EqualityComparer<IEnumerable<Sticker>>.Default.Equals(Stickers, other.Stickers) &&
                    EqualityComparer<PhotoSize>.Default.Equals(Thumb, other.Thumb);
         }
@@ -66,9 +71,9 @@ namespace Telegram.BotAPI.Stickers
             int hashCode = 883736284;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(StickerType);
             hashCode = hashCode * -1521134295 + IsAnimated.GetHashCode();
             hashCode = hashCode * -1521134295 + IsVideo.GetHashCode();
-            hashCode = hashCode * -1521134295 + ContainsMasks.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<Sticker>>.Default.GetHashCode(Stickers);
             hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize>.Default.GetHashCode(Thumb);
             return hashCode;

@@ -24,7 +24,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             if (forChannels is not null)
             {
@@ -46,7 +46,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             if (forChannels is not null)
             {

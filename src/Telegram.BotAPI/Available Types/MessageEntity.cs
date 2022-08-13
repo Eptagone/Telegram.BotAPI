@@ -13,7 +13,9 @@ namespace Telegram.BotAPI.AvailableTypes
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class MessageEntity : IEquatable<MessageEntity>
     {
-        /// <summary>Type of the entity. Currently, can be “mention” (@username), “hashtag” (#hashtag), “cashtag” ($USD), “bot_command” (/start@jobs_bot), “url” (https://telegram.org), “email” (do-not-reply@telegram.org), “phone_number” (+1-212-555-0123), “bold” (bold text), “italic” (italic text), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users without usernames).</summary>
+        /// <summary>
+        /// Type of the entity. Currently, can be “mention” (@username), “hashtag” (#hashtag), “cashtag” ($USD), “bot_command” (/start@jobs_bot), “url” (https://telegram.org), “email” (do-not-reply@telegram.org), “phone_number” (+1-212-555-0123), “bold” (bold text), “italic” (italic text), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users without usernames), “custom_emoji” (for inline custom emoji stickers)
+        /// </summary>
         [JsonPropertyName(PropertyNames.Type)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Type { get; set; }
@@ -37,6 +39,10 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.Language)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Language { get; set; }
+        /// <summary>Optional. For “custom_emoji” only, unique identifier of the custom emoji. Use getCustomEmojiStickers to get full information about the sticker.</summary>
+        [JsonPropertyName(PropertyNames.CustomEmojiId)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string CustomEmojiId { get; set; }
         /// <summary>Get the entity type as enum.</summary>
         /// <returns><see cref="MessageEntityType"/></returns>
         public MessageEntityType GetEntityType()
@@ -59,7 +65,8 @@ namespace Telegram.BotAPI.AvailableTypes
                    Length == other.Length &&
                    Url == other.Url &&
                    EqualityComparer<User>.Default.Equals(User, other.User) &&
-                   Language == other.Language;
+                   Language == other.Language &&
+                   CustomEmojiId == other.CustomEmojiId;
         }
 
         public override int GetHashCode()
@@ -71,6 +78,7 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Url);
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(User);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Language);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CustomEmojiId);
             return hashCode;
         }
 

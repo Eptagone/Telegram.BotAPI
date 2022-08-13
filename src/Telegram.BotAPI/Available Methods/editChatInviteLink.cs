@@ -35,7 +35,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 throw new ArgumentNullException(nameof(inviteLink));
             }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.InviteLink, inviteLink);
@@ -82,7 +82,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 throw new ArgumentNullException(nameof(inviteLink));
             }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.InviteLink, inviteLink);
@@ -130,7 +130,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 throw new ArgumentNullException(nameof(inviteLink));
             }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.InviteLink, inviteLink);
@@ -179,7 +179,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 throw new ArgumentNullException(nameof(inviteLink));
             }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.InviteLink, inviteLink);

@@ -25,7 +25,7 @@ namespace Telegram.BotAPI.Stickers
             }
 
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.Sticker, sticker);
             json.WriteEndObject();
@@ -47,7 +47,7 @@ namespace Telegram.BotAPI.Stickers
             }
 
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.Sticker, sticker);
             json.WriteEndObject();

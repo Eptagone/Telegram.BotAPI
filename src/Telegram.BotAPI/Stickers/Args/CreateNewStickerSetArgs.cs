@@ -7,6 +7,8 @@ using System;
 using System.Text.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
+#nullable enable
+
 namespace Telegram.BotAPI.Stickers
 {
     /// <summary>CreateNewStickerSet method arguments.</summary>
@@ -44,15 +46,21 @@ namespace Telegram.BotAPI.Stickers
         /// <summary>Optional. Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.</summary>
         [JsonPropertyName(PropertyNames.PngSticker)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public object PngSticker { get; set; }
+        public object? PngSticker { get; set; }
         /// <summary>Optional. TGS animation with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements.</summary>
         [JsonPropertyName(PropertyNames.TgsSticker)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public InputFile TgsSticker { get; set; }
+        public InputFile? TgsSticker { get; set; }
         /// <summary>Optional. WEBM video with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#video-sticker-requirements for technical requirements.</summary>
         [JsonPropertyName(PropertyNames.WebmSticker)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public InputFile WebmSticker { get; set; }
+        public InputFile? WebmSticker { get; set; }
+        /// <summary>
+        /// Optional. Type of stickers in the set, pass “regular” or “mask”. Custom emoji sticker sets can't be created via the Bot API at the moment. By default, a regular sticker set is created.
+        /// </summary>
+        [JsonPropertyName(PropertyNames.StickerType)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string? StickerType { get; set; }
         /// <summary>One or more emoji corresponding to the sticker.</summary>
         [JsonPropertyName(PropertyNames.Emojis)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -60,11 +68,12 @@ namespace Telegram.BotAPI.Stickers
         /// <summary>Optional. Pass True, if a set of mask stickers should be created.</summary>
         [JsonPropertyName(PropertyNames.ContainsMasks)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [Obsolete("The parameter contains_masks has been removed from the documentation of the method createNewStickerSet. The parameter will still work for backward compatibility, but new bots should use the parameter sticker_type instead.")]
         public bool? ContainsMasks { get; set; }
         /// <summary>Optional. A JSON object for position where the mask should be placed on faces.</summary>
         [JsonPropertyName(PropertyNames.MaskPosition)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public MaskPosition MaskPosition { get; set; }
+        public MaskPosition? MaskPosition { get; set; }
 
         bool IMultipartForm.UseMultipart()
         {

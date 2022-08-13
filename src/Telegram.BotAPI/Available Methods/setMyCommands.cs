@@ -32,7 +32,7 @@ namespace Telegram.BotAPI.AvailableMethods
             }
 
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteStartArray(PropertyNames.Commands);
             foreach (var cmd in commands)

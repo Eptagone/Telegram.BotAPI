@@ -27,7 +27,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.FromChatId, fromChatId);
@@ -59,7 +59,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.FromChatId, fromChatId);
@@ -91,7 +91,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.FromChatId, fromChatId);
@@ -123,7 +123,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.FromChatId, fromChatId);
@@ -156,7 +156,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.FromChatId, fromChatId);
@@ -190,7 +190,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.FromChatId, fromChatId);
@@ -224,7 +224,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteNumber(PropertyNames.FromChatId, fromChatId);
@@ -258,7 +258,7 @@ namespace Telegram.BotAPI.AvailableMethods
         {
             if (api == null) { throw new ArgumentNullException(nameof(api)); }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             json.WriteString(PropertyNames.FromChatId, fromChatId);

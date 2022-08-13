@@ -30,7 +30,7 @@ namespace Telegram.BotAPI.AvailableMethods
                 throw new ArgumentNullException(nameof(bot));
             }
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             if (!string.IsNullOrEmpty(name))
@@ -72,7 +72,7 @@ namespace Telegram.BotAPI.AvailableMethods
             }
 
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             if (!string.IsNullOrEmpty(name))
@@ -115,7 +115,7 @@ namespace Telegram.BotAPI.AvailableMethods
             }
 
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteNumber(PropertyNames.ChatId, chatId);
             if (!string.IsNullOrEmpty(name))
@@ -159,7 +159,7 @@ namespace Telegram.BotAPI.AvailableMethods
             }
 
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString(PropertyNames.ChatId, chatId);
             if (!string.IsNullOrEmpty(name))

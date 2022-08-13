@@ -42,6 +42,7 @@ namespace Telegram.BotAPI
         public const string GetChatMemberCount = "getChatMemberCount";
         public const string GetChatMembersCount = "getChatMembersCount";
         public const string GetChatMenuButton = "getChatMenuButton";
+        public const string GetCustomEmojiStickers = "getCustomEmojiStickers";
         public const string GetFile = "getFile";
         public const string GetGameHighScores = "getGameHighScores";
         public const string GetMe = "getMe";

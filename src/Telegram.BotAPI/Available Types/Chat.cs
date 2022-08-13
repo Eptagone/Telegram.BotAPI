@@ -48,7 +48,11 @@ namespace Telegram.BotAPI.AvailableTypes
         /// <summary>Optional. True, if privacy settings of the other party in the private chat allows to use <i>tg://user?id=&lt;user_id&gt;</i> links only in chats with the user. Returned only in getChat.</summary>
         [JsonPropertyName(PropertyNames.HasPrivateForwards)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool HasPrivateForwards { get; set; }
+        public bool? HasPrivateForwards { get; set; }
+        /// <summary>Optional. True, if the privacy settings of the other party restrict sending voice and video note messages in the private chat. Returned only in getChat.</summary>
+        [JsonPropertyName(PropertyNames.HasRestrictedVoiceAndVideoMessages)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? HasRestrictedVoiceAndVideoMessages { get; set; }
         /// <summary>
 		/// Optional. True, if users need to join the supergroup before they can send messages. Returned only in getChat.
 		/// </summary>

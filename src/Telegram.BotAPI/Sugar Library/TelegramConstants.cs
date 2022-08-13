@@ -11,6 +11,7 @@ namespace Telegram.BotAPI
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public const long GroupAnonymousBotId = 1087968824;
         public const long TelegramId = 777000;
+        public const string XTelegramBotApiSecretToken = "X-Telegram-Bot-Api-Secret-Token";
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

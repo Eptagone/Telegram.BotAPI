@@ -29,7 +29,7 @@ namespace Telegram.BotAPI.Payments
             }
 
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString("pre_checkout_query_id", preCheckoutQueryId);
             json.WriteBoolean("ok", ok);
@@ -64,7 +64,7 @@ namespace Telegram.BotAPI.Payments
             }
 
             var stream = new MemoryStream();
-            using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+            using var json = new Utf8JsonWriter(stream);
             json.WriteStartObject();
             json.WriteString("pre_checkout_query_id", preCheckoutQueryId);
             json.WriteBoolean("ok", ok);

@@ -74,6 +74,8 @@ namespace Telegram.BotAPI
         public const string Creator = "creator";
         public const string Credentials = "credentials";
         public const string Currency = "currency";
+        public const string CustomEmojiId = "custom_emoji_id";
+        public const string CustomEmojiIds = "custom_emoji_ids";
         public const string CustomTitle = "custom_title";
         public const string Data = CommonNames.Data;
         public const string DataHash = "data_hash";
@@ -144,6 +146,7 @@ namespace Telegram.BotAPI
         public const string HasCustomCertificate = "has_custom_certificate";
         public const string Hash = "hash";
         public const string HasPrivateForwards = "has_private_forwards";
+        public const string HasRestrictedVoiceAndVideoMessages = "has_restricted_voice_and_video_messages";
         public const string HasProtectedContent = "has_protected_content";
         public const string Heading = "heading";
         public const string Height = "height";
@@ -312,6 +315,7 @@ namespace Telegram.BotAPI
         public const string StickerFileId = "sticker_file_id";
         public const string Stickers = "stickers";
         public const string StickerSetName = "sticker_set_name";
+        public const string StickerType = "sticker_type";
         public const string StreetLine1 = "street_line1";
         public const string StreetLine2 = "street_line2";
         public const string SuccessfulPayment = "successful_payment";
