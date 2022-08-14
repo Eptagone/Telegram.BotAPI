@@ -9,7 +9,7 @@ namespace TelegramCalendar
 {
     public sealed class CalendarBot : TelegramBotBase
     {
-        public static readonly BotClient Api = new BotClient("<BOT TOKEN>");
+        public static readonly BotClient Api = new BotClient("2054392879:AAEq_NjtVFCnIwRkiPIb1KtF5dV3B2SsA9g");
 
         protected override void OnMessage(Message message)
         {

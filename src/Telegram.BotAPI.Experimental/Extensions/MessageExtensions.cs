@@ -9,14 +9,29 @@ namespace Telegram.BotAPI.AvailableTypes
 
     public static class MessageExtensions
     {
+        /// <summary>
+        /// Get the datetime from a message
+        /// </summary>
+        /// <param name="message">The message</param>
+        /// <returns>A <see cref="DateTime"/> object.</returns>
         public static DateTime GetDatetime(this Message message) => DateTime.UnixEpoch.AddSeconds(message.Date);
 
+        /// <summary>
+        /// Get the datetime from a edited message
+        /// </summary>
+        /// <param name="message">The message</param>
+        /// <returns>A <see cref="DateTime"/> object.</returns>
         public static DateTime GetEditDatetime(this Message message)
         {
             var editDate = Convert.ToDouble(message.EditDate);
             return DateTime.UnixEpoch.AddSeconds(editDate);
         }
 
+        /// <summary>
+        /// Get the datetime from a forwarded message
+        /// </summary>
+        /// <param name="message">The message</param>
+        /// <returns>A <see cref="DateTime"/> object.</returns>
         public static DateTime GetForwardDatetime(this Message message)
         {
             var forwardDate = Convert.ToDouble(message.ForwardDate);

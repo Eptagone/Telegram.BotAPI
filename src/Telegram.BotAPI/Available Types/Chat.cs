@@ -118,7 +118,7 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public bool Equals(Chat other)
         {
-            return other != null &&
+            return other is not null &&
                    Id == other.Id &&
                    Type == other.Type &&
                    Title == other.Title &&
@@ -128,6 +128,9 @@ namespace Telegram.BotAPI.AvailableTypes
                    EqualityComparer<ChatPhoto>.Default.Equals(Photo, other.Photo) &&
                    Bio == other.Bio &&
                    HasPrivateForwards == other.HasPrivateForwards &&
+                   HasRestrictedVoiceAndVideoMessages == other.HasRestrictedVoiceAndVideoMessages &&
+                   JoinToSendMessages == other.JoinToSendMessages &&
+                   JoinByRequest == other.JoinByRequest &&
                    Description == other.Description &&
                    InviteLink == other.InviteLink &&
                    EqualityComparer<Message>.Default.Equals(PinnedMessage, other.PinnedMessage) &&
@@ -143,7 +146,7 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public override int GetHashCode()
         {
-            int hashCode = -1929137122;
+            int hashCode = 1675643649;
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Type);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
@@ -153,6 +156,9 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<ChatPhoto>.Default.GetHashCode(Photo);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Bio);
             hashCode = hashCode * -1521134295 + HasPrivateForwards.GetHashCode();
+            hashCode = hashCode * -1521134295 + HasRestrictedVoiceAndVideoMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + JoinToSendMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + JoinByRequest.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Description);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(InviteLink);
             hashCode = hashCode * -1521134295 + EqualityComparer<Message>.Default.GetHashCode(PinnedMessage);
@@ -176,7 +182,6 @@ namespace Telegram.BotAPI.AvailableTypes
         {
             return !(left == right);
         }
-
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
     /// <summary>Type of chat, can be either “private”, “group”, “supergroup” or “channel”. Can be either “sender” for a private chat with the inline query sender.</summary>
