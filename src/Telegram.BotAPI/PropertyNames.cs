@@ -9,6 +9,7 @@ namespace Telegram.BotAPI
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public const string AddedToAttachmentMenu = "added_to_attachment_menu";
         public const string Address = "address";
+        public const string ActiveUsernames = "active_usernames";
         public const string AllowedUpdates = "allowed_updates";
         public const string AllowSendingWithoutReply = "allow_sending_without_reply";
         public const string AllowsMultipleAnswers = "allows_multiple_answers";
@@ -37,6 +38,7 @@ namespace Telegram.BotAPI
         public const string CanInviteUsers = "can_invite_users";
         public const string CanJoinGroups = "can_join_groups";
         public const string CanManageChat = "can_manage_chat";
+        public const string CanManageTopics = "can_manage_topics";
         public const string CanManageVoiceChats = "can_manage_voice_chats";
         public const string CanManageVideoChats = "can_manage_video_chats";
         public const string CanPinMessages = "can_pin_messages";
@@ -100,6 +102,7 @@ namespace Telegram.BotAPI
         public const string Email = "email";
         public const string Emoji = "emoji";
         public const string Emojis = "emojis";
+        public const string EmojiStatusCustomEmojiId = "emoji_status_custom_emoji_id";
         public const string Entities = "entities";
         public const string ErrorMessage = "error_message";
         public const string Errors = "errors";
@@ -121,6 +124,9 @@ namespace Telegram.BotAPI
         public const string ForChannels = "for_channels";
         public const string Force = "force";
         public const string ForceReply = "force_reply";
+        public const string ForumTopicClosed = "forum_topic_closed";
+        public const string ForumTopicCreated = "forum_topic_created";
+        public const string ForumTopicReopened = "forum_topic_reopened";
         public const string ForwardDate = "forward_date";
         public const string ForwardFrom = "forward_from";
         public const string ForwardFromChat = "forward_from_chat";
@@ -152,6 +158,8 @@ namespace Telegram.BotAPI
         public const string Height = "height";
         public const string HideUrl = "hide_url";
         public const string HorizontalAccuracy = "horizontal_accuracy";
+        public const string IconColor = "icon_color";
+        public const string IconCustomEmojiId = "icon_custom_emoji_id";
         public const string Id = "id";
         public const string InlineKeyboard = "inline_keyboard";
         public const string InlineMessageId = "inline_message_id";
@@ -169,11 +177,13 @@ namespace Telegram.BotAPI
         public const string IsBot = "is_bot";
         public const string IsClosed = "is_closed";
         public const string IsFlexible = "is_flexible";
+        public const string IsForum = "is_forum";
         public const string IsMember = "is_member";
         public const string IsPersonal = "is_personal";
         public const string IsPremium = "is_premium";
         public const string IsPrimary = "is_primary";
         public const string IsRevoked = "is_revoked";
+        public const string IsTopicMessage = "is_topic_message";
         public const string IsVideo = "is_video";
         public const string JoinByRequest = "join_by_request";
         public const string JoinToSendMessages = "join_to_send_messages";
@@ -206,6 +216,7 @@ namespace Telegram.BotAPI
         public const string MessageAutoDeleteTimerChanged = "message_auto_delete_timer_changed ";
         public const string MessageId = "message_id";
         public const string MessageText = "message_text";
+        public const string MessageThreadId = "message_thread_id";
         public const string MigrateFromChatId = "migrate_from_chat_id";
         public const string MigrateToChatId = "migrate_to_chat_id";
         public const string MimeType = "mime_type";

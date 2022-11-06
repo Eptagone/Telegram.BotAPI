@@ -77,5 +77,12 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.CanPinMessages)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool? CanPinMessages { get; set; }
+        /// <summary>
+		/// Optional. True, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only
+		/// </summary>
+        [JsonPropertyName(PropertyNames.CanManageTopics)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? CanManageTopics { get; set; }
+
     }
 }

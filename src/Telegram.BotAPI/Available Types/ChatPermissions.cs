@@ -45,7 +45,13 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.CanPinMessages)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool? CanPinMessages { get; set; }
-
+        /// <summary>
+		/// Optional. True, if the user is allowed to create forum topics. If omitted defaults to the value of <see cref="CanPinMessages"/>
+		/// </summary>
+        [JsonPropertyName(PropertyNames.CanManageTopics)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? CanManageTopics { get; set; }
+        
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
         {
@@ -54,7 +60,7 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public bool Equals(ChatPermissions other)
         {
-            return other != null &&
+            return other is not null &&
                    CanSendMessages == other.CanSendMessages &&
                    CanSendMediaMessages == other.CanSendMediaMessages &&
                    CanSendPolls == other.CanSendPolls &&
@@ -62,12 +68,13 @@ namespace Telegram.BotAPI.AvailableTypes
                    CanAddWebPagePreviews == other.CanAddWebPagePreviews &&
                    CanChangeInfo == other.CanChangeInfo &&
                    CanInviteUsers == other.CanInviteUsers &&
-                   CanPinMessages == other.CanPinMessages;
+                   CanPinMessages == other.CanPinMessages &&
+                   CanManageTopics == other.CanManageTopics;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 766192183;
+            int hashCode = 961745413;
             hashCode = hashCode * -1521134295 + CanSendMessages.GetHashCode();
             hashCode = hashCode * -1521134295 + CanSendMediaMessages.GetHashCode();
             hashCode = hashCode * -1521134295 + CanSendPolls.GetHashCode();
@@ -76,6 +83,7 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + CanChangeInfo.GetHashCode();
             hashCode = hashCode * -1521134295 + CanInviteUsers.GetHashCode();
             hashCode = hashCode * -1521134295 + CanPinMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanManageTopics.GetHashCode();
             return hashCode;
         }
 

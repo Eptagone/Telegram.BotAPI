@@ -20,6 +20,7 @@ namespace Telegram.BotAPI
         protected SendMessageBase(long chatId) : base(chatId)
         {
         }
+        
         /// <summary>Initialize a new instance of <see cref="SendMessageBase"/>.</summary>
         /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
         /// <exception cref="ArgumentNullException"></exception>
@@ -44,6 +45,12 @@ namespace Telegram.BotAPI
         [JsonPropertyName(PropertyNames.ChatId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public virtual TChatId ChatId { get; }
+        /// <summary>
+        /// Optional. Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.
+        /// </summary>
+        [JsonPropertyName(PropertyNames.MessageThreadId)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public int? MessageThreadId { get; set; }
         /// <summary>Optional. Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</summary>
         [JsonPropertyName(PropertyNames.DisableNotification)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

@@ -9,7 +9,9 @@ using System.Text.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-    /// <summary>This object represents a chat.</summary>
+    /// <summary>
+    /// This object represents a chat.
+    /// </summary>
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class Chat : ITelegramChat, IEquatable<Chat>
     {
@@ -37,10 +39,26 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.LastName)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string LastName { get; set; }
+        /// <summary>Optional. True, if the supergroup chat is a forum (has topics enabled).</summary>
+        [JsonPropertyName(PropertyNames.IsForum)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? IsForum { get; set; }
         /// <summary>Optional. Chat photo. Returned only in getChat..</summary>
         [JsonPropertyName(PropertyNames.Photo)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public ChatPhoto Photo { get; set; }
+        /// <summary>
+		/// Optional. If non-empty, the list of all active chat usernames; for private chats, supergroups and channels. Returned only in getChat.
+		/// </summary>
+        [JsonPropertyName(PropertyNames.ActiveUsernames)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public IEnumerable<string> ActiveUsernames { get; set; }
+        /// <summary>
+		/// Optional. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in getChat.
+		/// </summary>
+        [JsonPropertyName(PropertyNames.EmojiStatusCustomEmojiId)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public string EmojiStatusCustomEmojiId { get; set; }
         /// <summary>Optional. Bio of the other party in a private chat. Returned only in getChat.</summary>
         [JsonPropertyName(PropertyNames.Bio)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -125,7 +143,10 @@ namespace Telegram.BotAPI.AvailableTypes
                    Username == other.Username &&
                    FirstName == other.FirstName &&
                    LastName == other.LastName &&
+                   IsForum == other.IsForum &&
                    EqualityComparer<ChatPhoto>.Default.Equals(Photo, other.Photo) &&
+                   EqualityComparer<IEnumerable<string>>.Default.Equals(ActiveUsernames, other.ActiveUsernames) &&
+                   EmojiStatusCustomEmojiId == other.EmojiStatusCustomEmojiId &&
                    Bio == other.Bio &&
                    HasPrivateForwards == other.HasPrivateForwards &&
                    HasRestrictedVoiceAndVideoMessages == other.HasRestrictedVoiceAndVideoMessages &&
@@ -146,14 +167,17 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public override int GetHashCode()
         {
-            int hashCode = 1675643649;
+            int hashCode = 1897612154;
             hashCode = hashCode * -1521134295 + Id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Type);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Username);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(FirstName);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(LastName);
+            hashCode = hashCode * -1521134295 + IsForum.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<ChatPhoto>.Default.GetHashCode(Photo);
+            hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<string>>.Default.GetHashCode(ActiveUsernames);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(EmojiStatusCustomEmojiId);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Bio);
             hashCode = hashCode * -1521134295 + HasPrivateForwards.GetHashCode();
             hashCode = hashCode * -1521134295 + HasRestrictedVoiceAndVideoMessages.GetHashCode();
@@ -184,7 +208,10 @@ namespace Telegram.BotAPI.AvailableTypes
         }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
-    /// <summary>Type of chat, can be either “private”, “group”, “supergroup” or “channel”. Can be either “sender” for a private chat with the inline query sender.</summary>
+    
+    /// <summary>
+    /// Type of chat, can be either “private”, “group”, “supergroup” or “channel”. Can be either “sender” for a private chat with the inline query sender.
+    /// </summary>
     public static class ChatType
     {
         /// <summary>Private chat with the inline query sender</summary>

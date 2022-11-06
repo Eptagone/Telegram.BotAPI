@@ -102,6 +102,12 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool? CanPinMessages { get; set; }
         /// <summary>
+		/// Optional. True, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only
+		/// </summary>
+        [JsonPropertyName(PropertyNames.CanManageTopics)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? CanManageTopics { get; set; }
+        /// <summary>
         /// Optional. Custom title for this user
         /// </summary>
         [JsonPropertyName(PropertyNames.CustomTitle)]
@@ -116,15 +122,15 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public bool Equals(ChatMemberAdministrator? other)
         {
-            return other != null &&
+            return other is not null &&
                    Status == other.Status &&
                    EqualityComparer<User>.Default.Equals(User, other.User) &&
                    Status == other.Status &&
-                   EqualityComparer<User>.Default.Equals(User, other.User) &&
                    CanBeEdited == other.CanBeEdited &&
                    IsAnonymous == other.IsAnonymous &&
                    CanManageChat == other.CanManageChat &&
                    CanDeleteMessages == other.CanDeleteMessages &&
+                   CanManageVoiceChats == other.CanManageVoiceChats &&
                    CanManageVideoChats == other.CanManageVideoChats &&
                    CanRestrictMembers == other.CanRestrictMembers &&
                    CanPromoteMembers == other.CanPromoteMembers &&
@@ -133,20 +139,21 @@ namespace Telegram.BotAPI.AvailableTypes
                    CanPostMessages == other.CanPostMessages &&
                    CanEditMessages == other.CanEditMessages &&
                    CanPinMessages == other.CanPinMessages &&
+                   CanManageTopics == other.CanManageTopics &&
                    CustomTitle == other.CustomTitle;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 1405233358;
+            int hashCode = 1558406401;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Status);
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(User);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Status);
-            hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(User);
             hashCode = hashCode * -1521134295 + CanBeEdited.GetHashCode();
             hashCode = hashCode * -1521134295 + IsAnonymous.GetHashCode();
             hashCode = hashCode * -1521134295 + CanManageChat.GetHashCode();
             hashCode = hashCode * -1521134295 + CanDeleteMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanManageVoiceChats.GetHashCode();
             hashCode = hashCode * -1521134295 + CanManageVideoChats.GetHashCode();
             hashCode = hashCode * -1521134295 + CanRestrictMembers.GetHashCode();
             hashCode = hashCode * -1521134295 + CanPromoteMembers.GetHashCode();
@@ -155,6 +162,7 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + CanPostMessages.GetHashCode();
             hashCode = hashCode * -1521134295 + CanEditMessages.GetHashCode();
             hashCode = hashCode * -1521134295 + CanPinMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanManageTopics.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(CustomTitle);
             return hashCode;
         }

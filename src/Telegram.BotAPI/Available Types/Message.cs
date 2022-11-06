@@ -19,23 +19,39 @@ namespace Telegram.BotAPI.AvailableTypes
     [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
     public sealed class Message : ICustomizableReplyMarkup<InlineKeyboardMarkup>, IEquatable<Message?>
     {
-        /// <summary>Unique message identifier inside this chat.</summary>
+        /// <summary>
+        /// Unique message identifier inside this chat.
+        /// </summary>
         [JsonPropertyName(PropertyNames.MessageId)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int MessageId { get; set; }
-        /// <summary>Optional. Sender, empty for messages sent to channels.</summary>
+        /// <summary>
+		/// Optional. Unique identifier of a message thread to which the message belongs; for supergroups only
+		/// </summary>
+        [JsonPropertyName(PropertyNames.MessageThreadId)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public int? MessageThreadId { get; set; }
+        /// <summary>
+        /// Optional. Sender, empty for messages sent to channels.
+        /// </summary>
         [JsonPropertyName(PropertyNames.From)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public User? From { get; set; }
-        /// <summary>Optional. Sender of the message, sent on behalf of a chat. The channel itself for channel messages. The supergroup itself for messages from anonymous group administrators. The linked channel for messages automatically forwarded to the discussion group.</summary>
+        /// <summary>
+        /// Optional. Sender of the message, sent on behalf of a chat. The channel itself for channel messages. The supergroup itself for messages from anonymous group administrators. The linked channel for messages automatically forwarded to the discussion group.
+        /// </summary>
         [JsonPropertyName(PropertyNames.SenderChat)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public Chat? SenderChat { get; set; }
-        /// <summary>Date the message was sent in Unix time.</summary>
+        /// <summary>
+        /// Date the message was sent in Unix time.
+        /// </summary>
         [JsonPropertyName(PropertyNames.Date)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public uint Date { get; set; }
-        /// <summary>Conversation the message belongs to.</summary>
+        /// <summary>
+        /// Conversation the message belongs to.
+        /// </summary>
         [JsonPropertyName(PropertyNames.Chat)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public Chat Chat { get; set; } = null!;
@@ -63,6 +79,12 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.ForwardDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public uint? ForwardDate { get; set; }
+        /// <summary>
+		/// Optional. True, if the message is sent to a forum topic
+		/// </summary>
+        [JsonPropertyName(PropertyNames.IsTopicMessage)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? IsTopicMessage { get; set; }
         /// <summary>Optional. True, if the message is a channel post that was automatically forwarded to the connected discussion group.</summary>
         [JsonPropertyName(PropertyNames.IsAutomaticForward)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -231,6 +253,24 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.ProximityAlertTriggered)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public ProximityAlertTriggered? ProximityAlertTriggered { get; set; }
+        /// <summary>
+		/// Optional. Service message: forum topic created
+		/// </summary>
+        [JsonPropertyName(PropertyNames.ForumTopicCreated)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public ForumTopicCreated? ForumTopicCreated { get; set; }
+        /// <summary>
+        /// Optional. Service message: forum topic closed
+        /// </summary>
+        [JsonPropertyName(PropertyNames.ForumTopicClosed)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public ForumTopicClosed? ForumTopicClosed { get; set; }
+        /// <summary>
+        /// Optional. Service message: forum topic reopened
+        /// </summary>
+        [JsonPropertyName(PropertyNames.ForumTopicReopened)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public ForumTopicReopened? ForumTopicReopened { get; set; }
         ///<summary>Optional. Service message: voice chat scheduled.</summary>
         [JsonPropertyName(PropertyNames.VoiceChatScheduled)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -294,8 +334,9 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public bool Equals(Message? other)
         {
-            return other != null &&
+            return other is not null &&
                    MessageId == other.MessageId &&
+                   MessageThreadId == other.MessageThreadId &&
                    EqualityComparer<User?>.Default.Equals(From, other.From) &&
                    EqualityComparer<Chat?>.Default.Equals(SenderChat, other.SenderChat) &&
                    Date == other.Date &&
@@ -306,6 +347,7 @@ namespace Telegram.BotAPI.AvailableTypes
                    ForwardSignature == other.ForwardSignature &&
                    ForwardSenderName == other.ForwardSenderName &&
                    ForwardDate == other.ForwardDate &&
+                   IsTopicMessage == other.IsTopicMessage &&
                    IsAutomaticForward == other.IsAutomaticForward &&
                    EqualityComparer<Message?>.Default.Equals(ReplyToMessage, other.ReplyToMessage) &&
                    EqualityComparer<User?>.Default.Equals(ViaBot, other.ViaBot) &&
@@ -348,6 +390,9 @@ namespace Telegram.BotAPI.AvailableTypes
                    ConnectedWebsite == other.ConnectedWebsite &&
                    EqualityComparer<PassportData?>.Default.Equals(PassportData, other.PassportData) &&
                    EqualityComparer<ProximityAlertTriggered?>.Default.Equals(ProximityAlertTriggered, other.ProximityAlertTriggered) &&
+                   EqualityComparer<ForumTopicCreated?>.Default.Equals(ForumTopicCreated, other.ForumTopicCreated) &&
+                   EqualityComparer<ForumTopicClosed?>.Default.Equals(ForumTopicClosed, other.ForumTopicClosed) &&
+                   EqualityComparer<ForumTopicReopened?>.Default.Equals(ForumTopicReopened, other.ForumTopicReopened) &&
                    EqualityComparer<VideoChatScheduled?>.Default.Equals(VoiceChatScheduled, other.VoiceChatScheduled) &&
                    EqualityComparer<VideoChatStarted?>.Default.Equals(VoiceChatStarted, other.VoiceChatStarted) &&
                    EqualityComparer<VideoChatEnded?>.Default.Equals(VoiceChatEnded, other.VoiceChatEnded) &&
@@ -362,8 +407,9 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public override int GetHashCode()
         {
-            int hashCode = -103033237;
+            int hashCode = -1993052660;
             hashCode = hashCode * -1521134295 + MessageId.GetHashCode();
+            hashCode = hashCode * -1521134295 + MessageThreadId.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<User?>.Default.GetHashCode(From);
             hashCode = hashCode * -1521134295 + EqualityComparer<Chat?>.Default.GetHashCode(SenderChat);
             hashCode = hashCode * -1521134295 + Date.GetHashCode();
@@ -374,6 +420,7 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(ForwardSignature);
             hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(ForwardSenderName);
             hashCode = hashCode * -1521134295 + ForwardDate.GetHashCode();
+            hashCode = hashCode * -1521134295 + IsTopicMessage.GetHashCode();
             hashCode = hashCode * -1521134295 + IsAutomaticForward.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Message?>.Default.GetHashCode(ReplyToMessage);
             hashCode = hashCode * -1521134295 + EqualityComparer<User?>.Default.GetHashCode(ViaBot);
@@ -416,6 +463,9 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(ConnectedWebsite);
             hashCode = hashCode * -1521134295 + EqualityComparer<PassportData?>.Default.GetHashCode(PassportData);
             hashCode = hashCode * -1521134295 + EqualityComparer<ProximityAlertTriggered?>.Default.GetHashCode(ProximityAlertTriggered);
+            hashCode = hashCode * -1521134295 + EqualityComparer<ForumTopicCreated?>.Default.GetHashCode(ForumTopicCreated);
+            hashCode = hashCode * -1521134295 + EqualityComparer<ForumTopicClosed?>.Default.GetHashCode(ForumTopicClosed);
+            hashCode = hashCode * -1521134295 + EqualityComparer<ForumTopicReopened?>.Default.GetHashCode(ForumTopicReopened);
             hashCode = hashCode * -1521134295 + EqualityComparer<VideoChatScheduled?>.Default.GetHashCode(VoiceChatScheduled);
             hashCode = hashCode * -1521134295 + EqualityComparer<VideoChatStarted?>.Default.GetHashCode(VoiceChatStarted);
             hashCode = hashCode * -1521134295 + EqualityComparer<VideoChatEnded?>.Default.GetHashCode(VoiceChatEnded);

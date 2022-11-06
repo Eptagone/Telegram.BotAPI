@@ -33,6 +33,12 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.CanPinMessages)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool CanPinMessages { get; set; }
+        /// <summary>
+		/// True, if the user is allowed to create forum topics
+		/// </summary>
+        [JsonPropertyName(PropertyNames.CanManageTopics)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool? CanManageTopics { get; set; }
         ///<summary>True, if the user is allowed to send text messages, contacts, locations and venues.</summary>
         [JsonPropertyName(PropertyNames.CanSendMessages)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -57,7 +63,7 @@ namespace Telegram.BotAPI.AvailableTypes
         [JsonPropertyName(PropertyNames.UntilDate)]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
         public uint UntilDate { get; set; }
-
+        
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override bool Equals(object obj)
         {
@@ -66,7 +72,7 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public bool Equals(ChatMemberRestricted other)
         {
-            return other != null &&
+            return other is not null &&
                    Status == other.Status &&
                    EqualityComparer<User>.Default.Equals(User, other.User) &&
                    Status == other.Status &&
@@ -74,6 +80,7 @@ namespace Telegram.BotAPI.AvailableTypes
                    CanChangeInfo == other.CanChangeInfo &&
                    CanInviteUsers == other.CanInviteUsers &&
                    CanPinMessages == other.CanPinMessages &&
+                   CanManageTopics == other.CanManageTopics &&
                    CanSendMessages == other.CanSendMessages &&
                    CanSendMediaMessages == other.CanSendMediaMessages &&
                    CanSendPolls == other.CanSendPolls &&
@@ -84,7 +91,7 @@ namespace Telegram.BotAPI.AvailableTypes
 
         public override int GetHashCode()
         {
-            int hashCode = 1477798765;
+            int hashCode = -1957976061;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Status);
             hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(User);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Status);
@@ -92,6 +99,7 @@ namespace Telegram.BotAPI.AvailableTypes
             hashCode = hashCode * -1521134295 + CanChangeInfo.GetHashCode();
             hashCode = hashCode * -1521134295 + CanInviteUsers.GetHashCode();
             hashCode = hashCode * -1521134295 + CanPinMessages.GetHashCode();
+            hashCode = hashCode * -1521134295 + CanManageTopics.GetHashCode();
             hashCode = hashCode * -1521134295 + CanSendMessages.GetHashCode();
             hashCode = hashCode * -1521134295 + CanSendMediaMessages.GetHashCode();
             hashCode = hashCode * -1521134295 + CanSendPolls.GetHashCode();

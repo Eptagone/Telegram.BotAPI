@@ -17,18 +17,22 @@ namespace Telegram.BotAPI
         public const string BanChatMember = "banChatMember";
         public const string BanChatSenderChat = "banChatSenderChat";
         public const string Close = "close";
+        public const string CloseForumTopic = "closeForumTopic";
         public const string CopyMessage = "copyMessage";
         public const string CreateChatInviteLink = "createChatInviteLink";
+        public const string CreateForumTopic = "createForumTopic";
         public const string CreateInvoiceLink = "createInvoiceLink";
         public const string CreateNewStickerSet = "createNewStickerSet";
         public const string DeclineChatJoinRequest = "declineChatJoinRequest";
         public const string DeleteChatPhoto = "deleteChatPhoto";
         public const string DeleteChatStickerSet = "deleteChatStickerSet";
+        public const string DeleteForumTopic = "deleteForumTopic";
         public const string DeleteMessage = "deleteMessage";
         public const string DeleteMyCommands = "deleteMyCommands";
         public const string DeleteStickerFromSet = "deleteStickerFromSet";
         public const string DeleteWebhook = "deleteWebhook";
         public const string EditChatInviteLink = "editChatInviteLink";
+        public const string EditForumTopic = "editForumTopic";
         public const string EditMessageCaption = "editMessageCaption";
         public const string EditMessageLiveLocation = "editMessageLiveLocation";
         public const string EditMessageMedia = "editMessageMedia";
@@ -44,6 +48,7 @@ namespace Telegram.BotAPI
         public const string GetChatMenuButton = "getChatMenuButton";
         public const string GetCustomEmojiStickers = "getCustomEmojiStickers";
         public const string GetFile = "getFile";
+        public const string GetForumTopicIconStickers = "getForumTopicIconStickers";
         public const string GetGameHighScores = "getGameHighScores";
         public const string GetMe = "getMe";
         public const string GetMyCommands = "getMyCommands";
@@ -57,6 +62,7 @@ namespace Telegram.BotAPI
         public const string LogOut = "logOut";
         public const string PinChatMessage = "pinChatMessage";
         public const string PromoteChatMember = "promoteChatMember";
+        public const string ReopenForumTopic = "reopenForumTopic";
         public const string ReplyKeyboardMarkup = "ReplyKeyboardMarkup";
         public const string RestrictChatMember = "restrictChatMember";
         public const string RevokeChatInviteLink = "revokeChatInviteLink";
@@ -96,6 +102,7 @@ namespace Telegram.BotAPI
         public const string UnbanChatMember = "unbanChatMember";
         public const string UnbanChatSenderChat = "unbanChatSenderChat";
         public const string UnpinAllChatMessages = "unpinAllChatMessages";
+        public const string UnpinAllForumTopicMessages = "unpinAllForumTopicMessages";
         public const string UnpinChatMessage = "unpinChatMessage";
         public const string UploadStickerFile = "uploadStickerFile";
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member

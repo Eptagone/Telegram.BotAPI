@@ -28,7 +28,7 @@
 		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<AssemblyName>Telegram.BotAPI</AssemblyName>
-		<PackageReleaseNotes>- Updated to Bot API 6.1</PackageReleaseNotes>
+		<PackageReleaseNotes>- Updated to Bot API 6.2</PackageReleaseNotes>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
