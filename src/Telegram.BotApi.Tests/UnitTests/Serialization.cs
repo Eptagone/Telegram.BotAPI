@@ -2,6 +2,7 @@
 using System.Text.Json.Serialization;
 using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.Games;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -9,7 +10,12 @@ namespace UnitTests
 {
     public sealed class Serialization
     {
-        private readonly ITestOutputHelper _outputHelper;
+        private static JsonSerializerOptions options = new()
+		{
+			DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+		};
+
+		private readonly ITestOutputHelper _outputHelper;
 
         public Serialization(ITestOutputHelper outputHelper) => _outputHelper = outputHelper;
 
@@ -21,11 +27,6 @@ namespace UnitTests
                 ChatId = 1
             };
 
-            var options = new JsonSerializerOptions
-            {
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-            };
-
             var rawText = JsonSerializer.Serialize(obj, options);
             _outputHelper.WriteLine(rawText);
         }
@@ -35,13 +36,17 @@ namespace UnitTests
         {
             var button = InlineKeyboardButton.SetCallbackData("Callback Button", "callback query");
 
-            var options = new JsonSerializerOptions
-            {
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-            };
-
             var rawText = JsonSerializer.Serialize(button, options);
             _outputHelper.WriteLine(rawText);
         }
+
+        [Fact]
+        public void SerializeSendGameArgs()
+        {
+            var args = new SendGameArgs(777777, "Welcome to my game");
+
+			var rawText = JsonSerializer.Serialize(args, options);
+			_outputHelper.WriteLine(rawText);
+		}
     }
 }

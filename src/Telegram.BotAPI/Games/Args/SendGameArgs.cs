@@ -23,6 +23,7 @@ namespace Telegram.BotAPI.Games
         /// <exception cref="ArgumentNullException"></exception>
         public SendGameArgs(long chatId, string gameShortName) : base(chatId)
         {
+            ChatId = chatId;
             GameShortName = gameShortName ?? throw new ArgumentNullException(nameof(gameShortName));
         }
 
