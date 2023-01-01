@@ -1,20 +1,16 @@
-// Copyright (c) 2022 Quetzal Rivera.
+// Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
-#nullable enable
 
 namespace Telegram.BotAPI.Payments
 {
-    /// <summary>
-    /// CreateInvoiceLink method arguments.
-    /// </summary>
-    [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+	/// <summary>
+	/// CreateInvoiceLink method arguments.
+	/// </summary>
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public class CreateInvoiceLinkArgs
 	{
 		/// <summary>
@@ -28,19 +24,19 @@ namespace Telegram.BotAPI.Payments
 		/// <param name="prices">Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.).</param>
 		/// <exception cref="ArgumentNullException"></exception>
 		public CreateInvoiceLinkArgs(string title, string description, string payload, string providerToken, string currency, IEnumerable<LabeledPrice> prices)
-        {
-            Title = title ?? throw new ArgumentNullException(nameof(title));
-            Description = description ?? throw new ArgumentNullException(nameof(description));
-            Payload = payload ?? throw new ArgumentNullException(nameof(payload));
-            ProviderToken = providerToken ?? throw new ArgumentNullException(nameof(providerToken));
-            Currency = currency ?? throw new ArgumentNullException(nameof(currency));
-            Prices = prices ?? throw new ArgumentNullException(nameof(prices));
-        }
+		{
+			this.Title = title ?? throw new ArgumentNullException(nameof(title));
+			this.Description = description ?? throw new ArgumentNullException(nameof(description));
+			this.Payload = payload ?? throw new ArgumentNullException(nameof(payload));
+			this.ProviderToken = providerToken ?? throw new ArgumentNullException(nameof(providerToken));
+			this.Currency = currency ?? throw new ArgumentNullException(nameof(currency));
+			this.Prices = prices ?? throw new ArgumentNullException(nameof(prices));
+		}
 
-        /// <summary>
-        /// Product name, 1-32 characters
-        /// </summary>
-        [JsonPropertyName(PropertyNames.Title)]
+		/// <summary>
+		/// Product name, 1-32 characters
+		/// </summary>
+		[JsonPropertyName(PropertyNames.Title)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Title { get; }
 		/// <summary>

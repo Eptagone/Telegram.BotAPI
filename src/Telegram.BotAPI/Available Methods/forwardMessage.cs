@@ -1,9 +1,7 @@
-// Copyright (c) 2022 Quetzal Rivera.
+// Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,10 +9,10 @@ using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods
 {
-    /// <summary>Available Methods</summary>
-    public static partial class AvailableMethodsExtensions
-    {
-        /// <summary>
+	/// <summary>Available Methods</summary>
+	public static partial class AvailableMethodsExtensions
+	{
+		/// <summary>
 		/// Use this method to forward messages of any kind. Service messages can't be forwarded. On success, the sent Message is returned.
 		/// </summary>
 		/// <param name="api">The bot client.</param>
@@ -26,9 +24,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message ForwardMessage(this BotClient api, long chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent)
+		public static Message ForwardMessage(this BotClient? api, long chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var stream = new MemoryStream();
 			using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
 			json.WriteStartObject();
@@ -65,9 +63,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message ForwardMessage(this BotClient api, long chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent)
+		public static Message ForwardMessage(this BotClient? api, long chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var stream = new MemoryStream();
 			using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
 			json.WriteStartObject();
@@ -104,9 +102,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message ForwardMessage(this BotClient api, string chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent)
+		public static Message ForwardMessage(this BotClient? api, string chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var stream = new MemoryStream();
 			using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
 			json.WriteStartObject();
@@ -143,9 +141,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message ForwardMessage(this BotClient api, string chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent)
+		public static Message ForwardMessage(this BotClient? api, string chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var stream = new MemoryStream();
 			using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
 			json.WriteStartObject();
@@ -183,9 +181,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> ForwardMessageAsync(this BotClient api, long chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> ForwardMessageAsync(this BotClient? api, long chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var stream = new MemoryStream();
 			using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
 			json.WriteStartObject();
@@ -224,9 +222,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> ForwardMessageAsync(this BotClient api, long chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> ForwardMessageAsync(this BotClient? api, long chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var stream = new MemoryStream();
 			using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
 			json.WriteStartObject();
@@ -265,9 +263,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> ForwardMessageAsync(this BotClient api, string chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> ForwardMessageAsync(this BotClient? api, string chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var stream = new MemoryStream();
 			using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
 			json.WriteStartObject();
@@ -306,9 +304,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> ForwardMessageAsync(this BotClient api, string chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> ForwardMessageAsync(this BotClient? api, string chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var stream = new MemoryStream();
 			using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
 			json.WriteStartObject();
@@ -333,5 +331,5 @@ namespace Telegram.BotAPI.AvailableMethods
 			stream.Seek(0, SeekOrigin.Begin);
 			return await api.RPCA<Message>(MethodNames.ForwardMessage, stream, cancellationToken).ConfigureAwait(false);
 		}
-    }
+	}
 }

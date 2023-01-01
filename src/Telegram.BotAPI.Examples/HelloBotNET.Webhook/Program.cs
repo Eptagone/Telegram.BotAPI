@@ -1,3 +1,6 @@
+// Copyright (c) 2023 Quetzal Rivera.
+// Licensed under the MIT License, See LICENCE in the project root for license information.
+
 using HelloBotNET.Webhook;
 using HelloBotNET.Webhook.Services;
 

@@ -1,21 +1,15 @@
-// Copyright (c) 2022 Quetzal Rivera.
+// Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-#nullable enable
 
 namespace Telegram.BotAPI.Payments
 {
-    /// <summary>Payments</summary>
-    public static partial class PaymentsExtensions
-    {
+	/// <summary>Payments</summary>
+	public static partial class PaymentsExtensions
+	{
 		/// <summary>
 		/// Use this method to create a link for an invoice. Returns the created invoice link as String on success.
 		/// </summary>
@@ -23,7 +17,7 @@ namespace Telegram.BotAPI.Payments
 		/// <param name="args">Parameters.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static string CreateInvoiceLink(this BotClient api, CreateInvoiceLinkArgs args)
+		public static string CreateInvoiceLink(this BotClient? api, CreateInvoiceLinkArgs args)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			if (args == default) { throw new ArgumentNullException(nameof(args)); }
@@ -38,7 +32,7 @@ namespace Telegram.BotAPI.Payments
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<string> CreateInvoiceLinkAsync(this BotClient api, CreateInvoiceLinkArgs args, [Optional] CancellationToken cancellationToken)
+		public static async Task<string> CreateInvoiceLinkAsync(this BotClient? api, CreateInvoiceLinkArgs args, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			if (args == default) { throw new ArgumentNullException(nameof(args)); }
@@ -71,7 +65,7 @@ namespace Telegram.BotAPI.Payments
 		/// <param name="isFlexible">Pass True, if the final price depends on the shipping method.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static string CreateInvoiceLink(this BotClient api, string title, string description, string payload, string providerToken, string currency, IEnumerable<LabeledPrice> prices, [Optional] uint? maxTipAmount, [Optional] IEnumerable<uint>? suggestedTipAmounts, [Optional] string? providerData, [Optional] string? photoUrl, [Optional] uint? photoSize, [Optional] uint? photoWidth, [Optional] uint? photoHeight, [Optional] bool? needName, [Optional] bool? needPhoneNumber, [Optional] bool? needEmail, [Optional] bool? needShippingAddress, [Optional] bool? sendPhoneNumberToProvider, [Optional] bool? sendEmailToProvider, [Optional] bool? isFlexible)
+		public static string CreateInvoiceLink(this BotClient? api, string title, string description, string payload, string providerToken, string currency, IEnumerable<LabeledPrice> prices, [Optional] uint? maxTipAmount, [Optional] IEnumerable<uint>? suggestedTipAmounts, [Optional] string? providerData, [Optional] string? photoUrl, [Optional] uint? photoSize, [Optional] uint? photoWidth, [Optional] uint? photoHeight, [Optional] bool? needName, [Optional] bool? needPhoneNumber, [Optional] bool? needEmail, [Optional] bool? needShippingAddress, [Optional] bool? sendPhoneNumberToProvider, [Optional] bool? sendEmailToProvider, [Optional] bool? isFlexible)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CreateInvoiceLinkArgs(title, description, payload, providerToken, currency, prices)
@@ -119,7 +113,7 @@ namespace Telegram.BotAPI.Payments
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<string> CreateInvoiceLinkAsync(this BotClient api, string title, string description, string payload, string providerToken, string currency, IEnumerable<LabeledPrice> prices, [Optional] uint? maxTipAmount, [Optional] IEnumerable<uint>? suggestedTipAmounts, [Optional] string? providerData, [Optional] string? photoUrl, [Optional] uint? photoSize, [Optional] uint? photoWidth, [Optional] uint? photoHeight, [Optional] bool? needName, [Optional] bool? needPhoneNumber, [Optional] bool? needEmail, [Optional] bool? needShippingAddress, [Optional] bool? sendPhoneNumberToProvider, [Optional] bool? sendEmailToProvider, [Optional] bool? isFlexible, [Optional] CancellationToken cancellationToken)
+		public static async Task<string> CreateInvoiceLinkAsync(this BotClient? api, string title, string description, string payload, string providerToken, string currency, IEnumerable<LabeledPrice> prices, [Optional] uint? maxTipAmount, [Optional] IEnumerable<uint>? suggestedTipAmounts, [Optional] string? providerData, [Optional] string? photoUrl, [Optional] uint? photoSize, [Optional] uint? photoWidth, [Optional] uint? photoHeight, [Optional] bool? needName, [Optional] bool? needPhoneNumber, [Optional] bool? needEmail, [Optional] bool? needShippingAddress, [Optional] bool? sendPhoneNumberToProvider, [Optional] bool? sendEmailToProvider, [Optional] bool? isFlexible, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CreateInvoiceLinkArgs(title, description, payload, providerToken, currency, prices)
