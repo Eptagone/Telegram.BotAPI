@@ -1,63 +1,59 @@
-// Copyright (c) 2022 Quetzal Rivera.
+// Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
-#nullable enable
 
 namespace Telegram.BotAPI.AvailableMethods
 {
-    public static partial class AvailableMethodsExtensions
-    {
-        /// <summary>Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .ogg file encoded with OPUS (other formats may be sent as Audio or Document). On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="args">Parameters.</param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static Message SendVoice(this BotClient bot, SendVoiceArgs args)
-        {
-            if (bot == default)
-            {
-                throw new ArgumentNullException(nameof(bot));
-            }
+	public static partial class AvailableMethodsExtensions
+	{
+		/// <summary>Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .ogg file encoded with OPUS (other formats may be sent as Audio or Document). On success, the sent Message is returned.</summary>
+		/// <param name="bot">BotClient</param>
+		/// <param name="args">Parameters.</param>
+		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+		/// <returns>Message Object.</returns>
+		public static Message SendVoice(this BotClient? bot, SendVoiceArgs args)
+		{
+			if (bot == default)
+			{
+				throw new ArgumentNullException(nameof(bot));
+			}
 
-            if (args == default)
-            {
-                throw new ArgumentNullException(nameof(args));
-            }
+			if (args == default)
+			{
+				throw new ArgumentNullException(nameof(args));
+			}
 
-            return bot.RPCF<Message>(MethodNames.SendVoice, args);
-        }
+			return bot.RPCF<Message>(MethodNames.SendVoice, args);
+		}
 
-        /// <summary>Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .ogg file encoded with OPUS (other formats may be sent as Audio or Document). On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="args">Parameters.</param>
-        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static async Task<Message> SendVoiceAsync(this BotClient bot, SendVoiceArgs args, [Optional] CancellationToken cancellationToken)
-        {
-            if (bot == default)
-            {
-                throw new ArgumentNullException(nameof(bot));
-            }
+		/// <summary>Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .ogg file encoded with OPUS (other formats may be sent as Audio or Document). On success, the sent Message is returned.</summary>
+		/// <param name="bot">BotClient</param>
+		/// <param name="args">Parameters.</param>
+		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+		/// <returns>Message Object.</returns>
+		public static async Task<Message> SendVoiceAsync(this BotClient? bot, SendVoiceArgs args, [Optional] CancellationToken cancellationToken)
+		{
+			if (bot == default)
+			{
+				throw new ArgumentNullException(nameof(bot));
+			}
 
-            if (args == default)
-            {
-                throw new ArgumentNullException(nameof(args));
-            }
+			if (args == default)
+			{
+				throw new ArgumentNullException(nameof(args));
+			}
 
-            return await bot.RPCAF<Message>(MethodNames.SendVoice, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-        }
+			return await bot.RPCAF<Message>(MethodNames.SendVoice, args, cancellationToken: cancellationToken).ConfigureAwait(false);
+		}
 
-       /// <summary>
+		/// <summary>
 		/// Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS (other formats may be sent as Audio or Document). On success, the sent Message is returned. Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
 		/// </summary>
 		/// <param name="api">The bot client.</param>
@@ -75,9 +71,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVoice(this BotClient api, long chatId, InputFile voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendVoice(this BotClient? api, long chatId, InputFile voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVoiceArgs(chatId, voice)
 			{
 				MessageThreadId = messageThreadId,
@@ -112,9 +108,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVoice(this BotClient api, long chatId, string voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendVoice(this BotClient? api, long chatId, string voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVoiceArgs(chatId, voice)
 			{
 				MessageThreadId = messageThreadId,
@@ -149,9 +145,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVoice(this BotClient api, string chatId, InputFile voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendVoice(this BotClient? api, string chatId, InputFile voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVoiceArgs(chatId, voice)
 			{
 				MessageThreadId = messageThreadId,
@@ -186,9 +182,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVoice(this BotClient api, string chatId, string voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendVoice(this BotClient? api, string chatId, string voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVoiceArgs(chatId, voice)
 			{
 				MessageThreadId = messageThreadId,
@@ -224,9 +220,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVoiceAsync(this BotClient api, long chatId, InputFile voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVoiceAsync(this BotClient? api, long chatId, InputFile voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVoiceArgs(chatId, voice)
 			{
 				MessageThreadId = messageThreadId,
@@ -262,9 +258,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVoiceAsync(this BotClient api, long chatId, string voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVoiceAsync(this BotClient? api, long chatId, string voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVoiceArgs(chatId, voice)
 			{
 				MessageThreadId = messageThreadId,
@@ -300,9 +296,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVoiceAsync(this BotClient api, string chatId, InputFile voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVoiceAsync(this BotClient? api, string chatId, InputFile voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVoiceArgs(chatId, voice)
 			{
 				MessageThreadId = messageThreadId,
@@ -338,9 +334,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVoiceAsync(this BotClient api, string chatId, string voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVoiceAsync(this BotClient? api, string chatId, string voice, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] uint? duration, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVoiceArgs(chatId, voice)
 			{
 				MessageThreadId = messageThreadId,
@@ -356,5 +352,5 @@ namespace Telegram.BotAPI.AvailableMethods
 			};
 			return await api.RPCAF<Message>(MethodNames.SendVoice, args, cancellationToken).ConfigureAwait(false);
 		}
-    }
+	}
 }

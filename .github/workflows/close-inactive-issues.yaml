@@ -1,9 +1,11 @@
+# This workflow will close issues that have been inactive for 60 days
 name: Close inactive issues
 on:
   schedule:
     - cron: "30 1 * * *"
 
 jobs:
+  # Close issues that have been inactive for 60 days
   close-issues:
     runs-on: ubuntu-latest
     permissions:

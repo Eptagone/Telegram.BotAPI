@@ -1,69 +1,65 @@
-// Copyright (c) 2022 Quetzal Rivera.
+// Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
-#nullable enable
 
 namespace Telegram.BotAPI.AvailableMethods
 {
-    /// <summary>Available Methods</summary>
-    public static partial class AvailableMethodsExtensions
-    {
-        /// <summary>Use this method to forward messages of any kind. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="args">Parameters.</param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static MessageID CopyMessage(
-            this BotClient bot,
-            CopyMessageArgs args)
-        {
-            if (bot == default)
-            {
-                throw new ArgumentNullException(nameof(bot));
-            }
+	/// <summary>Available Methods</summary>
+	public static partial class AvailableMethodsExtensions
+	{
+		/// <summary>Use this method to forward messages of any kind. On success, the sent Message is returned.</summary>
+		/// <param name="bot">BotClient</param>
+		/// <param name="args">Parameters.</param>
+		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+		/// <returns>Message Object.</returns>
+		public static MessageID CopyMessage(
+			this BotClient? bot,
+			CopyMessageArgs args)
+		{
+			if (bot == default)
+			{
+				throw new ArgumentNullException(nameof(bot));
+			}
 
-            if (args == default)
-            {
-                throw new ArgumentNullException(nameof(args));
-            }
+			if (args == default)
+			{
+				throw new ArgumentNullException(nameof(args));
+			}
 
-            return bot.RPC<MessageID>(MethodNames.CopyMessage, args);
-        }
+			return bot.RPC<MessageID>(MethodNames.CopyMessage, args);
+		}
 
-        /// <summary>Use this method to forward messages of any kind. On success, the sent Message is returned.</summary>
-        /// <param name="bot">BotClient</param>
-        /// <param name="args">Parameters.</param>
-        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        /// <returns>Message Object.</returns>
-        public static async Task<MessageID> CopyMessageAsync(
-            this BotClient bot,
-            CopyMessageArgs args,
-            [Optional] CancellationToken cancellationToken)
-        {
-            if (bot == default)
-            {
-                throw new ArgumentNullException(nameof(bot));
-            }
+		/// <summary>Use this method to forward messages of any kind. On success, the sent Message is returned.</summary>
+		/// <param name="bot">BotClient</param>
+		/// <param name="args">Parameters.</param>
+		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+		/// <returns>Message Object.</returns>
+		public static async Task<MessageID> CopyMessageAsync(
+			this BotClient? bot,
+			CopyMessageArgs args,
+			[Optional] CancellationToken cancellationToken)
+		{
+			if (bot == default)
+			{
+				throw new ArgumentNullException(nameof(bot));
+			}
 
-            if (args == default)
-            {
-                throw new ArgumentNullException(nameof(args));
-            }
+			if (args == default)
+			{
+				throw new ArgumentNullException(nameof(args));
+			}
 
-            return await bot.RPCA<MessageID>(MethodNames.CopyMessage, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-        }
+			return await bot.RPCA<MessageID>(MethodNames.CopyMessage, args, cancellationToken: cancellationToken).ConfigureAwait(false);
+		}
 
-        /// <summary>
+		/// <summary>
 		/// Use this method to copy messages of any kind. Service messages and invoice messages can't be copied. A quiz poll can be copied only if the value of the field correct_option_id is known to the bot. The method is analogous to the method forwardMessage, but the copied message doesn't have a link to the original message. Returns the MessageId of the sent message on success.
 		/// </summary>
 		/// <param name="api">The bot client.</param>
@@ -81,9 +77,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static MessageID CopyMessage(this BotClient api, long chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static MessageID CopyMessage(this BotClient? api, long chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CopyMessageArgs(chatId, fromChatId, messageId)
 			{
 				MessageThreadId = messageThreadId,
@@ -117,9 +113,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static MessageID CopyMessage(this BotClient api, long chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static MessageID CopyMessage(this BotClient? api, long chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CopyMessageArgs(chatId, fromChatId, messageId)
 			{
 				MessageThreadId = messageThreadId,
@@ -153,9 +149,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static MessageID CopyMessage(this BotClient api, string chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static MessageID CopyMessage(this BotClient? api, string chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CopyMessageArgs(chatId, fromChatId, messageId)
 			{
 				MessageThreadId = messageThreadId,
@@ -189,9 +185,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static MessageID CopyMessage(this BotClient api, string chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static MessageID CopyMessage(this BotClient? api, string chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CopyMessageArgs(chatId, fromChatId, messageId)
 			{
 				MessageThreadId = messageThreadId,
@@ -226,9 +222,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<MessageID> CopyMessageAsync(this BotClient api, long chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<MessageID> CopyMessageAsync(this BotClient? api, long chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CopyMessageArgs(chatId, fromChatId, messageId)
 			{
 				MessageThreadId = messageThreadId,
@@ -263,9 +259,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<MessageID> CopyMessageAsync(this BotClient api, long chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<MessageID> CopyMessageAsync(this BotClient? api, long chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CopyMessageArgs(chatId, fromChatId, messageId)
 			{
 				MessageThreadId = messageThreadId,
@@ -300,9 +296,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<MessageID> CopyMessageAsync(this BotClient api, string chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<MessageID> CopyMessageAsync(this BotClient? api, string chatId, long fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CopyMessageArgs(chatId, fromChatId, messageId)
 			{
 				MessageThreadId = messageThreadId,
@@ -337,9 +333,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<MessageID> CopyMessageAsync(this BotClient api, string chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<MessageID> CopyMessageAsync(this BotClient? api, string chatId, string fromChatId, int messageId, [Optional] int? messageThreadId, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CopyMessageArgs(chatId, fromChatId, messageId)
 			{
 				MessageThreadId = messageThreadId,
@@ -354,5 +350,5 @@ namespace Telegram.BotAPI.AvailableMethods
 			};
 			return await api.RPCA<MessageID>(MethodNames.CopyMessage, args, cancellationToken).ConfigureAwait(false);
 		}
-    }
+	}
 }

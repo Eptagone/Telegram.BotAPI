@@ -1,59 +1,58 @@
-﻿using HelloBotNET.Webhook.Services;
+﻿// Copyright (c) 2023 Quetzal Rivera.
+// Licensed under the MIT License, See LICENCE in the project root for license information.
+
+using HelloBotNET.Webhook.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.GettingUpdates;
 
 namespace HelloBotNET.Webhook.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class BotController : ControllerBase
-    {
-        private readonly IConfiguration _configuration;
-        private readonly ILogger<BotController> _logger;
-        private readonly HelloBot _bot;
+	[ApiController]
+	[Route("[controller]")]
+	public class BotController : ControllerBase
+	{
+		private readonly IConfiguration _configuration;
+		private readonly ILogger<BotController> _logger;
+		private readonly HelloBot _bot;
 
-        public BotController(ILogger<BotController> logger, IConfiguration configuration, HelloBot bot) : base()
-        {
-            _logger = logger;
-            _configuration = configuration;
-            _bot = bot;
-        }
+		public BotController(ILogger<BotController> logger, IConfiguration configuration, HelloBot bot) : base()
+		{
+			this._logger = logger;
+			this._configuration = configuration;
+			this._bot = bot;
+		}
 
-        [HttpGet("{webhookToken}")]
-        public IActionResult Get(string webhookToken)
-        {
-            if (_configuration["Telegram:WebhookToken"] != webhookToken)
-            {
-                _logger.LogWarning("Failed access!");
-                Unauthorized();
-            }
-            return Ok();
-        }
+		[HttpGet("{webhookToken}")]
+		public IActionResult Get(string webhookToken)
+		{
+			if (this._configuration["Telegram:WebhookToken"] != webhookToken)
+			{
+				this._logger.LogWarning("Failed access!");
+				this.Unauthorized();
+			}
+			return this.Ok();
+		}
 
-        [HttpPost("{webhookToken}")]
-        public async Task<IActionResult> PostAsync(string webhookToken, [FromBody] Update update, CancellationToken cancellationToken)
-        {
-            if (_configuration["Telegram:WebhookToken"] != webhookToken)
-            {
+		[HttpPost("{webhookToken}")]
+		public async Task<IActionResult> PostAsync(string webhookToken, [FromBody] Update update, CancellationToken cancellationToken)
+		{
+			if (this._configuration["Telegram:WebhookToken"] != webhookToken)
+			{
 #if DEBUG
-                _logger.LogWarning("Failed access");
+				this._logger.LogWarning("Failed access");
 #endif
-                Unauthorized();
-            }
-            if (update == default)
-            {
+				this.Unauthorized();
+			}
+			if (update == default)
+			{
 #if DEBUG
-                _logger.LogWarning("Invalid update detected");
+				this._logger.LogWarning("Invalid update detected");
 #endif
-                return BadRequest();
-            }
-            _bot.OnUpdate(update);
+				return this.BadRequest();
+			}
+			this._bot.OnUpdate(update);
 
-            return await Task.FromResult(Ok());
-        }
-    }
+			return await Task.FromResult(this.Ok());
+		}
+	}
 }

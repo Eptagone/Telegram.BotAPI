@@ -2,18 +2,18 @@
 | -------------------------------------------------- | -------------------------------- |
 
 [![NuGet version (Telegram.BotAPI)](https://img.shields.io/nuget/v/Telegram.BotAPI.svg?style=flat-square)](https://www.nuget.org/packages/Telegram.BotAPI/)
-[![Compatible with Bot API v6.3](https://img.shields.io/badge/Bot%20API%20version-v6.3-blue?style=flat-square)](https://core.telegram.org/bots/api#november-5-2022)
+[![Compatible with Bot API v6.4](https://img.shields.io/badge/Bot%20API%20version-v6.4-blue?style=flat-square)](https://core.telegram.org/bots/api#december-30-2022)
 
 **Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. Free and open source.
 
-It contains all the methods and types available in the Bot API 6.3 released on November 5, 2022.
+It contains all the methods and types available in the Bot API 6.4 released on December 30, 2022.
 
 ---
 
 ## Features
 
-- Contains pre-defined methods for all Bot API 6.3 methods.
-- Contains classes for each object type used in the Bot API 6.3.
+- Contains pre-defined methods for all Bot API 6.4 methods.
+- Contains classes for each object type used in the Bot API 6.4.
 - Sync and async methods.
 - Support [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) and [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/).
 
@@ -22,7 +22,7 @@ It contains all the methods and types available in the Bot API 6.3 released on N
 ## .NET platforms support
 
 - NET Standard >= 2.0
-- NET Core >= 2.0, NET 5 and NET 6
+- NET Core >= 2.0, .NET 5|6|7
 - NET Framework >= 4.6.2
 - Universal Windows Platform >= 10.0.16299
 - Unity >= 2018.1
@@ -33,8 +33,8 @@ It contains all the methods and types available in the Bot API 6.3 released on N
 
 ### Install from the command line
 
-```pwsh
-$ dotnet add PROJECT package Telegram.BotAPI
+```PowerShell
+dotnet add PROJECT package Telegram.BotAPI
 ```
 
 [Get package from GitHub](https://github.com/Eptagone/Telegram.BotAPI/packages)
@@ -207,5 +207,6 @@ You can see more examples [here](https://github.com/Eptagone/Telegram.BotAPI/tre
 
 If you wish, you can donate through the following methods:
 
-- Bitcoin: bc1q0w43tprjn80zn248k7xlztu7lvhkzgy6dak8mt
+- [Buy me a cookie](https://www.buymeacoffee.com/eptagone)
 - Toncoin: [EQC3SWZxs_4ive2aD-njns1KnB4S2RUgaxDKJ7X44VA52SsY](ton://transfer/EQC3SWZxs_4ive2aD-njns1KnB4S2RUgaxDKJ7X44VA52SsY)
+- Bitcoin: bc1q0w43tprjn80zn248k7xlztu7lvhkzgy6dak8mt

@@ -1,55 +1,52 @@
-// Copyright (c) 2022 Quetzal Rivera.
+// Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
-#nullable enable
 
 namespace Telegram.BotAPI.Games
 {
-    public static partial class GamesExtensions
-    {
-        ///<summary>Use this method to send a game. On success, the sent Message is returned.</summary>
-        ///<param name="bot">BotClient</param>
-        ///<param name="args">Parameters</param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static Message SendGame(this BotClient bot, SendGameArgs args)
-        {
-            if (bot == default)
-            {
-                throw new ArgumentNullException(nameof(bot));
-            }
+	public static partial class GamesExtensions
+	{
+		///<summary>Use this method to send a game. On success, the sent Message is returned.</summary>
+		///<param name="bot">BotClient</param>
+		///<param name="args">Parameters</param>
+		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+		public static Message SendGame(this BotClient? bot, SendGameArgs args)
+		{
+			if (bot == default)
+			{
+				throw new ArgumentNullException(nameof(bot));
+			}
 
-            return bot.RPC<Message>(MethodNames.SendGame, args);
-        }
+			return bot.RPC<Message>(MethodNames.SendGame, args);
+		}
 
-        ///<summary>Use this method to send a game. On success, the sent Message is returned.</summary>
-        ///<param name="bot">BotClient</param>
-        ///<param name="args">Parameters</param>
-        ///<param name="cancellationToken">The cancellation token to cancel operation.</param>
-        /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-        /// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-        public static async Task<Message> SendGameAsync(this BotClient bot, SendGameArgs args, [Optional] CancellationToken cancellationToken)
-        {
-            if (bot == default)
-            {
-                throw new ArgumentNullException(nameof(bot));
-            }
+		///<summary>Use this method to send a game. On success, the sent Message is returned.</summary>
+		///<param name="bot">BotClient</param>
+		///<param name="args">Parameters</param>
+		///<param name="cancellationToken">The cancellation token to cancel operation.</param>
+		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+		public static async Task<Message> SendGameAsync(this BotClient? bot, SendGameArgs args, [Optional] CancellationToken cancellationToken)
+		{
+			if (bot == default)
+			{
+				throw new ArgumentNullException(nameof(bot));
+			}
 
-            if (args == default)
-            {
-                throw new ArgumentNullException(nameof(args));
-            }
+			if (args == default)
+			{
+				throw new ArgumentNullException(nameof(args));
+			}
 
-            return await bot.RPCA<Message>(MethodNames.SendGame, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-        }
+			return await bot.RPCA<Message>(MethodNames.SendGame, args, cancellationToken: cancellationToken).ConfigureAwait(false);
+		}
 
-       /// <summary>
+		/// <summary>
 		/// Use this method to send a game. On success, the sent Message is returned.
 		/// </summary>
 		/// <param name="api">The bot client.</param>
@@ -63,9 +60,9 @@ namespace Telegram.BotAPI.Games
 		/// <param name="replyMarkup">A JSON-serialized object for an inline keyboard. If empty, one 'Play game_title' button will be shown. If not empty, the first button must launch the game.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendGame(this BotClient api, long chatId, string gameShortName, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] InlineKeyboardMarkup? replyMarkup)
+		public static Message SendGame(this BotClient? api, long chatId, string gameShortName, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] InlineKeyboardMarkup? replyMarkup)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendGameArgs(chatId, gameShortName)
 			{
 				MessageThreadId = messageThreadId,
@@ -93,9 +90,9 @@ namespace Telegram.BotAPI.Games
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendGameAsync(this BotClient api, long chatId, string gameShortName, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] InlineKeyboardMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendGameAsync(this BotClient? api, long chatId, string gameShortName, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] InlineKeyboardMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }			
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendGameArgs(chatId, gameShortName)
 			{
 				MessageThreadId = messageThreadId,
@@ -107,5 +104,5 @@ namespace Telegram.BotAPI.Games
 			};
 			return await api.RPCA<Message>(MethodNames.SendGame, args, cancellationToken).ConfigureAwait(false);
 		}
-    }
+	}
 }
