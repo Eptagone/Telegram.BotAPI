@@ -23,7 +23,7 @@ namespace Telegram.BotAPI
 		public const string CreateChatInviteLink = "createChatInviteLink";
 		public const string CreateForumTopic = "createForumTopic";
 		public const string CreateInvoiceLink = "createInvoiceLink";
-		public const string CreateNewStickerSet = "createNewStickerSet";
+		public const string CreateNewStickerSet = "createNewStickerSet";		
 		public const string DeclineChatJoinRequest = "declineChatJoinRequest";
 		public const string DeleteChatPhoto = "deleteChatPhoto";
 		public const string DeleteChatStickerSet = "deleteChatStickerSet";
@@ -88,8 +88,9 @@ namespace Telegram.BotAPI
 		public const string SendVideo = "sendVideo";
 		public const string SendVideoNote = "sendVideoNote";
 		public const string SendVoice = "sendVoice";
+		public const string SetChatAdministratorCustomTitle = "setChatAdministratorCustomTitle";
 		public const string SetChatDescription = "setChatDescription";
-		public const string SetChatMenuButton = "setChatMenuButton";
+		public const string SetChatMenuButton = "setChatMenuButton";		
 		public const string SetChatPermissions = "setChatPermissions";
 		public const string SetChatPhoto = "setChatPhoto";
 		public const string SetChatStickerSet = "setChatStickerSet";
