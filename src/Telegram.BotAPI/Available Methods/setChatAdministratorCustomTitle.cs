@@ -38,7 +38,7 @@ namespace Telegram.BotAPI.AvailableMethods
 			json.WriteEndObject();
 			json.Flush(); json.Dispose();
 			stream.Seek(0, SeekOrigin.Begin);
-			return bot.RPC<bool>(MethodNames.SendVideoNote, stream);
+			return bot.RPC<bool>(MethodNames.SetChatAdministratorCustomTitle, stream);
 		}
 
 		/// <summary>Use this method to set a custom title for an administrator in a supergroup promoted by the bot. Returns True on success.</summary>
@@ -69,7 +69,7 @@ namespace Telegram.BotAPI.AvailableMethods
 			json.WriteEndObject();
 			json.Flush(); json.Dispose();
 			stream.Seek(0, SeekOrigin.Begin);
-			return bot.RPC<bool>(MethodNames.SendVideoNote, stream);
+			return bot.RPC<bool>(MethodNames.SetChatAdministratorCustomTitle, stream);
 		}
 		/// <summary>Use this method to set a custom title for an administrator in a supergroup promoted by the bot. Returns True on success.</summary>
 		/// <param name="bot">Bot Client</param>
@@ -97,7 +97,7 @@ namespace Telegram.BotAPI.AvailableMethods
 			await json.FlushAsync(cancellationToken).ConfigureAwait(false);
 			await json.DisposeAsync().ConfigureAwait(false);
 			stream.Seek(0, SeekOrigin.Begin);
-			return await bot.RPCA<bool>(MethodNames.SendVideoNote, stream, cancellationToken).ConfigureAwait(false);
+			return await bot.RPCA<bool>(MethodNames.SetChatAdministratorCustomTitle, stream, cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Use this method to set a custom title for an administrator in a supergroup promoted by the bot. Returns True on success.</summary>
@@ -126,7 +126,7 @@ namespace Telegram.BotAPI.AvailableMethods
 			await json.FlushAsync(cancellationToken).ConfigureAwait(false);
 			await json.DisposeAsync().ConfigureAwait(false);
 			stream.Seek(0, SeekOrigin.Begin);
-			return await bot.RPCA<bool>(MethodNames.SendVideoNote, stream, cancellationToken).ConfigureAwait(false);
+			return await bot.RPCA<bool>(MethodNames.SetChatAdministratorCustomTitle, stream, cancellationToken).ConfigureAwait(false);
 		}
 	}
 }
