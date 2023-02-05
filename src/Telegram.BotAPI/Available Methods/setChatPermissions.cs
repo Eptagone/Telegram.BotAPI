@@ -1,8 +1,6 @@
 // Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System.IO;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
@@ -11,285 +9,82 @@ namespace Telegram.BotAPI.AvailableMethods
 {
 	public static partial class AvailableMethodsExtensions
 	{
-		/// <summary>Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members admin rights. Returns True on success.</summary>
-		/// <param name="bot">BotClient</param>
+		/// <summary>
+		/// Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator rights. Returns True on success.
+		/// </summary>
+		/// <param name="api">The bot client.</param>
 		/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-		/// <param name="permissions">New default chat permissions.</param>
+		/// <param name="permissions">A JSON-serialized object for new default chat permissions.</param>
+		/// <param name="useIndependentChatPermissions">Pass True if chat permissions are set independently. Otherwise, the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static bool SetChatPermissions(this BotClient? bot, long chatId, ChatPermissions permissions)
+		public static bool SetChatPermissions(this BotClient api, long chatId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions)
 		{
-			if (bot == default)
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
+			var args = new SetChatPermissionsArgs(chatId, permissions)
 			{
-				throw new ArgumentNullException(nameof(bot));
-			}
-
-			if (permissions == null)
-			{
-				throw new ArgumentNullException(nameof(permissions));
-			}
-
-			var stream = new MemoryStream();
-			using var json = new Utf8JsonWriter(stream);
-			json.WriteStartObject();
-			json.WriteNumber(PropertyNames.ChatId, chatId);
-			json.WriteStartObject(PropertyNames.Permissions);
-			if (permissions.CanSendMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendMessages, true);
-			}
-
-			if (permissions.CanSendMediaMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendMediaMessages, true);
-			}
-
-			if (permissions.CanSendPolls != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendPolls, true);
-			}
-
-			if (permissions.CanSendOtherMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendOtherMessages, true);
-			}
-
-			if (permissions.CanAddWebPagePreviews != null)
-			{
-				json.WriteBoolean(PropertyNames.CanAddWebPagePreviews, true);
-			}
-
-			if (permissions.CanChangeInfo != null)
-			{
-				json.WriteBoolean(PropertyNames.CanChangeInfo, true);
-			}
-
-			if (permissions.CanInviteUsers != null)
-			{
-				json.WriteBoolean(PropertyNames.CanInviteUsers, true);
-			}
-
-			if (permissions.CanPinMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanPinMessages, true);
-			}
-
-			json.WriteEndObject();
-			json.WriteEndObject();
-			json.Flush(); json.Dispose();
-			stream.Seek(0, SeekOrigin.Begin);
-			return bot.RPC<bool>(MethodNames.SetChatPermissions, stream);
+				UseIndependentChatPermissions = useIndependentChatPermissions
+			};
+			return api.RPC<bool>(MethodNames.SetChatPermissions, args);
 		}
-		/// <summary>Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members admin rights. Returns True on success.</summary>
-		/// <param name="bot">BotClient</param>
+
+		/// <summary>
+		/// Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator rights. Returns True on success.
+		/// </summary>
+		/// <param name="api">The bot client.</param>
 		/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-		/// <param name="permissions">New default chat permissions.</param>
+		/// <param name="permissions">A JSON-serialized object for new default chat permissions.</param>
+		/// <param name="useIndependentChatPermissions">Pass True if chat permissions are set independently. Otherwise, the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static bool SetChatPermissions(this BotClient? bot, string chatId, ChatPermissions permissions)
+		public static bool SetChatPermissions(this BotClient api, string chatId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions)
 		{
-			if (bot == default)
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
+			var args = new SetChatPermissionsArgs(chatId, permissions)
 			{
-				throw new ArgumentNullException(nameof(bot));
-			}
-
-			if (permissions == default)
-			{
-				throw new ArgumentNullException(nameof(permissions));
-			}
-
-			var stream = new MemoryStream();
-			using var json = new Utf8JsonWriter(stream);
-			json.WriteStartObject();
-			json.WriteString(PropertyNames.ChatId, chatId);
-			json.WriteStartObject(PropertyNames.Permissions);
-			if (permissions.CanSendMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendMessages, true);
-			}
-
-			if (permissions.CanSendMediaMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendMediaMessages, true);
-			}
-
-			if (permissions.CanSendPolls != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendPolls, true);
-			}
-
-			if (permissions.CanSendOtherMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendOtherMessages, true);
-			}
-
-			if (permissions.CanAddWebPagePreviews != null)
-			{
-				json.WriteBoolean(PropertyNames.CanAddWebPagePreviews, true);
-			}
-
-			if (permissions.CanChangeInfo != null)
-			{
-				json.WriteBoolean(PropertyNames.CanChangeInfo, true);
-			}
-
-			if (permissions.CanInviteUsers != null)
-			{
-				json.WriteBoolean(PropertyNames.CanInviteUsers, true);
-			}
-
-			if (permissions.CanPinMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanPinMessages, true);
-			}
-
-			json.WriteEndObject();
-			json.WriteEndObject();
-			json.Flush(); json.Dispose();
-			stream.Seek(0, SeekOrigin.Begin);
-			return bot.RPC<bool>(MethodNames.SetChatPermissions, stream);
+				UseIndependentChatPermissions = useIndependentChatPermissions
+			};
+			return api.RPC<bool>(MethodNames.SetChatPermissions, args);
 		}
-		/// <summary>Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members admin rights. Returns True on success.</summary>
-		/// <param name="bot">BotClient</param>
+
+		/// <summary>
+		/// Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator rights. Returns True on success.
+		/// </summary>
+		/// <param name="api">The bot client.</param>
 		/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-		/// <param name="permissions">New default chat permissions.</param>
+		/// <param name="permissions">A JSON-serialized object for new default chat permissions.</param>
+		/// <param name="useIndependentChatPermissions">Pass True if chat permissions are set independently. Otherwise, the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<bool> SetChatPermissionsAsync(this BotClient? bot, long chatId, ChatPermissions permissions, [Optional] CancellationToken cancellationToken)
+		public static async Task<bool> SetChatPermissionsAsync(this BotClient api, long chatId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] CancellationToken cancellationToken)
 		{
-			if (bot == default)
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
+			var args = new SetChatPermissionsArgs(chatId, permissions)
 			{
-				throw new ArgumentNullException(nameof(bot));
-			}
-
-			if (permissions == default)
-			{
-				throw new ArgumentNullException(nameof(permissions));
-			}
-
-			var stream = new MemoryStream();
-			using var json = new Utf8JsonWriter(stream);
-			json.WriteStartObject();
-			json.WriteNumber(PropertyNames.ChatId, chatId);
-			json.WriteStartObject(PropertyNames.Permissions);
-			if (permissions.CanSendMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendMessages, true);
-			}
-
-			if (permissions.CanSendMediaMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendMediaMessages, true);
-			}
-
-			if (permissions.CanSendPolls != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendPolls, true);
-			}
-
-			if (permissions.CanSendOtherMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendOtherMessages, true);
-			}
-
-			if (permissions.CanAddWebPagePreviews != null)
-			{
-				json.WriteBoolean(PropertyNames.CanAddWebPagePreviews, true);
-			}
-
-			if (permissions.CanChangeInfo != null)
-			{
-				json.WriteBoolean(PropertyNames.CanChangeInfo, true);
-			}
-
-			if (permissions.CanInviteUsers != null)
-			{
-				json.WriteBoolean(PropertyNames.CanInviteUsers, true);
-			}
-
-			if (permissions.CanPinMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanPinMessages, true);
-			}
-
-			json.WriteEndObject();
-			json.WriteEndObject();
-			await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-			await json.DisposeAsync().ConfigureAwait(false);
-			stream.Seek(0, SeekOrigin.Begin);
-			return await bot.RPCA<bool>(MethodNames.SetChatPermissions, stream, cancellationToken).ConfigureAwait(false);
+				UseIndependentChatPermissions = useIndependentChatPermissions
+			};
+			return await api.RPCA<bool>(MethodNames.SetChatPermissions, args, cancellationToken).ConfigureAwait(false);
 		}
-		/// <summary>Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members admin rights. Returns True on success.</summary>
-		/// <param name="bot">BotClient</param>
+
+		/// <summary>
+		/// Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator rights. Returns True on success.
+		/// </summary>
+		/// <param name="api">The bot client.</param>
 		/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-		/// <param name="permissions">New default chat permissions.</param>
+		/// <param name="permissions">A JSON-serialized object for new default chat permissions.</param>
+		/// <param name="useIndependentChatPermissions">Pass True if chat permissions are set independently. Otherwise, the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<bool> SetChatPermissionsAsync(this BotClient? bot, string chatId, ChatPermissions permissions, [Optional] CancellationToken cancellationToken)
+		public static async Task<bool> SetChatPermissionsAsync(this BotClient api, string chatId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] CancellationToken cancellationToken)
 		{
-			if (bot == default)
+			if (api == null) { throw new ArgumentNullException(nameof(api)); }
+			var args = new SetChatPermissionsArgs(chatId, permissions)
 			{
-				throw new ArgumentNullException(nameof(bot));
-			}
-
-			if (permissions == default)
-			{
-				throw new ArgumentNullException(nameof(permissions));
-			}
-
-			var stream = new MemoryStream();
-			using var json = new Utf8JsonWriter(stream);
-			json.WriteStartObject();
-			json.WriteString(PropertyNames.ChatId, chatId);
-			json.WriteStartObject(PropertyNames.Permissions);
-			if (permissions.CanSendMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendMessages, true);
-			}
-
-			if (permissions.CanSendMediaMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendMediaMessages, true);
-			}
-
-			if (permissions.CanSendPolls != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendPolls, true);
-			}
-
-			if (permissions.CanSendOtherMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanSendOtherMessages, true);
-			}
-
-			if (permissions.CanAddWebPagePreviews != null)
-			{
-				json.WriteBoolean(PropertyNames.CanAddWebPagePreviews, true);
-			}
-
-			if (permissions.CanChangeInfo != null)
-			{
-				json.WriteBoolean(PropertyNames.CanChangeInfo, true);
-			}
-
-			if (permissions.CanInviteUsers != null)
-			{
-				json.WriteBoolean(PropertyNames.CanInviteUsers, true);
-			}
-
-			if (permissions.CanPinMessages != null)
-			{
-				json.WriteBoolean(PropertyNames.CanPinMessages, true);
-			}
-
-			json.WriteEndObject();
-			json.WriteEndObject();
-			await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-			await json.DisposeAsync().ConfigureAwait(false);
-			stream.Seek(0, SeekOrigin.Begin);
-			return await bot.RPCA<bool>(MethodNames.SetChatPermissions, stream, cancellationToken).ConfigureAwait(false);
+				UseIndependentChatPermissions = useIndependentChatPermissions
+			};
+			return await api.RPCA<bool>(MethodNames.SetChatPermissions, args, cancellationToken).ConfigureAwait(false);
 		}
 	}
 }

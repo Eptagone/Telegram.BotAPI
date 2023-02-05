@@ -24,6 +24,7 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.UserId = userId;
 			this.Permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
 		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RestrictChatMemberArgs"/> class.
 		/// </summary>
@@ -38,19 +39,33 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.Permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
 		}
 
-		/// <summary>Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</summary>
+		/// <summary>
+		/// Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername)
+		/// </summary>
 		[JsonPropertyName(PropertyNames.ChatId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object ChatId { get; }
-		/// <summary>Unique identifier of the target user.</summary>
+		/// <summary>
+		/// Unique identifier of the target user
+		/// </summary>
 		[JsonPropertyName(PropertyNames.UserId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public long UserId { get; }
-		/// <summary>New user permissions.</summary>
+		/// <summary>
+		/// A JSON-serialized object for new user permissions
+		/// </summary>
 		[JsonPropertyName(PropertyNames.Permissions)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ChatPermissions Permissions { get; }
-		/// <summary>Optional. Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever.</summary>
+		/// <summary>
+		/// Pass True if chat permissions are set independently. Otherwise, the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission.
+		/// </summary>
+		[JsonPropertyName(PropertyNames.UseIndependentChatPermissions)]
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public bool? UseIndependentChatPermissions { get; set; }
+		/// <summary>
+		/// Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever
+		/// </summary>
 		[JsonPropertyName(PropertyNames.UntilDate)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? UntilDate { get; set; }

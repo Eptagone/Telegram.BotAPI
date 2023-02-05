@@ -8,12 +8,11 @@ using Telegram.BotAPI.Payments;
 using Telegram.BotAPI.Stickers;
 using Telegram.BotAPI.TelegramPassport;
 
-
 namespace Telegram.BotAPI.AvailableTypes
 {
 	/// <summary>This object represents a message.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public sealed class Message : ICustomizableReplyMarkup<InlineKeyboardMarkup>, IEquatable<Message?>
+	public sealed class Message : IEquatable<Message?>
 	{
 		/// <summary>
 		/// Unique message identifier inside this chat
@@ -32,7 +31,7 @@ namespace Telegram.BotAPI.AvailableTypes
 		/// </summary>
 		[JsonPropertyName(PropertyNames.Chat)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public Chat Chat { get; set; }
+		public Chat Chat { get; set; } = null!;
 		/// <summary>
 		/// Optional. Unique identifier of a message thread to which the message belongs; for supergroups only
 		/// </summary>
@@ -146,7 +145,7 @@ namespace Telegram.BotAPI.AvailableTypes
 		/// </summary>
 		[JsonPropertyName(PropertyNames.Entities)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public IEnumerable<MessageEntity>? Entities { get; set; }
+		public MessageEntity[]? Entities { get; set; }
 		/// <summary>
 		/// Optional. Message is an animation, information about the animation. For backward compatibility, when this field is set, the document field will also be set
 		/// </summary>
@@ -206,7 +205,7 @@ namespace Telegram.BotAPI.AvailableTypes
 		/// </summary>
 		[JsonPropertyName(PropertyNames.CaptionEntities)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
+		public MessageEntity[]? CaptionEntities { get; set; }
 		/// <summary>
 		/// Optional. True, if the message media is covered by a spoiler animation
 		/// </summary>
@@ -334,6 +333,18 @@ namespace Telegram.BotAPI.AvailableTypes
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public SuccessfulPayment? SuccessfulPayment { get; set; }
 		/// <summary>
+		/// Optional. Service message: a user was shared with the bot
+		/// </summary>
+		[JsonPropertyName(PropertyNames.UserShared)]
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public UserShared? UserShared { get; set; }
+		/// <summary>
+		/// Optional. Service message: a chat was shared with the bot
+		/// </summary>
+		[JsonPropertyName(PropertyNames.ChatShared)]
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public ChatShared? ChatShared { get; set; }
+		/// <summary>
 		/// Optional. The domain name of the website on which the user has logged in. More about Telegram Login »
 		/// </summary>
 		[JsonPropertyName(PropertyNames.ConnectedWebsite)]
@@ -459,7 +470,7 @@ namespace Telegram.BotAPI.AvailableTypes
 				   this.MediaGroupId == other.MediaGroupId &&
 				   this.AuthorSignature == other.AuthorSignature &&
 				   this.Text == other.Text &&
-				   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.Entities, other.Entities) &&
+				   EqualityComparer<MessageEntity[]?>.Default.Equals(this.Entities, other.Entities) &&
 				   EqualityComparer<Animation?>.Default.Equals(this.Animation, other.Animation) &&
 				   EqualityComparer<Audio?>.Default.Equals(this.Audio, other.Audio) &&
 				   EqualityComparer<Document?>.Default.Equals(this.Document, other.Document) &&
@@ -469,7 +480,7 @@ namespace Telegram.BotAPI.AvailableTypes
 				   EqualityComparer<VideoNote?>.Default.Equals(this.VideoNote, other.VideoNote) &&
 				   EqualityComparer<Voice?>.Default.Equals(this.Voice, other.Voice) &&
 				   this.Caption == other.Caption &&
-				   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
+				   EqualityComparer<MessageEntity[]?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
 				   this.HasMediaSpoiler == other.HasMediaSpoiler &&
 				   EqualityComparer<Contact?>.Default.Equals(this.Contact, other.Contact) &&
 				   EqualityComparer<Dice?>.Default.Equals(this.Dice, other.Dice) &&
@@ -491,6 +502,8 @@ namespace Telegram.BotAPI.AvailableTypes
 				   EqualityComparer<Message?>.Default.Equals(this.PinnedMessage, other.PinnedMessage) &&
 				   EqualityComparer<Invoice?>.Default.Equals(this.Invoice, other.Invoice) &&
 				   EqualityComparer<SuccessfulPayment?>.Default.Equals(this.SuccessfulPayment, other.SuccessfulPayment) &&
+				   EqualityComparer<UserShared?>.Default.Equals(this.UserShared, other.UserShared) &&
+				   EqualityComparer<ChatShared?>.Default.Equals(this.ChatShared, other.ChatShared) &&
 				   this.ConnectedWebsite == other.ConnectedWebsite &&
 				   EqualityComparer<WriteAccessAllowed?>.Default.Equals(this.WriteAccessAllowed, other.WriteAccessAllowed) &&
 				   EqualityComparer<PassportData?>.Default.Equals(this.PassportData, other.PassportData) &&
@@ -511,7 +524,7 @@ namespace Telegram.BotAPI.AvailableTypes
 		/// <inheritdoc/>
 		public override int GetHashCode()
 		{
-			int hashCode = -1776188689;
+			int hashCode = -682300176;
 			hashCode = hashCode * -1521134295 + this.MessageId.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.Date.GetHashCode();
 			hashCode = hashCode * -1521134295 + EqualityComparer<Chat>.Default.GetHashCode(this.Chat);
@@ -533,7 +546,7 @@ namespace Telegram.BotAPI.AvailableTypes
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.MediaGroupId);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.AuthorSignature);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Text);
-			hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.Entities);
+			hashCode = hashCode * -1521134295 + EqualityComparer<MessageEntity[]?>.Default.GetHashCode(this.Entities);
 			hashCode = hashCode * -1521134295 + EqualityComparer<Animation?>.Default.GetHashCode(this.Animation);
 			hashCode = hashCode * -1521134295 + EqualityComparer<Audio?>.Default.GetHashCode(this.Audio);
 			hashCode = hashCode * -1521134295 + EqualityComparer<Document?>.Default.GetHashCode(this.Document);
@@ -543,7 +556,7 @@ namespace Telegram.BotAPI.AvailableTypes
 			hashCode = hashCode * -1521134295 + EqualityComparer<VideoNote?>.Default.GetHashCode(this.VideoNote);
 			hashCode = hashCode * -1521134295 + EqualityComparer<Voice?>.Default.GetHashCode(this.Voice);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Caption);
-			hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.CaptionEntities);
+			hashCode = hashCode * -1521134295 + EqualityComparer<MessageEntity[]?>.Default.GetHashCode(this.CaptionEntities);
 			hashCode = hashCode * -1521134295 + this.HasMediaSpoiler.GetHashCode();
 			hashCode = hashCode * -1521134295 + EqualityComparer<Contact?>.Default.GetHashCode(this.Contact);
 			hashCode = hashCode * -1521134295 + EqualityComparer<Dice?>.Default.GetHashCode(this.Dice);
@@ -565,6 +578,8 @@ namespace Telegram.BotAPI.AvailableTypes
 			hashCode = hashCode * -1521134295 + EqualityComparer<Message?>.Default.GetHashCode(this.PinnedMessage);
 			hashCode = hashCode * -1521134295 + EqualityComparer<Invoice?>.Default.GetHashCode(this.Invoice);
 			hashCode = hashCode * -1521134295 + EqualityComparer<SuccessfulPayment?>.Default.GetHashCode(this.SuccessfulPayment);
+			hashCode = hashCode * -1521134295 + EqualityComparer<UserShared?>.Default.GetHashCode(this.UserShared);
+			hashCode = hashCode * -1521134295 + EqualityComparer<ChatShared?>.Default.GetHashCode(this.ChatShared);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ConnectedWebsite);
 			hashCode = hashCode * -1521134295 + EqualityComparer<WriteAccessAllowed?>.Default.GetHashCode(this.WriteAccessAllowed);
 			hashCode = hashCode * -1521134295 + EqualityComparer<PassportData?>.Default.GetHashCode(this.PassportData);
@@ -586,15 +601,12 @@ namespace Telegram.BotAPI.AvailableTypes
 		/// <inheritdoc/>
 		public static bool operator ==(Message? left, Message? right)
 		{
-#pragma warning disable CS8604 // Possible null reference argument.
 			return EqualityComparer<Message>.Default.Equals(left!, right!);
-#pragma warning restore CS8604 // Possible null reference argument.
 		}
 		/// <inheritdoc/>
 		public static bool operator !=(Message? left, Message? right)
 		{
 			return !(left == right);
 		}
-
 	}
 }

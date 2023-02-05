@@ -6,66 +6,45 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents a join request sent to a chat.</summary>
+	/// <summary>Represents a join request sent to a chat.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public sealed class ChatJoinRequest : IEquatable<ChatJoinRequest>
+	public sealed class ChatJoinRequest
 	{
-		///<summary>Chat to which the request was sent.</summary>
+		/// <summary>
+		/// Chat to which the request was sent
+		/// </summary>
 		[JsonPropertyName(PropertyNames.Chat)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public Chat Chat { get; set; }
-		///<summary>User that sent the join request.</summary>
+		public Chat Chat { get; set; } = null!;
+		/// <summary>
+		/// User that sent the join request
+		/// </summary>
 		[JsonPropertyName(PropertyNames.From)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public User From { get; set; }
-		///<summary>Date the request was sent in Unix time.</summary>
+		public User From { get; set; } = null!;
+		/// <summary>
+		/// Identifier of a private chat with the user who sent the join request. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot can use this identifier for 24 hours to send messages until the join request is processed, assuming no other administrator contacted the user.
+		/// </summary>
+		[JsonPropertyName(PropertyNames.UserChatId)]
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public long UserChatId { get; set; }
+		/// <summary>
+		/// Date the request was sent in Unix time
+		/// </summary>
 		[JsonPropertyName(PropertyNames.Date)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint Date { get; set; }
-		///<summary>Optional. Bio of the user.</summary>
+		/// <summary>
+		/// Optional. Bio of the user.
+		/// </summary>
 		[JsonPropertyName(PropertyNames.Bio)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Bio { get; set; }
-		///<summary>Optional. Chat invite link that was used by the user to send the join request.</summary>
+		public string? Bio { get; set; }
+		/// <summary>
+		/// Optional. Chat invite link that was used by the user to send the join request
+		/// </summary>
 		[JsonPropertyName(PropertyNames.InviteLink)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string InviteLink { get; set; }
-		/// <inheritdoc/>
-		public override bool Equals(object obj)
-		{
-			return this.Equals(obj as ChatJoinRequest);
-		}
-		/// <inheritdoc/>
-		public bool Equals(ChatJoinRequest? other)
-		{
-			return other != null &&
-				   EqualityComparer<Chat>.Default.Equals(this.Chat, other.Chat) &&
-				   EqualityComparer<User>.Default.Equals(this.From, other.From) &&
-				   this.Date == other.Date &&
-				   this.Bio == other.Bio &&
-				   this.InviteLink == other.InviteLink;
-		}
-		/// <inheritdoc/>
-		public override int GetHashCode()
-		{
-			int hashCode = -1061456070;
-			hashCode = hashCode * -1521134295 + EqualityComparer<Chat>.Default.GetHashCode(this.Chat);
-			hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(this.From);
-			hashCode = hashCode * -1521134295 + this.Date.GetHashCode();
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Bio);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.InviteLink);
-			return hashCode;
-		}
-		/// <inheritdoc/>
-		public static bool operator ==(ChatJoinRequest? left, ChatJoinRequest? right)
-		{
-			return EqualityComparer<ChatJoinRequest>.Default.Equals(left!, right!);
-		}
-		/// <inheritdoc/>
-		public static bool operator !=(ChatJoinRequest? left, ChatJoinRequest? right)
-		{
-			return !(left == right);
-		}
-
+		public ChatInviteLink? InviteLink { get; set; }
 	}
 }
