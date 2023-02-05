@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 	public class FormattingHelper : FormattingHelper<StyleParser>
 	{
 		/// <summary>Initialize a new instance of StyleParser.</summary>
-		/// <param name="styleParser">Custom StyleFixer.</param>
+		/// <param name="styleParser">Custom StyleParser.</param>
 		public FormattingHelper([Optional] StyleParser styleParser) : base(styleParser ?? StyleParser.Default)
 		{
 		}
@@ -21,11 +21,11 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 	public class FormattingHelper<TStyleParser>
 		where TStyleParser : IStyleParser
 	{
-		/// <summary>StyleFixer</summary>
+		/// <summary>StyleParser</summary>
 		protected readonly IStyleParser Parser;
 
 		/// <summary>Initialize a new instance of StyleParser.</summary>
-		/// <param name="styleParser">Custom StyleFixer.</param>
+		/// <param name="styleParser">Custom StyleParser.</param>
 		public FormattingHelper(TStyleParser styleParser)
 		{
 			this.Parser = styleParser ?? throw new ArgumentNullException(nameof(styleParser));
@@ -35,7 +35,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 		/// <param name="input">Input text.</param>
 		/// <param name="parseMode">Style to be applied to the new text.</param>
 		/// <param name="entities">Message entities.</param>
-		/// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+		/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 		/// <returns>Stylized <see cref="string"/></returns>
 		public virtual string FromEntities<T>(string input, ParseModeKind parseMode, T entities, bool useFixer = true)
 			where T : IEnumerable<MessageEntity>
@@ -119,7 +119,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 		/// <summary> Format text. Bold. </summary>
 		/// <param name="input">Input text.</param>
 		/// <param name="parseMode">Style to be applied to the new text.</param>
-		/// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+		/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 		/// <returns>Stylized <see cref="string"/></returns>
 		public virtual string Bold(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
 		{
@@ -139,7 +139,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 		/// <summary> Format text. Italic. </summary>
 		/// <param name="input">Input text.</param>
 		/// <param name="parseMode">Style to be applied to the new text.</param>
-		/// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+		/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 		/// <returns>Stylized <see cref="string"/></returns>
 		public virtual string Italic(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
 		{
@@ -159,7 +159,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 		/// <summary> Format text. Underline. </summary>
 		/// <param name="input">Input text.</param>
 		/// <param name="parseMode">Style to be applied to the new text.</param>
-		/// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+		/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 		/// <returns>Stylized <see cref="string"/></returns>
 		public virtual string Underline(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
 		{
@@ -179,7 +179,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 		/// <summary> Format text. Strikethrough. </summary>
 		/// <param name="input">Input text.</param>
 		/// <param name="parseMode">Style to be applied to the new text.</param>
-		/// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+		/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 		/// <returns>Stylized <see cref="string"/></returns>
 		public virtual string Strikethrough(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
 		{
@@ -198,7 +198,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 		/// <summary> Format text. Spoiler. </summary>
 		/// <param name="input">Input text.</param>
 		/// <param name="parseMode">Style to be applied to the new text.</param>
-		/// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+		/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 		/// <returns>Stylized <see cref="string"/></returns>
 		public virtual string Spoiler(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
 		{
@@ -217,7 +217,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 		/// <summary> Format text. Code. </summary>
 		/// <param name="input">Input text.</param>
 		/// <param name="parseMode">Style to be applied to the new text.</param>
-		/// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+		/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 		/// <returns>Stylized <see cref="string"/></returns>
 		public virtual string Code(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
 		{
@@ -279,7 +279,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 		/// <param name="input">Input text.</param>
 		/// <param name="url">Url.</param>
 		/// <param name="parseMode">Style to be applied to the new text.</param>
-		/// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+		/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 		/// <returns>Stylized <see cref="string"/></returns>
 		public virtual string TextLink(string input, string url, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
 		{
@@ -303,7 +303,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 		/// <param name="input">Input text.</param>
 		/// <param name="userId">Unique identifier for this user or bot.</param>
 		/// <param name="parseMode">Style to be applied to the new text.</param>
-		/// <param name="useFixer">True, if you want to use the StyleFixer.</param>
+		/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 		/// <returns>Stylized <see cref="string"/></returns>
 		public virtual string TextMention(string input, long userId, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
 		{

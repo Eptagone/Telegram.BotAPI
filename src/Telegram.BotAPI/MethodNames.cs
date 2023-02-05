@@ -60,7 +60,6 @@ namespace Telegram.BotAPI
 		public const string GetUserProfilePhotos = "getUserProfilePhotos";
 		public const string GetWebhookInfo = "getWebhookInfo";
 		public const string HideGeneralForumTopic = "hideGeneralForumTopic";
-		public const string KickChatMember = "kickChatMember";
 		public const string LeaveChat = "leaveChat";
 		public const string LogOut = "logOut";
 		public const string PinChatMessage = "pinChatMessage";

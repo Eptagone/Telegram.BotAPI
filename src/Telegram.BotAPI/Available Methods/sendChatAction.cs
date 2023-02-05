@@ -140,14 +140,6 @@ namespace Telegram.BotAPI.AvailableMethods
 		public const string RecordVoice = "record_voice";
 		/// <summary>For voice notes</summary>
 		public const string UploadVoice = "upload_voice";
-		/// <summary>For audio files.
-		/// <i><br />[Bot API 5.2: Old action name]</i> Use RecordVoice instead RecordAudio</summary>
-		[Obsolete("[Bot API 5.2: Old action name]: Use RecordVoice instead RecordAudio")]
-		public const string RecordAudio = "record_audio";
-		/// <summary>For audio files
-		/// <i><br />[Bot API 5.2: Old action name]</i> Use UploadVoice instead UploadAudio</summary>
-		[Obsolete("[Bot API 5.2: Old action name]: Use UploadVoice instead UploadAudio")]
-		public const string UploadAudio = "upload_audio";
 		/// <summary>For general files</summary>
 		public const string UploadDocument = "upload_document";
 		/// <summary>For location data</summary>

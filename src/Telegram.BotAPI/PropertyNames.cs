@@ -421,13 +421,6 @@ namespace Telegram.BotAPI
 		public const string WriteAccessAllowed = "write_access_allowed";
 		public const string XShift = "x_shift";
 		public const string YShift = "y_shift";
-		// ---- Obsolete - START ----
-		public const string CanSendMediaMessages = "can_send_media_messages";
-		public const string VoiceChatScheduled = "voice_chat_scheduled ";
-		public const string VoiceChatStarted = "voice_chat_started";
-		public const string VoiceChatEnded = "voice_chat_ended";
-		public const string VoiceChatParticipantsInvited = "voice_chat_participants_invited";
-		// ---- Obsolete - END ----
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 	}
 }

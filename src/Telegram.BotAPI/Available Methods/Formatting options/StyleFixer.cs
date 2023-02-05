@@ -7,11 +7,11 @@ using System.Text;
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 {
 	/// <summary>
-	/// Use this class to fix text with incorrect style tags or to create custom StyleFixers for use with the StyleParser.
+	/// Use this class to fix text with incorrect style tags or to create custom StyleParsers for use with the StyleParser.
 	/// </summary>
 	public class StyleParser : IStyleParser
 	{
-		/// <summary>Default StyleFixer.</summary>
+		/// <summary>Default StyleParser.</summary>
 		public static readonly StyleParser Default = new();
 
 		/// <summary>Fix specified text with wrong style tags.</summary>
@@ -93,39 +93,5 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions
 			}
 			return sb.ToString();
 		}
-	}
-
-	/// <summary>
-	/// Use this class to fix text with incorrect style tags or to create custom StyleFixers for use with the StyleParser.
-	/// </summary>
-	[Obsolete("This class has been replaced by StyleParser and will be removed in future releases.")]
-	public class StyleFixer : StyleParser, IStyleParser
-	{
-		/// <summary>Default StyleFixer.</summary>
-		public static new readonly StyleFixer Default = new();
-		/// <summary>Fix specified text with wrong style tags.</summary>
-		/// <param name="input">Input text.</param>
-		/// <param name="parseMode">Style to be applied to the new text.</param>
-		/// <returns><see cref="string"/></returns>
-		public string FixTo(string input, ParseModeKind parseMode) => StyleParser.Default.To(input, parseMode);
-		/// <summary>Replaces symbols that are not part of an HTML tag or entity with HTML entities (&lt; with &amp;lt;, &gt; with &amp;gt; and &amp; with &amp;amp;).</summary>
-		/// <param name="input">Input text.</param>
-		/// <returns>String with HTML entities.</returns>
-		/// <returns><see cref="string"/></returns>
-		public virtual string FixToHTML(string input) => StyleParser.Default.ToHTML(input);
-
-		/// <summary>Prepends the character '\' for the escape characters: '_', '*', '`', '['.</summary>
-		/// <param name="input">Input text.</param>
-		/// <returns><see cref="string"/></returns>
-		public virtual string FixToMarkdown(string input) => StyleParser.Default.ToMarkdown(input);
-		/// <summary>Prepends the character '\' for the escape characters: '_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'.</summary>
-		/// <param name="input">Input text.</param>
-		/// <returns><see cref="string"/></returns>
-		public virtual string FixToMarkdownV2(string input) => StyleParser.Default.ToMarkdownV2(input);
-
-		string IStyleParser.To(string input, ParseModeKind parseMode) => this.FixTo(input, parseMode);
-		string IStyleParser.ToHTML(string input) => this.FixToHTML(input);
-		string IStyleParser.ToMarkdown(string input) => this.FixToMarkdown(input);
-		string IStyleParser.ToMarkdownV2(string input) => this.FixToMarkdownV2(input);
 	}
 }
