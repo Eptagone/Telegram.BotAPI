@@ -21,8 +21,9 @@ namespace Telegram.BotAPI.UpdatingMessages
 		public EditMessageCaptionArgs(long chatId, int messageId)
 		{
 			this.ChatId = chatId;
-			this.MessageId = this.MessageId ?? throw new ArgumentNullException(nameof(this.MessageId));
+			this.MessageId = messageId;
 		}
+
 		/// <summary>
 		/// Initialize a new instance of <see cref="EditMessageCaptionArgs"/>.
 		/// </summary>
@@ -32,7 +33,7 @@ namespace Telegram.BotAPI.UpdatingMessages
 		public EditMessageCaptionArgs(string chatId, int messageId)
 		{
 			this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-			this.MessageId = this.MessageId ?? throw new ArgumentNullException(nameof(this.MessageId));
+			this.MessageId = messageId;
 		}
 		/// <summary>
 		/// Initialize a new instance of <see cref="EditMessageCaptionArgs"/>.
