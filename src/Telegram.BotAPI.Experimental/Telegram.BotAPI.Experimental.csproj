@@ -21,11 +21,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Telegram.BotAPI\Telegram.BotAPI.csproj" />
+    <Compile Remove="Helpers\**" />
+    <EmbeddedResource Remove="Helpers\**" />
+    <None Remove="Helpers\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
+    <ProjectReference Include="..\Telegram.BotAPI\Telegram.BotAPI.csproj" />
   </ItemGroup>
 
 </Project>

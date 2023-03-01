@@ -40,13 +40,7 @@ namespace Telegram.BotAPI.AvailableTypes
 		[JsonPropertyName(PropertyNames.CustomEmojiId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string CustomEmojiId { get; set; }
-		/// <summary>Get the entity type as enum.</summary>
-		/// <returns><see cref="MessageEntityType"/></returns>
-		public MessageEntityType GetEntityType()
-		{
-			string type = this.Type.Replace("_", string.Empty);
-			return (MessageEntityType)Enum.Parse(typeof(MessageEntityType), type, true);
-		}
+
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{
