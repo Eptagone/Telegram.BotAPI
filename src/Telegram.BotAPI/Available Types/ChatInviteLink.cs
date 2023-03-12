@@ -6,43 +6,43 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents an invite link for a chat.</summary>
+	/// <summary>Represents an invite link for a chat.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class ChatInviteLink : IEquatable<ChatInviteLink>
 	{
-		///<summary>The invite link. If the link was created by another chat administrator, then the second part of the link will be replaced with ���.</summary>
+		/// <summary>The invite link. If the link was created by another chat administrator, then the second part of the link will be replaced with ���.</summary>
 		[JsonPropertyName(PropertyNames.InviteLink)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string InviteLink { get; set; }
-		///<summary>Creator of the link.</summary>
+		/// <summary>Creator of the link.</summary>
 		[JsonPropertyName(PropertyNames.Creator)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public User Creator { get; set; }
-		///<summary>True, if users joining the chat via the link need to be approved by chat administrators.</summary>
+		/// <summary>True, if users joining the chat via the link need to be approved by chat administrators.</summary>
 		[JsonPropertyName(PropertyNames.CreatesJoinRequest)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool CreatesJoinRequest { get; set; }
-		///<summary>True, if the link is primary.</summary>
+		/// <summary>True, if the link is primary.</summary>
 		[JsonPropertyName(PropertyNames.IsPrimary)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool IsPrimary { get; set; }
-		///<summary>True, if the link is revoked.</summary>
+		/// <summary>True, if the link is revoked.</summary>
 		[JsonPropertyName(PropertyNames.IsRevoked)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool IsRevoked { get; set; }
-		///<summary>Optional. Invite link name.</summary>
+		/// <summary>Optional. Invite link name.</summary>
 		[JsonPropertyName(PropertyNames.Name)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Name { get; set; }
-		///<summary>Optional. Point in time (Unix timestamp) when the link will expire or has been expired.</summary>
+		/// <summary>Optional. Point in time (Unix timestamp) when the link will expire or has been expired.</summary>
 		[JsonPropertyName(PropertyNames.ExpireDate)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint ExpireDate { get; set; }
-		///<summary>Optional. Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999.</summary>
+		/// <summary>Optional. Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999.</summary>
 		[JsonPropertyName(PropertyNames.MemberLimit)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint MemberLimit { get; set; }
-		///<summary>Optional. Number of pending join requests created using this link.</summary>
+		/// <summary>Optional. Number of pending join requests created using this link.</summary>
 		[JsonPropertyName(PropertyNames.PendingJoinRequestCount)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint PendingJoinRequestCount { get; set; }

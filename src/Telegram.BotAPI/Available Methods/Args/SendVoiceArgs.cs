@@ -53,11 +53,11 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.Voice = voice ?? throw new ArgumentNullException(nameof(voice));
 		}
 
-		///<summary>Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.</summary>
+		/// <summary>Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.</summary>
 		[JsonPropertyName(PropertyNames.Voice)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object Voice { get; }
-		///<summary>Voice message caption, 0-1024 characters.</summary>
+		/// <summary>Voice message caption, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }
@@ -69,7 +69,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		[JsonPropertyName(PropertyNames.CaptionEntities)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
-		///<summary>Optional. Duration of the voice message in seconds.</summary>
+		/// <summary>Optional. Duration of the voice message in seconds.</summary>
 		[JsonPropertyName(PropertyNames.Duration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Duration { get; set; }

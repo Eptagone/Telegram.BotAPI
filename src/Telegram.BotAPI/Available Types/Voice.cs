@@ -18,15 +18,15 @@ namespace Telegram.BotAPI.AvailableTypes
 			this.MimeType = null!;
 		}
 
-		///<summary>Duration of the audio in seconds as defined by sender.</summary>
+		/// <summary>Duration of the audio in seconds as defined by sender.</summary>
 		[JsonPropertyName(PropertyNames.Duration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint Duration { get; set; }
-		///<summary>Optional. MIME type of the file as defined by sender.</summary>
+		/// <summary>Optional. MIME type of the file as defined by sender.</summary>
 		[JsonPropertyName(PropertyNames.MimeType)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string MimeType { get; set; }
-		///<summary>Optional. File size.</summary>
+		/// <summary>Optional. File size.</summary>
 		[JsonPropertyName(PropertyNames.FileSize)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ulong FileSize { get; set; }

@@ -31,7 +31,7 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.Media = new HashSet<InputMedia>(media ?? throw new ArgumentNullException(nameof(media)));
 		}
 
-		///<summary>An array of <see cref="InputMediaAudio"/>, <see cref="InputMediaDocument"/>, <see cref="InputMediaPhoto"/> and <see cref="InputMediaVideo"/> describing messages to be sent, must include 2-10 items.</summary>
+		/// <summary>An array of <see cref="InputMediaAudio"/>, <see cref="InputMediaDocument"/>, <see cref="InputMediaPhoto"/> and <see cref="InputMediaVideo"/> describing messages to be sent, must include 2-10 items.</summary>
 		[JsonPropertyName(PropertyNames.Media)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ICollection<InputMedia> Media { get; }

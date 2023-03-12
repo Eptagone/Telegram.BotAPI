@@ -46,11 +46,13 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.Audio = audio ?? throw new ArgumentNullException(nameof(audio));
 		}
 
-		///<summary>Audio file to send. Pass a file_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data.</summary>
+		/// <summary>
+		/// Audio file to send. Pass a file_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data.
+		/// </summary>
 		[JsonPropertyName(PropertyNames.Audio)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object Audio { get; }
-		///<summary>Audio caption, 0-1024 characters</summary>
+		/// <summary>Audio caption, 0-1024 characters</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }
@@ -62,42 +64,36 @@ namespace Telegram.BotAPI.AvailableMethods
 		[JsonPropertyName(PropertyNames.CaptionEntities)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
-		///<summary>Optional. Duration of the audio in seconds.</summary>
+		/// <summary>Optional. Duration of the audio in seconds.</summary>
 		[JsonPropertyName(PropertyNames.Duration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Duration { get; set; }
-		///<summary>Optional. Performer.</summary>
+		/// <summary>Optional. Performer.</summary>
 		[JsonPropertyName(PropertyNames.Performer)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Performer { get; set; }
-		///<summary>Optional. Track name.</summary>
+		/// <summary>Optional. Track name.</summary>
 		[JsonPropertyName(PropertyNames.Title)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Title { get; set; }
-		///<summary>Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.</summary>
-		[JsonPropertyName(PropertyNames.Thumb)]
+		/// <summary>Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.</summary>
+		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public object? Thumb { get; set; }
+		public object? Thumbnail { get; set; }
 		/// <summary>Attached files.</summary>
 		[System.Text.Json.Serialization.JsonIgnore]
 		public ICollection<AttachedFile> AttachedFiles { get; set; } = new List<AttachedFile>();
 
 		bool IMultipartForm.UseMultipart()
 		{
-			if (this.Audio != default)
+			if (this.Audio != default && this.Audio.GetType() == typeof(InputFile))
 			{
-				if (this.Audio.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
+				return true;
 			}
 
-			if (this.Thumb != default)
+			if (this.Thumbnail != default && this.Thumbnail.GetType() == typeof(InputFile))
 			{
-				if (this.Thumb.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
+				return true;
 			}
 
 			return this.AttachedFiles.Any();

@@ -63,7 +63,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="width">Video width.</param>
 		/// <param name="height">Video height.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
 		/// <param name="caption">Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing.</param>
 		/// <param name="parseMode">Mode for parsing entities in the video caption. See formatting options for more details.</param>
 		/// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
@@ -76,7 +76,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVideo(this BotClient? api, long chatId, InputFile video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile? thumb, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendVideo(this BotClient? api, long chatId, InputFile video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile? thumbnail, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoArgs(chatId, video)
@@ -85,7 +85,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				Duration = duration,
 				Width = width,
 				Height = height,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				Caption = caption,
 				ParseMode = parseMode,
 				CaptionEntities = captionEntities,
@@ -110,7 +110,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="width">Video width.</param>
 		/// <param name="height">Video height.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
 		/// <param name="caption">Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing.</param>
 		/// <param name="parseMode">Mode for parsing entities in the video caption. See formatting options for more details.</param>
 		/// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
@@ -124,7 +124,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="attachedFiles">Attached files.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVideo(this BotClient? api, long chatId, string video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string? thumb, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles)
+		public static Message SendVideo(this BotClient? api, long chatId, string video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string? thumbnail, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoArgs(chatId, video)
@@ -133,7 +133,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				Duration = duration,
 				Width = width,
 				Height = height,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				Caption = caption,
 				ParseMode = parseMode,
 				CaptionEntities = captionEntities,
@@ -159,7 +159,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="width">Video width.</param>
 		/// <param name="height">Video height.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
 		/// <param name="caption">Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing.</param>
 		/// <param name="parseMode">Mode for parsing entities in the video caption. See formatting options for more details.</param>
 		/// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
@@ -172,7 +172,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVideo(this BotClient? api, string chatId, InputFile video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile? thumb, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendVideo(this BotClient? api, string chatId, InputFile video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile? thumbnail, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoArgs(chatId, video)
@@ -181,7 +181,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				Duration = duration,
 				Width = width,
 				Height = height,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				Caption = caption,
 				ParseMode = parseMode,
 				CaptionEntities = captionEntities,
@@ -206,7 +206,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="width">Video width.</param>
 		/// <param name="height">Video height.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
 		/// <param name="caption">Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing.</param>
 		/// <param name="parseMode">Mode for parsing entities in the video caption. See formatting options for more details.</param>
 		/// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
@@ -220,7 +220,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="attachedFiles">Attached files.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVideo(this BotClient? api, string chatId, string video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string? thumb, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles)
+		public static Message SendVideo(this BotClient? api, string chatId, string video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string? thumbnail, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoArgs(chatId, video)
@@ -229,7 +229,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				Duration = duration,
 				Width = width,
 				Height = height,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				Caption = caption,
 				ParseMode = parseMode,
 				CaptionEntities = captionEntities,
@@ -255,7 +255,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="width">Video width.</param>
 		/// <param name="height">Video height.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
 		/// <param name="caption">Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing.</param>
 		/// <param name="parseMode">Mode for parsing entities in the video caption. See formatting options for more details.</param>
 		/// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
@@ -269,7 +269,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVideoAsync(this BotClient? api, long chatId, InputFile video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile? thumb, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVideoAsync(this BotClient? api, long chatId, InputFile video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile? thumbnail, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoArgs(chatId, video)
@@ -278,7 +278,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				Duration = duration,
 				Width = width,
 				Height = height,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				Caption = caption,
 				ParseMode = parseMode,
 				CaptionEntities = captionEntities,
@@ -303,7 +303,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="width">Video width.</param>
 		/// <param name="height">Video height.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
 		/// <param name="caption">Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing.</param>
 		/// <param name="parseMode">Mode for parsing entities in the video caption. See formatting options for more details.</param>
 		/// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
@@ -318,7 +318,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVideoAsync(this BotClient? api, long chatId, string video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string? thumb, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVideoAsync(this BotClient? api, long chatId, string video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string? thumbnail, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoArgs(chatId, video)
@@ -327,7 +327,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				Duration = duration,
 				Width = width,
 				Height = height,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				Caption = caption,
 				ParseMode = parseMode,
 				CaptionEntities = captionEntities,
@@ -353,7 +353,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="width">Video width.</param>
 		/// <param name="height">Video height.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
 		/// <param name="caption">Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing.</param>
 		/// <param name="parseMode">Mode for parsing entities in the video caption. See formatting options for more details.</param>
 		/// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
@@ -367,7 +367,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVideoAsync(this BotClient? api, string chatId, InputFile video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile? thumb, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVideoAsync(this BotClient? api, string chatId, InputFile video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] InputFile? thumbnail, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoArgs(chatId, video)
@@ -376,7 +376,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				Duration = duration,
 				Width = width,
 				Height = height,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				Caption = caption,
 				ParseMode = parseMode,
 				CaptionEntities = captionEntities,
@@ -401,7 +401,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="width">Video width.</param>
 		/// <param name="height">Video height.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ».</param>
 		/// <param name="caption">Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing.</param>
 		/// <param name="parseMode">Mode for parsing entities in the video caption. See formatting options for more details.</param>
 		/// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode.</param>
@@ -416,7 +416,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVideoAsync(this BotClient? api, string chatId, string video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string? thumb, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVideoAsync(this BotClient? api, string chatId, string video, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? width, [Optional] uint? height, [Optional] string? thumbnail, [Optional] string? caption, [Optional] string? parseMode, [Optional] IEnumerable<MessageEntity>? captionEntities, [Optional] bool? hasSpoiler, [Optional] bool? supportsStreaming, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoArgs(chatId, video)
@@ -425,7 +425,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				Duration = duration,
 				Width = width,
 				Height = height,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				Caption = caption,
 				ParseMode = parseMode,
 				CaptionEntities = captionEntities,

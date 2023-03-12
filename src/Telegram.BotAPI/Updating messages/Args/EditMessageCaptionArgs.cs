@@ -46,31 +46,31 @@ namespace Telegram.BotAPI.UpdatingMessages
 		}
 
 
-		///<summary>Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername).</summary>
+		/// <summary>Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername).</summary>
 		[JsonPropertyName(PropertyNames.ChatId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object? ChatId { get; }
-		///<summary>Required if inline_message_id is not specified. Identifier of the message to edit.</summary>
+		/// <summary>Required if inline_message_id is not specified. Identifier of the message to edit.</summary>
 		[JsonPropertyName(PropertyNames.MessageId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public int? MessageId { get; }
-		///<summary>Required if chat_id and message_id are not specified. Identifier of the inline message.</summary>
+		/// <summary>Required if chat_id and message_id are not specified. Identifier of the inline message.</summary>
 		[JsonPropertyName(PropertyNames.InlineMessageId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? InlineMessageId { get; }
-		///<summary>New caption of the message.</summary>
+		/// <summary>New caption of the message.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }
-		///<summary>Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</summary>
+		/// <summary>Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in the media caption.</summary>
 		[JsonPropertyName(PropertyNames.ParseMode)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? ParseMode { get; set; }
-		///<summary>List of special entities that appear in the caption, which can be specified instead of parse_mode.</summary>
+		/// <summary>List of special entities that appear in the caption, which can be specified instead of parse_mode.</summary>
 		[JsonPropertyName(PropertyNames.CaptionEntities)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
-		///<summary>A <see cref="InlineKeyboardMarkup"/> object for an inline keyboard.</summary>
+		/// <summary>A <see cref="InlineKeyboardMarkup"/> object for an inline keyboard.</summary>
 		[JsonPropertyName(PropertyNames.ReplyMarkup)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public InlineKeyboardMarkup? ReplyMarkup { get; set; }

@@ -28,7 +28,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		{
 		}
 
-		///<summary>Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”.</summary>
+		/// <summary>Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”.</summary>
 		[JsonPropertyName(PropertyNames.Emoji)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Emoji { get; set; }

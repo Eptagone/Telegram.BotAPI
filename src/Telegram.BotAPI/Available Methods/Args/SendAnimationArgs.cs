@@ -77,9 +77,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <summary>
 		/// Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
 		/// </summary>
-		[JsonPropertyName(PropertyNames.Thumb)]
+		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public object? Thumb { get; set; }
+		public object? Thumbnail { get; set; }
 		/// <summary>
 		/// Animation caption (may also be used when resending animation by file_id), 0-1024 characters after entities parsing
 		/// </summary>
@@ -112,20 +112,14 @@ namespace Telegram.BotAPI.AvailableMethods
 
 		bool IMultipartForm.UseMultipart()
 		{
-			if (this.Animation != default)
+			if (this.Animation != default && this.Animation.GetType() == typeof(InputFile))
 			{
-				if (this.Animation.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
+				return true;
 			}
 
-			if (this.Thumb != default)
+			if (this.Thumbnail != default && this.Thumbnail.GetType() == typeof(InputFile))
 			{
-				if (this.Thumb.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
+				return true;
 			}
 
 			return this.AttachedFiles.Any();

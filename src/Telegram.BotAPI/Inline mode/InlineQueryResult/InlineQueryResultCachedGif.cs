@@ -23,7 +23,7 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Title)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Title { get; set; }
-		///<summary>Optional. Caption of the GIF file to be sent, 0-1024 characters.</summary>
+		/// <summary>Optional. Caption of the GIF file to be sent, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }

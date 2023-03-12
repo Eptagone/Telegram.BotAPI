@@ -27,7 +27,7 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.Text = text;
 		}
 
-		///<summary>Text of the message to be sent.</summary>
+		/// <summary>Text of the message to be sent.</summary>
 		[JsonPropertyName(PropertyNames.Text)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Text { get; }

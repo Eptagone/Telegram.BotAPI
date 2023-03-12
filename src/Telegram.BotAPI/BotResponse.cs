@@ -20,15 +20,15 @@ namespace Telegram.BotAPI
 		[JsonPropertyName("result")]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public T Result { get; set; }
-		///<summary>Error code.</summary>
+		/// <summary>Error code.</summary>
 		[JsonPropertyName("error_code")]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public int ErrorCode { get; set; }
-		///<summary>Error description.</summary>
+		/// <summary>Error description.</summary>
 		[JsonPropertyName("description")]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Description { get; set; }
-		///<summary>Parameters.</summary>
+		/// <summary>Parameters.</summary>
 		[JsonPropertyName("parameters")]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ResponseParameters Parameters { get; set; }

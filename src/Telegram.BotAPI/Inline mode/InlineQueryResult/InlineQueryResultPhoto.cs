@@ -24,9 +24,9 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Title { get; set; }
 		/// <summary>URL of the static thumbnail for the result (jpeg or gif).</summary>
-		[JsonPropertyName(PropertyNames.ThumbUrl)]
+		[JsonPropertyName(PropertyNames.ThumbnailUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string ThumbUrl { get; set; }
+		public string ThumbnailUrl { get; set; }
 		/// <summary>Optional. Width of the photo.</summary>
 		[JsonPropertyName(PropertyNames.PhotoWidth)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -39,7 +39,7 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Description)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Description { get; set; }
-		///<summary>Optional. Caption of the photo to be sent, 0-1024 characters.</summary>
+		/// <summary>Optional. Caption of the photo to be sent, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }
@@ -63,7 +63,7 @@ namespace Telegram.BotAPI.InlineMode
 				   this.Type == other.Type &&
 				   this.PhotoUrl == other.PhotoUrl &&
 				   this.Title == other.Title &&
-				   this.ThumbUrl == other.ThumbUrl &&
+				   this.ThumbnailUrl == other.ThumbnailUrl &&
 				   this.PhotoWidth == other.PhotoWidth &&
 				   this.PhotoHeight == other.PhotoHeight &&
 				   this.Description == other.Description &&
@@ -81,7 +81,7 @@ namespace Telegram.BotAPI.InlineMode
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.PhotoUrl);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Title);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbUrl);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
 			hashCode = hashCode * -1521134295 + this.PhotoWidth.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.PhotoHeight.GetHashCode();
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Description);

@@ -47,19 +47,19 @@ namespace Telegram.BotAPI.AvailableTypes
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint CorrectOptionId { get; set; }
 
-		///<summary>Optional. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters.</summary>
+		/// <summary>Optional. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters.</summary>
 		[JsonPropertyName(PropertyNames.Explanation)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Explanation { get; set; }
-		///<summary>Optional. Special entities like usernames, URLs, bot commands, etc. that appear in the explanation.</summary>
+		/// <summary>Optional. Special entities like usernames, URLs, bot commands, etc. that appear in the explanation.</summary>
 		[JsonPropertyName(PropertyNames.ExplanationEntities)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public IEnumerable<MessageEntity> ExplanationEntities { get; set; }
-		///<summary>Optional. Amount of time in seconds the poll will be active after creation.</summary>
+		/// <summary>Optional. Amount of time in seconds the poll will be active after creation.</summary>
 		[JsonPropertyName(PropertyNames.OpenPeriod)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ushort OpenPeriod { get; set; }
-		///<summary>Optional. Point in time (Unix timestamp) when the poll will be automatically closed.</summary>
+		/// <summary>Optional. Point in time (Unix timestamp) when the poll will be automatically closed.</summary>
 		[JsonPropertyName(PropertyNames.CloseDate)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint CloseDate { get; set; }

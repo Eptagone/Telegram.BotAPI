@@ -6,11 +6,11 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents a chat member that has no additional privileges or restrictions.</summary>
+	/// <summary>Represents a chat member that has no additional privileges or restrictions.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class ChatMemberMember : ChatMember, IEquatable<ChatMemberMember>
 	{
-		///<summary>The member's status in the chat, always “member”.</summary>
+		/// <summary>The member's status in the chat, always “member”.</summary>
 		[JsonPropertyName(PropertyNames.Status)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Status => ChatMemberStatus.Member;

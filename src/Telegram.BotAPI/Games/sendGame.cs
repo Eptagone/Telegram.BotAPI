@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.Games
 {
 	public static partial class GamesExtensions
 	{
-		///<summary>Use this method to send a game. On success, the sent Message is returned.</summary>
+		/// <summary>Use this method to send a game. On success, the sent Message is returned.</summary>
 		///<param name="bot">BotClient</param>
 		///<param name="args">Parameters</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
@@ -25,7 +25,7 @@ namespace Telegram.BotAPI.Games
 			return bot.RPC<Message>(MethodNames.SendGame, args);
 		}
 
-		///<summary>Use this method to send a game. On success, the sent Message is returned.</summary>
+		/// <summary>Use this method to send a game. On success, the sent Message is returned.</summary>
 		///<param name="bot">BotClient</param>
 		///<param name="args">Parameters</param>
 		///<param name="cancellationToken">The cancellation token to cancel operation.</param>

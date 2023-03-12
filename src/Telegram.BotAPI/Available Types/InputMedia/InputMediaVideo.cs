@@ -6,7 +6,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents a video to be sent.</summary>
+	/// <summary>Represents a video to be sent.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class InputMediaVideo : InputMedia, IThumbnail<string>, IEquatable<InputMediaVideo?>
 	{
@@ -18,35 +18,35 @@ namespace Telegram.BotAPI.AvailableTypes
 		{
 		}
 
-		///<summary>Type of the result, must be video.</summary>
+		/// <summary>Type of the result, must be video.</summary>
 		[JsonPropertyName(PropertyNames.Type)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Type => InputMediaType.Video;
-		///<summary>Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;.</summary>
-		[JsonPropertyName(PropertyNames.Thumb)]
+		/// <summary>Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;.</summary>
+		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string? Thumb { get; set; }
-		///<summary>Optional. Caption of the video to be sent, 0-1024 characters.</summary>
+		public string? Thumbnail { get; set; }
+		/// <summary>Optional. Caption of the video to be sent, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string? Caption { get; set; }
-		///<summary>Optional. Video width.</summary>
+		/// <summary>Optional. Video width.</summary>
 		[JsonPropertyName(PropertyNames.Width)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Width { get; set; }
-		///<summary>Optional. Video height.</summary>
+		/// <summary>Optional. Video height.</summary>
 		[JsonPropertyName(PropertyNames.Height)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Height { get; set; }
-		///<summary>Optional. Video duration.</summary>
+		/// <summary>Optional. Video duration.</summary>
 		[JsonPropertyName(PropertyNames.Duration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Duration { get; set; }
-		///<summary>Optional. Pass True, if the uploaded video is suitable for streaming.</summary>
+		/// <summary>Optional. Pass True, if the uploaded video is suitable for streaming.</summary>
 		[JsonPropertyName(PropertyNames.SupportsStreaming)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? SupportsStreaming { get; set; }
-		///<summary>Optional. Pass True if the video needs to be covered with a spoiler animation.</summary>
+		/// <summary>Optional. Pass True if the video needs to be covered with a spoiler animation.</summary>
 		[JsonPropertyName(PropertyNames.HasSpoiler)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? HasSpoiler { get; set; }
@@ -56,6 +56,7 @@ namespace Telegram.BotAPI.AvailableTypes
 		{
 			return this.Equals(obj as InputMediaVideo);
 		}
+
 		/// <inheritdoc/>
 		public bool Equals(InputMediaVideo? other)
 		{
@@ -66,7 +67,7 @@ namespace Telegram.BotAPI.AvailableTypes
 				   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
 				   this.ParseMode == other.ParseMode &&
 				   this.Type == other.Type &&
-				   this.Thumb == other.Thumb &&
+				   this.Thumbnail == other.Thumbnail &&
 				   this.Caption == other.Caption &&
 				   this.Width == other.Width &&
 				   this.Height == other.Height &&
@@ -74,6 +75,7 @@ namespace Telegram.BotAPI.AvailableTypes
 				   this.SupportsStreaming == other.SupportsStreaming &&
 				   this.HasSpoiler == other.HasSpoiler;
 		}
+
 		/// <inheritdoc/>
 		public override int GetHashCode()
 		{
@@ -84,7 +86,7 @@ namespace Telegram.BotAPI.AvailableTypes
 			hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.CaptionEntities);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ParseMode);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Thumb);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Thumbnail);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Caption);
 			hashCode = hashCode * -1521134295 + this.Width.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.Height.GetHashCode();
@@ -93,11 +95,13 @@ namespace Telegram.BotAPI.AvailableTypes
 			hashCode = hashCode * -1521134295 + this.HasSpoiler.GetHashCode();
 			return hashCode;
 		}
+
 		/// <inheritdoc/>
 		public static bool operator ==(InputMediaVideo? left, InputMediaVideo? right)
 		{
 			return EqualityComparer<InputMediaVideo>.Default.Equals(left!, right!);
 		}
+
 		/// <inheritdoc/>
 		public static bool operator !=(InputMediaVideo? left, InputMediaVideo? right)
 		{

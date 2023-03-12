@@ -6,7 +6,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents an animation file (GIF or H.264/MPEG-4 AVC video without sound) to be sent.</summary>
+	/// <summary>Represents an animation file (GIF or H.264/MPEG-4 AVC video without sound) to be sent.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class InputMediaAnimation : InputMedia, IThumbnail<string>
 	{
@@ -18,36 +18,33 @@ namespace Telegram.BotAPI.AvailableTypes
 		{
 		}
 
-		///<summary>Type of the result, must be animation.</summary>
+		/// <summary>Type of the result, must be animation.</summary>
 		[JsonPropertyName(PropertyNames.Type)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Type => InputMediaType.Animation;
-		///<summary>Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;.</summary>
-		[JsonPropertyName(PropertyNames.Thumb)]
+		/// <summary>Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can’t be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;.</summary>
+		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string? Thumb { get; set; }
-		///<summary>Optional. Caption of the animation to be sent, 0-1024 characters.</summary>
+		public string? Thumbnail { get; set; }
+		/// <summary>Optional. Caption of the animation to be sent, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string? Caption { get; set; }
-		///<summary>Optional. Animation width.</summary>
+		/// <summary>Optional. Animation width.</summary>
 		[JsonPropertyName(PropertyNames.Width)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Width { get; set; }
-		///<summary>Optional. Animation height.</summary>
+		/// <summary>Optional. Animation height.</summary>
 		[JsonPropertyName(PropertyNames.Height)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Height { get; set; }
-		///<summary>Optional. Animation duration.</summary>
+		/// <summary>Optional. Animation duration.</summary>
 		[JsonPropertyName(PropertyNames.Duration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Duration { get; set; }
-		///<summary>Optional. Pass True if the animation needs to be covered with a spoiler animation.</summary>
+		/// <summary>Optional. Pass True if the animation needs to be covered with a spoiler animation.</summary>
 		[JsonPropertyName(PropertyNames.HasSpoiler)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? HasSpoiler { get; set; }
-
-
-
 	}
 }

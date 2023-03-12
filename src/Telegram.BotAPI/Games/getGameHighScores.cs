@@ -9,7 +9,7 @@ namespace Telegram.BotAPI.Games
 	/// <summary>Extension methods for Games</summary>
 	public static partial class GamesExtensions
 	{
-		///<summary>Use this method to get data for high score tables. Will return the score of the specified user and several of his neighbors in a game. On success, returns an Array of GameHighScore objects.<para>This method will currently return scores for the target user, plus two of his closest neighbors on each side. Will also return the top three users if the user and his neighbors are not among them. Please note that this behavior is subject to change.</para></summary>
+		/// <summary>Use this method to get data for high score tables. Will return the score of the specified user and several of his neighbors in a game. On success, returns an Array of GameHighScore objects.<para>This method will currently return scores for the target user, plus two of his closest neighbors on each side. Will also return the top three users if the user and his neighbors are not among them. Please note that this behavior is subject to change.</para></summary>
 		///<param name="bot">BotClient</param>
 		/// <param name="args">Parameters.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
@@ -23,7 +23,7 @@ namespace Telegram.BotAPI.Games
 
 			return bot.RPC<GameHighScore[]>(MethodNames.GetGameHighScores, args);
 		}
-		///<summary>Use this method to get data for high score tables. Will return the score of the specified user and several of his neighbors in a game. On success, returns an Array of GameHighScore objects.<para>This method will currently return scores for the target user, plus two of his closest neighbors on each side. Will also return the top three users if the user and his neighbors are not among them. Please note that this behavior is subject to change.</para></summary>
+		/// <summary>Use this method to get data for high score tables. Will return the score of the specified user and several of his neighbors in a game. On success, returns an Array of GameHighScore objects.<para>This method will currently return scores for the target user, plus two of his closest neighbors on each side. Will also return the top three users if the user and his neighbors are not among them. Please note that this behavior is subject to change.</para></summary>
 		///<param name="bot">BotClient</param>
 		/// <param name="args">Parameters.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
@@ -43,7 +43,7 @@ namespace Telegram.BotAPI.Games
 
 			return await bot.RPCA<GameHighScore[]>(MethodNames.GetGameHighScores, args, cancellationToken: cancellationToken).ConfigureAwait(false);
 		}
-		///<summary>Use this method to get data for high score tables. Will return the score of the specified user and several of his neighbors in a game. On success, returns an Array of GameHighScore objects.<para>This method will currently return scores for the target user, plus two of his closest neighbors on each side. Will also return the top three users if the user and his neighbors are not among them. Please note that this behavior is subject to change.</para></summary>
+		/// <summary>Use this method to get data for high score tables. Will return the score of the specified user and several of his neighbors in a game. On success, returns an Array of GameHighScore objects.<para>This method will currently return scores for the target user, plus two of his closest neighbors on each side. Will also return the top three users if the user and his neighbors are not among them. Please note that this behavior is subject to change.</para></summary>
 		///<param name="bot">BotClient</param>
 		/// <param name="args">Parameters.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
@@ -58,7 +58,7 @@ namespace Telegram.BotAPI.Games
 
 			return bot.RPC<T>(MethodNames.GetGameHighScores, args);
 		}
-		///<summary>Use this method to get data for high score tables. Will return the score of the specified user and several of his neighbors in a game. On success, returns an Array of GameHighScore objects.<para>This method will currently return scores for the target user, plus two of his closest neighbors on each side. Will also return the top three users if the user and his neighbors are not among them. Please note that this behavior is subject to change.</para></summary>
+		/// <summary>Use this method to get data for high score tables. Will return the score of the specified user and several of his neighbors in a game. On success, returns an Array of GameHighScore objects.<para>This method will currently return scores for the target user, plus two of his closest neighbors on each side. Will also return the top three users if the user and his neighbors are not among them. Please note that this behavior is subject to change.</para></summary>
 		///<param name="bot">BotClient</param>
 		/// <param name="args">Parameters.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>

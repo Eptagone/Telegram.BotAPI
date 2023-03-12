@@ -7,7 +7,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents a chat member that has some additional privileges.</summary>
+	/// <summary>Represents a chat member that has some additional privileges.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class ChatMemberAdministrator : ChatMember, IEquatable<ChatMemberAdministrator?>
 	{
@@ -41,14 +41,6 @@ namespace Telegram.BotAPI.AvailableTypes
 		[JsonPropertyName(PropertyNames.CanDeleteMessages)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool CanDeleteMessages { get; set; }
-		/// <summary>
-		/// True, if the administrator can manage voice chats.<br/>
-		/// [Advice]: This field has been replaced by CanManageVideoChats and will be removed in future releases.
-		/// </summary>
-		[JsonPropertyName(PropertyNames.CanManageVoiceChats)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		[Obsolete("This field has been replaced by CanManageVideoChats and will be removed in future releases.")]
-		public bool? CanManageVoiceChats { get; set; }
 		/// <summary>
 		/// True, if the administrator can manage video chats
 		/// </summary>
@@ -125,7 +117,6 @@ namespace Telegram.BotAPI.AvailableTypes
 				   this.IsAnonymous == other.IsAnonymous &&
 				   this.CanManageChat == other.CanManageChat &&
 				   this.CanDeleteMessages == other.CanDeleteMessages &&
-				   this.CanManageVoiceChats == other.CanManageVoiceChats &&
 				   this.CanManageVideoChats == other.CanManageVideoChats &&
 				   this.CanRestrictMembers == other.CanRestrictMembers &&
 				   this.CanPromoteMembers == other.CanPromoteMembers &&
@@ -148,7 +139,6 @@ namespace Telegram.BotAPI.AvailableTypes
 			hashCode = hashCode * -1521134295 + this.IsAnonymous.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.CanManageChat.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.CanDeleteMessages.GetHashCode();
-			hashCode = hashCode * -1521134295 + this.CanManageVoiceChats.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.CanManageVideoChats.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.CanRestrictMembers.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.CanPromoteMembers.GetHashCode();
@@ -171,6 +161,5 @@ namespace Telegram.BotAPI.AvailableTypes
 		{
 			return !(left == right);
 		}
-
 	}
 }

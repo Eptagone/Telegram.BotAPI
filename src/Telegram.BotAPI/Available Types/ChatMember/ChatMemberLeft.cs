@@ -6,11 +6,11 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents a chat member that isn't currently a member of the chat, but may join it themselves.</summary>
+	/// <summary>Represents a chat member that isn't currently a member of the chat, but may join it themselves.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class ChatMemberLeft : ChatMember, IEquatable<ChatMemberLeft>
 	{
-		///<summary>The member's status in the chat, always “left”.</summary>
+		/// <summary>The member's status in the chat, always “left”.</summary>
 		[JsonPropertyName(PropertyNames.Status)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Status => ChatMemberStatus.Left;

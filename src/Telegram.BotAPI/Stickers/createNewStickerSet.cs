@@ -3,14 +3,14 @@
 
 using System.Threading;
 using System.Threading.Tasks;
-using Telegram.BotAPI.AvailableTypes;
-
 
 namespace Telegram.BotAPI.Stickers
 {
 	public static partial class StickersExtensions
 	{
-		/// <summary>Use this method to create new sticker set owned by a user. The bot will be able to edit the created sticker set. Returns True on success.</summary>
+		/// <summary>
+		/// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. Returns True on success.
+		/// </summary>
 		/// <param name="bot">BotClient</param>
 		/// <param name="args">Parameters.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
@@ -29,7 +29,10 @@ namespace Telegram.BotAPI.Stickers
 
 			return bot.RPCF<bool>(MethodNames.CreateNewStickerSet, args);
 		}
-		/// <summary>Use this method to create new sticker set owned by a user. The bot will be able to edit the created sticker set. Returns True on success.</summary>
+
+		/// <summary>
+		/// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. Returns True on success.
+		/// </summary>
 		/// <param name="bot">BotClient</param>
 		/// <param name="args">Parameters.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
@@ -51,119 +54,50 @@ namespace Telegram.BotAPI.Stickers
 		}
 
 		/// <summary>
-		/// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. You must use exactly one of the fields png_sticker, tgs_sticker, or webm_sticker. Returns True on success.
+		/// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. Returns True on success.
 		/// </summary>
 		/// <param name="api">The bot client.</param>
 		/// <param name="userId">User identifier of created sticker set owner.</param>
 		/// <param name="name">Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in "_by_&lt;bot_username&gt;". &lt;bot_username&gt; is case insensitive. 1-64 characters.</param>
 		/// <param name="title">Sticker set title, 1-64 characters.</param>
-		/// <param name="emojis">One or more emoji corresponding to the sticker.</param>
-		/// <param name="pngSticker">PNG image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files �.</param>
-		/// <param name="tgsSticker">TGS animation with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#animated-sticker-requirements for technical requirements.</param>
-		/// <param name="webmSticker">WEBM video with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#video-sticker-requirements for technical requirements.</param>
-		/// <param name="stickerType">Type of stickers in the set, pass �regular� or �mask�. Custom emoji sticker sets can't be created via the Bot API at the moment. By default, a regular sticker set is created.</param>
-		/// <param name="maskPosition">A JSON-serialized object for position where the mask should be placed on faces.</param>
+		/// <param name="stickers">A <see cref="InputSticker"/> list of 1-50 initial stickers to be added to the sticker set.</param>
+		/// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”.</param>
+		/// <param name="stickerType">Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.</param>
+		/// <param name="needsRepainting">Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static bool CreateNewStickerSet(this BotClient? api, int userId, string name, string title, string emojis, [Optional] InputFile? pngSticker, [Optional] InputFile? tgsSticker, [Optional] InputFile? webmSticker, [Optional] string? stickerType, [Optional] MaskPosition? maskPosition)
+		public static bool CreateNewStickerSet(this BotClient? api, int userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
-			var args = new CreateNewStickerSetArgs(userId, name, title, emojis)
+			var args = new CreateNewStickerSetArgs(userId, name, title, stickers, stickerFormat)
 			{
-				PngSticker = pngSticker,
-				TgsSticker = tgsSticker,
-				WebmSticker = webmSticker,
 				StickerType = stickerType,
-				MaskPosition = maskPosition
+				NeedsRepainting = needsRepainting
 			};
 			return api.RPCF<bool>(MethodNames.CreateNewStickerSet, args);
 		}
 
 		/// <summary>
-		/// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. You must use exactly one of the fields png_sticker, tgs_sticker, or webm_sticker. Returns True on success.
+		/// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. Returns True on success.
 		/// </summary>
 		/// <param name="api">The bot client.</param>
 		/// <param name="userId">User identifier of created sticker set owner.</param>
 		/// <param name="name">Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in "_by_&lt;bot_username&gt;". &lt;bot_username&gt; is case insensitive. 1-64 characters.</param>
 		/// <param name="title">Sticker set title, 1-64 characters.</param>
-		/// <param name="emojis">One or more emoji corresponding to the sticker.</param>
-		/// <param name="pngSticker">PNG image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files �.</param>
-		/// <param name="tgsSticker">TGS animation with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#animated-sticker-requirements for technical requirements.</param>
-		/// <param name="webmSticker">WEBM video with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#video-sticker-requirements for technical requirements.</param>
-		/// <param name="stickerType">Type of stickers in the set, pass �regular� or �mask�. Custom emoji sticker sets can't be created via the Bot API at the moment. By default, a regular sticker set is created.</param>
-		/// <param name="maskPosition">A JSON-serialized object for position where the mask should be placed on faces.</param>
-		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static bool CreateNewStickerSet(this BotClient? api, int userId, string name, string title, string emojis, [Optional] string? pngSticker, [Optional] InputFile? tgsSticker, [Optional] InputFile? webmSticker, [Optional] string? stickerType, [Optional] MaskPosition? maskPosition)
-		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }
-			var args = new CreateNewStickerSetArgs(userId, name, title, emojis)
-			{
-				PngSticker = pngSticker,
-				TgsSticker = tgsSticker,
-				WebmSticker = webmSticker,
-				StickerType = stickerType,
-				MaskPosition = maskPosition
-			};
-			return api.RPCF<bool>(MethodNames.CreateNewStickerSet, args);
-		}
-
-		/// <summary>
-		/// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. You must use exactly one of the fields png_sticker, tgs_sticker, or webm_sticker. Returns True on success.
-		/// </summary>
-		/// <param name="api">The bot client.</param>
-		/// <param name="userId">User identifier of created sticker set owner.</param>
-		/// <param name="name">Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in "_by_&lt;bot_username&gt;". &lt;bot_username&gt; is case insensitive. 1-64 characters.</param>
-		/// <param name="title">Sticker set title, 1-64 characters.</param>
-		/// <param name="emojis">One or more emoji corresponding to the sticker.</param>
-		/// <param name="pngSticker">PNG image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files �.</param>
-		/// <param name="tgsSticker">TGS animation with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#animated-sticker-requirements for technical requirements.</param>
-		/// <param name="webmSticker">WEBM video with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#video-sticker-requirements for technical requirements.</param>
-		/// <param name="stickerType">Type of stickers in the set, pass �regular� or �mask�. Custom emoji sticker sets can't be created via the Bot API at the moment. By default, a regular sticker set is created.</param>
-		/// <param name="maskPosition">A JSON-serialized object for position where the mask should be placed on faces.</param>
+		/// <param name="stickers">A <see cref="InputSticker"/> list of 1-50 initial stickers to be added to the sticker set.</param>
+		/// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”.</param>
+		/// <param name="stickerType">Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.</param>
+		/// <param name="needsRepainting">Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<bool> CreateNewStickerSetAsync(this BotClient? api, int userId, string name, string title, string emojis, [Optional] InputFile? pngSticker, [Optional] InputFile? tgsSticker, [Optional] InputFile? webmSticker, [Optional] string? stickerType, [Optional] MaskPosition? maskPosition, [Optional] CancellationToken cancellationToken)
+		public static async Task<bool> CreateNewStickerSetAsync(this BotClient? api, int userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
-			var args = new CreateNewStickerSetArgs(userId, name, title, emojis)
+			var args = new CreateNewStickerSetArgs(userId, name, title, stickers, stickerFormat)
 			{
-				PngSticker = pngSticker,
-				TgsSticker = tgsSticker,
-				WebmSticker = webmSticker,
 				StickerType = stickerType,
-				MaskPosition = maskPosition
-			};
-			return await api.RPCAF<bool>(MethodNames.CreateNewStickerSet, args, cancellationToken).ConfigureAwait(false);
-		}
-
-		/// <summary>
-		/// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. You must use exactly one of the fields png_sticker, tgs_sticker, or webm_sticker. Returns True on success.
-		/// </summary>
-		/// <param name="api">The bot client.</param>
-		/// <param name="userId">User identifier of created sticker set owner.</param>
-		/// <param name="name">Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in "_by_&lt;bot_username&gt;". &lt;bot_username&gt; is case insensitive. 1-64 characters.</param>
-		/// <param name="title">Sticker set title, 1-64 characters.</param>
-		/// <param name="emojis">One or more emoji corresponding to the sticker.</param>
-		/// <param name="pngSticker">PNG image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files �.</param>
-		/// <param name="tgsSticker">TGS animation with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#animated-sticker-requirements for technical requirements.</param>
-		/// <param name="webmSticker">WEBM video with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#video-sticker-requirements for technical requirements.</param>
-		/// <param name="stickerType">Type of stickers in the set, pass �regular� or �mask�. Custom emoji sticker sets can't be created via the Bot API at the moment. By default, a regular sticker set is created.</param>
-		/// <param name="maskPosition">A JSON-serialized object for position where the mask should be placed on faces.</param>
-		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<bool> CreateNewStickerSetAsync(this BotClient? api, int userId, string name, string title, string emojis, [Optional] string? pngSticker, [Optional] InputFile? tgsSticker, [Optional] InputFile? webmSticker, [Optional] string? stickerType, [Optional] MaskPosition? maskPosition, [Optional] CancellationToken cancellationToken)
-		{
-			if (api == null) { throw new ArgumentNullException(nameof(api)); }
-			var args = new CreateNewStickerSetArgs(userId, name, title, emojis)
-			{
-				PngSticker = pngSticker,
-				TgsSticker = tgsSticker,
-				WebmSticker = webmSticker,
-				StickerType = stickerType,
-				MaskPosition = maskPosition
+				NeedsRepainting = needsRepainting
 			};
 			return await api.RPCAF<bool>(MethodNames.CreateNewStickerSet, args, cancellationToken).ConfigureAwait(false);
 		}

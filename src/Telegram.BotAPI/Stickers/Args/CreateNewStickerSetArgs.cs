@@ -3,14 +3,12 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Telegram.BotAPI.AvailableTypes;
-
 
 namespace Telegram.BotAPI.Stickers
 {
 	/// <summary>CreateNewStickerSet method arguments.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public class CreateNewStickerSetArgs : IMultipartForm
+	public class CreateNewStickerSetArgs
 	{
 		/// <summary>
 		/// Initialize a new instance of <see cref="CreateNewStickerSetArgs"/>.
@@ -18,79 +16,59 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="userId">User identifier of created sticker set owner.</param>
 		/// <param name="name">Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_&lt;bot username&gt;”. &lt;bot_username&gt; is case insensitive. 1-64 characters.</param>
 		/// <param name="title">Sticker set title, 1-64 characters.</param>
-		/// <param name="emojis">One or more emoji corresponding to the sticker.</param>
+		/// <param name="stickers">A <see cref="InputSticker"/> list of 1-50 initial stickers to be added to the sticker set.</param>
+		/// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”.</param>
 		/// <exception cref="ArgumentNullException"></exception>
-		public CreateNewStickerSetArgs(long userId, string name, string title, string emojis)
+		public CreateNewStickerSetArgs(long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat)
 		{
 			this.UserId = userId;
 			this.Name = name ?? throw new ArgumentNullException(nameof(name));
 			this.Title = title ?? throw new ArgumentNullException(nameof(title));
-			this.Emojis = emojis ?? throw new ArgumentNullException(nameof(emojis));
+			this.Stickers = stickers ?? throw new ArgumentNullException(nameof(stickers));
+			this.StickerFormat = stickerFormat ?? throw new ArgumentNullException(nameof(stickerFormat));
 		}
 
-		/// <summary>User identifier of created sticker set owner.</summary>
+		/// <summary>
+		/// User identifier of created sticker set owner.
+		/// </summary>
 		[JsonPropertyName(PropertyNames.UserId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public long UserId { get; }
-		/// <summary>Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_&lt;bot username&gt;”. &lt;bot_username&gt; is case insensitive. 1-64 characters.</summary>
+		/// <summary>
+		/// Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_&lt;bot username&gt;”. &lt;bot_username&gt; is case insensitive. 1-64 characters.
+		/// </summary>
 		[JsonPropertyName(PropertyNames.Name)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Name { get; }
-		/// <summary>Sticker set title, 1-64 characters.</summary>
+		/// <summary>
+		/// Sticker set title, 1-64 characters.
+		/// </summary>
 		[JsonPropertyName(PropertyNames.Title)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Title { get; }
-		/// <summary>Optional. Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.</summary>
-		[JsonPropertyName(PropertyNames.PngSticker)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public object? PngSticker { get; set; }
-		/// <summary>Optional. TGS animation with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements.</summary>
-		[JsonPropertyName(PropertyNames.TgsSticker)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public InputFile? TgsSticker { get; set; }
-		/// <summary>Optional. WEBM video with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#video-sticker-requirements for technical requirements.</summary>
-		[JsonPropertyName(PropertyNames.WebmSticker)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public InputFile? WebmSticker { get; set; }
 		/// <summary>
-		/// Optional. Type of stickers in the set, pass “regular” or “mask”. Custom emoji sticker sets can't be created via the Bot API at the moment. By default, a regular sticker set is created.
+		/// A <see cref="InputSticker"/> list of 1-50 initial stickers to be added to the sticker set.
+		/// </summary>
+		[JsonPropertyName(PropertyNames.Stickers)]
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public IEnumerable<InputSticker> Stickers { get; }
+		/// <summary>
+		/// Format of stickers in the set, must be one of “static”, “animated”, “video”.
+		/// </summary>
+		[JsonPropertyName(PropertyNames.StickerFormat)]
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public string StickerFormat { get; }
+		/// <summary>
+		/// Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.
 		/// </summary>
 		[JsonPropertyName(PropertyNames.StickerType)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? StickerType { get; set; }
-		/// <summary>One or more emoji corresponding to the sticker.</summary>
-		[JsonPropertyName(PropertyNames.Emojis)]
+		/// <summary>
+		/// Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only.
+		/// </summary>
+		[JsonPropertyName(PropertyNames.NeedsRepainting)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Emojis { get; }
-		/// <summary>Optional. Pass True, if a set of mask stickers should be created.</summary>
-		[JsonPropertyName(PropertyNames.ContainsMasks)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		[Obsolete("The parameter contains_masks has been removed from the documentation of the method createNewStickerSet. The parameter will still work for backward compatibility, but new bots should use the parameter sticker_type instead.")]
-		public bool? ContainsMasks { get; set; }
-		/// <summary>Optional. A JSON object for position where the mask should be placed on faces.</summary>
-		[JsonPropertyName(PropertyNames.MaskPosition)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public MaskPosition? MaskPosition { get; set; }
-
-		bool IMultipartForm.UseMultipart()
-		{
-			if (this.PngSticker != null)
-			{
-				if (this.PngSticker.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
-			}
-			else if (this.TgsSticker != null)
-			{
-				return true;
-			}
-			else if (this.WebmSticker != null)
-			{
-				return true;
-			}
-
-			return false;
-		}
+		public bool? NeedsRepainting { get; set; }
 	}
 }

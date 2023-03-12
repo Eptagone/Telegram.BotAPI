@@ -31,6 +31,7 @@ namespace Telegram.BotAPI
 		public const string DeleteMessage = "deleteMessage";
 		public const string DeleteMyCommands = "deleteMyCommands";
 		public const string DeleteStickerFromSet = "deleteStickerFromSet";
+		public const string DeleteStickerSet = "deleteStickerSet";
 		public const string DeleteWebhook = "deleteWebhook";
 		public const string EditChatInviteLink = "editChatInviteLink";
 		public const string EditForumTopic = "editForumTopic";
@@ -46,7 +47,6 @@ namespace Telegram.BotAPI
 		public const string GetChatAdministrators = "getChatAdministrators";
 		public const string GetChatMember = "getChatMember";
 		public const string GetChatMemberCount = "getChatMemberCount";
-		public const string GetChatMembersCount = "getChatMembersCount";
 		public const string GetChatMenuButton = "getChatMenuButton";
 		public const string GetCustomEmojiStickers = "getCustomEmojiStickers";
 		public const string GetFile = "getFile";
@@ -55,6 +55,8 @@ namespace Telegram.BotAPI
 		public const string GetMe = "getMe";
 		public const string GetMyCommands = "getMyCommands";
 		public const string GetMyDefaultAdministratorRights = "getMyDefaultAdministratorRights";
+		public const string GetMyDescription = "getMyDescription";
+		public const string GetMyShortDescription = "getMyShortDescription";
 		public const string GetStickerSet = "getStickerSet";
 		public const string GetUpdates = "getUpdates";
 		public const string GetUserProfilePhotos = "getUserProfilePhotos";
@@ -94,12 +96,19 @@ namespace Telegram.BotAPI
 		public const string SetChatPhoto = "setChatPhoto";
 		public const string SetChatStickerSet = "setChatStickerSet";
 		public const string SetChatTitle = "setChatTitle";
+		public const string SetCustomEmojiStickerSetThumbnail = "setCustomEmojiStickerSetThumbnail";
 		public const string SetGameScore = "setGameScore";
 		public const string SetMyCommands = "setMyCommands";
 		public const string SetMyDefaultAdministratorRights = "setMyDefaultAdministratorRights";
+		public const string SetMyDescription = "setMyDescription";
+		public const string SetMyShortDescription = "setMyShortDescription";
 		public const string SetPassportDataErrors = "setPassportDataErrors";
+		public const string SetStickerEmojiList = "setStickerEmojiList";
+		public const string SetStickerKeywords = "setStickerKeywords";
+		public const string SetStickerMaskPosition = "setStickerMaskPosition";
 		public const string SetStickerPositionInSet = "setStickerPositionInSet";
-		public const string SetStickerSetThumb = "setStickerSetThumb";
+		public const string SetStickerSetThumbnail = "setStickerSetThumbnail";
+		public const string SetStickerSetTitle = "setStickerSetTitle";
 		public const string SetWebhook = "setWebhook";
 		public const string StopMessageLiveLocation = "stopMessageLiveLocation";
 		public const string StopPoll = "stopPoll";

@@ -6,7 +6,7 @@ namespace Telegram.BotAPI
 	/// <summary>Defines a property that implements a class or value type to add thumbnail for result.</summary>
 	public interface IThumbnail<T>
 	{
-		///<summary>Thumbnail.</summary>
-		public T Thumb { get; set; }
+		/// <summary>Thumbnail.</summary>
+		public T Thumbnail { get; set; }
 	}
 }

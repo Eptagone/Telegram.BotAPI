@@ -6,7 +6,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents a photo to be sent.</summary>
+	/// <summary>Represents a photo to be sent.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class InputMediaPhoto : InputMedia, IEquatable<InputMediaPhoto?>
 	{
@@ -18,15 +18,15 @@ namespace Telegram.BotAPI.AvailableTypes
 		{
 		}
 
-		///<summary>Type of the result, must be photo.</summary>
+		/// <summary>Type of the result, must be photo.</summary>
 		[JsonPropertyName(PropertyNames.Type)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Type => InputMediaType.Photo;
-		///<summary>Optional. Caption of the photo to be sent, 0-1024 characters.</summary>
+		/// <summary>Optional. Caption of the photo to be sent, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string? Caption { get; set; }
-		///<summary>Optional. Pass True if the photo needs to be covered with a spoiler animation.</summary>
+		/// <summary>Optional. Pass True if the photo needs to be covered with a spoiler animation.</summary>
 		[JsonPropertyName(PropertyNames.HasSpoiler)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? HasSpoiler { get; set; }

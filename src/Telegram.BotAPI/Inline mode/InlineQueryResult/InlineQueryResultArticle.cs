@@ -36,17 +36,17 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Description { get; set; }
 		/// <summary>URL of the static thumbnail for the result (jpeg or gif).</summary>
-		[JsonPropertyName(PropertyNames.ThumbUrl)]
+		[JsonPropertyName(PropertyNames.ThumbnailUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string ThumbUrl { get; set; }
+		public string ThumbnailUrl { get; set; }
 		/// <summary>Optional. Thumbnail width.</summary>
-		[JsonPropertyName(PropertyNames.ThumbWidth)]
+		[JsonPropertyName(PropertyNames.ThumbnailWidth)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public uint? ThumbWidth { get; set; }
+		public uint? ThumbnailWidth { get; set; }
 		/// <summary>Optional. Thumbnail height.</summary>
-		[JsonPropertyName(PropertyNames.ThumbHeight)]
+		[JsonPropertyName(PropertyNames.ThumbnailHeight)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public uint? ThumbHeight { get; set; }
+		public uint? ThumbnailHeight { get; set; }
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{
@@ -64,9 +64,9 @@ namespace Telegram.BotAPI.InlineMode
 				   this.Url == other.Url &&
 				   this.HideUrl == other.HideUrl &&
 				   this.Description == other.Description &&
-				   this.ThumbUrl == other.ThumbUrl &&
-				   this.ThumbWidth == other.ThumbWidth &&
-				   this.ThumbHeight == other.ThumbHeight;
+				   this.ThumbnailUrl == other.ThumbnailUrl &&
+				   this.ThumbnailWidth == other.ThumbnailWidth &&
+				   this.ThumbnailHeight == other.ThumbnailHeight;
 		}
 		/// <inheritdoc/>
 		public override int GetHashCode()
@@ -80,9 +80,9 @@ namespace Telegram.BotAPI.InlineMode
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Url);
 			hashCode = hashCode * -1521134295 + this.HideUrl.GetHashCode();
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Description);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbUrl);
-			hashCode = hashCode * -1521134295 + this.ThumbWidth.GetHashCode();
-			hashCode = hashCode * -1521134295 + this.ThumbHeight.GetHashCode();
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
+			hashCode = hashCode * -1521134295 + this.ThumbnailWidth.GetHashCode();
+			hashCode = hashCode * -1521134295 + this.ThumbnailHeight.GetHashCode();
 			return hashCode;
 		}
 		/// <inheritdoc/>

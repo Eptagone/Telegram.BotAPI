@@ -15,7 +15,7 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Type)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Type => InlineQueryResultType.Video;
-		///<summary>A valid URL for the embedded video player or video file.</summary>
+		/// <summary>A valid URL for the embedded video player or video file.</summary>
 		[JsonPropertyName(PropertyNames.VideoUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string VideoUrl { get; set; }
@@ -23,10 +23,10 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.MimeType)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string MimeType { get; set; }
-		///<summary>URL of the thumbnail (jpeg only) for the video.</summary>
-		[JsonPropertyName(PropertyNames.ThumbUrl)]
+		/// <summary>URL of the thumbnail (jpeg only) for the video.</summary>
+		[JsonPropertyName(PropertyNames.ThumbnailUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string ThumbUrl { get; set; }
+		public string ThumbnailUrl { get; set; }
 		/// <summary>Optional. Caption of the video to be sent, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -35,15 +35,15 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.VideoWidth)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? VideoWidth { get; set; }
-		///<summary>Optional. Video height.</summary>
+		/// <summary>Optional. Video height.</summary>
 		[JsonPropertyName(PropertyNames.VideoHeight)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? VideoHeight { get; set; }
-		///<summary>Optional. Video duration in seconds.</summary>
+		/// <summary>Optional. Video duration in seconds.</summary>
 		[JsonPropertyName(PropertyNames.VideoDuration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? VideoDuration { get; set; }
-		///<summary>Optional. Short description of the result.</summary>
+		/// <summary>Optional. Short description of the result.</summary>
 		[JsonPropertyName(PropertyNames.Description)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Description { get; set; }
@@ -67,7 +67,7 @@ namespace Telegram.BotAPI.InlineMode
 				   this.Type == other.Type &&
 				   this.VideoUrl == other.VideoUrl &&
 				   this.MimeType == other.MimeType &&
-				   this.ThumbUrl == other.ThumbUrl &&
+				   this.ThumbnailUrl == other.ThumbnailUrl &&
 				   this.Caption == other.Caption &&
 				   this.VideoWidth == other.VideoWidth &&
 				   this.VideoHeight == other.VideoHeight &&
@@ -86,7 +86,7 @@ namespace Telegram.BotAPI.InlineMode
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.VideoUrl);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.MimeType);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbUrl);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Caption);
 			hashCode = hashCode * -1521134295 + this.VideoWidth.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.VideoHeight.GetHashCode();

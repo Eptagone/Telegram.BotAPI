@@ -6,7 +6,10 @@ namespace Telegram.BotAPI
 	/// <summary>Defines a property that implements a class or value type to add basic formatting for messages.</summary>
 	public interface IFormattableMessage
 	{
-		///<summary>Optional. Mode for parsing. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</summary>
+		/// <summary>
+		/// Optional. Mode for parsing. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+		/// </summary>
+		/// <completionlist cref="Telegram.BotAPI.AvailableMethods.FormattingOptions.ParseMode"/>
 		public string? ParseMode { get; set; }
 	}
 }

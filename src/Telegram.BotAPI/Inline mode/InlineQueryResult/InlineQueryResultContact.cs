@@ -36,17 +36,17 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public InputMessageContent InputMessageContent { get; set; }
 		/// <summary>Optional. Url of the thumbnail for the result.</summary>
-		[JsonPropertyName(PropertyNames.ThumbUrl)]
+		[JsonPropertyName(PropertyNames.ThumbnailUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string ThumbUrl { get; set; }
+		public string ThumbnailUrl { get; set; }
 		/// <summary>Optional. Thumbnail width.</summary>
-		[JsonPropertyName(PropertyNames.ThumbWidth)]
+		[JsonPropertyName(PropertyNames.ThumbnailWidth)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public uint? ThumbWidth { get; set; }
+		public uint? ThumbnailWidth { get; set; }
 		/// <summary>Optional. Thumbnail height.</summary>
-		[JsonPropertyName(PropertyNames.ThumbHeight)]
+		[JsonPropertyName(PropertyNames.ThumbnailHeight)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public uint? ThumbHeight { get; set; }
+		public uint? ThumbnailHeight { get; set; }
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{
@@ -64,9 +64,9 @@ namespace Telegram.BotAPI.InlineMode
 				   this.LastName == other.LastName &&
 				   this.Vcard == other.Vcard &&
 				   EqualityComparer<InputMessageContent>.Default.Equals(this.InputMessageContent, other.InputMessageContent) &&
-				   this.ThumbUrl == other.ThumbUrl &&
-				   this.ThumbWidth == other.ThumbWidth &&
-				   this.ThumbHeight == other.ThumbHeight;
+				   this.ThumbnailUrl == other.ThumbnailUrl &&
+				   this.ThumbnailWidth == other.ThumbnailWidth &&
+				   this.ThumbnailHeight == other.ThumbnailHeight;
 		}
 		/// <inheritdoc/>
 		public override int GetHashCode()
@@ -80,9 +80,9 @@ namespace Telegram.BotAPI.InlineMode
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.LastName);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Vcard);
 			hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent>.Default.GetHashCode(this.InputMessageContent);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbUrl);
-			hashCode = hashCode * -1521134295 + this.ThumbWidth.GetHashCode();
-			hashCode = hashCode * -1521134295 + this.ThumbHeight.GetHashCode();
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
+			hashCode = hashCode * -1521134295 + this.ThumbnailWidth.GetHashCode();
+			hashCode = hashCode * -1521134295 + this.ThumbnailHeight.GetHashCode();
 			return hashCode;
 		}
 		/// <inheritdoc/>

@@ -16,13 +16,13 @@ namespace Telegram.BotAPI.Stickers
 		/// </summary>
 		/// <param name="userId">User identifier of sticker set owner.</param>
 		/// <param name="name">Sticker set name.</param>
-		/// <param name="emojis">One or more emoji corresponding to the sticker.</param>
+		/// <param name="sticker">A <see cref="InputSticker"/> object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.</param>
 		/// <exception cref="ArgumentNullException"></exception>
-		public AddStickerToSetArgs(long userId, string name, string emojis)
+		public AddStickerToSetArgs(long userId, string name, InputSticker sticker)
 		{
 			this.UserId = userId;
 			this.Name = name ?? throw new ArgumentNullException(nameof(name));
-			this.Emojis = emojis ?? throw new ArgumentNullException(nameof(emojis));
+			this.Sticker = sticker ?? throw new ArgumentNullException(nameof(sticker));
 		}
 
 		/// <summary>User identifier of sticker set owner.</summary>
@@ -33,41 +33,16 @@ namespace Telegram.BotAPI.Stickers
 		[JsonPropertyName(PropertyNames.Name)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Name { get; }
-		/// <summary>Optional. Png image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.</summary>
-		[JsonPropertyName(PropertyNames.PngSticker)]
+		/// <summary>
+		/// A <see cref="InputSticker"/> object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.
+		/// </summary>
+		[JsonPropertyName(PropertyNames.Sticker)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public object? PngSticker { get; set; }
-		/// <summary>TGS animation with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements.</summary>
-		[JsonPropertyName(PropertyNames.TgsSticker)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public InputFile? TgsSticker { get; set; }
-		/// <summary>WEBM video with the sticker, uploaded using multipart/form-data. See https://core.telegram.org/stickers#video-sticker-requirements for technical requirements.</summary>
-		[JsonPropertyName(PropertyNames.WebmSticker)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public InputFile? WebmSticker { get; set; }
-		/// <summary>One or more emoji corresponding to the sticker.</summary>
-		[JsonPropertyName(PropertyNames.UserId)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Emojis { get; }
-		/// <summary>Optional. A <see cref="MaskPosition"/> object for position where the mask should be placed on faces.</summary>
-		[JsonPropertyName(PropertyNames.MaskPosition)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public MaskPosition? MaskPosition { get; set; }
+		public InputSticker Sticker { get; }
 
 		bool IMultipartForm.UseMultipart()
 		{
-			if (this.PngSticker != null)
-			{
-				if (this.PngSticker.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
-			}
-			else if (this.TgsSticker != null)
-			{
-				return true;
-			}
-			else if (this.WebmSticker != null)
+			if (this.Sticker.Sticker is InputFile)
 			{
 				return true;
 			}

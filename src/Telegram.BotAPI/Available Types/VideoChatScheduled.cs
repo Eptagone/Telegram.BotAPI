@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class VideoChatScheduled : IEquatable<VideoChatScheduled>
 	{
-		///<summary>Point in time (Unix timestamp) when the voice chat is supposed to be started by a chat administrator.</summary>
+		/// <summary>Point in time (Unix timestamp) when the voice chat is supposed to be started by a chat administrator.</summary>
 		[JsonPropertyName(PropertyNames.StartDate)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint StartDate { get; set; }

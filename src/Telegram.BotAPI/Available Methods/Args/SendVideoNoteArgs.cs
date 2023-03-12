@@ -54,22 +54,24 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.VideoNote = videoNote ?? throw new ArgumentNullException(nameof(videoNote));
 		}
 
-		///<summary>Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data.</summary>
+		/// <summary>Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data.</summary>
 		[JsonPropertyName(PropertyNames.VideoNote)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object VideoNote { get; }
-		///<summary>Optional. Duration of sent video in seconds.</summary>
+		/// <summary>Optional. Duration of sent video in seconds.</summary>
 		[JsonPropertyName(PropertyNames.Duration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Duration { get; set; }
-		///<summary>Optional. Video width and height, i.e. diameter of the video message.</summary>
+		/// <summary>Optional. Video width and height, i.e. diameter of the video message.</summary>
 		[JsonPropertyName(PropertyNames.Length)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Length { get; set; }
-		///<summary>Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.</summary>
-		[JsonPropertyName(PropertyNames.Thumb)]
+		/// <summary>
+		/// Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.
+		/// </summary>
+		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public object? Thumb { get; set; }
+		public object? Thumbnail { get; set; }
 
 		/// <summary>Attached files.</summary>
 		[System.Text.Json.Serialization.JsonIgnore]
@@ -78,20 +80,14 @@ namespace Telegram.BotAPI.AvailableMethods
 
 		bool IMultipartForm.UseMultipart()
 		{
-			if (this.VideoNote != default)
+			if (this.VideoNote != default && this.VideoNote.GetType() == typeof(InputFile))
 			{
-				if (this.VideoNote.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
+				return true;
 			}
 
-			if (this.Thumb != default)
+			if (this.Thumbnail != default && this.Thumbnail.GetType() == typeof(InputFile))
 			{
-				if (this.Thumb.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
+				return true;
 			}
 
 			return this.AttachedFiles.Any();

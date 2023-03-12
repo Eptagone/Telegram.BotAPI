@@ -56,19 +56,19 @@ namespace Telegram.BotAPI.InlineMode
 			this.DisableWebPagePreview = disableWebPagePreview;
 		}
 
-		///<summary>Text of the message to be sent, 1-4096 characters.</summary>
+		/// <summary>Text of the message to be sent, 1-4096 characters.</summary>
 		[JsonPropertyName(PropertyNames.MessageText)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string MessageText { get; }
-		///<summary>Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message.</summary>
+		/// <summary>Optional. Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message.</summary>
 		[JsonPropertyName(PropertyNames.ParseMode)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? ParseMode { get; }
-		///<summary>Optional. List of special entities that appear in message text, which can be specified instead of parse_mode.</summary>
+		/// <summary>Optional. List of special entities that appear in message text, which can be specified instead of parse_mode.</summary>
 		[JsonPropertyName(PropertyNames.Entities)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public IEnumerable<MessageEntity>? Entities { get; }
-		///<summary>Optional. Disables link previews for links in the sent message.</summary>
+		/// <summary>Optional. Disables link previews for links in the sent message.</summary>
 		[JsonPropertyName(PropertyNames.DisableWebPagePreview)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? DisableWebPagePreview { get; }

@@ -19,37 +19,38 @@ namespace Telegram.BotAPI.AvailableTypes
 			this.Title = null!;
 			this.FileName = null!;
 			this.MimeType = null!;
-			this.Thumb = null!;
+			this.Thumbnail = null!;
 		}
 
-		///<summary>Duration of the audio in seconds as defined by sender.</summary>
+		/// <summary>Duration of the audio in seconds as defined by sender.</summary>
 		[JsonPropertyName(PropertyNames.Duration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint Duration { get; set; }
-		///<summary>Optional. Performer of the audio as defined by sender or by audio tags.</summary>
+		/// <summary>Optional. Performer of the audio as defined by sender or by audio tags.</summary>
 		[JsonPropertyName(PropertyNames.Performer)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Performer { get; set; }
-		///<summary>Optional. Title of the audio as defined by sender or by audio tags.</summary>
+		/// <summary>Optional. Title of the audio as defined by sender or by audio tags.</summary>
 		[JsonPropertyName(PropertyNames.Title)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Title { get; set; }
-		///<summary>Optional. Original filename as defined by sender.</summary>
+		/// <summary>Optional. Original filename as defined by sender.</summary>
 		[JsonPropertyName(PropertyNames.FileName)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string FileName { get; set; }
-		///<summary>Optional. MIME type of the file as defined by sender.</summary>
+		/// <summary>Optional. MIME type of the file as defined by sender.</summary>
 		[JsonPropertyName(PropertyNames.MimeType)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string MimeType { get; set; }
-		///<summary>Optional. File size.</summary>
+		/// <summary>Optional. File size.</summary>
 		[JsonPropertyName(PropertyNames.FileSize)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ulong FileSize { get; set; }
-		///<summary>Optional. Thumbnail of the album cover to which the music file belongs.</summary>
-		[JsonPropertyName(PropertyNames.Thumb)]
+		/// <summary>Optional. Thumbnail of the album cover to which the music file belongs.</summary>
+		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public PhotoSize Thumb { get; set; }
+		public PhotoSize Thumbnail { get; set; }
+
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{
@@ -67,8 +68,9 @@ namespace Telegram.BotAPI.AvailableTypes
 				   this.FileName == other.FileName &&
 				   this.MimeType == other.MimeType &&
 				   this.FileSize == other.FileSize &&
-				   EqualityComparer<PhotoSize>.Default.Equals(this.Thumb, other.Thumb);
+				   EqualityComparer<PhotoSize>.Default.Equals(this.Thumbnail, other.Thumbnail);
 		}
+
 		/// <inheritdoc/>
 		public override int GetHashCode()
 		{
@@ -81,19 +83,20 @@ namespace Telegram.BotAPI.AvailableTypes
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FileName);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.MimeType);
 			hashCode = hashCode * -1521134295 + this.FileSize.GetHashCode();
-			hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize>.Default.GetHashCode(this.Thumb);
+			hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize>.Default.GetHashCode(this.Thumbnail);
 			return hashCode;
 		}
+
 		/// <inheritdoc/>
 		public static bool operator ==(Audio? left, Audio? right)
 		{
 			return EqualityComparer<Audio>.Default.Equals(left!, right!);
 		}
+
 		/// <inheritdoc/>
 		public static bool operator !=(Audio? left, Audio? right)
 		{
 			return !(left == right);
 		}
-
 	}
 }

@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class VideoChatEnded : IEquatable<VideoChatEnded>
 	{
-		///<summary>Video chat duration in seconds.</summary>
+		/// <summary>Video chat duration in seconds.</summary>
 		[JsonPropertyName(PropertyNames.Duration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint Duration { get; set; }

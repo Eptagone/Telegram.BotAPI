@@ -54,15 +54,15 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.Document = document ?? throw new ArgumentNullException(nameof(document));
 		}
 
-		///<summary>File to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.</summary>
+		/// <summary>File to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data.</summary>
 		[JsonPropertyName(PropertyNames.Document)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object Document { get; }
-		///<summary>Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.</summary>
-		[JsonPropertyName(PropertyNames.Thumb)]
+		/// <summary>Optional. InputFile or String. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.</summary>
+		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public object? Thumb { get; set; }
-		///<summary>Document caption (may also be used when resending documents by file_id), 0-1024 characters after entities parsing.</summary>
+		public object? Thumbnail { get; set; }
+		/// <summary>Document caption (may also be used when resending documents by file_id), 0-1024 characters after entities parsing.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }
@@ -85,20 +85,14 @@ namespace Telegram.BotAPI.AvailableMethods
 
 		bool IMultipartForm.UseMultipart()
 		{
-			if (this.Document != default)
+			if (this.Document != default && this.Document.GetType() == typeof(InputFile))
 			{
-				if (this.Document.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
+				return true;
 			}
 
-			if (this.Thumb != default)
+			if (this.Thumbnail != default && this.Thumbnail.GetType() == typeof(InputFile))
 			{
-				if (this.Thumb.GetType() == typeof(InputFile))
-				{
-					return true;
-				}
+				return true;
 			}
 
 			return this.AttachedFiles.Any();

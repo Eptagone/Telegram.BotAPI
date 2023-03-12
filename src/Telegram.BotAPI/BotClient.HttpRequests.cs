@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading;
@@ -368,58 +369,115 @@ namespace Telegram.BotAPI
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		internal async Task<T> RPCAF<T>(string method, object args, [Optional] CancellationToken cancellationToken)
 		{
-			if (args is IMultipartForm mf)
+			// If the method is not a multipart form, use the normal RPCA method
+			if (args is IMultipartForm mf && !mf.UseMultipart())
 			{
-				if (!mf.UseMultipart())
-				{
-					return await this.RPCA<T>(method, args, cancellationToken).ConfigureAwait(false);
-				}
+				return await this.RPCA<T>(method, args, cancellationToken).ConfigureAwait(false);
 			}
-			var properties = args.GetType().GetProperties();
+
+			// Create a new MultipartFormDataContent
 			using var content = new MultipartFormDataContent(Guid.NewGuid().ToString() + DateTime.UtcNow.Ticks);
-			foreach (var prop in properties)
+
+			// Define a local function to add parameters to the content object.
+			void AddParameters(object param, [Optional] string? prefix)
 			{
-				var value = prop.GetValue(args);
-				if (value != default)
+				// Get the properties from the object.
+				var properties = param.GetType().GetProperties();
+
+				// Process and add each property
+				foreach (var p in properties)
 				{
-					var jsonattribs = (JsonPropertyNameAttribute[])prop.GetCustomAttributes(typeof(JsonPropertyNameAttribute), false);
-					if (jsonattribs.Length > 0)
+					// Get the value from the property
+					var value = p.GetValue(args);
+
+					// Process only if value is not null.
+					if (value != null)
 					{
-						var pname = jsonattribs[0].Name;
-						if (value.GetType() == typeof(InputFile))
+						// Verify the property has the JsonPropertyName attribute
+						var attribute = p.GetCustomAttribute(typeof(JsonPropertyNameAttribute));
+						// If the property has json attributes, process.
+						if (attribute != null)
 						{
-							var file = (InputFile)value;
-							content.Add(file.Content, pname, file.Filename);
-						}
-						else
-						{
+							// Get the name of the property.
+							var pname = ((JsonPropertyNameAttribute)attribute).Name;
+
+							// If the value is a basic type, then, add it to the content.
 							if (value is string || value is bool || value.IsNumber())
 							{
-								var asjkasj = value.ToString();
-								var scon = new { Name = pname, Content = new StringContent(value.ToString(), Encoding.UTF8) };
-								content.Add(scon.Content, scon.Name);
+								content.Add(
+									new StringContent(value.ToString(), Encoding.UTF8),
+									string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]");
 							}
+							// If the value is an InputFile, process it.
+							else if (value is InputFile file)
+							{
+								content.Add(
+									file.Content,
+									string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]",
+									file.Filename);
+							}
+							// If the value is an enumerable, process all the items.
+							else if (value.GetType().GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(IEnumerable<>)))
+							{
+								var eValue = (IEnumerable<object>)value;
+								var depth = Tools.GetDepth(eValue);
+								// If the depth is bigger than 1, then, serialize the whole object and add it.
+								// This is because, there aren't properties with InputFile in arrays of arrays.
+								if (depth > 1)
+								{
+									string jvalue = JsonSerializer.Serialize(value, value.GetType(), DefaultSerializerOptions);
+									content.Add(
+										new StringContent(jvalue, Encoding.UTF8),
+										string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]");
+								}
+								// If the depth is 1, then, process all the items.
+								else if (depth == 1)
+								{
+									// If the values are of basic types, then, serialize all values as JSON and add them to the content.
+									if (eValue.Any(x => x is string || x is bool || x.IsNumber()))
+									{
+										string jvalue = JsonSerializer.Serialize(value, value.GetType(), DefaultSerializerOptions);
+										content.Add(
+											new StringContent(jvalue, Encoding.UTF8),
+											string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]");
+									}
+									// If not, it's an object. Process all properties of all objects.
+									else
+									{
+										var i = 0;
+										foreach (object v in eValue)
+										{
+											AddParameters(v,
+												$"{(string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]")}[{i}]");
+											i++;
+										}
+									}
+								}
+							}
+							// If the value is another type (class), add all properties
 							else
 							{
-								string jvalue = JsonSerializer.Serialize(value, value.GetType(), DefaultSerializerOptions);
-								var scon = new { Name = pname, Content = new StringContent(jvalue, Encoding.UTF8) };
-								content.Add(scon.Content, scon.Name);
-							}
-						}
-					}
-					else
-					{
-						if (args is IAttachFiles)
-						{
-							var attachfiles = (args as IAttachFiles).AttachedFiles;
-							foreach (var attachfile in attachfiles)
-							{
-								content.Add(attachfile.File.Content, attachfile.Name, attachfile.File.Filename);
+								AddParameters(value,
+									string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]");
 							}
 						}
 					}
 				}
 			}
+
+			// If args implements IAttachFiles, then, add the files to the content.
+			if (args is IAttachFiles a)
+			{
+				var attachfiles = a.AttachedFiles;
+				foreach (var attachfile in attachfiles)
+				{
+					content.Add(attachfile.File.Content, attachfile.Name, attachfile.File.Filename);
+				}
+			}
+
+			// Add the other parameters from 'args'
+			AddParameters(args);
+
 			var response = await this.PostRequestAsyncMultipartFormData<T>(method, content, cancellationToken).ConfigureAwait(false);
 			content.Dispose();
 			if (response.Ok == true)

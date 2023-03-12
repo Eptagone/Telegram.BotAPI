@@ -56,6 +56,12 @@ namespace Telegram.BotAPI.Stickers
 		[JsonPropertyName(PropertyNames.Sticker)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object Sticker { get; set; }
+		/// <summary>
+		/// Emoji associated with the sticker; only for just uploaded stickers
+		/// </summary>
+		[JsonPropertyName(PropertyNames.Emoji)]
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public string? Emoji { get; set; }
 
 		bool IMultipartForm.UseMultipart()
 		{

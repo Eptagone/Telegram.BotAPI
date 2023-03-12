@@ -15,11 +15,11 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Type)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Type => InlineQueryResultType.Location;
-		///<summary>Longitude as defined by sender.</summary>
+		/// <summary>Longitude as defined by sender.</summary>
 		[JsonPropertyName(PropertyNames.Longitude)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public float Longitude { get; set; }
-		///<summary>Latitude as defined by sender.</summary>
+		/// <summary>Latitude as defined by sender.</summary>
 		[JsonPropertyName(PropertyNames.Latitude)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public float Latitude { get; set; }
@@ -27,19 +27,19 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Title)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Title { get; set; }
-		///<summary>Optional. The radius of uncertainty for the location, measured in meters; 0-1500.</summary>
+		/// <summary>Optional. The radius of uncertainty for the location, measured in meters; 0-1500.</summary>
 		[JsonPropertyName(PropertyNames.HorizontalAccuracy)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public float? HorizontalAccuracy { get; set; }
-		///<summary>Optional. Time relative to the message sending date, during which the location can be updated, in seconds. For active live locations only.</summary>
+		/// <summary>Optional. Time relative to the message sending date, during which the location can be updated, in seconds. For active live locations only.</summary>
 		[JsonPropertyName(PropertyNames.LivePeriod)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? LivePeriod { get; set; }
-		///<summary>Optional. The direction in which user is moving, in degrees; 1-360. For active live locations only.</summary>
+		/// <summary>Optional. The direction in which user is moving, in degrees; 1-360. For active live locations only.</summary>
 		[JsonPropertyName(PropertyNames.Heading)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ushort? Heading { get; set; }
-		///<summary>Optional. Maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.</summary>
+		/// <summary>Optional. Maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.</summary>
 		[JsonPropertyName(PropertyNames.ProximityAlertRadius)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? ProximityAlertRadius { get; set; }
@@ -48,17 +48,17 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public InputMessageContent InputMessageContent { get; set; }
 		/// <summary>Optional. Url of the thumbnail for the result.</summary>
-		[JsonPropertyName(PropertyNames.ThumbUrl)]
+		[JsonPropertyName(PropertyNames.ThumbnailUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string ThumbUrl { get; set; }
+		public string ThumbnailUrl { get; set; }
 		/// <summary>Optional. Thumbnail width.</summary>
-		[JsonPropertyName(PropertyNames.ThumbWidth)]
+		[JsonPropertyName(PropertyNames.ThumbnailWidth)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public uint? ThumbWidth { get; set; }
+		public uint? ThumbnailWidth { get; set; }
 		/// <summary>Optional. Thumbnail height.</summary>
-		[JsonPropertyName(PropertyNames.ThumbHeight)]
+		[JsonPropertyName(PropertyNames.ThumbnailHeight)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public uint? ThumbHeight { get; set; }
+		public uint? ThumbnailHeight { get; set; }
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{
@@ -81,9 +81,9 @@ namespace Telegram.BotAPI.InlineMode
 				   this.Heading == other.Heading &&
 				   this.ProximityAlertRadius == other.ProximityAlertRadius &&
 				   EqualityComparer<InputMessageContent>.Default.Equals(this.InputMessageContent, other.InputMessageContent) &&
-				   this.ThumbUrl == other.ThumbUrl &&
-				   this.ThumbWidth == other.ThumbWidth &&
-				   this.ThumbHeight == other.ThumbHeight;
+				   this.ThumbnailUrl == other.ThumbnailUrl &&
+				   this.ThumbnailWidth == other.ThumbnailWidth &&
+				   this.ThumbnailHeight == other.ThumbnailHeight;
 		}
 		/// <inheritdoc/>
 		public override int GetHashCode()
@@ -102,9 +102,9 @@ namespace Telegram.BotAPI.InlineMode
 			hashCode = hashCode * -1521134295 + this.Heading.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.ProximityAlertRadius.GetHashCode();
 			hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent>.Default.GetHashCode(this.InputMessageContent);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbUrl);
-			hashCode = hashCode * -1521134295 + this.ThumbWidth.GetHashCode();
-			hashCode = hashCode * -1521134295 + this.ThumbHeight.GetHashCode();
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
+			hashCode = hashCode * -1521134295 + this.ThumbnailWidth.GetHashCode();
+			hashCode = hashCode * -1521134295 + this.ThumbnailHeight.GetHashCode();
 			return hashCode;
 		}
 		/// <inheritdoc/>

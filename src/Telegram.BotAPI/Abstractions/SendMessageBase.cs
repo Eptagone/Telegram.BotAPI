@@ -38,7 +38,7 @@ namespace Telegram.BotAPI
 			this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
 		}
 
-		///<summary><see cref="long"/> or <see cref="string"/>. Unique identifier for the target chat or username of the target channel (in the format @channelusername).</summary>
+		/// <summary><see cref="long"/> or <see cref="string"/>. Unique identifier for the target chat or username of the target channel (in the format @channelusername).</summary>
 		[JsonPropertyName(PropertyNames.ChatId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public virtual TChatId ChatId { get; }

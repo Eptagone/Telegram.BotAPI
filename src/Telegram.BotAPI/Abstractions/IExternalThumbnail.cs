@@ -7,10 +7,10 @@ namespace Telegram.BotAPI
 	public interface IExternalThumbnail
 	{
 		/// <summary>Optional. Url of the thumbnail for the result.</summary>
-		public string ThumbUrl { get; set; }
+		public string ThumbnailUrl { get; set; }
 		/// <summary>Optional. Thumbnail width.</summary>
-		public uint? ThumbWidth { get; set; }
+		public uint? ThumbnailWidth { get; set; }
 		/// <summary>Optional. Thumbnail height.</summary>
-		public uint? ThumbHeight { get; set; }
+		public uint? ThumbnailHeight { get; set; }
 	}
 }

@@ -11,36 +11,16 @@ namespace Telegram.BotAPI.Stickers
 	/// This object represents a sticker.
 	/// </summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public sealed class Sticker : IEquatable<Sticker>
+	public sealed class Sticker : TelegramFileBase, IEquatable<Sticker?>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Sticker"/> class.
 		/// </summary>
-		public Sticker()
+		public Sticker() : base()
 		{
-			this.FileId = null!;
-			this.FileUniqueId = null!;
 			this.Type = null!;
-			this.Thumb = null!;
-			this.Emoji = null!;
-			this.SetName = null!;
-			this.PremiumAnimation = null!;
-			this.MaskPosition = null!;
-			this.CustomEmojiId = null!;
 		}
 
-		/// <summary>
-		/// Identifier for this file, which can be used to download or reuse the file.
-		/// </summary>
-		[JsonPropertyName(PropertyNames.FileId)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string FileId { get; set; }
-		/// <summary>
-		/// Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
-		/// </summary>
-		[JsonPropertyName(PropertyNames.FileUniqueId)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string FileUniqueId { get; set; }
 		/// <summary>
 		/// Type of the sticker, currently one of �regular�, �mask�, �custom_emoji�. The type of the sticker is independent from its format, which is determined by the fields is_animated and is_video.
 		/// </summary>
@@ -72,56 +52,64 @@ namespace Telegram.BotAPI.Stickers
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool IsVideo { get; set; }
 		/// <summary>
-		/// Optional. Sticker thumbnail in the .webp or .jpg format.
+		/// Optional. Sticker thumbnail in the .WEBP or .JPG format
 		/// </summary>
-		[JsonPropertyName(PropertyNames.Thumb)]
+		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public PhotoSize Thumb { get; set; }
+		public PhotoSize? Thumbnail { get; set; }
 		/// <summary>
 		/// Optional. Emoji associated with the sticker.
 		/// </summary>
 		[JsonPropertyName(PropertyNames.Emoji)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Emoji { get; set; }
+		public string? Emoji { get; set; }
 		/// <summary>
 		/// Optional. Name of the sticker set to which the sticker belongs.
 		/// </summary>
 		[JsonPropertyName(PropertyNames.SetName)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string SetName { get; set; }
+		public string? SetName { get; set; }
 		/// <summary>
 		/// Optional. Premium animation for the sticker, if the sticker is premium
 		/// </summary>
 		[JsonPropertyName(PropertyNames.PremiumAnimation)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public File PremiumAnimation { get; set; }
+		public File? PremiumAnimation { get; set; }
 		/// <summary>
 		/// Optional. For mask stickers, the position where the mask should be placed.
 		/// </summary>
 		[JsonPropertyName(PropertyNames.MaskPosition)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public MaskPosition MaskPosition { get; set; }
+		public MaskPosition? MaskPosition { get; set; }
 		/// <summary>
 		/// Optional. For custom emoji stickers, unique identifier of the custom emoji.
 		/// </summary>
 		[JsonPropertyName(PropertyNames.CustomEmojiId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string CustomEmojiId { get; set; }
+		public string? CustomEmojiId { get; set; }
+		/// <summary>
+		/// Optional. True, if the sticker must be repainted to a text color in messages, the color of the Telegram Premium badge in emoji status, white color on chat photos, or another appropriate color in other places.
+		/// </summary>
+		[JsonPropertyName(PropertyNames.NeedsRepainting)]
+		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public bool? NeedsRepainting { get; set; }
 		/// <summary>
 		/// Optional. File size.
 		/// </summary>
 		[JsonPropertyName(PropertyNames.FileSize)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public uint FileSize { get; set; }
-		/// <inheritdoc/>
-		public override bool Equals(object obj)
+		public uint? FileSize { get; set; }
+
+		/// <inheritdoc />
+		public override bool Equals(object? obj)
 		{
 			return this.Equals(obj as Sticker);
 		}
-		/// <inheritdoc/>
+
+		/// <inheritdoc />
 		public bool Equals(Sticker? other)
 		{
-			return other != null &&
+			return other is not null &&
 				   this.FileId == other.FileId &&
 				   this.FileUniqueId == other.FileUniqueId &&
 				   this.Type == other.Type &&
@@ -129,17 +117,20 @@ namespace Telegram.BotAPI.Stickers
 				   this.Height == other.Height &&
 				   this.IsAnimated == other.IsAnimated &&
 				   this.IsVideo == other.IsVideo &&
-				   EqualityComparer<PhotoSize>.Default.Equals(this.Thumb, other.Thumb) &&
+				   EqualityComparer<PhotoSize?>.Default.Equals(this.Thumbnail, other.Thumbnail) &&
 				   this.Emoji == other.Emoji &&
 				   this.SetName == other.SetName &&
-				   EqualityComparer<MaskPosition>.Default.Equals(this.MaskPosition, other.MaskPosition) &&
+				   EqualityComparer<File?>.Default.Equals(this.PremiumAnimation, other.PremiumAnimation) &&
+				   EqualityComparer<MaskPosition?>.Default.Equals(this.MaskPosition, other.MaskPosition) &&
 				   this.CustomEmojiId == other.CustomEmojiId &&
+				   this.NeedsRepainting == other.NeedsRepainting &&
 				   this.FileSize == other.FileSize;
 		}
-		/// <inheritdoc/>
+
+		/// <inheritdoc />
 		public override int GetHashCode()
 		{
-			int hashCode = -1863026592;
+			int hashCode = 106264937;
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FileId);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FileUniqueId);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
@@ -147,37 +138,27 @@ namespace Telegram.BotAPI.Stickers
 			hashCode = hashCode * -1521134295 + this.Height.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.IsAnimated.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.IsVideo.GetHashCode();
-			hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize>.Default.GetHashCode(this.Thumb);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Emoji);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.SetName);
-			hashCode = hashCode * -1521134295 + EqualityComparer<MaskPosition>.Default.GetHashCode(this.MaskPosition);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.CustomEmojiId);
+			hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize?>.Default.GetHashCode(this.Thumbnail);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Emoji);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.SetName);
+			hashCode = hashCode * -1521134295 + EqualityComparer<File?>.Default.GetHashCode(this.PremiumAnimation);
+			hashCode = hashCode * -1521134295 + EqualityComparer<MaskPosition?>.Default.GetHashCode(this.MaskPosition);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.CustomEmojiId);
+			hashCode = hashCode * -1521134295 + this.NeedsRepainting.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.FileSize.GetHashCode();
 			return hashCode;
 		}
-		/// <inheritdoc/>
+
+		/// <inheritdoc />
 		public static bool operator ==(Sticker? left, Sticker? right)
 		{
-#pragma warning disable CS8604 // Possible null reference argument.
 			return EqualityComparer<Sticker>.Default.Equals(left!, right!);
-#pragma warning restore CS8604 // Possible null reference argument.
 		}
-		/// <inheritdoc/>
+
+		/// <inheritdoc />
 		public static bool operator !=(Sticker? left, Sticker? right)
 		{
 			return !(left == right);
 		}
-
-	}
-
-	/// <summary>
-	/// Type of the sticker, currently one of �regular�, �mask�, �custom_emoji�. The type of the sticker is independent from its format, which is determined by the fields is_animated and is_video.
-	/// </summary>
-	public static class StickerType
-	{
-		/// <summary>
-		/// Regular sticker.
-		/// </summary>
-		public const string Regular = "regular";
 	}
 }

@@ -61,7 +61,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="length">Video width and height, i.e. diameter of the video message.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -69,7 +69,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVideoNote(this BotClient? api, long chatId, InputFile videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] InputFile? thumb, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendVideoNote(this BotClient? api, long chatId, InputFile videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] InputFile? thumbnail, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoNoteArgs(chatId, videoNote)
@@ -77,7 +77,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				MessageThreadId = messageThreadId,
 				Duration = duration,
 				Length = length,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -96,7 +96,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="length">Video width and height, i.e. diameter of the video message.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -105,7 +105,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="attachedFiles">Attached files.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVideoNote(this BotClient? api, long chatId, string videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] string? thumb, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles)
+		public static Message SendVideoNote(this BotClient? api, long chatId, string videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] string? thumbnail, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoNoteArgs(chatId, videoNote)
@@ -113,7 +113,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				MessageThreadId = messageThreadId,
 				Duration = duration,
 				Length = length,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -133,7 +133,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="length">Video width and height, i.e. diameter of the video message.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -141,7 +141,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVideoNote(this BotClient? api, string chatId, InputFile videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] InputFile? thumb, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendVideoNote(this BotClient? api, string chatId, InputFile videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] InputFile? thumbnail, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoNoteArgs(chatId, videoNote)
@@ -149,7 +149,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				MessageThreadId = messageThreadId,
 				Duration = duration,
 				Length = length,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -168,7 +168,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="length">Video width and height, i.e. diameter of the video message.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -177,7 +177,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="attachedFiles">Attached files.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendVideoNote(this BotClient? api, string chatId, string videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] string? thumb, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles)
+		public static Message SendVideoNote(this BotClient? api, string chatId, string videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] string? thumbnail, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoNoteArgs(chatId, videoNote)
@@ -185,7 +185,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				MessageThreadId = messageThreadId,
 				Duration = duration,
 				Length = length,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -205,7 +205,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="length">Video width and height, i.e. diameter of the video message.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -214,7 +214,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVideoNoteAsync(this BotClient? api, long chatId, InputFile videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] InputFile? thumb, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVideoNoteAsync(this BotClient? api, long chatId, InputFile videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] InputFile? thumbnail, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoNoteArgs(chatId, videoNote)
@@ -222,7 +222,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				MessageThreadId = messageThreadId,
 				Duration = duration,
 				Length = length,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -241,7 +241,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="length">Video width and height, i.e. diameter of the video message.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -251,7 +251,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVideoNoteAsync(this BotClient? api, long chatId, string videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] string? thumb, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVideoNoteAsync(this BotClient? api, long chatId, string videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] string? thumbnail, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoNoteArgs(chatId, videoNote)
@@ -259,7 +259,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				MessageThreadId = messageThreadId,
 				Duration = duration,
 				Length = length,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -279,7 +279,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="length">Video width and height, i.e. diameter of the video message.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -288,7 +288,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVideoNoteAsync(this BotClient? api, string chatId, InputFile videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] InputFile? thumb, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVideoNoteAsync(this BotClient? api, string chatId, InputFile videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] InputFile? thumbnail, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoNoteArgs(chatId, videoNote)
@@ -296,7 +296,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				MessageThreadId = messageThreadId,
 				Duration = duration,
 				Length = length,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -315,7 +315,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
 		/// <param name="duration">Duration of sent video in seconds.</param>
 		/// <param name="length">Video width and height, i.e. diameter of the video message.</param>
-		/// <param name="thumb">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
+		/// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass ÔÇ£attach://&lt;file_attach_name&gt;ÔÇØ if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. More information on Sending Files ┬╗.</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -325,7 +325,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendVideoNoteAsync(this BotClient? api, string chatId, string videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] string? thumb, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendVideoNoteAsync(this BotClient? api, string chatId, string videoNote, [Optional] int? messageThreadId, [Optional] uint? duration, [Optional] uint? length, [Optional] string? thumbnail, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendVideoNoteArgs(chatId, videoNote)
@@ -333,7 +333,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				MessageThreadId = messageThreadId,
 				Duration = duration,
 				Length = length,
-				Thumb = thumb,
+				Thumbnail = thumbnail,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,

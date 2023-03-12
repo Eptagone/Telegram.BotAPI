@@ -10,15 +10,15 @@ namespace Telegram.BotAPI.AvailableTypes
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class PhotoSize : TelegramFileBase, IEquatable<PhotoSize>
 	{
-		///<summary>Photo width.</summary>
+		/// <summary>Photo width.</summary>
 		[JsonPropertyName(PropertyNames.Width)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint Width { get; set; }
-		///<summary>Photo height.</summary>
+		/// <summary>Photo height.</summary>
 		[JsonPropertyName(PropertyNames.Height)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint Height { get; set; }
-		///<summary>Optional. File size.</summary>
+		/// <summary>Optional. File size.</summary>
 		[JsonPropertyName(PropertyNames.FileSize)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint FileSize { get; set; }

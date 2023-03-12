@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class VideoChatParticipantsInvited : IEquatable<VideoChatParticipantsInvited>
 	{
-		///<summary>Optional. New members that were invited to the video chat.</summary>
+		/// <summary>Optional. New members that were invited to the video chat.</summary>
 		[JsonPropertyName(PropertyNames.Users)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public User[] Users { get; set; }

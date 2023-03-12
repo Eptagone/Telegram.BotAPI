@@ -58,6 +58,7 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 		/// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files ┬╗.</param>
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
+		/// <param name="emoji">Emoji associated with the sticker; only for just uploaded stickers</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -65,12 +66,13 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendSticker(this BotClient? api, long chatId, InputFile sticker, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendSticker(this BotClient? api, long chatId, InputFile sticker, [Optional] int? messageThreadId, [Optional] string? emoji, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendStickerArgs(chatId, sticker)
 			{
 				MessageThreadId = messageThreadId,
+				Emoji = emoji,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -87,6 +89,7 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 		/// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files ┬╗.</param>
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
+		/// <param name="emoji">Emoji associated with the sticker; only for just uploaded stickers</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -94,12 +97,13 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendSticker(this BotClient? api, long chatId, string sticker, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendSticker(this BotClient? api, long chatId, string sticker, [Optional] int? messageThreadId, [Optional] string? emoji, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendStickerArgs(chatId, sticker)
 			{
 				MessageThreadId = messageThreadId,
+				Emoji = emoji,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -116,6 +120,7 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 		/// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files ┬╗.</param>
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
+		/// <param name="emoji">Emoji associated with the sticker; only for just uploaded stickers</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -123,12 +128,13 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendSticker(this BotClient? api, string chatId, InputFile sticker, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendSticker(this BotClient? api, string chatId, InputFile sticker, [Optional] int? messageThreadId, [Optional] string? emoji, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendStickerArgs(chatId, sticker)
 			{
 				MessageThreadId = messageThreadId,
+				Emoji = emoji,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -145,6 +151,7 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 		/// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files ┬╗.</param>
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
+		/// <param name="emoji">Emoji associated with the sticker; only for just uploaded stickers</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -152,12 +159,13 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message SendSticker(this BotClient? api, string chatId, string sticker, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
+		public static Message SendSticker(this BotClient? api, string chatId, string sticker, [Optional] int? messageThreadId, [Optional] string? emoji, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendStickerArgs(chatId, sticker)
 			{
 				MessageThreadId = messageThreadId,
+				Emoji = emoji,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -174,6 +182,7 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 		/// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files ┬╗.</param>
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
+		/// <param name="emoji">Emoji associated with the sticker; only for just uploaded stickers</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -182,12 +191,13 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendStickerAsync(this BotClient? api, long chatId, InputFile sticker, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendStickerAsync(this BotClient? api, long chatId, InputFile sticker, [Optional] int? messageThreadId, [Optional] string? emoji, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendStickerArgs(chatId, sticker)
 			{
 				MessageThreadId = messageThreadId,
+				Emoji = emoji,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -204,6 +214,7 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 		/// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files ┬╗.</param>
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
+		/// <param name="emoji">Emoji associated with the sticker; only for just uploaded stickers</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -212,12 +223,13 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendStickerAsync(this BotClient? api, long chatId, string sticker, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendStickerAsync(this BotClient? api, long chatId, string sticker, [Optional] int? messageThreadId, [Optional] string? emoji, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendStickerArgs(chatId, sticker)
 			{
 				MessageThreadId = messageThreadId,
+				Emoji = emoji,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -234,6 +246,7 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 		/// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files ┬╗.</param>
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
+		/// <param name="emoji">Emoji associated with the sticker; only for just uploaded stickers</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -242,12 +255,13 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendStickerAsync(this BotClient? api, string chatId, InputFile sticker, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendStickerAsync(this BotClient? api, string chatId, InputFile sticker, [Optional] int? messageThreadId, [Optional] string? emoji, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendStickerArgs(chatId, sticker)
 			{
 				MessageThreadId = messageThreadId,
+				Emoji = emoji,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
@@ -264,6 +278,7 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 		/// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files ┬╗.</param>
 		/// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only.</param>
+		/// <param name="emoji">Emoji associated with the sticker; only for just uploaded stickers</param>
 		/// <param name="disableNotification">Sends the message silently. Users will receive a notification with no sound.</param>
 		/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the message is a reply, ID of the original message.</param>
@@ -272,12 +287,13 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message> SendStickerAsync(this BotClient? api, string chatId, string sticker, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message> SendStickerAsync(this BotClient? api, string chatId, string sticker, [Optional] int? messageThreadId, [Optional] string? emoji, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] ReplyMarkup? replyMarkup, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendStickerArgs(chatId, sticker)
 			{
 				MessageThreadId = messageThreadId,
+				Emoji = emoji,
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,

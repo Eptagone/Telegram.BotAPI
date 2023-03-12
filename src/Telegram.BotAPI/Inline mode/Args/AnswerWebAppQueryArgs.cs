@@ -22,11 +22,11 @@ namespace Telegram.BotAPI.InlineMode
 			this.Result = result ?? throw new ArgumentNullException(nameof(result));
 		}
 
-		///<summary>Unique identifier for the query to be answered.</summary>
+		/// <summary>Unique identifier for the query to be answered.</summary>
 		[JsonPropertyName(PropertyNames.WebAppQueryId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string WebAppQueryId { get; }
-		///<summary>A <see cref="InlineQueryResult"/> object describing the message to be sent.</summary>
+		/// <summary>A <see cref="InlineQueryResult"/> object describing the message to be sent.</summary>
 		[JsonPropertyName(PropertyNames.Result)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public InlineQueryResult Result { get; }

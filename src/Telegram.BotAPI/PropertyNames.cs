@@ -42,7 +42,6 @@ namespace Telegram.BotAPI
 		public const string CanJoinGroups = "can_join_groups";
 		public const string CanManageChat = "can_manage_chat";
 		public const string CanManageTopics = "can_manage_topics";
-		public const string CanManageVoiceChats = "can_manage_voice_chats";
 		public const string CanManageVideoChats = "can_manage_video_chats";
 		public const string CanPinMessages = "can_pin_messages";
 		public const string CanPostMessages = "can_post_messages";
@@ -82,7 +81,6 @@ namespace Telegram.BotAPI
 		public const string Commands = "commands";
 		public const string ConnectedWebsite = "connected_website";
 		public const string Contact = CommonNames.Contact;
-		public const string ContainsMasks = "contains_masks";
 		public const string CorrectOptionId = "correct_option_id";
 		public const string CountryCode = "country_code";
 		public const string CreatesJoinRequest = "creates_join_request";
@@ -114,7 +112,7 @@ namespace Telegram.BotAPI
 		public const string ElementHash = "element_hash";
 		public const string Email = "email";
 		public const string Emoji = "emoji";
-		public const string Emojis = "emojis";
+		public const string EmojiList = "emoji_list";
 		public const string EmojiStatusCustomEmojiId = "emoji_status_custom_emoji_id";
 		public const string Entities = "entities";
 		public const string ErrorMessage = "error_message";
@@ -209,6 +207,7 @@ namespace Telegram.BotAPI
 		public const string JoinByRequest = "join_by_request";
 		public const string JoinToSendMessages = "join_to_send_messages";
 		public const string Keyboard = "keyboard";
+		public const string Keywords = "keywords";
 		public const string Label = "label";
 		public const string Language = "language";
 		public const string LanguageCode = "language_code";
@@ -252,6 +251,7 @@ namespace Telegram.BotAPI
 		public const string NeedName = "need_name";
 		public const string NeedPhoneNumber = "need_phone_number";
 		public const string NeedShippingAddress = "need_shipping_address";
+		public const string NeedsRepainting = "needs_repainting";
 		public const string NewChatMember = "new_chat_member";
 		public const string NewChatMembers = "new_chat_members";
 		public const string NewChatPhoto = "new_chat_photo";
@@ -285,7 +285,6 @@ namespace Telegram.BotAPI
 		public const string PhotoUrl = "photo_url";
 		public const string PhotoWidth = "photo_width";
 		public const string PinnedMessage = "pinned_message";
-		public const string PngSticker = "png_sticker";
 		public const string Point = "point";
 		public const string Poll = CommonNames.Poll;
 		public const string PollAnswer = CommonNames.PollAnswer;
@@ -338,6 +337,7 @@ namespace Telegram.BotAPI
 		public const string ShippingQuery = CommonNames.ShippingQuery;
 		public const string ShippingQueryId = "shipping_query_id";
 		public const string ShowAlert = "show_alert";
+		public const string ShortDescription = "short_description";
 		public const string SlowModeDelay = "slow_mode_delay";
 		public const string SmallFileId = "small_file_id";
 		public const string SmallFileUniqueId = "small_file_unique_id";
@@ -348,6 +348,7 @@ namespace Telegram.BotAPI
 		public const string Status = "status";
 		public const string Sticker = CommonNames.Sticker;
 		public const string StickerFileId = "sticker_file_id";
+		public const string StickerFormat = "sticker_format";
 		public const string Stickers = "stickers";
 		public const string StickerSetName = "sticker_set_name";
 		public const string StickerType = "sticker_type";
@@ -365,12 +366,11 @@ namespace Telegram.BotAPI
 		public const string TelegramPaymentChargeId = "telegram_payment_charge_id";
 		public const string Text = "text";
 		public const string TextEntities = "text_entities";
-		public const string TgsSticker = "tgs_sticker";
-		public const string Thumb = "thumb";
-		public const string ThumbHeight = "thumb_height";
-		public const string ThumbMimeType = "thumb_mime_type";
-		public const string ThumbUrl = "thumb_url";
-		public const string ThumbWidth = "thumb_width";
+		public const string Thumbnail = "thumbnail";
+		public const string ThumbnailHeight = "thumbnail_height";
+		public const string ThumbnailMimeType = "thumbnail_mime_type";
+		public const string ThumbnailUrl = "thumbnail_url";
+		public const string ThumbnailWidth = "thumbnail_width";
 		public const string Timeout = "timeout";
 		public const string Title = "title";
 		public const string TotalAmount = "total_amount";
@@ -416,7 +416,6 @@ namespace Telegram.BotAPI
 		public const string WebApp = CommonNames.WebApp;
 		public const string WebAppData = "web_app_data";
 		public const string WebAppQueryId = "web_app_query_id";
-		public const string WebmSticker = "webm_sticker";
 		public const string Width = "width";
 		public const string WriteAccessAllowed = "write_access_allowed";
 		public const string XShift = "x_shift";

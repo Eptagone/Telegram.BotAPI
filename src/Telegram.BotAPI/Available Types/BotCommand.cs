@@ -11,7 +11,11 @@ namespace Telegram.BotAPI.AvailableTypes
 	public sealed class BotCommand : IEquatable<BotCommand>
 	{
 		/// <summary>New Bot Command</summary>
-		public BotCommand() { }
+		public BotCommand() {
+			this.Command = null!;
+			this.Description = null!;
+		}
+
 		/// <summary>New Bot Command</summary>
 		/// <param name="command">Text of the command, 1-32 characters. Can contain only lowercase English letters, digits and underscores.</param>
 		/// <param name="description">Description of the command, 3-256 characters.</param>

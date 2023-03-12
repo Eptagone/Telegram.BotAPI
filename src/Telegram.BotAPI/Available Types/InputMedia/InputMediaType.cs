@@ -3,18 +3,18 @@
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Type of input media. Can be “animation”, “audio”, “document”, “photo”, or “video”.</summary>
+	/// <summary>Type of input media. Can be “animation”, “audio”, “document”, “photo”, or “video”.</summary>
 	public static class InputMediaType
 	{
-		///<summary>Animation.</summary>
+		/// <summary>Animation.</summary>
 		public const string Animation = CommonNames.Animation;
-		///<summary>Audio.</summary>
+		/// <summary>Audio.</summary>
 		public const string Audio = CommonNames.Audio;
-		///<summary>Document.</summary>
+		/// <summary>Document.</summary>
 		public const string Document = CommonNames.Document;
-		///<summary>Photo.</summary>
+		/// <summary>Photo.</summary>
 		public const string Photo = CommonNames.Photo;
-		///<summary>Video.</summary>
+		/// <summary>Video.</summary>
 		public const string Video = CommonNames.Video;
 	}
 }

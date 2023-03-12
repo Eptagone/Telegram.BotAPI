@@ -10,15 +10,15 @@ namespace Telegram.BotAPI.AvailableTypes
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class ProximityAlertTriggered : IEquatable<ProximityAlertTriggered>
 	{
-		///<summary>User that triggered the alert.</summary>
+		/// <summary>User that triggered the alert.</summary>
 		[JsonPropertyName(PropertyNames.Traveler)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public User Traveler { get; set; }
-		///<summary>User that set the alert.</summary>
+		/// <summary>User that set the alert.</summary>
 		[JsonPropertyName(PropertyNames.Watcher)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public User Watcher { get; set; }
-		///<summary>The distance between the users.</summary>
+		/// <summary>The distance between the users.</summary>
 		[JsonPropertyName(PropertyNames.Distance)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint Distance { get; set; }

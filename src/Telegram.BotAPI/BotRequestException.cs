@@ -11,11 +11,11 @@ namespace Telegram.BotAPI
 	/// <summary>Exception generated when a request to Telegram Bot API got an error response.</summary>
 	public sealed class BotRequestException : Exception, IEquatable<BotRequestException>
 	{
-		///<summary>Error code.</summary>
+		/// <summary>Error code.</summary>
 		public int ErrorCode { get; }
-		///<summary>Error description.</summary>
+		/// <summary>Error description.</summary>
 		public string Description { get; }
-		///<summary>Parameters.</summary>
+		/// <summary>Parameters.</summary>
 		public ResponseParameters Parameters { get; }
 
 		/// <summary>The original http response. Only available if the http response message could not be read as a valid BotRequest.</summary>

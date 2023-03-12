@@ -6,19 +6,19 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents a chat member that owns the chat and has all administrator privileges.</summary>
+	/// <summary>Represents a chat member that owns the chat and has all administrator privileges.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class ChatMemberOwner : ChatMember, IEquatable<ChatMemberOwner>
 	{
-		///<summary>The member's status in the chat, always “creator”.</summary>
+		/// <summary>The member's status in the chat, always “creator”.</summary>
 		[JsonPropertyName(PropertyNames.Status)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Status => ChatMemberStatus.Creator;
-		///<summary>Custom title for this user.</summary>
+		/// <summary>Custom title for this user.</summary>
 		[JsonPropertyName(PropertyNames.CustomTitle)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string CustomTitle { get; set; }
-		///<summary>True, if the user's presence in the chat is hidden.</summary>
+		/// <summary>True, if the user's presence in the chat is hidden.</summary>
 		[JsonPropertyName(PropertyNames.IsAnonymous)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool IsAnonymous { get; set; }

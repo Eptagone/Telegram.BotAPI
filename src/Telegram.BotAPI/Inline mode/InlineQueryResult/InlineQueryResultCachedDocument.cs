@@ -27,7 +27,7 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Description)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Description { get; set; }
-		///<summary>Optional. Caption of the document to be sent, 0-1024 characters.</summary>
+		/// <summary>Optional. Caption of the document to be sent, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }

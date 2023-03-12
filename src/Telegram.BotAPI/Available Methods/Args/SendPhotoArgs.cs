@@ -52,11 +52,11 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.Photo = photo;
 		}
 
-		///<summary>InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</summary>
+		/// <summary>InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</summary>
 		[JsonPropertyName(PropertyNames.Photo)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object Photo { get; }
-		///<summary>Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</summary>
+		/// <summary>Optional. Photo caption (may also be used when resending photos by file_id), 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }

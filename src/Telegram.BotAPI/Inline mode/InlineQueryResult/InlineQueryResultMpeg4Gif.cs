@@ -15,7 +15,7 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Type)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Type => InlineQueryResultType.Mpeg4Gif;
-		///<summary>A valid URL for the MP4 file. File size must not exceed 1MB.</summary>
+		/// <summary>A valid URL for the MP4 file. File size must not exceed 1MB.</summary>
 		[JsonPropertyName(PropertyNames.Mpeg4Url)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Mpeg4Url { get; set; }
@@ -23,27 +23,27 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Mpeg4Width)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public int Mpeg4Width { get; set; }
-		///<summary>Optional. Video height.</summary>
+		/// <summary>Optional. Video height.</summary>
 		[JsonPropertyName(PropertyNames.Mpeg4Height)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public int Mpeg4Height { get; set; }
-		///<summary>Optional. Video height.</summary>
+		/// <summary>Optional. Video height.</summary>
 		[JsonPropertyName(PropertyNames.Mpeg4Duration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public int Mpeg4Duration { get; set; }
 		/// <summary>URL of the static (JPEG or GIF) or animated (MPEG4) thumbnail for the result.</summary>
-		[JsonPropertyName(PropertyNames.ThumbUrl)]
+		[JsonPropertyName(PropertyNames.ThumbnailUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string ThumbUrl { get; set; }
+		public string ThumbnailUrl { get; set; }
 		/// <summary>Optional. MIME type of the thumbnail, must be one of “image/jpeg”, “image/gif”, or “video/mp4”. Defaults to “image/jpeg”.</summary>
-		[JsonPropertyName(PropertyNames.ThumbMimeType)]
+		[JsonPropertyName(PropertyNames.ThumbnailMimeType)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string? ThumbMimeType { get; set; }
+		public string? ThumbnailMimeType { get; set; }
 		/// <summary>Optional. Title of the result.</summary>
 		[JsonPropertyName(PropertyNames.Title)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Title { get; set; }
-		///<summary>Optional. Caption of the MPEG-4 file to be sent, 0-1024 characters.</summary>
+		/// <summary>Optional. Caption of the MPEG-4 file to be sent, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }
@@ -69,8 +69,8 @@ namespace Telegram.BotAPI.InlineMode
 				   this.Mpeg4Width == other.Mpeg4Width &&
 				   this.Mpeg4Height == other.Mpeg4Height &&
 				   this.Mpeg4Duration == other.Mpeg4Duration &&
-				   this.ThumbUrl == other.ThumbUrl &&
-				   this.ThumbMimeType == other.ThumbMimeType &&
+				   this.ThumbnailUrl == other.ThumbnailUrl &&
+				   this.ThumbnailMimeType == other.ThumbnailMimeType &&
 				   this.Title == other.Title &&
 				   this.Caption == other.Caption &&
 				   EqualityComparer<InputMessageContent?>.Default.Equals(this.InputMessageContent, other.InputMessageContent);
@@ -88,8 +88,8 @@ namespace Telegram.BotAPI.InlineMode
 			hashCode = hashCode * -1521134295 + this.Mpeg4Width.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.Mpeg4Height.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.Mpeg4Duration.GetHashCode();
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbUrl);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ThumbMimeType);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ThumbnailMimeType);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Title);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Caption);
 			hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent?>.Default.GetHashCode(this.InputMessageContent);

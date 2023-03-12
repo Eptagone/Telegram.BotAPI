@@ -23,11 +23,11 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Type)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Type => InlineQueryResultType.Audio;
-		///<summary>A valid URL for the audio file.</summary>
+		/// <summary>A valid URL for the audio file.</summary>
 		[JsonPropertyName(PropertyNames.AudioUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string AudioUrl { get; set; }
-		///<summary>Optional. Caption, 0-1024 characters.</summary>
+		/// <summary>Optional. Caption, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }

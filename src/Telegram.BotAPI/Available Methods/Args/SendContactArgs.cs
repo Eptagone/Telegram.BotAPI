@@ -36,7 +36,7 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
 		}
 
-		///<summary>Contact's phone number.</summary>
+		/// <summary>Contact's phone number.</summary>
 		[JsonPropertyName(PropertyNames.PhoneNumber)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string PhoneNumber { get; }

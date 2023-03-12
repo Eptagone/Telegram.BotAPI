@@ -15,15 +15,15 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Type)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Type => InlineQueryResultType.Voice;
-		///<summary>A valid URL for the voice recording.</summary>
+		/// <summary>A valid URL for the voice recording.</summary>
 		[JsonPropertyName(PropertyNames.VoiceUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string VoiceUrl { get; set; }
-		///<summary>Optional. Caption, 0-1024 characters.</summary>
+		/// <summary>Optional. Caption, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Caption { get; set; }
-		///<summary>Optional. Recording duration in seconds.</summary>
+		/// <summary>Optional. Recording duration in seconds.</summary>
 		[JsonPropertyName(PropertyNames.VoiceDuration)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? VoiceDuration { get; set; }

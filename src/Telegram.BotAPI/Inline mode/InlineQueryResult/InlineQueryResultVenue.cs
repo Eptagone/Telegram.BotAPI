@@ -23,27 +23,27 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonPropertyName(PropertyNames.Longitude)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public float Longitude { get; set; }
-		///<summary>Title of the venue.</summary>
+		/// <summary>Title of the venue.</summary>
 		[JsonPropertyName(PropertyNames.Title)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Title { get; set; }
-		///<summary>Address of the venue.</summary>
+		/// <summary>Address of the venue.</summary>
 		[JsonPropertyName(PropertyNames.Address)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Address { get; set; }
-		///<summary>Optional. Foursquare identifier of the venue if known.</summary>
+		/// <summary>Optional. Foursquare identifier of the venue if known.</summary>
 		[JsonPropertyName(PropertyNames.FoursquareId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string FoursquareId { get; set; }
-		///<summary>Optional. Foursquare type of the venue, if known. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)</summary>
+		/// <summary>Optional. Foursquare type of the venue, if known. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)</summary>
 		[JsonPropertyName(PropertyNames.FoursquareType)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string FoursquareType { get; set; }
-		///<summary>Optional. Google Places identifier of the venue.</summary>
+		/// <summary>Optional. Google Places identifier of the venue.</summary>
 		[JsonPropertyName(PropertyNames.GooglePlaceId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string GooglePlaceId { get; set; }
-		///<summary>Optional. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</summary>
+		/// <summary>Optional. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</summary>
 		[JsonPropertyName(PropertyNames.GooglePlaceType)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string GooglePlaceType { get; set; }
@@ -52,17 +52,17 @@ namespace Telegram.BotAPI.InlineMode
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public InputMessageContent InputMessageContent { get; set; }
 		/// <summary>Optional. Url of the thumbnail for the result.</summary>
-		[JsonPropertyName(PropertyNames.ThumbUrl)]
+		[JsonPropertyName(PropertyNames.ThumbnailUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string ThumbUrl { get; set; }
+		public string ThumbnailUrl { get; set; }
 		/// <summary>Optional. Thumbnail width.</summary>
-		[JsonPropertyName(PropertyNames.ThumbWidth)]
+		[JsonPropertyName(PropertyNames.ThumbnailWidth)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public uint? ThumbWidth { get; set; }
+		public uint? ThumbnailWidth { get; set; }
 		/// <summary>Optional. Thumbnail height.</summary>
-		[JsonPropertyName(PropertyNames.ThumbHeight)]
+		[JsonPropertyName(PropertyNames.ThumbnailHeight)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public uint? ThumbHeight { get; set; }
+		public uint? ThumbnailHeight { get; set; }
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{
@@ -84,9 +84,9 @@ namespace Telegram.BotAPI.InlineMode
 				   this.GooglePlaceId == other.GooglePlaceId &&
 				   this.GooglePlaceType == other.GooglePlaceType &&
 				   EqualityComparer<InputMessageContent>.Default.Equals(this.InputMessageContent, other.InputMessageContent) &&
-				   this.ThumbUrl == other.ThumbUrl &&
-				   this.ThumbWidth == other.ThumbWidth &&
-				   this.ThumbHeight == other.ThumbHeight;
+				   this.ThumbnailUrl == other.ThumbnailUrl &&
+				   this.ThumbnailWidth == other.ThumbnailWidth &&
+				   this.ThumbnailHeight == other.ThumbnailHeight;
 		}
 		/// <inheritdoc/>
 		public override int GetHashCode()
@@ -104,9 +104,9 @@ namespace Telegram.BotAPI.InlineMode
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.GooglePlaceId);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.GooglePlaceType);
 			hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent>.Default.GetHashCode(this.InputMessageContent);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbUrl);
-			hashCode = hashCode * -1521134295 + this.ThumbWidth.GetHashCode();
-			hashCode = hashCode * -1521134295 + this.ThumbHeight.GetHashCode();
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
+			hashCode = hashCode * -1521134295 + this.ThumbnailWidth.GetHashCode();
+			hashCode = hashCode * -1521134295 + this.ThumbnailHeight.GetHashCode();
 			return hashCode;
 		}
 		/// <inheritdoc/>

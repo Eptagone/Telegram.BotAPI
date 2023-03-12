@@ -6,15 +6,15 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>Represents a chat member that was banned in the chat and can't return to the chat or view chat messages.</summary>
+	/// <summary>Represents a chat member that was banned in the chat and can't return to the chat or view chat messages.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class ChatMemberBanned : ChatMember, IEquatable<ChatMemberBanned>
 	{
-		///<summary>The member's status in the chat, always “kicked”.</summary>
+		/// <summary>The member's status in the chat, always “kicked”.</summary>
 		[JsonPropertyName(PropertyNames.Status)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Status => ChatMemberStatus.Kicked;
-		///<summary>Date when restrictions will be lifted for this user; unix time.</summary>
+		/// <summary>Date when restrictions will be lifted for this user; unix time.</summary>
 		[JsonPropertyName(PropertyNames.UntilDate)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint UntilDate { get; set; }

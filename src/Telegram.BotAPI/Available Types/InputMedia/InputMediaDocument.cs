@@ -18,27 +18,29 @@ namespace Telegram.BotAPI.AvailableTypes
 		{
 		}
 
-		///<summary>Type of the result, must be document.</summary>
+		/// <summary>Type of the result, must be document.</summary>
 		[JsonPropertyName(PropertyNames.Type)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string Type => InputMediaType.Document;
-		///<summary>Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.</summary>
-		[JsonPropertyName(PropertyNames.Thumb)]
+		/// <summary>Optional. Thumbnail of the file sent. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail‘s width and height should not exceed 90. Ignored if the file is not uploaded using multipart/form-data.</summary>
+		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string? Thumb { get; set; }
-		///<summary>Optional. Caption of the document to be sent, 0-1024 characters.</summary>
+		public string? Thumbnail { get; set; }
+		/// <summary>Optional. Caption of the document to be sent, 0-1024 characters.</summary>
 		[JsonPropertyName(PropertyNames.Caption)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public override string? Caption { get; set; }
-		///<summary>Optional. Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always true, if the document is sent as part of an album.</summary>
+		/// <summary>Optional. Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always true, if the document is sent as part of an album.</summary>
 		[JsonPropertyName(PropertyNames.DisableContentTypeDetection)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? DisableContentTypeDetection { get; set; }
+		
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{
 			return this.Equals(obj as InputMediaDocument);
 		}
+
 		/// <inheritdoc/>
 		public bool Equals(InputMediaDocument? other)
 		{
@@ -46,11 +48,12 @@ namespace Telegram.BotAPI.AvailableTypes
 				   this.Media == other.Media &&
 				   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
 				   this.Type == other.Type &&
-				   this.Thumb == other.Thumb &&
+				   this.Thumbnail == other.Thumbnail &&
 				   this.Caption == other.Caption &&
 				   this.ParseMode == other.ParseMode &&
 				   this.DisableContentTypeDetection == other.DisableContentTypeDetection;
 		}
+
 		/// <inheritdoc/>
 		public override int GetHashCode()
 		{
@@ -58,22 +61,23 @@ namespace Telegram.BotAPI.AvailableTypes
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Media);
 			hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.CaptionEntities);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Thumb);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Thumbnail);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Caption);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ParseMode);
 			hashCode = hashCode * -1521134295 + this.DisableContentTypeDetection.GetHashCode();
 			return hashCode;
 		}
+
 		/// <inheritdoc/>
 		public static bool operator ==(InputMediaDocument? left, InputMediaDocument? right)
 		{
 			return EqualityComparer<InputMediaDocument>.Default.Equals(left!, right!);
 		}
+
 		/// <inheritdoc/>
 		public static bool operator !=(InputMediaDocument? left, InputMediaDocument? right)
 		{
 			return !(left == right);
 		}
-
 	}
 }

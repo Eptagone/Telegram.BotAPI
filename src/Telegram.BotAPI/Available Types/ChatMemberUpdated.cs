@@ -6,31 +6,31 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes
 {
-	///<summary>This object represents changes in the status of a chat member.</summary>
+	/// <summary>This object represents changes in the status of a chat member.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public sealed class ChatMemberUpdated : IEquatable<ChatMemberUpdated>
 	{
-		///<summary>Chat the user belongs to.</summary>
+		/// <summary>Chat the user belongs to.</summary>
 		[JsonPropertyName(PropertyNames.Chat)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public Chat Chat { get; set; }
-		///<summary>Performer of the action, which resulted in the change.</summary>
+		/// <summary>Performer of the action, which resulted in the change.</summary>
 		[JsonPropertyName(PropertyNames.From)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public User From { get; set; }
-		///<summary>Date the change was done in Unix time.</summary>
+		/// <summary>Date the change was done in Unix time.</summary>
 		[JsonPropertyName(PropertyNames.Date)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint Date { get; set; }
-		///<summary>Previous information about the chat member.</summary>
+		/// <summary>Previous information about the chat member.</summary>
 		[JsonPropertyName(PropertyNames.OldChatMember)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ChatMember OldChatMember { get; set; }
-		///<summary>New information about the chat member.</summary>
+		/// <summary>New information about the chat member.</summary>
 		[JsonPropertyName(PropertyNames.NewChatMember)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ChatMember NewChatMember { get; set; }
-		///<summary>Optional. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.</summary>
+		/// <summary>Optional. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.</summary>
 		[JsonPropertyName(PropertyNames.InviteLink)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ChatInviteLink InviteLink { get; set; }
