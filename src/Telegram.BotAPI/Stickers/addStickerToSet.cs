@@ -1,8 +1,10 @@
 // Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Stickers
 {
@@ -60,12 +62,16 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="userId">User identifier of sticker set owner.</param>
 		/// <param name="name">Sticker set name.</param>
 		/// <param name="sticker">A <see cref="InputSticker"/> object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.</param>
+		/// <param name="attachedFiles">Optional. A <see cref="AttachedFile"/> list of files to attach to the request.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static bool AddStickerToSet(this BotClient? api, int userId, string name, InputSticker sticker)
+		public static bool AddStickerToSet(this BotClient? api, long userId, string name, InputSticker sticker, [Optional] IEnumerable<AttachedFile>? attachedFiles)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
-			var args = new AddStickerToSetArgs(userId, name, sticker);
+			var args = new AddStickerToSetArgs(userId, name, sticker)
+			{
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
+			};
 			return api.RPCF<bool>(MethodNames.AddStickerToSet, args);
 		}
 
@@ -76,13 +82,16 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="userId">User identifier of sticker set owner.</param>
 		/// <param name="name">Sticker set name.</param>
 		/// <param name="sticker">A <see cref="InputSticker"/> object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.</param>
+		/// <param name="attachedFiles">Optional. A <see cref="AttachedFile"/> list of files to attach to the request.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<bool> AddStickerToSetAsync(this BotClient? api, int userId, string name, InputSticker sticker, [Optional] CancellationToken cancellationToken)
+		public static async Task<bool> AddStickerToSetAsync(this BotClient? api, long userId, string name, InputSticker sticker, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
-			var args = new AddStickerToSetArgs(userId, name, sticker);
+			var args = new AddStickerToSetArgs(userId, name, sticker) {
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
+			};
 			return await api.RPCAF<bool>(MethodNames.AddStickerToSet, args, cancellationToken).ConfigureAwait(false);
 		}
 	}

@@ -3,6 +3,7 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Linq;
 using Telegram.BotAPI.AvailableTypes;
 
 
@@ -52,7 +53,9 @@ namespace Telegram.BotAPI.AvailableMethods
 			this.Photo = photo;
 		}
 
-		/// <summary>InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.</summary>
+		/// <summary>
+		/// InputFile or String. Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data.
+		/// </summary>
 		[JsonPropertyName(PropertyNames.Photo)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object Photo { get; }
@@ -75,6 +78,10 @@ namespace Telegram.BotAPI.AvailableMethods
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? HasSpoiler { get; set; }
 
+		/// <inheritdoc />
+		[System.Text.Json.Serialization.JsonIgnore]
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
+
 		bool IMultipartForm.UseMultipart()
 		{
 			if (this.Photo != default)
@@ -85,7 +92,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				}
 			}
 
-			return false;
+			return AttachedFiles.Any();
 		}
 	}
 }

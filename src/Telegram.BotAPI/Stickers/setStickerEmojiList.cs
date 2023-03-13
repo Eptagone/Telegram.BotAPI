@@ -32,10 +32,10 @@ namespace Telegram.BotAPI.Stickers
 			json.WriteStartObject();
 			json.WriteString(PropertyNames.Sticker, sticker ?? throw new ArgumentNullException(nameof(sticker)));
 			json.WriteStartArray(PropertyNames.EmojiList);
-            foreach (var emoji in emojiList)
-            {
-                json.WriteStringValue(emoji ?? throw new ArgumentNullException(nameof(emojiList), "Emojis cannot be null or empty"));
-            }
+			foreach (var emoji in emojiList)
+			{
+				json.WriteStringValue(emoji ?? throw new ArgumentNullException(nameof(emojiList), "Emojis cannot be null or empty"));
+			}
 			json.WriteEndArray();
 			json.WriteEndObject();
 			json.Flush(); json.Dispose();

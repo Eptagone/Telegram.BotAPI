@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
 	/// <summary>SendVideoNote method arguments.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public class SendVideoNoteArgs : SendMessageWithReplyMarkupBase, IAttachFiles
+	public class SendVideoNoteArgs : SendMessageWithReplyMarkupBase, IMultipartForm
 	{
 		/// <summary>
 		/// Initialize a new instance of <see cref="SendVideoNoteArgs"/>.
@@ -73,10 +73,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object? Thumbnail { get; set; }
 
-		/// <summary>Attached files.</summary>
+		/// <inheritdoc />
 		[System.Text.Json.Serialization.JsonIgnore]
-		[Newtonsoft.Json.JsonIgnore]
-		public ICollection<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
 
 		bool IMultipartForm.UseMultipart()
 		{

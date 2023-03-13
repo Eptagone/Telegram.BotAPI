@@ -3,6 +3,7 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Linq;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Stickers
@@ -40,14 +41,11 @@ namespace Telegram.BotAPI.Stickers
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public InputSticker Sticker { get; }
 
-		bool IMultipartForm.UseMultipart()
-		{
-			if (this.Sticker.Sticker is InputFile)
-			{
-				return true;
-			}
+		/// <inheritdoc />
+		[System.Text.Json.Serialization.JsonIgnore]
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
 
-			return false;
-		}
+		/// <inheritdoc />
+		bool IMultipartForm.UseMultipart() => this.AttachedFiles.Any();
 	}
 }

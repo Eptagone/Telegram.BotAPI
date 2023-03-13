@@ -14,16 +14,16 @@ namespace Telegram.BotAPI.Stickers
 		/// <summary>
 		/// Initializes a new instance of the <see cref="StickerSet"/> class.
 		/// </summary>
-        public StickerSet()
-        {
+		public StickerSet()
+		{
 			this.Name = null!;
 			this.Title = null!;
 			this.StickerType = null!;
 			this.Stickers = null!;
-        }
+		}
 
-        /// <summary>Sticker set name.</summary>
-        [JsonPropertyName(PropertyNames.Name)]
+		/// <summary>Sticker set name.</summary>
+		[JsonPropertyName(PropertyNames.Name)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Name { get; set; }
 		/// <summary>Sticker set title.</summary>

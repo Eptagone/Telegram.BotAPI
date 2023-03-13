@@ -3,6 +3,7 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Linq;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Stickers
@@ -63,6 +64,10 @@ namespace Telegram.BotAPI.Stickers
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string? Emoji { get; set; }
 
+		/// <inheritdoc />
+		[System.Text.Json.Serialization.JsonIgnore]
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
+
 		bool IMultipartForm.UseMultipart()
 		{
 			if (this.Sticker != default)
@@ -73,7 +78,7 @@ namespace Telegram.BotAPI.Stickers
 				}
 			}
 
-			return false;
+			return this.AttachedFiles.Any();
 		}
 	}
 }

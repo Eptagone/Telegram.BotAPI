@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
 	/// <summary>SendVideo method arguments.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public class SendVideoArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IMultipartForm
+	public class SendVideoArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IMultipartForm
 	{
 		/// <summary>Initialize a new instance of <see cref="SendVideoArgs"/>.</summary>
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
@@ -103,12 +103,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? SupportsStreaming { get; set; }
 
-		/// <summary>
-		/// Attached files.
-		/// </summary>
+		/// <inheritdoc />
 		[System.Text.Json.Serialization.JsonIgnore]
-		[Newtonsoft.Json.JsonIgnore]
-		public ICollection<AttachedFile>? AttachedFiles { get; set; }
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
 
 		bool IMultipartForm.UseMultipart()
 		{

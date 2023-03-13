@@ -3,6 +3,7 @@
 
 using System.Threading;
 using System.Threading.Tasks;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Stickers
 {
@@ -64,15 +65,17 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”.</param>
 		/// <param name="stickerType">Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.</param>
 		/// <param name="needsRepainting">Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only.</param>
+		/// <param name="attachedFiles">Optional. A <see cref="AttachedFile"/> list of files to attach to the request.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static bool CreateNewStickerSet(this BotClient? api, int userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting)
+		public static bool CreateNewStickerSet(this BotClient? api, long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting, [Optional] IEnumerable<AttachedFile>? attachedFiles)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CreateNewStickerSetArgs(userId, name, title, stickers, stickerFormat)
 			{
 				StickerType = stickerType,
-				NeedsRepainting = needsRepainting
+				NeedsRepainting = needsRepainting,
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
 			return api.RPCF<bool>(MethodNames.CreateNewStickerSet, args);
 		}
@@ -88,16 +91,18 @@ namespace Telegram.BotAPI.Stickers
 		/// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”.</param>
 		/// <param name="stickerType">Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.</param>
 		/// <param name="needsRepainting">Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only.</param>
+		/// <param name="attachedFiles">Optional. A <see cref="AttachedFile"/> list of files to attach to the request.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<bool> CreateNewStickerSetAsync(this BotClient? api, int userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting, [Optional] CancellationToken cancellationToken)
+		public static async Task<bool> CreateNewStickerSetAsync(this BotClient? api, long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new CreateNewStickerSetArgs(userId, name, title, stickers, stickerFormat)
 			{
 				StickerType = stickerType,
-				NeedsRepainting = needsRepainting
+				NeedsRepainting = needsRepainting,
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
 			return await api.RPCAF<bool>(MethodNames.CreateNewStickerSet, args, cancellationToken).ConfigureAwait(false);
 		}

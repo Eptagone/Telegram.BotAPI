@@ -3,7 +3,6 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Stickers
 {
@@ -24,29 +23,17 @@ namespace Telegram.BotAPI.Stickers
 			this.Sticker = sticker ?? throw new ArgumentNullException(nameof(sticker));
 			this.EmojiList = emojiList ?? throw new ArgumentNullException(nameof(emojiList));
 		}
-		
-		/// <summary>
-		/// Initialize a new instance of <see cref="InputSticker"/>.
-		/// </summary>
-		/// <param name="sticker">The added sticker. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. Animated and video stickers can't be uploaded via HTTP URL. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-		/// <param name="emojiList">List of 1-20 emoji associated with the sticker</param>
-		/// <exception cref="ArgumentNullException"></exception>
-		public InputSticker(InputFile sticker, IEnumerable<string> emojiList)
-		{
-			this.Sticker = sticker ?? throw new ArgumentNullException(nameof(sticker));
-			this.EmojiList = emojiList ?? throw new ArgumentNullException(nameof(emojiList));
-		}
 
 		/// <summary>
 		/// The added sticker. Pass a file_id as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. Animated and video stickers can't be uploaded via HTTP URL. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
 		/// </summary>
 		[JsonPropertyName(PropertyNames.Sticker)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public object Sticker { get; }
+		public string Sticker { get; }
 		/// <summary>
 		/// List of 1-20 emoji associated with the sticker
 		/// </summary>
-        [JsonPropertyName(PropertyNames.EmojiList)]
+		[JsonPropertyName(PropertyNames.EmojiList)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public IEnumerable<string> EmojiList { get; }
 		/// <summary>

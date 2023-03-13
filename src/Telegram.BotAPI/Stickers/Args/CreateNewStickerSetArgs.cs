@@ -3,12 +3,14 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Linq;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Stickers
 {
 	/// <summary>CreateNewStickerSet method arguments.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public class CreateNewStickerSetArgs
+	public class CreateNewStickerSetArgs : IMultipartForm
 	{
 		/// <summary>
 		/// Initialize a new instance of <see cref="CreateNewStickerSetArgs"/>.
@@ -70,5 +72,12 @@ namespace Telegram.BotAPI.Stickers
 		[JsonPropertyName(PropertyNames.NeedsRepainting)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? NeedsRepainting { get; set; }
+
+		/// <inheritdoc />
+		[System.Text.Json.Serialization.JsonIgnore]
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
+
+		/// <inheritdoc />
+		public bool UseMultipart() => this.AttachedFiles.Any();
 	}
 }

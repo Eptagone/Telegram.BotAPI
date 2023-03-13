@@ -11,7 +11,8 @@ namespace Telegram.BotAPI.AvailableTypes
 	public sealed class BotCommand : IEquatable<BotCommand>
 	{
 		/// <summary>New Bot Command</summary>
-		public BotCommand() {
+		public BotCommand()
+		{
 			this.Command = null!;
 			this.Description = null!;
 		}

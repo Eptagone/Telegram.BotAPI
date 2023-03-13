@@ -119,7 +119,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				ReplyToMessageId = replyToMessageId,
 				AllowSendingWithoutReply = allowSendingWithoutReply,
 				ReplyMarkup = replyMarkup,
-				AttachedFiles = attachedFiles == null ? new List<AttachedFile>() : new List<AttachedFile>(attachedFiles)
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
 			return api.RPCF<Message>(MethodNames.SendVideoNote, args);
 		}
@@ -191,7 +191,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				ReplyToMessageId = replyToMessageId,
 				AllowSendingWithoutReply = allowSendingWithoutReply,
 				ReplyMarkup = replyMarkup,
-				AttachedFiles = attachedFiles == null ? new List<AttachedFile>() : new List<AttachedFile>(attachedFiles)
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
 			return api.RPCF<Message>(MethodNames.SendVideoNote, args);
 		}
@@ -265,7 +265,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				ReplyToMessageId = replyToMessageId,
 				AllowSendingWithoutReply = allowSendingWithoutReply,
 				ReplyMarkup = replyMarkup,
-				AttachedFiles = attachedFiles == null ? new List<AttachedFile>() : new List<AttachedFile>(attachedFiles)
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
 			return await api.RPCAF<Message>(MethodNames.SendVideoNote, args, cancellationToken).ConfigureAwait(false);
 		}
@@ -339,7 +339,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				ReplyToMessageId = replyToMessageId,
 				AllowSendingWithoutReply = allowSendingWithoutReply,
 				ReplyMarkup = replyMarkup,
-				AttachedFiles = attachedFiles == null ? new List<AttachedFile>() : new List<AttachedFile>(attachedFiles)
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
 			return await api.RPCAF<Message>(MethodNames.SendVideoNote, args, cancellationToken).ConfigureAwait(false);
 		}

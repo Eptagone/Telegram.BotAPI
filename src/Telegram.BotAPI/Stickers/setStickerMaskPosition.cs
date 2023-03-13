@@ -1,8 +1,6 @@
 // Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System.IO;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -47,7 +45,7 @@ namespace Telegram.BotAPI.Stickers
 			return await api.RPCA<bool>(MethodNames.SetStickerMaskPosition, args, cancellationToken)
 				.ConfigureAwait(false);
 		}
-		
+
 		/// <summary>
 		/// Use this method to change the mask position of a mask sticker. The sticker must belong to a sticker set that was created by the bot. Returns True on success.
 		/// </summary>

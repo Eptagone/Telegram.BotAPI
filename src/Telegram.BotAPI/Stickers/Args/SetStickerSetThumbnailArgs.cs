@@ -3,6 +3,7 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Linq;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.Stickers
@@ -38,14 +39,18 @@ namespace Telegram.BotAPI.Stickers
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object? Thumbnail { get; set; }
 
+		/// <inheritdoc />
+		[System.Text.Json.Serialization.JsonIgnore]
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
+
 		bool IMultipartForm.UseMultipart()
 		{
-            if (this.Thumbnail != default && this.Thumbnail.GetType() == typeof(InputFile))
+			if (this.Thumbnail != default && this.Thumbnail.GetType() == typeof(InputFile))
 			{
 				return true;
 			}
 
-			return false;
+			return this.AttachedFiles.Any();
 		}
 	}
 }

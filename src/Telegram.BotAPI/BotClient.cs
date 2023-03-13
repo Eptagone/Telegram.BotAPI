@@ -25,38 +25,38 @@ namespace Telegram.BotAPI
 
 		/// <summary>Initialize a Telegram Bot Client.</summary>
 		/// <param name="botToken">Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</param>
-		/// <param name="httpClient">Provide a specific HttpClient for this instance of BotClient.</param>
+		/// <param name="httpClient">Optional. Provide a specific HttpClient for this instance of BotClient.</param>
+		/// <param name="serverAddress">Optional. The server address to connect to. Default value is "https://api.telegram.org". Change this parameter if you're using a <a href="https://core.telegram.org/bots/api#using-a-local-bot-api-server">Local Bot API Server</a>.
 		/// <exception cref="ArgumentNullException">Thrown when accessToken is null or empty.</exception>
-		public BotClient(string botToken, [Optional] HttpClient httpClient)
+		public BotClient(string botToken, [Optional] HttpClient? httpClient, string serverAddress = "https://api.telegram.org")
 		{
-			if (string.IsNullOrEmpty(botToken))
-			{
-				throw new ArgumentNullException(nameof(botToken));
-			}
-			this.Token = botToken;
-			if (httpClient == default)
-			{
-				this.httpClient = DefaultHttpClient ?? SetHttpClient();
-			}
-			else
-			{
-				this.httpClient = AddJsonMultipart(httpClient);
-			}
+			this.Token = botToken ?? throw new ArgumentNullException(nameof(botToken));
+			this.httpClient = AddJsonMultipart(httpClient) ?? DefaultHttpClient ?? SetHttpClient();
+			this.ServerAddress = serverAddress ?? throw new ArgumentNullException(nameof(serverAddress));
 		}
 
 		/// <summary>Initialize a Telegram Bot Client.</summary>
 		/// <param name="botToken">Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</param>
 		/// <param name="ignoreBotExceptions">Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.</param>
-		/// <param name="httpClient">Provide a specific HttpClient for this instance of BotClient.</param>
+		/// <param name="httpClient">Optional. Provide a specific HttpClient for this instance of BotClient.</param>
+		/// <param name="serverAddress">Optional. The server address to connect to. Default value is "https://api.telegram.org". Change this parameter if you're using a <a href="https://core.telegram.org/bots/api#using-a-local-bot-api-server">Local Bot API Server</a>.
 		/// <exception cref="ArgumentNullException">Thrown when accessToken is null or empty.</exception>
-		public BotClient(string botToken, bool ignoreBotExceptions, [Optional] HttpClient httpClient) : this(botToken, httpClient)
+		public BotClient(string botToken, bool ignoreBotExceptions, [Optional] HttpClient httpClient, string serverAddress = "https://api.telegram.org") : this(botToken, httpClient, serverAddress)
 		{
 			this.IgnoreBotExceptions = ignoreBotExceptions;
 		}
 
-		/// <summary>Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</summary>
+		/// <summary>
+		/// Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.
+		/// </summary>
 		public string Token { get; }
-		/// <summary>Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.</summary>
+		/// <summary>
+		/// Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.
+		/// </summary>
 		public bool IgnoreBotExceptions { get; }
+		/// <summary>
+		/// The server address to send bot request. Default value is "https://api.telegram.org".
+		/// </summary>
+		public string ServerAddress { get; }
 	}
 }

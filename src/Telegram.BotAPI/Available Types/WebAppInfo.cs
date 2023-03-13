@@ -13,21 +13,21 @@ namespace Telegram.BotAPI.AvailableTypes
 		/// <summary>
 		/// Initialize a new instance of the <see cref="WebAppInfo"/> class.
 		/// </summary>
-        public WebAppInfo()
-        {
+		public WebAppInfo()
+		{
 			this.Url = null!;
-        }
+		}
 		/// <summary>
 		/// Initialize a new instance of the <see cref="WebAppInfo"/> class.
 		/// </summary>
 		/// <param name="url">An HTTPS URL of a Web App to be opened with additional data as specified in Initializing Web Apps.</param>
-        public WebAppInfo(string url)
-        {
+		public WebAppInfo(string url)
+		{
 			this.Url = url ?? throw new ArgumentNullException(nameof(url));
-        }
+		}
 
-        /// <summary>An HTTPS URL of a Web App to be opened with additional data as specified in Initializing Web Apps.</summary>
-        [JsonPropertyName(PropertyNames.Url)]
+		/// <summary>An HTTPS URL of a Web App to be opened with additional data as specified in Initializing Web Apps.</summary>
+		[JsonPropertyName(PropertyNames.Url)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Url { get; set; }
 

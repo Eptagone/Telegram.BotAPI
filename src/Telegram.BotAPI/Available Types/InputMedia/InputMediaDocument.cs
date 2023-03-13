@@ -34,7 +34,7 @@ namespace Telegram.BotAPI.AvailableTypes
 		[JsonPropertyName(PropertyNames.DisableContentTypeDetection)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? DisableContentTypeDetection { get; set; }
-		
+
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{

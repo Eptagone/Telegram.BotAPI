@@ -62,9 +62,10 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the messages are a reply, ID of the original message.</param>
 		/// <param name="allowSendingWithoutReply">Pass True if the message should be sent even if the specified replied-to message is not found.</param>
+		/// <param name="attachedFiles">Attached files.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message[] SendMediaGroup(this BotClient? api, long chatId, IEnumerable<InputMedia> media, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply)
+		public static Message[] SendMediaGroup(this BotClient? api, long chatId, IEnumerable<InputMedia> media, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] IEnumerable<AttachedFile>? attachedFiles)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendMediaGroupArgs(chatId, media)
@@ -73,9 +74,10 @@ namespace Telegram.BotAPI.AvailableMethods
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
-				AllowSendingWithoutReply = allowSendingWithoutReply
+				AllowSendingWithoutReply = allowSendingWithoutReply,
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
-			return api.RPC<Message[]>(MethodNames.SendMediaGroup, args);
+			return api.RPCF<Message[]>(MethodNames.SendMediaGroup, args);
 		}
 
 		/// <summary>
@@ -89,9 +91,10 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the messages are a reply, ID of the original message.</param>
 		/// <param name="allowSendingWithoutReply">Pass True if the message should be sent even if the specified replied-to message is not found.</param>
+		/// <param name="attachedFiles">Attached files.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static Message[] SendMediaGroup(this BotClient? api, string chatId, IEnumerable<InputMedia> media, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply)
+		public static Message[] SendMediaGroup(this BotClient? api, string chatId, IEnumerable<InputMedia> media, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] IEnumerable<AttachedFile>? attachedFiles)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendMediaGroupArgs(chatId, media)
@@ -100,9 +103,10 @@ namespace Telegram.BotAPI.AvailableMethods
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
-				AllowSendingWithoutReply = allowSendingWithoutReply
+				AllowSendingWithoutReply = allowSendingWithoutReply,
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
-			return api.RPC<Message[]>(MethodNames.SendMediaGroup, args);
+			return api.RPCF<Message[]>(MethodNames.SendMediaGroup, args);
 		}
 
 		/// <summary>
@@ -116,10 +120,11 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the messages are a reply, ID of the original message.</param>
 		/// <param name="allowSendingWithoutReply">Pass True if the message should be sent even if the specified replied-to message is not found.</param>
+		/// <param name="attachedFiles">Attached files.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message[]> SendMediaGroupAsync(this BotClient? api, long chatId, IEnumerable<InputMedia> media, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message[]> SendMediaGroupAsync(this BotClient? api, long chatId, IEnumerable<InputMedia> media, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendMediaGroupArgs(chatId, media)
@@ -128,9 +133,10 @@ namespace Telegram.BotAPI.AvailableMethods
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
-				AllowSendingWithoutReply = allowSendingWithoutReply
+				AllowSendingWithoutReply = allowSendingWithoutReply,
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
-			return await api.RPCA<Message[]>(MethodNames.SendMediaGroup, args, cancellationToken).ConfigureAwait(false);
+			return await api.RPCAF<Message[]>(MethodNames.SendMediaGroup, args, cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>
@@ -144,10 +150,11 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving.</param>
 		/// <param name="replyToMessageId">If the messages are a reply, ID of the original message.</param>
 		/// <param name="allowSendingWithoutReply">Pass True if the message should be sent even if the specified replied-to message is not found.</param>
+		/// <param name="attachedFiles">Attached files.</param>
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<Message[]> SendMediaGroupAsync(this BotClient? api, string chatId, IEnumerable<InputMedia> media, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] CancellationToken cancellationToken)
+		public static async Task<Message[]> SendMediaGroupAsync(this BotClient? api, string chatId, IEnumerable<InputMedia> media, [Optional] int? messageThreadId, [Optional] bool? disableNotification, [Optional] bool? protectContent, [Optional] int? replyToMessageId, [Optional] bool? allowSendingWithoutReply, [Optional] IEnumerable<AttachedFile>? attachedFiles, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new SendMediaGroupArgs(chatId, media)
@@ -156,9 +163,10 @@ namespace Telegram.BotAPI.AvailableMethods
 				DisableNotification = disableNotification,
 				ProtectContent = protectContent,
 				ReplyToMessageId = replyToMessageId,
-				AllowSendingWithoutReply = allowSendingWithoutReply
+				AllowSendingWithoutReply = allowSendingWithoutReply,
+				AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
 			};
-			return await api.RPCA<Message[]>(MethodNames.SendMediaGroup, args, cancellationToken).ConfigureAwait(false);
+			return await api.RPCAF<Message[]>(MethodNames.SendMediaGroup, args, cancellationToken).ConfigureAwait(false);
 		}
 	}
 }

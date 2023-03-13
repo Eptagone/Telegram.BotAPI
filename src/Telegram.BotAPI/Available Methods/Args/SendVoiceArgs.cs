@@ -3,6 +3,7 @@
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Linq;
 using Telegram.BotAPI.AvailableTypes;
 
 
@@ -74,6 +75,10 @@ namespace Telegram.BotAPI.AvailableMethods
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public uint? Duration { get; set; }
 
+		/// <inheritdoc />
+		[System.Text.Json.Serialization.JsonIgnore]
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
+
 		/// <summary>Attached files.</summary>
 		bool IMultipartForm.UseMultipart()
 		{
@@ -85,7 +90,7 @@ namespace Telegram.BotAPI.AvailableMethods
 				}
 			}
 
-			return false;
+			return this.AttachedFiles.Any();
 		}
 	}
 }

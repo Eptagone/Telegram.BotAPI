@@ -1,7 +1,6 @@
 ﻿// Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Text.Json;

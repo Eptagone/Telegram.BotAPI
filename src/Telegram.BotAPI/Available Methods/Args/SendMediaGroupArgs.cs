@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
 	/// <summary>SendMediaGroud method arguments.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public class SendMediaGroupArgs : SendMessageBase, IAttachFiles
+	public class SendMediaGroupArgs : SendMessageBase, IMultipartForm
 	{
 		/// <summary>
 		/// Initialize a new instance of <see cref="SendMediaGroupArgs"/>.
@@ -36,9 +36,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public ICollection<InputMedia> Media { get; }
 
-		/// <summary>Attached files.</summary>
+		/// <inheritdoc />
 		[System.Text.Json.Serialization.JsonIgnore]
-		public ICollection<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
 
 		bool IMultipartForm.UseMultipart()
 		{

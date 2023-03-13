@@ -62,7 +62,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="untilDate">Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static bool RestrictChatMember(this BotClient api, long chatId, int userId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] uint? untilDate)
+		public static bool RestrictChatMember(this BotClient api, long chatId, long userId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] uint? untilDate)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new RestrictChatMemberArgs(chatId, userId, permissions)
@@ -84,7 +84,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="untilDate">Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static bool RestrictChatMember(this BotClient api, string chatId, int userId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] uint? untilDate)
+		public static bool RestrictChatMember(this BotClient api, string chatId, long userId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] uint? untilDate)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new RestrictChatMemberArgs(chatId, userId, permissions)
@@ -107,7 +107,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<bool> RestrictChatMemberAsync(this BotClient api, long chatId, int userId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] uint? untilDate, [Optional] CancellationToken cancellationToken)
+		public static async Task<bool> RestrictChatMemberAsync(this BotClient api, long chatId, long userId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] uint? untilDate, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new RestrictChatMemberArgs(chatId, userId, permissions)
@@ -130,7 +130,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 		/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-		public static async Task<bool> RestrictChatMemberAsync(this BotClient api, string chatId, int userId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] uint? untilDate, [Optional] CancellationToken cancellationToken)
+		public static async Task<bool> RestrictChatMemberAsync(this BotClient api, string chatId, long userId, ChatPermissions permissions, [Optional] bool? useIndependentChatPermissions, [Optional] uint? untilDate, [Optional] CancellationToken cancellationToken)
 		{
 			if (api == null) { throw new ArgumentNullException(nameof(api)); }
 			var args = new RestrictChatMemberArgs(chatId, userId, permissions)

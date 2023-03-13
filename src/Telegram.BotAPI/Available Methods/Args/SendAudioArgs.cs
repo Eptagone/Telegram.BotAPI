@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
 	/// <summary>SendAudio method arguments.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public class SendAudioArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IMultipartForm, IThumbnail<object>
+	public class SendAudioArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IMultipartForm, IThumbnail<object>
 	{
 		/// <summary>Initialize a new instance of <see cref="SendAudioArgs"/>.</summary>
 		/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
@@ -80,9 +80,10 @@ namespace Telegram.BotAPI.AvailableMethods
 		[JsonPropertyName(PropertyNames.Thumbnail)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public object? Thumbnail { get; set; }
-		/// <summary>Attached files.</summary>
+
+		/// <inheritdoc />
 		[System.Text.Json.Serialization.JsonIgnore]
-		public ICollection<AttachedFile> AttachedFiles { get; set; } = new List<AttachedFile>();
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
 
 		bool IMultipartForm.UseMultipart()
 		{

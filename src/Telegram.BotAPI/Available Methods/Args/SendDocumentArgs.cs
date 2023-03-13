@@ -11,7 +11,7 @@ namespace Telegram.BotAPI.AvailableMethods
 {
 	/// <summary>SendDocument method arguments.</summary>
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public class SendDocumentArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IAttachFiles, IThumbnail<object>
+	public class SendDocumentArgs : SendMessageWithReplyMarkupBase, ICaption, IFormattableMessage, IMultipartForm, IThumbnail<object>
 	{
 		/// <summary>
 		/// Initialize a new instance of <see cref="SendDocumentArgs"/>.
@@ -79,9 +79,9 @@ namespace Telegram.BotAPI.AvailableMethods
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public bool? DisableContentTypeDetection { get; set; }
 
-		/// <summary>Attached files.</summary>
+		/// <inheritdoc />
 		[System.Text.Json.Serialization.JsonIgnore]
-		public ICollection<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
+		public IEnumerable<AttachedFile> AttachedFiles { get; set; } = new HashSet<AttachedFile>();
 
 		bool IMultipartForm.UseMultipart()
 		{

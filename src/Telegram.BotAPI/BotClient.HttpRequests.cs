@@ -37,8 +37,12 @@ namespace Telegram.BotAPI
 			return DefaultHttpClient;
 		}
 
-		private static HttpClient AddJsonMultipart(HttpClient client)
+		private static HttpClient? AddJsonMultipart(HttpClient? client)
 		{
+			if (client == null)
+			{
+				return null;
+			}
 			if (!client.DefaultRequestHeaders.Accept.Any(u => u.MediaType == applicationJson))
 			{
 				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(applicationJson));
@@ -74,7 +78,7 @@ namespace Telegram.BotAPI
 		/// <returns><see cref="BotResponse{T}"/></returns>
 		public async Task<BotResponse<T>> GetRequestAsync<T>(string method, [Optional] CancellationToken cancellationToken)
 		{
-			using var request = new HttpRequestMessage(HttpMethod.Get, $"https://api.telegram.org/bot{this.Token}/{method}");
+			using var request = new HttpRequestMessage(HttpMethod.Get, $"{this.ServerAddress}/bot{this.Token}/{method}");
 			return await this.SendRequestAsync<T>(request, cancellationToken).ConfigureAwait(false);
 		}
 
@@ -145,7 +149,7 @@ namespace Telegram.BotAPI
 		/// <returns><see cref="BotResponse{T}"/></returns>
 		public async Task<BotResponse<T>> PostRequestAsync<T>(string method, Stream args, [Optional] CancellationToken cancellationToken)
 		{
-			using var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.telegram.org/bot{this.Token}/{method}")
+			using var request = new HttpRequestMessage(HttpMethod.Post, $"{this.ServerAddress}/bot{this.Token}/{method}")
 			{
 				Content = new StreamContent(args)
 			};
@@ -161,7 +165,7 @@ namespace Telegram.BotAPI
 		/// <returns><see cref="BotResponse{T}"/></returns>
 		public async Task<BotResponse<T>> PostRequestAsyncMultipartFormData<T>(string method, MultipartFormDataContent args, CancellationToken cancellationToken)
 		{
-			using var request = new HttpRequestMessage(HttpMethod.Post, $"https://api.telegram.org/bot{this.Token}/{method}")
+			using var request = new HttpRequestMessage(HttpMethod.Post, $"{this.ServerAddress}/bot{this.Token}/{method}")
 			{
 				Content = args
 			};
@@ -369,7 +373,7 @@ namespace Telegram.BotAPI
 		/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 		internal async Task<T> RPCAF<T>(string method, object args, [Optional] CancellationToken cancellationToken)
 		{
-			// If the method is not a multipart form, use the normal RPCA method
+			// If the method is a multipart form and it say don't use multipart, use the normal RPCA method
 			if (args is IMultipartForm mf && !mf.UseMultipart())
 			{
 				return await this.RPCA<T>(method, args, cancellationToken).ConfigureAwait(false);
@@ -378,105 +382,58 @@ namespace Telegram.BotAPI
 			// Create a new MultipartFormDataContent
 			using var content = new MultipartFormDataContent(Guid.NewGuid().ToString() + DateTime.UtcNow.Ticks);
 
-			// Define a local function to add parameters to the content object.
-			void AddParameters(object param, [Optional] string? prefix)
+			// Get the properties of the object
+			var properties = args.GetType().GetProperties();
+
+			// Iterate over the properties
+			foreach (var property in properties)
 			{
-				// Get the properties from the object.
-				var properties = param.GetType().GetProperties();
+				// Get the value of the property
+				var value = property.GetValue(args);
 
-				// Process and add each property
-				foreach (var p in properties)
+				// If value is null, skip it
+				if (value == null)
 				{
-					// Get the value from the property
-					var value = p.GetValue(args);
+					continue;
+				}
 
-					// Process only if value is not null.
-					if (value != null)
+				// If the value is an array of AttachedFile. Attach all files.
+				if (value is IEnumerable<AttachedFile> attachedfiles)
+				{
+					foreach (var attachedfile in attachedfiles)
 					{
-						// Verify the property has the JsonPropertyName attribute
-						var attribute = p.GetCustomAttribute(typeof(JsonPropertyNameAttribute));
-						// If the property has json attributes, process.
-						if (attribute != null)
-						{
-							// Get the name of the property.
-							var pname = ((JsonPropertyNameAttribute)attribute).Name;
+						content.Add(attachedfile.File.Content, attachedfile.Name, attachedfile.File.Filename);
+					}
+				}
+				else
+				{
+					// Verify the property has the JsonPropertyName attribute
+					var attribute = (JsonPropertyNameAttribute?)property.GetCustomAttribute(typeof(JsonPropertyNameAttribute));
+					// If the property has json attributes, process.
+					if (attribute != null)
+					{
+						// Get the name of the property.
+						var pname = attribute.Name;
 
-							// If the value is a basic type, then, add it to the content.
-							if (value is string || value is bool || value.IsNumber())
-							{
-								content.Add(
-									new StringContent(value.ToString(), Encoding.UTF8),
-									string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]");
-							}
-							// If the value is an InputFile, process it.
-							else if (value is InputFile file)
-							{
-								content.Add(
-									file.Content,
-									string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]",
-									file.Filename);
-							}
-							// If the value is an enumerable, process all the items.
-							else if (value.GetType().GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(IEnumerable<>)))
-							{
-								var eValue = (IEnumerable<object>)value;
-								var depth = Tools.GetDepth(eValue);
-								// If the depth is bigger than 1, then, serialize the whole object and add it.
-								// This is because, there aren't properties with InputFile in arrays of arrays.
-								if (depth > 1)
-								{
-									string jvalue = JsonSerializer.Serialize(value, value.GetType(), DefaultSerializerOptions);
-									content.Add(
-										new StringContent(jvalue, Encoding.UTF8),
-										string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]");
-								}
-								// If the depth is 1, then, process all the items.
-								else if (depth == 1)
-								{
-									// If the values are of basic types, then, serialize all values as JSON and add them to the content.
-									if (eValue.Any(x => x is string || x is bool || x.IsNumber()))
-									{
-										string jvalue = JsonSerializer.Serialize(value, value.GetType(), DefaultSerializerOptions);
-										content.Add(
-											new StringContent(jvalue, Encoding.UTF8),
-											string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]");
-									}
-									// If not, it's an object. Process all properties of all objects.
-									else
-									{
-										var i = 0;
-										foreach (object v in eValue)
-										{
-											AddParameters(v,
-												$"{(string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]")}[{i}]");
-											i++;
-										}
-									}
-								}
-							}
-							// If the value is another type (class), add all properties
-							else
-							{
-								AddParameters(value,
-									string.IsNullOrEmpty(prefix) ? pname : $"{prefix}[{pname}]");
-							}
+						// If the value is a basic type, then, add it to the content.
+						if (value is string || value is bool || value.IsNumber())
+						{
+							content.Add(new StringContent(value.ToString(), Encoding.UTF8), pname);
+						}
+						// If the value is an InputFile, process it.
+						else if (value is InputFile file)
+						{
+							content.Add(file.Content, pname, file.Filename);
+						}
+						// If the value is another kind of value (object or array), serialize it.
+						else
+						{
+							string jvalue = JsonSerializer.Serialize(value, value.GetType(), DefaultSerializerOptions);
+							content.Add(new StringContent(jvalue, Encoding.UTF8), pname);
 						}
 					}
 				}
 			}
-
-			// If args implements IAttachFiles, then, add the files to the content.
-			if (args is IAttachFiles a)
-			{
-				var attachfiles = a.AttachedFiles;
-				foreach (var attachfile in attachfiles)
-				{
-					content.Add(attachfile.File.Content, attachfile.Name, attachfile.File.Filename);
-				}
-			}
-
-			// Add the other parameters from 'args'
-			AddParameters(args);
 
 			var response = await this.PostRequestAsyncMultipartFormData<T>(method, content, cancellationToken).ConfigureAwait(false);
 			content.Dispose();
