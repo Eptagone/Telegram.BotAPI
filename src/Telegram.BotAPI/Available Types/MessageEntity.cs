@@ -27,19 +27,19 @@ namespace Telegram.BotAPI.AvailableTypes
 		/// <summary>Optional. For “text_link” only, url that will be opened after user taps on the text.</summary>
 		[JsonPropertyName(PropertyNames.Url)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Url { get; set; }
+		public string? Url { get; set; }
 		/// <summary>Optional. For “text_mention” only, the mentioned user.</summary>
 		[JsonPropertyName(PropertyNames.User)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public User User { get; set; }
+		public User? User { get; set; }
 		/// <summary>Optional. For “pre” only, the programming language of the entity text.</summary>
 		[JsonPropertyName(PropertyNames.Language)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Language { get; set; }
+		public string? Language { get; set; }
 		/// <summary>Optional. For “custom_emoji” only, unique identifier of the custom emoji. Use getCustomEmojiStickers to get full information about the sticker.</summary>
 		[JsonPropertyName(PropertyNames.CustomEmojiId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string CustomEmojiId { get; set; }
+		public string? CustomEmojiId { get; set; }
 
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
@@ -54,7 +54,7 @@ namespace Telegram.BotAPI.AvailableTypes
 				   this.Offset == other.Offset &&
 				   this.Length == other.Length &&
 				   this.Url == other.Url &&
-				   EqualityComparer<User>.Default.Equals(this.User, other.User) &&
+				   EqualityComparer<User?>.Default.Equals(this.User, other.User) &&
 				   this.Language == other.Language &&
 				   this.CustomEmojiId == other.CustomEmojiId;
 		}
@@ -65,10 +65,10 @@ namespace Telegram.BotAPI.AvailableTypes
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
 			hashCode = hashCode * -1521134295 + this.Offset.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.Length.GetHashCode();
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Url);
-			hashCode = hashCode * -1521134295 + EqualityComparer<User>.Default.GetHashCode(this.User);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Language);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.CustomEmojiId);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Url);
+			hashCode = hashCode * -1521134295 + EqualityComparer<User?>.Default.GetHashCode(this.User);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Language);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.CustomEmojiId);
 			return hashCode;
 		}
 		/// <inheritdoc/>

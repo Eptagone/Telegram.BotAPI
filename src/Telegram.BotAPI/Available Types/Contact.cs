@@ -32,15 +32,16 @@ namespace Telegram.BotAPI.AvailableTypes
 		/// <summary>Optional. Contact's last name.</summary>
 		[JsonPropertyName(PropertyNames.LastName)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string LastName { get; set; }
+		public string? LastName { get; set; }
 		/// <summary>Optional. Contact's user identifier in Telegram.</summary>
 		[JsonPropertyName(PropertyNames.UserId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public long UserId { get; set; }
+		public long? UserId { get; set; }
 		/// <summary>Optional. Additional data about the contact in the form of a vCard.</summary>
 		[JsonPropertyName(PropertyNames.Vcard)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Vcard { get; set; }
+		public string? Vcard { get; set; }
+
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{
@@ -62,9 +63,9 @@ namespace Telegram.BotAPI.AvailableTypes
 			int hashCode = 267866028;
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.PhoneNumber);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FirstName);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.LastName);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.LastName);
 			hashCode = hashCode * -1521134295 + this.UserId.GetHashCode();
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Vcard);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Vcard);
 			return hashCode;
 		}
 		/// <inheritdoc/>

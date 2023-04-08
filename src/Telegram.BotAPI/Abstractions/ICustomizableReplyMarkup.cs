@@ -9,7 +9,9 @@ namespace Telegram.BotAPI
 	public interface ICustomizableReplyMarkup<TReplyMarkup>
 		where TReplyMarkup : ReplyMarkup
 	{
-		/// <summary>Optional. Additional interface options.</summary>
-		public TReplyMarkup ReplyMarkup { get; set; }
+		/// <summary>
+		/// Optional. Additional interface options.
+		/// </summary>
+		public TReplyMarkup? ReplyMarkup { get; set; }
 	}
 }

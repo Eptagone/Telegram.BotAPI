@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <summary>Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target channel (in the format @channelusername).</summary>
 		[JsonPropertyName(PropertyNames.ChatId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public object ChatId { get; set; }
+		public object? ChatId { get; set; }
 		/// <summary>Required if inline_message_id is not specified. Identifier of the sent message.</summary>
 		[JsonPropertyName(PropertyNames.MessageId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -22,10 +22,10 @@ namespace Telegram.BotAPI.AvailableMethods
 		/// <summary>Required if chat_id and message_id are not specified. Identifier of the inline message.</summary>
 		[JsonPropertyName(PropertyNames.InlineMessageId)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string InlineMessageId { get; set; }
+		public string? InlineMessageId { get; set; }
 		/// <summary>Optional. A JSON object for a new inline keyboard.</summary>
 		[JsonPropertyName(PropertyNames.ReplyMarkup)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public InlineKeyboardMarkup ReplyMarkup { get; set; }
+		public InlineKeyboardMarkup? ReplyMarkup { get; set; }
 	}
 }

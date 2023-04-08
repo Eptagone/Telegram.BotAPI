@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.InlineMode
 		/// <param name="lastName">Contact's last name.</param>
 		/// <param name="vcard">Additional data about the contact in the form of a vCard.</param>
 		/// <exception cref="ArgumentNullException"></exception>
-		public InputContactMessageContent(string phoneNumber, string firstName, [Optional] string lastName, [Optional] string vcard)
+		public InputContactMessageContent(string phoneNumber, string firstName, [Optional] string? lastName, [Optional] string? vcard)
 		{
 			this.PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));
 			this.FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
@@ -38,9 +38,9 @@ namespace Telegram.BotAPI.InlineMode
 		/// <summary>Contact's first name.</summary>
 		public string FirstName { get; }
 		/// <summary>Optional. Contact's last name.</summary>
-		public string LastName { get; set; }
+		public string? LastName { get; set; }
 		/// <summary>Optional. Additional data about the contact in the form of a vCard.</summary>
-		public string Vcard { get; set; }
+		public string? Vcard { get; set; }
 		/// <inheritdoc/>
 		public override bool Equals(object obj)
 		{

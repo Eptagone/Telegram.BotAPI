@@ -26,19 +26,19 @@ namespace Telegram.BotAPI.InlineMode
 		/// <summary>Optional. Contact's last name.</summary>
 		[JsonPropertyName(PropertyNames.LastName)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string LastName { get; set; }
+		public string? LastName { get; set; }
 		/// <summary>Optional. Additional data about the contact in the form of a vCard, 0-2048 bytes.</summary>
 		[JsonPropertyName(PropertyNames.Vcard)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Vcard { get; set; }
+		public string? Vcard { get; set; }
 		/// <summary>Optional. Content of the message to be sent instead of the contact.</summary>
 		[JsonPropertyName(PropertyNames.InputMessageContent)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public InputMessageContent InputMessageContent { get; set; }
+		public InputMessageContent? InputMessageContent { get; set; }
 		/// <summary>Optional. Url of the thumbnail for the result.</summary>
 		[JsonPropertyName(PropertyNames.ThumbnailUrl)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string ThumbnailUrl { get; set; }
+		public string? ThumbnailUrl { get; set; }
 		/// <summary>Optional. Thumbnail width.</summary>
 		[JsonPropertyName(PropertyNames.ThumbnailWidth)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -57,13 +57,13 @@ namespace Telegram.BotAPI.InlineMode
 		{
 			return other != null &&
 				   this.Id == other.Id &&
-				   EqualityComparer<InlineKeyboardMarkup>.Default.Equals(this.ReplyMarkup, other.ReplyMarkup) &&
+				   EqualityComparer<InlineKeyboardMarkup?>.Default.Equals(this.ReplyMarkup, other.ReplyMarkup) &&
 				   this.Type == other.Type &&
 				   this.PhoneNumber == other.PhoneNumber &&
 				   this.FirstName == other.FirstName &&
 				   this.LastName == other.LastName &&
 				   this.Vcard == other.Vcard &&
-				   EqualityComparer<InputMessageContent>.Default.Equals(this.InputMessageContent, other.InputMessageContent) &&
+				   EqualityComparer<InputMessageContent?>.Default.Equals(this.InputMessageContent, other.InputMessageContent) &&
 				   this.ThumbnailUrl == other.ThumbnailUrl &&
 				   this.ThumbnailWidth == other.ThumbnailWidth &&
 				   this.ThumbnailHeight == other.ThumbnailHeight;
@@ -73,14 +73,14 @@ namespace Telegram.BotAPI.InlineMode
 		{
 			int hashCode = -737408647;
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
-			hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup>.Default.GetHashCode(this.ReplyMarkup);
+			hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup?>.Default.GetHashCode(this.ReplyMarkup);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.PhoneNumber);
 			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FirstName);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.LastName);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Vcard);
-			hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent>.Default.GetHashCode(this.InputMessageContent);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.LastName);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Vcard);
+			hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent?>.Default.GetHashCode(this.InputMessageContent);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ThumbnailUrl);
 			hashCode = hashCode * -1521134295 + this.ThumbnailWidth.GetHashCode();
 			hashCode = hashCode * -1521134295 + this.ThumbnailHeight.GetHashCode();
 			return hashCode;

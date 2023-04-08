@@ -35,16 +35,16 @@ namespace Telegram.BotAPI.InlineMode
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 	public abstract class InlineQueryResult : ICustomizableReplyMarkup<InlineKeyboardMarkup>
 	{
-		/// <summary>Type of the result.</summary>
-		public abstract string Type { get; }
+        /// <summary>Type of the result.</summary>
+        public abstract string Type { get; }
 		/// <summary>Unique identifier for this result, 1-64 Bytes.</summary>
 		[JsonPropertyName(PropertyNames.Id)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Id { get; set; }
+		public string Id { get; set; } = null!;
 		/// <summary>Optional. Inline keyboard attached to the message.</summary>
 		[JsonPropertyName(PropertyNames.ReplyMarkup)]
 		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public InlineKeyboardMarkup ReplyMarkup { get; set; }
+		public InlineKeyboardMarkup? ReplyMarkup { get; set; }
 	}
 	/// <summary>This object represents one result of an inline query with caption entities. Support results of the following 15 types: <br /><br />
 	/// • <see cref="InlineQueryResultCachedAudio"/><br />
