@@ -4,24 +4,23 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Telegram.BotAPI.Games
-{
-	/// <summary>A placeholder, currently holds no information. Use BotFather to set up your game.</summary>
-	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public class CallbackGame
-	{
-		/// <summary>Create a new CallbackGame.</summary>
-		public CallbackGame() { }
-		/// <summary>Create a new CallbackGame.</summary>
-		/// <param name="gameShortName">Game short name</param>
-		public CallbackGame(string gameShortName)
-		{
-			this.GameShortName = gameShortName;
-		}
+namespace Telegram.BotAPI.Games;
 
-		/// <summary>Game short name</summary>
-		[JsonPropertyName(PropertyNames.GameShortName)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string GameShortName { get; set; }
+/// <summary>A placeholder, currently holds no information. Use BotFather to set up your game.</summary>
+[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+public class CallbackGame
+{
+	/// <summary>Create a new CallbackGame.</summary>
+	public CallbackGame() { }
+	/// <summary>Create a new CallbackGame.</summary>
+	/// <param name="gameShortName">Game short name</param>
+	public CallbackGame(string gameShortName)
+	{
+		this.GameShortName = gameShortName;
 	}
+
+	/// <summary>Game short name</summary>
+	[JsonPropertyName(PropertyNames.GameShortName)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public string GameShortName { get; set; }
 }

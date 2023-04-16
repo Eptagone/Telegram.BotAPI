@@ -3,60 +3,59 @@
 
 using System.Linq;
 
-namespace UnitTests
+namespace UnitTests;
+
+public class CommandHelper
 {
-	public class CommandHelper
+	private readonly ITestOutputHelper _outputHelper;
+	private IBotProperties _botProperties;
+
+	public CommandHelper(ITestOutputHelper outputHelper)
 	{
-		private readonly ITestOutputHelper _outputHelper;
-		private IBotProperties _botProperties;
+		this._outputHelper = outputHelper;
+		this._botProperties = new FakeBotProperties();
+	}
 
-		public CommandHelper(ITestOutputHelper outputHelper)
+	[Theory]
+	[InlineData("/cmd")]
+	[InlineData("/cmd hello world")]
+	[InlineData("Not a command")]
+	[InlineData("/cmd@OtherBot")]
+	[InlineData("/cmd@OtherBot param1 param2")]
+	[InlineData("/cmd@FakeBot")]
+	[InlineData("/cmd@FakeBot param1 param2")]
+	public void MatchCommand(string text)
+	{
+		this._outputHelper.WriteLine("Input text: {0}", text);
+
+		var match = this._botProperties.CommandHelper.Match(text);
+		if (match.Success)
 		{
-			this._outputHelper = outputHelper;
-			this._botProperties = new FakeBotProperties();
+			this._outputHelper.WriteLine("New command: {0}, Parameters: {1}", match.Name, match.Params);
 		}
-
-		[Theory]
-		[InlineData("/cmd")]
-		[InlineData("/cmd hello world")]
-		[InlineData("Not a command")]
-		[InlineData("/cmd@OtherBot")]
-		[InlineData("/cmd@OtherBot param1 param2")]
-		[InlineData("/cmd@FakeBot")]
-		[InlineData("/cmd@FakeBot param1 param2")]
-		public void MatchCommand(string text)
+		else
 		{
-			this._outputHelper.WriteLine("Input text: {0}", text);
-
-			var match = this._botProperties.CommandHelper.Match(text);
-			if (match.Success)
-			{
-				this._outputHelper.WriteLine("New command: {0}, Parameters: {1}", match.Name, match.Params);
-			}
-			else
-			{
-				this._outputHelper.WriteLine("It's not a command or it's not for me.");
-			}
+			this._outputHelper.WriteLine("It's not a command or it's not for me.");
 		}
+	}
 
-		[Theory]
-		[InlineData("Hello world!")]
-		[InlineData("Two args")]
-		[InlineData("'This is a single parameter'")]
-		[InlineData("--paramName \"My parameter value\"")]
-		[InlineData("--paramName 'My parameter value'")]
-		[InlineData("--paramName \"Wrong value'")]
-		public void MatchParams(string @params)
+	[Theory]
+	[InlineData("Hello world!")]
+	[InlineData("Two args")]
+	[InlineData("'This is a single parameter'")]
+	[InlineData("--paramName \"My parameter value\"")]
+	[InlineData("--paramName 'My parameter value'")]
+	[InlineData("--paramName \"Wrong value'")]
+	public void MatchParams(string @params)
+	{
+		this._outputHelper.WriteLine("Input text: {0}", @params);
+
+		var args = BotCommandHelper.MatchParameters(@params);
+
+		this._outputHelper.WriteLine("{0} parameters has been detected", args.Count());
+		foreach (var arg in args)
 		{
-			this._outputHelper.WriteLine("Input text: {0}", @params);
-
-			var args = BotCommandHelper.MatchParameters(@params);
-
-			this._outputHelper.WriteLine("{0} parameters has been detected", args.Count());
-			foreach (var arg in args)
-			{
-				this._outputHelper.WriteLine(arg);
-			}
+			this._outputHelper.WriteLine(arg);
 		}
 	}
 }

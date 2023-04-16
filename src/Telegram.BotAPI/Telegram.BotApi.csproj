@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>6.6</Version>
+		<Version>6.6.1</Version>
 		<PackageId>Telegram.BotAPI</PackageId>
 		<Authors>Quetzal Rivera</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -28,7 +28,7 @@
 		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<AssemblyName>Telegram.BotAPI</AssemblyName>
-		<PackageReleaseNotes>- Updated to Bot API 6.6</PackageReleaseNotes>
+		<PackageReleaseNotes>- Added missing nullable definitions</PackageReleaseNotes>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

@@ -3,13 +3,12 @@
 
 using Telegram.BotAPI.GettingUpdates;
 
-namespace Telegram.BotAPI
+namespace Telegram.BotAPI;
+
+/// <summary>Defines the OnUpdate method, used by basic Telegram bots.</summary>
+public interface ITelegramBot
 {
-	/// <summary>Defines the OnUpdate method, used by basic Telegram bots.</summary>
-	public interface ITelegramBot
-	{
-		/// <summary>Call the corresponding method according to the type of update provided.</summary>
-		/// <param name="update">Update</param>
-		void OnUpdate(Update update);
-	}
+	/// <summary>Call the corresponding method according to the type of update provided.</summary>
+	/// <param name="update">Update</param>
+	void OnUpdate(Update update);
 }

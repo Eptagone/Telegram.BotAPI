@@ -3,19 +3,18 @@
 
 using Telegram.BotAPI.AvailableTypes;
 
-namespace Telegram.BotAPI
+namespace Telegram.BotAPI;
+
+/// <summary>
+/// Extensions for MessageEntity
+/// </summary>
+public static partial class MessageEntityExtensions
 {
-	/// <summary>
-	/// Extensions for MessageEntity
-	/// </summary>
-	public static partial class MessageEntityExtensions
+	/// <summary>Get the entity type as enum.</summary>
+	/// <returns><see cref="MessageEntityType"/></returns>
+	public static MessageEntityType GetEntityType(this MessageEntity messageEntity)
 	{
-		/// <summary>Get the entity type as enum.</summary>
-		/// <returns><see cref="MessageEntityType"/></returns>
-		public static MessageEntityType GetEntityType(this MessageEntity messageEntity)
-		{
-			string type = messageEntity.Type.Replace("_", string.Empty);
-			return (MessageEntityType)Enum.Parse(typeof(MessageEntityType), type, true);
-		}
+		string type = messageEntity.Type.Replace("_", string.Empty);
+		return (MessageEntityType)Enum.Parse(typeof(MessageEntityType), type, true);
 	}
 }

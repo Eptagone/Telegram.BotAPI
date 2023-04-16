@@ -4,15 +4,14 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Telegram.BotAPI.AvailableTypes
+namespace Telegram.BotAPI.AvailableTypes;
+
+/// <summary>Represents the scope of bot commands, covering all group and supergroup chat administrators.</summary>
+[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+public sealed class BotCommandScopeAllChatAdministrators : BotCommandScope
 {
-	/// <summary>Represents the scope of bot commands, covering all group and supergroup chat administrators.</summary>
-	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public sealed class BotCommandScopeAllChatAdministrators : BotCommandScope
-	{
-		/// <summary>Scope type, must be all_chat_administrators.</summary>
-		[JsonPropertyName(PropertyNames.Type)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public override string Type => BotCommandScopeType.AllChatAdministrators;
-	}
+	/// <summary>Scope type, must be all_chat_administrators.</summary>
+	[JsonPropertyName(PropertyNames.Type)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public override string Type => BotCommandScopeType.AllChatAdministrators;
 }

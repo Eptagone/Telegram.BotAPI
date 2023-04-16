@@ -4,27 +4,26 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Telegram.BotAPI.AvailableTypes
+namespace Telegram.BotAPI.AvailableTypes;
+
+/// <summary>
+/// This object represents the bot's short description.
+/// </summary>
+[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+public sealed class BotShortDescription
 {
 	/// <summary>
-	/// This object represents the bot's short description.
+	/// Initialize a new instance of the <see cref="BotShortDescription"/> class.
 	/// </summary>
-	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public sealed class BotShortDescription
+	public BotShortDescription()
 	{
-		/// <summary>
-		/// Initialize a new instance of the <see cref="BotShortDescription"/> class.
-		/// </summary>
-		public BotShortDescription()
-		{
-			this.ShortDescription = string.Empty;
-		}
-
-		/// <summary>
-		/// The bot's short description
-		/// </summary>
-		[JsonPropertyName(PropertyNames.ShortDescription)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string ShortDescription { get; set; }
+		this.ShortDescription = string.Empty;
 	}
+
+	/// <summary>
+	/// The bot's short description
+	/// </summary>
+	[JsonPropertyName(PropertyNames.ShortDescription)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public string ShortDescription { get; set; }
 }

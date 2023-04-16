@@ -4,20 +4,19 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Telegram.BotAPI.AvailableTypes
+namespace Telegram.BotAPI.AvailableTypes;
+
+/// <summary>
+/// Describes that no specific value for the menu button was set.
+/// </summary>
+[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+public sealed class MenuButtonDefault : MenuButton
 {
 	/// <summary>
-	/// Describes that no specific value for the menu button was set.
+	/// Type of the button, must be default
 	/// </summary>
-	[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-	public sealed class MenuButtonDefault : MenuButton
-	{
-		/// <summary>
-		/// Type of the button, must be default
-		/// </summary>
-		[JsonPropertyName(PropertyNames.Type)]
-		[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public override string Type => MenuButtonType.Default;
+	[JsonPropertyName(PropertyNames.Type)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public override string Type => MenuButtonType.Default;
 
-	}
 }

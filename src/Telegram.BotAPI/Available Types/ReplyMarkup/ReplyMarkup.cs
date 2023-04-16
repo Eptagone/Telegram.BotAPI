@@ -3,11 +3,10 @@
 
 using Telegram.BotAPI.Converters;
 
-namespace Telegram.BotAPI.AvailableTypes
+namespace Telegram.BotAPI.AvailableTypes;
+
+/// <summary>Reply Markup</summary>
+[JsonConverter(typeof(ReplyMarkupConverter))]
+public abstract class ReplyMarkup
 {
-	/// <summary>Reply Markup</summary>
-	[JsonConverter(typeof(ReplyMarkupConverter))]
-	public abstract class ReplyMarkup
-	{
-	}
 }

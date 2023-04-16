@@ -4,47 +4,46 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace UnitTests
+namespace UnitTests;
+
+public sealed class Serialization
 {
-	public sealed class Serialization
+	private static JsonSerializerOptions options = new()
 	{
-		private static JsonSerializerOptions options = new()
+		DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+	};
+
+	private readonly ITestOutputHelper _outputHelper;
+
+	public Serialization(ITestOutputHelper outputHelper) => this._outputHelper = outputHelper;
+
+	[Fact]
+	public void SerializeAnyObject()
+	{
+		var obj = new EditMessageLiveLocationArgs(0, 0)
 		{
-			DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+			ChatId = 1
 		};
 
-		private readonly ITestOutputHelper _outputHelper;
+		var rawText = JsonSerializer.Serialize(obj, options);
+		this._outputHelper.WriteLine(rawText);
+	}
 
-		public Serialization(ITestOutputHelper outputHelper) => this._outputHelper = outputHelper;
+	[Fact]
+	public void SerializeInlineButton()
+	{
+		var button = InlineKeyboardButton.SetCallbackData("Callback Button", "callback query");
 
-		[Fact]
-		public void SerializeAnyObject()
-		{
-			var obj = new EditMessageLiveLocationArgs(0, 0)
-			{
-				ChatId = 1
-			};
+		var rawText = JsonSerializer.Serialize(button, options);
+		this._outputHelper.WriteLine(rawText);
+	}
 
-			var rawText = JsonSerializer.Serialize(obj, options);
-			this._outputHelper.WriteLine(rawText);
-		}
+	[Fact]
+	public void SerializeSendGameArgs()
+	{
+		var args = new SendGameArgs(777777, "Welcome to my game");
 
-		[Fact]
-		public void SerializeInlineButton()
-		{
-			var button = InlineKeyboardButton.SetCallbackData("Callback Button", "callback query");
-
-			var rawText = JsonSerializer.Serialize(button, options);
-			this._outputHelper.WriteLine(rawText);
-		}
-
-		[Fact]
-		public void SerializeSendGameArgs()
-		{
-			var args = new SendGameArgs(777777, "Welcome to my game");
-
-			var rawText = JsonSerializer.Serialize(args, options);
-			this._outputHelper.WriteLine(rawText);
-		}
+		var rawText = JsonSerializer.Serialize(args, options);
+		this._outputHelper.WriteLine(rawText);
 	}
 }
