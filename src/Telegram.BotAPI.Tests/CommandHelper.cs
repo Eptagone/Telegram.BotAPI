@@ -3,7 +3,7 @@
 
 using System.Linq;
 
-namespace UnitTests;
+namespace Telegram.BotAPI.Tests;
 
 public class CommandHelper
 {

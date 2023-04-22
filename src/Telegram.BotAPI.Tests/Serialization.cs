@@ -4,7 +4,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace UnitTests;
+namespace Telegram.BotAPI.Tests;
 
 public sealed class Serialization
 {

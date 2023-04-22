@@ -1,7 +1,7 @@
 ﻿// Copyright (c) 2023 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-namespace UnitTests;
+namespace Telegram.BotAPI.Tests;
 
 internal class FakeBotProperties : IBotProperties
 {

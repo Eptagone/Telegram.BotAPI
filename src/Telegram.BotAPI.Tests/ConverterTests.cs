@@ -9,7 +9,7 @@ using KB = Telegram.BotAPI.AvailableTypes.KeyboardButton;
 using RKM = Telegram.BotAPI.AvailableTypes.ReplyKeyboardMarkup;
 using RKR = Telegram.BotAPI.AvailableTypes.ReplyKeyboardRemove;
 
-namespace UnitTests;
+namespace Telegram.BotAPI.Tests;
 
 public sealed class ConverterTests
 {
