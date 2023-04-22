@@ -5,6 +5,7 @@ using HelloBotNET.Webhook;
 using HelloBotNET.Webhook.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
 
 // Add bot properties service.
 builder.Services.AddSingleton<HelloBotProperties>();
@@ -17,8 +18,6 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 

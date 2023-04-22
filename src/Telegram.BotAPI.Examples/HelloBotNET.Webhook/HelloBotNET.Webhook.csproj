@@ -5,6 +5,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>HelloBotNET.Webhook</RootNamespace>
+		<UserSecretsId>d0d5de81-a20b-4e69-8762-ebf03c089384</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>

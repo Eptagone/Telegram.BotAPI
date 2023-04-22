@@ -4,6 +4,7 @@
 using System.Linq;
 using System.Text;
 using Telegram.BotAPI.AvailableTypes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions;
 
@@ -92,6 +93,9 @@ public class FormattingHelper<TStyleParser>
 						break;
 					case MessageEntityType.TextMention:
 						buffer.Append(this.TextMention(subText, e.User.Id, parseMode, true));
+						break;
+					case MessageEntityType.CustomEmoji:
+						buffer.Append(this.CustomEmoji(subText, e.CustomEmojiId, parseMode, true));
 						break;
 					default:
 						if (useFixer)
@@ -317,6 +321,31 @@ public class FormattingHelper<TStyleParser>
 			ParseModeKind.Markdown or ParseModeKind.MarkdownV2 => $"[{text}](tg://user?id={userId})",
 			ParseModeKind.HTML => $"<a href=\"tg://user?id={userId}\">{text}</a>",
 			_ => text,
+		};
+	}
+	/// <summary>
+	/// Format text. Custom Emoji. <br />
+	/// </summary>
+	/// <remarks>
+	/// Custom emoji is not supported with Markdown. Use MarkdownV2 instead.
+	/// </remarks>
+	/// <param name="customEmojiId">Unique identifier of the custom emoji.</param>
+	/// <param name="emoji">The emoji.</param>
+	/// <param name="parseMode">Style to be applied to the new text.</param>
+	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
+	/// <returns>Stylized <see cref="string"/></returns>
+	public virtual string CustomEmoji(string customEmojiId, string emoji, ParseModeKind parseMode = ParseModeKind.MarkdownV2, bool useFixer = true)
+	{
+		if (string.IsNullOrEmpty(customEmojiId))
+		{
+			throw new ArgumentNullException(nameof(customEmojiId));
+		}
+
+		return parseMode switch
+		{
+			ParseModeKind.MarkdownV2 => $"[{emoji}](tg://emoji?id={customEmojiId})",
+			ParseModeKind.HTML => $"<tg-emoji emoji-id=\"{customEmojiId}\">{emoji}</tg-emoji>",
+			_ => emoji,
 		};
 	}
 }
