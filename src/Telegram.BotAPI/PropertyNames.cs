@@ -12,6 +12,10 @@ public static partial class PropertyNames
 	public const string Action = "action";
 	public const string ActiveUsernames = "active_usernames";
 	public const string AllowedUpdates = "allowed_updates";
+	public const string AllowUserChats = "allow_user_chats";
+	public const string AllowBotChats = "allow_bot_chats";
+	public const string AllowGroupChats = "allow_group_chats";
+	public const string AllowChannelChats = "allow_channel_chats";
 	public const string AllowSendingWithoutReply = "allow_sending_without_reply";
 	public const string AllowsMultipleAnswers = "allows_multiple_answers";
 	public const string Amount = "amount";
@@ -27,6 +31,7 @@ public static partial class PropertyNames
 	public const string BotAdministratorRights = "bot_administrator_rights";
 	public const string BotIsMember = "bot_is_member";
 	public const string BotUsername = "bot_username";
+	public const string Button = "button";
 	public const string ButtonText = "button_text";
 	public const string CacheTime = "cache_time";
 	public const string CallbackData = "callback_data";
@@ -361,8 +366,7 @@ public static partial class PropertyNames
 	public const string SupportsStreaming = "supports_streaming";
 	public const string SwitchInlineQuery = "switch_inline_query";
 	public const string SwitchInlineQueryCurrentChat = "switch_inline_query_current_chat";
-	public const string SwitchPmParameter = "switch_pm_parameter";
-	public const string SwitchPmText = "switch_pm_text";
+	public const string SwitchInlineQueryChosenChat = "switch_inline_query_chosen_chat";
 	public const string TelegramPaymentChargeId = "telegram_payment_charge_id";
 	public const string Text = "text";
 	public const string TextEntities = "text_entities";
@@ -396,6 +400,7 @@ public static partial class PropertyNames
 	public const string Vcard = "vcard";
 	public const string Venue = CommonNames.Venue;
 	public const string ViaBot = "via_bot";
+	public const string ViaChatFolderInviteLink = "via_chat_folder_invite_link";
 	public const string Video = CommonNames.Video;
 	public const string VideoChatEnded = "video_chat_ended";
 	public const string VideoChatParticipantsInvited = "video_chat_participants_invited";
@@ -414,6 +419,7 @@ public static partial class PropertyNames
 	public const string VoterCount = "voter_count";
 	public const string Watcher = "watcher";
 	public const string WebApp = CommonNames.WebApp;
+	public const string WebAppName = "web_app_name";
 	public const string WebAppData = "web_app_data";
 	public const string WebAppQueryId = "web_app_query_id";
 	public const string Width = "width";

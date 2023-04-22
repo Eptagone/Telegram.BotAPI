@@ -10,14 +10,18 @@ public enum InlineKeyboardButtonType
 	Unknown,
 	/// <summary>Url button.</summary>
 	Url,
-	/// <summary>Login Url button.</summary>
-	LoginUrl,
 	/// <summary>CallbackData button.</summary>
 	CallbackData,
+	/// <summary>WebApp button.</summary>
+	WebApp,
+	/// <summary>Login Url button.</summary>
+	LoginUrl,
 	/// <summary>SwitchInlineQuery button.</summary>
 	SwitchInlineQuery,
 	/// <summary>SwitchInlineQueryCurrentChat button.</summary>
 	SwitchInlineQueryCurrentChat,
+	/// <summary>SwitchInlineQueryChosenChat button.</summary>
+	SwitchInlineQueryChosenChat,
 	/// <summary>CallbackGame button.</summary>
 	CallbackGame,
 	/// <summary>Pay button.</summary>

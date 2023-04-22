@@ -56,6 +56,7 @@ public static partial class MethodNames
 	public const string GetMyCommands = "getMyCommands";
 	public const string GetMyDefaultAdministratorRights = "getMyDefaultAdministratorRights";
 	public const string GetMyDescription = "getMyDescription";
+	public const string GetMyName = "getMyName";
 	public const string GetMyShortDescription = "getMyShortDescription";
 	public const string GetStickerSet = "getStickerSet";
 	public const string GetUpdates = "getUpdates";
@@ -101,6 +102,7 @@ public static partial class MethodNames
 	public const string SetMyCommands = "setMyCommands";
 	public const string SetMyDefaultAdministratorRights = "setMyDefaultAdministratorRights";
 	public const string SetMyDescription = "setMyDescription";
+	public const string SetMyName = "setMyName";
 	public const string SetMyShortDescription = "setMyShortDescription";
 	public const string SetPassportDataErrors = "setPassportDataErrors";
 	public const string SetStickerEmojiList = "setStickerEmojiList";

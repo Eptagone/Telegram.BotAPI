@@ -6,34 +6,55 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes;
 
-/// <summary>This object represents changes in the status of a chat member.</summary>
+/// <summary>
+/// This object represents changes in the status of a chat member.
+/// </summary>
 [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 public sealed class ChatMemberUpdated : IEquatable<ChatMemberUpdated>
 {
-	/// <summary>Chat the user belongs to.</summary>
+	/// <summary>
+	/// Chat the user belongs to
+	/// </summary>
 	[JsonPropertyName(PropertyNames.Chat)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public Chat Chat { get; set; }
-	/// <summary>Performer of the action, which resulted in the change.</summary>
+	public Chat Chat { get; set; } = null!;
+	/// <summary>
+	/// Performer of the action, which resulted in the change
+	/// </summary>
 	[JsonPropertyName(PropertyNames.From)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public User From { get; set; }
-	/// <summary>Date the change was done in Unix time.</summary>
+	public User From { get; set; } = null!;
+	/// <summary>
+	/// Date the change was done in Unix time
+	/// </summary>
 	[JsonPropertyName(PropertyNames.Date)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public uint Date { get; set; }
-	/// <summary>Previous information about the chat member.</summary>
+	/// <summary>
+	/// Previous information about the chat member
+	/// </summary>
 	[JsonPropertyName(PropertyNames.OldChatMember)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public ChatMember OldChatMember { get; set; }
-	/// <summary>New information about the chat member.</summary>
+	public ChatMember OldChatMember { get; set; } = null!;
+	/// <summary>
+	/// New information about the chat member
+	/// </summary>
 	[JsonPropertyName(PropertyNames.NewChatMember)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public ChatMember NewChatMember { get; set; }
-	/// <summary>Optional. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.</summary>
+	public ChatMember NewChatMember { get; set; } = null!;
+	/// <summary>
+	/// Optional. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.
+	/// </summary>
 	[JsonPropertyName(PropertyNames.InviteLink)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public ChatInviteLink InviteLink { get; set; }
+	public ChatInviteLink? InviteLink { get; set; }
+	/// <summary>
+	/// Optional. True, if the user joined the chat via a chat folder invite link
+	/// </summary>
+	[JsonPropertyName(PropertyNames.ViaChatFolderInviteLink)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public bool? ViaChatFolderInviteLink { get; set; }
+
 	/// <inheritdoc/>
 	public override bool Equals(object obj)
 	{
@@ -48,7 +69,7 @@ public sealed class ChatMemberUpdated : IEquatable<ChatMemberUpdated>
 			   this.Date == other.Date &&
 			   EqualityComparer<ChatMember>.Default.Equals(this.OldChatMember, other.OldChatMember) &&
 			   EqualityComparer<ChatMember>.Default.Equals(this.NewChatMember, other.NewChatMember) &&
-			   EqualityComparer<ChatInviteLink>.Default.Equals(this.InviteLink, other.InviteLink);
+			   EqualityComparer<ChatInviteLink?>.Default.Equals(this.InviteLink, other.InviteLink);
 	}
 	/// <inheritdoc/>
 	public override int GetHashCode()
@@ -59,19 +80,17 @@ public sealed class ChatMemberUpdated : IEquatable<ChatMemberUpdated>
 		hashCode = hashCode * -1521134295 + this.Date.GetHashCode();
 		hashCode = hashCode * -1521134295 + EqualityComparer<ChatMember>.Default.GetHashCode(this.OldChatMember);
 		hashCode = hashCode * -1521134295 + EqualityComparer<ChatMember>.Default.GetHashCode(this.NewChatMember);
-		hashCode = hashCode * -1521134295 + EqualityComparer<ChatInviteLink>.Default.GetHashCode(this.InviteLink);
+		hashCode = hashCode * -1521134295 + EqualityComparer<ChatInviteLink?>.Default.GetHashCode(this.InviteLink);
 		return hashCode;
 	}
 	/// <inheritdoc/>
 	public static bool operator ==(ChatMemberUpdated? left, ChatMemberUpdated? right)
 	{
-		return EqualityComparer<ChatMemberUpdated>.Default.Equals(left!, right!);
+		return EqualityComparer<ChatMemberUpdated?>.Default.Equals(left, right);
 	}
 	/// <inheritdoc/>
 	public static bool operator !=(ChatMemberUpdated? left, ChatMemberUpdated? right)
 	{
 		return !(left == right);
 	}
-
-
 }
