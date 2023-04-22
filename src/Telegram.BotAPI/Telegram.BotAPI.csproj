@@ -9,7 +9,6 @@
 		<RootNamespace>Telegram.BotAPI</RootNamespace>
 		<Copyright>Quetzal Rivera 2023 ©</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Description>
 			A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v6.7 (April 21, 2023).
