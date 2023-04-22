@@ -32,4 +32,6 @@ jobs:
       - name: Pack
         run: dotnet pack -c Release -o ./nupkgs --no-build
       - name: Publish
-        run: dotnet nuget push ./nupkgs/*.nupkg --api-key ${{ secrets.NUGET_API_TOKEN }}  --skip-duplicate -s https://api.nuget.org/v3/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_TOKEN }}
+        run: dotnet nuget push ./nupkgs/*.nupkg --api-key ${{ env.NUGET_AUTH_TOKEN }} --skip-duplicate -s https://api.nuget.org/v3/index.json
