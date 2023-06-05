@@ -13,9 +13,9 @@ public interface ITelegramUser
 	/// <summary>User‘s or bot’s first name.</summary>
 	public string FirstName { get; set; }
 	/// <summary>Optional. User‘s or bot’s last name.</summary>
-	public string LastName { get; set; }
+	public string? LastName { get; set; }
 	/// <summary>Optional. User‘s or bot’s username.</summary>
-	public string Username { get; set; }
+	public string? Username { get; set; }
 	/// <summary>Optional. IETF language tag of the user's language.</summary>
-	public string LanguageCode { get; set; }
+	public string? LanguageCode { get; set; }
 }

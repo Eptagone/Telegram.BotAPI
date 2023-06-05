@@ -21,7 +21,7 @@ public sealed class User : ITelegramUser, IEquatable<User>
 	/// <summary>User‘s or bot’s first name.</summary>
 	[JsonPropertyName(PropertyNames.FirstName)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string FirstName { get; set; }
+	public string FirstName { get; set; } = null!;
 	/// <summary>Optional. User‘s or bot’s last name.</summary>
 	[JsonPropertyName(PropertyNames.LastName)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]

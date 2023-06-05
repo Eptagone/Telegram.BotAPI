@@ -37,8 +37,6 @@ It contains all the methods and types available in the Bot API 6.7 released on A
 dotnet add PROJECT package Telegram.BotAPI
 ```
 
-[Get package from GitHub](https://github.com/Eptagone/Telegram.BotAPI/packages)
-
 [Get package from Nuget Web Site](https://www.nuget.org/packages/Telegram.BotAPI/)
 
 ---
