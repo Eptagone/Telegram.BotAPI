@@ -119,6 +119,7 @@ public static partial class MethodNames
 	public const string UnhideGeneralForumTopic = "unhideGeneralForumTopic";
 	public const string UnpinAllChatMessages = "unpinAllChatMessages";
 	public const string UnpinAllForumTopicMessages = "unpinAllForumTopicMessages";
+	public const string UnpinAllGeneralForumTopicMessages = "unpinAllGeneralForumTopicMessages";
 	public const string UnpinChatMessage = "unpinChatMessage";
 	public const string UploadStickerFile = "uploadStickerFile";
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member

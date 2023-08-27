@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>6.7.2</Version>
+		<Version>6.8.0</Version>
 		<PackageId>Telegram.BotAPI</PackageId>
 		<Authors>Quetzal Rivera</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -11,7 +11,7 @@
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Description>
-			A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v6.7 (April 21, 2023).
+			A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v6.8 (August 18, 2023).
 			- Contains all classes and methods available from the Bot API.
 		</Description>
 		<PackageTags>Telegram Bot API</PackageTags>
@@ -29,7 +29,7 @@
 		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<AssemblyName>Telegram.BotAPI</AssemblyName>
-		<PackageReleaseNotes>- Updated interfaces</PackageReleaseNotes>
+		<PackageReleaseNotes>- Updated to Bot API 6.8</PackageReleaseNotes>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest</AnalysisLevel>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

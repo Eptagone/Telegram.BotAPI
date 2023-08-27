@@ -10,7 +10,9 @@ using Telegram.BotAPI.TelegramPassport;
 
 namespace Telegram.BotAPI.AvailableTypes;
 
-/// <summary>This object represents a message.</summary>
+/// <summary>
+/// This object represents a message.
+/// </summary>
 [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 public sealed class Message : IEquatable<Message?>
 {
@@ -169,13 +171,19 @@ public sealed class Message : IEquatable<Message?>
 	/// </summary>
 	[JsonPropertyName(PropertyNames.Photo)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public PhotoSize[]? Photo { get; set; }
+	public IEnumerable<PhotoSize>? Photo { get; set; }
 	/// <summary>
 	/// Optional. Message is a sticker, information about the sticker
 	/// </summary>
 	[JsonPropertyName(PropertyNames.Sticker)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public Sticker? Sticker { get; set; }
+	/// <summary>
+	/// Optional. Message is a forwarded story
+	/// </summary>
+	[JsonPropertyName(PropertyNames.Story)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public Story? Story { get; set; }
 	/// <summary>
 	/// Optional. Message is a video, information about the video
 	/// </summary>
@@ -440,12 +448,14 @@ public sealed class Message : IEquatable<Message?>
 	[JsonPropertyName(PropertyNames.ReplyMarkup)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public InlineKeyboardMarkup? ReplyMarkup { get; set; }
-	/// <inheritdoc/>
+
+	/// <inheritdoc />
 	public override bool Equals(object? obj)
 	{
 		return this.Equals(obj as Message);
 	}
-	/// <inheritdoc/>
+
+	/// <inheritdoc />
 	public bool Equals(Message? other)
 	{
 		return other is not null &&
@@ -470,17 +480,18 @@ public sealed class Message : IEquatable<Message?>
 			   this.MediaGroupId == other.MediaGroupId &&
 			   this.AuthorSignature == other.AuthorSignature &&
 			   this.Text == other.Text &&
-			   EqualityComparer<MessageEntity[]?>.Default.Equals(this.Entities, other.Entities) &&
+			   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.Entities, other.Entities) &&
 			   EqualityComparer<Animation?>.Default.Equals(this.Animation, other.Animation) &&
 			   EqualityComparer<Audio?>.Default.Equals(this.Audio, other.Audio) &&
 			   EqualityComparer<Document?>.Default.Equals(this.Document, other.Document) &&
-			   EqualityComparer<PhotoSize[]?>.Default.Equals(this.Photo, other.Photo) &&
+			   EqualityComparer<IEnumerable<PhotoSize>?>.Default.Equals(this.Photo, other.Photo) &&
 			   EqualityComparer<Sticker?>.Default.Equals(this.Sticker, other.Sticker) &&
+			   EqualityComparer<Story?>.Default.Equals(this.Story, other.Story) &&
 			   EqualityComparer<Video?>.Default.Equals(this.Video, other.Video) &&
 			   EqualityComparer<VideoNote?>.Default.Equals(this.VideoNote, other.VideoNote) &&
 			   EqualityComparer<Voice?>.Default.Equals(this.Voice, other.Voice) &&
 			   this.Caption == other.Caption &&
-			   EqualityComparer<MessageEntity[]?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
+			   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
 			   this.HasMediaSpoiler == other.HasMediaSpoiler &&
 			   EqualityComparer<Contact?>.Default.Equals(this.Contact, other.Contact) &&
 			   EqualityComparer<Dice?>.Default.Equals(this.Dice, other.Dice) &&
@@ -488,10 +499,10 @@ public sealed class Message : IEquatable<Message?>
 			   EqualityComparer<Poll?>.Default.Equals(this.Poll, other.Poll) &&
 			   EqualityComparer<Venue?>.Default.Equals(this.Venue, other.Venue) &&
 			   EqualityComparer<Location?>.Default.Equals(this.Location, other.Location) &&
-			   EqualityComparer<User[]?>.Default.Equals(this.NewChatMembers, other.NewChatMembers) &&
+			   EqualityComparer<IEnumerable<User>?>.Default.Equals(this.NewChatMembers, other.NewChatMembers) &&
 			   EqualityComparer<User?>.Default.Equals(this.LeftChatMember, other.LeftChatMember) &&
 			   this.NewChatTitle == other.NewChatTitle &&
-			   EqualityComparer<PhotoSize[]?>.Default.Equals(this.NewChatPhoto, other.NewChatPhoto) &&
+			   EqualityComparer<IEnumerable<PhotoSize>?>.Default.Equals(this.NewChatPhoto, other.NewChatPhoto) &&
 			   this.DeleteChatPhoto == other.DeleteChatPhoto &&
 			   this.GroupChatCreated == other.GroupChatCreated &&
 			   this.SupergroupChatCreated == other.SupergroupChatCreated &&
@@ -521,10 +532,11 @@ public sealed class Message : IEquatable<Message?>
 			   EqualityComparer<WebAppData?>.Default.Equals(this.WebAppData, other.WebAppData) &&
 			   EqualityComparer<InlineKeyboardMarkup?>.Default.Equals(this.ReplyMarkup, other.ReplyMarkup);
 	}
-	/// <inheritdoc/>
+
+	/// <inheritdoc />
 	public override int GetHashCode()
 	{
-		int hashCode = -682300176;
+		int hashCode = -25731238;
 		hashCode = hashCode * -1521134295 + this.MessageId.GetHashCode();
 		hashCode = hashCode * -1521134295 + this.Date.GetHashCode();
 		hashCode = hashCode * -1521134295 + EqualityComparer<Chat>.Default.GetHashCode(this.Chat);
@@ -546,17 +558,18 @@ public sealed class Message : IEquatable<Message?>
 		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.MediaGroupId);
 		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.AuthorSignature);
 		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Text);
-		hashCode = hashCode * -1521134295 + EqualityComparer<MessageEntity[]?>.Default.GetHashCode(this.Entities);
+		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.Entities);
 		hashCode = hashCode * -1521134295 + EqualityComparer<Animation?>.Default.GetHashCode(this.Animation);
 		hashCode = hashCode * -1521134295 + EqualityComparer<Audio?>.Default.GetHashCode(this.Audio);
 		hashCode = hashCode * -1521134295 + EqualityComparer<Document?>.Default.GetHashCode(this.Document);
-		hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize[]?>.Default.GetHashCode(this.Photo);
+		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<PhotoSize>?>.Default.GetHashCode(this.Photo);
 		hashCode = hashCode * -1521134295 + EqualityComparer<Sticker?>.Default.GetHashCode(this.Sticker);
+		hashCode = hashCode * -1521134295 + EqualityComparer<Story?>.Default.GetHashCode(this.Story);
 		hashCode = hashCode * -1521134295 + EqualityComparer<Video?>.Default.GetHashCode(this.Video);
 		hashCode = hashCode * -1521134295 + EqualityComparer<VideoNote?>.Default.GetHashCode(this.VideoNote);
 		hashCode = hashCode * -1521134295 + EqualityComparer<Voice?>.Default.GetHashCode(this.Voice);
 		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Caption);
-		hashCode = hashCode * -1521134295 + EqualityComparer<MessageEntity[]?>.Default.GetHashCode(this.CaptionEntities);
+		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.CaptionEntities);
 		hashCode = hashCode * -1521134295 + this.HasMediaSpoiler.GetHashCode();
 		hashCode = hashCode * -1521134295 + EqualityComparer<Contact?>.Default.GetHashCode(this.Contact);
 		hashCode = hashCode * -1521134295 + EqualityComparer<Dice?>.Default.GetHashCode(this.Dice);
@@ -564,10 +577,10 @@ public sealed class Message : IEquatable<Message?>
 		hashCode = hashCode * -1521134295 + EqualityComparer<Poll?>.Default.GetHashCode(this.Poll);
 		hashCode = hashCode * -1521134295 + EqualityComparer<Venue?>.Default.GetHashCode(this.Venue);
 		hashCode = hashCode * -1521134295 + EqualityComparer<Location?>.Default.GetHashCode(this.Location);
-		hashCode = hashCode * -1521134295 + EqualityComparer<User[]?>.Default.GetHashCode(this.NewChatMembers);
+		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<User>?>.Default.GetHashCode(this.NewChatMembers);
 		hashCode = hashCode * -1521134295 + EqualityComparer<User?>.Default.GetHashCode(this.LeftChatMember);
 		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.NewChatTitle);
-		hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize[]?>.Default.GetHashCode(this.NewChatPhoto);
+		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<PhotoSize>?>.Default.GetHashCode(this.NewChatPhoto);
 		hashCode = hashCode * -1521134295 + this.DeleteChatPhoto.GetHashCode();
 		hashCode = hashCode * -1521134295 + this.GroupChatCreated.GetHashCode();
 		hashCode = hashCode * -1521134295 + this.SupergroupChatCreated.GetHashCode();
@@ -598,12 +611,14 @@ public sealed class Message : IEquatable<Message?>
 		hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup?>.Default.GetHashCode(this.ReplyMarkup);
 		return hashCode;
 	}
-	/// <inheritdoc/>
+
+	/// <inheritdoc />
 	public static bool operator ==(Message? left, Message? right)
 	{
-		return EqualityComparer<Message>.Default.Equals(left!, right!);
+		return EqualityComparer<Message?>.Default.Equals(left, right);
 	}
-	/// <inheritdoc/>
+
+	/// <inheritdoc />
 	public static bool operator !=(Message? left, Message? right)
 	{
 		return !(left == right);

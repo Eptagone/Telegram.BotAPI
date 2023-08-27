@@ -6,20 +6,10 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes;
 
-/// <summary>
-/// This object represents a chat.
-/// </summary>
+/// <summary>This object represents a chat.</summary>
 [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 public sealed class Chat : ITelegramChat, IEquatable<Chat?>
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="Chat"/> class.
-	/// </summary>
-	public Chat()
-	{
-		this.Type = null!;
-	}
-
 	/// <summary>
 	/// Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
 	/// </summary>
@@ -31,7 +21,7 @@ public sealed class Chat : ITelegramChat, IEquatable<Chat?>
 	/// </summary>
 	[JsonPropertyName(PropertyNames.Type)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Type { get; set; }
+	public string Type { get; set; } = null!;
 	/// <summary>
 	/// Optional. Title, for supergroups, channels and group chats
 	/// </summary>
@@ -80,6 +70,12 @@ public sealed class Chat : ITelegramChat, IEquatable<Chat?>
 	[JsonPropertyName(PropertyNames.EmojiStatusCustomEmojiId)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public string? EmojiStatusCustomEmojiId { get; set; }
+	/// <summary>
+	/// Optional. Expiration date of the emoji status of the other party in a private chat, if any. Returned only in getChat.
+	/// </summary>
+	[JsonPropertyName(PropertyNames.EmojiStatusExpirationDate)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public uint? EmojiStatusExpirationDate { get; set; }
 	/// <summary>
 	/// Optional. Bio of the other party in a private chat. Returned only in getChat.
 	/// </summary>
@@ -188,11 +184,13 @@ public sealed class Chat : ITelegramChat, IEquatable<Chat?>
 	[JsonPropertyName(PropertyNames.Location)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public ChatLocation? Location { get; set; }
+
 	/// <inheritdoc/>
 	public override bool Equals(object? obj)
 	{
 		return this.Equals(obj as Chat);
 	}
+
 	/// <inheritdoc/>
 	public bool Equals(Chat? other)
 	{
@@ -207,6 +205,7 @@ public sealed class Chat : ITelegramChat, IEquatable<Chat?>
 			   EqualityComparer<ChatPhoto?>.Default.Equals(this.Photo, other.Photo) &&
 			   EqualityComparer<IEnumerable<string>?>.Default.Equals(this.ActiveUsernames, other.ActiveUsernames) &&
 			   this.EmojiStatusCustomEmojiId == other.EmojiStatusCustomEmojiId &&
+			   this.EmojiStatusExpirationDate == other.EmojiStatusExpirationDate &&
 			   this.Bio == other.Bio &&
 			   this.HasPrivateForwards == other.HasPrivateForwards &&
 			   this.HasRestrictedVoiceAndVideoMessages == other.HasRestrictedVoiceAndVideoMessages &&
@@ -226,10 +225,11 @@ public sealed class Chat : ITelegramChat, IEquatable<Chat?>
 			   this.LinkedChatId == other.LinkedChatId &&
 			   EqualityComparer<ChatLocation?>.Default.Equals(this.Location, other.Location);
 	}
+
 	/// <inheritdoc/>
 	public override int GetHashCode()
 	{
-		int hashCode = 1692087815;
+		int hashCode = -2076976327;
 		hashCode = hashCode * -1521134295 + this.Id.GetHashCode();
 		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
 		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Title);
@@ -240,6 +240,7 @@ public sealed class Chat : ITelegramChat, IEquatable<Chat?>
 		hashCode = hashCode * -1521134295 + EqualityComparer<ChatPhoto?>.Default.GetHashCode(this.Photo);
 		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<string>?>.Default.GetHashCode(this.ActiveUsernames);
 		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.EmojiStatusCustomEmojiId);
+		hashCode = hashCode * -1521134295 + this.EmojiStatusExpirationDate.GetHashCode();
 		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Bio);
 		hashCode = hashCode * -1521134295 + this.HasPrivateForwards.GetHashCode();
 		hashCode = hashCode * -1521134295 + this.HasRestrictedVoiceAndVideoMessages.GetHashCode();
@@ -260,32 +261,16 @@ public sealed class Chat : ITelegramChat, IEquatable<Chat?>
 		hashCode = hashCode * -1521134295 + EqualityComparer<ChatLocation?>.Default.GetHashCode(this.Location);
 		return hashCode;
 	}
+
 	/// <inheritdoc/>
 	public static bool operator ==(Chat? left, Chat? right)
 	{
-		return EqualityComparer<Chat>.Default.Equals(left!, right!);
+		return EqualityComparer<Chat?>.Default.Equals(left, right);
 	}
+
 	/// <inheritdoc/>
 	public static bool operator !=(Chat? left, Chat? right)
 	{
 		return !(left == right);
 	}
-
-}
-
-/// <summary>
-/// Type of chat, can be either “private”, “group”, “supergroup” or “channel”. Can be either “sender” for a private chat with the inline query sender.
-/// </summary>
-public static class ChatType
-{
-	/// <summary>Private chat with the inline query sender</summary>
-	public const string Sender = "sender";
-	/// <summary>Private chat</summary>
-	public const string Private = "private";
-	/// <summary>Group chat</summary>
-	public const string Group = "group";
-	/// <summary>Supergroup chat</summary>
-	public const string Supergroup = "supergroup";
-	/// <summary>Channel chat</summary>
-	public const string Channel = "channel";
 }

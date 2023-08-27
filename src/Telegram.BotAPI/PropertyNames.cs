@@ -119,6 +119,7 @@ public static partial class PropertyNames
 	public const string Emoji = "emoji";
 	public const string EmojiList = "emoji_list";
 	public const string EmojiStatusCustomEmojiId = "emoji_status_custom_emoji_id";
+	public const string EmojiStatusExpirationDate = "emoji_status_expiration_date";
 	public const string Entities = "entities";
 	public const string ErrorMessage = "error_message";
 	public const string Errors = "errors";
@@ -357,6 +358,7 @@ public static partial class PropertyNames
 	public const string Stickers = "stickers";
 	public const string StickerSetName = "sticker_set_name";
 	public const string StickerType = "sticker_type";
+	public const string Story = "story";
 	public const string StreetLine1 = "street_line1";
 	public const string StreetLine2 = "street_line2";
 	public const string SuccessfulPayment = "successful_payment";
@@ -416,6 +418,7 @@ public static partial class PropertyNames
 	public const string VoiceDuration = "voice_duration";
 	public const string VoiceFileId = "voice_file_id";
 	public const string VoiceUrl = "voice_url";
+	public const string VoterChat = "voter_chat";
 	public const string VoterCount = "voter_count";
 	public const string Watcher = "watcher";
 	public const string WebApp = CommonNames.WebApp;
