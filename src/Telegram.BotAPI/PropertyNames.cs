@@ -42,7 +42,9 @@ public static partial class PropertyNames
 	public const string CanBeEdited = "can_be_edited";
 	public const string CanChangeInfo = "can_change_info";
 	public const string CanDeleteMessages = "can_delete_messages";
+	public const string CanDeleteStories = "can_delete_stories";
 	public const string CanEditMessages = "can_edit_messages";
+	public const string CanEditStories = "can_edit_stories";
 	public const string CanInviteUsers = "can_invite_users";
 	public const string CanJoinGroups = "can_join_groups";
 	public const string CanManageChat = "can_manage_chat";
@@ -50,6 +52,7 @@ public static partial class PropertyNames
 	public const string CanManageVideoChats = "can_manage_video_chats";
 	public const string CanPinMessages = "can_pin_messages";
 	public const string CanPostMessages = "can_post_messages";
+	public const string CanPostStories = "can_post_stories";
 	public const string CanPromoteMembers = "can_promote_members";
 	public const string CanReadAllGroupMessages = "can_read_all_group_messages";
 	public const string CanRestrictMembers = "can_restrict_members";
@@ -155,7 +158,9 @@ public static partial class PropertyNames
 	public const string FoursquareId = "foursquare_id";
 	public const string FoursquareType = "foursquare_type";
 	public const string From = "from";
+	public const string FromAttachmentMenu = "from_attachment_menu";
 	public const string FromChatId = "from_chat_id";
+	public const string FromRequest = "from_request";
 	public const string FrontSide = "front_side";
 	public const string Game = CommonNames.Game;
 	public const string GameShortName = "game_short_name";

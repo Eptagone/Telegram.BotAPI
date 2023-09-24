@@ -6,7 +6,9 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableTypes;
 
-/// <summary>Represents the rights of an administrator in a chat.</summary>
+/// <summary>
+/// Represents the rights of an administrator in a chat.
+/// </summary>
 [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 public sealed class ChatAdministratorRights
 {
@@ -17,7 +19,7 @@ public sealed class ChatAdministratorRights
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool IsAnonymous { get; set; }
 	/// <summary>
-	/// True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege
+	/// True, if the administrator can access the chat event log, chat statistics, boost list in channels, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege
 	/// </summary>
 	[JsonPropertyName(PropertyNames.CanManageChat)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -41,7 +43,7 @@ public sealed class ChatAdministratorRights
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool CanRestrictMembers { get; set; }
 	/// <summary>
-	/// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)
+	/// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by the user)
 	/// </summary>
 	[JsonPropertyName(PropertyNames.CanPromoteMembers)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -59,7 +61,7 @@ public sealed class ChatAdministratorRights
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool CanInviteUsers { get; set; }
 	/// <summary>
-	/// Optional. True, if the administrator can post in the channel; channels only
+	/// Optional. True, if the administrator can post messages in the channel; channels only
 	/// </summary>
 	[JsonPropertyName(PropertyNames.CanPostMessages)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -77,10 +79,27 @@ public sealed class ChatAdministratorRights
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool? CanPinMessages { get; set; }
 	/// <summary>
+	/// Optional. True, if the administrator can post stories in the channel; channels only
+	/// </summary>
+	[JsonPropertyName(PropertyNames.CanPostStories)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public bool? CanPostStories { get; set; }
+	/// <summary>
+	/// Optional. True, if the administrator can edit stories posted by other users; channels only
+	/// </summary>
+	[JsonPropertyName(PropertyNames.CanEditStories)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public bool? CanEditStories { get; set; }
+	/// <summary>
+	/// Optional. True, if the administrator can delete stories posted by other users; channels only
+	/// </summary>
+	[JsonPropertyName(PropertyNames.CanDeleteStories)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public bool? CanDeleteStories { get; set; }
+	/// <summary>
 	/// Optional. True, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only
 	/// </summary>
 	[JsonPropertyName(PropertyNames.CanManageTopics)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool? CanManageTopics { get; set; }
-
 }

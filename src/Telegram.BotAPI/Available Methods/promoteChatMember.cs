@@ -45,7 +45,7 @@ public static partial class AvailableMethodsExtensions
 
 		return await bot.RPCA<bool>(MethodNames.PromoteChatMember, args, cancellationToken: cancellationToken).ConfigureAwait(false);
 	}
-
+	
 	/// <summary>
 	/// Use this method to promote or demote a user in a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Pass False for all boolean parameters to demote a user. Returns True on success.
 	/// </summary>
@@ -53,20 +53,23 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 	/// <param name="userId">Unique identifier of the target user.</param>
 	/// <param name="isAnonymous">Pass True if the administrator's presence in the chat is hidden.</param>
-	/// <param name="canManageChat">Pass True if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege.</param>
-	/// <param name="canPostMessages">Pass True if the administrator can create channel posts, channels only.</param>
-	/// <param name="canEditMessages">Pass True if the administrator can edit messages of other users and can pin messages, channels only.</param>
+	/// <param name="canManageChat">Pass True if the administrator can access the chat event log, chat statistics, boost list in channels, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege.</param>
+	/// <param name="canPostMessages">Pass True if the administrator can post messages in the channel; channels only.</param>
+	/// <param name="canEditMessages">Pass True if the administrator can edit messages of other users and can pin messages; channels only.</param>
 	/// <param name="canDeleteMessages">Pass True if the administrator can delete messages of other users.</param>
+	/// <param name="canPostStories">Pass True if the administrator can post stories in the channel; channels only.</param>
+	/// <param name="canEditStories">Pass True if the administrator can edit stories posted by other users; channels only.</param>
+	/// <param name="canDeleteStories">Pass True if the administrator can delete stories posted by other users; channels only.</param>
 	/// <param name="canManageVideoChats">Pass True if the administrator can manage video chats.</param>
 	/// <param name="canRestrictMembers">Pass True if the administrator can restrict, ban or unban chat members.</param>
-	/// <param name="canPromoteMembers">Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
+	/// <param name="canPromoteMembers">Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
 	/// <param name="canChangeInfo">Pass True if the administrator can change chat title, photo and other settings.</param>
 	/// <param name="canInviteUsers">Pass True if the administrator can invite new users to the chat.</param>
 	/// <param name="canPinMessages">Pass True if the administrator can pin messages, supergroups only.</param>
 	/// <param name="canManageTopics">Pass True if the user is allowed to create, rename, close, and reopen forum topics, supergroups only.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool PromoteChatMember(this BotClient? api, long chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVideoChats, [Optional] bool? canRestrictMembers, [Optional] bool? canPromoteMembers, [Optional] bool? canChangeInfo, [Optional] bool? canInviteUsers, [Optional] bool? canPinMessages, [Optional] bool? canManageTopics)
+	public static bool PromoteChatMember(this BotClient api, long chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canPostStories, [Optional] bool? canEditStories, [Optional] bool? canDeleteStories, [Optional] bool? canManageVideoChats, [Optional] bool? canRestrictMembers, [Optional] bool? canPromoteMembers, [Optional] bool? canChangeInfo, [Optional] bool? canInviteUsers, [Optional] bool? canPinMessages, [Optional] bool? canManageTopics)
 	{
 		if (api == null) { throw new ArgumentNullException(nameof(api)); }
 		var stream = new MemoryStream();
@@ -93,6 +96,18 @@ public static partial class AvailableMethodsExtensions
 		if (canDeleteMessages is not null)
 		{
 			json.WriteBoolean(PropertyNames.CanDeleteMessages, (bool)canDeleteMessages);
+		}
+		if (canPostStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanPostStories, (bool)canPostStories);
+		}
+		if (canEditStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanEditStories, (bool)canEditStories);
+		}
+		if (canDeleteStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanDeleteStories, (bool)canDeleteStories);
 		}
 		if (canManageVideoChats is not null)
 		{
@@ -135,20 +150,23 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 	/// <param name="userId">Unique identifier of the target user.</param>
 	/// <param name="isAnonymous">Pass True if the administrator's presence in the chat is hidden.</param>
-	/// <param name="canManageChat">Pass True if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege.</param>
-	/// <param name="canPostMessages">Pass True if the administrator can create channel posts, channels only.</param>
-	/// <param name="canEditMessages">Pass True if the administrator can edit messages of other users and can pin messages, channels only.</param>
+	/// <param name="canManageChat">Pass True if the administrator can access the chat event log, chat statistics, boost list in channels, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege.</param>
+	/// <param name="canPostMessages">Pass True if the administrator can post messages in the channel; channels only.</param>
+	/// <param name="canEditMessages">Pass True if the administrator can edit messages of other users and can pin messages; channels only.</param>
 	/// <param name="canDeleteMessages">Pass True if the administrator can delete messages of other users.</param>
+	/// <param name="canPostStories">Pass True if the administrator can post stories in the channel; channels only.</param>
+	/// <param name="canEditStories">Pass True if the administrator can edit stories posted by other users; channels only.</param>
+	/// <param name="canDeleteStories">Pass True if the administrator can delete stories posted by other users; channels only.</param>
 	/// <param name="canManageVideoChats">Pass True if the administrator can manage video chats.</param>
 	/// <param name="canRestrictMembers">Pass True if the administrator can restrict, ban or unban chat members.</param>
-	/// <param name="canPromoteMembers">Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
+	/// <param name="canPromoteMembers">Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
 	/// <param name="canChangeInfo">Pass True if the administrator can change chat title, photo and other settings.</param>
 	/// <param name="canInviteUsers">Pass True if the administrator can invite new users to the chat.</param>
 	/// <param name="canPinMessages">Pass True if the administrator can pin messages, supergroups only.</param>
 	/// <param name="canManageTopics">Pass True if the user is allowed to create, rename, close, and reopen forum topics, supergroups only.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool PromoteChatMember(this BotClient? api, string chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVideoChats, [Optional] bool? canRestrictMembers, [Optional] bool? canPromoteMembers, [Optional] bool? canChangeInfo, [Optional] bool? canInviteUsers, [Optional] bool? canPinMessages, [Optional] bool? canManageTopics)
+	public static bool PromoteChatMember(this BotClient api, string chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canPostStories, [Optional] bool? canEditStories, [Optional] bool? canDeleteStories, [Optional] bool? canManageVideoChats, [Optional] bool? canRestrictMembers, [Optional] bool? canPromoteMembers, [Optional] bool? canChangeInfo, [Optional] bool? canInviteUsers, [Optional] bool? canPinMessages, [Optional] bool? canManageTopics)
 	{
 		if (api == null) { throw new ArgumentNullException(nameof(api)); }
 		var stream = new MemoryStream();
@@ -176,6 +194,18 @@ public static partial class AvailableMethodsExtensions
 		{
 			json.WriteBoolean(PropertyNames.CanDeleteMessages, (bool)canDeleteMessages);
 		}
+		if (canPostStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanPostStories, (bool)canPostStories);
+		}
+		if (canEditStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanEditStories, (bool)canEditStories);
+		}
+		if (canDeleteStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanDeleteStories, (bool)canDeleteStories);
+		}
 		if (canManageVideoChats is not null)
 		{
 			json.WriteBoolean(PropertyNames.CanManageVideoChats, (bool)canManageVideoChats);
@@ -217,13 +247,16 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 	/// <param name="userId">Unique identifier of the target user.</param>
 	/// <param name="isAnonymous">Pass True if the administrator's presence in the chat is hidden.</param>
-	/// <param name="canManageChat">Pass True if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege.</param>
-	/// <param name="canPostMessages">Pass True if the administrator can create channel posts, channels only.</param>
-	/// <param name="canEditMessages">Pass True if the administrator can edit messages of other users and can pin messages, channels only.</param>
+	/// <param name="canManageChat">Pass True if the administrator can access the chat event log, chat statistics, boost list in channels, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege.</param>
+	/// <param name="canPostMessages">Pass True if the administrator can post messages in the channel; channels only.</param>
+	/// <param name="canEditMessages">Pass True if the administrator can edit messages of other users and can pin messages; channels only.</param>
 	/// <param name="canDeleteMessages">Pass True if the administrator can delete messages of other users.</param>
+	/// <param name="canPostStories">Pass True if the administrator can post stories in the channel; channels only.</param>
+	/// <param name="canEditStories">Pass True if the administrator can edit stories posted by other users; channels only.</param>
+	/// <param name="canDeleteStories">Pass True if the administrator can delete stories posted by other users; channels only.</param>
 	/// <param name="canManageVideoChats">Pass True if the administrator can manage video chats.</param>
 	/// <param name="canRestrictMembers">Pass True if the administrator can restrict, ban or unban chat members.</param>
-	/// <param name="canPromoteMembers">Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
+	/// <param name="canPromoteMembers">Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
 	/// <param name="canChangeInfo">Pass True if the administrator can change chat title, photo and other settings.</param>
 	/// <param name="canInviteUsers">Pass True if the administrator can invite new users to the chat.</param>
 	/// <param name="canPinMessages">Pass True if the administrator can pin messages, supergroups only.</param>
@@ -231,7 +264,7 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> PromoteChatMemberAsync(this BotClient? api, long chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVideoChats, [Optional] bool? canRestrictMembers, [Optional] bool? canPromoteMembers, [Optional] bool? canChangeInfo, [Optional] bool? canInviteUsers, [Optional] bool? canPinMessages, [Optional] bool? canManageTopics, [Optional] CancellationToken cancellationToken)
+	public static async Task<bool> PromoteChatMemberAsync(this BotClient api, long chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canPostStories, [Optional] bool? canEditStories, [Optional] bool? canDeleteStories, [Optional] bool? canManageVideoChats, [Optional] bool? canRestrictMembers, [Optional] bool? canPromoteMembers, [Optional] bool? canChangeInfo, [Optional] bool? canInviteUsers, [Optional] bool? canPinMessages, [Optional] bool? canManageTopics, [Optional] CancellationToken cancellationToken)
 	{
 		if (api == null) { throw new ArgumentNullException(nameof(api)); }
 		var stream = new MemoryStream();
@@ -258,6 +291,18 @@ public static partial class AvailableMethodsExtensions
 		if (canDeleteMessages is not null)
 		{
 			json.WriteBoolean(PropertyNames.CanDeleteMessages, (bool)canDeleteMessages);
+		}
+		if (canPostStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanPostStories, (bool)canPostStories);
+		}
+		if (canEditStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanEditStories, (bool)canEditStories);
+		}
+		if (canDeleteStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanDeleteStories, (bool)canDeleteStories);
 		}
 		if (canManageVideoChats is not null)
 		{
@@ -301,13 +346,16 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
 	/// <param name="userId">Unique identifier of the target user.</param>
 	/// <param name="isAnonymous">Pass True if the administrator's presence in the chat is hidden.</param>
-	/// <param name="canManageChat">Pass True if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege.</param>
-	/// <param name="canPostMessages">Pass True if the administrator can create channel posts, channels only.</param>
-	/// <param name="canEditMessages">Pass True if the administrator can edit messages of other users and can pin messages, channels only.</param>
+	/// <param name="canManageChat">Pass True if the administrator can access the chat event log, chat statistics, boost list in channels, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege.</param>
+	/// <param name="canPostMessages">Pass True if the administrator can post messages in the channel; channels only.</param>
+	/// <param name="canEditMessages">Pass True if the administrator can edit messages of other users and can pin messages; channels only.</param>
 	/// <param name="canDeleteMessages">Pass True if the administrator can delete messages of other users.</param>
+	/// <param name="canPostStories">Pass True if the administrator can post stories in the channel; channels only.</param>
+	/// <param name="canEditStories">Pass True if the administrator can edit stories posted by other users; channels only.</param>
+	/// <param name="canDeleteStories">Pass True if the administrator can delete stories posted by other users; channels only.</param>
 	/// <param name="canManageVideoChats">Pass True if the administrator can manage video chats.</param>
 	/// <param name="canRestrictMembers">Pass True if the administrator can restrict, ban or unban chat members.</param>
-	/// <param name="canPromoteMembers">Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
+	/// <param name="canPromoteMembers">Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him).</param>
 	/// <param name="canChangeInfo">Pass True if the administrator can change chat title, photo and other settings.</param>
 	/// <param name="canInviteUsers">Pass True if the administrator can invite new users to the chat.</param>
 	/// <param name="canPinMessages">Pass True if the administrator can pin messages, supergroups only.</param>
@@ -315,7 +363,7 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> PromoteChatMemberAsync(this BotClient? api, string chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canManageVideoChats, [Optional] bool? canRestrictMembers, [Optional] bool? canPromoteMembers, [Optional] bool? canChangeInfo, [Optional] bool? canInviteUsers, [Optional] bool? canPinMessages, [Optional] bool? canManageTopics, [Optional] CancellationToken cancellationToken)
+	public static async Task<bool> PromoteChatMemberAsync(this BotClient api, string chatId, long userId, [Optional] bool? isAnonymous, [Optional] bool? canManageChat, [Optional] bool? canPostMessages, [Optional] bool? canEditMessages, [Optional] bool? canDeleteMessages, [Optional] bool? canPostStories, [Optional] bool? canEditStories, [Optional] bool? canDeleteStories, [Optional] bool? canManageVideoChats, [Optional] bool? canRestrictMembers, [Optional] bool? canPromoteMembers, [Optional] bool? canChangeInfo, [Optional] bool? canInviteUsers, [Optional] bool? canPinMessages, [Optional] bool? canManageTopics, [Optional] CancellationToken cancellationToken)
 	{
 		if (api == null) { throw new ArgumentNullException(nameof(api)); }
 		var stream = new MemoryStream();
@@ -342,6 +390,18 @@ public static partial class AvailableMethodsExtensions
 		if (canDeleteMessages is not null)
 		{
 			json.WriteBoolean(PropertyNames.CanDeleteMessages, (bool)canDeleteMessages);
+		}
+		if (canPostStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanPostStories, (bool)canPostStories);
+		}
+		if (canEditStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanEditStories, (bool)canEditStories);
+		}
+		if (canDeleteStories is not null)
+		{
+			json.WriteBoolean(PropertyNames.CanDeleteStories, (bool)canDeleteStories);
 		}
 		if (canManageVideoChats is not null)
 		{

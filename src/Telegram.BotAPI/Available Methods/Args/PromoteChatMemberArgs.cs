@@ -6,7 +6,9 @@ using Newtonsoft.Json.Serialization;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
-/// <summary>PromoteChatMember method arguments.</summary>
+/// <summary>
+/// PromoteChatMember method arguments.
+/// </summary>
 [JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 public class PromoteChatMemberArgs
 {
@@ -52,19 +54,19 @@ public class PromoteChatMemberArgs
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool? IsAnonymous { get; set; }
 	/// <summary>
-	/// Pass True if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege
+	/// Pass True if the administrator can access the chat event log, chat statistics, boost list in channels, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege
 	/// </summary>
 	[JsonPropertyName(PropertyNames.CanManageChat)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool? CanManageChat { get; set; }
 	/// <summary>
-	/// Pass True if the administrator can create channel posts, channels only
+	/// Pass True if the administrator can post messages in the channel; channels only
 	/// </summary>
 	[JsonPropertyName(PropertyNames.CanPostMessages)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool? CanPostMessages { get; set; }
 	/// <summary>
-	/// Pass True if the administrator can edit messages of other users and can pin messages, channels only
+	/// Pass True if the administrator can edit messages of other users and can pin messages; channels only
 	/// </summary>
 	[JsonPropertyName(PropertyNames.CanEditMessages)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -75,6 +77,24 @@ public class PromoteChatMemberArgs
 	[JsonPropertyName(PropertyNames.CanDeleteMessages)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool? CanDeleteMessages { get; set; }
+	/// <summary>
+	/// Pass True if the administrator can post stories in the channel; channels only
+	/// </summary>
+	[JsonPropertyName(PropertyNames.CanPostStories)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public bool? CanPostStories { get; set; }
+	/// <summary>
+	/// Pass True if the administrator can edit stories posted by other users; channels only
+	/// </summary>
+	[JsonPropertyName(PropertyNames.CanEditStories)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public bool? CanEditStories { get; set; }
+	/// <summary>
+	/// Pass True if the administrator can delete stories posted by other users; channels only
+	/// </summary>
+	[JsonPropertyName(PropertyNames.CanDeleteStories)]
+	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public bool? CanDeleteStories { get; set; }
 	/// <summary>
 	/// Pass True if the administrator can manage video chats
 	/// </summary>
@@ -88,7 +108,7 @@ public class PromoteChatMemberArgs
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
 	public bool? CanRestrictMembers { get; set; }
 	/// <summary>
-	/// Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)
+	/// Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)
 	/// </summary>
 	[JsonPropertyName(PropertyNames.CanPromoteMembers)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
