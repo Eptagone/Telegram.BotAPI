@@ -78,7 +78,7 @@ public sealed partial class BotClient
 	/// <returns><see cref="BotResponse{T}"/></returns>
 	public async Task<BotResponse<T>> GetRequestAsync<T>(string method, [Optional] CancellationToken cancellationToken)
 	{
-		using var request = new HttpRequestMessage(HttpMethod.Get, $"{this.ServerAddress}/bot{this.Token}/{method}");
+		using var request = new HttpRequestMessage(HttpMethod.Get, this.BuildUrl(method));
 		return await this.SendRequestAsync<T>(request, cancellationToken).ConfigureAwait(false);
 	}
 
@@ -149,7 +149,7 @@ public sealed partial class BotClient
 	/// <returns><see cref="BotResponse{T}"/></returns>
 	public async Task<BotResponse<T>> PostRequestAsync<T>(string method, Stream args, [Optional] CancellationToken cancellationToken)
 	{
-		using var request = new HttpRequestMessage(HttpMethod.Post, $"{this.ServerAddress}/bot{this.Token}/{method}")
+		using var request = new HttpRequestMessage(HttpMethod.Post, this.BuildUrl(method))
 		{
 			Content = new StreamContent(args)
 		};
@@ -165,7 +165,7 @@ public sealed partial class BotClient
 	/// <returns><see cref="BotResponse{T}"/></returns>
 	public async Task<BotResponse<T>> PostRequestAsyncMultipartFormData<T>(string method, MultipartFormDataContent args, CancellationToken cancellationToken)
 	{
-		using var request = new HttpRequestMessage(HttpMethod.Post, $"{this.ServerAddress}/bot{this.Token}/{method}")
+		using var request = new HttpRequestMessage(HttpMethod.Post, this.BuildUrl(method))
 		{
 			Content = args
 		};
@@ -195,6 +195,17 @@ public sealed partial class BotClient
 				throw new BotRequestException(exp, response);
 			}
 		}
+	}
+
+	/// <summary>
+	/// Build the url for the request.
+	/// </summary>
+	/// <param name="method">The method name.</param>
+	/// <returns>The url for the request.</returns>
+	private string BuildUrl(string method)
+	{
+		var prefix = this.UseTestEnvironment ? "/test" : string.Empty;
+		return $"{this.ServerAddress}/bot{this.Token}{prefix}/{method}";
 	}
 
 	/// <summary>RPC</summary>
