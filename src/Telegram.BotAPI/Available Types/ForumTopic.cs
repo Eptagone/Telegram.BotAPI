@@ -35,5 +35,5 @@ public sealed class ForumTopic
 	/// </summary>
 	[JsonPropertyName(PropertyNames.IconCustomEmojiId)]
 	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string IconCustomEmojiId { get; set; }
+	public string? IconCustomEmojiId { get; set; }
 }
