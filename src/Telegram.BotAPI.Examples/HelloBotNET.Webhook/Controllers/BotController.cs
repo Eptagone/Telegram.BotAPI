@@ -22,19 +22,8 @@ namespace HelloBotNET.Webhook.Controllers
 			this._bot = bot;
 		}
 
-		[HttpGet("{webhookToken}")]
-		public IActionResult Get(string webhookToken)
-		{
-			if (this._configuration["Telegram:WebhookToken"] != webhookToken)
-			{
-				this._logger.LogWarning("Failed access!");
-				this.Unauthorized();
-			}
-			return this.Ok();
-		}
-
-		[HttpPost("{webhookToken}")]
-		public async Task<IActionResult> PostAsync(string webhookToken, [FromBody] Update update, CancellationToken cancellationToken)
+		[HttpPost]
+		public async Task<IActionResult> PostAsync([FromHeader(Name = "X-Telegram-Bot-Api-Secret-Token")] string webhookToken, [FromBody] Update update, CancellationToken cancellationToken)
 		{
 			if (this._configuration["Telegram:WebhookToken"] != webhookToken)
 			{

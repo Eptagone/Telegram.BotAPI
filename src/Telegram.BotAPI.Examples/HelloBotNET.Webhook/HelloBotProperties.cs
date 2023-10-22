@@ -4,7 +4,6 @@
 using Telegram.BotAPI;
 using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.AvailableTypes;
-using Telegram.BotAPI.GettingUpdates;
 
 namespace HelloBotNET.Webhook
 {
@@ -20,20 +19,10 @@ namespace HelloBotNET.Webhook
 		{
 			var telegram = configuration.GetSection("Telegram"); // JSON: "Telegram"
 			var botToken = telegram["BotToken"]; // ENV: Telegram__BotToken, JSON: "Telegram:BotToken"
-
 			this.Api = new BotClient(botToken);
 			this.User = this.Api.GetMe();
 
 			this._commandHelper = new BotCommandHelper(this);
-
-			// Delete my old commands
-			this.Api.DeleteMyCommands();
-			// Set my commands
-			this.Api.SetMyCommands(
-				new BotCommand("hello", "Hello world!"));
-
-			// Delete webhook to use Long Polling
-			this.Api.DeleteWebhook();
 		}
 
 		public BotClient Api { get; }

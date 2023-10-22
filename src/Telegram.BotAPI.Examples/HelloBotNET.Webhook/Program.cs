@@ -2,6 +2,7 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using HelloBotNET.Webhook;
+using HelloBotNET.Webhook.Extensions;
 using HelloBotNET.Webhook.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,5 +21,8 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.MapControllers();
+
+// Register que webhook
+app.UseTelegramWebhook();
 
 app.Run();
