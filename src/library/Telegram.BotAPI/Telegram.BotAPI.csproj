@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Version>7.0.0-alpha</Version>
+		<PackageId>$(AssemblyName)</PackageId>
+		<Authors>Quetzal Rivera</Authors>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<RootNamespace>Telegram.BotAPI</RootNamespace>
+		<Copyright>Quetzal Rivera 2024 ©</Copyright>
+		<NeutralLanguage>en</NeutralLanguage>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Description>A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v7.0 (December 29, 2023).
+- Contains all classes and methods available from the Bot API.
+		</Description>
+		<PackageTags>Telegram;Bot;API</PackageTags>
+		<Title></Title>
+		<SignAssembly>false</SignAssembly>
+		<AssemblyOriginatorKeyFile>Telegram.BotAPI.pfx</AssemblyOriginatorKeyFile>
+		<LangVersion>latest</LangVersion>
+		<Product>$(AssemblyName)</Product>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
+		<PackageIcon>packicon.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
+		<RepositoryType></RepositoryType>
+		<AssemblyName>Telegram.BotAPI</AssemblyName>
+		<PackageReleaseNotes>- Updated to Bot API 7.0</PackageReleaseNotes>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="*" />
+		<PackageReference Include="System.Text.Json" Version="*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="packicon.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="README">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+</Project>

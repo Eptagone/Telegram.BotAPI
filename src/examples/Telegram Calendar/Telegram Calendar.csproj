@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>TelegramCalendar</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\library\Telegram.BotAPI\Telegram.BotAPI.csproj" />
+    <ProjectReference Include="..\..\library\Telegram.BotAPI.Extensions\Telegram.BotAPI.Extensions.csproj" />
+  </ItemGroup>
+  
+</Project>

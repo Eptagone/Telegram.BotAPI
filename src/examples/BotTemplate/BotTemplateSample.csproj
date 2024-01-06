@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>BotTemplateSample</RootNamespace>
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\library\Telegram.BotAPI\Telegram.BotAPI.csproj" />
+    <ProjectReference Include="..\..\library\Telegram.BotAPI.Extensions\Telegram.BotAPI.Extensions.csproj" />
+  </ItemGroup>
+
+</Project>

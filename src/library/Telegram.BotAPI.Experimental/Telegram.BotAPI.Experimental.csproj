@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Helpers\**" />
+		<EmbeddedResource Remove="Helpers\**" />
+		<None Remove="Helpers\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Telegram.BotAPI\Telegram.BotAPI.csproj" />
+	</ItemGroup>
+
+</Project>

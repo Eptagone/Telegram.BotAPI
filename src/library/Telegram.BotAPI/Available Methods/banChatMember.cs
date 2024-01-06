@@ -1,0 +1,153 @@
+// Copyright (c) 2024 Quetzal Rivera.
+// Licensed under the MIT License, See LICENCE in the project root for license information.
+
+using System.IO;
+using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Telegram.BotAPI.AvailableMethods;
+
+public static partial class AvailableMethodsExtensions
+{
+	/// <summary>Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless unbanned first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights.</summary>
+	/// <param name="bot">BotClient</param>
+	/// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @channelusername).</param>
+	/// <param name="userId">Unique identifier of the target user.</param>
+	/// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+	/// <param name="revokeMessages">Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.</param>
+	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+	/// <returns>True on success.</returns>
+	public static bool BanChatMember(this ITelegramBotClient bot, long chatId, long userId, uint? untilDate = null, bool? revokeMessages = null)
+	{
+		if (bot == default)
+		{
+			throw new ArgumentNullException(nameof(bot));
+		}
+
+		var stream = new MemoryStream();
+		using var json = new Utf8JsonWriter(stream);
+		json.WriteStartObject();
+		json.WriteNumber(PropertyNames.ChatId, chatId);
+		json.WriteNumber(PropertyNames.UserId, userId);
+		if (untilDate != null)
+		{
+			json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
+		}
+		if (revokeMessages == true)
+		{
+			json.WriteBoolean(PropertyNames.RevokeMessages, true);
+		}
+		json.WriteEndObject();
+		json.Flush(); json.Dispose();
+		stream.Seek(0, SeekOrigin.Begin);
+		return bot.CallMethod<bool>(MethodNames.BanChatMember, stream);
+	}
+	/// <summary>Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless unbanned first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights.</summary>
+	/// <param name="bot">BotClient</param>
+	/// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @channelusername).</param>
+	/// <param name="userId">Unique identifier of the target user.</param>
+	/// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+	/// <param name="revokeMessages">Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.</param>
+	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+	/// <returns>True on success.</returns>
+	public static bool BanChatMember(this ITelegramBotClient bot, string chatId, long userId, uint? untilDate = null, bool? revokeMessages = null)
+	{
+		if (bot == default)
+		{
+			throw new ArgumentNullException(nameof(bot));
+		}
+
+		var stream = new MemoryStream();
+		using var json = new Utf8JsonWriter(stream);
+		json.WriteStartObject();
+		json.WriteString(PropertyNames.ChatId, chatId);
+		json.WriteNumber(PropertyNames.UserId, userId);
+		if (untilDate != null)
+		{
+			json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
+		}
+		if (revokeMessages == true)
+		{
+			json.WriteBoolean(PropertyNames.RevokeMessages, true);
+		}
+		json.WriteEndObject();
+		json.Flush(); json.Dispose();
+		stream.Seek(0, SeekOrigin.Begin);
+		return bot.CallMethod<bool>(MethodNames.BanChatMember, stream);
+	}
+	/// <summary>Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless unbanned first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights.</summary>
+	/// <param name="client">BotClient</param>
+	/// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @channelusername).</param>
+	/// <param name="userId">Unique identifier of the target user.</param>
+	/// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+	/// <param name="revokeMessages">Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.</param>
+	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+	/// <returns>True on success.</returns>
+	public static async Task<bool> BanChatMemberAsync(this ITelegramBotClient client, long chatId, long userId, uint? untilDate = null, bool? revokeMessages = null, CancellationToken cancellationToken = default)
+	{
+		if (client is null)
+		{
+			throw new ArgumentNullException(nameof(client));
+		}
+
+		var stream = new MemoryStream();
+		using var json = new Utf8JsonWriter(stream);
+		json.WriteStartObject();
+		json.WriteNumber(PropertyNames.ChatId, chatId);
+		json.WriteNumber(PropertyNames.UserId, userId);
+		if (untilDate != null)
+		{
+			json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
+		}
+		if (revokeMessages == true)
+		{
+			json.WriteBoolean(PropertyNames.RevokeMessages, true);
+		}
+		json.WriteEndObject();
+		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
+		await json.DisposeAsync().ConfigureAwait(false);
+		stream.Seek(0, SeekOrigin.Begin);
+		return await client.CallMethodAsync<bool>(MethodNames.BanChatMember, stream, cancellationToken).ConfigureAwait(false);
+	}
+	/// <summary>Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless unbanned first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights.</summary>
+	/// <param name="client">BotClient</param>
+	/// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @channelusername).</param>
+	/// <param name="userId">Unique identifier of the target user.</param>
+	/// <param name="untilDate">Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
+	/// <param name="revokeMessages">Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.</param>
+	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
+	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
+	/// <returns>True on success.</returns>
+	public static async Task<bool> BanChatMemberAsync(this ITelegramBotClient client, string chatId, long userId, uint? untilDate = null, bool? revokeMessages = null, CancellationToken cancellationToken = default)
+	{
+		if (client is null)
+		{
+			throw new ArgumentNullException(nameof(client));
+		}
+
+		var stream = new MemoryStream();
+		using var json = new Utf8JsonWriter(stream);
+		json.WriteStartObject();
+		json.WriteString(PropertyNames.ChatId, chatId);
+		json.WriteNumber(PropertyNames.UserId, userId);
+		if (untilDate != null)
+		{
+			json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
+		}
+		if (revokeMessages == true)
+		{
+			json.WriteBoolean(PropertyNames.RevokeMessages, true);
+		}
+		json.WriteEndObject();
+		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
+		await json.DisposeAsync().ConfigureAwait(false);
+		stream.Seek(0, SeekOrigin.Begin);
+		return await client.CallMethodAsync<bool>(MethodNames.BanChatMember, stream, cancellationToken).ConfigureAwait(false);
+	}
+}

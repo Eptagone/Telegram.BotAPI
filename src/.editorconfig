@@ -49,6 +49,9 @@ csharp_style_prefer_not_pattern = true:suggestion
 csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
 csharp_style_var_when_type_is_apparent = false:silent
 csharp_style_var_elsewhere = false:silent
+csharp_style_prefer_primary_constructors = true:suggestion
+csharp_style_allow_blank_line_after_token_in_conditional_expression_experimental = true:silent
+csharp_style_allow_blank_line_after_token_in_arrow_expression_clause_experimental = true:silent
 
 [*.{cs,vb}]
 dotnet_diagnostic.CA1707.severity=suggestion
@@ -111,7 +114,7 @@ dotnet_style_object_initializer = true:suggestion
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
 tab_width = 4
 indent_size = 4
-end_of_line = crlf
+end_of_line = lf
 dotnet_style_collection_initializer = true:suggestion
 dotnet_style_qualification_for_field = true:suggestion
 dotnet_style_qualification_for_property = true:suggestion
@@ -139,4 +142,4 @@ dotnet_style_parentheses_in_other_operators = never_if_unnecessary:silent
 dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:silent
 
 # Extra rules
-file_header_template = Copyright (c) 2023 Quetzal Rivera.\nLicensed under the MIT License, See LICENCE in the project root for license information.
+file_header_template = Copyright (c) 2024 Quetzal Rivera.\nLicensed under the MIT License, See LICENCE in the project root for license information.

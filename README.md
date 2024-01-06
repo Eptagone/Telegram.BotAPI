@@ -2,18 +2,18 @@
 | -------------------------------------------------- | -------------------------------- |
 
 [![NuGet version (Telegram.BotAPI)](https://img.shields.io/nuget/v/Telegram.BotAPI.svg?style=flat-square)](https://www.nuget.org/packages/Telegram.BotAPI/)
-[![Compatible with Bot API v6.9](https://img.shields.io/badge/Bot%20API%20version-v6.9-blue?style=flat-square)](https://core.telegram.org/bots/api#september-22-2023)
+[![Compatible with Bot API v7.0](https://img.shields.io/badge/Bot%20API%20version-v7.0-blue?style=flat-square)](https://core.telegram.org/bots/api#december-29-2023)
 
 **Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. Free and open source.
 
-It contains all the methods and types available in the Bot API 6.9 released on September 22, 2023.
+It contains all the methods and types available in the Bot API 7.0 released on December 29, 2023.
 
 ---
 
 ## Features
 
-- Contains pre-defined methods for all Bot API 6.9 methods.
-- Contains classes for each object type used in the Bot API 6.9.
+- Contains pre-defined methods for all Bot API 7.0 methods.
+- Contains classes for each object type used in the Bot API 7.0.
 - Sync and async methods.
 - Support [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) and [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/).
 
@@ -22,7 +22,7 @@ It contains all the methods and types available in the Bot API 6.9 released on S
 ## .NET platforms support
 
 - NET Standard >= 2.0
-- NET Core >= 2.0, .NET 5|6|7
+- NET Core >= 2.0, .NET 6, .NET 8
 - NET Framework >= 4.6.2
 - Universal Windows Platform >= 10.0.16299
 - Unity >= 2018.1
@@ -43,14 +43,14 @@ dotnet add PROJECT package Telegram.BotAPI
 
 ## How to use
 
-First, get your **bot token** from [BotFather](https://t.me/BotFather) and use it to create a new instance of `Telegram.BotAPI.BotClient` as follows.
+First, get your **bot token** from [BotFather](https://t.me/BotFather) and use it to create a new instance of `Telegram.BotAPI.TelegramBotClient` as follows.
 
 ```CSharp
 using Telegram.BotAPI;
 
 var botToken = "bot123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11";
-// You need a BotClient instance if you want access to the Bot API methods.
-var api = new BotClient(botToken);
+// You need a TelegramBotClient instance if you want access to the Bot API methods.
+var client = new TelegramBotClient(botToken);
 ```
 
 The methods and types are organized in namespaces according to their corresponding section on the [Official Bot API website](https://core.telegram.org/bots/api). So if you want to use a method or type, you must first include the corresponding namespace.
@@ -59,7 +59,7 @@ Currently the following namespaces are available:
 
 | Name                             | Description                                      |
 | :------------------------------- | :----------------------------------------------- |
-| Telegram.BotAPI                  | Contains the BotClient and other utilities       |
+| Telegram.BotAPI                  | Contains the TelegramBotClient and other utilities       |
 | Telegram.BotAPI.GettingUpdates   | Contains methods and types for getting updates   |
 | Telegram.BotAPI.AvailableTypes   | Contains available types                         |
 | Telegram.BotAPI.AvailableMethods | Contains available methods                       |
@@ -70,12 +70,12 @@ Currently the following namespaces are available:
 | Telegram.BotAPI.TelegramPassport | Contains methods and types for Telegram Passport |
 | Telegram.BotAPI.Games            | Contains methods and types for games             |
 
-Once the namespaces are included, you are ready to start managing your bot. For example, you can use the [getMe](https://core.telegram.org/bots/api#sendmessage) method to get basic information about your bot.
+Once the namespaces are included, you are ready to start managing your bot. For example, you can use the [getMe](https://core.telegram.org/bots/api#getme) method to get basic information about your bot.
 
 ```CSharp
 using Telegram.BotAPI.AvailableMethods;
 
-var me = api.GetMe();
+var me = client.GetMe();
 Console.WriteLine("My name is {0}.", me.FirstName);
 ```
 
@@ -83,7 +83,7 @@ Console.WriteLine("My name is {0}.", me.FirstName);
 
 Every time a user interacts with a bot, bot will receive a new update. Updates contain information about user events, such as a new message or when a button is clicked. If you want your bot to reply to a message, then your bot must be able to get updates first.
 
-Currently, there are two ways to get updates: [Long Polling](###Long-Polling) and [webhooks](###Webhooks).
+Currently, there are two ways to get updates: [Long Polling](#long-polling) and [webhooks](#webhooks).
 
 ### Long Polling
 
@@ -93,7 +93,7 @@ To get updates using **Long Polling**, you must create a perpetual loop and chec
 using System.Linq;
 using Telegram.BotAPI.GettingUpdates;
 
-var updates = api.GetUpdates();
+var updates = client.GetUpdates();
 while (true)
 {
     if (updates.Any())
@@ -103,11 +103,11 @@ while (true)
             // Process update
         }
         var offset = updates.Last().UpdateId + 1;
-        updates = api.GetUpdates(offset);
+        updates = client.GetUpdates(offset);
     }
     else
     {
-        updates = api.GetUpdates();
+        updates = client.GetUpdates();
     }
 }
 ```
@@ -120,12 +120,16 @@ To receive updates through webhook, you must create a web application. In your A
 using Telegram.BotAPI.GettingUpdates;
 
 [HttpPost]
-public IActionResult Post([FromBody] Update update)
+public IActionResult Post(
+    // The secret token is optional, but it's highly recommended to use it.
+    [FromHeader(Name = "X-Telegram-Bot-Api-Secret-Token")] string secretToken,
+    [FromBody] Update update)
 {
-    if (update == null)
+    if (update is null)
     {
         return BadRequest();
     }
+    // Check if the secret token is valid
     // Process your update
     return Ok();
 }
@@ -138,9 +142,8 @@ api.DeleteWebhook(true); // Delete old webhook
 api.SetWebhook("https://example.com/<controller path>"); // Set new webhook
 ```
 
-> It's high recommended to use a secret path to access the api controller.
-
-> Using webhook will disable the `getUpdates` method. Use `deleteWebhook` to enable it again.
+> It's high recommended to configurate a secret token to access the api controller through the setWebhook method. This will prevent third parties from accessing your api controller.
+> Using a webhook will disable the `getUpdates` method. Use `deleteWebhook` to enable it again.
 
 ## Sending messages
 
@@ -157,7 +160,7 @@ Your bot can also send multimedia messages like photos, gifs, videos, and others
 
 ## Uploading files
 
-You can send attached files using InputFile objects. You have two ways to do it.
+You can also send attached files using InputFile objects. You have two ways to do it: By using an InputFile object directly or by using an AttachedFile object.
 
 ### Option 1
 
@@ -186,6 +189,50 @@ var files = new AttachedFile[]
 // Upload document
 api.SendDocument(chatId, "attach://file56", attachedFiles: files);
 ```
+
+## Making custom requests
+
+The library already includes all types and methods available in the Bot API. However, if you want to use your own types or if you want to be the first one to use new features when they are released, you can use the `CallMethod` and/or `CallMethodDirect` methods defined in the ITelegramBotClient instance.
+
+```CSharp
+var args = new Dictionary<string, object>() {
+    { "chat_id", 123456789 },
+    { "text", "Hello World!" }
+};
+// Message is the type you want to use to deserialize the response result. It can be an in-built type or a custom type created by you.
+var message = client.CallMethod<Message>("sendMessage", args);
+```
+
+The previous method is used by all extension methods defined in the library. You can also create your own extension methods to make custom requests if you want.
+
+```CSharp
+public static class TelegramBotClientExtensions
+{
+    public static Message SendHelloWorld(this ITelegramBotClient client, long chatId)
+    {
+        var args = new Dictionary<string, object>() {
+            { "chat_id", chatId },
+            { "text", "Hello World!" }
+        };
+        return client.CallMethod<Message>("sendMessage", args);
+    }
+}
+```
+
+The library also includes the classes `MethodNames` and `PropertyNames` that contain the names of all methods and properties.
+
+The `CallMethod` will trigger an exception if the response status code is not OK. If you don't like this behavior, you can use the `CallMethodDirect` method instead.
+
+```CSharp
+var args = new Dictionary<string, object>() {
+    { "chat_id", 123456789 },
+    { "text", "Hello World!" }
+};
+// BotResponse<Message>
+var response = client.CallMethodDirect<Message>("sendMessage", args);
+```
+
+You'll get a `BotResponse<T>` object as a response. This object contains the status code, the deserialized result or null (if error), the error description and also some error parameters if available.
 
 ---
 

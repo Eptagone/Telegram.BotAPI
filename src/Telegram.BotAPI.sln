@@ -3,20 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI", "Telegram.BotAPI\Telegram.BotAPI.csproj", "{333CEF37-B947-47CA-A339-9B14D4D7E20A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI", "library\Telegram.BotAPI\Telegram.BotAPI.csproj", "{333CEF37-B947-47CA-A339-9B14D4D7E20A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{E90CDF4A-2731-4F91-9BD7-4A40E04DF290}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{E90CDF4A-2731-4F91-9BD7-4A40E04DF290}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{576E0D2C-631B-4C68-9AF4-0D99DC4E5951}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI.Tests", "Telegram.BotAPI.Tests\Telegram.BotAPI.Tests.csproj", "{14B3773F-CA9B-4AB7-A799-4CAD7A43D927}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI.Tests", "tests\Telegram.BotAPI.Tests\Telegram.BotAPI.Tests.csproj", "{14B3773F-CA9B-4AB7-A799-4CAD7A43D927}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI.Experimental", "Telegram.BotAPI.Experimental\Telegram.BotAPI.Experimental.csproj", "{BC2BDF60-4DD0-4979-AF17-E58984CAE9F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI.Experimental", "library\Telegram.BotAPI.Experimental\Telegram.BotAPI.Experimental.csproj", "{BC2BDF60-4DD0-4979-AF17-E58984CAE9F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EEFA3271-1A58-4067-B29D-C1B1770C6082}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.BotAPI.Extensions", "library\Telegram.BotAPI.Extensions\Telegram.BotAPI.Extensions.csproj", "{BA0FF392-07D4-4C31-866B-93865F4E1FF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{BC2BDF60-4DD0-4979-AF17-E58984CAE9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC2BDF60-4DD0-4979-AF17-E58984CAE9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC2BDF60-4DD0-4979-AF17-E58984CAE9F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA0FF392-07D4-4C31-866B-93865F4E1FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0FF392-07D4-4C31-866B-93865F4E1FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0FF392-07D4-4C31-866B-93865F4E1FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0FF392-07D4-4C31-866B-93865F4E1FF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{333CEF37-B947-47CA-A339-9B14D4D7E20A} = {E90CDF4A-2731-4F91-9BD7-4A40E04DF290}
 		{14B3773F-CA9B-4AB7-A799-4CAD7A43D927} = {576E0D2C-631B-4C68-9AF4-0D99DC4E5951}
 		{BC2BDF60-4DD0-4979-AF17-E58984CAE9F3} = {E90CDF4A-2731-4F91-9BD7-4A40E04DF290}
+		{BA0FF392-07D4-4C31-866B-93865F4E1FF2} = {E90CDF4A-2731-4F91-9BD7-4A40E04DF290}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85BE005E-491E-437E-BA2C-2202816F73AF}

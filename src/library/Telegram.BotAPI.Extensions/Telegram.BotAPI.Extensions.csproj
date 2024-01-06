@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<NeutralLanguage>en</NeutralLanguage>
+		<Authors>Quetzal Rivera</Authors>
+		<Copyright>Quetzal Rivera 2024 ©</Copyright>
+		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
+		<PackageTags>Telegram;Bot;API;Extensions</PackageTags>
+		<Version>0.1</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\..\..\LICENSE">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Telegram.BotAPI\Telegram.BotAPI.csproj" />
+    </ItemGroup>
+
+</Project>
