@@ -182,12 +182,11 @@ using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.AvailableMethods;
 
 var file = new InputFile(filebytes, "file.zip");
-var files = new AttachedFile[]
-{
-    new AttachedFile("file56", file)
-}
+var files = new Dictionary<string, InputFile>() {
+    { "file56", file }
+};
 // Upload document
-api.SendDocument(chatId, "attach://file56", attachedFiles: files);
+api.SendDocument(chatId, "attach://file56", files: files);
 ```
 
 ## Making custom requests

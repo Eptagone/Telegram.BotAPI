@@ -86,6 +86,7 @@ public sealed class InputFile : IEquatable<InputFile>
 /// <remarks>New AttachFile</remarks>
 /// <param name="name">File attach name.</param>
 /// <param name="inputFile">This object represents the contents of a file to be uploaded.</param>
+[Obsolete("Use a Dictionary<string, InputFile> instead to attach multiple files.")]
 public sealed class AttachedFile(string name, InputFile inputFile)
 {
 	/// <summary>AttachFile Name</summary>

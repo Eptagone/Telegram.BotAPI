@@ -107,10 +107,10 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 	/// <param name="replyParameters">Description of the message to reply to.</param>
 	/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
-	/// <param name="attachedFiles">Attached files.</param>
+	/// <param name="files">Attached files.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static Message SendVideo(this ITelegramBotClient client, long chatId, string video, int? messageThreadId = null, uint? duration = null, uint? width = null, uint? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IEnumerable<AttachedFile>? attachedFiles = null)
+	public static Message SendVideo(this ITelegramBotClient client, long chatId, string video, int? messageThreadId = null, uint? duration = null, uint? width = null, uint? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null)
 	{
 		if (client is null)
 			throw new ArgumentNullException(nameof(client));
@@ -130,7 +130,7 @@ public static partial class AvailableMethodsExtensions
 			ProtectContent = protectContent,
 			ReplyParameters = replyParameters,
 			ReplyMarkup = replyMarkup,
-			AttachedFiles = attachedFiles ?? []
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return client.CallMethod<Message>(MethodNames.SendVideo, args);
 	}
@@ -201,10 +201,10 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 	/// <param name="replyParameters">Description of the message to reply to.</param>
 	/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
-	/// <param name="attachedFiles">Attached files.</param>
+	/// <param name="files">Attached files.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static Message SendVideo(this ITelegramBotClient client, string chatId, string video, int? messageThreadId = null, uint? duration = null, uint? width = null, uint? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IEnumerable<AttachedFile>? attachedFiles = null)
+	public static Message SendVideo(this ITelegramBotClient client, string chatId, string video, int? messageThreadId = null, uint? duration = null, uint? width = null, uint? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null)
 	{
 		if (client is null)
 			throw new ArgumentNullException(nameof(client));
@@ -224,7 +224,7 @@ public static partial class AvailableMethodsExtensions
 			ProtectContent = protectContent,
 			ReplyParameters = replyParameters,
 			ReplyMarkup = replyMarkup,
-			AttachedFiles = attachedFiles ?? []
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return client.CallMethod<Message>(MethodNames.SendVideo, args);
 	}
@@ -296,11 +296,11 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 	/// <param name="replyParameters">Description of the message to reply to.</param>
 	/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
-	/// <param name="attachedFiles">Attached files.</param>
+	/// <param name="files">Attached files.</param>
 	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, string video, int? messageThreadId = null, uint? duration = null, uint? width = null, uint? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IEnumerable<AttachedFile>? attachedFiles = null, CancellationToken cancellationToken = default)
+	public static async Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, string video, int? messageThreadId = null, uint? duration = null, uint? width = null, uint? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
 	{
 		if (client is null)
 			throw new ArgumentNullException(nameof(client));
@@ -320,7 +320,7 @@ public static partial class AvailableMethodsExtensions
 			ProtectContent = protectContent,
 			ReplyParameters = replyParameters,
 			ReplyMarkup = replyMarkup,
-			AttachedFiles = attachedFiles ?? []
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return await client.CallMethodAsync<Message>(MethodNames.SendVideo, args, cancellationToken).ConfigureAwait(false);
 	}
@@ -392,11 +392,11 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="protectContent">Protects the contents of the sent message from forwarding and saving.</param>
 	/// <param name="replyParameters">Description of the message to reply to.</param>
 	/// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.</param>
-	/// <param name="attachedFiles">Attached files.</param>
+	/// <param name="files">Attached files.</param>
 	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, string video, int? messageThreadId = null, uint? duration = null, uint? width = null, uint? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IEnumerable<AttachedFile>? attachedFiles = null, CancellationToken cancellationToken = default)
+	public static async Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, string video, int? messageThreadId = null, uint? duration = null, uint? width = null, uint? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
 	{
 		if (client is null)
 			throw new ArgumentNullException(nameof(client));
@@ -416,7 +416,7 @@ public static partial class AvailableMethodsExtensions
 			ProtectContent = protectContent,
 			ReplyParameters = replyParameters,
 			ReplyMarkup = replyMarkup,
-			AttachedFiles = attachedFiles ?? []
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return await client.CallMethodAsync<Message>(MethodNames.SendVideo, args, cancellationToken).ConfigureAwait(false);
 	}

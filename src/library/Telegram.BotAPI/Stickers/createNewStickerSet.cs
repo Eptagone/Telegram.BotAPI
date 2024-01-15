@@ -65,17 +65,17 @@ public static partial class StickersExtensions
 	/// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”.</param>
 	/// <param name="stickerType">Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.</param>
 	/// <param name="needsRepainting">Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only.</param>
-	/// <param name="attachedFiles">Optional. A <see cref="AttachedFile"/> list of files to attach to the request.</param>
+	/// <param name="files">Optional. A <see cref="AttachedFile"/> list of files to attach to the request.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool CreateNewStickerSet(this ITelegramBotClient api, long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting, [Optional] IEnumerable<AttachedFile>? attachedFiles)
+	public static bool CreateNewStickerSet(this ITelegramBotClient api, long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting, IDictionary<string, InputFile>? files = null)
 	{
 		if (api == null) { throw new ArgumentNullException(nameof(api)); }
 		var args = new CreateNewStickerSetArgs(userId, name, title, stickers, stickerFormat)
 		{
 			StickerType = stickerType,
 			NeedsRepainting = needsRepainting,
-			AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return api.CallMethod<bool>(MethodNames.CreateNewStickerSet, args);
 	}
@@ -91,18 +91,18 @@ public static partial class StickersExtensions
 	/// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”.</param>
 	/// <param name="stickerType">Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.</param>
 	/// <param name="needsRepainting">Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only.</param>
-	/// <param name="attachedFiles">Optional. A <see cref="AttachedFile"/> list of files to attach to the request.</param>
+	/// <param name="files">Optional. A <see cref="AttachedFile"/> list of files to attach to the request.</param>
 	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> CreateNewStickerSetAsync(this ITelegramBotClient api, long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting, [Optional] IEnumerable<AttachedFile>? attachedFiles, CancellationToken cancellationToken = default)
+	public static async Task<bool> CreateNewStickerSetAsync(this ITelegramBotClient api, long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, [Optional] string? stickerType, [Optional] bool? needsRepainting, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
 	{
 		if (api == null) { throw new ArgumentNullException(nameof(api)); }
 		var args = new CreateNewStickerSetArgs(userId, name, title, stickers, stickerFormat)
 		{
 			StickerType = stickerType,
 			NeedsRepainting = needsRepainting,
-			AttachedFiles = attachedFiles ?? Array.Empty<AttachedFile>()
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return await api.CallMethodAsync<bool>(MethodNames.CreateNewStickerSet, args, cancellationToken).ConfigureAwait(false);
 	}

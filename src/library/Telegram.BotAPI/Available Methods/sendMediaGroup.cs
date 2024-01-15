@@ -62,10 +62,10 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="disableNotification">Sends messages silently. Users will receive a notification with no sound.</param>
 	/// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving.</param>
 	/// <param name="replyParameters">Description of the message to reply to.</param>
-	/// <param name="attachedFiles">Attached files.</param>
+	/// <param name="files">Attached files.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, IEnumerable<AttachedFile>? attachedFiles = null)
+	public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, IDictionary<string, InputFile>? files = null)
 	{
 		if (client is null)
 			throw new ArgumentNullException(nameof(client));
@@ -75,7 +75,7 @@ public static partial class AvailableMethodsExtensions
 			DisableNotification = disableNotification,
 			ProtectContent = protectContent,
 			ReplyParameters = replyParameters,
-			AttachedFiles = attachedFiles ?? []
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return client.CallMethod<IEnumerable<Message>>(MethodNames.SendMediaGroup, args);
 	}
@@ -89,10 +89,10 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="disableNotification">Sends messages silently. Users will receive a notification with no sound.</param>
 	/// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving.</param>
 	/// <param name="replyParameters">Description of the message to reply to.</param>
-	/// <param name="attachedFiles">Attached files.</param>
+	/// <param name="files">Attached files.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, IEnumerable<AttachedFile>? attachedFiles = null)
+	public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, IDictionary<string, InputFile>? files = null)
 	{
 		if (client is null)
 			throw new ArgumentNullException(nameof(client));
@@ -102,7 +102,7 @@ public static partial class AvailableMethodsExtensions
 			DisableNotification = disableNotification,
 			ProtectContent = protectContent,
 			ReplyParameters = replyParameters,
-			AttachedFiles = attachedFiles ?? []
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return client.CallMethod<IEnumerable<Message>>(MethodNames.SendMediaGroup, args);
 	}
@@ -117,11 +117,11 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="disableNotification">Sends messages silently. Users will receive a notification with no sound.</param>
 	/// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving.</param>
 	/// <param name="replyParameters">Description of the message to reply to.</param>
-	/// <param name="attachedFiles">Attached files.</param>
+	/// <param name="files">Attached files.</param>
 	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, IEnumerable<AttachedFile>? attachedFiles = null, CancellationToken cancellationToken = default)
+	public static async Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
 	{
 		if (client is null)
 			throw new ArgumentNullException(nameof(client));
@@ -131,7 +131,7 @@ public static partial class AvailableMethodsExtensions
 			DisableNotification = disableNotification,
 			ProtectContent = protectContent,
 			ReplyParameters = replyParameters,
-			AttachedFiles = attachedFiles ?? []
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return await client.CallMethodAsync<IEnumerable<Message>>(MethodNames.SendMediaGroup, args, cancellationToken).ConfigureAwait(false);
 	}
@@ -146,11 +146,11 @@ public static partial class AvailableMethodsExtensions
 	/// <param name="disableNotification">Sends messages silently. Users will receive a notification with no sound.</param>
 	/// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving.</param>
 	/// <param name="replyParameters">Description of the message to reply to.</param>
-	/// <param name="attachedFiles">Attached files.</param>
+	/// <param name="files">Attached files.</param>
 	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
 	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
 	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, IEnumerable<AttachedFile>? attachedFiles = null, CancellationToken cancellationToken = default)
+	public static async Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
 	{
 		if (client is null)
 			throw new ArgumentNullException(nameof(client));
@@ -160,7 +160,7 @@ public static partial class AvailableMethodsExtensions
 			DisableNotification = disableNotification,
 			ProtectContent = protectContent,
 			ReplyParameters = replyParameters,
-			AttachedFiles = attachedFiles ?? []
+			Files = files ?? new Dictionary<string, InputFile>()
 		};
 		return await client.CallMethodAsync<IEnumerable<Message>>(MethodNames.SendMediaGroup, args, cancellationToken).ConfigureAwait(false);
 	}

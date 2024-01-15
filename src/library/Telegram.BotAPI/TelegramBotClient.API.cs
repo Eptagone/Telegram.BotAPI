@@ -159,6 +159,13 @@ public partial class TelegramBotClient : ITelegramBotClient
 						content.Add(aF.File.Content, aF.Name, aF.File.Filename);
 					}
 				}
+				else if (item.Value is IDictionary<string, InputFile> files)
+				{
+					foreach (var file in files)
+					{
+						content.Add(file.Value.Content, file.Key, file.Value.Filename);
+					}
+				}
 				else
 				{
 					var json = JsonSerializer.Serialize(item.Value, SerializerOptions);
@@ -193,13 +200,6 @@ public partial class TelegramBotClient : ITelegramBotClient
 					{
 						content.Add(atF.File.Content, atF.Name, atF.File.Filename);
 					}
-					else if (value is IEnumerable<AttachedFile> attachedFiles)
-					{
-						foreach (var aF in attachedFiles)
-						{
-							content.Add(aF.File.Content, aF.Name, aF.File.Filename);
-						}
-					}
 					else
 					{
 						var json = JsonSerializer.Serialize(value, SerializerOptions);
@@ -208,20 +208,22 @@ public partial class TelegramBotClient : ITelegramBotClient
 				}
 				else
 				{
-					if (value is AttachedFile aF)
-					{
-						content.Add(aF.File.Content, property.Name, aF.File.Filename);
-					}
-					else if (value is IEnumerable<AttachedFile> attachedFiles)
+					if (value is IEnumerable<AttachedFile> attachedFiles)
 					{
 						foreach (var attachedFile in attachedFiles)
 						{
 							content.Add(attachedFile.File.Content, attachedFile.Name, attachedFile.File.Filename);
 						}
 					}
+					else if (value is IDictionary<string, InputFile> files)
+					{
+						foreach (var file in files)
+						{
+							content.Add(file.Value.Content, file.Key, file.Value.Filename);
+						}
+					}
 				}
 			}
-
 		}
 
 		return content;
@@ -236,6 +238,10 @@ public partial class TelegramBotClient : ITelegramBotClient
 				foreach (var item in items)
 				{
 					if (item.Value is IEnumerable<AttachedFile> attachedFiles && attachedFiles.Any())
+					{
+						return true;
+					}
+					else if (item.Value is IDictionary<string, InputFile> files && files.Any())
 					{
 						return true;
 					}
@@ -262,19 +268,13 @@ public partial class TelegramBotClient : ITelegramBotClient
 				{
 					return true;
 				}
-				else if (typeof(IEnumerable).IsAssignableFrom(property.PropertyType))
+				else if (value is IEnumerable<AttachedFile> attachedFiles && attachedFiles.Any())
 				{
-					if (property.GetValue(args) is not IEnumerable items)
-					{
-						continue;
-					}
-					foreach (object item in items)
-					{
-						if (item is InputFile || item is AttachedFile)
-						{
-							return true;
-						}
-					}
+					return true;
+				}
+				else if (value is IDictionary<string, InputFile> files && files.Any())
+				{
+					return true;
 				}
 			}
 		}
