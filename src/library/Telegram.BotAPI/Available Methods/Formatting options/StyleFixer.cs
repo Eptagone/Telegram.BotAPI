@@ -9,7 +9,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions;
 /// <summary>
 /// Use this class to fix text with incorrect style tags or to create custom StyleParsers for use with the StyleParser.
 /// </summary>
-[Obsolete("Use Telegram.BotAPI.Extensions instead.")]
+[Obsolete("Use Telegram.BotAPI.Extensions.ITextFormatter instead.")]
 public class StyleParser : IStyleParser
 {
 	/// <summary>Default StyleParser.</summary>
@@ -30,7 +30,9 @@ public class StyleParser : IStyleParser
 		};
 	}
 
-	/// <summary>Replaces symbols that are not part of an HTML tag or entity with HTML entities (&lt; with &amp;lt;, &gt; with &amp;gt; and &amp; with &amp;amp;).</summary>
+	/// <summary>
+	/// Replaces symbols that are not part of an HTML tag or entity with HTML entities (&lt; with &amp;lt;, &gt; with &amp;gt; and &amp; with &amp;amp;).
+	/// </summary>
 	/// <param name="input">Input text.</param>
 	/// <returns>String with HTML entities.</returns>
 	/// <returns><see cref="string"/></returns>
@@ -38,7 +40,7 @@ public class StyleParser : IStyleParser
 	{
 		if (input == null)
 		{
-			throw new NullReferenceException(nameof(input));
+			throw new ArgumentNullException(nameof(input));
 		}
 		return input
 			.Replace("&", "&amp;")
@@ -53,7 +55,7 @@ public class StyleParser : IStyleParser
 	{
 		if (input == null)
 		{
-			throw new NullReferenceException(nameof(input));
+			throw new ArgumentNullException(nameof(input));
 		}
 		var chars = "_*`[";
 		return Prepends(input, '\\', chars);
@@ -66,7 +68,7 @@ public class StyleParser : IStyleParser
 	{
 		if (input == null)
 		{
-			throw new NullReferenceException(nameof(input));
+			throw new ArgumentNullException(nameof(input));
 		}
 		var chars = "_*[]()~`>#+-=|{}.!";
 		return Prepends(input, '\\', chars);

@@ -4,7 +4,7 @@
 namespace Telegram.BotAPI;
 
 /// <summary>This object represents the result of a bot command match.</summary>
-[Obsolete]
+[Obsolete("Use Telegram.BotAPI.Extensions.BotCommandExtractor instead.")]
 public class BotCommandMatch
 {
 	/// <summary>Initialize a new instance of <see cref="BotCommandMatch"/>.</summary>

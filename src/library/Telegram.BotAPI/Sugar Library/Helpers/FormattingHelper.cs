@@ -7,39 +7,34 @@ using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods.FormattingOptions;
 
-/// <summary>This class contains a set of useful methods for formatting the text of messages.</summary>
-[Obsolete]
-public class FormattingHelper : FormattingHelper<StyleParser>
+/// <summary>
+/// This class contains a set of useful methods for formatting the text of messages.
+/// </summary>
+/// <param name="styleParser">Custom StyleParser.</param>
+[Obsolete("Use Telegram.BotAPI.Extensions.ITextFormatter instead.")]
+public class FormattingHelper(StyleParser? styleParser = null) : FormattingHelper<StyleParser>(styleParser ?? StyleParser.Default)
 {
-	/// <summary>Initialize a new instance of StyleParser.</summary>
-	/// <param name="styleParser">Custom StyleParser.</param>
-	public FormattingHelper([Optional] StyleParser styleParser) : base(styleParser ?? StyleParser.Default)
-	{
-	}
 }
 
-/// <summary>This class contains a set of useful methods for formatting the text of messages.</summary>
-[Obsolete]
-public class FormattingHelper<TStyleParser>
-	where TStyleParser : IStyleParser
+/// <summary>
+/// This class contains a set of useful methods for formatting the text of messages.
+/// </summary>
+/// <param name="styleParser">Custom StyleParser.</param>
+[Obsolete("Use Telegram.BotAPI.Extensions.ITextFormatter instead.")]
+public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
+    where TStyleParser : IStyleParser
 {
 	/// <summary>StyleParser</summary>
-	protected readonly IStyleParser Parser;
+	protected readonly IStyleParser Parser = styleParser ?? throw new ArgumentNullException(nameof(styleParser));
 
-	/// <summary>Initialize a new instance of StyleParser.</summary>
-	/// <param name="styleParser">Custom StyleParser.</param>
-	public FormattingHelper(TStyleParser styleParser)
-	{
-		this.Parser = styleParser ?? throw new ArgumentNullException(nameof(styleParser));
-	}
-	/// <summary>Create new stylized text from message entities.</summary>
-	/// <typeparam name="T"></typeparam>
-	/// <param name="input">Input text.</param>
-	/// <param name="parseMode">Style to be applied to the new text.</param>
-	/// <param name="entities">Message entities.</param>
-	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
-	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string FromEntities<T>(string input, ParseModeKind parseMode, T entities, bool useFixer = true)
+    /// <summary>Create new stylized text from message entities.</summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="input">Input text.</param>
+    /// <param name="parseMode">Style to be applied to the new text.</param>
+    /// <param name="entities">Message entities.</param>
+    /// <param name="useFixer">True, if you want to use the StyleParser.</param>
+    /// <returns>Stylized <see cref="string"/></returns>
+    public virtual string FromEntities<T>(string input, ParseModeKind parseMode, T entities, bool useFixer = true)
 		where T : IEnumerable<MessageEntity>
 	{
 		if (string.IsNullOrEmpty(input))

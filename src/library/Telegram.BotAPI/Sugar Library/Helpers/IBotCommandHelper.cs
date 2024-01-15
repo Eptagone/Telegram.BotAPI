@@ -6,7 +6,7 @@ namespace Telegram.BotAPI;
 /// <summary>
 /// Defines a method to match the bot command of a text.
 /// </summary>
-[Obsolete]
+[Obsolete("Use Telegram.BotAPI.Extensions.BotCommandExtractor instead.")]
 public interface IBotCommandHelper
 {
 	/// <summary>

@@ -9,7 +9,7 @@ namespace Telegram.BotAPI;
 /// <summary>
 /// Helper class for command detection.
 /// </summary>
-[Obsolete]
+[Obsolete("Use Telegram.BotAPI.Extensions.BotCommandExtractor instead.")]
 public sealed class BotCommandHelper : IBotCommandHelper
 {
 	private const string COMMAND = "command";

@@ -2,7 +2,6 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Telegram.BotAPI.AvailableTypes;
-using Telegram.BotAPI.Extensions;
 using Telegram.BotAPI.GettingUpdates;
 using Telegram.BotAPI.InlineMode;
 using Telegram.BotAPI.Payments;
