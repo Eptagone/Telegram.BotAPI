@@ -1,17 +1,17 @@
-﻿// Copyright (c) 2024 Quetzal Rivera.
+// Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableTypes;
 
-/// <summary>Represents the scope of bot commands, covering all group and supergroup chat administrators.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class BotCommandScopeAllChatAdministrators : BotCommandScope
+/// <summary>
+/// Represents the <a href="https://core.telegram.org/bots/api#botcommandscope">scope</a> of bot commands, covering all group and supergroup chat administrators.
+/// </summary>
+public class BotCommandScopeAllChatAdministrators : BotCommandScope
 {
-	/// <summary>Scope type, must be all_chat_administrators.</summary>
-	[JsonPropertyName(PropertyNames.Type)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public override string Type => BotCommandScopeType.AllChatAdministrators;
+    /// <summary>
+    /// Scope type, must be <em>all_chat_administrators</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Type)]
+    public override string Type => "all_chat_administrators";
 }

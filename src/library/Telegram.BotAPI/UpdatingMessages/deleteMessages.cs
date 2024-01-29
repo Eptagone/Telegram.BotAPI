@@ -1,93 +1,69 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using System.Threading;
-using System.Threading.Tasks;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.UpdatingMessages;
 
-/// <summary>Available Methods</summary>
-public static partial class AvailableMethodsExtensions
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
+public static partial class UpdatingMessagesExtensions
 {
-	/// <summary>
-	/// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns True on success.
-	/// </summary>
-	/// <param name="client">The bot client.</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageIds">Identifiers of 1-100 messages to delete. See deleteMessage for limitations on which messages can be deleted.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool DeleteMessages(this ITelegramBotClient client, long chatId, IEnumerable<int> messageIds)
-	{
-		if (client is null)
-			throw new ArgumentNullException(nameof(client));
-		var args = new Dictionary<string, object>()
-		{
-			{PropertyNames.ChatId, chatId},
-			{PropertyNames.MessageIds, messageIds}
-		};
-		return client.CallMethod<bool>(MethodNames.DeleteMessages, args);
-	}
+    /// <summary>
+    /// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "DeleteMessages" method.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool DeleteMessages(this ITelegramBotClient client, DeleteMessagesArgs args)
+        => client.DeleteMessagesAsync(args).GetAwaiter().GetResult();
 
-	/// <summary>
-	/// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns True on success.
-	/// </summary>
-	/// <param name="client">The bot client.</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageIds">Identifiers of 1-100 messages to delete. See deleteMessage for limitations on which messages can be deleted.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool DeleteMessages(this ITelegramBotClient client, string chatId, IEnumerable<int> messageIds)
-	{
-		if (client is null)
-			throw new ArgumentNullException(nameof(client));
-		var args = new Dictionary<string, object>()
-		{
-			{PropertyNames.ChatId, chatId},
-			{PropertyNames.MessageIds, messageIds}
-		};
-		return client.CallMethod<bool>(MethodNames.DeleteMessages, args);
-	}
+    /// <summary>
+    /// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "DeleteMessages" method.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> DeleteMessagesAsync(this ITelegramBotClient client, DeleteMessagesArgs args, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-	/// <summary>
-	/// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns True on success.
-	/// </summary>
-	/// <param name="client">The bot client.</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageIds">Identifiers of 1-100 messages to delete. See deleteMessage for limitations on which messages can be deleted.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> DeleteMessagesAsync(this ITelegramBotClient client, long chatId, IEnumerable<int> messageIds, CancellationToken cancellationToken = default)
-	{
-		if (client is null)
-			throw new ArgumentNullException(nameof(client));
-		var args = new Dictionary<string, object>()
-		{
-			{PropertyNames.ChatId, chatId},
-			{PropertyNames.MessageIds, messageIds}
-		};
-		return await client.CallMethodAsync<bool>(MethodNames.DeleteMessages, args, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.DeleteMessages, args, cancellationToken);
+    }
 
-	/// <summary>
-	/// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns True on success.
-	/// </summary>
-	/// <param name="client">The bot client.</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageIds">Identifiers of 1-100 messages to delete. See deleteMessage for limitations on which messages can be deleted.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> DeleteMessagesAsync(this ITelegramBotClient client, string chatId, IEnumerable<int> messageIds, CancellationToken cancellationToken = default)
-	{
-		if (client is null)
-			throw new ArgumentNullException(nameof(client));
-		var args = new Dictionary<string, object>()
-		{
-			{PropertyNames.ChatId, chatId},
-			{PropertyNames.MessageIds, messageIds}
-		};
-		return await client.CallMethodAsync<bool>(MethodNames.DeleteMessages, args, cancellationToken).ConfigureAwait(false);
-	}
+    /// <summary>
+    /// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool DeleteMessages(this ITelegramBotClient client)
+        => client.DeleteMessagesAsync().GetAwaiter().GetResult();
+
+    /// <summary>
+    /// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> DeleteMessagesAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
+
+        return client.CallMethodAsync<bool>(MethodNames.DeleteMessages, cancellationToken: cancellationToken);
+    }
 }

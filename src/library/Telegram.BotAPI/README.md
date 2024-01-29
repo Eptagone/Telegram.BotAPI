@@ -13,7 +13,7 @@ It contains all the methods and types available in the Bot API 7.0 released on D
 - Contains pre-defined methods for all Bot API 7.0 methods.
 - Contains classes for each object type used in the Bot API 7.0.
 - Sync and async methods.
-- Support [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) and [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/).
+- Uses [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) by default.
 
 ---
 

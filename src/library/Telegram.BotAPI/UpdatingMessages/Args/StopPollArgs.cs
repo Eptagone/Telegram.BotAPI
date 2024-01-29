@@ -1,32 +1,53 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.UpdatingMessages;
 
-/// <summary>StopPoll method parameters.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+/// <summary>
+/// Represents the arguments of the "StopPoll" method.
+/// </summary>
 public class StopPollArgs
 {
-	/// <summary>
-	/// Unique identifier for the target chat or username of the target channel (in the format @channelusername).
-	/// </summary>
-	[JsonPropertyName(PropertyNames.ChatId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public object ChatId { get; set; }
-	/// <summary>
-	/// Identifier of the original message with the poll.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.MessageId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public int MessageId { get; set; }
-	/// <summary>
-	/// Optional. A <see cref="InlineKeyboardMarkup"/> object for a new message inline keyboard.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.ReplyMarkup)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public InlineKeyboardMarkup? ReplyMarkup { get; set; }
+    /// <summary>
+    /// Initializes a new instance of the <see cref="StopPollArgs"/> class.
+    /// </summary>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="messageId">Identifier of the original message with the poll</param>
+    public StopPollArgs(long chatId, int messageId)
+    {
+        this.ChatId = chatId;
+        this.MessageId = messageId;
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="StopPollArgs"/> class.
+    /// </summary>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="messageId">Identifier of the original message with the poll</param>
+    public StopPollArgs(string chatId, int messageId)
+    {
+        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
+        this.MessageId = messageId;
+    }
+
+    /// <summary>
+    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChatId)]
+    public object ChatId { get; set; }
+
+    /// <summary>
+    /// Identifier of the original message with the poll
+    /// </summary>
+    [JsonPropertyName(PropertyNames.MessageId)]
+    public int MessageId { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyMarkup)]
+    public InlineKeyboardMarkup? ReplyMarkup { get; set; }
 }

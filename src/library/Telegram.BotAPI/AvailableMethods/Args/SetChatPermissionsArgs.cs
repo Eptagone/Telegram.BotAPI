@@ -1,56 +1,53 @@
-﻿// Copyright (c) 2024 Quetzal Rivera.
+// Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using Telegram.BotAPI.AvailableTypes;
 
-namespace Telegram.BotAPI.AvailableTypes;
+namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
-/// SetChatPermissions method arguments.
+/// Represents the arguments of the "SetChatPermissions" method.
 /// </summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 public class SetChatPermissionsArgs
 {
-	/// <summary>
-	/// Initialize a new instance of <see cref="SetChatPermissionsArgs"/>.
-	/// </summary>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="permissions">New default chat permissions.</param>
-	public SetChatPermissionsArgs(string chatId, ChatPermissions permissions)
-	{
-		this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-		this.Permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SetChatPermissionsArgs"/> class.
+    /// </summary>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="permissions">A JSON-serialized object for new default chat permissions</param>
+    public SetChatPermissionsArgs(long chatId, ChatPermissions permissions)
+    {
+        this.ChatId = chatId;
+        this.Permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
+    }
 
-	/// <summary>
-	/// Initialize a new instance of <see cref="SetChatPermissionsArgs"/>.
-	/// </summary>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="permissions">New default chat permissions.</param>
-	public SetChatPermissionsArgs(long chatId, ChatPermissions permissions)
-	{
-		this.ChatId = chatId;
-		this.Permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SetChatPermissionsArgs"/> class.
+    /// </summary>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="permissions">A JSON-serialized object for new default chat permissions</param>
+    public SetChatPermissionsArgs(string chatId, ChatPermissions permissions)
+    {
+        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
+        this.Permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
+    }
 
-	/// <summary>
-	/// Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername)
-	/// </summary>
-	[JsonPropertyName(PropertyNames.ChatId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public object ChatId { get; }
-	/// <summary>
-	/// A JSON-serialized object for new default chat permissions
-	/// </summary>
-	[JsonPropertyName(PropertyNames.Permissions)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public ChatPermissions Permissions { get; }
-	/// <summary>
-	/// Pass True if chat permissions are set independently. Otherwise, the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.UseIndependentChatPermissions)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? UseIndependentChatPermissions { get; set; }
+    /// <summary>
+    /// Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChatId)]
+    public object ChatId { get; set; }
 
+    /// <summary>
+    /// A JSON-serialized object for new default chat permissions
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Permissions)]
+    public ChatPermissions Permissions { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if chat permissions are set independently. Otherwise, the <em>can_send_other_messages</em> and <em>can_add_web_page_previews</em> permissions will imply the <em>can_send_messages</em>, <em>can_send_audios</em>, <em>can_send_documents</em>, <em>can_send_photos</em>, <em>can_send_videos</em>, <em>can_send_video_notes</em>, and <em>can_send_voice_notes</em> permissions; the <em>can_send_polls</em> permission will imply the <em>can_send_messages</em> permission.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.UseIndependentChatPermissions)]
+    public bool? UseIndependentChatPermissions { get; set; }
 }

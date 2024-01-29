@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\library\Telegram.BotAPI.Experimental\Telegram.BotAPI.Experimental.csproj" />
+    <ProjectReference Include="..\..\library\Telegram.BotAPI.Extensions\Telegram.BotAPI.Extensions.csproj" />
     <ProjectReference Include="..\..\library\Telegram.BotAPI\Telegram.BotAPI.csproj" />
   </ItemGroup>
 

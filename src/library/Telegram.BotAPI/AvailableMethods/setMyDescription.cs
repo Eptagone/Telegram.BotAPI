@@ -1,78 +1,55 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>
-	/// Use this method to change the bot's description, which is shown in the chat with the bot if the chat is empty. Returns True on success.
-	/// </summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="description">New bot description; 0-512 characters. Pass an empty string to remove the dedicated description for the given language.</param>
-	/// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, the description will be applied to all users for whose language there is no dedicated description.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool SetMyDescription(this ITelegramBotClient bot, [Optional] string? description, [Optional] string? languageCode)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to change the bot's description, which is shown in the chat with the bot if the chat is empty. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="description">New bot description; 0-512 characters. Pass an empty string to remove the dedicated description for the given language.</param>
+    /// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, the description will be applied to all users for whose language there is no dedicated description.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool SetMyDescription(this ITelegramBotClient client, string? description = null, string? languageCode = null)
+        => client.SetMyDescriptionAsync(description, languageCode).GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		if (!string.IsNullOrEmpty(description))
-		{
-			json.WriteString(PropertyNames.Description, description);
-		}
-		if (!string.IsNullOrEmpty(languageCode))
-		{
-			json.WriteString(PropertyNames.LanguageCode, languageCode);
-		}
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.SetMyDescription, stream);
-	}
+    /// <summary>
+    /// Use this method to change the bot's description, which is shown in the chat with the bot if the chat is empty. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="description">New bot description; 0-512 characters. Pass an empty string to remove the dedicated description for the given language.</param>
+    /// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, the description will be applied to all users for whose language there is no dedicated description.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> SetMyDescriptionAsync(this ITelegramBotClient client, string? description = null, string? languageCode = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-	/// <summary>
-	/// Use this method to change the bot's description, which is shown in the chat with the bot if the chat is empty. Returns True on success.
-	/// </summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="description">New bot description; 0-512 characters. Pass an empty string to remove the dedicated description for the given language.</param>
-	/// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, the description will be applied to all users for whose language there is no dedicated description.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> SetMyDescriptionAsync(this ITelegramBotClient bot, [Optional] string? description, [Optional] string? languageCode, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+        var args = new Dictionary<string, object>()
+        {
+        };
+        if (description is not null)
+        {
+            args.Add(PropertyNames.Description, description);
+        }
+        if (languageCode is not null)
+        {
+            args.Add(PropertyNames.LanguageCode, languageCode);
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		if (!string.IsNullOrEmpty(description))
-		{
-			json.WriteString(PropertyNames.Description, description);
-		}
-		if (!string.IsNullOrEmpty(languageCode))
-		{
-			json.WriteString(PropertyNames.LanguageCode, languageCode);
-		}
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<bool>(MethodNames.SetMyDescription, stream, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.SetMyDescription, args, cancellationToken);
+    }
 }

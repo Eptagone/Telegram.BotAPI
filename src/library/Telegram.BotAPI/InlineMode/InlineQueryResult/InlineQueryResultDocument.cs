@@ -1,103 +1,97 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.InlineMode;
 
-/// <summary>Represents a link to a file. By default, this file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the file. Currently, only .PDF and .ZIP files can be sent using this method.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class InlineQueryResultDocument : InlineQueryResultWithEntities, ICaption, IExternalThumbnail, IEquatable<InlineQueryResultDocument>
+/// <summary>
+/// Represents a link to a file. By default, this file will be sent by the user with an optional caption. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead of the file. Currently, only <strong>.PDF</strong> and <strong>.ZIP</strong> files can be sent using this method.
+/// </summary>
+public class InlineQueryResultDocument : InlineQueryResult
 {
-	/// <summary>Type of the result, must be document.</summary>
-	[JsonPropertyName(PropertyNames.Type)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public override string Type => InlineQueryResultType.Document;
-	/// <summary>Optional. Caption of the document to be sent, 0-1024 characters.</summary>
-	[JsonPropertyName(PropertyNames.Caption)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? Caption { get; set; }
-	/// <summary>A valid URL for the file.</summary>
-	[JsonPropertyName(PropertyNames.DocumentUrl)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string DocumentUrl { get; set; }
-	/// <summary>Mime type of the content of the file, either “application/pdf” or “application/zip”.</summary>
-	[JsonPropertyName(PropertyNames.MimeType)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string MimeType { get; set; }
-	/// <summary>Optional. Short description of the result.</summary>
-	[JsonPropertyName(PropertyNames.Description)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? Description { get; set; }
-	/// <summary>Optional. Content of the message to be sent instead of the file.</summary>
-	[JsonPropertyName(PropertyNames.InputMessageContent)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public InputMessageContent? InputMessageContent { get; set; }
-	/// <summary>Optional. URL of the thumbnail (jpeg only) for the file.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailUrl)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? ThumbnailUrl { get; set; }
-	/// <summary>Optional. Thumbnail width.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailWidth)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? ThumbnailWidth { get; set; }
-	/// <summary>Optional. Thumbnail height.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailHeight)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? ThumbnailHeight { get; set; }
-	/// <inheritdoc/>
-	public override bool Equals(object obj)
-	{
-		return this.Equals(obj as InlineQueryResultDocument);
-	}
-	/// <inheritdoc/>
-	public bool Equals(InlineQueryResultDocument? other)
-	{
-		return other != null &&
-			   this.Id == other.Id &&
-			   EqualityComparer<InlineKeyboardMarkup>.Default.Equals(this.ReplyMarkup, other.ReplyMarkup) &&
-			   this.ParseMode == other.ParseMode &&
-			   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
-			   this.Type == other.Type &&
-			   this.Caption == other.Caption &&
-			   this.DocumentUrl == other.DocumentUrl &&
-			   this.MimeType == other.MimeType &&
-			   this.Description == other.Description &&
-			   EqualityComparer<InputMessageContent?>.Default.Equals(this.InputMessageContent, other.InputMessageContent) &&
-			   this.ThumbnailUrl == other.ThumbnailUrl &&
-			   this.ThumbnailWidth == other.ThumbnailWidth &&
-			   this.ThumbnailHeight == other.ThumbnailHeight;
-	}
-	/// <inheritdoc/>
-	public override int GetHashCode()
-	{
-		int hashCode = -238500675;
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup>.Default.GetHashCode(this.ReplyMarkup);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ParseMode);
-		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.CaptionEntities);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Caption);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.DocumentUrl);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.MimeType);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Description);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent?>.Default.GetHashCode(this.InputMessageContent);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ThumbnailUrl);
-		hashCode = hashCode * -1521134295 + this.ThumbnailWidth.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.ThumbnailHeight.GetHashCode();
-		return hashCode;
-	}
-	/// <inheritdoc/>
-	public static bool operator ==(InlineQueryResultDocument? left, InlineQueryResultDocument? right)
-	{
-		return EqualityComparer<InlineQueryResultDocument>.Default.Equals(left!, right!);
-	}
-	/// <inheritdoc/>
-	public static bool operator !=(InlineQueryResultDocument? left, InlineQueryResultDocument? right)
-	{
-		return !(left == right);
-	}
+    /// <summary>
+    /// Type of the result, must be <em>document</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Type)]
+    public override string Type => "document";
 
+    /// <summary>
+    /// Unique identifier for this result, 1-64 bytes
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Id)]
+    public override string Id { get; set; } = null!;
+
+    /// <summary>
+    /// Title for the result
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Title)]
+    public string Title { get; set; } = null!;
+
+    /// <summary>
+    /// <em>Optional</em>. Caption of the document to be sent, 0-1024 characters after entities parsing
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Caption)]
+    public string? Caption { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ParseMode)]
+    public string? ParseMode { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. List of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CaptionEntities)]
+    public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
+
+    /// <summary>
+    /// A valid URL for the file
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DocumentUrl)]
+    public string DocumentUrl { get; set; } = null!;
+
+    /// <summary>
+    /// MIME type of the content of the file, either “application/pdf” or “application/zip”
+    /// </summary>
+    [JsonPropertyName(PropertyNames.MimeType)]
+    public string MimeType { get; set; } = null!;
+
+    /// <summary>
+    /// <em>Optional</em>. Short description of the result
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Description)]
+    public string? Description { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Inline keyboard attached to the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyMarkup)]
+    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Content of the message to be sent instead of the file
+    /// </summary>
+    [JsonPropertyName(PropertyNames.InputMessageContent)]
+    public InputMessageContent? InputMessageContent { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. URL of the thumbnail (JPEG only) for the file
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailUrl)]
+    public string? ThumbnailUrl { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Thumbnail width
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailWidth)]
+    public int? ThumbnailWidth { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Thumbnail height
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailHeight)]
+    public int? ThumbnailHeight { get; set; }
 }

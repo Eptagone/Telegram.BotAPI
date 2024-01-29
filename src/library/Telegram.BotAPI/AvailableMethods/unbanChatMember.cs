@@ -1,133 +1,99 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>Use this method to unban a previously kicked user in a supergroup or channel. The user will not return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be removed from the chat. If you don't want this, use the parameter only_if_banned. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @username).</param>
-	/// <param name="userId">Unique identifier of the target user.</param>
-	/// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool UnbanChatMember(this ITelegramBotClient bot, long chatId, long userId, [Optional] bool? onlyIfBanned)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to unban a previously banned user in a supergroup or channel. The user will <strong>not</strong> return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be <strong>removed</strong> from the chat. If you don't want this, use the parameter <em>only_if_banned</em>. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    /// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool UnbanChatMember(this ITelegramBotClient client, long chatId, long userId, bool? onlyIfBanned = null)
+        => client.UnbanChatMemberAsync(chatId, userId, onlyIfBanned).GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.UserId, userId);
-		if (onlyIfBanned != null)
-		{
-			json.WriteBoolean(PropertyNames.OnlyIfBanned, (bool)onlyIfBanned);
-		}
+    /// <summary>
+    /// Use this method to unban a previously banned user in a supergroup or channel. The user will <strong>not</strong> return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be <strong>removed</strong> from the chat. If you don't want this, use the parameter <em>only_if_banned</em>. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    /// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> UnbanChatMemberAsync(this ITelegramBotClient client, long chatId, long userId, bool? onlyIfBanned = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.UnbanChatMember, stream);
-	}
-	/// <summary>Use this method to unban a previously kicked user in a supergroup or channel. The user will not return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be removed from the chat. If you don't want this, use the parameter only_if_banned. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @username).</param>
-	/// <param name="userId">Unique identifier of the target user.</param>
-	/// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool UnbanChatMember(this ITelegramBotClient bot, string chatId, long userId, [Optional] bool? onlyIfBanned)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId },
+            { PropertyNames.UserId, userId }
+        };
+        if (onlyIfBanned is not null)
+        {
+            args.Add(PropertyNames.OnlyIfBanned, onlyIfBanned);
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.UserId, userId);
-		if (onlyIfBanned != null)
-		{
-			json.WriteBoolean(PropertyNames.OnlyIfBanned, (bool)onlyIfBanned);
-		}
+        return client.CallMethodAsync<bool>(MethodNames.UnbanChatMember, args, cancellationToken);
+    }
 
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.UnbanChatMember, stream);
-	}
-	/// <summary>Use this method to unban a previously kicked user in a supergroup or channel. The user will not return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be removed from the chat. If you don't want this, use the parameter only_if_banned. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @username).</param>
-	/// <param name="userId">Unique identifier of the target user.</param>
-	/// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> UnbanChatMemberAsync(this ITelegramBotClient bot, long chatId, long userId, [Optional] bool? onlyIfBanned, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to unban a previously banned user in a supergroup or channel. The user will <strong>not</strong> return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be <strong>removed</strong> from the chat. If you don't want this, use the parameter <em>only_if_banned</em>. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    /// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool UnbanChatMember(this ITelegramBotClient client, string chatId, long userId, bool? onlyIfBanned = null)
+        => client.UnbanChatMemberAsync(chatId, userId, onlyIfBanned).GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.UserId, userId);
-		if (onlyIfBanned != null)
-		{
-			json.WriteBoolean(PropertyNames.OnlyIfBanned, (bool)onlyIfBanned);
-		}
+    /// <summary>
+    /// Use this method to unban a previously banned user in a supergroup or channel. The user will <strong>not</strong> return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be <strong>removed</strong> from the chat. If you don't want this, use the parameter <em>only_if_banned</em>. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    /// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> UnbanChatMemberAsync(this ITelegramBotClient client, string chatId, long userId, bool? onlyIfBanned = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<bool>(MethodNames.UnbanChatMember, stream, cancellationToken).ConfigureAwait(false);
-	}
-	/// <summary>Use this method to unban a previously kicked user in a supergroup or channel. The user will not return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be removed from the chat. If you don't want this, use the parameter only_if_banned. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target group or username of the target supergroup or channel (in the format @username).</param>
-	/// <param name="userId">Unique identifier of the target user.</param>
-	/// <param name="onlyIfBanned">Do nothing if the user is not banned</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> UnbanChatMemberAsync(this ITelegramBotClient bot, string chatId, long userId, [Optional] bool? onlyIfBanned, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
+            { PropertyNames.UserId, userId }
+        };
+        if (onlyIfBanned is not null)
+        {
+            args.Add(PropertyNames.OnlyIfBanned, onlyIfBanned);
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.UserId, userId);
-		if (onlyIfBanned != null)
-		{
-			json.WriteBoolean(PropertyNames.OnlyIfBanned, (bool)onlyIfBanned);
-		}
-
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<bool>(MethodNames.UnbanChatMember, stream, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.UnbanChatMember, args, cancellationToken);
+    }
 }

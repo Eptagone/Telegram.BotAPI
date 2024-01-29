@@ -1,90 +1,65 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableTypes;
 
-/// <summary>This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound).</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class Animation : TelegramFileBase, IThumbnail<PhotoSize>, IEquatable<Animation?>
+/// <summary>
+/// This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound).
+/// </summary>
+public class Animation
 {
-	/// <summary>Video width as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.Width)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint Width { get; set; }
-	/// <summary>Video height as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.Height)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint Height { get; set; }
-	/// <summary>Duration of the video in seconds as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.Duration)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? Duration { get; set; }
-	/// <summary>Optional. Animation thumbnail as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.Thumbnail)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public PhotoSize? Thumbnail { get; set; }
-	/// <summary>Optional. Original animation filename as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.FileName)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? FileName { get; set; }
-	/// <summary>Optional. MIME type of the file as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.MimeType)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? MimeType { get; set; }
-	/// <summary>Optional. File size.</summary>
-	[JsonPropertyName(PropertyNames.FileSize)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public ulong? FileSize { get; set; }
+    /// <summary>
+    /// Identifier for this file, which can be used to download or reuse the file
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FileId)]
+    public string FileId { get; set; } = null!;
 
-	/// <inheritdoc />
-	public override bool Equals(object? obj)
-	{
-		return this.Equals(obj as Animation);
-	}
+    /// <summary>
+    /// Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FileUniqueId)]
+    public string FileUniqueId { get; set; } = null!;
 
-	/// <inheritdoc />
-	public bool Equals(Animation? other)
-	{
-		return other is not null &&
-			   this.FileId == other.FileId &&
-			   this.FileUniqueId == other.FileUniqueId &&
-			   this.Width == other.Width &&
-			   this.Height == other.Height &&
-			   this.Duration == other.Duration &&
-			   EqualityComparer<PhotoSize?>.Default.Equals(this.Thumbnail, other.Thumbnail) &&
-			   this.FileName == other.FileName &&
-			   this.MimeType == other.MimeType &&
-			   this.FileSize == other.FileSize;
-	}
+    /// <summary>
+    /// Video width as defined by sender
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Width)]
+    public int Width { get; set; }
 
-	/// <inheritdoc />
-	public override int GetHashCode()
-	{
-		int hashCode = -694909017;
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FileId);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FileUniqueId);
-		hashCode = hashCode * -1521134295 + this.Width.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.Height.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.Duration.GetHashCode();
-		hashCode = hashCode * -1521134295 + EqualityComparer<PhotoSize?>.Default.GetHashCode(this.Thumbnail);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.FileName);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.MimeType);
-		hashCode = hashCode * -1521134295 + this.FileSize.GetHashCode();
-		return hashCode;
-	}
+    /// <summary>
+    /// Video height as defined by sender
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Height)]
+    public int Height { get; set; }
 
-	/// <inheritdoc />
-	public static bool operator ==(Animation? left, Animation? right)
-	{
-		return EqualityComparer<Animation>.Default.Equals(left!, right!);
-	}
+    /// <summary>
+    /// Duration of the video in seconds as defined by sender
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Duration)]
+    public int Duration { get; set; }
 
-	/// <inheritdoc />
-	public static bool operator !=(Animation? left, Animation? right)
-	{
-		return !(left == right);
-	}
+    /// <summary>
+    /// <em>Optional</em>. Animation thumbnail as defined by sender
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Thumbnail)]
+    public PhotoSize? Thumbnail { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Original animation filename as defined by sender
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FileName)]
+    public string? FileName { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. MIME type of the file as defined by sender
+    /// </summary>
+    [JsonPropertyName(PropertyNames.MimeType)]
+    public string? MimeType { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FileSize)]
+    public int? FileSize { get; set; }
 }

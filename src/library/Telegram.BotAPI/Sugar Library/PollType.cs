@@ -7,8 +7,9 @@ namespace Telegram.BotAPI.AvailableMethods;
 [Obsolete]
 public static class PollType
 {
-	/// <summary>Quiz poll</summary>
-	public const string Quiz = "quiz";
-	/// <summary>Regular poll</summary>
-	public const string Regular = "regular";
+    /// <summary>Quiz poll</summary>
+    public const string Quiz = "quiz";
+
+    /// <summary>Regular poll</summary>
+    public const string Regular = "regular";
 }

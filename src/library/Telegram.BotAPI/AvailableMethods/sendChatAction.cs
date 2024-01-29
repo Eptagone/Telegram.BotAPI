@@ -1,153 +1,103 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
-
-
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>
-	/// Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). Returns True on success.
-	/// </summary>
-	/// <param name="api">The bot client.</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="action">Type of action to broadcast. Choose one, depending on what the user is about to receive: typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_voice or upload_voice for voice notes, upload_document for general files, choose_sticker for stickers, find_location for location data, record_video_note or upload_video_note for video notes.</param>
-	/// <param name="messageThreadId">Unique identifier for the target message thread; supergroups only.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool SendChatAction(this ITelegramBotClient api, long chatId, string action, [Optional] int? messageThreadId)
-	{
-		if (api == null) { throw new ArgumentNullException(nameof(api)); }
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteString(PropertyNames.Action, action);
-		if (messageThreadId is not null)
-		{
-			json.WriteNumber(PropertyNames.MessageThreadId, (int)messageThreadId);
-		}
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return api.CallMethod<bool>(MethodNames.SendChatAction, stream);
-	}
+    /// <summary>
+    /// Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). Returns <em>True</em> on success.
+    /// We only recommend using this method when a response from the bot will take a <strong>noticeable</strong> amount of time to arrive.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="action">Type of action to broadcast. Choose one, depending on what the user is about to receive: <em>typing</em> for <a href="https://core.telegram.org/bots/api#sendmessage">text messages</a>, <em>upload_photo</em> for <a href="https://core.telegram.org/bots/api#sendphoto">photos</a>, <em>record_video</em> or <em>upload_video</em> for <a href="https://core.telegram.org/bots/api#sendvideo">videos</a>, <em>record_voice</em> or <em>upload_voice</em> for <a href="https://core.telegram.org/bots/api#sendvoice">voice notes</a>, <em>upload_document</em> for <a href="https://core.telegram.org/bots/api#senddocument">general files</a>, <em>choose_sticker</em> for <a href="https://core.telegram.org/bots/api#sendsticker">stickers</a>, <em>find_location</em> for <a href="https://core.telegram.org/bots/api#sendlocation">location data</a>, <em>record_video_note</em> or <em>upload_video_note</em> for <a href="https://core.telegram.org/bots/api#sendvideonote">video notes</a>.</param>
+    /// <param name="messageThreadId">Unique identifier for the target message thread; supergroups only</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool SendChatAction(this ITelegramBotClient client, long chatId, string action, int? messageThreadId = null)
+        => client.SendChatActionAsync(chatId, action, messageThreadId).GetAwaiter().GetResult();
 
-	/// <summary>
-	/// Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). Returns True on success.
-	/// </summary>
-	/// <param name="api">The bot client.</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="action">Type of action to broadcast. Choose one, depending on what the user is about to receive: typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_voice or upload_voice for voice notes, upload_document for general files, choose_sticker for stickers, find_location for location data, record_video_note or upload_video_note for video notes.</param>
-	/// <param name="messageThreadId">Unique identifier for the target message thread; supergroups only.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool SendChatAction(this ITelegramBotClient api, string chatId, string action, [Optional] int? messageThreadId)
-	{
-		if (api == null) { throw new ArgumentNullException(nameof(api)); }
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteString(PropertyNames.Action, action);
-		if (messageThreadId is not null)
-		{
-			json.WriteNumber(PropertyNames.MessageThreadId, (int)messageThreadId);
-		}
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return api.CallMethod<bool>(MethodNames.SendChatAction, stream);
-	}
+    /// <summary>
+    /// Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). Returns <em>True</em> on success.
+    /// We only recommend using this method when a response from the bot will take a <strong>noticeable</strong> amount of time to arrive.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="action">Type of action to broadcast. Choose one, depending on what the user is about to receive: <em>typing</em> for <a href="https://core.telegram.org/bots/api#sendmessage">text messages</a>, <em>upload_photo</em> for <a href="https://core.telegram.org/bots/api#sendphoto">photos</a>, <em>record_video</em> or <em>upload_video</em> for <a href="https://core.telegram.org/bots/api#sendvideo">videos</a>, <em>record_voice</em> or <em>upload_voice</em> for <a href="https://core.telegram.org/bots/api#sendvoice">voice notes</a>, <em>upload_document</em> for <a href="https://core.telegram.org/bots/api#senddocument">general files</a>, <em>choose_sticker</em> for <a href="https://core.telegram.org/bots/api#sendsticker">stickers</a>, <em>find_location</em> for <a href="https://core.telegram.org/bots/api#sendlocation">location data</a>, <em>record_video_note</em> or <em>upload_video_note</em> for <a href="https://core.telegram.org/bots/api#sendvideonote">video notes</a>.</param>
+    /// <param name="messageThreadId">Unique identifier for the target message thread; supergroups only</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> SendChatActionAsync(this ITelegramBotClient client, long chatId, string action, int? messageThreadId = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-	/// <summary>
-	/// Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). Returns True on success.
-	/// </summary>
-	/// <param name="api">The bot client.</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="action">Type of action to broadcast. Choose one, depending on what the user is about to receive: typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_voice or upload_voice for voice notes, upload_document for general files, choose_sticker for stickers, find_location for location data, record_video_note or upload_video_note for video notes.</param>
-	/// <param name="messageThreadId">Unique identifier for the target message thread; supergroups only.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> SendChatActionAsync(this ITelegramBotClient api, long chatId, string action, [Optional] int? messageThreadId, CancellationToken cancellationToken = default)
-	{
-		if (api == null) { throw new ArgumentNullException(nameof(api)); }
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteString(PropertyNames.Action, action);
-		if (messageThreadId is not null)
-		{
-			json.WriteNumber(PropertyNames.MessageThreadId, (int)messageThreadId);
-		}
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await api.CallMethodAsync<bool>(MethodNames.SendChatAction, stream, cancellationToken).ConfigureAwait(false);
-	}
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId },
+            { PropertyNames.Action, action ?? throw new ArgumentNullException(nameof(action)) }
+        };
+        if (messageThreadId is not null)
+        {
+            args.Add(PropertyNames.MessageThreadId, messageThreadId);
+        }
 
-	/// <summary>
-	/// Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). Returns True on success.
-	/// </summary>
-	/// <param name="api">The bot client.</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="action">Type of action to broadcast. Choose one, depending on what the user is about to receive: typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_voice or upload_voice for voice notes, upload_document for general files, choose_sticker for stickers, find_location for location data, record_video_note or upload_video_note for video notes.</param>
-	/// <param name="messageThreadId">Unique identifier for the target message thread; supergroups only.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> SendChatActionAsync(this ITelegramBotClient api, string chatId, string action, [Optional] int? messageThreadId, CancellationToken cancellationToken = default)
-	{
-		if (api == null) { throw new ArgumentNullException(nameof(api)); }
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteString(PropertyNames.Action, action);
-		if (messageThreadId is not null)
-		{
-			json.WriteNumber(PropertyNames.MessageThreadId, (int)messageThreadId);
-		}
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await api.CallMethodAsync<bool>(MethodNames.SendChatAction, stream, cancellationToken).ConfigureAwait(false);
-	}
-}
+        return client.CallMethodAsync<bool>(MethodNames.SendChatAction, args, cancellationToken);
+    }
 
-/// <summary>Type of action to broadcast. Choose one, depending on what the user is about to receive: typing for text messages, upload_photo for photos, record_video or upload_video for videos, record_voice or upload_voice for voice notes, upload_document for general files, choose_sticker for stickers, find_location for location data, record_video_note or upload_video_note for video notes.</summary>
-public static class ChatAction
-{
-	/// <summary>For text messages</summary>
-	public const string Typing = "typing";
-	/// <summary>For photos</summary>
-	public const string UploadPhoto = "upload_photo";
-	/// <summary>For videos</summary>
-	public const string RecordVideo = "record_video";
-	/// <summary>For videos</summary>
-	public const string UploadVideo = "upload_video";
-	/// <summary>For voice notes</summary>
-	public const string RecordVoice = "record_voice";
-	/// <summary>For voice notes</summary>
-	public const string UploadVoice = "upload_voice";
-	/// <summary>For general files</summary>
-	public const string UploadDocument = "upload_document";
-	/// <summary>For location data</summary>
-	public const string FindLocation = "find_location";
-	/// <summary>For video notes</summary>
-	public const string RecordVideoNote = "record_video_note";
-	/// <summary>For video notes</summary>
-	public const string UploadVideoNote = "upload_video_note";
-	/// <summary>For stickers</summary>
-	public const string ChooseSticker = "choose_sticker";
+    /// <summary>
+    /// Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). Returns <em>True</em> on success.
+    /// We only recommend using this method when a response from the bot will take a <strong>noticeable</strong> amount of time to arrive.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="action">Type of action to broadcast. Choose one, depending on what the user is about to receive: <em>typing</em> for <a href="https://core.telegram.org/bots/api#sendmessage">text messages</a>, <em>upload_photo</em> for <a href="https://core.telegram.org/bots/api#sendphoto">photos</a>, <em>record_video</em> or <em>upload_video</em> for <a href="https://core.telegram.org/bots/api#sendvideo">videos</a>, <em>record_voice</em> or <em>upload_voice</em> for <a href="https://core.telegram.org/bots/api#sendvoice">voice notes</a>, <em>upload_document</em> for <a href="https://core.telegram.org/bots/api#senddocument">general files</a>, <em>choose_sticker</em> for <a href="https://core.telegram.org/bots/api#sendsticker">stickers</a>, <em>find_location</em> for <a href="https://core.telegram.org/bots/api#sendlocation">location data</a>, <em>record_video_note</em> or <em>upload_video_note</em> for <a href="https://core.telegram.org/bots/api#sendvideonote">video notes</a>.</param>
+    /// <param name="messageThreadId">Unique identifier for the target message thread; supergroups only</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool SendChatAction(this ITelegramBotClient client, string chatId, string action, int? messageThreadId = null)
+        => client.SendChatActionAsync(chatId, action, messageThreadId).GetAwaiter().GetResult();
+
+    /// <summary>
+    /// Use this method when you need to tell the user that something is happening on the bot's side. The status is set for 5 seconds or less (when a message arrives from your bot, Telegram clients clear its typing status). Returns <em>True</em> on success.
+    /// We only recommend using this method when a response from the bot will take a <strong>noticeable</strong> amount of time to arrive.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="action">Type of action to broadcast. Choose one, depending on what the user is about to receive: <em>typing</em> for <a href="https://core.telegram.org/bots/api#sendmessage">text messages</a>, <em>upload_photo</em> for <a href="https://core.telegram.org/bots/api#sendphoto">photos</a>, <em>record_video</em> or <em>upload_video</em> for <a href="https://core.telegram.org/bots/api#sendvideo">videos</a>, <em>record_voice</em> or <em>upload_voice</em> for <a href="https://core.telegram.org/bots/api#sendvoice">voice notes</a>, <em>upload_document</em> for <a href="https://core.telegram.org/bots/api#senddocument">general files</a>, <em>choose_sticker</em> for <a href="https://core.telegram.org/bots/api#sendsticker">stickers</a>, <em>find_location</em> for <a href="https://core.telegram.org/bots/api#sendlocation">location data</a>, <em>record_video_note</em> or <em>upload_video_note</em> for <a href="https://core.telegram.org/bots/api#sendvideonote">video notes</a>.</param>
+    /// <param name="messageThreadId">Unique identifier for the target message thread; supergroups only</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> SendChatActionAsync(this ITelegramBotClient client, string chatId, string action, int? messageThreadId = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
+
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
+            { PropertyNames.Action, action ?? throw new ArgumentNullException(nameof(action)) }
+        };
+        if (messageThreadId is not null)
+        {
+            args.Add(PropertyNames.MessageThreadId, messageThreadId);
+        }
+
+        return client.CallMethodAsync<bool>(MethodNames.SendChatAction, args, cancellationToken);
+    }
 }

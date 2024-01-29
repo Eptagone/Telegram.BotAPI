@@ -1,109 +1,39 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Use the field can_set_sticker_set optionally returned in getChat requests to check if the bot can use this method. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="stickerSetName">Name of the sticker set to be set as the group sticker set.</param>
-	/// /// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool SetChatStickerSet(this ITelegramBotClient bot, long chatId, string stickerSetName)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field <em>can_set_sticker_set</em> optionally returned in <a href="https://core.telegram.org/bots/api#getchat">getChat</a> requests to check if the bot can use this method. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool SetChatStickerSet(this ITelegramBotClient client)
+        => client.SetChatStickerSetAsync().GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteString(PropertyNames.StickerSetName, stickerSetName);
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.SetChatStickerSet, stream);
-	}
-	/// <summary>Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Use the field can_set_sticker_set optionally returned in getChat requests to check if the bot can use this method. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="stickerSetName">Name of the sticker set to be set as the group sticker set.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool SetChatStickerSet(this ITelegramBotClient bot, string chatId, string stickerSetName)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field <em>can_set_sticker_set</em> optionally returned in <a href="https://core.telegram.org/bots/api#getchat">getChat</a> requests to check if the bot can use this method. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> SetChatStickerSetAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteString(PropertyNames.StickerSetName, stickerSetName);
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.SetChatStickerSet, stream);
-	}
-	/// <summary>Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Use the field can_set_sticker_set optionally returned in getChat requests to check if the bot can use this method. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="stickerSetName">Name of the sticker set to be set as the group sticker set.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> SetChatStickerSetAsync(this ITelegramBotClient bot, long chatId, string stickerSetName, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteString(PropertyNames.StickerSetName, stickerSetName);
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<bool>(MethodNames.SetChatStickerSet, stream, cancellationToken).ConfigureAwait(false);
-	}
-	/// <summary>Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Use the field can_set_sticker_set optionally returned in getChat requests to check if the bot can use this method. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="stickerSetName">Name of the sticker set to be set as the group sticker set.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> SetChatStickerSetAsync(this ITelegramBotClient bot, string chatId, string stickerSetName, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteString(PropertyNames.StickerSetName, stickerSetName);
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<bool>(MethodNames.SetChatStickerSet, stream, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.SetChatStickerSet, cancellationToken: cancellationToken);
+    }
 }

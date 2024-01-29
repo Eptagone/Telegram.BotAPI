@@ -1,69 +1,51 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>
-	/// Use this method to get the current bot description for the given user language. Returns <see cref="BotDescription"/> on success.
-	/// </summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="languageCode">A two-letter ISO 639-1 language code or an empty string.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static BotDescription GetMyDescription(this ITelegramBotClient bot, [Optional] string? languageCode)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to get the current bot description for the given user language. Returns <see cref="BotDescription"/> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="languageCode">A two-letter ISO 639-1 language code or an empty string</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static BotDescription GetMyDescription(this ITelegramBotClient client, string? languageCode = null)
+        => client.GetMyDescriptionAsync(languageCode).GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		if (!string.IsNullOrEmpty(languageCode))
-		{
-			json.WriteString(PropertyNames.LanguageCode, languageCode);
-		}
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<BotDescription>(MethodNames.GetMyDescription, stream);
-	}
+    /// <summary>
+    /// Use this method to get the current bot description for the given user language. Returns <see cref="BotDescription"/> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="languageCode">A two-letter ISO 639-1 language code or an empty string</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<BotDescription> GetMyDescriptionAsync(this ITelegramBotClient client, string? languageCode = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-	/// <summary>
-	/// Use this method to get the current bot description for the given user language. Returns <see cref="BotDescription"/> on success.
-	/// </summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="languageCode">A two-letter ISO 639-1 language code or an empty string.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<BotDescription> GetMyDescriptionAsync(this ITelegramBotClient bot, [Optional] string? languageCode, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+        var args = new Dictionary<string, object>()
+        {
+        };
+        if (languageCode is not null)
+        {
+            args.Add(PropertyNames.LanguageCode, languageCode);
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		if (!string.IsNullOrEmpty(languageCode))
-		{
-			json.WriteString(PropertyNames.LanguageCode, languageCode);
-		}
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<BotDescription>(MethodNames.GetMyDescription, stream, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<BotDescription>(MethodNames.GetMyDescription, args, cancellationToken);
+    }
 }

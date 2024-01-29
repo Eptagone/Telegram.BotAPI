@@ -1,118 +1,71 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
+    /// <summary>
+    /// Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "SetChatPhoto" method.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool SetChatPhoto(this ITelegramBotClient client, SetChatPhotoArgs args)
+        => client.SetChatPhotoAsync(args).GetAwaiter().GetResult();
 
-	/// <summary>Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="photo">New chat photo, uploaded using multipart/form-data.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool SetChatPhoto(this ITelegramBotClient bot, long chatId, InputFile photo)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "SetChatPhoto" method.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> SetChatPhotoAsync(this ITelegramBotClient client, SetChatPhotoArgs args, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		return bot.CallMethod<bool>(MethodNames.SetChatPhoto, new SetChatPhotoArgs(chatId, photo));
-	}
+        return client.CallMethodAsync<bool>(MethodNames.SetChatPhoto, args, cancellationToken);
+    }
 
-	/// <summary>Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="photo">New chat photo, uploaded using multipart/form-data.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool SetChatPhoto(this ITelegramBotClient bot, string chatId, InputFile photo)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool SetChatPhoto(this ITelegramBotClient client)
+        => client.SetChatPhotoAsync().GetAwaiter().GetResult();
 
-		return bot.CallMethod<bool>(MethodNames.SetChatPhoto, new SetChatPhotoArgs(chatId, photo));
-	}
+    /// <summary>
+    /// Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> SetChatPhotoAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-	/// <summary>Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="args">Parameters.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool SetChatPhoto(this ITelegramBotClient bot, SetChatPhotoArgs args)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		if (args == default)
-		{
-			throw new ArgumentNullException(nameof(args));
-		}
-
-		return bot.CallMethod<bool>(MethodNames.SetChatPhoto, args);
-	}
-	/// <summary>Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="photo">New chat photo, uploaded using multipart/form-data.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> SetChatPhotoAsync(this ITelegramBotClient bot, long chatId, InputFile photo, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		return await bot.CallMethodAsync<bool>(MethodNames.SetChatPhoto, new SetChatPhotoArgs(chatId, photo), cancellationToken: cancellationToken).ConfigureAwait(false);
-	}
-
-	/// <summary>Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format @supergroupusername).</param>
-	/// <param name="photo">New chat photo, uploaded using multipart/form-data.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> SetChatPhotoAsync(this ITelegramBotClient bot, string chatId, InputFile photo, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		return await bot.CallMethodAsync<bool>(MethodNames.SetChatPhoto, new SetChatPhotoArgs(chatId, photo), cancellationToken: cancellationToken).ConfigureAwait(false);
-	}
-
-	/// <summary>Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="args">Parameters.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> SetChatPhotoAsync(this ITelegramBotClient bot, SetChatPhotoArgs args, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		if (args == default)
-		{
-			throw new ArgumentNullException(nameof(args));
-		}
-
-		return await bot.CallMethodAsync<bool>(MethodNames.SetChatPhoto, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.SetChatPhoto, cancellationToken: cancellationToken);
+    }
 }

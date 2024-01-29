@@ -1,79 +1,67 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.InlineMode;
 
-/// <summary>Represents a link to a voice message stored on the Telegram servers. By default, this voice message will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the voice message.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class InlineQueryResultCachedVoice : InlineQueryResultWithEntities, ICaption, IEquatable<InlineQueryResultCachedVoice>
+/// <summary>
+/// Represents a link to a voice message stored on the Telegram servers. By default, this voice message will be sent by the user. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead of the voice message.
+/// </summary>
+public class InlineQueryResultCachedVoice : InlineQueryResult
 {
-	/// <summary>Type of the result, must be voice</summary>
-	[JsonPropertyName(PropertyNames.Type)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public override string Type => InlineQueryResultType.Voice;
-	/// <summary>A valid file identifier for the voice message.</summary>
-	[JsonPropertyName(PropertyNames.VoiceFileId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string VoiceFileId { get; set; }
-	/// <summary>Voice message title.</summary>
-	[JsonPropertyName(PropertyNames.Title)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? Title { get; set; }
-	/// <summary>Optional. Caption, 0-1024 characters.</summary>
-	[JsonPropertyName(PropertyNames.Caption)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? Caption { get; set; }
-	/// <summary>Optional. Content of the message to be sent instead of the voice message.</summary>
-	[JsonPropertyName(PropertyNames.InputMessageContent)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public InputMessageContent? InputMessageContent { get; set; }
-	/// <inheritdoc/>
-	public override bool Equals(object obj)
-	{
-		return this.Equals(obj as InlineQueryResultCachedVoice);
-	}
-	/// <inheritdoc/>
-	public bool Equals(InlineQueryResultCachedVoice? other)
-	{
-		return other != null &&
-			   this.Id == other.Id &&
-			   EqualityComparer<InlineKeyboardMarkup>.Default.Equals(this.ReplyMarkup, other.ReplyMarkup) &&
-			   this.ParseMode == other.ParseMode &&
-			   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
-			   this.Type == other.Type &&
-			   this.VoiceFileId == other.VoiceFileId &&
-			   this.Title == other.Title &&
-			   this.Caption == other.Caption &&
-			   EqualityComparer<InputMessageContent?>.Default.Equals(this.InputMessageContent, other.InputMessageContent);
-	}
-	/// <inheritdoc/>
-	public override int GetHashCode()
-	{
-		int hashCode = 864641024;
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup>.Default.GetHashCode(this.ReplyMarkup);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ParseMode);
-		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.CaptionEntities);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.VoiceFileId);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Title);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Caption);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent?>.Default.GetHashCode(this.InputMessageContent);
-		return hashCode;
-	}
-	/// <inheritdoc/>
-	public static bool operator ==(InlineQueryResultCachedVoice? left, InlineQueryResultCachedVoice? right)
-	{
-		return EqualityComparer<InlineQueryResultCachedVoice>.Default.Equals(left!, right!);
-	}
-	/// <inheritdoc/>
-	public static bool operator !=(InlineQueryResultCachedVoice? left, InlineQueryResultCachedVoice? right)
-	{
-		return !(left == right);
-	}
+    /// <summary>
+    /// Type of the result, must be <em>voice</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Type)]
+    public override string Type => "voice";
 
+    /// <summary>
+    /// Unique identifier for this result, 1-64 bytes
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Id)]
+    public override string Id { get; set; } = null!;
+
+    /// <summary>
+    /// A valid file identifier for the voice message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.VoiceFileId)]
+    public string VoiceFileId { get; set; } = null!;
+
+    /// <summary>
+    /// Voice message title
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Title)]
+    public string Title { get; set; } = null!;
+
+    /// <summary>
+    /// <em>Optional</em>. Caption, 0-1024 characters after entities parsing
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Caption)]
+    public string? Caption { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Mode for parsing entities in the voice message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ParseMode)]
+    public string? ParseMode { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. List of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CaptionEntities)]
+    public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyMarkup)]
+    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Content of the message to be sent instead of the voice message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.InputMessageContent)]
+    public InputMessageContent? InputMessageContent { get; set; }
 }

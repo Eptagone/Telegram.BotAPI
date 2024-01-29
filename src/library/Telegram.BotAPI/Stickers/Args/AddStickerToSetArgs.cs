@@ -1,34 +1,42 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using Telegram.BotAPI.AvailableMethods;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.Stickers;
 
 /// <summary>
-/// AddStickerToSet method arguments.
+/// Represents the arguments of the "AddStickerToSet" method.
 /// </summary>
-/// <param name="userId">User identifier of sticker set owner.</param>
-/// <param name="name">Sticker set name.</param>
-/// <param name="sticker">A <see cref="InputSticker"/> object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.</param>
-/// <exception cref="ArgumentNullException"></exception>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class AddStickerToSetArgs(long userId, string name, InputSticker sticker) : AttachedFilesArgsBase
+public class AddStickerToSetArgs : AttachedFilesArgsBase
 {
-	/// <summary>User identifier of sticker set owner.</summary>
-	[JsonPropertyName(PropertyNames.UserId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public long UserId { get; } = userId;
-	/// <summary>Sticker set name.</summary>
-	[JsonPropertyName(PropertyNames.Name)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
-	/// <summary>
-	/// A <see cref="InputSticker"/> object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.Sticker)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public InputSticker Sticker { get; } = sticker ?? throw new ArgumentNullException(nameof(sticker));
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AddStickerToSetArgs"/> class.
+    /// </summary>
+    /// <param name="userId">User identifier of sticker set owner</param>
+    /// <param name="name">Sticker set name</param>
+    /// <param name="sticker">A JSON-serialized object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.</param>
+    public AddStickerToSetArgs(long userId, string name, InputSticker sticker)
+    {
+        this.UserId = userId;
+        this.Name = name ?? throw new ArgumentNullException(nameof(name));
+        this.Sticker = sticker ?? throw new ArgumentNullException(nameof(sticker));
+    }
+
+    /// <summary>
+    /// User identifier of sticker set owner
+    /// </summary>
+    [JsonPropertyName(PropertyNames.UserId)]
+    public long UserId { get; set; }
+
+    /// <summary>
+    /// Sticker set name
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Name)]
+    public string Name { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Sticker)]
+    public InputSticker Sticker { get; set; }
 }

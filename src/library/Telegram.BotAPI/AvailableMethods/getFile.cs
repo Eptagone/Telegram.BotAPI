@@ -1,59 +1,41 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
-using File = Telegram.BotAPI.AvailableTypes.File;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>Use this method to get basic info about a file and prepare it for downloading.. On success, a File object is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="fileId">File identifier to get info about.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns><see cref="File"/></returns>
-	public static File GetFile(this ITelegramBotClient bot, string fileId)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. On success, a <see cref="File"/> object is returned. The file can then be downloaded via the link <code>https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;</code>, where <code>&lt;file_path&gt;</code> is taken from the response. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling <a href="https://core.telegram.org/bots/api#getfile">getFile</a> again.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static File GetFile(this ITelegramBotClient client)
+        => client.GetFileAsync().GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.FileId, fileId);
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<File>(MethodNames.GetFile, stream);
-	}
-	/// <summary>Use this method to get basic info about a file and prepare it for downloading.. On success, a File object is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="fileId">File identifier to get info about.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns><see cref="File"/></returns>
-	public static async Task<File> GetFileAsync(this ITelegramBotClient bot, string fileId, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. On success, a <see cref="File"/> object is returned. The file can then be downloaded via the link <code>https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;</code>, where <code>&lt;file_path&gt;</code> is taken from the response. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling <a href="https://core.telegram.org/bots/api#getfile">getFile</a> again.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<File> GetFileAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.FileId, fileId);
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<File>(MethodNames.GetFile, stream, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<File>(MethodNames.GetFile, cancellationToken: cancellationToken);
+    }
 }

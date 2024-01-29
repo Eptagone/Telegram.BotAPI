@@ -1,22 +1,17 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
 /// Describes that no specific value for the menu button was set.
 /// </summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class MenuButtonDefault : MenuButton
+public class MenuButtonDefault : MenuButton
 {
-	/// <summary>
-	/// Type of the button, must be default
-	/// </summary>
-	[JsonPropertyName(PropertyNames.Type)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public override string Type => MenuButtonType.Default;
-
+    /// <summary>
+    /// Type of the button, must be <em>default</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Type)]
+    public override string Type => "default";
 }

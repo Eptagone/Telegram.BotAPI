@@ -1,95 +1,79 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.InlineMode;
 
-/// <summary>Represents a link to an mp3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the audio.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class InlineQueryResultAudio : InlineQueryResultWithEntities, ICaption, IEquatable<InlineQueryResultAudio?>
+/// <summary>
+/// Represents a link to an MP3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead of the audio.
+/// </summary>
+public class InlineQueryResultAudio : InlineQueryResult
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="InlineQueryResultAudio"/> class.
-	/// </summary>
-	public InlineQueryResultAudio()
-	{
-		this.AudioUrl = null!;
-	}
+    /// <summary>
+    /// Type of the result, must be <em>audio</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Type)]
+    public override string Type => "audio";
 
-	/// <summary>Type of the result, must be audio.</summary>
-	[JsonPropertyName(PropertyNames.Type)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public override string Type => InlineQueryResultType.Audio;
-	/// <summary>A valid URL for the audio file.</summary>
-	[JsonPropertyName(PropertyNames.AudioUrl)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string AudioUrl { get; set; }
-	/// <summary>Optional. Caption, 0-1024 characters.</summary>
-	[JsonPropertyName(PropertyNames.Caption)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? Caption { get; set; }
-	/// <summary>Optional. Performer.</summary>
-	[JsonPropertyName(PropertyNames.Performer)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? Performer { get; set; }
-	/// <summary>Optional. Audio duration in seconds.</summary>
-	[JsonPropertyName(PropertyNames.AudioDuration)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? AudioDuration { get; set; }
-	/// <summary>Optional. Content of the message to be sent instead of the audio.</summary>
-	[JsonPropertyName(PropertyNames.InputMessageContent)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public InputMessageContent? InputMessageContent { get; set; }
-	/// <inheritdoc/>
-	public override bool Equals(object? obj)
-	{
-		return this.Equals(obj as InlineQueryResultAudio);
-	}
-	/// <inheritdoc/>
-	public bool Equals(InlineQueryResultAudio? other)
-	{
-		return other is not null &&
-			   this.Type == other.Type &&
-			   this.Id == other.Id &&
-			   EqualityComparer<InlineKeyboardMarkup>.Default.Equals(this.ReplyMarkup, other.ReplyMarkup) &&
-			   this.ParseMode == other.ParseMode &&
-			   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
-			   this.Type == other.Type &&
-			   this.AudioUrl == other.AudioUrl &&
-			   this.Caption == other.Caption &&
-			   this.Performer == other.Performer &&
-			   this.AudioDuration == other.AudioDuration &&
-			   EqualityComparer<InputMessageContent?>.Default.Equals(this.InputMessageContent, other.InputMessageContent);
-	}
-	/// <inheritdoc/>
-	public override int GetHashCode()
-	{
-		int hashCode = 1042699274;
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup>.Default.GetHashCode(this.ReplyMarkup);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ParseMode);
-		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.CaptionEntities);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.AudioUrl);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Caption);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.Performer);
-		hashCode = hashCode * -1521134295 + this.AudioDuration.GetHashCode();
-		hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent?>.Default.GetHashCode(this.InputMessageContent);
-		return hashCode;
-	}
-	/// <inheritdoc/>
-	public static bool operator ==(InlineQueryResultAudio? left, InlineQueryResultAudio? right)
-	{
-		return EqualityComparer<InlineQueryResultAudio>.Default.Equals(left!, right!);
-	}
-	/// <inheritdoc/>
-	public static bool operator !=(InlineQueryResultAudio? left, InlineQueryResultAudio? right)
-	{
-		return !(left == right);
-	}
+    /// <summary>
+    /// Unique identifier for this result, 1-64 bytes
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Id)]
+    public override string Id { get; set; } = null!;
 
+    /// <summary>
+    /// A valid URL for the audio file
+    /// </summary>
+    [JsonPropertyName(PropertyNames.AudioUrl)]
+    public string AudioUrl { get; set; } = null!;
+
+    /// <summary>
+    /// Title
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Title)]
+    public string Title { get; set; } = null!;
+
+    /// <summary>
+    /// <em>Optional</em>. Caption, 0-1024 characters after entities parsing
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Caption)]
+    public string? Caption { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ParseMode)]
+    public string? ParseMode { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. List of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CaptionEntities)]
+    public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Performer
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Performer)]
+    public string? Performer { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Audio duration in seconds
+    /// </summary>
+    [JsonPropertyName(PropertyNames.AudioDuration)]
+    public int? AudioDuration { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyMarkup)]
+    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Content of the message to be sent instead of the audio
+    /// </summary>
+    [JsonPropertyName(PropertyNames.InputMessageContent)]
+    public InputMessageContent? InputMessageContent { get; set; }
 }

@@ -1,62 +1,39 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.Stickers;
 
-/// <summary>Stickers</summary>
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class StickersExtensions
 {
-	/// <summary>Use this method to move a sticker in a set created by the bot to a specific position . Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="sticker">File identifier of the sticker.</param>
-	/// <param name="position">New sticker position in the set, zero-based.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static bool SetStickerPositionInSet(this ITelegramBotClient bot, string sticker, int position)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to move a sticker in a set created by the bot to a specific position. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool SetStickerPositionInSet(this ITelegramBotClient client)
+        => client.SetStickerPositionInSetAsync().GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.Sticker, sticker);
-		json.WriteNumber(PropertyNames.Position, position);
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.SetStickerPositionInSet, stream);
-	}
-	/// <summary>Use this method to move a sticker in a set created by the bot to a specific position . Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="sticker">File identifier of the sticker.</param>
-	/// <param name="position">New sticker position in the set, zero-based.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> SetStickerPositionInSetAsync(this ITelegramBotClient bot, string sticker, int position, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to move a sticker in a set created by the bot to a specific position. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> SetStickerPositionInSetAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.Sticker, sticker);
-		json.WriteNumber(PropertyNames.Position, position);
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<bool>(MethodNames.SetStickerPositionInSet, stream, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.SetStickerPositionInSet, cancellationToken: cancellationToken);
+    }
 }

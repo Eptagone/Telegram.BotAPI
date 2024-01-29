@@ -148,17 +148,6 @@ public partial class TelegramBotClient : ITelegramBotClient
 				{
 					content.Add(inputFile.Content, item.Key, inputFile.Filename);
 				}
-				else if (item.Value is AttachedFile atF)
-				{
-					content.Add(atF.File.Content, atF.Name, atF.File.Filename);
-				}
-				else if (item.Value is IEnumerable<AttachedFile> attachedFiles)
-				{
-					foreach (var aF in attachedFiles)
-					{
-						content.Add(aF.File.Content, aF.Name, aF.File.Filename);
-					}
-				}
 				else if (item.Value is IDictionary<string, InputFile> files)
 				{
 					foreach (var file in files)
@@ -196,10 +185,6 @@ public partial class TelegramBotClient : ITelegramBotClient
 					{
 						content.Add(inputFile.Content, jsonAttribute.Name, inputFile.Filename);
 					}
-					else if (value is AttachedFile atF)
-					{
-						content.Add(atF.File.Content, atF.Name, atF.File.Filename);
-					}
 					else
 					{
 						var json = JsonSerializer.Serialize(value, SerializerOptions);
@@ -208,14 +193,7 @@ public partial class TelegramBotClient : ITelegramBotClient
 				}
 				else
 				{
-					if (value is IEnumerable<AttachedFile> attachedFiles)
-					{
-						foreach (var attachedFile in attachedFiles)
-						{
-							content.Add(attachedFile.File.Content, attachedFile.Name, attachedFile.File.Filename);
-						}
-					}
-					else if (value is IDictionary<string, InputFile> files)
+					if (value is IDictionary<string, InputFile> files)
 					{
 						foreach (var file in files)
 						{
@@ -237,15 +215,11 @@ public partial class TelegramBotClient : ITelegramBotClient
 			{
 				foreach (var item in items)
 				{
-					if (item.Value is IEnumerable<AttachedFile> attachedFiles && attachedFiles.Any())
+					if (item.Value is IDictionary<string, InputFile> files && files.Any())
 					{
 						return true;
 					}
-					else if (item.Value is IDictionary<string, InputFile> files && files.Any())
-					{
-						return true;
-					}
-					else if (item.Value is InputFile || item.Value is AttachedFile)
+					else if (item.Value is InputFile)
 					{
 						return true;
 					}
@@ -264,11 +238,7 @@ public partial class TelegramBotClient : ITelegramBotClient
 					continue;
 				}
 
-				if (value is InputFile || value is AttachedFile)
-				{
-					return true;
-				}
-				else if (value is IEnumerable<AttachedFile> attachedFiles && attachedFiles.Any())
+				if (value is InputFile)
 				{
 					return true;
 				}

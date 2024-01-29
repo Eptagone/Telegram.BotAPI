@@ -1,140 +1,135 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
-/// PromoteChatMember method arguments.
+/// Represents the arguments of the "PromoteChatMember" method.
 /// </summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
 public class PromoteChatMemberArgs
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="PromoteChatMemberArgs"/> class.
-	/// </summary>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
-	/// <param name="userId">Unique identifier of the target user</param>
-	/// <exception cref="ArgumentNullException">Thrown when <paramref name="chatId"/> or <paramref name="userId"/> is null.</exception>
-	public PromoteChatMemberArgs(long chatId, long userId)
-	{
-		this.ChatId = chatId;
-		this.UserId = userId;
-	}
-	/// <summary>
-	/// Initializes a new instance of the <see cref="PromoteChatMemberArgs"/> class.
-	/// </summary>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
-	/// <param name="userId">Unique identifier of the target user</param>
-	/// <exception cref="ArgumentNullException">Thrown when <paramref name="chatId"/> or <paramref name="userId"/> is null.</exception>
-	public PromoteChatMemberArgs(string chatId, long userId)
-	{
-		this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-		this.UserId = userId;
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PromoteChatMemberArgs"/> class.
+    /// </summary>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    public PromoteChatMemberArgs(long chatId, long userId)
+    {
+        this.ChatId = chatId;
+        this.UserId = userId;
+    }
 
-	/// <summary>
-	/// Unique identifier for the target chat or username of the target channel (in the format @channelusername)
-	/// </summary>
-	[JsonPropertyName(PropertyNames.ChatId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public object ChatId { get; }
-	/// <summary>
-	/// Unique identifier of the target user
-	/// </summary>
-	[JsonPropertyName(PropertyNames.UserId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public long UserId { get; }
-	/// <summary>
-	/// Pass True if the administrator's presence in the chat is hidden
-	/// </summary>
-	[JsonPropertyName(PropertyNames.IsAnonymous)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? IsAnonymous { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can access the chat event log, chat statistics, boost list in channels, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanManageChat)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanManageChat { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can post messages in the channel; channels only
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanPostMessages)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanPostMessages { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can edit messages of other users and can pin messages; channels only
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanEditMessages)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanEditMessages { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can delete messages of other users
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanDeleteMessages)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanDeleteMessages { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can post stories in the channel; channels only
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanPostStories)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanPostStories { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can edit stories posted by other users; channels only
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanEditStories)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanEditStories { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can delete stories posted by other users; channels only
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanDeleteStories)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanDeleteStories { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can manage video chats
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanManageVideoChats)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanManageVideoChats { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can restrict, ban or unban chat members
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanRestrictMembers)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanRestrictMembers { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanPromoteMembers)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanPromoteMembers { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can change chat title, photo and other settings
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanChangeInfo)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanChangeInfo { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can invite new users to the chat
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanInviteUsers)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanInviteUsers { get; set; }
-	/// <summary>
-	/// Pass True if the administrator can pin messages, supergroups only
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanPinMessages)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanPinMessages { get; set; }
-	/// <summary>
-	/// Pass True if the user is allowed to create, rename, close, and reopen forum topics, supergroups only
-	/// </summary>
-	[JsonPropertyName(PropertyNames.CanManageTopics)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? CanManageTopics { get; set; }
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PromoteChatMemberArgs"/> class.
+    /// </summary>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    public PromoteChatMemberArgs(string chatId, long userId)
+    {
+        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
+        this.UserId = userId;
+    }
+
+    /// <summary>
+    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChatId)]
+    public object ChatId { get; set; }
+
+    /// <summary>
+    /// Unique identifier of the target user
+    /// </summary>
+    [JsonPropertyName(PropertyNames.UserId)]
+    public long UserId { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator's presence in the chat is hidden
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsAnonymous)]
+    public bool? IsAnonymous { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanManageChat)]
+    public bool? CanManageChat { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can delete messages of other users
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanDeleteMessages)]
+    public bool? CanDeleteMessages { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can manage video chats
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanManageVideoChats)]
+    public bool? CanManageVideoChats { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanRestrictMembers)]
+    public bool? CanRestrictMembers { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanPromoteMembers)]
+    public bool? CanPromoteMembers { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can change chat title, photo and other settings
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanChangeInfo)]
+    public bool? CanChangeInfo { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can invite new users to the chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanInviteUsers)]
+    public bool? CanInviteUsers { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; channels only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanPostMessages)]
+    public bool? CanPostMessages { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; channels only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanEditMessages)]
+    public bool? CanEditMessages { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can pin messages, supergroups only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanPinMessages)]
+    public bool? CanPinMessages { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can post stories in the channel; channels only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanPostStories)]
+    public bool? CanPostStories { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can edit stories posted by other users; channels only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanEditStories)]
+    public bool? CanEditStories { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can delete stories posted by other users; channels only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanDeleteStories)]
+    public bool? CanDeleteStories { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics, supergroups only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanManageTopics)]
+    public bool? CanManageTopics { get; set; }
 }

@@ -1,121 +1,97 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.InlineMode;
 
-/// <summary>Represents a location on a map. By default, the location will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the location.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class InlineQueryResultLocation : InlineQueryResultWithEntities, ILocation, IExternalThumbnail, IEquatable<InlineQueryResultLocation>
+/// <summary>
+/// Represents a location on a map. By default, the location will be sent by the user. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead of the location.
+/// </summary>
+public class InlineQueryResultLocation : InlineQueryResult
 {
-	/// <summary>Type of the result, must be location.</summary>
-	[JsonPropertyName(PropertyNames.Type)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public override string Type => InlineQueryResultType.Location;
-	/// <summary>Longitude as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.Longitude)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public float Longitude { get; set; }
-	/// <summary>Latitude as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.Latitude)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public float Latitude { get; set; }
-	/// <summary>Title of the result.</summary>
-	[JsonPropertyName(PropertyNames.Title)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Title { get; set; }
-	/// <summary>Optional. The radius of uncertainty for the location, measured in meters; 0-1500.</summary>
-	[JsonPropertyName(PropertyNames.HorizontalAccuracy)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public float? HorizontalAccuracy { get; set; }
-	/// <summary>Optional. Time relative to the message sending date, during which the location can be updated, in seconds. For active live locations only.</summary>
-	[JsonPropertyName(PropertyNames.LivePeriod)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? LivePeriod { get; set; }
-	/// <summary>Optional. The direction in which user is moving, in degrees; 1-360. For active live locations only.</summary>
-	[JsonPropertyName(PropertyNames.Heading)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public ushort? Heading { get; set; }
-	/// <summary>Optional. Maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.</summary>
-	[JsonPropertyName(PropertyNames.ProximityAlertRadius)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? ProximityAlertRadius { get; set; }
-	/// <summary>Optional. Content of the message to be sent instead of the location.</summary>
-	[JsonPropertyName(PropertyNames.InputMessageContent)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public InputMessageContent InputMessageContent { get; set; }
-	/// <summary>Optional. Url of the thumbnail for the result.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailUrl)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string ThumbnailUrl { get; set; }
-	/// <summary>Optional. Thumbnail width.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailWidth)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? ThumbnailWidth { get; set; }
-	/// <summary>Optional. Thumbnail height.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailHeight)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? ThumbnailHeight { get; set; }
-	/// <inheritdoc/>
-	public override bool Equals(object obj)
-	{
-		return this.Equals(obj as InlineQueryResultLocation);
-	}
-	/// <inheritdoc/>
-	public bool Equals(InlineQueryResultLocation? other)
-	{
-		return other != null &&
-			   this.Id == other.Id &&
-			   EqualityComparer<InlineKeyboardMarkup>.Default.Equals(this.ReplyMarkup, other.ReplyMarkup) &&
-			   this.ParseMode == other.ParseMode &&
-			   EqualityComparer<IEnumerable<MessageEntity>?>.Default.Equals(this.CaptionEntities, other.CaptionEntities) &&
-			   this.Type == other.Type &&
-			   this.Longitude == other.Longitude &&
-			   this.Latitude == other.Latitude &&
-			   this.Title == other.Title &&
-			   this.HorizontalAccuracy == other.HorizontalAccuracy &&
-			   this.LivePeriod == other.LivePeriod &&
-			   this.Heading == other.Heading &&
-			   this.ProximityAlertRadius == other.ProximityAlertRadius &&
-			   EqualityComparer<InputMessageContent>.Default.Equals(this.InputMessageContent, other.InputMessageContent) &&
-			   this.ThumbnailUrl == other.ThumbnailUrl &&
-			   this.ThumbnailWidth == other.ThumbnailWidth &&
-			   this.ThumbnailHeight == other.ThumbnailHeight;
-	}
-	/// <inheritdoc/>
-	public override int GetHashCode()
-	{
-		int hashCode = -1945719542;
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup>.Default.GetHashCode(this.ReplyMarkup);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(this.ParseMode);
-		hashCode = hashCode * -1521134295 + EqualityComparer<IEnumerable<MessageEntity>?>.Default.GetHashCode(this.CaptionEntities);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
-		hashCode = hashCode * -1521134295 + this.Longitude.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.Latitude.GetHashCode();
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Title);
-		hashCode = hashCode * -1521134295 + this.HorizontalAccuracy.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.LivePeriod.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.Heading.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.ProximityAlertRadius.GetHashCode();
-		hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent>.Default.GetHashCode(this.InputMessageContent);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
-		hashCode = hashCode * -1521134295 + this.ThumbnailWidth.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.ThumbnailHeight.GetHashCode();
-		return hashCode;
-	}
-	/// <inheritdoc/>
-	public static bool operator ==(InlineQueryResultLocation? left, InlineQueryResultLocation? right)
-	{
-		return EqualityComparer<InlineQueryResultLocation>.Default.Equals(left!, right!);
-	}
-	/// <inheritdoc/>
-	public static bool operator !=(InlineQueryResultLocation? left, InlineQueryResultLocation? right)
-	{
-		return !(left == right);
-	}
+    /// <summary>
+    /// Type of the result, must be <em>location</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Type)]
+    public override string Type => "location";
 
+    /// <summary>
+    /// Unique identifier for this result, 1-64 Bytes
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Id)]
+    public override string Id { get; set; } = null!;
+
+    /// <summary>
+    /// Location latitude in degrees
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Latitude)]
+    public float Latitude { get; set; }
+
+    /// <summary>
+    /// Location longitude in degrees
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Longitude)]
+    public float Longitude { get; set; }
+
+    /// <summary>
+    /// Location title
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Title)]
+    public string Title { get; set; } = null!;
+
+    /// <summary>
+    /// <em>Optional</em>. The radius of uncertainty for the location, measured in meters; 0-1500
+    /// </summary>
+    [JsonPropertyName(PropertyNames.HorizontalAccuracy)]
+    public float? HorizontalAccuracy { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Period in seconds for which the location can be updated, should be between 60 and 86400.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.LivePeriod)]
+    public int? LivePeriod { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Heading)]
+    public int? Heading { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ProximityAlertRadius)]
+    public int? ProximityAlertRadius { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyMarkup)]
+    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Content of the message to be sent instead of the location
+    /// </summary>
+    [JsonPropertyName(PropertyNames.InputMessageContent)]
+    public InputMessageContent? InputMessageContent { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Url of the thumbnail for the result
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailUrl)]
+    public string? ThumbnailUrl { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Thumbnail width
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailWidth)]
+    public int? ThumbnailWidth { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Thumbnail height
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailHeight)]
+    public int? ThumbnailHeight { get; set; }
 }

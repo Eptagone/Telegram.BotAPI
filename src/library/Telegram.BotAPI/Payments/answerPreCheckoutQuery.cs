@@ -1,84 +1,57 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
+using Telegram.BotAPI.GettingUpdates;
 
 namespace Telegram.BotAPI.Payments;
 
-/// <summary>Payments</summary>
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class PaymentsExtensions
 {
-	/// <summary>Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an Update with the field pre_checkout_query. Use this method to respond to such pre-checkout queries. On success, True is returned. Note: The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent.</summary>
-	/// <param name="bot">Bot Client</param>
-	/// <param name="preCheckoutQueryId">Unique identifier for the query to be answered.</param>
-	/// <param name="ok">Specify True if everything is alright (goods are available, etc.) and the bot is ready to proceed with the order. Use False if there are any problems.</param>
-	/// <param name="errorMessage">Required if ok is False. Error message in human readable form that explains the reason for failure to proceed with the checkout (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!"). Telegram will display this message to the user.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>On success, True is returned.</returns>
-	public static bool AnswerPreCheckoutQuery(this ITelegramBotClient bot, string preCheckoutQueryId, bool ok, [Optional] string errorMessage)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an <see cref="Update"/> with the field <em>pre_checkout_query</em>. Use this method to respond to such pre-checkout queries. On success, <em>True</em> is returned. <strong>Note:</strong> The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="preCheckoutQueryId">Unique identifier for the query to be answered</param>
+    /// <param name="ok">Specify <em>True</em> if everything is alright (goods are available, etc.) and the bot is ready to proceed with the order. Use <em>False</em> if there are any problems.</param>
+    /// <param name="errorMessage">Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains the reason for failure to proceed with the checkout (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!"). Telegram will display this message to the user.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool AnswerPreCheckoutQuery(this ITelegramBotClient client, string preCheckoutQueryId, bool ok, string? errorMessage = null)
+        => client.AnswerPreCheckoutQueryAsync(preCheckoutQueryId, ok, errorMessage).GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString("pre_checkout_query_id", preCheckoutQueryId);
-		json.WriteBoolean("ok", ok);
-		if (!ok)
-		{
-			if (errorMessage == default)
-			{
-				throw new ArgumentNullException(nameof(errorMessage));
-			}
+    /// <summary>
+    /// Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an <see cref="Update"/> with the field <em>pre_checkout_query</em>. Use this method to respond to such pre-checkout queries. On success, <em>True</em> is returned. <strong>Note:</strong> The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="preCheckoutQueryId">Unique identifier for the query to be answered</param>
+    /// <param name="ok">Specify <em>True</em> if everything is alright (goods are available, etc.) and the bot is ready to proceed with the order. Use <em>False</em> if there are any problems.</param>
+    /// <param name="errorMessage">Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains the reason for failure to proceed with the checkout (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!"). Telegram will display this message to the user.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> AnswerPreCheckoutQueryAsync(this ITelegramBotClient client, string preCheckoutQueryId, bool ok, string? errorMessage = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-			json.WriteString("error_message", errorMessage);
-		}
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.AnswerPreCheckoutQuery, stream);
-	}
-	/// <summary>Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an Update with the field pre_checkout_query. Use this method to respond to such pre-checkout queries. On success, True is returned. Note: The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent.</summary>
-	/// <param name="bot">Bot Client</param>
-	/// <param name="preCheckoutQueryId">Unique identifier for the query to be answered.</param>
-	/// <param name="ok">Specify True if everything is alright (goods are available, etc.) and the bot is ready to proceed with the order. Use False if there are any problems.</param>
-	/// <param name="errorMessage">Required if ok is False. Error message in human readable form that explains the reason for failure to proceed with the checkout (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!"). Telegram will display this message to the user.</param>
-	/// <returns>On success, True is returned.</returns>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<bool> AnswerPreCheckoutQueryAsync(this ITelegramBotClient bot, string preCheckoutQueryId, bool ok, [Optional] string errorMessage, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.PreCheckoutQueryId, preCheckoutQueryId ?? throw new ArgumentNullException(nameof(preCheckoutQueryId)) },
+            { PropertyNames.Ok, ok }
+        };
+        if (errorMessage is not null)
+        {
+            args.Add(PropertyNames.ErrorMessage, errorMessage);
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString("pre_checkout_query_id", preCheckoutQueryId);
-		json.WriteBoolean("ok", ok);
-		if (!ok)
-		{
-			if (errorMessage == default)
-			{
-				throw new ArgumentNullException(nameof(errorMessage));
-			}
-
-			json.WriteString("error_message", errorMessage);
-		}
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<bool>(MethodNames.AnswerPreCheckoutQuery, stream, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.AnswerPreCheckoutQuery, args, cancellationToken);
+    }
 }

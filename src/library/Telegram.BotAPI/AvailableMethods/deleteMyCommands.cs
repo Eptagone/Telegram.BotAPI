@@ -1,81 +1,87 @@
-﻿// Copyright (c) 2024 Quetzal Rivera.
+// Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
-	/// <param name="languageCode">	A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands.</param>
-	/// <returns>True on success.</returns>
-	public static bool DeleteMyCommands(this ITelegramBotClient bot, BotCommandScope? scope = null, string? languageCode = null)
-	{
-		if (bot == null)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "DeleteMyCommands" method.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool DeleteMyCommands(this ITelegramBotClient client, DeleteMyCommandsArgs? args = null)
+        => client.DeleteMyCommandsAsync(args).GetAwaiter().GetResult();
 
-		var args = new DeleteMyCommandsArgs(scope, languageCode);
-		return bot.CallMethod<bool>(MethodNames.DeleteMyCommands, args);
-	}
+    /// <summary>
+    /// Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "DeleteMyCommands" method.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> DeleteMyCommandsAsync(this ITelegramBotClient client, DeleteMyCommandsArgs? args = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-	/// <summary>Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="args">Parameters.</param>
-	/// <returns>True on success.</returns>
-	public static bool DeleteMyCommands(this ITelegramBotClient bot, DeleteMyCommandsArgs args)
-	{
-		if (bot == null)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-		if (args == null)
-		{
-			throw new ArgumentNullException(nameof(args));
-		}
+        return client.CallMethodAsync<bool>(MethodNames.DeleteMyCommands, args, cancellationToken);
+    }
 
-		return bot.CallMethod<bool>(MethodNames.DeleteMyCommands, args);
-	}
+    /// <summary>
+    /// Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="scope">A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+    /// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool DeleteMyCommands(this ITelegramBotClient client, BotCommandScope? scope = null, string? languageCode = null)
+        => client.DeleteMyCommandsAsync(scope, languageCode).GetAwaiter().GetResult();
 
-	/// <summary>Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
-	/// <param name="languageCode">	A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <returns>True on success.</returns>
-	public static async Task<bool> DeleteMyCommandsAsync(this ITelegramBotClient bot, BotCommandScope? scope = null, string? languageCode = null, CancellationToken cancellationToken = default)
-	{
-		if (bot == null)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="scope">A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+    /// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> DeleteMyCommandsAsync(this ITelegramBotClient client, BotCommandScope? scope = null, string? languageCode = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		var args = new DeleteMyCommandsArgs(scope, languageCode);
-		return await bot.CallMethodAsync<bool>(MethodNames.DeleteMyCommands, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-	}
+        var args = new Dictionary<string, object>()
+        {
+        };
+        if (scope is not null)
+        {
+            args.Add(PropertyNames.Scope, scope);
+        }
+        if (languageCode is not null)
+        {
+            args.Add(PropertyNames.LanguageCode, languageCode);
+        }
 
-	/// <summary>Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, <a href="https://core.telegram.org/bots/api#determining-list-of-commands">higher level commands</a> will be shown to affected users.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="args">Parameters.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <returns>True on success.</returns>
-	public static async Task<bool> DeleteMyCommandsAsync(this ITelegramBotClient bot, DeleteMyCommandsArgs args, CancellationToken cancellationToken = default)
-	{
-		if (bot == null)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-		if (args == null)
-		{
-			throw new ArgumentNullException(nameof(args));
-		}
-
-		return await bot.CallMethodAsync<bool>(MethodNames.DeleteMyCommands, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.DeleteMyCommands, args, cancellationToken);
+    }
 }

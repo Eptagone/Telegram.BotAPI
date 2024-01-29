@@ -1,43 +1,40 @@
-﻿// Copyright (c) 2024 Quetzal Rivera.
+// Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
-/// <summary>SetMyCommands method arguments.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+/// <summary>
+/// Represents the arguments of the "SetMyCommands" method.
+/// </summary>
 public class SetMyCommandsArgs
 {
-	/// <summary>Inititalize a new instance of <see cref="SetMyCommandsArgs"/>.</summary>
-	public SetMyCommandsArgs()
-	{
-		this.Commands = null!;
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SetMyCommandsArgs"/> class.
+    /// </summary>
+    /// <param name="commands">A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</param>
+    public SetMyCommandsArgs(IEnumerable<BotCommand> commands)
+    {
+        this.Commands = commands ?? throw new ArgumentNullException(nameof(commands));
+    }
 
-	/// <summary>Inititalize a new instance of <see cref="SetMyCommandsArgs"/>.</summary>
-	/// <param name="commands">A <see cref="BotCommand"/> list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</param>
-	/// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
-	/// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands.</param>
-	public SetMyCommandsArgs(IEnumerable<BotCommand> commands, [Optional] BotCommandScope scope, [Optional] string languageCode)
-	{
-		this.Commands = commands;
-		this.Scope = scope;
-		this.LanguageCode = languageCode;
-	}
+    /// <summary>
+    /// A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Commands)]
+    public IEnumerable<BotCommand> Commands { get; set; }
 
-	/// <summary>A <see cref="BotCommand"/> list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</summary>
-	[JsonPropertyName(PropertyNames.Commands)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public IEnumerable<BotCommand> Commands { get; set; }
-	/// <summary>Optional. A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</summary>
-	[JsonPropertyName(PropertyNames.Scope)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public BotCommandScope? Scope { get; set; }
-	/// <summary>Optional. A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands.</summary>
-	[JsonPropertyName(PropertyNames.LanguageCode)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? LanguageCode { get; set; }
+    /// <summary>
+    /// A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Scope)]
+    public BotCommandScope? Scope { get; set; }
+
+    /// <summary>
+    /// A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands
+    /// </summary>
+    [JsonPropertyName(PropertyNames.LanguageCode)]
+    public string? LanguageCode { get; set; }
 }

@@ -1,70 +1,41 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableTypes;
 
-/// <summary>This object represents a voice note.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class Voice : TelegramFileBase, IEquatable<Voice>
+/// <summary>
+/// This object represents a voice note.
+/// </summary>
+public class Voice
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="Voice"/> class.
-	/// </summary>
-	public Voice()
-	{
-		this.MimeType = null!;
-	}
+    /// <summary>
+    /// Identifier for this file, which can be used to download or reuse the file
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FileId)]
+    public string FileId { get; set; } = null!;
 
-	/// <summary>Duration of the audio in seconds as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.Duration)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint Duration { get; set; }
-	/// <summary>Optional. MIME type of the file as defined by sender.</summary>
-	[JsonPropertyName(PropertyNames.MimeType)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string MimeType { get; set; }
-	/// <summary>Optional. File size.</summary>
-	[JsonPropertyName(PropertyNames.FileSize)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public ulong FileSize { get; set; }
-	/// <inheritdoc/>
-	public override bool Equals(object obj)
-	{
-		return this.Equals(obj as Voice);
-	}
-	/// <inheritdoc/>
-	public bool Equals(Voice? other)
-	{
-		return other != null &&
-			   this.FileId == other.FileId &&
-			   this.FileUniqueId == other.FileUniqueId &&
-			   this.Duration == other.Duration &&
-			   this.MimeType == other.MimeType &&
-			   this.FileSize == other.FileSize;
-	}
-	/// <inheritdoc/>
-	public override int GetHashCode()
-	{
-		int hashCode = 2020017407;
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FileId);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FileUniqueId);
-		hashCode = hashCode * -1521134295 + this.Duration.GetHashCode();
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.MimeType);
-		hashCode = hashCode * -1521134295 + this.FileSize.GetHashCode();
-		return hashCode;
-	}
-	/// <inheritdoc/>
-	public static bool operator ==(Voice? left, Voice? right)
-	{
-		return EqualityComparer<Voice>.Default.Equals(left!, right!);
-	}
-	/// <inheritdoc/>
-	public static bool operator !=(Voice? left, Voice? right)
-	{
-		return !(left == right);
-	}
+    /// <summary>
+    /// Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FileUniqueId)]
+    public string FileUniqueId { get; set; } = null!;
 
+    /// <summary>
+    /// Duration of the audio in seconds as defined by sender
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Duration)]
+    public int Duration { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. MIME type of the file as defined by sender
+    /// </summary>
+    [JsonPropertyName(PropertyNames.MimeType)]
+    public string? MimeType { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FileSize)]
+    public int? FileSize { get; set; }
 }

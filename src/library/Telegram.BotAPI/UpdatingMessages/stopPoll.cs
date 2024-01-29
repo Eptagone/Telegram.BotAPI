@@ -1,264 +1,131 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.UpdatingMessages;
 
-/// <summary>Updating messages</summary>
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class UpdatingMessagesExtensions
 {
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageId">Identifier of the original message with the poll</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static Poll StopPoll(this ITelegramBotClient bot, long chatId, int messageId)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "StopPoll" method.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Poll StopPoll(this ITelegramBotClient client, StopPollArgs args)
+        => client.StopPollAsync(args).GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.MessageId, messageId);
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<Poll>(MethodNames.StopPoll, stream);
-	}
+    /// <summary>
+    /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "StopPoll" method.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<Poll> StopPollAsync(this ITelegramBotClient client, StopPollArgs args, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageId">Identifier of the original message with the poll</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static Poll StopPoll(this ITelegramBotClient bot, string chatId, int messageId)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+        return client.CallMethodAsync<Poll>(MethodNames.StopPoll, args, cancellationToken);
+    }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.MessageId, messageId);
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<Poll>(MethodNames.StopPoll, stream);
-	}
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageId">Identifier of the original message with the poll</param>
-	/// <param name="replyMarkup">A <see cref="InlineKeyboardMarkup"/> object for a new message inline keyboard.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static Poll StopPoll(this ITelegramBotClient bot, long chatId, int messageId, InlineKeyboardMarkup replyMarkup)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="messageId">Identifier of the original message with the poll</param>
+    /// <param name="replyMarkup">A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Poll StopPoll(this ITelegramBotClient client, long chatId, int messageId, ReplyMarkup? replyMarkup = null)
+        => client.StopPollAsync(chatId, messageId, replyMarkup).GetAwaiter().GetResult();
 
-		if (replyMarkup == default)
-		{
-			throw new ArgumentNullException(nameof(replyMarkup));
-		}
+    /// <summary>
+    /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="messageId">Identifier of the original message with the poll</param>
+    /// <param name="replyMarkup">A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<Poll> StopPollAsync(this ITelegramBotClient client, long chatId, int messageId, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		var args = new StopPollArgs
-		{
-			ChatId = chatId,
-			MessageId = messageId,
-			ReplyMarkup = replyMarkup
-		};
-		return bot.CallMethod<Poll>(MethodNames.StopPoll, args);
-	}
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageId">Identifier of the original message with the poll</param>
-	/// <param name="replyMarkup">A <see cref="InlineKeyboardMarkup"/> object for a new message inline keyboard.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static Poll StopPoll(this ITelegramBotClient bot, string chatId, int messageId, InlineKeyboardMarkup replyMarkup)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId },
+            { PropertyNames.MessageId, messageId }
+        };
+        if (replyMarkup is not null)
+        {
+            args.Add(PropertyNames.ReplyMarkup, replyMarkup);
+        }
 
-		if (replyMarkup == default)
-		{
-			throw new ArgumentNullException(nameof(replyMarkup));
-		}
+        return client.CallMethodAsync<Poll>(MethodNames.StopPoll, args, cancellationToken);
+    }
 
-		var args = new StopPollArgs
-		{
-			ChatId = chatId,
-			MessageId = messageId,
-			ReplyMarkup = replyMarkup
-		};
-		return bot.CallMethod<Poll>(MethodNames.StopPoll, args);
-	}
+    /// <summary>
+    /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="messageId">Identifier of the original message with the poll</param>
+    /// <param name="replyMarkup">A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Poll StopPoll(this ITelegramBotClient client, string chatId, int messageId, ReplyMarkup? replyMarkup = null)
+        => client.StopPollAsync(chatId, messageId, replyMarkup).GetAwaiter().GetResult();
 
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageId">Identifier of the original message with the poll</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<Poll> StopPollAsync(this ITelegramBotClient bot, long chatId, int messageId, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="messageId">Identifier of the original message with the poll</param>
+    /// <param name="replyMarkup">A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<Poll> StopPollAsync(this ITelegramBotClient client, string chatId, int messageId, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.MessageId, messageId);
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<Poll>(MethodNames.StopPoll, stream, cancellationToken).ConfigureAwait(false);
-	}
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
+            { PropertyNames.MessageId, messageId }
+        };
+        if (replyMarkup is not null)
+        {
+            args.Add(PropertyNames.ReplyMarkup, replyMarkup);
+        }
 
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageId">Identifier of the original message with the poll</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<Poll> StopPollAsync(this ITelegramBotClient bot, string chatId, int messageId, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.MessageId, messageId);
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<Poll>(MethodNames.StopPoll, stream, cancellationToken).ConfigureAwait(false);
-	}
-
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageId">Identifier of the original message with the poll</param>
-	/// <param name="replyMarkup">A <see cref="InlineKeyboardMarkup"/> object for a new message inline keyboard.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<Poll> StopPollAsync(this ITelegramBotClient bot, long chatId, int messageId, [Optional] InlineKeyboardMarkup replyMarkup, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		if (replyMarkup == default)
-		{
-			throw new ArgumentNullException(nameof(replyMarkup));
-		}
-
-		var args = new StopPollArgs
-		{
-			ChatId = chatId,
-			MessageId = messageId,
-			ReplyMarkup = replyMarkup
-		};
-		return await bot.CallMethodAsync<Poll>(MethodNames.StopPoll, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-	}
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername).</param>
-	/// <param name="messageId">Identifier of the original message with the poll</param>
-	/// <param name="replyMarkup">A <see cref="InlineKeyboardMarkup"/> object for a new message inline keyboard.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<Poll> StopPollAsync(this ITelegramBotClient bot, string chatId, int messageId, InlineKeyboardMarkup replyMarkup, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		if (replyMarkup == default)
-		{
-			throw new ArgumentNullException(nameof(replyMarkup));
-		}
-
-		var args = new StopPollArgs
-		{
-			ChatId = chatId,
-			MessageId = messageId,
-			ReplyMarkup = replyMarkup
-		};
-		return await bot.CallMethodAsync<Poll>(MethodNames.StopPoll, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-	}
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="args">Parameters.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static Poll StopPoll(this ITelegramBotClient bot, StopPollArgs args)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		if (args == default)
-		{
-			throw new ArgumentNullException(nameof(args));
-		}
-
-		return bot.CallMethod<Poll>(MethodNames.StopPoll, args);
-	}
-	/// <summary>Use this method to stop a poll which was sent by the bot. On success, the stopped Poll with the final results is returned.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="args">Parameters.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	public static async Task<Poll> StopPollAsync(this ITelegramBotClient bot, StopPollArgs args, CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		if (args == default)
-		{
-			throw new ArgumentNullException(nameof(args));
-		}
-
-		return await bot.CallMethodAsync<Poll>(MethodNames.StopPoll, args, cancellationToken: cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<Poll>(MethodNames.StopPoll, args, cancellationToken);
+    }
 }

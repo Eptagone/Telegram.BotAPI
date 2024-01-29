@@ -1,134 +1,39 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableMethods;
 
-/// <summary>Available Methods</summary>
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>Use this method to ban a channel chat in a supergroup or a channel. The owner of the chat will not be able to send messages and join live streams on behalf of the chat, unless it is unbanned first. The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
-	/// <param name="senderChatId">Unique identifier of the target sender chat</param>
-	/// <param name="untilDate">Date when the sender chat will be unbanned, unix time. If the chat is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>True on success.</returns>
-	public static bool BanChatSenderChat(this ITelegramBotClient bot, long chatId, long senderChatId, uint? untilDate = null)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to ban a channel chat in a supergroup or a channel. Until the chat is <a href="https://core.telegram.org/bots/api#unbanchatsenderchat">unbanned</a>, the owner of the banned chat won't be able to send messages on behalf of <strong>any of their channels</strong>. The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool BanChatSenderChat(this ITelegramBotClient client)
+        => client.BanChatSenderChatAsync().GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.SenderChatId, senderChatId);
-		if (untilDate != null)
-		{
-			json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
-		}
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.BanChatSenderChat, stream);
-	}
-	/// <summary>Use this method to ban a channel chat in a supergroup or a channel. The owner of the chat will not be able to send messages and join live streams on behalf of the chat, unless it is unbanned first. The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
-	/// <param name="senderChatId">Unique identifier of the target sender chat</param>
-	/// <param name="untilDate">Date when the sender chat will be unbanned, unix time. If the chat is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>True on success.</returns>
-	public static bool BanChatSenderChat(this ITelegramBotClient bot, string chatId, long senderChatId, uint? untilDate = null)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to ban a channel chat in a supergroup or a channel. Until the chat is <a href="https://core.telegram.org/bots/api#unbanchatsenderchat">unbanned</a>, the owner of the banned chat won't be able to send messages on behalf of <strong>any of their channels</strong>. The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> BanChatSenderChatAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.SenderChatId, senderChatId);
-		if (untilDate != null)
-		{
-			json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
-		}
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.BanChatSenderChat, stream);
-	}
-	/// <summary>Use this method to ban a channel chat in a supergroup or a channel. The owner of the chat will not be able to send messages and join live streams on behalf of the chat, unless it is unbanned first. The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights.</summary>
-	/// <param name="client">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
-	/// <param name="senderChatId">Unique identifier of the target sender chat</param>
-	/// <param name="untilDate">Date when the sender chat will be unbanned, unix time. If the chat is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>True on success.</returns>
-	public static async Task<bool> BanChatSenderChatAsync(this ITelegramBotClient client, long chatId, long senderChatId, uint? untilDate = null, CancellationToken cancellationToken = default)
-	{
-		if (client is null)
-		{
-			throw new ArgumentNullException(nameof(client));
-		}
-
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.SenderChatId, senderChatId);
-		if (untilDate != null)
-		{
-			json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
-		}
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await client.CallMethodAsync<bool>(MethodNames.BanChatSenderChat, stream, cancellationToken).ConfigureAwait(false);
-	}
-	/// <summary>Use this method to ban a channel chat in a supergroup or a channel. The owner of the chat will not be able to send messages and join live streams on behalf of the chat, unless it is unbanned first. The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights.</summary>
-	/// <param name="client">BotClient</param>
-	/// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format @channelusername)</param>
-	/// <param name="senderChatId">Unique identifier of the target sender chat</param>
-	/// <param name="untilDate">Date when the sender chat will be unbanned, unix time. If the chat is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>True on success.</returns>
-	public static async Task<bool> BanChatSenderChatAsync(this ITelegramBotClient client, string chatId, long senderChatId, uint? untilDate = null, CancellationToken cancellationToken = default)
-	{
-		if (client is null)
-		{
-			throw new ArgumentNullException(nameof(client));
-		}
-
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteString(PropertyNames.ChatId, chatId);
-		json.WriteNumber(PropertyNames.SenderChatId, senderChatId);
-		if (untilDate != null)
-		{
-			json.WriteNumber(PropertyNames.UntilDate, (uint)untilDate);
-		}
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await client.CallMethodAsync<bool>(MethodNames.BanChatSenderChat, stream, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.BanChatSenderChat, cancellationToken: cancellationToken);
+    }
 }

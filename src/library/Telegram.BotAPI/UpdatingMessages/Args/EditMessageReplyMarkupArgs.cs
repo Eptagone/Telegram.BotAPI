@@ -1,0 +1,37 @@
+// Copyright (c) 2024 Quetzal Rivera.
+// Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
+
+using Telegram.BotAPI.AvailableTypes;
+
+namespace Telegram.BotAPI.UpdatingMessages;
+
+/// <summary>
+/// Represents the arguments of the "EditMessageReplyMarkup" method.
+/// </summary>
+public class EditMessageReplyMarkupArgs
+{
+    /// <summary>
+    /// Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChatId)]
+    public object? ChatId { get; set; }
+
+    /// <summary>
+    /// Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit
+    /// </summary>
+    [JsonPropertyName(PropertyNames.MessageId)]
+    public int? MessageId { get; set; }
+
+    /// <summary>
+    /// Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.InlineMessageId)]
+    public string? InlineMessageId { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyMarkup)]
+    public InlineKeyboardMarkup? ReplyMarkup { get; set; }
+}

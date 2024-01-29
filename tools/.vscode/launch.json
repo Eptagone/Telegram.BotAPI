@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Script Debug",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${env:HOME}/.dotnet/tools/dotnet-script",
+      "args": [
+        "${file}"
+      ],
+      "windows": {
+        "program": "dotnet",
+        "args": [
+          "exec",
+          "${env:USERPROFILE}/.dotnet/tools/.store/dotnet-script/1.5.0/dotnet-script/1.5.0/tools/net8.0/any/dotnet-script.dll",
+          "./main.csx"
+        ],
+      },
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+    }
+  ]
+}

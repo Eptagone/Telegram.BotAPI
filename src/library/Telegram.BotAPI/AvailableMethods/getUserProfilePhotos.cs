@@ -1,93 +1,60 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>Use this method to get a list of profile pictures for a user.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="userId">Unique identifier of the target user.</param>
-	/// <param name="offset">Optional. Sequential number of the first photo to be returned. By default, all photos are returned.</param>
-	/// <param name="limit">Optional. Limits the number of photos to be retrieved. Values between 1—100 are accepted. Defaults to 100.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>UserProfilePhotos Object.</returns>
-	public static UserProfilePhotos GetUserProfilePhotos(
-		this ITelegramBotClient bot,
-		long userId,
-		[Optional] int? offset,
-		[Optional] ushort? limit)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
+    /// <summary>
+    /// Use this method to get a list of profile pictures for a user. Returns a <see cref="UserProfilePhotos"/> object.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    /// <param name="offset">Sequential number of the first photo to be returned. By default, all photos are returned.</param>
+    /// <param name="limit">Limits the number of photos to be retrieved. Values between 1-100 are accepted. Defaults to 100.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static UserProfilePhotos GetUserProfilePhotos(this ITelegramBotClient client, long userId, int? offset = null, int? limit = null)
+        => client.GetUserProfilePhotosAsync(userId, offset, limit).GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.UserId, userId);
-		if (offset != null)
-		{
-			json.WriteNumber(PropertyNames.Offset, (int)offset);
-		}
+    /// <summary>
+    /// Use this method to get a list of profile pictures for a user. Returns a <see cref="UserProfilePhotos"/> object.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    /// <param name="offset">Sequential number of the first photo to be returned. By default, all photos are returned.</param>
+    /// <param name="limit">Limits the number of photos to be retrieved. Values between 1-100 are accepted. Defaults to 100.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<UserProfilePhotos> GetUserProfilePhotosAsync(this ITelegramBotClient client, long userId, int? offset = null, int? limit = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-		if (limit != null)
-		{
-			json.WriteNumber(PropertyNames.Limit, (ushort)limit);
-		}
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.UserId, userId }
+        };
+        if (offset is not null)
+        {
+            args.Add(PropertyNames.Offset, offset);
+        }
+        if (limit is not null)
+        {
+            args.Add(PropertyNames.Limit, limit);
+        }
 
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<UserProfilePhotos>(MethodNames.GetUserProfilePhotos, stream);
-	}
-	/// <summary>Use this method to get a list of profile pictures for a user.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="userId">Unique identifier of the target user.</param>
-	/// <param name="offset">Sequential number of the first photo to be returned. By default, all photos are returned.</param>
-	/// <param name="limit">Limits the number of photos to be retrieved. Values between 1—100 are accepted. Defaults to 100.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>UserProfilePhotos Object.</returns>
-	public static async Task<UserProfilePhotos> GetUserProfilePhotosAsync(
-		this ITelegramBotClient bot,
-		long userId,
-		[Optional] int? offset,
-		[Optional] ushort? limit,
-		CancellationToken cancellationToken = default)
-	{
-		if (bot == default)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteNumber(PropertyNames.UserId, userId);
-		if (offset != null)
-		{
-			json.WriteNumber(PropertyNames.Offset, (int)offset);
-		}
-
-		if (limit != null)
-		{
-			json.WriteNumber(PropertyNames.Limit, (ushort)limit);
-		}
-
-		json.WriteEndObject();
-		await json.FlushAsync(cancellationToken).ConfigureAwait(false);
-		await json.DisposeAsync().ConfigureAwait(false);
-		stream.Seek(0, SeekOrigin.Begin);
-		return await bot.CallMethodAsync<UserProfilePhotos>(MethodNames.GetUserProfilePhotos, stream, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<UserProfilePhotos>(MethodNames.GetUserProfilePhotos, args, cancellationToken);
+    }
 }

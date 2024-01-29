@@ -1,123 +1,103 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.InlineMode;
 
-/// <summary>Represents a venue. By default, the venue will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the venue.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class InlineQueryResultVenue : InlineQueryResult, IVenue, IExternalThumbnail, IEquatable<InlineQueryResultVenue>
+/// <summary>
+/// Represents a venue. By default, the venue will be sent by the user. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead of the venue.
+/// </summary>
+public class InlineQueryResultVenue : InlineQueryResult
 {
-	/// <summary>Type of the result, must be venue.</summary>
-	[JsonPropertyName(PropertyNames.Type)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public override string Type => InlineQueryResultType.Venue;
-	/// <summary>Latitude of the venue location in degrees.</summary>
-	[JsonPropertyName(PropertyNames.Latitude)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public float Latitude { get; set; }
-	/// <summary>Longitude of the venue location in degrees.</summary>
-	[JsonPropertyName(PropertyNames.Longitude)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public float Longitude { get; set; }
-	/// <summary>Title of the venue.</summary>
-	[JsonPropertyName(PropertyNames.Title)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Title { get; set; }
-	/// <summary>Address of the venue.</summary>
-	[JsonPropertyName(PropertyNames.Address)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Address { get; set; }
-	/// <summary>Optional. Foursquare identifier of the venue if known.</summary>
-	[JsonPropertyName(PropertyNames.FoursquareId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string FoursquareId { get; set; }
-	/// <summary>Optional. Foursquare type of the venue, if known. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)</summary>
-	[JsonPropertyName(PropertyNames.FoursquareType)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string FoursquareType { get; set; }
-	/// <summary>Optional. Google Places identifier of the venue.</summary>
-	[JsonPropertyName(PropertyNames.GooglePlaceId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string GooglePlaceId { get; set; }
-	/// <summary>Optional. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</summary>
-	[JsonPropertyName(PropertyNames.GooglePlaceType)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string GooglePlaceType { get; set; }
-	/// <summary>Optional. Content of the message to be sent instead of the venue.</summary>
-	[JsonPropertyName(PropertyNames.InputMessageContent)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public InputMessageContent InputMessageContent { get; set; }
-	/// <summary>Optional. Url of the thumbnail for the result.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailUrl)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string ThumbnailUrl { get; set; }
-	/// <summary>Optional. Thumbnail width.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailWidth)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? ThumbnailWidth { get; set; }
-	/// <summary>Optional. Thumbnail height.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailHeight)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? ThumbnailHeight { get; set; }
-	/// <inheritdoc/>
-	public override bool Equals(object obj)
-	{
-		return this.Equals(obj as InlineQueryResultVenue);
-	}
-	/// <inheritdoc/>
-	public bool Equals(InlineQueryResultVenue? other)
-	{
-		return other != null &&
-			   this.Id == other.Id &&
-			   EqualityComparer<InlineKeyboardMarkup>.Default.Equals(this.ReplyMarkup, other.ReplyMarkup) &&
-			   this.Type == other.Type &&
-			   this.Latitude == other.Latitude &&
-			   this.Longitude == other.Longitude &&
-			   this.Title == other.Title &&
-			   this.Address == other.Address &&
-			   this.FoursquareId == other.FoursquareId &&
-			   this.FoursquareType == other.FoursquareType &&
-			   this.GooglePlaceId == other.GooglePlaceId &&
-			   this.GooglePlaceType == other.GooglePlaceType &&
-			   EqualityComparer<InputMessageContent>.Default.Equals(this.InputMessageContent, other.InputMessageContent) &&
-			   this.ThumbnailUrl == other.ThumbnailUrl &&
-			   this.ThumbnailWidth == other.ThumbnailWidth &&
-			   this.ThumbnailHeight == other.ThumbnailHeight;
-	}
-	/// <inheritdoc/>
-	public override int GetHashCode()
-	{
-		int hashCode = -545969655;
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup>.Default.GetHashCode(this.ReplyMarkup);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
-		hashCode = hashCode * -1521134295 + this.Latitude.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.Longitude.GetHashCode();
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Title);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Address);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FoursquareId);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.FoursquareType);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.GooglePlaceId);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.GooglePlaceType);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent>.Default.GetHashCode(this.InputMessageContent);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
-		hashCode = hashCode * -1521134295 + this.ThumbnailWidth.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.ThumbnailHeight.GetHashCode();
-		return hashCode;
-	}
-	/// <inheritdoc/>
-	public static bool operator ==(InlineQueryResultVenue? left, InlineQueryResultVenue? right)
-	{
-		return EqualityComparer<InlineQueryResultVenue>.Default.Equals(left!, right!);
-	}
-	/// <inheritdoc/>
-	public static bool operator !=(InlineQueryResultVenue? left, InlineQueryResultVenue? right)
-	{
-		return !(left == right);
-	}
+    /// <summary>
+    /// Type of the result, must be <em>venue</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Type)]
+    public override string Type => "venue";
 
+    /// <summary>
+    /// Unique identifier for this result, 1-64 Bytes
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Id)]
+    public override string Id { get; set; } = null!;
+
+    /// <summary>
+    /// Latitude of the venue location in degrees
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Latitude)]
+    public float Latitude { get; set; }
+
+    /// <summary>
+    /// Longitude of the venue location in degrees
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Longitude)]
+    public float Longitude { get; set; }
+
+    /// <summary>
+    /// Title of the venue
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Title)]
+    public string Title { get; set; } = null!;
+
+    /// <summary>
+    /// Address of the venue
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Address)]
+    public string Address { get; set; } = null!;
+
+    /// <summary>
+    /// <em>Optional</em>. Foursquare identifier of the venue if known
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FoursquareId)]
+    public string? FoursquareId { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Foursquare type of the venue, if known. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FoursquareType)]
+    public string? FoursquareType { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Google Places identifier of the venue
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GooglePlaceId)]
+    public string? GooglePlaceId { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GooglePlaceType)]
+    public string? GooglePlaceType { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyMarkup)]
+    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Content of the message to be sent instead of the venue
+    /// </summary>
+    [JsonPropertyName(PropertyNames.InputMessageContent)]
+    public InputMessageContent? InputMessageContent { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Url of the thumbnail for the result
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailUrl)]
+    public string? ThumbnailUrl { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Thumbnail width
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailWidth)]
+    public int? ThumbnailWidth { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Thumbnail height
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailHeight)]
+    public int? ThumbnailHeight { get; set; }
 }

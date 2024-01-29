@@ -1,99 +1,79 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.InlineMode;
 
-/// <summary>Represents a link to an article or web page.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public sealed class InlineQueryResultArticle : InlineQueryResult, IExternalThumbnail, IEquatable<InlineQueryResultArticle>
+/// <summary>
+/// Represents a link to an article or web page.
+/// </summary>
+public class InlineQueryResultArticle : InlineQueryResult
 {
-	/// <summary>Type of the result, must be article.</summary>
-	[JsonPropertyName(PropertyNames.Type)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public override string Type => InlineQueryResultType.Article;
-	/// <summary>Title of the result.</summary>
-	[JsonPropertyName(PropertyNames.Title)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Title { get; set; }
-	/// <summary>Content of the message to be sent.</summary>
-	[JsonPropertyName(PropertyNames.InputMessageContent)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public InputMessageContent InputMessageContent { get; set; }
-	/// <summary>Optional. URL of the result.</summary>
-	[JsonPropertyName(PropertyNames.Url)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Url { get; set; }
-	/// <summary>Optional. Pass True, if you don't want the URL to be shown in the message.</summary>
-	[JsonPropertyName(PropertyNames.HideUrl)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? HideUrl { get; set; }
-	/// <summary>Optional. Short description of the result.</summary>
-	[JsonPropertyName(PropertyNames.Description)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Description { get; set; }
-	/// <summary>URL of the static thumbnail for the result (jpeg or gif).</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailUrl)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string ThumbnailUrl { get; set; }
-	/// <summary>Optional. Thumbnail width.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailWidth)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? ThumbnailWidth { get; set; }
-	/// <summary>Optional. Thumbnail height.</summary>
-	[JsonPropertyName(PropertyNames.ThumbnailHeight)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public uint? ThumbnailHeight { get; set; }
-	/// <inheritdoc/>
-	public override bool Equals(object obj)
-	{
-		return this.Equals(obj as InlineQueryResultArticle);
-	}
-	/// <inheritdoc/>
-	public bool Equals(InlineQueryResultArticle? other)
-	{
-		return other != null &&
-			   this.Id == other.Id &&
-			   EqualityComparer<InlineKeyboardMarkup>.Default.Equals(this.ReplyMarkup, other.ReplyMarkup) &&
-			   this.Type == other.Type &&
-			   this.Title == other.Title &&
-			   EqualityComparer<InputMessageContent>.Default.Equals(this.InputMessageContent, other.InputMessageContent) &&
-			   this.Url == other.Url &&
-			   this.HideUrl == other.HideUrl &&
-			   this.Description == other.Description &&
-			   this.ThumbnailUrl == other.ThumbnailUrl &&
-			   this.ThumbnailWidth == other.ThumbnailWidth &&
-			   this.ThumbnailHeight == other.ThumbnailHeight;
-	}
-	/// <inheritdoc/>
-	public override int GetHashCode()
-	{
-		int hashCode = 1439155506;
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Id);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InlineKeyboardMarkup>.Default.GetHashCode(this.ReplyMarkup);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Type);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Title);
-		hashCode = hashCode * -1521134295 + EqualityComparer<InputMessageContent>.Default.GetHashCode(this.InputMessageContent);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Url);
-		hashCode = hashCode * -1521134295 + this.HideUrl.GetHashCode();
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.Description);
-		hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ThumbnailUrl);
-		hashCode = hashCode * -1521134295 + this.ThumbnailWidth.GetHashCode();
-		hashCode = hashCode * -1521134295 + this.ThumbnailHeight.GetHashCode();
-		return hashCode;
-	}
-	/// <inheritdoc/>
-	public static bool operator ==(InlineQueryResultArticle? left, InlineQueryResultArticle? right)
-	{
-		return EqualityComparer<InlineQueryResultArticle>.Default.Equals(left!, right!);
-	}
-	/// <inheritdoc/>
-	public static bool operator !=(InlineQueryResultArticle? left, InlineQueryResultArticle? right)
-	{
-		return !(left == right);
-	}
+    /// <summary>
+    /// Type of the result, must be <em>article</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Type)]
+    public override string Type => "article";
 
+    /// <summary>
+    /// Unique identifier for this result, 1-64 Bytes
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Id)]
+    public override string Id { get; set; } = null!;
+
+    /// <summary>
+    /// Title of the result
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Title)]
+    public string Title { get; set; } = null!;
+
+    /// <summary>
+    /// Content of the message to be sent
+    /// </summary>
+    [JsonPropertyName(PropertyNames.InputMessageContent)]
+    public InputMessageContent InputMessageContent { get; set; } = null!;
+
+    /// <summary>
+    /// <em>Optional</em>. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyMarkup)]
+    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. URL of the result
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Url)]
+    public string? Url { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Pass <em>True</em> if you don't want the URL to be shown in the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.HideUrl)]
+    public bool? HideUrl { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Short description of the result
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Description)]
+    public string? Description { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Url of the thumbnail for the result
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailUrl)]
+    public string? ThumbnailUrl { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Thumbnail width
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailWidth)]
+    public int? ThumbnailWidth { get; set; }
+
+    /// <summary>
+    /// <em>Optional</em>. Thumbnail height
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ThumbnailHeight)]
+    public int? ThumbnailHeight { get; set; }
 }

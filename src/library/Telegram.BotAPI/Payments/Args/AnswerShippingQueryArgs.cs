@@ -1,68 +1,46 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.Payments;
 
-/// <summary>AnswerShippingQuery method arguments.</summary>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
+/// <summary>
+/// Represents the arguments of the "AnswerShippingQuery" method.
+/// </summary>
 public class AnswerShippingQueryArgs
 {
-	/// <summary>
-	/// Initialize a new instance of <see cref="AnswerShippingQueryArgs"/>.
-	/// </summary>
-	/// <param name="shippingQueryId">Unique identifier for the query to be answered.</param>
-	/// <param name="ok">Specify True if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible).</param>
-	/// <exception cref="ArgumentNullException"></exception>
-	public AnswerShippingQueryArgs(string shippingQueryId, bool ok)
-	{
-		this.ShippingQueryId = shippingQueryId ?? throw new ArgumentNullException(nameof(shippingQueryId));
-		this.Ok = ok;
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AnswerShippingQueryArgs"/> class.
+    /// </summary>
+    /// <param name="shippingQueryId">Unique identifier for the query to be answered</param>
+    /// <param name="ok">Pass <em>True</em> if delivery to the specified address is possible and <em>False</em> if there are any problems (for example, if delivery to the specified address is not possible)</param>
+    public AnswerShippingQueryArgs(string shippingQueryId, bool ok)
+    {
+        this.ShippingQueryId = shippingQueryId ?? throw new ArgumentNullException(nameof(shippingQueryId));
+        this.Ok = ok;
+    }
 
-	/// <summary>
-	/// Initialize a new instance of <see cref="AnswerShippingQueryArgs"/>.
-	/// </summary>
-	/// <param name="shippingQueryId">Unique identifier for the query to be answered.</param>
-	/// <param name="shippingOptions">An array of <see cref="ShippingOption"/>.</param>
-	/// <exception cref="ArgumentNullException"></exception>
-	public AnswerShippingQueryArgs(string shippingQueryId, IEnumerable<ShippingOption> shippingOptions)
-	{
-		this.ShippingQueryId = shippingQueryId ?? throw new ArgumentNullException(nameof(shippingQueryId));
-		this.Ok = true;
-		this.ShippingOptions = shippingOptions ?? throw new ArgumentNullException(nameof(shippingOptions));
-	}
+    /// <summary>
+    /// Unique identifier for the query to be answered
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ShippingQueryId)]
+    public string ShippingQueryId { get; set; }
 
-	/// <summary>
-	/// Initialize a new instance of <see cref="AnswerShippingQueryArgs"/>.
-	/// </summary>
-	/// <param name="shippingQueryId">Unique identifier for the query to be answered.</param>
-	/// <param name="errorMessage">Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.</param>
-	/// <exception cref="ArgumentNullException"></exception>
-	public AnswerShippingQueryArgs(string shippingQueryId, string errorMessage)
-	{
-		this.ShippingQueryId = shippingQueryId ?? throw new ArgumentNullException(nameof(shippingQueryId));
-		this.Ok = false;
-		this.ErrorMessage = errorMessage ?? throw new ArgumentNullException(nameof(errorMessage));
-	}
+    /// <summary>
+    /// Pass <em>True</em> if delivery to the specified address is possible and <em>False</em> if there are any problems (for example, if delivery to the specified address is not possible)
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Ok)]
+    public bool Ok { get; set; }
 
-	/// <summary>Unique identifier for the query to be answered.</summary>
-	[JsonPropertyName(PropertyNames.ShippingQueryId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string ShippingQueryId { get; }
-	/// <summary>Specify True if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible).</summary>
-	[JsonPropertyName(PropertyNames.Ok)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool Ok { get; }
-	/// <summary>Required if ok is True. An array of <see cref="ShippingOption"/>.</summary>
-	[JsonPropertyName(PropertyNames.ShippingOptions)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public IEnumerable<ShippingOption>? ShippingOptions { get; set; }
-	/// <summary>Required if ok is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.</summary>
-	[JsonPropertyName(PropertyNames.ErrorMessage)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? ErrorMessage { get; set; }
+    /// <summary>
+    /// Required if <em>ok</em> is <em>True</em>. A JSON-serialized array of available shipping options.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ShippingOptions)]
+    public IEnumerable<ShippingOption>? ShippingOptions { get; set; }
+
+    /// <summary>
+    /// Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ErrorMessage)]
+    public string? ErrorMessage { get; set; }
 }

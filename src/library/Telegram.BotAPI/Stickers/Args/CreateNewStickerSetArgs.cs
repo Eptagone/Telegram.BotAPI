@@ -1,62 +1,70 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using Telegram.BotAPI.AvailableMethods;
+//* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.Stickers;
 
-/// <summary>CreateNewStickerSet method arguments.</summary>
-/// <param name="userId">User identifier of created sticker set owner.</param>
-/// <param name="name">Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_&lt;bot username&gt;”. &lt;bot_username&gt; is case insensitive. 1-64 characters.</param>
-/// <param name="title">Sticker set title, 1-64 characters.</param>
-/// <param name="stickers">A <see cref="InputSticker"/> list of 1-50 initial stickers to be added to the sticker set.</param>
-/// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”.</param>
-/// <exception cref="ArgumentNullException"></exception>
-[JsonObject(MemberSerialization = MemberSerialization.OptIn, NamingStrategyType = typeof(SnakeCaseNamingStrategy))]
-public class CreateNewStickerSetArgs(long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat) : AttachedFilesArgsBase
+/// <summary>
+/// Represents the arguments of the "CreateNewStickerSet" method.
+/// </summary>
+public class CreateNewStickerSetArgs : AttachedFilesArgsBase
 {
-	/// <summary>
-	/// User identifier of created sticker set owner.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.UserId)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public long UserId { get; } = userId;
-	/// <summary>
-	/// Short name of sticker set, to be used in t.me/addstickers/ URLs (e.g., animals). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in “_by_&lt;bot username&gt;”. &lt;bot_username&gt; is case insensitive. 1-64 characters.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.Name)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
-	/// <summary>
-	/// Sticker set title, 1-64 characters.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.Title)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string Title { get; } = title ?? throw new ArgumentNullException(nameof(title));
-	/// <summary>
-	/// A <see cref="InputSticker"/> list of 1-50 initial stickers to be added to the sticker set.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.Stickers)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public IEnumerable<InputSticker> Stickers { get; } = stickers ?? throw new ArgumentNullException(nameof(stickers));
-	/// <summary>
-	/// Format of stickers in the set, must be one of “static”, “animated”, “video”.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.StickerFormat)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string StickerFormat { get; } = stickerFormat ?? throw new ArgumentNullException(nameof(stickerFormat));
-	/// <summary>
-	/// Optional. Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.StickerType)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public string? StickerType { get; set; }
-	/// <summary>
-	/// Optional. Pass True if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only.
-	/// </summary>
-	[JsonPropertyName(PropertyNames.NeedsRepainting)]
-	[JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
-	public bool? NeedsRepainting { get; set; }
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CreateNewStickerSetArgs"/> class.
+    /// </summary>
+    /// <param name="userId">User identifier of created sticker set owner</param>
+    /// <param name="name">Short name of sticker set, to be used in <code>t.me/addstickers/</code> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <code>"_by_&lt;bot_username&gt;"</code>. <code>&lt;bot_username&gt;</code> is case insensitive. 1-64 characters.</param>
+    /// <param name="title">Sticker set title, 1-64 characters</param>
+    /// <param name="stickers">A JSON-serialized list of 1-50 initial stickers to be added to the sticker set</param>
+    /// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”</param>
+    public CreateNewStickerSetArgs(long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat)
+    {
+        this.UserId = userId;
+        this.Name = name ?? throw new ArgumentNullException(nameof(name));
+        this.Title = title ?? throw new ArgumentNullException(nameof(title));
+        this.Stickers = stickers ?? throw new ArgumentNullException(nameof(stickers));
+        this.StickerFormat = stickerFormat ?? throw new ArgumentNullException(nameof(stickerFormat));
+    }
+
+    /// <summary>
+    /// User identifier of created sticker set owner
+    /// </summary>
+    [JsonPropertyName(PropertyNames.UserId)]
+    public long UserId { get; set; }
+
+    /// <summary>
+    /// Short name of sticker set, to be used in <code>t.me/addstickers/</code> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <code>"_by_&lt;bot_username&gt;"</code>. <code>&lt;bot_username&gt;</code> is case insensitive. 1-64 characters.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Name)]
+    public string Name { get; set; }
+
+    /// <summary>
+    /// Sticker set title, 1-64 characters
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Title)]
+    public string Title { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized list of 1-50 initial stickers to be added to the sticker set
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Stickers)]
+    public IEnumerable<InputSticker> Stickers { get; set; }
+
+    /// <summary>
+    /// Format of stickers in the set, must be one of “static”, “animated”, “video”
+    /// </summary>
+    [JsonPropertyName(PropertyNames.StickerFormat)]
+    public string StickerFormat { get; set; }
+
+    /// <summary>
+    /// Type of stickers in the set, pass “regular”, “mask”, or “custom_emoji”. By default, a regular sticker set is created.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.StickerType)]
+    public string? StickerType { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.NeedsRepainting)]
+    public bool? NeedsRepainting { get; set; }
 }

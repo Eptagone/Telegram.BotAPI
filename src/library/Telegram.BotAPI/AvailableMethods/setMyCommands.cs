@@ -1,135 +1,90 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
 
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
+/// <summary>
+/// Extension methods for the Telegram Bot API.
+/// </summary>
 public static partial class AvailableMethodsExtensions
 {
-	/// <summary>Use this method to change the list of the bot's commands. See https://core.telegram.org/bots#commands for more details about bot commands. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="commands">A list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>True</returns>
-	public static bool SetMyCommands(this ITelegramBotClient bot, params BotCommand[] commands)
-	{
-		if (bot == null)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-		if (commands == null)
-		{
-			throw new ArgumentNullException(nameof(commands));
-		}
+    /// <summary>
+    /// Use this method to change the list of the bot's commands. See <a href="https://core.telegram.org/bots/features#commands">this manual</a> for more details about bot commands. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "SetMyCommands" method.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool SetMyCommands(this ITelegramBotClient client, SetMyCommandsArgs args)
+        => client.SetMyCommandsAsync(args).GetAwaiter().GetResult();
 
-		var stream = new MemoryStream();
-		using var json = new Utf8JsonWriter(stream);
-		json.WriteStartObject();
-		json.WriteStartArray(PropertyNames.Commands);
-		foreach (var cmd in commands)
-		{
-			if (string.IsNullOrEmpty(cmd.Command) || string.IsNullOrEmpty(cmd.Description))
-			{
-				throw new ArgumentNullException($"{nameof(commands)} properties can't be null");
-			}
+    /// <summary>
+    /// Use this method to change the list of the bot's commands. See <a href="https://core.telegram.org/bots/features#commands">this manual</a> for more details about bot commands. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="args">The arguments for the "SetMyCommands" method.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> SetMyCommandsAsync(this ITelegramBotClient client, SetMyCommandsArgs args, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-			json.WriteStartObject();
-			json.WriteString(PropertyNames.Command, cmd.Command);
-			json.WriteString(PropertyNames.Description, cmd.Description);
-			json.WriteEndObject();
-		}
-		json.WriteEndArray();
-		json.WriteEndObject();
-		json.Flush(); json.Dispose();
-		stream.Seek(0, SeekOrigin.Begin);
-		return bot.CallMethod<bool>(MethodNames.SetMyCommands, stream);
-	}
-	/// <summary>Use this method to change the list of the bot's commands. See https://core.telegram.org/bots#commands for more details about bot commands. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="commands">A <see cref="BotCommand"/> list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</param>
-	/// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
-	/// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>True</returns>
-	public static bool SetMyCommands(this ITelegramBotClient bot, IEnumerable<BotCommand> commands, [Optional] BotCommandScope scope, [Optional] string languageCode)
-	{
-		if (bot == null)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-		if (commands == default)
-		{
-			throw new ArgumentNullException(nameof(commands));
-		}
+        return client.CallMethodAsync<bool>(MethodNames.SetMyCommands, args, cancellationToken);
+    }
 
-		var args = new SetMyCommandsArgs(commands, scope, languageCode);
-		return bot.CallMethod<bool>(MethodNames.SetMyCommands, args);
-	}
+    /// <summary>
+    /// Use this method to change the list of the bot's commands. See <a href="https://core.telegram.org/bots/features#commands">this manual</a> for more details about bot commands. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="commands">A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</param>
+    /// <param name="scope">A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+    /// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool SetMyCommands(this ITelegramBotClient client, IEnumerable<BotCommand> commands, BotCommandScope? scope = null, string? languageCode = null)
+        => client.SetMyCommandsAsync(commands, scope, languageCode).GetAwaiter().GetResult();
 
-	/// <summary>Use this method to change the list of the bot's commands. See https://core.telegram.org/bots#commands for more details about bot commands. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="args">Parameters.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>True</returns>
-	public static bool SetMyCommands(this ITelegramBotClient bot, SetMyCommandsArgs args)
-	{
-		if (bot == null)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-		return bot.CallMethod<bool>(MethodNames.SetMyCommands, args);
-	}
+    /// <summary>
+    /// Use this method to change the list of the bot's commands. See <a href="https://core.telegram.org/bots/features#commands">this manual</a> for more details about bot commands. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="commands">A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</param>
+    /// <param name="scope">A JSON-serialized object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
+    /// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> SetMyCommandsAsync(this ITelegramBotClient client, IEnumerable<BotCommand> commands, BotCommandScope? scope = null, string? languageCode = null, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
 
-	/// <summary>Use this method to change the list of the bot's commands. See https://core.telegram.org/bots#commands for more details about bot commands. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="commands">A list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.</param>
-	/// <param name="scope">A <see cref="BotCommandScope"/> object, describing scope of users for which the commands are relevant. Defaults to <see cref="BotCommandScopeDefault"/>.</param>
-	/// <param name="languageCode">A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>True</returns>
-	public static async Task<bool> SetMyCommandsAsync(this ITelegramBotClient bot, IEnumerable<BotCommand> commands, [Optional] BotCommandScope scope, [Optional] string languageCode, CancellationToken cancellationToken = default)
-	{
-		if (bot == null)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-		if (commands == default)
-		{
-			throw new ArgumentNullException(nameof(commands));
-		}
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.Commands, commands ?? throw new ArgumentNullException(nameof(commands)) }
+        };
+        if (scope is not null)
+        {
+            args.Add(PropertyNames.Scope, scope);
+        }
+        if (languageCode is not null)
+        {
+            args.Add(PropertyNames.LanguageCode, languageCode);
+        }
 
-		var args = new SetMyCommandsArgs(commands, scope, languageCode);
-		return await bot.CallMethodAsync<bool>(MethodNames.SetMyCommands, args, cancellationToken).ConfigureAwait(false);
-	}
-
-	/// <summary>Use this method to change the list of the bot's commands. See https://core.telegram.org/bots#commands for more details about bot commands. Returns True on success.</summary>
-	/// <param name="bot">BotClient</param>
-	/// <param name="args">Parameters.</param>
-	/// <param name="cancellationToken">The cancellation token to cancel operation.</param>
-	/// <exception cref="BotRequestException">Thrown when a request to Telegram Bot API got an error response.</exception>
-	/// <exception cref="ArgumentNullException">Thrown when a required parameter is null.</exception>
-	/// <returns>True</returns>
-	public static async Task<bool> SetMyCommandsAsync(this ITelegramBotClient bot, SetMyCommandsArgs args, CancellationToken cancellationToken = default)
-	{
-		if (bot == null)
-		{
-			throw new ArgumentNullException(nameof(bot));
-		}
-		if (args == null)
-		{
-			throw new ArgumentNullException(nameof(args));
-		}
-
-		return await bot.CallMethodAsync<bool>(MethodNames.SetMyCommands, args, cancellationToken).ConfigureAwait(false);
-	}
+        return client.CallMethodAsync<bool>(MethodNames.SetMyCommands, args, cancellationToken);
+    }
 }

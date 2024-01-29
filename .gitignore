@@ -1,4 +1,6 @@
 # Ignore vscode editor files
 .vscode/*
+# Ignore all folders named publish
+**/publish/*
 # Nuget packages
 nuget.config
