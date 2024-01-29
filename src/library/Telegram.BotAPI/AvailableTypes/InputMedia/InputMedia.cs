@@ -29,7 +29,7 @@ public abstract class InputMedia
     /// File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Media)]
-    public string Media { get; set; }
+    public string Media { get; set; } = null!;
 
     /// <summary>
     ///  0-1024 characters after entities parsing

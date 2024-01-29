@@ -335,7 +335,7 @@ static void GenerateClasses(IEnumerable<ClassDefinition> classes, string outputP
                     {
                         builder.Append(@" { get; set; }");
                         if (
-                            @class.ClassType == ClassModelType.Model
+                            (@class.ClassType == ClassModelType.Model || @class.ClassType == ClassModelType.BaseModel)
                             && prop.IsRequired
                             && CanBeNull(typeName)
                         )

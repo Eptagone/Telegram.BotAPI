@@ -353,7 +353,7 @@ static IEnumerable<ClassDefinition> MapMethodsIntoClasses(this BotApiDefinitions
                 "args",
                 [$"The arguments for the \"{methodName}\" method."],
                 className,
-                classDefinition.Properties.Any(p => p.IsRequired)
+                true
             );
 
             var parsedDocs = ParseDocReferences(methodDescription, definitions);
@@ -793,7 +793,8 @@ static bool IsModelLikeArgs(string modelName, BotApiDefinitions definitions)
         "KeyboardButtonRequestChat",
         "InlineKeyboardButton",
         "ShippingOption",
-        "LabeledPrice"
+        "LabeledPrice",
+        "BotCommand"
     };
 
     return @classes.Contains(modelName) || baseClasses.Any(g => g.Types.Contains(modelName));

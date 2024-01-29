@@ -17,7 +17,7 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Update> GetUpdates(this ITelegramBotClient client, GetUpdatesArgs? args = null)
+    public static IEnumerable<Update> GetUpdates(this ITelegramBotClient client, GetUpdatesArgs args)
         => client.GetUpdatesAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
@@ -29,7 +29,7 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<Update>> GetUpdatesAsync(this ITelegramBotClient client, GetUpdatesArgs? args = null, CancellationToken cancellationToken = default)
+    public static Task<IEnumerable<Update>> GetUpdatesAsync(this ITelegramBotClient client, GetUpdatesArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {

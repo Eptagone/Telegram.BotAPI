@@ -30,5 +30,5 @@ public abstract class ChatMember
     /// Information about the user
     /// </summary>
     [JsonPropertyName(PropertyNames.User)]
-    public User User { get; set; }
+    public User User { get; set; } = null!;
 }

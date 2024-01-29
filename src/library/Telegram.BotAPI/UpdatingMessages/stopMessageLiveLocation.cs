@@ -19,7 +19,7 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static TResult StopMessageLiveLocation<TResult>(this ITelegramBotClient client, StopMessageLiveLocationArgs? args = null)
+    public static TResult StopMessageLiveLocation<TResult>(this ITelegramBotClient client, StopMessageLiveLocationArgs args)
         => client.StopMessageLiveLocationAsync<TResult>(args).GetAwaiter().GetResult();
 
     /// <summary>
@@ -31,7 +31,7 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<TResult> StopMessageLiveLocationAsync<TResult>(this ITelegramBotClient client, StopMessageLiveLocationArgs? args = null, CancellationToken cancellationToken = default)
+    public static Task<TResult> StopMessageLiveLocationAsync<TResult>(this ITelegramBotClient client, StopMessageLiveLocationArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {

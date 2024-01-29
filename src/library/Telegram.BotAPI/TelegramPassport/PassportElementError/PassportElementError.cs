@@ -39,5 +39,5 @@ public abstract class PassportElementError
     /// Error message
     /// </summary>
     [JsonPropertyName(PropertyNames.Message)]
-    public string Message { get; set; }
+    public string Message { get; set; } = null!;
 }

@@ -19,7 +19,7 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static TResult EditMessageCaption<TResult>(this ITelegramBotClient client, EditMessageCaptionArgs? args = null)
+    public static TResult EditMessageCaption<TResult>(this ITelegramBotClient client, EditMessageCaptionArgs args)
         => client.EditMessageCaptionAsync<TResult>(args).GetAwaiter().GetResult();
 
     /// <summary>
@@ -31,7 +31,7 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<TResult> EditMessageCaptionAsync<TResult>(this ITelegramBotClient client, EditMessageCaptionArgs? args = null, CancellationToken cancellationToken = default)
+    public static Task<TResult> EditMessageCaptionAsync<TResult>(this ITelegramBotClient client, EditMessageCaptionArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {

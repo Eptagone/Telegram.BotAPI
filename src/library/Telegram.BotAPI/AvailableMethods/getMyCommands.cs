@@ -19,7 +19,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<BotCommand> GetMyCommands(this ITelegramBotClient client, GetMyCommandsArgs? args = null)
+    public static IEnumerable<BotCommand> GetMyCommands(this ITelegramBotClient client, GetMyCommandsArgs args)
         => client.GetMyCommandsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
@@ -31,7 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<BotCommand>> GetMyCommandsAsync(this ITelegramBotClient client, GetMyCommandsArgs? args = null, CancellationToken cancellationToken = default)
+    public static Task<IEnumerable<BotCommand>> GetMyCommandsAsync(this ITelegramBotClient client, GetMyCommandsArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {

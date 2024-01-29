@@ -19,7 +19,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMyDefaultAdministratorRights(this ITelegramBotClient client, SetMyDefaultAdministratorRightsArgs? args = null)
+    public static bool SetMyDefaultAdministratorRights(this ITelegramBotClient client, SetMyDefaultAdministratorRightsArgs args)
         => client.SetMyDefaultAdministratorRightsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
@@ -31,7 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetMyDefaultAdministratorRightsAsync(this ITelegramBotClient client, SetMyDefaultAdministratorRightsArgs? args = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SetMyDefaultAdministratorRightsAsync(this ITelegramBotClient client, SetMyDefaultAdministratorRightsArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
