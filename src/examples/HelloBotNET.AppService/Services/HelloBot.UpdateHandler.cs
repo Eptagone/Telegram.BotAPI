@@ -12,12 +12,16 @@ namespace HelloBotNET.AppService.Services;
 /// </summary>
 public partial class HelloBot : SimpleTelegramBotBase
 {
-	public override void OnUpdate(Update update)
-	{
+    public override void OnUpdate(Update update)
+    {
 #if DEBUG
-		this.logger.LogInformation("New update with id: {UpdateId}. Type: {UpdateType}", update.UpdateId, update.GetUpdateType());
+        this.logger.LogInformation(
+            "New update with id: {UpdateId}. Type: {UpdateType}",
+            update.UpdateId,
+            update.GetUpdateType()
+        );
 #endif
 
-		base.OnUpdate(update);
-	}
+        base.OnUpdate(update);
+    }
 }

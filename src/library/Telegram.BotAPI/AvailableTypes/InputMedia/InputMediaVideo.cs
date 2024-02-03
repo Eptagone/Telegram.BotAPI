@@ -25,49 +25,49 @@ public class InputMediaVideo : InputMedia
     public override string Type => "video";
 
     /// <summary>
-    /// <em>Optional</em>. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
+    /// Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Thumbnail)]
     public object? Thumbnail { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Caption of the video to be sent, 0-1024 characters after entities parsing
+    /// Optional. Caption of the video to be sent, 0-1024 characters after entities parsing
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]
     public override string? Caption { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// Optional. Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
     /// </summary>
     [JsonPropertyName(PropertyNames.ParseMode)]
     public override string? ParseMode { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Video width
+    /// Optional. Video width
     /// </summary>
     [JsonPropertyName(PropertyNames.Width)]
     public int? Width { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Video height
+    /// Optional. Video height
     /// </summary>
     [JsonPropertyName(PropertyNames.Height)]
     public int? Height { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Video duration in seconds
+    /// Optional. Video duration in seconds
     /// </summary>
     [JsonPropertyName(PropertyNames.Duration)]
     public int? Duration { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> if the uploaded video is suitable for streaming
+    /// Optional. Pass <em>True</em> if the uploaded video is suitable for streaming
     /// </summary>
     [JsonPropertyName(PropertyNames.SupportsStreaming)]
     public bool? SupportsStreaming { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> if the video needs to be covered with a spoiler animation
+    /// Optional. Pass <em>True</em> if the video needs to be covered with a spoiler animation
     /// </summary>
     [JsonPropertyName(PropertyNames.HasSpoiler)]
     public bool? HasSpoiler { get; set; }

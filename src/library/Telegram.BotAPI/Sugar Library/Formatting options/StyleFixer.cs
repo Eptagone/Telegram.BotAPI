@@ -9,7 +9,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions;
 /// <summary>
 /// Use this class to fix text with incorrect style tags or to create custom StyleParsers for use with the StyleParser.
 /// </summary>
-[Obsolete("Use Telegram.BotAPI.Extensions.ITextFormatter instead.")]
+[Obsolete("Use Telegram.BotAPI.Extensions.HtmlTextFormatter instead.")]
 public class StyleParser : IStyleParser
 {
 	/// <summary>Default StyleParser.</summary>
@@ -42,10 +42,7 @@ public class StyleParser : IStyleParser
 		{
 			throw new ArgumentNullException(nameof(input));
 		}
-		return input
-			.Replace("&", "&amp;")
-			.Replace("<", "&lt;")
-			.Replace(">", "&gt;");
+		return input.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
 	}
 
 	/// <summary>Prepends the character '\' for the escape characters: '_', '*', '`', '['.</summary>

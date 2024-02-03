@@ -70,49 +70,49 @@ public class ChatMemberAdministrator : ChatMember
     public bool CanInviteUsers { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the administrator can post messages in the channel, or access channel statistics; channels only
+    /// Optional. <em>True</em>, if the administrator can post messages in the channel, or access channel statistics; channels only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPostMessages)]
     public bool? CanPostMessages { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the administrator can edit messages of other users and can pin messages; channels only
+    /// Optional. <em>True</em>, if the administrator can edit messages of other users and can pin messages; channels only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanEditMessages)]
     public bool? CanEditMessages { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to pin messages; groups and supergroups only
+    /// Optional. <em>True</em>, if the user is allowed to pin messages; groups and supergroups only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPinMessages)]
     public bool? CanPinMessages { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the administrator can post stories in the channel; channels only
+    /// Optional. <em>True</em>, if the administrator can post stories in the channel; channels only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPostStories)]
     public bool? CanPostStories { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the administrator can edit stories posted by other users; channels only
+    /// Optional. <em>True</em>, if the administrator can edit stories posted by other users; channels only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanEditStories)]
     public bool? CanEditStories { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the administrator can delete stories posted by other users; channels only
+    /// Optional. <em>True</em>, if the administrator can delete stories posted by other users; channels only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanDeleteStories)]
     public bool? CanDeleteStories { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only
+    /// Optional. <em>True</em>, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageTopics)]
     public bool? CanManageTopics { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Custom title for this user
+    /// Optional. Custom title for this user
     /// </summary>
     [JsonPropertyName(PropertyNames.CustomTitle)]
     public string? CustomTitle { get; set; }

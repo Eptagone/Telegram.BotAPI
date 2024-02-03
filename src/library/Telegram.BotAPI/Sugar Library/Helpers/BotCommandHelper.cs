@@ -15,10 +15,15 @@ public sealed class BotCommandHelper : IBotCommandHelper
 	private const string COMMAND = "command";
 	private const string PARAMS = "params";
 	private const string BASE_COMMAND_PATTERN = @"^\/(?<command>\w*)(?:|@{0})(?:$|\s(?<params>.*))";
+
 	// /([^"'\s]*)|"([^\n"]*)"|'([^\n']*)'/gimus
 	private const string ARGS_PATTERN = @"/([^""'\s]*)|""([^\n""]*)""|'([^\n']*)'";
 
-	private static readonly Regex rxArgs = new(ARGS_PATTERN, RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
+	private static readonly Regex rxArgs =
+		new(
+			ARGS_PATTERN,
+			RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase
+		);
 	private readonly Regex _rx;
 
 	/// <summary>Initialize a new instance of <see cref="BotCommandHelper"/>.</summary>
@@ -31,7 +36,11 @@ public sealed class BotCommandHelper : IBotCommandHelper
 		{
 			throw new ArgumentNullException(nameof(configuration));
 		}
-		var pattern = string.Format(CultureInfo.InvariantCulture, BASE_COMMAND_PATTERN, configuration.User.Username);
+		var pattern = string.Format(
+			CultureInfo.InvariantCulture,
+			BASE_COMMAND_PATTERN,
+			configuration.User.Username
+		);
 		var options = RegexOptions.IgnoreCase;
 		if (useRegexCompiled)
 		{
@@ -39,9 +48,9 @@ public sealed class BotCommandHelper : IBotCommandHelper
 		}
 		this._rx = new Regex(pattern, options);
 	}
+
 	/// <inheritdoc/>
 	public BotCommandMatch Match(string text)
-
 	{
 		if (string.IsNullOrEmpty(text))
 		{

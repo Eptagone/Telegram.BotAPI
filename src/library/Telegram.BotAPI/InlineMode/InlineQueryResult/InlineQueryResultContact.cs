@@ -36,43 +36,43 @@ public class InlineQueryResultContact : InlineQueryResult
     public string FirstName { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Contact's last name
+    /// Optional. Contact's last name
     /// </summary>
     [JsonPropertyName(PropertyNames.LastName)]
     public string? LastName { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Additional data about the contact in the form of a <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, 0-2048 bytes
+    /// Optional. Additional data about the contact in the form of a <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, 0-2048 bytes
     /// </summary>
     [JsonPropertyName(PropertyNames.Vcard)]
     public string? Vcard { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
+    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Content of the message to be sent instead of the contact
+    /// Optional. Content of the message to be sent instead of the contact
     /// </summary>
     [JsonPropertyName(PropertyNames.InputMessageContent)]
     public InputMessageContent? InputMessageContent { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Url of the thumbnail for the result
+    /// Optional. Url of the thumbnail for the result
     /// </summary>
     [JsonPropertyName(PropertyNames.ThumbnailUrl)]
     public string? ThumbnailUrl { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Thumbnail width
+    /// Optional. Thumbnail width
     /// </summary>
     [JsonPropertyName(PropertyNames.ThumbnailWidth)]
     public int? ThumbnailWidth { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Thumbnail height
+    /// Optional. Thumbnail height
     /// </summary>
     [JsonPropertyName(PropertyNames.ThumbnailHeight)]
     public int? ThumbnailHeight { get; set; }

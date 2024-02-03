@@ -10,13 +10,13 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class ForumTopicEdited
 {
     /// <summary>
-    /// <em>Optional</em>. New name of the topic, if it was edited
+    /// Optional. New name of the topic, if it was edited
     /// </summary>
     [JsonPropertyName(PropertyNames.Name)]
     public string? Name { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. New identifier of the custom emoji shown as the topic icon, if it was edited; an empty string if the icon was removed
+    /// Optional. New identifier of the custom emoji shown as the topic icon, if it was edited; an empty string if the icon was removed
     /// </summary>
     [JsonPropertyName(PropertyNames.IconCustomEmojiId)]
     public string? IconCustomEmojiId { get; set; }

@@ -37,25 +37,25 @@ public class KeyboardButton
     public KeyboardButtonRequestChat? RequestChat { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. If <em>True</em>, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only.
+    /// Optional. If <em>True</em>, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestContact)]
     public bool? RequestContact { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. If <em>True</em>, the user's current location will be sent when the button is pressed. Available in private chats only.
+    /// Optional. If <em>True</em>, the user's current location will be sent when the button is pressed. Available in private chats only.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestLocation)]
     public bool? RequestLocation { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. Available in private chats only.
+    /// Optional. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. Available in private chats only.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestPoll)]
     public KeyboardButtonPollType? RequestPoll { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. If specified, the described <a href="https://core.telegram.org/bots/webapps">Web App</a> will be launched when the button is pressed. The Web App will be able to send a “web_app_data” service message. Available in private chats only.
+    /// Optional. If specified, the described <a href="https://core.telegram.org/bots/webapps">Web App</a> will be launched when the button is pressed. The Web App will be able to send a “web_app_data” service message. Available in private chats only.
     /// </summary>
     [JsonPropertyName(PropertyNames.WebApp)]
     public WebAppInfo? WebApp { get; set; }

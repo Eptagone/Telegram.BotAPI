@@ -19,8 +19,8 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AnswerShippingQuery(this ITelegramBotClient client, AnswerShippingQueryArgs args)
-        => client.AnswerShippingQueryAsync(args).GetAwaiter().GetResult();
+    public static bool AnswerShippingQuery(this ITelegramBotClient client, AnswerShippingQueryArgs args) =>
+        client.AnswerShippingQueryAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// If you sent an invoice requesting a shipping address and the parameter <em>is_flexible</em> was specified, the Bot API will send an <see cref="Update"/> with a <em>shipping_query</em> field to the bot. Use this method to reply to shipping queries. On success, <em>True</em> is returned.
@@ -52,8 +52,8 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AnswerShippingQuery(this ITelegramBotClient client, string shippingQueryId, bool ok, IEnumerable<ShippingOption>? shippingOptions = null, string? errorMessage = null)
-        => client.AnswerShippingQueryAsync(shippingQueryId, ok, shippingOptions, errorMessage).GetAwaiter().GetResult();
+    public static bool AnswerShippingQuery(this ITelegramBotClient client, string shippingQueryId, bool ok, IEnumerable<ShippingOption>? shippingOptions = null, string? errorMessage = null) =>
+        client.AnswerShippingQueryAsync(shippingQueryId, ok, shippingOptions, errorMessage).GetAwaiter().GetResult();
 
     /// <summary>
     /// If you sent an invoice requesting a shipping address and the parameter <em>is_flexible</em> was specified, the Bot API will send an <see cref="Update"/> with a <em>shipping_query</em> field to the bot. Use this method to reply to shipping queries. On success, <em>True</em> is returned.

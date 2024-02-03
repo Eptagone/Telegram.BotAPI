@@ -22,13 +22,13 @@ public class InputSticker
     public IEnumerable<string> EmojiList { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Position where the mask should be placed on faces. For “mask” stickers only.
+    /// Optional. Position where the mask should be placed on faces. For “mask” stickers only.
     /// </summary>
     [JsonPropertyName(PropertyNames.MaskPosition)]
     public MaskPosition? MaskPosition { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. List of 0-20 search keywords for the sticker with total length of up to 64 characters. For “regular” and “custom_emoji” stickers only.
+    /// Optional. List of 0-20 search keywords for the sticker with total length of up to 64 characters. For “regular” and “custom_emoji” stickers only.
     /// </summary>
     [JsonPropertyName(PropertyNames.Keywords)]
     public IEnumerable<string>? Keywords { get; set; }

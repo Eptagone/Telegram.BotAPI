@@ -104,8 +104,12 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
 			this.OnException(exp);
 		}
 	}
+
 	/// <inheritdoc/>
-	public virtual async Task OnUpdateAsync(Update update, CancellationToken cancellationToken = default)
+	public virtual async Task OnUpdateAsync(
+		Update update,
+		CancellationToken cancellationToken = default
+	)
 	{
 		try
 		{
@@ -115,43 +119,56 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
 			}
 			else if (update.EditedMessage != null)
 			{
-				await this.OnEditedMessageAsync(update.EditedMessage, cancellationToken).ConfigureAwait(false);
+				await this.OnEditedMessageAsync(update.EditedMessage, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.ChannelPost != null)
 			{
-				await this.OnChannelPostAsync(update.ChannelPost, cancellationToken).ConfigureAwait(false);
+				await this.OnChannelPostAsync(update.ChannelPost, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.EditedChannelPost != null)
 			{
-				await this.OnEditedChannelPostAsync(update.EditedChannelPost, cancellationToken).ConfigureAwait(false);
+				await this.OnEditedChannelPostAsync(update.EditedChannelPost, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.MessageReaction != null)
 			{
-				await this.OnMessageReactionAsync(update.MessageReaction, cancellationToken).ConfigureAwait(false);
+				await this.OnMessageReactionAsync(update.MessageReaction, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.MessageReactionCount != null)
 			{
-				await this.OnMessageReactionCountAsync(update.MessageReactionCount, cancellationToken).ConfigureAwait(false);
+				await this.OnMessageReactionCountAsync(
+						update.MessageReactionCount,
+						cancellationToken
+					)
+					.ConfigureAwait(false);
 			}
 			else if (update.InlineQuery != null)
 			{
-				await this.OnInlineQueryAsync(update.InlineQuery, cancellationToken).ConfigureAwait(false);
+				await this.OnInlineQueryAsync(update.InlineQuery, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.ChosenInlineResult != null)
 			{
-				await this.OnChosenInlineResultAsync(update.ChosenInlineResult, cancellationToken).ConfigureAwait(false);
+				await this.OnChosenInlineResultAsync(update.ChosenInlineResult, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.CallbackQuery != null)
 			{
-				await this.OnCallbackQueryAsync(update.CallbackQuery, cancellationToken).ConfigureAwait(false);
+				await this.OnCallbackQueryAsync(update.CallbackQuery, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.ShippingQuery != null)
 			{
-				await this.OnShippingQueryAsync(update.ShippingQuery, cancellationToken).ConfigureAwait(false);
+				await this.OnShippingQueryAsync(update.ShippingQuery, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.PreCheckoutQuery != null)
 			{
-				await this.OnPreCheckoutQueryAsync(update.PreCheckoutQuery, cancellationToken).ConfigureAwait(false);
+				await this.OnPreCheckoutQueryAsync(update.PreCheckoutQuery, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.Poll != null)
 			{
@@ -159,27 +176,33 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
 			}
 			else if (update.PollAnswer != null)
 			{
-				await this.OnPollAnswerAsync(update.PollAnswer, cancellationToken).ConfigureAwait(false);
+				await this.OnPollAnswerAsync(update.PollAnswer, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.MyChatMember != null)
 			{
-				await this.OnMyChatMemberAsync(update.MyChatMember, cancellationToken).ConfigureAwait(false);
+				await this.OnMyChatMemberAsync(update.MyChatMember, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.ChatMember != null)
 			{
-				await this.OnChatMemberAsync(update.ChatMember, cancellationToken).ConfigureAwait(false);
+				await this.OnChatMemberAsync(update.ChatMember, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.ChatJoinRequest != null)
 			{
-				await this.OnChatJoinRequestAsync(update.ChatJoinRequest, cancellationToken).ConfigureAwait(false);
+				await this.OnChatJoinRequestAsync(update.ChatJoinRequest, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.ChatBoost != null)
 			{
-				await this.OnChatBoostAsync(update.ChatBoost, cancellationToken).ConfigureAwait(false);
+				await this.OnChatBoostAsync(update.ChatBoost, cancellationToken)
+					.ConfigureAwait(false);
 			}
 			else if (update.RemovedChatBoost != null)
 			{
-				await this.OnRemovedChatBoostAsync(update.RemovedChatBoost, cancellationToken).ConfigureAwait(false);
+				await this.OnRemovedChatBoostAsync(update.RemovedChatBoost, cancellationToken)
+					.ConfigureAwait(false);
 			}
 		}
 		catch (BotRequestException exp)
@@ -191,6 +214,7 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
 			await this.OnExceptionAsync(exp, cancellationToken).ConfigureAwait(false);
 		}
 	}
+
 	/// <summary>
 	/// Handles a message update.
 	/// </summary>
@@ -216,12 +240,16 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
 			}
 		}
 	}
+
 	/// <summary>
 	/// Handles a message update.
 	/// </summary>
 	/// <param name="message">Message.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
-	protected virtual Task OnMessageAsync(Message message, CancellationToken cancellationToken = default)
+	protected virtual Task OnMessageAsync(
+		Message message,
+		CancellationToken cancellationToken = default
+	)
 	{
 		if (this.CommandExtractor is null)
 		{
@@ -244,213 +272,313 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
 
 		return Task.CompletedTask;
 	}
+
 	/// <summary>
 	/// Handles an edited message update.
 	/// </summary>
 	/// <param name="message">The edited message.</param>
-	protected virtual void OnEditedMessage(Message message) => this.OnEditedMessageAsync(message).Wait();
+	protected virtual void OnEditedMessage(Message message) =>
+		this.OnEditedMessageAsync(message).Wait();
+
 	/// <summary>
 	/// Handles an edited message update.
 	/// </summary>
 	/// <param name="message">The edited message.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnEditedMessageAsync(Message message, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnEditedMessageAsync(
+		Message message,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a channel post update.
 	/// </summary>
 	/// <param name="message">The channel post.</param>
-	protected virtual void OnChannelPost(Message message) => this.OnChannelPostAsync(message).Wait();
+	protected virtual void OnChannelPost(Message message) =>
+		this.OnChannelPostAsync(message).Wait();
+
 	/// <summary>
 	/// Handles a channel post update.
 	/// </summary>
 	/// <param name="message">The channel post.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnChannelPostAsync(Message message, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnChannelPostAsync(
+		Message message,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles an edited channel post update.
 	/// </summary>
 	/// <param name="message">The edited channel post.</param>
-	protected virtual void OnEditedChannelPost(Message message) => this.OnEditedChannelPostAsync(message).Wait();
+	protected virtual void OnEditedChannelPost(Message message) =>
+		this.OnEditedChannelPostAsync(message).Wait();
+
 	/// <summary>
 	/// Handles an edited channel post update.
 	/// </summary>
 	/// <param name="message">The edited channel post.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnEditedChannelPostAsync(Message message, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnEditedChannelPostAsync(
+		Message message,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a message reaction update.
 	/// </summary>
 	/// <param name="messageReaction">The message reaction.</param>
-	protected virtual void OnMessageReaction(MessageReactionUpdated messageReaction) => this.OnMessageReactionAsync(messageReaction).Wait();
+	protected virtual void OnMessageReaction(MessageReactionUpdated messageReaction) =>
+		this.OnMessageReactionAsync(messageReaction).Wait();
+
 	/// <summary>
 	/// Handles a message reaction update.
 	/// </summary>
 	/// <param name="messageReaction">The message reaction.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnMessageReactionAsync(MessageReactionUpdated messageReaction, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnMessageReactionAsync(
+		MessageReactionUpdated messageReaction,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a message reaction count update.
 	/// </summary>
 	/// <param name="messageReactionCount">The message reaction count.</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual void OnMessageReactionCount(MessageReactionCountUpdated messageReactionCount) => this.OnMessageReactionCountAsync(messageReactionCount).Wait();
+	protected virtual void OnMessageReactionCount(
+		MessageReactionCountUpdated messageReactionCount
+	) => this.OnMessageReactionCountAsync(messageReactionCount).Wait();
+
 	/// <summary>
 	/// Handles a message reaction count update.
 	/// </summary>
 	/// <param name="messageReactionCount">The message reaction count.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnMessageReactionCountAsync(MessageReactionCountUpdated messageReactionCount, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnMessageReactionCountAsync(
+		MessageReactionCountUpdated messageReactionCount,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles an inline query update.
 	/// </summary>
 	/// <param name="inlineQuery">The inline query.</param>
-	protected virtual void OnInlineQuery(InlineQuery inlineQuery) => this.OnInlineQueryAsync(inlineQuery).Wait();
+	protected virtual void OnInlineQuery(InlineQuery inlineQuery) =>
+		this.OnInlineQueryAsync(inlineQuery).Wait();
+
 	/// <summary>
 	/// Handles an inline query update.
 	/// </summary>
 	/// <param name="inlineQuery">The inline query.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnInlineQueryAsync(InlineQuery inlineQuery, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnInlineQueryAsync(
+		InlineQuery inlineQuery,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a chosen inline result update.
 	/// </summary>
 	/// <param name="chosenInlineResult">The chosen inline result.</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual void OnChosenInlineResult(ChosenInlineResult chosenInlineResult) => this.OnChosenInlineResultAsync(chosenInlineResult).Wait();
+	protected virtual void OnChosenInlineResult(ChosenInlineResult chosenInlineResult) =>
+		this.OnChosenInlineResultAsync(chosenInlineResult).Wait();
+
 	/// <summary>
 	/// Handles a chosen inline result update.
 	/// </summary>
 	/// <param name="chosenInlineResult">The chosen inline result.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnChosenInlineResultAsync(ChosenInlineResult chosenInlineResult, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnChosenInlineResultAsync(
+		ChosenInlineResult chosenInlineResult,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a callback query update.
 	/// </summary>
 	/// <param name="callbackQuery">The callback query.</param>
-	protected virtual void OnCallbackQuery(CallbackQuery callbackQuery) => this.OnCallbackQueryAsync(callbackQuery).Wait();
+	protected virtual void OnCallbackQuery(CallbackQuery callbackQuery) =>
+		this.OnCallbackQueryAsync(callbackQuery).Wait();
+
 	/// <summary>
 	/// Handles a callback query update.
 	/// </summary>
 	/// <param name="callbackQuery">The callback query.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnCallbackQueryAsync(CallbackQuery callbackQuery, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnCallbackQueryAsync(
+		CallbackQuery callbackQuery,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a shipping query update.
 	/// </summary>
 	/// <param name="shippingQuery">The shipping query.</param>
-	protected virtual void OnShippingQuery(ShippingQuery shippingQuery) => this.OnShippingQueryAsync(shippingQuery).Wait();
+	protected virtual void OnShippingQuery(ShippingQuery shippingQuery) =>
+		this.OnShippingQueryAsync(shippingQuery).Wait();
+
 	/// <summary>
 	/// Handles a shipping query update.
 	/// </summary>
 	/// <param name="shippingQuery">The shipping query.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnShippingQueryAsync(ShippingQuery shippingQuery, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnShippingQueryAsync(
+		ShippingQuery shippingQuery,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a pre-checkout query update.
 	/// </summary>
 	/// <param name="preCheckoutQuery">The pre-checkout query.</param>
-	protected virtual void OnPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery) => this.OnPreCheckoutQueryAsync(preCheckoutQuery).Wait();
+	protected virtual void OnPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery) =>
+		this.OnPreCheckoutQueryAsync(preCheckoutQuery).Wait();
+
 	/// <summary>
 	/// Handles a pre-checkout query update.
 	/// </summary>
 	/// <param name="preCheckoutQuery">The pre-checkout query.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnPreCheckoutQueryAsync(PreCheckoutQuery preCheckoutQuery, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnPreCheckoutQueryAsync(
+		PreCheckoutQuery preCheckoutQuery,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a poll update.
 	/// </summary>
 	/// <param name="poll">The poll.</param>
 	protected virtual void OnPoll(Poll poll) => this.OnPollAsync(poll).Wait();
+
 	/// <summary>
 	/// Handles a poll update.
 	/// </summary>
 	/// <param name="poll">The poll.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnPollAsync(Poll poll, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnPollAsync(Poll poll, CancellationToken cancellationToken = default) =>
+		Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a poll answer update.
 	/// </summary>
 	/// <param name="pollAnswer">The poll answer.</param>
-	protected virtual void OnPollAnswer(PollAnswer pollAnswer) => this.OnPollAnswerAsync(pollAnswer).Wait();
+	protected virtual void OnPollAnswer(PollAnswer pollAnswer) =>
+		this.OnPollAnswerAsync(pollAnswer).Wait();
+
 	/// <summary>
 	/// Handles a poll answer update.
 	/// </summary>
 	/// <param name="pollAnswer">The poll answer.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnPollAnswerAsync(PollAnswer pollAnswer, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnPollAnswerAsync(
+		PollAnswer pollAnswer,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a my chat member update.
 	/// </summary>
 	/// <param name="myChatMember">The my chat member.</param>
-	protected virtual void OnMyChatMember(ChatMemberUpdated myChatMember) => this.OnMyChatMemberAsync(myChatMember).Wait();
+	protected virtual void OnMyChatMember(ChatMemberUpdated myChatMember) =>
+		this.OnMyChatMemberAsync(myChatMember).Wait();
+
 	/// <summary>
 	/// Handles a my chat member update.
 	/// </summary>
 	/// <param name="myChatMember">The my chat member.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnMyChatMemberAsync(ChatMemberUpdated myChatMember, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnMyChatMemberAsync(
+		ChatMemberUpdated myChatMember,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a chat member update.
 	/// </summary>
 	/// <param name="chatMember">The chat member.</param>
-	protected virtual void OnChatMember(ChatMemberUpdated chatMember) => this.OnChatMemberAsync(chatMember).Wait();
+	protected virtual void OnChatMember(ChatMemberUpdated chatMember) =>
+		this.OnChatMemberAsync(chatMember).Wait();
+
 	/// <summary>
 	/// Handles a chat member update.
 	/// </summary>
 	/// <param name="chatMember">The chat member.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnChatMemberAsync(ChatMemberUpdated chatMember, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnChatMemberAsync(
+		ChatMemberUpdated chatMember,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a chat join request update.
 	/// </summary>
 	/// <param name="chatJoinRequest">The chat join request.</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual void OnChatJoinRequest(ChatJoinRequest chatJoinRequest) => this.OnChatJoinRequestAsync(chatJoinRequest).Wait();
+	protected virtual void OnChatJoinRequest(ChatJoinRequest chatJoinRequest) =>
+		this.OnChatJoinRequestAsync(chatJoinRequest).Wait();
+
 	/// <summary>
 	/// Handles a chat join request update.
 	/// </summary>
 	/// <param name="chatJoinRequest">The chat join request.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnChatJoinRequestAsync(ChatJoinRequest chatJoinRequest, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnChatJoinRequestAsync(
+		ChatJoinRequest chatJoinRequest,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a chat boost update.
 	/// </summary>
 	/// <param name="chatBoost">The chat boost.</param>
-	protected virtual void OnChatBoost(ChatBoostUpdated chatBoost) => this.OnChatBoostAsync(chatBoost).Wait();
+	protected virtual void OnChatBoost(ChatBoostUpdated chatBoost) =>
+		this.OnChatBoostAsync(chatBoost).Wait();
+
 	/// <summary>
 	/// Handles a chat boost update.
 	/// </summary>
 	/// <param name="chatBoost">The chat boost.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnChatBoostAsync(ChatBoostUpdated chatBoost, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnChatBoostAsync(
+		ChatBoostUpdated chatBoost,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
+
 	/// <summary>
 	/// Handles a removed chat boost update.
 	/// </summary>
 	/// <param name="removedChatBoost">The removed chat boost.</param>
-	protected virtual void OnRemovedChatBoost(ChatBoostRemoved removedChatBoost) => this.OnRemovedChatBoostAsync(removedChatBoost).Wait();
+	protected virtual void OnRemovedChatBoost(ChatBoostRemoved removedChatBoost) =>
+		this.OnRemovedChatBoostAsync(removedChatBoost).Wait();
+
 	/// <summary>
 	/// Handles a removed chat boost update.
 	/// </summary>
 	/// <param name="removedChatBoost">The removed chat boost.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
 	/// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-	protected virtual Task OnRemovedChatBoostAsync(ChatBoostRemoved removedChatBoost, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnRemovedChatBoostAsync(
+		ChatBoostRemoved removedChatBoost,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
 	#endregion
 
 	#region Extra Handlers
@@ -460,7 +588,8 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
 	/// <param name="message">Message.</param>
 	/// <param name="commandName">Command name.</param>
 	/// <param name="args">A string containing all the arguments of the command. It could be empty if the command has no arguments.</param>
-	protected virtual void OnCommand(Message message, string commandName, string args) => this.OnCommandAsync(message, commandName, args).Wait();
+	protected virtual void OnCommand(Message message, string commandName, string args) =>
+		this.OnCommandAsync(message, commandName, args).Wait();
 
 	/// <summary>
 	/// Handles an incoming command extracted from the current message update.
@@ -469,20 +598,29 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
 	/// <param name="commandName">Command name.</param>
 	/// <param name="args">A string containing all the arguments of the command. It could be empty if the command has no arguments.</param>
 	/// <param name="cancellationToken">Cancellation token</param>
-	protected virtual Task OnCommandAsync(Message message, string commandName, string args, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnCommandAsync(
+		Message message,
+		string commandName,
+		string args,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
 
 	/// <summary>
 	/// Handles an exception thrown by a bot request.
 	/// </summary>
 	/// <param name="exp">Bot exception</param>
-	protected virtual void OnBotException(BotRequestException exp) => this.OnBotExceptionAsync(exp).Wait();
+	protected virtual void OnBotException(BotRequestException exp) =>
+		this.OnBotExceptionAsync(exp).Wait();
 
 	/// <summary>
 	/// Handles an exception thrown by a bot request.
 	/// </summary>
 	/// <param name="exp">Bot exception</param>
 	/// <param name="cancellationToken">Cancellation token</param>
-	protected virtual Task OnBotExceptionAsync(BotRequestException exp, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnBotExceptionAsync(
+		BotRequestException exp,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
 
 	/// <summary>
 	/// Handles an exception thrown by the application.
@@ -495,6 +633,9 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
 	/// </summary>
 	/// <param name="exp">Exception</param>
 	/// <param name="cancellationToken">Cancellation token</param>
-	protected virtual Task OnExceptionAsync(Exception exp, CancellationToken cancellationToken = default) => Task.CompletedTask;
+	protected virtual Task OnExceptionAsync(
+		Exception exp,
+		CancellationToken cancellationToken = default
+	) => Task.CompletedTask;
 	#endregion
 }

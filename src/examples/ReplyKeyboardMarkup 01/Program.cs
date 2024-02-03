@@ -11,13 +11,13 @@ using Telegram.BotAPI.GettingUpdates;
 Console.WriteLine("Start!");
 
 var client = new TelegramBotClient("<your bot token>");
-client.SetMyCommands(new BotCommand("reply", "ReplyMarkup"), new BotCommand("del", "Delete"));
+client.SetMyCommands([new BotCommand("reply", "ReplyMarkup"), new BotCommand("del", "Delete")]);
 
 // Long Polling
 var updates = client.GetUpdates();
 while (true)
 {
-    if (updates.Length > 0)
+    if (updates.Any())
     {
         foreach (var update in updates)
         {
@@ -25,24 +25,37 @@ while (true)
             {
                 if (update.Message.Text.Contains("/reply"))
                 {
-                    var keyboard = new ReplyKeyboardMarkup
+                    var keyboard = new ReplyKeyboardMarkup(
+                        new KeyboardButton[][]
+                        {
+                            new KeyboardButton[]
+                            {
+                                new("Button 1"), //column 1 row 1
+                                new("Button 2") //column 1 row 2
+                            }, // column 1
+                            new KeyboardButton[]
+                            {
+                                new("Button 3") //col 2 row 1
+                            } // column 2
+                        }
+                    )
                     {
-                        Keyboard = new KeyboardButton[][] {
-                                            new KeyboardButton[] {
-                                                new("Button 1"), //column 1 row 1
-                                                new("Button 2") //column 1 row 2
-                                            },// column 1
-                                            new KeyboardButton[] {
-                                                new("Button 3") //col 2 row 1
-                                            } // column 2
-                                        },
                         ResizeKeyboard = true
-                    }; ;
-                    client.SendMessage(update.Message.Chat.Id, "new keyboard", replyMarkup: keyboard);
+                    };
+                    ;
+                    client.SendMessage(
+                        update.Message.Chat.Id,
+                        "new keyboard",
+                        replyMarkup: keyboard
+                    );
                 }
                 if (update.Message.Text.Contains("/del"))
                 {
-                    client.SendMessage(update.Message.Chat.Id, "remove reply keyboard", replyMarkup: new ReplyKeyboardRemove());
+                    client.SendMessage(
+                        update.Message.Chat.Id,
+                        "remove reply keyboard",
+                        replyMarkup: new ReplyKeyboardRemove()
+                    );
                 }
             }
         }

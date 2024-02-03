@@ -14,7 +14,7 @@ public class SendInvoiceArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendInvoiceArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="title">Product name, 1-32 characters</param>
     /// <param name="description">Product description, 1-255 characters</param>
     /// <param name="payload">Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.</param>
@@ -35,7 +35,7 @@ public class SendInvoiceArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendInvoiceArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="title">Product name, 1-32 characters</param>
     /// <param name="description">Product description, 1-255 characters</param>
     /// <param name="payload">Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.</param>
@@ -54,7 +54,7 @@ public class SendInvoiceArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }
@@ -102,7 +102,7 @@ public class SendInvoiceArgs
     public IEnumerable<LabeledPrice> Prices { get; set; }
 
     /// <summary>
-    /// The maximum accepted amount for tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of <code>US$ 1.45</code> pass <code>max_tip_amount = 145</code>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0
+    /// The maximum accepted amount for tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of <em>US$ 1.45</em> pass <em>max_tip_amount = 145</em>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0
     /// </summary>
     [JsonPropertyName(PropertyNames.MaxTipAmount)]
     public int? MaxTipAmount { get; set; }
@@ -210,7 +210,7 @@ public class SendInvoiceArgs
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Pay <code>total price</code>' button will be shown. If not empty, the first button must be a Pay button.
+    /// A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Pay <em>total price</em>' button will be shown. If not empty, the first button must be a Pay button.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }

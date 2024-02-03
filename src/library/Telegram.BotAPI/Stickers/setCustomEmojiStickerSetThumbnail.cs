@@ -18,8 +18,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetCustomEmojiStickerSetThumbnail(this ITelegramBotClient client, string name, string? customEmojiId = null)
-        => client.SetCustomEmojiStickerSetThumbnailAsync(name, customEmojiId).GetAwaiter().GetResult();
+    public static bool SetCustomEmojiStickerSetThumbnail(this ITelegramBotClient client, string name, string? customEmojiId = null) =>
+        client.SetCustomEmojiStickerSetThumbnailAsync(name, customEmojiId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the thumbnail of a custom emoji sticker set. Returns <em>True</em> on success.

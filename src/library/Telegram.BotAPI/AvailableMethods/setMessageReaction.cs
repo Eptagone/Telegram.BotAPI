@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMessageReaction(this ITelegramBotClient client, SetMessageReactionArgs args)
-        => client.SetMessageReactionAsync(args).GetAwaiter().GetResult();
+    public static bool SetMessageReaction(this ITelegramBotClient client, SetMessageReactionArgs args) =>
+        client.SetMessageReactionAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Returns <em>True</em> on success.
@@ -45,21 +45,21 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.</param>
     /// <param name="reaction">New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.</param>
     /// <param name="isBig">Pass <em>True</em> to set the reaction with a big animation</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMessageReaction(this ITelegramBotClient client, long chatId, int messageId, IEnumerable<ReactionType>? reaction = null, bool? isBig = null)
-        => client.SetMessageReactionAsync(chatId, messageId, reaction, isBig).GetAwaiter().GetResult();
+    public static bool SetMessageReaction(this ITelegramBotClient client, long chatId, int messageId, IEnumerable<ReactionType>? reaction = null, bool? isBig = null) =>
+        client.SetMessageReactionAsync(chatId, messageId, reaction, isBig).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.</param>
     /// <param name="reaction">New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.</param>
     /// <param name="isBig">Pass <em>True</em> to set the reaction with a big animation</param>
@@ -95,21 +95,21 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.</param>
     /// <param name="reaction">New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.</param>
     /// <param name="isBig">Pass <em>True</em> to set the reaction with a big animation</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMessageReaction(this ITelegramBotClient client, string chatId, int messageId, IEnumerable<ReactionType>? reaction = null, bool? isBig = null)
-        => client.SetMessageReactionAsync(chatId, messageId, reaction, isBig).GetAwaiter().GetResult();
+    public static bool SetMessageReaction(this ITelegramBotClient client, string chatId, int messageId, IEnumerable<ReactionType>? reaction = null, bool? isBig = null) =>
+        client.SetMessageReactionAsync(chatId, messageId, reaction, isBig).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.</param>
     /// <param name="reaction">New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.</param>
     /// <param name="isBig">Pass <em>True</em> to set the reaction with a big animation</param>

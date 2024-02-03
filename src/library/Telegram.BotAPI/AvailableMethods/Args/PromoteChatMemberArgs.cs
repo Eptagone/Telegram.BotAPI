@@ -12,7 +12,7 @@ public class PromoteChatMemberArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="PromoteChatMemberArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     public PromoteChatMemberArgs(long chatId, long userId)
     {
@@ -23,7 +23,7 @@ public class PromoteChatMemberArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="PromoteChatMemberArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     public PromoteChatMemberArgs(string chatId, long userId)
     {
@@ -32,7 +32,7 @@ public class PromoteChatMemberArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

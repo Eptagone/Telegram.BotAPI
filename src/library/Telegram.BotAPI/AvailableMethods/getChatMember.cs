@@ -18,8 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static ChatMember GetChatMember(this ITelegramBotClient client)
-        => client.GetChatMemberAsync().GetAwaiter().GetResult();
+    public static ChatMember GetChatMember(this ITelegramBotClient client) =>
+        client.GetChatMemberAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get information about a member of a chat. The method is only guaranteed to work for other users if the bot is an administrator in the chat. Returns a <see cref="ChatMember"/> object on success.

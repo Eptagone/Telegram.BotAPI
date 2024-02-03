@@ -14,7 +14,7 @@ public class SendMessageArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMessageArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="text">Text of the message to be sent, 1-4096 characters after entities parsing</param>
     public SendMessageArgs(long chatId, string text)
     {
@@ -25,7 +25,7 @@ public class SendMessageArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMessageArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="text">Text of the message to be sent, 1-4096 characters after entities parsing</param>
     public SendMessageArgs(string chatId, string text)
     {
@@ -34,7 +34,7 @@ public class SendMessageArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

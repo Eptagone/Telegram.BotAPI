@@ -40,37 +40,37 @@ public class GiveawayWinners
     public IEnumerable<User> Winners { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. The number of other chats the user had to join in order to be eligible for the giveaway
+    /// Optional. The number of other chats the user had to join in order to be eligible for the giveaway
     /// </summary>
     [JsonPropertyName(PropertyNames.AdditionalChatCount)]
     public int? AdditionalChatCount { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. The number of months the Telegram Premium subscription won from the giveaway will be active for
+    /// Optional. The number of months the Telegram Premium subscription won from the giveaway will be active for
     /// </summary>
     [JsonPropertyName(PropertyNames.PremiumSubscriptionMonthCount)]
     public int? PremiumSubscriptionMonthCount { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Number of undistributed prizes
+    /// Optional. Number of undistributed prizes
     /// </summary>
     [JsonPropertyName(PropertyNames.UnclaimedPrizeCount)]
     public int? UnclaimedPrizeCount { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if only users who had joined the chats after the giveaway started were eligible to win
+    /// Optional. <em>True</em>, if only users who had joined the chats after the giveaway started were eligible to win
     /// </summary>
     [JsonPropertyName(PropertyNames.OnlyNewMembers)]
     public bool? OnlyNewMembers { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the giveaway was canceled because the payment for it was refunded
+    /// Optional. <em>True</em>, if the giveaway was canceled because the payment for it was refunded
     /// </summary>
     [JsonPropertyName(PropertyNames.WasRefunded)]
     public bool? WasRefunded { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Description of additional giveaway prize
+    /// Optional. Description of additional giveaway prize
     /// </summary>
     [JsonPropertyName(PropertyNames.PrizeDescription)]
     public string? PrizeDescription { get; set; }

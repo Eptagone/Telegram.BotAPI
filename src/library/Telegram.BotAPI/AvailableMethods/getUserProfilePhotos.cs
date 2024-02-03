@@ -21,8 +21,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static UserProfilePhotos GetUserProfilePhotos(this ITelegramBotClient client, long userId, int? offset = null, int? limit = null)
-        => client.GetUserProfilePhotosAsync(userId, offset, limit).GetAwaiter().GetResult();
+    public static UserProfilePhotos GetUserProfilePhotos(this ITelegramBotClient client, long userId, int? offset = null, int? limit = null) =>
+        client.GetUserProfilePhotosAsync(userId, offset, limit).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get a list of profile pictures for a user. Returns a <see cref="UserProfilePhotos"/> object.

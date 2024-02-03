@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVenue(this ITelegramBotClient client, SendVenueArgs args)
-        => client.SendVenueAsync(args).GetAwaiter().GetResult();
+    public static Message SendVenue(this ITelegramBotClient client, SendVenueArgs args) =>
+        client.SendVenueAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send information about a venue. On success, the sent <see cref="Message"/> is returned.
@@ -45,7 +45,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send information about a venue. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="latitude">Latitude of the venue</param>
     /// <param name="longitude">Longitude of the venue</param>
     /// <param name="title">Name of the venue</param>
@@ -62,14 +62,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVenue(this ITelegramBotClient client, long chatId, float latitude, float longitude, string title, string address, int? messageThreadId = null, string? foursquareId = null, string? foursquareType = null, string? googlePlaceId = null, string? googlePlaceType = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null)
-        => client.SendVenueAsync(chatId, latitude, longitude, title, address, messageThreadId, foursquareId, foursquareType, googlePlaceId, googlePlaceType, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendVenue(this ITelegramBotClient client, long chatId, float latitude, float longitude, string title, string address, int? messageThreadId = null, string? foursquareId = null, string? foursquareType = null, string? googlePlaceId = null, string? googlePlaceType = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVenueAsync(chatId, latitude, longitude, title, address, messageThreadId, foursquareId, foursquareType, googlePlaceId, googlePlaceType, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send information about a venue. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="latitude">Latitude of the venue</param>
     /// <param name="longitude">Longitude of the venue</param>
     /// <param name="title">Name of the venue</param>
@@ -146,7 +146,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send information about a venue. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="latitude">Latitude of the venue</param>
     /// <param name="longitude">Longitude of the venue</param>
     /// <param name="title">Name of the venue</param>
@@ -163,14 +163,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVenue(this ITelegramBotClient client, string chatId, float latitude, float longitude, string title, string address, int? messageThreadId = null, string? foursquareId = null, string? foursquareType = null, string? googlePlaceId = null, string? googlePlaceType = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null)
-        => client.SendVenueAsync(chatId, latitude, longitude, title, address, messageThreadId, foursquareId, foursquareType, googlePlaceId, googlePlaceType, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendVenue(this ITelegramBotClient client, string chatId, float latitude, float longitude, string title, string address, int? messageThreadId = null, string? foursquareId = null, string? foursquareType = null, string? googlePlaceId = null, string? googlePlaceType = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVenueAsync(chatId, latitude, longitude, title, address, messageThreadId, foursquareId, foursquareType, googlePlaceId, googlePlaceType, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send information about a venue. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="latitude">Latitude of the venue</param>
     /// <param name="longitude">Longitude of the venue</param>
     /// <param name="title">Name of the venue</param>

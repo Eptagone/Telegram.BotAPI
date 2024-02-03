@@ -36,43 +36,43 @@ public class InlineQueryResultArticle : InlineQueryResult
     public InputMessageContent InputMessageContent { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
+    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. URL of the result
+    /// Optional. URL of the result
     /// </summary>
     [JsonPropertyName(PropertyNames.Url)]
     public string? Url { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> if you don't want the URL to be shown in the message
+    /// Optional. Pass <em>True</em> if you don't want the URL to be shown in the message
     /// </summary>
     [JsonPropertyName(PropertyNames.HideUrl)]
     public bool? HideUrl { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Short description of the result
+    /// Optional. Short description of the result
     /// </summary>
     [JsonPropertyName(PropertyNames.Description)]
     public string? Description { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Url of the thumbnail for the result
+    /// Optional. Url of the thumbnail for the result
     /// </summary>
     [JsonPropertyName(PropertyNames.ThumbnailUrl)]
     public string? ThumbnailUrl { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Thumbnail width
+    /// Optional. Thumbnail width
     /// </summary>
     [JsonPropertyName(PropertyNames.ThumbnailWidth)]
     public int? ThumbnailWidth { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Thumbnail height
+    /// Optional. Thumbnail height
     /// </summary>
     [JsonPropertyName(PropertyNames.ThumbnailHeight)]
     public int? ThumbnailHeight { get; set; }

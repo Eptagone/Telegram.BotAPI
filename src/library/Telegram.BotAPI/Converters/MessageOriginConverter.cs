@@ -11,26 +11,26 @@ namespace Telegram.BotAPI.Converters;
 /// </summary>
 public sealed class MessageOriginConverter : DiscriminatorJsonConverter<MessageOrigin>
 {
-    /// <inheritdoc />
-    public override string PropertyName => PropertyNames.Type;
+	/// <inheritdoc />
+	public override string PropertyName => PropertyNames.Type;
 
-    /// <summary>
-    /// Writes a <see cref="MessageOrigin"/> object as JSON.
-    /// </summary>
-    /// <param name="writer">The writer to write to.</param>
-    /// <param name="value">The value to convert to JSON.</param>
-    /// <param name="options">An object that specifies serialization options to use.</param>
-    public override void Write(
-        Utf8JsonWriter writer,
-        MessageOrigin value,
-        JsonSerializerOptions options
-    )
-    {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
-        var type = value.GetType();
-        JsonSerializer.Serialize(writer, value, type, options);
-    }
+	/// <summary>
+	/// Writes a <see cref="MessageOrigin"/> object as JSON.
+	/// </summary>
+	/// <param name="writer">The writer to write to.</param>
+	/// <param name="value">The value to convert to JSON.</param>
+	/// <param name="options">An object that specifies serialization options to use.</param>
+	public override void Write(
+		Utf8JsonWriter writer,
+		MessageOrigin value,
+		JsonSerializerOptions options
+	)
+	{
+		if (value == null)
+		{
+			throw new ArgumentNullException(nameof(value));
+		}
+		var type = value.GetType();
+		JsonSerializer.Serialize(writer, value, type, options);
+	}
 }

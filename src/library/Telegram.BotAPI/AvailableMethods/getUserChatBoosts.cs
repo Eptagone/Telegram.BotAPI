@@ -18,8 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static UserChatBoosts GetUserChatBoosts(this ITelegramBotClient client)
-        => client.GetUserChatBoostsAsync().GetAwaiter().GetResult();
+    public static UserChatBoosts GetUserChatBoosts(this ITelegramBotClient client) =>
+        client.GetUserChatBoostsAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get the list of boosts added to a chat by a user. Requires administrator rights in the chat. Returns a <see cref="UserChatBoosts"/> object.

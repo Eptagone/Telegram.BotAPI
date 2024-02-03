@@ -15,21 +15,21 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. Returns information about the created topic as a <see cref="ForumTopic"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
     /// <param name="name">Topic name, 1-128 characters</param>
     /// <param name="iconColor">Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)</param>
     /// <param name="iconCustomEmojiId">Unique identifier of the custom emoji shown as the topic icon. Use <a href="https://core.telegram.org/bots/api#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all allowed custom emoji identifiers.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static ForumTopic CreateForumTopic(this ITelegramBotClient client, long chatId, string name, int? iconColor = null, string? iconCustomEmojiId = null)
-        => client.CreateForumTopicAsync(chatId, name, iconColor, iconCustomEmojiId).GetAwaiter().GetResult();
+    public static ForumTopic CreateForumTopic(this ITelegramBotClient client, long chatId, string name, int? iconColor = null, string? iconCustomEmojiId = null) =>
+        client.CreateForumTopicAsync(chatId, name, iconColor, iconCustomEmojiId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. Returns information about the created topic as a <see cref="ForumTopic"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
     /// <param name="name">Topic name, 1-128 characters</param>
     /// <param name="iconColor">Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)</param>
     /// <param name="iconCustomEmojiId">Unique identifier of the custom emoji shown as the topic icon. Use <a href="https://core.telegram.org/bots/api#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all allowed custom emoji identifiers.</param>
@@ -65,21 +65,21 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. Returns information about the created topic as a <see cref="ForumTopic"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
     /// <param name="name">Topic name, 1-128 characters</param>
     /// <param name="iconColor">Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)</param>
     /// <param name="iconCustomEmojiId">Unique identifier of the custom emoji shown as the topic icon. Use <a href="https://core.telegram.org/bots/api#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all allowed custom emoji identifiers.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static ForumTopic CreateForumTopic(this ITelegramBotClient client, string chatId, string name, int? iconColor = null, string? iconCustomEmojiId = null)
-        => client.CreateForumTopicAsync(chatId, name, iconColor, iconCustomEmojiId).GetAwaiter().GetResult();
+    public static ForumTopic CreateForumTopic(this ITelegramBotClient client, string chatId, string name, int? iconColor = null, string? iconCustomEmojiId = null) =>
+        client.CreateForumTopicAsync(chatId, name, iconColor, iconCustomEmojiId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. Returns information about the created topic as a <see cref="ForumTopic"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
     /// <param name="name">Topic name, 1-128 characters</param>
     /// <param name="iconColor">Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)</param>
     /// <param name="iconCustomEmojiId">Unique identifier of the custom emoji shown as the topic icon. Use <a href="https://core.telegram.org/bots/api#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all allowed custom emoji identifiers.</param>

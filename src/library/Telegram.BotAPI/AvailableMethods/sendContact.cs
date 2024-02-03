@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendContact(this ITelegramBotClient client, SendContactArgs args)
-        => client.SendContactAsync(args).GetAwaiter().GetResult();
+    public static Message SendContact(this ITelegramBotClient client, SendContactArgs args) =>
+        client.SendContactAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send phone contacts. On success, the sent <see cref="Message"/> is returned.
@@ -45,7 +45,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send phone contacts. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="phoneNumber">Contact's phone number</param>
     /// <param name="firstName">Contact's first name</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
@@ -58,14 +58,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendContact(this ITelegramBotClient client, long chatId, string phoneNumber, string firstName, int? messageThreadId = null, string? lastName = null, string? vcard = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null)
-        => client.SendContactAsync(chatId, phoneNumber, firstName, messageThreadId, lastName, vcard, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendContact(this ITelegramBotClient client, long chatId, string phoneNumber, string firstName, int? messageThreadId = null, string? lastName = null, string? vcard = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendContactAsync(chatId, phoneNumber, firstName, messageThreadId, lastName, vcard, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send phone contacts. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="phoneNumber">Contact's phone number</param>
     /// <param name="firstName">Contact's first name</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
@@ -128,7 +128,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send phone contacts. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="phoneNumber">Contact's phone number</param>
     /// <param name="firstName">Contact's first name</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
@@ -141,14 +141,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendContact(this ITelegramBotClient client, string chatId, string phoneNumber, string firstName, int? messageThreadId = null, string? lastName = null, string? vcard = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null)
-        => client.SendContactAsync(chatId, phoneNumber, firstName, messageThreadId, lastName, vcard, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendContact(this ITelegramBotClient client, string chatId, string phoneNumber, string firstName, int? messageThreadId = null, string? lastName = null, string? vcard = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendContactAsync(chatId, phoneNumber, firstName, messageThreadId, lastName, vcard, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send phone contacts. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="phoneNumber">Contact's phone number</param>
     /// <param name="firstName">Contact's first name</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>

@@ -17,8 +17,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Sticker> GetCustomEmojiStickers(this ITelegramBotClient client, GetCustomEmojiStickersArgs args)
-        => client.GetCustomEmojiStickersAsync(args).GetAwaiter().GetResult();
+    public static IEnumerable<Sticker> GetCustomEmojiStickers(this ITelegramBotClient client, GetCustomEmojiStickersArgs args) =>
+        client.GetCustomEmojiStickersAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get information about custom emoji stickers by their identifiers. Returns an Array of <see cref="Sticker"/> objects.
@@ -46,8 +46,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Sticker> GetCustomEmojiStickers(this ITelegramBotClient client)
-        => client.GetCustomEmojiStickersAsync().GetAwaiter().GetResult();
+    public static IEnumerable<Sticker> GetCustomEmojiStickers(this ITelegramBotClient client) =>
+        client.GetCustomEmojiStickersAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get information about custom emoji stickers by their identifiers. Returns an Array of <see cref="Sticker"/> objects.

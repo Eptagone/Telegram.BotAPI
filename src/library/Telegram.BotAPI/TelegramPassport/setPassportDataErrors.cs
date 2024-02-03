@@ -18,8 +18,8 @@ public static partial class TelegramPassportExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetPassportDataErrors(this ITelegramBotClient client, SetPassportDataErrorsArgs args)
-        => client.SetPassportDataErrorsAsync(args).GetAwaiter().GetResult();
+    public static bool SetPassportDataErrors(this ITelegramBotClient client, SetPassportDataErrorsArgs args) =>
+        client.SetPassportDataErrorsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns <em>True</em> on success.
@@ -49,8 +49,8 @@ public static partial class TelegramPassportExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetPassportDataErrors(this ITelegramBotClient client)
-        => client.SetPassportDataErrorsAsync().GetAwaiter().GetResult();
+    public static bool SetPassportDataErrors(this ITelegramBotClient client) =>
+        client.SetPassportDataErrorsAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns <em>True</em> on success.

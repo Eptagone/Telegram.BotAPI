@@ -14,7 +14,7 @@ public class SetMessageReactionArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SetMessageReactionArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.</param>
     public SetMessageReactionArgs(long chatId, int messageId)
     {
@@ -25,7 +25,7 @@ public class SetMessageReactionArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SetMessageReactionArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.</param>
     public SetMessageReactionArgs(string chatId, int messageId)
     {
@@ -34,7 +34,7 @@ public class SetMessageReactionArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

@@ -25,19 +25,19 @@ public class KeyboardButtonRequestUsers
     public int RequestId { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> to request bots, pass <em>False</em> to request regular users. If not specified, no additional restrictions are applied.
+    /// Optional. Pass <em>True</em> to request bots, pass <em>False</em> to request regular users. If not specified, no additional restrictions are applied.
     /// </summary>
     [JsonPropertyName(PropertyNames.UserIsBot)]
     public bool? UserIsBot { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> to request premium users, pass <em>False</em> to request non-premium users. If not specified, no additional restrictions are applied.
+    /// Optional. Pass <em>True</em> to request premium users, pass <em>False</em> to request non-premium users. If not specified, no additional restrictions are applied.
     /// </summary>
     [JsonPropertyName(PropertyNames.UserIsPremium)]
     public bool? UserIsPremium { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. The maximum number of users to be selected; 1-10. Defaults to 1.
+    /// Optional. The maximum number of users to be selected; 1-10. Defaults to 1.
     /// </summary>
     [JsonPropertyName(PropertyNames.MaxQuantity)]
     public int? MaxQuantity { get; set; }

@@ -14,7 +14,7 @@ public class SendVenueArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVenueArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="latitude">Latitude of the venue</param>
     /// <param name="longitude">Longitude of the venue</param>
     /// <param name="title">Name of the venue</param>
@@ -31,7 +31,7 @@ public class SendVenueArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVenueArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="latitude">Latitude of the venue</param>
     /// <param name="longitude">Longitude of the venue</param>
     /// <param name="title">Name of the venue</param>
@@ -46,7 +46,7 @@ public class SendVenueArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

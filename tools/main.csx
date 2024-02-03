@@ -20,9 +20,7 @@ var methodClasses = definitions.MapMethodsIntoClasses();
 WriteLine("Mapping constants...");
 var constants = definitions.MapConstantsIntoClasses();
 WriteLine();
-var classFiles = modelClasses
-    .Concat(methodClasses)
-    .Concat(constants);
+var classFiles = modelClasses.Concat(methodClasses).Concat(constants);
 WriteLine("Generating classes...");
 GenerateClasses(classFiles, ourpurPath);
 WriteLine("Done!");

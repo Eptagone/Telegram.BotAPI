@@ -19,8 +19,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static File UploadStickerFile(this ITelegramBotClient client, UploadStickerFileArgs args)
-        => client.UploadStickerFileAsync(args).GetAwaiter().GetResult();
+    public static File UploadStickerFile(this ITelegramBotClient client, UploadStickerFileArgs args) =>
+        client.UploadStickerFileAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a> and <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
@@ -48,8 +48,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static File UploadStickerFile(this ITelegramBotClient client)
-        => client.UploadStickerFileAsync().GetAwaiter().GetResult();
+    public static File UploadStickerFile(this ITelegramBotClient client) =>
+        client.UploadStickerFileAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a> and <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.

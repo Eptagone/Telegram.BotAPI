@@ -14,7 +14,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
     public SendVideoNoteArgs(long chatId, InputFile videoNote)
     {
@@ -25,7 +25,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
     public SendVideoNoteArgs(long chatId, string videoNote)
     {
@@ -36,7 +36,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
     public SendVideoNoteArgs(string chatId, InputFile videoNote)
     {
@@ -47,7 +47,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
     public SendVideoNoteArgs(string chatId, string videoNote)
     {
@@ -56,7 +56,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

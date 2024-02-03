@@ -13,21 +13,20 @@ namespace HelloBotNET.AppService.Services;
 /// </summary>
 public partial class HelloBot : SimpleTelegramBotBase
 {
-	protected override void OnMessage(Message message)
-	{
-		// Ignore user 777000 (Telegram)
-		if (message!.From?.Id == TelegramConstants.TelegramId)
-		{
-			return;
-		}
+    protected override void OnMessage(Message message)
+    {
+        // Ignore user 777000 (Telegram)
+        if (message!.From?.Id == TelegramConstants.TelegramId)
+        {
+            return;
+        }
 
-		var hasText = !string.IsNullOrEmpty(message.Text); // True if message has text;
-
+        var hasText = !string.IsNullOrEmpty(message.Text); // True if message has text;
 #if DEBUG
-		this.logger.LogInformation("New message from chat id: {ChatId}", message!.Chat.Id);
-		this.logger.LogInformation("Message: {MessageContent}", hasText ? message.Text : "No text");
+        this.logger.LogInformation("New message from chat id: {ChatId}", message!.Chat.Id);
+        this.logger.LogInformation("Message: {MessageContent}", hasText ? message.Text : "No text");
 #endif
 
-		base.OnMessage(message);
-	}
+        base.OnMessage(message);
+    }
 }

@@ -34,13 +34,13 @@ public class ChatJoinRequest
     public int Date { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Bio of the user.
+    /// Optional. Bio of the user.
     /// </summary>
     [JsonPropertyName(PropertyNames.Bio)]
     public string? Bio { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Chat invite link that was used by the user to send the join request
+    /// Optional. Chat invite link that was used by the user to send the join request
     /// </summary>
     [JsonPropertyName(PropertyNames.InviteLink)]
     public ChatInviteLink? InviteLink { get; set; }

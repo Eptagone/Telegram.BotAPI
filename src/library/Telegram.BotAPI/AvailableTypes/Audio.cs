@@ -28,37 +28,37 @@ public class Audio
     public int Duration { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Performer of the audio as defined by sender or by audio tags
+    /// Optional. Performer of the audio as defined by sender or by audio tags
     /// </summary>
     [JsonPropertyName(PropertyNames.Performer)]
     public string? Performer { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Title of the audio as defined by sender or by audio tags
+    /// Optional. Title of the audio as defined by sender or by audio tags
     /// </summary>
     [JsonPropertyName(PropertyNames.Title)]
     public string? Title { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Original filename as defined by sender
+    /// Optional. Original filename as defined by sender
     /// </summary>
     [JsonPropertyName(PropertyNames.FileName)]
     public string? FileName { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. MIME type of the file as defined by sender
+    /// Optional. MIME type of the file as defined by sender
     /// </summary>
     [JsonPropertyName(PropertyNames.MimeType)]
     public string? MimeType { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+    /// Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
     /// </summary>
     [JsonPropertyName(PropertyNames.FileSize)]
     public int? FileSize { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Thumbnail of the album cover to which the music file belongs
+    /// Optional. Thumbnail of the album cover to which the music file belongs
     /// </summary>
     [JsonPropertyName(PropertyNames.Thumbnail)]
     public PhotoSize? Thumbnail { get; set; }

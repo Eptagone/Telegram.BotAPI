@@ -14,7 +14,7 @@ public static partial class MessageEntityExtensions
 	/// Get the entity type as enum.
 	/// </summary>
 	/// <returns><see cref="MessageEntityType"/></returns>
-	[Obsolete]
+	[Obsolete("Use the MessageEntity.Type property instead.")]
 	public static MessageEntityType GetEntityType(this MessageEntity messageEntity)
 	{
 		string type = messageEntity.Type.Replace("_", string.Empty);

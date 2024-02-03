@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<BotCommand> GetMyCommands(this ITelegramBotClient client, GetMyCommandsArgs args)
-        => client.GetMyCommandsAsync(args).GetAwaiter().GetResult();
+    public static IEnumerable<BotCommand> GetMyCommands(this ITelegramBotClient client, GetMyCommandsArgs args) =>
+        client.GetMyCommandsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get the current list of the bot's commands for the given scope and user language. Returns an Array of <see cref="BotCommand"/> objects. If commands aren't set, an empty list is returned.
@@ -50,8 +50,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<BotCommand> GetMyCommands(this ITelegramBotClient client, BotCommandScope? scope = null, string? languageCode = null)
-        => client.GetMyCommandsAsync(scope, languageCode).GetAwaiter().GetResult();
+    public static IEnumerable<BotCommand> GetMyCommands(this ITelegramBotClient client, BotCommandScope? scope = null, string? languageCode = null) =>
+        client.GetMyCommandsAsync(scope, languageCode).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get the current list of the bot's commands for the given scope and user language. Returns an Array of <see cref="BotCommand"/> objects. If commands aren't set, an empty list is returned.

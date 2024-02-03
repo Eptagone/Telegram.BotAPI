@@ -22,25 +22,25 @@ public class Document
     public string FileUniqueId { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Document thumbnail as defined by sender
+    /// Optional. Document thumbnail as defined by sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Thumbnail)]
     public PhotoSize? Thumbnail { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Original filename as defined by sender
+    /// Optional. Original filename as defined by sender
     /// </summary>
     [JsonPropertyName(PropertyNames.FileName)]
     public string? FileName { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. MIME type of the file as defined by sender
+    /// Optional. MIME type of the file as defined by sender
     /// </summary>
     [JsonPropertyName(PropertyNames.MimeType)]
     public string? MimeType { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+    /// Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
     /// </summary>
     [JsonPropertyName(PropertyNames.FileSize)]
     public int? FileSize { get; set; }

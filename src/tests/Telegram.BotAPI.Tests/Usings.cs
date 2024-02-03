@@ -2,7 +2,6 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 global using System;
-global using Telegram.BotAPI;
 global using Telegram.BotAPI.AvailableMethods;
 global using Telegram.BotAPI.AvailableTypes;
 global using Telegram.BotAPI.Games;

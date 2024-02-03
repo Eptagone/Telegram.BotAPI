@@ -58,31 +58,31 @@ public class Poll
     public bool AllowsMultipleAnswers { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. 0-based identifier of the correct answer option. Available only for polls in the quiz mode, which are closed, or was sent (not forwarded) by the bot or to the private chat with the bot.
+    /// Optional. 0-based identifier of the correct answer option. Available only for polls in the quiz mode, which are closed, or was sent (not forwarded) by the bot or to the private chat with the bot.
     /// </summary>
     [JsonPropertyName(PropertyNames.CorrectOptionId)]
     public int? CorrectOptionId { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters
+    /// Optional. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters
     /// </summary>
     [JsonPropertyName(PropertyNames.Explanation)]
     public string? Explanation { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Special entities like usernames, URLs, bot commands, etc. that appear in the <em>explanation</em>
+    /// Optional. Special entities like usernames, URLs, bot commands, etc. that appear in the <em>explanation</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ExplanationEntities)]
     public IEnumerable<MessageEntity>? ExplanationEntities { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Amount of time in seconds the poll will be active after creation
+    /// Optional. Amount of time in seconds the poll will be active after creation
     /// </summary>
     [JsonPropertyName(PropertyNames.OpenPeriod)]
     public int? OpenPeriod { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Point in time (Unix timestamp) when the poll will be automatically closed
+    /// Optional. Point in time (Unix timestamp) when the poll will be automatically closed
     /// </summary>
     [JsonPropertyName(PropertyNames.CloseDate)]
     public int? CloseDate { get; set; }

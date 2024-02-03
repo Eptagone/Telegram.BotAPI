@@ -17,8 +17,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerMaskPosition(this ITelegramBotClient client, SetStickerMaskPositionArgs args)
-        => client.SetStickerMaskPositionAsync(args).GetAwaiter().GetResult();
+    public static bool SetStickerMaskPosition(this ITelegramBotClient client, SetStickerMaskPositionArgs args) =>
+        client.SetStickerMaskPositionAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the <a href="https://core.telegram.org/bots/api#maskposition">mask position</a> of a mask sticker. The sticker must belong to a sticker set that was created by the bot. Returns <em>True</em> on success.
@@ -48,8 +48,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerMaskPosition(this ITelegramBotClient client, string sticker, MaskPosition? maskPosition = null)
-        => client.SetStickerMaskPositionAsync(sticker, maskPosition).GetAwaiter().GetResult();
+    public static bool SetStickerMaskPosition(this ITelegramBotClient client, string sticker, MaskPosition? maskPosition = null) =>
+        client.SetStickerMaskPositionAsync(sticker, maskPosition).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the <a href="https://core.telegram.org/bots/api#maskposition">mask position</a> of a mask sticker. The sticker must belong to a sticker set that was created by the bot. Returns <em>True</em> on success.

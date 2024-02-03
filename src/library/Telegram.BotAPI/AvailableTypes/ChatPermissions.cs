@@ -10,85 +10,85 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class ChatPermissions
 {
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues
+    /// Optional. <em>True</em>, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendMessages)]
     public bool? CanSendMessages { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to send audios
+    /// Optional. <em>True</em>, if the user is allowed to send audios
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendAudios)]
     public bool? CanSendAudios { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to send documents
+    /// Optional. <em>True</em>, if the user is allowed to send documents
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendDocuments)]
     public bool? CanSendDocuments { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to send photos
+    /// Optional. <em>True</em>, if the user is allowed to send photos
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendPhotos)]
     public bool? CanSendPhotos { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to send videos
+    /// Optional. <em>True</em>, if the user is allowed to send videos
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendVideos)]
     public bool? CanSendVideos { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to send video notes
+    /// Optional. <em>True</em>, if the user is allowed to send video notes
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendVideoNotes)]
     public bool? CanSendVideoNotes { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to send voice notes
+    /// Optional. <em>True</em>, if the user is allowed to send voice notes
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendVoiceNotes)]
     public bool? CanSendVoiceNotes { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to send polls
+    /// Optional. <em>True</em>, if the user is allowed to send polls
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendPolls)]
     public bool? CanSendPolls { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to send animations, games, stickers and use inline bots
+    /// Optional. <em>True</em>, if the user is allowed to send animations, games, stickers and use inline bots
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendOtherMessages)]
     public bool? CanSendOtherMessages { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to add web page previews to their messages
+    /// Optional. <em>True</em>, if the user is allowed to add web page previews to their messages
     /// </summary>
     [JsonPropertyName(PropertyNames.CanAddWebPagePreviews)]
     public bool? CanAddWebPagePreviews { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups
+    /// Optional. <em>True</em>, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups
     /// </summary>
     [JsonPropertyName(PropertyNames.CanChangeInfo)]
     public bool? CanChangeInfo { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to invite new users to the chat
+    /// Optional. <em>True</em>, if the user is allowed to invite new users to the chat
     /// </summary>
     [JsonPropertyName(PropertyNames.CanInviteUsers)]
     public bool? CanInviteUsers { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to pin messages. Ignored in public supergroups
+    /// Optional. <em>True</em>, if the user is allowed to pin messages. Ignored in public supergroups
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPinMessages)]
     public bool? CanPinMessages { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the user is allowed to create forum topics. If omitted defaults to the value of can_pin_messages
+    /// Optional. <em>True</em>, if the user is allowed to create forum topics. If omitted defaults to the value of can_pin_messages
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageTopics)]
     public bool? CanManageTopics { get; set; }

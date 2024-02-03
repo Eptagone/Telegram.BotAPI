@@ -11,30 +11,36 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions;
 /// This class contains a set of useful methods for formatting the text of messages.
 /// </summary>
 /// <param name="styleParser">Custom StyleParser.</param>
-[Obsolete("Use Telegram.BotAPI.Extensions.ITextFormatter instead.")]
-public class FormattingHelper(StyleParser? styleParser = null) : FormattingHelper<StyleParser>(styleParser ?? StyleParser.Default)
-{
-}
+[Obsolete("Use Telegram.BotAPI.Extensions.HtmlTextFormatter instead.")]
+public class FormattingHelper(StyleParser? styleParser = null)
+	: FormattingHelper<StyleParser>(styleParser ?? StyleParser.Default)
+{ }
 
 /// <summary>
 /// This class contains a set of useful methods for formatting the text of messages.
 /// </summary>
 /// <param name="styleParser">Custom StyleParser.</param>
-[Obsolete("Use Telegram.BotAPI.Extensions.ITextFormatter instead.")]
+[Obsolete("Use Telegram.BotAPI.Extensions.HtmlTextFormatter instead.")]
 public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
-    where TStyleParser : IStyleParser
+	where TStyleParser : IStyleParser
 {
 	/// <summary>StyleParser</summary>
-	protected readonly IStyleParser Parser = styleParser ?? throw new ArgumentNullException(nameof(styleParser));
+	protected readonly IStyleParser Parser =
+		styleParser ?? throw new ArgumentNullException(nameof(styleParser));
 
-    /// <summary>Create new stylized text from message entities.</summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="input">Input text.</param>
-    /// <param name="parseMode">Style to be applied to the new text.</param>
-    /// <param name="entities">Message entities.</param>
-    /// <param name="useFixer">True, if you want to use the StyleParser.</param>
-    /// <returns>Stylized <see cref="string"/></returns>
-    public virtual string FromEntities<T>(string input, ParseModeKind parseMode, T entities, bool useFixer = true)
+	/// <summary>Create new stylized text from message entities.</summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="input">Input text.</param>
+	/// <param name="parseMode">Style to be applied to the new text.</param>
+	/// <param name="entities">Message entities.</param>
+	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
+	/// <returns>Stylized <see cref="string"/></returns>
+	public virtual string FromEntities<T>(
+		string input,
+		ParseModeKind parseMode,
+		T entities,
+		bool useFixer = true
+	)
 		where T : IEnumerable<MessageEntity>
 	{
 		if (string.IsNullOrEmpty(input))
@@ -116,12 +122,17 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			return useFixer ? this.Parser.To(input, parseMode) : input;
 		}
 	}
+
 	/// <summary> Format text. Bold. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string Bold(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
+	public virtual string Bold(
+		string input,
+		ParseModeKind parseMode = ParseModeKind.Markdown,
+		bool useFixer = true
+	)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -136,12 +147,17 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			_ => text,
 		};
 	}
+
 	/// <summary> Format text. Italic. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string Italic(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
+	public virtual string Italic(
+		string input,
+		ParseModeKind parseMode = ParseModeKind.Markdown,
+		bool useFixer = true
+	)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -156,12 +172,17 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			_ => text,
 		};
 	}
+
 	/// <summary> Format text. Underline. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string Underline(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
+	public virtual string Underline(
+		string input,
+		ParseModeKind parseMode = ParseModeKind.Markdown,
+		bool useFixer = true
+	)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -176,12 +197,17 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			_ => text,
 		};
 	}
+
 	/// <summary> Format text. Strikethrough. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string Strikethrough(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
+	public virtual string Strikethrough(
+		string input,
+		ParseModeKind parseMode = ParseModeKind.Markdown,
+		bool useFixer = true
+	)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -195,12 +221,17 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			_ => text,
 		};
 	}
+
 	/// <summary> Format text. Spoiler. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string Spoiler(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
+	public virtual string Spoiler(
+		string input,
+		ParseModeKind parseMode = ParseModeKind.Markdown,
+		bool useFixer = true
+	)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -214,12 +245,17 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			_ => input,
 		};
 	}
+
 	/// <summary> Format text. Code. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string Code(string input, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
+	public virtual string Code(
+		string input,
+		ParseModeKind parseMode = ParseModeKind.Markdown,
+		bool useFixer = true
+	)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -234,6 +270,7 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			_ => input,
 		};
 	}
+
 	/// <summary> Format text. Pre. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
@@ -252,12 +289,17 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			_ => input,
 		};
 	}
+
 	/// <summary> Format text. Pre. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="language">Programming language. Ex: python</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string Pre(string input, string language, ParseModeKind parseMode = ParseModeKind.Markdown)
+	public virtual string Pre(
+		string input,
+		string language,
+		ParseModeKind parseMode = ParseModeKind.Markdown
+	)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -275,13 +317,19 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			_ => input,
 		};
 	}
+
 	/// <summary> Format text. Text link. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="url">Url.</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string TextLink(string input, string url, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
+	public virtual string TextLink(
+		string input,
+		string url,
+		ParseModeKind parseMode = ParseModeKind.Markdown,
+		bool useFixer = true
+	)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -299,13 +347,19 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 			_ => text,
 		};
 	}
+
 	/// <summary> Format text. Text Mention. </summary>
 	/// <param name="input">Input text.</param>
 	/// <param name="userId">Unique identifier for this user or bot.</param>
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string TextMention(string input, long userId, ParseModeKind parseMode = ParseModeKind.Markdown, bool useFixer = true)
+	public virtual string TextMention(
+		string input,
+		long userId,
+		ParseModeKind parseMode = ParseModeKind.Markdown,
+		bool useFixer = true
+	)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -314,11 +368,14 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 		string text = useFixer ? this.Parser.To(input, parseMode) : input;
 		return parseMode switch
 		{
-			ParseModeKind.Markdown or ParseModeKind.MarkdownV2 => $"[{text}](tg://user?id={userId})",
+			ParseModeKind.Markdown
+			or ParseModeKind.MarkdownV2
+				=> $"[{text}](tg://user?id={userId})",
 			ParseModeKind.HTML => $"<a href=\"tg://user?id={userId}\">{text}</a>",
 			_ => text,
 		};
 	}
+
 	/// <summary>
 	/// Format text. Custom Emoji. <br />
 	/// </summary>
@@ -330,7 +387,12 @@ public class FormattingHelper<TStyleParser>(TStyleParser styleParser)
 	/// <param name="parseMode">Style to be applied to the new text.</param>
 	/// <param name="useFixer">True, if you want to use the StyleParser.</param>
 	/// <returns>Stylized <see cref="string"/></returns>
-	public virtual string CustomEmoji(string customEmojiId, string emoji, ParseModeKind parseMode = ParseModeKind.MarkdownV2, bool useFixer = true)
+	public virtual string CustomEmoji(
+		string customEmojiId,
+		string emoji,
+		ParseModeKind parseMode = ParseModeKind.MarkdownV2,
+		bool useFixer = true
+	)
 	{
 		if (string.IsNullOrEmpty(customEmojiId))
 		{

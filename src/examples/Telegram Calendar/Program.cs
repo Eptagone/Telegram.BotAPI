@@ -9,31 +9,33 @@ using Telegram.BotAPI.GettingUpdates;
 
 namespace TelegramCalendar
 {
-	class Program
-	{
-		static void Main()
-		{
-			Console.WriteLine("Start!");
-			var bot = new CalendarBot();
-			bot.Client.SetMyCommands(new BotCommand("calendar", "Telegram Calendar"));
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Start!");
+            var bot = new CalendarBot();
+            bot.Client.SetMyCommands([new BotCommand("calendar", "Telegram Calendar")]);
 
-			// Long Polling
-			var updates = bot.Client.GetUpdates(allowedUpdates: new[] { AllowedUpdate.Message, AllowedUpdate.CallbackQuery });
-			while (true)
-			{
-				if (updates.Length > 0)
-				{
-					foreach (var update in updates)
-					{
-						bot.OnUpdate(update);
-					}
-					updates = bot.Client.GetUpdates(offset: updates.Max(u => u.UpdateId) + 1);
-				}
-				else
-				{
-					updates = bot.Client.GetUpdates();
-				}
-			}
-		}
-	}
+            // Long Polling
+            var updates = bot.Client.GetUpdates(
+                allowedUpdates: new[] { UpdateTypes.Message, UpdateTypes.CallbackQuery }
+            );
+            while (true)
+            {
+                if (updates.Any())
+                {
+                    foreach (var update in updates)
+                    {
+                        bot.OnUpdate(update);
+                    }
+                    updates = bot.Client.GetUpdates(offset: updates.Max(u => u.UpdateId) + 1);
+                }
+                else
+                {
+                    updates = bot.Client.GetUpdates();
+                }
+            }
+        }
+    }
 }

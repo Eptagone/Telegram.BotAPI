@@ -23,7 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{ADD4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI", "..\library\Telegram.BotAPI\Telegram.BotAPI.csproj", "{7885DD73-1782-4D0E-826E-C60C27C7648D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloBotNET.AppService", "HelloBotNET.AppService\HelloBotNET.AppService.csproj", "{40F07F65-6DF5-48D2-9C11-0D970BFA31A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloBotNET.AppService", "HelloBotNET.AppService\HelloBotNET.AppService.csproj", "{40F07F65-6DF5-48D2-9C11-0D970BFA31A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.BotAPI.Extensions", "..\library\Telegram.BotAPI.Extensions\Telegram.BotAPI.Extensions.csproj", "{5E7D52AF-3914-47AA-9136-A87520D8119D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{40F07F65-6DF5-48D2-9C11-0D970BFA31A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40F07F65-6DF5-48D2-9C11-0D970BFA31A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40F07F65-6DF5-48D2-9C11-0D970BFA31A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E7D52AF-3914-47AA-9136-A87520D8119D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7D52AF-3914-47AA-9136-A87520D8119D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7D52AF-3914-47AA-9136-A87520D8119D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7D52AF-3914-47AA-9136-A87520D8119D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{4A7EC7DA-03F3-40B5-8993-DA90C5CC589C} = {7A82B466-5509-490E-A490-D64D871CBA06}
 		{7885DD73-1782-4D0E-826E-C60C27C7648D} = {ADD476C3-7C77-421E-8A5F-F5DC41886727}
 		{40F07F65-6DF5-48D2-9C11-0D970BFA31A0} = {7A82B466-5509-490E-A490-D64D871CBA06}
+		{5E7D52AF-3914-47AA-9136-A87520D8119D} = {ADD476C3-7C77-421E-8A5F-F5DC41886727}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {936E7344-448B-4497-970E-1AC2EC609933}

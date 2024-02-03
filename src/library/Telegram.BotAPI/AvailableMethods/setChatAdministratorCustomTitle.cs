@@ -16,8 +16,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatAdministratorCustomTitle(this ITelegramBotClient client)
-        => client.SetChatAdministratorCustomTitleAsync().GetAwaiter().GetResult();
+    public static bool SetChatAdministratorCustomTitle(this ITelegramBotClient client) =>
+        client.SetChatAdministratorCustomTitleAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a custom title for an administrator in a supergroup promoted by the bot. Returns <em>True</em> on success.

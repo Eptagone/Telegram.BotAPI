@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendPoll(this ITelegramBotClient client, SendPollArgs args)
-        => client.SendPollAsync(args).GetAwaiter().GetResult();
+    public static Message SendPoll(this ITelegramBotClient client, SendPollArgs args) =>
+        client.SendPollAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a native poll. On success, the sent <see cref="Message"/> is returned.
@@ -45,7 +45,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send a native poll. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of answer options, 2-10 strings 1-100 characters each</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
@@ -66,14 +66,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendPoll(this ITelegramBotClient client, long chatId, string question, IEnumerable<string> options, int? messageThreadId = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, int? correctOptionId = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null)
-        => client.SendPollAsync(chatId, question, options, messageThreadId, isAnonymous, type, allowsMultipleAnswers, correctOptionId, explanation, explanationParseMode, explanationEntities, openPeriod, closeDate, isClosed, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendPoll(this ITelegramBotClient client, long chatId, string question, IEnumerable<string> options, int? messageThreadId = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, int? correctOptionId = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendPollAsync(chatId, question, options, messageThreadId, isAnonymous, type, allowsMultipleAnswers, correctOptionId, explanation, explanationParseMode, explanationEntities, openPeriod, closeDate, isClosed, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a native poll. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of answer options, 2-10 strings 1-100 characters each</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
@@ -176,7 +176,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send a native poll. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of answer options, 2-10 strings 1-100 characters each</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
@@ -197,14 +197,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendPoll(this ITelegramBotClient client, string chatId, string question, IEnumerable<string> options, int? messageThreadId = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, int? correctOptionId = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null)
-        => client.SendPollAsync(chatId, question, options, messageThreadId, isAnonymous, type, allowsMultipleAnswers, correctOptionId, explanation, explanationParseMode, explanationEntities, openPeriod, closeDate, isClosed, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendPoll(this ITelegramBotClient client, string chatId, string question, IEnumerable<string> options, int? messageThreadId = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, int? correctOptionId = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendPollAsync(chatId, question, options, messageThreadId, isAnonymous, type, allowsMultipleAnswers, correctOptionId, explanation, explanationParseMode, explanationEntities, openPeriod, closeDate, isClosed, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a native poll. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of answer options, 2-10 strings 1-100 characters each</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>

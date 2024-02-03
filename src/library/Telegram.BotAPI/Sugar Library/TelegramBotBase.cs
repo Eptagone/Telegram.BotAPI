@@ -1,8 +1,6 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.GettingUpdates;
 using Telegram.BotAPI.InlineMode;
@@ -23,6 +21,7 @@ public abstract class TelegramBotBase<TBotProperties> : TelegramBotBase
 
 	/// <summary>Bot client instance to interact with the Telegram Bot API.</summary>
 	protected BotClient Api => this._properties.Api;
+
 	/// <summary>The basic information about the bot.</summary>
 	protected User Me => this._properties.User;
 
@@ -38,7 +37,6 @@ public abstract class TelegramBotBase<TBotProperties> : TelegramBotBase
 
 	/// <inheritdoc/>
 	public override void OnUpdate(Update update)
-
 	{
 		this.Update = update;
 		base.OnUpdate(update);
@@ -65,7 +63,11 @@ public abstract class TelegramBotBase<TBotProperties> : TelegramBotBase
 	/// <param name="message">Message.</param>
 	/// <param name="commandName">Command name.<br/>Example: <code>/<b>&lt;command name&gt;</b> &lt;command parameters&gt;</code></param>
 	/// <param name="commandParameters">Command parameters.<br/>Example: <code>/&lt;command name&gt; <b>&lt;command parameters&gt;</b></code></param>
-	protected abstract void OnCommand(Message message, string commandName, string commandParameters);
+	protected abstract void OnCommand(
+		Message message,
+		string commandName,
+		string commandParameters
+	);
 }
 
 /// <summary>Base class for Telegram Bots.</summary>
@@ -159,48 +161,63 @@ public abstract class TelegramBotBase : ITelegramBot
 	/// <summary>Instructions for a message update.</summary>
 	/// <param name="message">Message.</param>
 	protected abstract void OnMessage(Message message);
+
 	/// <summary>Instructions for an edited message.</summary>
 	/// <param name="message">Message</param>
 	protected virtual void OnEditedMessage(Message message) { }
+
 	/// <summary>Instructions for a channel post.</summary>
 	/// <param name="message">Message</param>
 	protected virtual void OnChannelPost(Message message) { }
+
 	/// <summary>Instructions for an edited channel post update.</summary>
 	/// <param name="message">Message</param>
 	protected virtual void OnEditedChannelPost(Message message) { }
+
 	/// <summary>Instructions for an inline query update.</summary>
 	/// <param name="inlineQuery">Inline query.</param>
 	protected virtual void OnInlineQuery(InlineQuery inlineQuery) { }
+
 	/// <summary>Instructions for a chosen inline result update.</summary>
 	/// <param name="chosenInlineResult">Chosen Inline Result.</param>
 	protected virtual void OnChosenInlineResult(ChosenInlineResult chosenInlineResult) { }
+
 	/// <summary>Instructions for a callback query update.</summary>
 	/// <param name="callbackQuery">Callback query</param>
 	protected virtual void OnCallbackQuery(CallbackQuery callbackQuery) { }
+
 	/// <summary>Instructions for a shipping query update.</summary>
 	/// <param name="shippingQuery">Shipping query</param>
 	protected virtual void OnShippingQuery(ShippingQuery shippingQuery) { }
+
 	/// <summary>Instructions for a pre-checkout query update.</summary>
 	/// <param name="preCheckoutQuery">Pre-checkout query.</param>
 	protected virtual void OnPreCheckoutQuery(PreCheckoutQuery preCheckoutQuery) { }
+
 	/// <summary>Instructions for a poll update.</summary>
 	/// <param name="poll">Poll.</param>
 	protected virtual void OnPoll(Poll poll) { }
+
 	/// <summary>Instructions for a poll answer update.</summary>
 	/// <param name="pollAnswer">Poll answer.</param>
 	protected virtual void OnPollAnswer(PollAnswer pollAnswer) { }
+
 	/// <summary>Instructions for my chat member update.</summary>
 	/// <param name="myChatMemberUpdated">My chat member updated.</param>
 	protected virtual void OnMyChatMember(ChatMemberUpdated myChatMemberUpdated) { }
+
 	/// <summary>Instructions for chat member update.</summary>
 	/// <param name="chatMemberUpdated">Chat member updated.</param>
 	protected virtual void OnChatMember(ChatMemberUpdated chatMemberUpdated) { }
+
 	/// <summary>Instructions for chat join request update.</summary>
 	/// <param name="chatJoinRequest">Chat join request.</param>
 	protected virtual void OnChatJoinRequest(ChatJoinRequest chatJoinRequest) { }
+
 	/// <summary>Instructions for a bot exception.</summary>
 	/// <param name="exp">Bot exception</param>
 	protected abstract void OnBotException(BotRequestException exp);
+
 	/// <summary>Instructions for a general exception.</summary>
 	/// <param name="exp">Exception</param>
 	protected abstract void OnException(Exception exp);

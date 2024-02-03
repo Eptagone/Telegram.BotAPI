@@ -25,19 +25,19 @@ public class InputMediaPhoto : InputMedia
     public override string Type => "photo";
 
     /// <summary>
-    /// <em>Optional</em>. Caption of the photo to be sent, 0-1024 characters after entities parsing
+    /// Optional. Caption of the photo to be sent, 0-1024 characters after entities parsing
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]
     public override string? Caption { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Mode for parsing entities in the photo caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// Optional. Mode for parsing entities in the photo caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
     /// </summary>
     [JsonPropertyName(PropertyNames.ParseMode)]
     public override string? ParseMode { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> if the photo needs to be covered with a spoiler animation
+    /// Optional. Pass <em>True</em> if the photo needs to be covered with a spoiler animation
     /// </summary>
     [JsonPropertyName(PropertyNames.HasSpoiler)]
     public bool? HasSpoiler { get; set; }

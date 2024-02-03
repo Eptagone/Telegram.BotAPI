@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(this ITelegramBotClient client, ForwardMessageArgs args)
-        => client.ForwardMessageAsync(args).GetAwaiter().GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, ForwardMessageArgs args) =>
+        client.ForwardMessageAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
@@ -45,8 +45,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -54,15 +54,15 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null)
-        => client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -104,8 +104,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -113,15 +113,15 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null)
-        => client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -163,8 +163,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -172,15 +172,15 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null)
-        => client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -222,8 +222,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -231,15 +231,15 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null)
-        => client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>

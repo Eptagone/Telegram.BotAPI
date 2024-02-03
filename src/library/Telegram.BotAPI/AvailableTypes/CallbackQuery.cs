@@ -24,13 +24,13 @@ public class CallbackQuery
     public User From { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Message sent by the bot with the callback button that originated the query
+    /// Optional. Message sent by the bot with the callback button that originated the query
     /// </summary>
     [JsonPropertyName(PropertyNames.Message)]
     public MaybeInaccessibleMessage? Message { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Identifier of the message sent via the bot in inline mode, that originated the query.
+    /// Optional. Identifier of the message sent via the bot in inline mode, that originated the query.
     /// </summary>
     [JsonPropertyName(PropertyNames.InlineMessageId)]
     public string? InlineMessageId { get; set; }
@@ -42,13 +42,13 @@ public class CallbackQuery
     public string ChatInstance { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Data associated with the callback button. Be aware that the message originated the query can contain no callback buttons with this data.
+    /// Optional. Data associated with the callback button. Be aware that the message originated the query can contain no callback buttons with this data.
     /// </summary>
     [JsonPropertyName(PropertyNames.Data)]
     public string? Data { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Short name of a <see cref="Game"/> to be returned, serves as the unique identifier for the game
+    /// Optional. Short name of a <see cref="Game"/> to be returned, serves as the unique identifier for the game
     /// </summary>
     [JsonPropertyName(PropertyNames.GameShortName)]
     public string? GameShortName { get; set; }

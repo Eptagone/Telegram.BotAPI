@@ -33,13 +33,13 @@ public class InputContactMessageContent : InputMessageContent
     public string FirstName { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Contact's last name
+    /// Optional. Contact's last name
     /// </summary>
     [JsonPropertyName(PropertyNames.LastName)]
     public string? LastName { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Additional data about the contact in the form of a <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, 0-2048 bytes
+    /// Optional. Additional data about the contact in the form of a <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, 0-2048 bytes
     /// </summary>
     [JsonPropertyName(PropertyNames.Vcard)]
     public string? Vcard { get; set; }

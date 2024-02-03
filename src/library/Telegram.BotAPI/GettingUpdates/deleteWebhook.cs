@@ -17,8 +17,8 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeleteWebhook(this ITelegramBotClient client, bool? dropPendingUpdates = null)
-        => client.DeleteWebhookAsync(dropPendingUpdates).GetAwaiter().GetResult();
+    public static bool DeleteWebhook(this ITelegramBotClient client, bool? dropPendingUpdates = null) =>
+        client.DeleteWebhookAsync(dropPendingUpdates).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to remove webhook integration if you decide to switch back to <a href="https://core.telegram.org/bots/api#getupdates">getUpdates</a>. Returns <em>True</em> on success.

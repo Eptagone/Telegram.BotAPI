@@ -10,19 +10,19 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class WriteAccessAllowed
 {
     /// <summary>
-    /// <em>Optional</em>. True, if the access was granted after the user accepted an explicit request from a Web App sent by the method <a href="https://core.telegram.org/bots/webapps#initializing-mini-apps">requestWriteAccess</a>
+    /// Optional. True, if the access was granted after the user accepted an explicit request from a Web App sent by the method <a href="https://core.telegram.org/bots/webapps#initializing-mini-apps">requestWriteAccess</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.FromRequest)]
     public bool? FromRequest { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Name of the Web App, if the access was granted when the Web App was launched from a link
+    /// Optional. Name of the Web App, if the access was granted when the Web App was launched from a link
     /// </summary>
     [JsonPropertyName(PropertyNames.WebAppName)]
     public string? WebAppName { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. True, if the access was granted when the bot was added to the attachment or side menu
+    /// Optional. True, if the access was granted when the bot was added to the attachment or side menu
     /// </summary>
     [JsonPropertyName(PropertyNames.FromAttachmentMenu)]
     public bool? FromAttachmentMenu { get; set; }

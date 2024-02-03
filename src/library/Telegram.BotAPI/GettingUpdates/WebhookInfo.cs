@@ -28,37 +28,37 @@ public class WebhookInfo
     public int PendingUpdateCount { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Currently used webhook IP address
+    /// Optional. Currently used webhook IP address
     /// </summary>
     [JsonPropertyName(PropertyNames.IpAddress)]
     public string? IpAddress { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Unix time for the most recent error that happened when trying to deliver an update via webhook
+    /// Optional. Unix time for the most recent error that happened when trying to deliver an update via webhook
     /// </summary>
     [JsonPropertyName(PropertyNames.LastErrorDate)]
     public int? LastErrorDate { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Error message in human-readable format for the most recent error that happened when trying to deliver an update via webhook
+    /// Optional. Error message in human-readable format for the most recent error that happened when trying to deliver an update via webhook
     /// </summary>
     [JsonPropertyName(PropertyNames.LastErrorMessage)]
     public string? LastErrorMessage { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Unix time of the most recent error that happened when trying to synchronize available updates with Telegram datacenters
+    /// Optional. Unix time of the most recent error that happened when trying to synchronize available updates with Telegram datacenters
     /// </summary>
     [JsonPropertyName(PropertyNames.LastSynchronizationErrorDate)]
     public int? LastSynchronizationErrorDate { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery
+    /// Optional. The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery
     /// </summary>
     [JsonPropertyName(PropertyNames.MaxConnections)]
     public int? MaxConnections { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. A list of update types the bot is subscribed to. Defaults to all update types except <em>chat_member</em>
+    /// Optional. A list of update types the bot is subscribed to. Defaults to all update types except <em>chat_member</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowedUpdates)]
     public IEnumerable<string>? AllowedUpdates { get; set; }

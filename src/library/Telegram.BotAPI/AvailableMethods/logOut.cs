@@ -2,8 +2,6 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-using Telegram.BotAPI.AvailableTypes;
-
 namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
@@ -18,8 +16,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool LogOut(this ITelegramBotClient client)
-        => client.LogOutAsync().GetAwaiter().GetResult();
+    public static bool LogOut(this ITelegramBotClient client) =>
+        client.LogOutAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to log out from the cloud Bot API server before launching the bot locally. You <strong>must</strong> log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud Bot API server for 10 minutes. Returns <em>True</em> on success. Requires no parameters.

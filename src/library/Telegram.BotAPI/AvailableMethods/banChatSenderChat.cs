@@ -16,8 +16,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool BanChatSenderChat(this ITelegramBotClient client)
-        => client.BanChatSenderChatAsync().GetAwaiter().GetResult();
+    public static bool BanChatSenderChat(this ITelegramBotClient client) =>
+        client.BanChatSenderChatAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to ban a channel chat in a supergroup or a channel. Until the chat is <a href="https://core.telegram.org/bots/api#unbanchatsenderchat">unbanned</a>, the owner of the banned chat won't be able to send messages on behalf of <strong>any of their channels</strong>. The bot must be an administrator in the supergroup or channel for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.

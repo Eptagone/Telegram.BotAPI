@@ -17,8 +17,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerEmojiList(this ITelegramBotClient client, SetStickerEmojiListArgs args)
-        => client.SetStickerEmojiListAsync(args).GetAwaiter().GetResult();
+    public static bool SetStickerEmojiList(this ITelegramBotClient client, SetStickerEmojiListArgs args) =>
+        client.SetStickerEmojiListAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the list of emoji assigned to a regular or custom emoji sticker. The sticker must belong to a sticker set created by the bot. Returns <em>True</em> on success.
@@ -46,8 +46,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerEmojiList(this ITelegramBotClient client)
-        => client.SetStickerEmojiListAsync().GetAwaiter().GetResult();
+    public static bool SetStickerEmojiList(this ITelegramBotClient client) =>
+        client.SetStickerEmojiListAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the list of emoji assigned to a regular or custom emoji sticker. The sticker must belong to a sticker set created by the bot. Returns <em>True</em> on success.

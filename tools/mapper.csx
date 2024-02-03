@@ -691,7 +691,9 @@ static IEnumerable<string> GroupTypes(
     IEnumerable<TelegramTypeGroup> groups
 )
 {
-    var groupName = groups.FirstOrDefault(g => typeNames.All(t => g.Types.Contains(t)))?.Name;
+    var groupName = typeNames.Any()
+        ? groups.FirstOrDefault(g => typeNames.All(t => g.Types.Contains(t)))?.Name
+        : null;
     return groupName is null ? typeNames : new[] { groupName };
 }
 
@@ -794,7 +796,9 @@ static bool IsModelLikeArgs(string modelName, BotApiDefinitions definitions)
         "InlineKeyboardButton",
         "ShippingOption",
         "LabeledPrice",
-        "BotCommand"
+        "BotCommand",
+        "WebAppInfo",
+        "LoginUrl"
     };
 
     return @classes.Contains(modelName) || baseClasses.Any(g => g.Types.Contains(modelName));
@@ -854,6 +858,9 @@ static IEnumerable<string> ParseDocReferences(
         .Select(d =>
         {
             d = d.Replace("<br>", "<br />");
+            d = d.Replace("<code>", "<em>");
+            d = d.Replace("</code>", "</em>");
+            d = d.Replace("<em>Optional</em>", "Optional");
             var matches = Regex.Matches(d, anchorPattern);
 
             foreach (var m in matches.Cast<Match>())

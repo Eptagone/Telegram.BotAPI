@@ -12,7 +12,7 @@ public class EditChatInviteLinkArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="EditChatInviteLinkArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="inviteLink">The invite link to edit</param>
     public EditChatInviteLinkArgs(long chatId, string inviteLink)
     {
@@ -23,7 +23,7 @@ public class EditChatInviteLinkArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="EditChatInviteLinkArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="inviteLink">The invite link to edit</param>
     public EditChatInviteLinkArgs(string chatId, string inviteLink)
     {
@@ -32,7 +32,7 @@ public class EditChatInviteLinkArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

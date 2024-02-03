@@ -39,7 +39,7 @@ public class AnswerCallbackQueryArgs
     public bool? ShowAlert { get; set; }
 
     /// <summary>
-    /// URL that will be opened by the user's client. If you have created a <see cref="Game"/> and accepted the conditions via <a href="https://t.me/botfather">@BotFather</a>, specify the URL that opens your game - note that this will only work if the query comes from a <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">callback_game</a> button.<br /><br />Otherwise, you may use links like <code>t.me/your_bot?start=XXXX</code> that open your bot with a parameter.
+    /// URL that will be opened by the user's client. If you have created a <see cref="Game"/> and accepted the conditions via <a href="https://t.me/botfather">@BotFather</a>, specify the URL that opens your game - note that this will only work if the query comes from a <a href="https://core.telegram.org/bots/api#inlinekeyboardbutton">callback_game</a> button.<br /><br />Otherwise, you may use links like <em>t.me/your_bot?start=XXXX</em> that open your bot with a parameter.
     /// </summary>
     [JsonPropertyName(PropertyNames.Url)]
     public string? Url { get; set; }

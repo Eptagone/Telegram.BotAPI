@@ -44,7 +44,7 @@ public abstract class InputMedia
     public abstract string? ParseMode { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. List of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em>
+    /// Optional. List of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.CaptionEntities)]
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }

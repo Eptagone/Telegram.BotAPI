@@ -24,13 +24,13 @@ public class ChosenInlineResult
     public User From { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Sender location, only for bots that require user location
+    /// Optional. Sender location, only for bots that require user location
     /// </summary>
     [JsonPropertyName(PropertyNames.Location)]
     public Location? Location { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Identifier of the sent inline message. Available only if there is an <a href="https://core.telegram.org/bots/api#inlinekeyboardmarkup">inline keyboard</a> attached to the message. Will be also received in <a href="https://core.telegram.org/bots/api#callbackquery">callback queries</a> and can be used to <a href="https://core.telegram.org/bots/api#updating-messages">edit</a> the message.
+    /// Optional. Identifier of the sent inline message. Available only if there is an <a href="https://core.telegram.org/bots/api#inlinekeyboardmarkup">inline keyboard</a> attached to the message. Will be also received in <a href="https://core.telegram.org/bots/api#callbackquery">callback queries</a> and can be used to <a href="https://core.telegram.org/bots/api#updating-messages">edit</a> the message.
     /// </summary>
     [JsonPropertyName(PropertyNames.InlineMessageId)]
     public string? InlineMessageId { get; set; }

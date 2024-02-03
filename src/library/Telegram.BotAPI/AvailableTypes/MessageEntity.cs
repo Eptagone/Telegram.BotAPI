@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class MessageEntity
 {
     /// <summary>
-    /// Type of the entity. Currently, can be “mention” (<code>@username</code>), “hashtag” (<code>#hashtag</code>), “cashtag” (<code>$USD</code>), “bot_command” (<code>/start@jobs_bot</code>), “url” (<code>https://telegram.org</code>), “email” (<code>do-not-reply@telegram.org</code>), “phone_number” (<code>+1-212-555-0123</code>), “bold” (<strong>bold text</strong>), “italic” (<em>italic text</em>), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom_emoji” (for inline custom emoji stickers)
+    /// Type of the entity. Currently, can be “mention” (<em>@username</em>), “hashtag” (<em>#hashtag</em>), “cashtag” (<em>$USD</em>), “bot_command” (<em>/start@jobs_bot</em>), “url” (<em>https://telegram.org</em>), “email” (<em>do-not-reply@telegram.org</em>), “phone_number” (<em>+1-212-555-0123</em>), “bold” (<strong>bold text</strong>), “italic” (<em>italic text</em>), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom_emoji” (for inline custom emoji stickers)
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public string Type { get; set; } = null!;
@@ -28,25 +28,25 @@ public class MessageEntity
     public int Length { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. For “text_link” only, URL that will be opened after user taps on the text
+    /// Optional. For “text_link” only, URL that will be opened after user taps on the text
     /// </summary>
     [JsonPropertyName(PropertyNames.Url)]
     public string? Url { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. For “text_mention” only, the mentioned user
+    /// Optional. For “text_mention” only, the mentioned user
     /// </summary>
     [JsonPropertyName(PropertyNames.User)]
     public User? User { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. For “pre” only, the programming language of the entity text
+    /// Optional. For “pre” only, the programming language of the entity text
     /// </summary>
     [JsonPropertyName(PropertyNames.Language)]
     public string? Language { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. For “custom_emoji” only, unique identifier of the custom emoji. Use <a href="https://core.telegram.org/bots/api#getcustomemojistickers">getCustomEmojiStickers</a> to get full information about the sticker
+    /// Optional. For “custom_emoji” only, unique identifier of the custom emoji. Use <a href="https://core.telegram.org/bots/api#getcustomemojistickers">getCustomEmojiStickers</a> to get full information about the sticker
     /// </summary>
     [JsonPropertyName(PropertyNames.CustomEmojiId)]
     public string? CustomEmojiId { get; set; }

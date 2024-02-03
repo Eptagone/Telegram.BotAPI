@@ -34,7 +34,7 @@ public class PhotoSize
     public int Height { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. File size in bytes
+    /// Optional. File size in bytes
     /// </summary>
     [JsonPropertyName(PropertyNames.FileSize)]
     public int? FileSize { get; set; }

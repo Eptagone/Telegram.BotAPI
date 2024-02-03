@@ -19,8 +19,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool CreateNewStickerSet(this ITelegramBotClient client, CreateNewStickerSetArgs args)
-        => client.CreateNewStickerSetAsync(args).GetAwaiter().GetResult();
+    public static bool CreateNewStickerSet(this ITelegramBotClient client, CreateNewStickerSetArgs args) =>
+        client.CreateNewStickerSetAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. Returns <em>True</em> on success.
@@ -46,7 +46,7 @@ public static partial class StickersExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier of created sticker set owner</param>
-    /// <param name="name">Short name of sticker set, to be used in <code>t.me/addstickers/</code> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <code>"_by_&lt;bot_username&gt;"</code>. <code>&lt;bot_username&gt;</code> is case insensitive. 1-64 characters.</param>
+    /// <param name="name">Short name of sticker set, to be used in <em>t.me/addstickers/</em> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <em>"_by_&lt;bot_username&gt;"</em>. <em>&lt;bot_username&gt;</em> is case insensitive. 1-64 characters.</param>
     /// <param name="title">Sticker set title, 1-64 characters</param>
     /// <param name="stickers">A JSON-serialized list of 1-50 initial stickers to be added to the sticker set</param>
     /// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”</param>
@@ -56,15 +56,15 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool CreateNewStickerSet(this ITelegramBotClient client, long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, string? stickerType = null, bool? needsRepainting = null, IDictionary<string, InputFile>? files = null)
-        => client.CreateNewStickerSetAsync(userId, name, title, stickers, stickerFormat, stickerType, needsRepainting, files).GetAwaiter().GetResult();
+    public static bool CreateNewStickerSet(this ITelegramBotClient client, long userId, string name, string title, IEnumerable<InputSticker> stickers, string stickerFormat, string? stickerType = null, bool? needsRepainting = null, IDictionary<string, InputFile>? files = null) =>
+        client.CreateNewStickerSetAsync(userId, name, title, stickers, stickerFormat, stickerType, needsRepainting, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier of created sticker set owner</param>
-    /// <param name="name">Short name of sticker set, to be used in <code>t.me/addstickers/</code> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <code>"_by_&lt;bot_username&gt;"</code>. <code>&lt;bot_username&gt;</code> is case insensitive. 1-64 characters.</param>
+    /// <param name="name">Short name of sticker set, to be used in <em>t.me/addstickers/</em> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <em>"_by_&lt;bot_username&gt;"</em>. <em>&lt;bot_username&gt;</em> is case insensitive. 1-64 characters.</param>
     /// <param name="title">Sticker set title, 1-64 characters</param>
     /// <param name="stickers">A JSON-serialized list of 1-50 initial stickers to be added to the sticker set</param>
     /// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”</param>

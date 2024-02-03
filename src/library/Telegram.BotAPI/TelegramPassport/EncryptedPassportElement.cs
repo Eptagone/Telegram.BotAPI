@@ -16,49 +16,49 @@ public class EncryptedPassportElement
     public string Type { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Base64-encoded encrypted Telegram Passport element data provided by the user, available for “personal_details”, “passport”, “driver_license”, “identity_card”, “internal_passport” and “address” types. Can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
+    /// Optional. Base64-encoded encrypted Telegram Passport element data provided by the user, available for “personal_details”, “passport”, “driver_license”, “identity_card”, “internal_passport” and “address” types. Can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
     /// </summary>
     [JsonPropertyName(PropertyNames.Data)]
     public string? Data { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. User's verified phone number, available only for “phone_number” type
+    /// Optional. User's verified phone number, available only for “phone_number” type
     /// </summary>
     [JsonPropertyName(PropertyNames.PhoneNumber)]
     public string? PhoneNumber { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. User's verified email address, available only for “email” type
+    /// Optional. User's verified email address, available only for “email” type
     /// </summary>
     [JsonPropertyName(PropertyNames.Email)]
     public string? Email { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Array of encrypted files with documents provided by the user, available for “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration” and “temporary_registration” types. Files can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
+    /// Optional. Array of encrypted files with documents provided by the user, available for “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration” and “temporary_registration” types. Files can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
     /// </summary>
     [JsonPropertyName(PropertyNames.Files)]
     public IEnumerable<PassportFile>? Files { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Encrypted file with the front side of the document, provided by the user. Available for “passport”, “driver_license”, “identity_card” and “internal_passport”. The file can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
+    /// Optional. Encrypted file with the front side of the document, provided by the user. Available for “passport”, “driver_license”, “identity_card” and “internal_passport”. The file can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
     /// </summary>
     [JsonPropertyName(PropertyNames.FrontSide)]
     public PassportFile? FrontSide { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Encrypted file with the reverse side of the document, provided by the user. Available for “driver_license” and “identity_card”. The file can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
+    /// Optional. Encrypted file with the reverse side of the document, provided by the user. Available for “driver_license” and “identity_card”. The file can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReverseSide)]
     public PassportFile? ReverseSide { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Encrypted file with the selfie of the user holding a document, provided by the user; available for “passport”, “driver_license”, “identity_card” and “internal_passport”. The file can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
+    /// Optional. Encrypted file with the selfie of the user holding a document, provided by the user; available for “passport”, “driver_license”, “identity_card” and “internal_passport”. The file can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
     /// </summary>
     [JsonPropertyName(PropertyNames.Selfie)]
     public PassportFile? Selfie { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Array of encrypted files with translated versions of documents provided by the user. Available if requested for “passport”, “driver_license”, “identity_card”, “internal_passport”, “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration” and “temporary_registration” types. Files can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
+    /// Optional. Array of encrypted files with translated versions of documents provided by the user. Available if requested for “passport”, “driver_license”, “identity_card”, “internal_passport”, “utility_bill”, “bank_statement”, “rental_agreement”, “passport_registration” and “temporary_registration” types. Files can be decrypted and verified using the accompanying <see cref="EncryptedCredentials"/>.
     /// </summary>
     [JsonPropertyName(PropertyNames.Translation)]
     public IEnumerable<PassportFile>? Translation { get; set; }

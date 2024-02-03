@@ -28,7 +28,7 @@ public class ForumTopic
     public int IconColor { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Unique identifier of the custom emoji shown as the topic icon
+    /// Optional. Unique identifier of the custom emoji shown as the topic icon
     /// </summary>
     [JsonPropertyName(PropertyNames.IconCustomEmojiId)]
     public string? IconCustomEmojiId { get; set; }

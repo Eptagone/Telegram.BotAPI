@@ -16,8 +16,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool ReopenGeneralForumTopic(this ITelegramBotClient client)
-        => client.ReopenGeneralForumTopicAsync().GetAwaiter().GetResult();
+    public static bool ReopenGeneralForumTopic(this ITelegramBotClient client) =>
+        client.ReopenGeneralForumTopicAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. The topic will be automatically unhidden if it was hidden. Returns <em>True</em> on success.

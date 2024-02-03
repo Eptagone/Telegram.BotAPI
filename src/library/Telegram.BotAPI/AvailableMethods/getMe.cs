@@ -18,8 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static User GetMe(this ITelegramBotClient client)
-        => client.GetMeAsync().GetAwaiter().GetResult();
+    public static User GetMe(this ITelegramBotClient client) =>
+        client.GetMeAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// A simple method for testing your bot's authentication token. Requires no parameters. Returns basic information about the bot in form of a <see cref="User"/> object.

@@ -16,7 +16,7 @@ public class TextQuote
     public string Text { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Special entities that appear in the quote. Currently, only <em>bold</em>, <em>italic</em>, <em>underline</em>, <em>strikethrough</em>, <em>spoiler</em>, and <em>custom_emoji</em> entities are kept in quotes.
+    /// Optional. Special entities that appear in the quote. Currently, only <em>bold</em>, <em>italic</em>, <em>underline</em>, <em>strikethrough</em>, <em>spoiler</em>, and <em>custom_emoji</em> entities are kept in quotes.
     /// </summary>
     [JsonPropertyName(PropertyNames.Entities)]
     public IEnumerable<MessageEntity>? Entities { get; set; }
@@ -28,7 +28,7 @@ public class TextQuote
     public int Position { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. True, if the quote was chosen manually by the message sender. Otherwise, the quote was added automatically by the server.
+    /// Optional. True, if the quote was chosen manually by the message sender. Otherwise, the quote was added automatically by the server.
     /// </summary>
     [JsonPropertyName(PropertyNames.IsManual)]
     public bool? IsManual { get; set; }

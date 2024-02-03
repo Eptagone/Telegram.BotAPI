@@ -13,6 +13,7 @@ public class BotCommandMatch
 		this.Name = string.Empty;
 		this.Params = string.Empty;
 	}
+
 	/// <summary>Initialize a new instance of <see cref="BotCommandMatch"/>.</summary>
 	/// <param name="name">Command name.</param>
 	/// <param name="params">Command parameters.</param>
@@ -26,8 +27,10 @@ public class BotCommandMatch
 	/// <summary>Gets a value indicating whether the match is successful.</summary>
 	/// <returns>true if the match is successful; otherwise, false.</returns>
 	public bool Success { get; }
+
 	/// <summary>Command name.</summary>
 	public string Name { get; }
+
 	/// <summary>Command parameters.</summary>
 	public string Params { get; }
 }

@@ -9,26 +9,26 @@ namespace Telegram.BotAPI.Converters;
 /// <summary>Converts an <see cref="ChatMember"/> to or from JSON.</summary>
 public sealed class ChatMemberConverter : DiscriminatorJsonConverter<ChatMember>
 {
-    /// <inheritdoc />
-    public override string PropertyName => PropertyNames.Status;
+	/// <inheritdoc />
+	public override string PropertyName => PropertyNames.Status;
 
-    /// <summary>
-    /// Writes a <see cref="ChatMember"/> object as JSON.
-    /// </summary>
-    /// <param name="writer">The writer to write to.</param>
-    /// <param name="value">The value to convert to JSON.</param>
-    /// <param name="options">An object that specifies serialization options to use.</param>
-    public override void Write(
-        Utf8JsonWriter writer,
-        ChatMember value,
-        JsonSerializerOptions options
-    )
-    {
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
-        var type = value.GetType();
-        JsonSerializer.Serialize(writer, value, type, options);
-    }
+	/// <summary>
+	/// Writes a <see cref="ChatMember"/> object as JSON.
+	/// </summary>
+	/// <param name="writer">The writer to write to.</param>
+	/// <param name="value">The value to convert to JSON.</param>
+	/// <param name="options">An object that specifies serialization options to use.</param>
+	public override void Write(
+		Utf8JsonWriter writer,
+		ChatMember value,
+		JsonSerializerOptions options
+	)
+	{
+		if (value == null)
+		{
+			throw new ArgumentNullException(nameof(value));
+		}
+		var type = value.GetType();
+		JsonSerializer.Serialize(writer, value, type, options);
+	}
 }

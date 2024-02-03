@@ -18,8 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMyName(this ITelegramBotClient client, string? name = null, string? languageCode = null)
-        => client.SetMyNameAsync(name, languageCode).GetAwaiter().GetResult();
+    public static bool SetMyName(this ITelegramBotClient client, string? name = null, string? languageCode = null) =>
+        client.SetMyNameAsync(name, languageCode).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the bot's name. Returns <em>True</em> on success.

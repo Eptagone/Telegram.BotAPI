@@ -6,7 +6,7 @@ namespace Telegram.BotAPI.AvailableMethods.FormattingOptions;
 /// <summary>
 /// Define a set of useful methods for parsing text to be used with styles.
 /// </summary>
-[Obsolete]
+[Obsolete("Use Telegram.BotAPI.Extensions.HtmlTextFormatter instead.")]
 public interface IStyleParser
 {
 	/// <summary>Parse specified text with wrong style tags.</summary>

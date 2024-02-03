@@ -48,7 +48,7 @@ public class StickerSet
     public IEnumerable<Sticker> Stickers { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format
+    /// Optional. Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format
     /// </summary>
     [JsonPropertyName(PropertyNames.Thumbnail)]
     public PhotoSize? Thumbnail { get; set; }

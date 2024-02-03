@@ -14,7 +14,7 @@ public static partial class InlineKeyboardButtonExtensions
 	/// Get the button type.
 	/// </summary>
 	/// <returns><see cref="InlineKeyboardButtonType"/></returns>
-	[Obsolete]
+	[Obsolete("Use Telegram.BotAPI.Extensions for alternative methods.")]
 	public static InlineKeyboardButtonType GetButtonType(this InlineKeyboardButton button)
 	{
 		if (button.Url != default)

@@ -12,7 +12,7 @@ public class BotCommandScopeChatMember : BotCommandScope
     /// <summary>
     /// Initializes a new instance of the <see cref="BotCommandScopeChatMember"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     public BotCommandScopeChatMember(long chatId, long userId)
     {
@@ -23,7 +23,7 @@ public class BotCommandScopeChatMember : BotCommandScope
     /// <summary>
     /// Initializes a new instance of the <see cref="BotCommandScopeChatMember"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     public BotCommandScopeChatMember(string chatId, long userId)
     {
@@ -38,7 +38,7 @@ public class BotCommandScopeChatMember : BotCommandScope
     public override string Type => "chat_member";
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)
+    /// Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

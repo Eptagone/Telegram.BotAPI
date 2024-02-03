@@ -28,7 +28,7 @@ public class MessageOriginChannel : MessageOrigin
     public int MessageId { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Signature of the original post author
+    /// Optional. Signature of the original post author
     /// </summary>
     [JsonPropertyName(PropertyNames.AuthorSignature)]
     public string? AuthorSignature { get; set; }

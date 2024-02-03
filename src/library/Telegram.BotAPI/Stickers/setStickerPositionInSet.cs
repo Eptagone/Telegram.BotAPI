@@ -16,8 +16,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerPositionInSet(this ITelegramBotClient client)
-        => client.SetStickerPositionInSetAsync().GetAwaiter().GetResult();
+    public static bool SetStickerPositionInSet(this ITelegramBotClient client) =>
+        client.SetStickerPositionInSetAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to move a sticker in a set created by the bot to a specific position. Returns <em>True</em> on success.

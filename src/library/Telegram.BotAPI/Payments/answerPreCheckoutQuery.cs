@@ -21,8 +21,8 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AnswerPreCheckoutQuery(this ITelegramBotClient client, string preCheckoutQueryId, bool ok, string? errorMessage = null)
-        => client.AnswerPreCheckoutQueryAsync(preCheckoutQueryId, ok, errorMessage).GetAwaiter().GetResult();
+    public static bool AnswerPreCheckoutQuery(this ITelegramBotClient client, string preCheckoutQueryId, bool ok, string? errorMessage = null) =>
+        client.AnswerPreCheckoutQueryAsync(preCheckoutQueryId, ok, errorMessage).GetAwaiter().GetResult();
 
     /// <summary>
     /// Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an <see cref="Update"/> with the field <em>pre_checkout_query</em>. Use this method to respond to such pre-checkout queries. On success, <em>True</em> is returned. <strong>Note:</strong> The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent.

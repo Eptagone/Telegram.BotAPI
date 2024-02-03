@@ -10,9 +10,9 @@ namespace Telegram.BotAPI;
 /// </summary>
 public abstract class AttachedFilesArgsBase
 {
-    /// <summary>
-    /// Files to send.
-    /// </summary>
-    [JsonIgnore]
-    public IDictionary<string, InputFile> Files { get; set; } = new Dictionary<string, InputFile>();
+	/// <summary>
+	/// Files to send.
+	/// </summary>
+	[JsonIgnore]
+	public IDictionary<string, InputFile> Files { get; set; } = new Dictionary<string, InputFile>();
 }

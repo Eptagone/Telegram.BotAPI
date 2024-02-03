@@ -54,49 +54,49 @@ public class Sticker
     public bool IsVideo { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Sticker thumbnail in the .WEBP or .JPG format
+    /// Optional. Sticker thumbnail in the .WEBP or .JPG format
     /// </summary>
     [JsonPropertyName(PropertyNames.Thumbnail)]
     public PhotoSize? Thumbnail { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Emoji associated with the sticker
+    /// Optional. Emoji associated with the sticker
     /// </summary>
     [JsonPropertyName(PropertyNames.Emoji)]
     public string? Emoji { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Name of the sticker set to which the sticker belongs
+    /// Optional. Name of the sticker set to which the sticker belongs
     /// </summary>
     [JsonPropertyName(PropertyNames.SetName)]
     public string? SetName { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. For premium regular stickers, premium animation for the sticker
+    /// Optional. For premium regular stickers, premium animation for the sticker
     /// </summary>
     [JsonPropertyName(PropertyNames.PremiumAnimation)]
     public File? PremiumAnimation { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. For mask stickers, the position where the mask should be placed
+    /// Optional. For mask stickers, the position where the mask should be placed
     /// </summary>
     [JsonPropertyName(PropertyNames.MaskPosition)]
     public MaskPosition? MaskPosition { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. For custom emoji stickers, unique identifier of the custom emoji
+    /// Optional. For custom emoji stickers, unique identifier of the custom emoji
     /// </summary>
     [JsonPropertyName(PropertyNames.CustomEmojiId)]
     public string? CustomEmojiId { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the sticker must be repainted to a text color in messages, the color of the Telegram Premium badge in emoji status, white color on chat photos, or another appropriate color in other places
+    /// Optional. <em>True</em>, if the sticker must be repainted to a text color in messages, the color of the Telegram Premium badge in emoji status, white color on chat photos, or another appropriate color in other places
     /// </summary>
     [JsonPropertyName(PropertyNames.NeedsRepainting)]
     public bool? NeedsRepainting { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. File size in bytes
+    /// Optional. File size in bytes
     /// </summary>
     [JsonPropertyName(PropertyNames.FileSize)]
     public int? FileSize { get; set; }

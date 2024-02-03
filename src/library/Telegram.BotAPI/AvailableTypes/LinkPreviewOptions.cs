@@ -10,31 +10,31 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class LinkPreviewOptions
 {
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the link preview is disabled
+    /// Optional. <em>True</em>, if the link preview is disabled
     /// </summary>
     [JsonPropertyName(PropertyNames.IsDisabled)]
     public bool? IsDisabled { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. URL to use for the link preview. If empty, then the first URL found in the message text will be used
+    /// Optional. URL to use for the link preview. If empty, then the first URL found in the message text will be used
     /// </summary>
     [JsonPropertyName(PropertyNames.Url)]
     public string? Url { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the media in the link preview is suppposed to be shrunk; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview
+    /// Optional. <em>True</em>, if the media in the link preview is suppposed to be shrunk; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview
     /// </summary>
     [JsonPropertyName(PropertyNames.PreferSmallMedia)]
     public bool? PreferSmallMedia { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the media in the link preview is suppposed to be enlarged; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview
+    /// Optional. <em>True</em>, if the media in the link preview is suppposed to be enlarged; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview
     /// </summary>
     [JsonPropertyName(PropertyNames.PreferLargeMedia)]
     public bool? PreferLargeMedia { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the link preview must be shown above the message text; otherwise, the link preview will be shown below the message text
+    /// Optional. <em>True</em>, if the link preview must be shown above the message text; otherwise, the link preview will be shown below the message text
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowAboveText)]
     public bool? ShowAboveText { get; set; }

@@ -16,8 +16,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatStickerSet(this ITelegramBotClient client)
-        => client.SetChatStickerSetAsync().GetAwaiter().GetResult();
+    public static bool SetChatStickerSet(this ITelegramBotClient client) =>
+        client.SetChatStickerSetAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field <em>can_set_sticker_set</em> optionally returned in <a href="https://core.telegram.org/bots/api#getchat">getChat</a> requests to check if the bot can use this method. Returns <em>True</em> on success.

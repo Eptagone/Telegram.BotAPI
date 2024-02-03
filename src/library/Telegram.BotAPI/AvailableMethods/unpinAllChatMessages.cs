@@ -16,8 +16,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool UnpinAllChatMessages(this ITelegramBotClient client)
-        => client.UnpinAllChatMessagesAsync().GetAwaiter().GetResult();
+    public static bool UnpinAllChatMessages(this ITelegramBotClient client) =>
+        client.UnpinAllChatMessagesAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to clear the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can_pin_messages' administrator right in a supergroup or 'can_edit_messages' administrator right in a channel. Returns <em>True</em> on success.

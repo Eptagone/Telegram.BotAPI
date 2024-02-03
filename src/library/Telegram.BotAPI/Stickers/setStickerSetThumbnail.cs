@@ -19,8 +19,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerSetThumbnail(this ITelegramBotClient client, SetStickerSetThumbnailArgs args)
-        => client.SetStickerSetThumbnailAsync(args).GetAwaiter().GetResult();
+    public static bool SetStickerSetThumbnail(this ITelegramBotClient client, SetStickerSetThumbnailArgs args) =>
+        client.SetStickerSetThumbnailAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the thumbnail of a regular or mask sticker set. The format of the thumbnail file must match the format of the stickers in the set. Returns <em>True</em> on success.
@@ -51,8 +51,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerSetThumbnail(this ITelegramBotClient client, string name, long userId, InputFile? thumbnail = null)
-        => client.SetStickerSetThumbnailAsync(name, userId, thumbnail).GetAwaiter().GetResult();
+    public static bool SetStickerSetThumbnail(this ITelegramBotClient client, string name, long userId, InputFile? thumbnail = null) =>
+        client.SetStickerSetThumbnailAsync(name, userId, thumbnail).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the thumbnail of a regular or mask sticker set. The format of the thumbnail file must match the format of the stickers in the set. Returns <em>True</em> on success.

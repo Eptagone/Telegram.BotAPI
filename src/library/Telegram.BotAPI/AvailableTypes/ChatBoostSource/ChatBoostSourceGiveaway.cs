@@ -22,13 +22,13 @@ public class ChatBoostSourceGiveaway : ChatBoostSource
     public int GiveawayMessageId { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. User that won the prize in the giveaway if any
+    /// Optional. User that won the prize in the giveaway if any
     /// </summary>
     [JsonPropertyName(PropertyNames.User)]
     public User? User { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. True, if the giveaway was completed, but there was no user to win the prize
+    /// Optional. True, if the giveaway was completed, but there was no user to win the prize
     /// </summary>
     [JsonPropertyName(PropertyNames.IsUnclaimed)]
     public bool? IsUnclaimed { get; set; }

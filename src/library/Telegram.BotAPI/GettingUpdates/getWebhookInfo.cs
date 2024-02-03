@@ -2,8 +2,6 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-using Telegram.BotAPI.AvailableTypes;
-
 namespace Telegram.BotAPI.GettingUpdates;
 
 /// <summary>
@@ -18,8 +16,8 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static WebhookInfo GetWebhookInfo(this ITelegramBotClient client)
-        => client.GetWebhookInfoAsync().GetAwaiter().GetResult();
+    public static WebhookInfo GetWebhookInfo(this ITelegramBotClient client) =>
+        client.GetWebhookInfoAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get current webhook status. Requires no parameters. On success, returns a <see cref="WebhookInfo"/> object. If the bot is using <a href="https://core.telegram.org/bots/api#getupdates">getUpdates</a>, will return an object with the <em>url</em> field empty.

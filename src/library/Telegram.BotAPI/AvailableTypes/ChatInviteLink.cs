@@ -40,25 +40,25 @@ public class ChatInviteLink
     public bool IsRevoked { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Invite link name
+    /// Optional. Invite link name
     /// </summary>
     [JsonPropertyName(PropertyNames.Name)]
     public string? Name { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Point in time (Unix timestamp) when the link will expire or has been expired
+    /// Optional. Point in time (Unix timestamp) when the link will expire or has been expired
     /// </summary>
     [JsonPropertyName(PropertyNames.ExpireDate)]
     public int? ExpireDate { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
+    /// Optional. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
     /// </summary>
     [JsonPropertyName(PropertyNames.MemberLimit)]
     public int? MemberLimit { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Number of pending join requests created using this link
+    /// Optional. Number of pending join requests created using this link
     /// </summary>
     [JsonPropertyName(PropertyNames.PendingJoinRequestCount)]
     public int? PendingJoinRequestCount { get; set; }

@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object represents a file ready to be downloaded. The file can be downloaded via the link <code>https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;</code>. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling <a href="https://core.telegram.org/bots/api#getfile">getFile</a>.
+/// This object represents a file ready to be downloaded. The file can be downloaded via the link <em>https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;</em>. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling <a href="https://core.telegram.org/bots/api#getfile">getFile</a>.
 /// </summary>
 public class File
 {
@@ -22,13 +22,13 @@ public class File
     public string FileUniqueId { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+    /// Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
     /// </summary>
     [JsonPropertyName(PropertyNames.FileSize)]
     public int? FileSize { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. File path. Use <code>https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;</code> to get the file.
+    /// Optional. File path. Use <em>https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;</em> to get the file.
     /// </summary>
     [JsonPropertyName(PropertyNames.FilePath)]
     public string? FilePath { get; set; }

@@ -28,49 +28,49 @@ public class User
     public string FirstName { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. User's or bot's last name
+    /// Optional. User's or bot's last name
     /// </summary>
     [JsonPropertyName(PropertyNames.LastName)]
     public string? LastName { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. User's or bot's username
+    /// Optional. User's or bot's username
     /// </summary>
     [JsonPropertyName(PropertyNames.Username)]
     public string? Username { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a> of the user's language
+    /// Optional. <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a> of the user's language
     /// </summary>
     [JsonPropertyName(PropertyNames.LanguageCode)]
     public string? LanguageCode { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if this user is a Telegram Premium user
+    /// Optional. <em>True</em>, if this user is a Telegram Premium user
     /// </summary>
     [JsonPropertyName(PropertyNames.IsPremium)]
     public bool? IsPremium { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if this user added the bot to the attachment menu
+    /// Optional. <em>True</em>, if this user added the bot to the attachment menu
     /// </summary>
     [JsonPropertyName(PropertyNames.AddedToAttachmentMenu)]
     public bool? AddedToAttachmentMenu { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the bot can be invited to groups. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
+    /// Optional. <em>True</em>, if the bot can be invited to groups. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanJoinGroups)]
     public bool? CanJoinGroups { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if <a href="https://core.telegram.org/bots/features#privacy-mode">privacy mode</a> is disabled for the bot. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
+    /// Optional. <em>True</em>, if <a href="https://core.telegram.org/bots/features#privacy-mode">privacy mode</a> is disabled for the bot. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanReadAllGroupMessages)]
     public bool? CanReadAllGroupMessages { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <em>True</em>, if the bot supports inline queries. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
+    /// Optional. <em>True</em>, if the bot supports inline queries. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.SupportsInlineQueries)]
     public bool? SupportsInlineQueries { get; set; }

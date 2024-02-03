@@ -13,7 +13,7 @@ public class CreateNewStickerSetArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="CreateNewStickerSetArgs"/> class.
     /// </summary>
     /// <param name="userId">User identifier of created sticker set owner</param>
-    /// <param name="name">Short name of sticker set, to be used in <code>t.me/addstickers/</code> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <code>"_by_&lt;bot_username&gt;"</code>. <code>&lt;bot_username&gt;</code> is case insensitive. 1-64 characters.</param>
+    /// <param name="name">Short name of sticker set, to be used in <em>t.me/addstickers/</em> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <em>"_by_&lt;bot_username&gt;"</em>. <em>&lt;bot_username&gt;</em> is case insensitive. 1-64 characters.</param>
     /// <param name="title">Sticker set title, 1-64 characters</param>
     /// <param name="stickers">A JSON-serialized list of 1-50 initial stickers to be added to the sticker set</param>
     /// <param name="stickerFormat">Format of stickers in the set, must be one of “static”, “animated”, “video”</param>
@@ -33,7 +33,7 @@ public class CreateNewStickerSetArgs : AttachedFilesArgsBase
     public long UserId { get; set; }
 
     /// <summary>
-    /// Short name of sticker set, to be used in <code>t.me/addstickers/</code> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <code>"_by_&lt;bot_username&gt;"</code>. <code>&lt;bot_username&gt;</code> is case insensitive. 1-64 characters.
+    /// Short name of sticker set, to be used in <em>t.me/addstickers/</em> URLs (e.g., <em>animals</em>). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in <em>"_by_&lt;bot_username&gt;"</em>. <em>&lt;bot_username&gt;</em> is case insensitive. 1-64 characters.
     /// </summary>
     [JsonPropertyName(PropertyNames.Name)]
     public string Name { get; set; }

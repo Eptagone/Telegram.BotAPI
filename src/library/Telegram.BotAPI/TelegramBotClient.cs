@@ -33,9 +33,8 @@ public partial class TelegramBotClient : ITelegramBotClient
 	/// </summary>
 	/// <param name="botToken">Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</param>
 	/// <param name="httpClient">Optional. Provide a specific HttpClient for this instance of BotClient.</param>
-	public TelegramBotClient(string botToken, HttpClient? httpClient = null) : this(new TelegramBotClientOptions(botToken), httpClient)
-	{
-	}
+	public TelegramBotClient(string botToken, HttpClient? httpClient = null)
+		: this(new TelegramBotClientOptions(botToken), httpClient) { }
 
 	/// <summary>
 	/// Initialize a new instance of the <see cref="TelegramBotClient"/> class.
@@ -45,9 +44,7 @@ public partial class TelegramBotClient : ITelegramBotClient
 	public TelegramBotClient(TelegramBotClientOptions options, HttpClient? httpClient = null)
 	{
 		this.options = options;
-		this.httpClient = httpClient ?? new HttpClient()
-		{
-			BaseAddress = new Uri(options.ServerAddress)
-		};
+		this.httpClient =
+			httpClient ?? new HttpClient() { BaseAddress = new Uri(options.ServerAddress) };
 	}
 }

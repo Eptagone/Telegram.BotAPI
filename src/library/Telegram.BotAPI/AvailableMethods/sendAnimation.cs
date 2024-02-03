@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendAnimation(this ITelegramBotClient client, SendAnimationArgs args)
-        => client.SendAnimationAsync(args).GetAwaiter().GetResult();
+    public static Message SendAnimation(this ITelegramBotClient client, SendAnimationArgs args) =>
+        client.SendAnimationAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
@@ -45,7 +45,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="duration">Duration of sent animation in seconds</param>
@@ -63,14 +63,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendAnimation(this ITelegramBotClient client, long chatId, InputFile animation, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null)
-        => client.SendAnimationAsync(chatId, animation, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendAnimation(this ITelegramBotClient client, long chatId, InputFile animation, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendAnimationAsync(chatId, animation, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="duration">Duration of sent animation in seconds</param>
@@ -161,7 +161,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="duration">Duration of sent animation in seconds</param>
@@ -180,14 +180,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendAnimation(this ITelegramBotClient client, long chatId, string animation, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null)
-        => client.SendAnimationAsync(chatId, animation, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, disableNotification, protectContent, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendAnimation(this ITelegramBotClient client, long chatId, string animation, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendAnimationAsync(chatId, animation, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, disableNotification, protectContent, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="duration">Duration of sent animation in seconds</param>
@@ -286,7 +286,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="duration">Duration of sent animation in seconds</param>
@@ -304,14 +304,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendAnimation(this ITelegramBotClient client, string chatId, InputFile animation, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null)
-        => client.SendAnimationAsync(chatId, animation, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendAnimation(this ITelegramBotClient client, string chatId, InputFile animation, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendAnimationAsync(chatId, animation, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="duration">Duration of sent animation in seconds</param>
@@ -402,7 +402,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="duration">Duration of sent animation in seconds</param>
@@ -421,14 +421,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendAnimation(this ITelegramBotClient client, string chatId, string animation, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null)
-        => client.SendAnimationAsync(chatId, animation, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, disableNotification, protectContent, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendAnimation(this ITelegramBotClient client, string chatId, string animation, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendAnimationAsync(chatId, animation, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, disableNotification, protectContent, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="duration">Duration of sent animation in seconds</param>

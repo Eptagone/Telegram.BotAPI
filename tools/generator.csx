@@ -111,12 +111,13 @@ static void GenerateClasses(IEnumerable<ClassDefinition> classes, string outputP
                 // TODO: Generate a proper returns tag
                 builder.AppendLine($"\t/// <returns></returns>");
                 var returnTemplate = method.ReturnType == "TResult" ? "<TResult>" : string.Empty;
-                builder.AppendLine(
+                builder.Append(
                     $"\tpublic static {returnType} {classMethodName}{returnTemplate}(this ITelegramBotClient client{string.Join(string.Empty, method.Parameters.Select(p => $", {p.WriteParam()}"))}{(isAsync ? ", CancellationToken cancellationToken = default" : string.Empty)})"
                 );
 
                 if (isAsync)
                 {
+                    builder.AppendLine();
                     builder.AppendLine("\t{");
                     builder.AppendLine($"\t\tif (client is null)");
                     builder.AppendLine($"\t\t{{");
@@ -201,8 +202,9 @@ static void GenerateClasses(IEnumerable<ClassDefinition> classes, string outputP
                 }
                 else
                 {
+                    builder.AppendLine(" =>");
                     builder.AppendLine(
-                        $"\t\t=> client.{classMethodName}Async{returnTemplate}({string.Join(", ", method.Parameters.Select(p => p.Name))}).GetAwaiter().GetResult();"
+                        $"\t\tclient.{classMethodName}Async{returnTemplate}({string.Join(", ", method.Parameters.Select(p => p.Name))}).GetAwaiter().GetResult();"
                     );
                 }
 
@@ -277,13 +279,17 @@ static void GenerateClasses(IEnumerable<ClassDefinition> classes, string outputP
         // Render constants
         if (@class.ClassType == ClassModelType.Constants)
         {
-            builder.AppendLine("#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member");
+            builder.AppendLine(
+                "#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member"
+            );
             // Render constants
             foreach (var item in @class.Properties)
             {
                 builder.AppendLine($"\tpublic const string {item.Name} = \"{item.Value}\";");
             }
-            builder.AppendLine("#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member");
+            builder.AppendLine(
+                "#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member"
+            );
         }
         // or properties
         else
@@ -335,7 +341,10 @@ static void GenerateClasses(IEnumerable<ClassDefinition> classes, string outputP
                     {
                         builder.Append(@" { get; set; }");
                         if (
-                            (@class.ClassType == ClassModelType.Model || @class.ClassType == ClassModelType.BaseModel)
+                            (
+                                @class.ClassType == ClassModelType.Model
+                                || @class.ClassType == ClassModelType.BaseModel
+                            )
                             && prop.IsRequired
                             && CanBeNull(typeName)
                         )
@@ -444,5 +453,5 @@ static string WriteValue(string value)
 /// </summary>
 static bool CanBeNull(string typeName)
 {
-    return typeName == "string" || typeName == "object"  || char.IsUpper(typeName[0]);
+    return typeName == "string" || typeName == "object" || char.IsUpper(typeName[0]);
 }

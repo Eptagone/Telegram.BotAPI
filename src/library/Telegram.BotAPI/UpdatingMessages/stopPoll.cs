@@ -19,8 +19,8 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Poll StopPoll(this ITelegramBotClient client, StopPollArgs args)
-        => client.StopPollAsync(args).GetAwaiter().GetResult();
+    public static Poll StopPoll(this ITelegramBotClient client, StopPollArgs args) =>
+        client.StopPollAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
@@ -45,20 +45,20 @@ public static partial class UpdatingMessagesExtensions
     /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the original message with the poll</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Poll StopPoll(this ITelegramBotClient client, long chatId, int messageId, ReplyMarkup? replyMarkup = null)
-        => client.StopPollAsync(chatId, messageId, replyMarkup).GetAwaiter().GetResult();
+    public static Poll StopPoll(this ITelegramBotClient client, long chatId, int messageId, ReplyMarkup? replyMarkup = null) =>
+        client.StopPollAsync(chatId, messageId, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the original message with the poll</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
@@ -89,20 +89,20 @@ public static partial class UpdatingMessagesExtensions
     /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the original message with the poll</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Poll StopPoll(this ITelegramBotClient client, string chatId, int messageId, ReplyMarkup? replyMarkup = null)
-        => client.StopPollAsync(chatId, messageId, replyMarkup).GetAwaiter().GetResult();
+    public static Poll StopPoll(this ITelegramBotClient client, string chatId, int messageId, ReplyMarkup? replyMarkup = null) =>
+        client.StopPollAsync(chatId, messageId, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to stop a poll which was sent by the bot. On success, the stopped <see cref="Poll"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Identifier of the original message with the poll</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>

@@ -28,25 +28,25 @@ public class Venue
     public string Address { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Foursquare identifier of the venue
+    /// Optional. Foursquare identifier of the venue
     /// </summary>
     [JsonPropertyName(PropertyNames.FoursquareId)]
     public string? FoursquareId { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Foursquare type of the venue. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
+    /// Optional. Foursquare type of the venue. (For example, “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
     /// </summary>
     [JsonPropertyName(PropertyNames.FoursquareType)]
     public string? FoursquareType { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Google Places identifier of the venue
+    /// Optional. Google Places identifier of the venue
     /// </summary>
     [JsonPropertyName(PropertyNames.GooglePlaceId)]
     public string? GooglePlaceId { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)
+    /// Optional. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)
     /// </summary>
     [JsonPropertyName(PropertyNames.GooglePlaceType)]
     public string? GooglePlaceType { get; set; }

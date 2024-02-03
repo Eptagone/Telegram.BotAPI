@@ -19,8 +19,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AddStickerToSet(this ITelegramBotClient client, AddStickerToSetArgs args)
-        => client.AddStickerToSetAsync(args).GetAwaiter().GetResult();
+    public static bool AddStickerToSet(this ITelegramBotClient client, AddStickerToSetArgs args) =>
+        client.AddStickerToSetAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to add a new sticker to a set created by the bot. The format of the added sticker must match the format of the other stickers in the set. Emoji sticker sets can have up to 200 stickers. Animated and video sticker sets can have up to 50 stickers. Static sticker sets can have up to 120 stickers. Returns <em>True</em> on success.
@@ -48,8 +48,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AddStickerToSet(this ITelegramBotClient client)
-        => client.AddStickerToSetAsync().GetAwaiter().GetResult();
+    public static bool AddStickerToSet(this ITelegramBotClient client) =>
+        client.AddStickerToSetAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to add a new sticker to a set created by the bot. The format of the added sticker must match the format of the other stickers in the set. Emoji sticker sets can have up to 200 stickers. Animated and video sticker sets can have up to 50 stickers. Static sticker sets can have up to 120 stickers. Returns <em>True</em> on success.

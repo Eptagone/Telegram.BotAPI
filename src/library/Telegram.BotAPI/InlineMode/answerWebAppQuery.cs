@@ -17,8 +17,8 @@ public static partial class InlineModeExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static SentWebAppMessage AnswerWebAppQuery(this ITelegramBotClient client, AnswerWebAppQueryArgs args)
-        => client.AnswerWebAppQueryAsync(args).GetAwaiter().GetResult();
+    public static SentWebAppMessage AnswerWebAppQuery(this ITelegramBotClient client, AnswerWebAppQueryArgs args) =>
+        client.AnswerWebAppQueryAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the result of an interaction with a <a href="https://core.telegram.org/bots/webapps">Web App</a> and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a <see cref="SentWebAppMessage"/> object is returned.
@@ -46,8 +46,8 @@ public static partial class InlineModeExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static SentWebAppMessage AnswerWebAppQuery(this ITelegramBotClient client)
-        => client.AnswerWebAppQueryAsync().GetAwaiter().GetResult();
+    public static SentWebAppMessage AnswerWebAppQuery(this ITelegramBotClient client) =>
+        client.AnswerWebAppQueryAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the result of an interaction with a <a href="https://core.telegram.org/bots/webapps">Web App</a> and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a <see cref="SentWebAppMessage"/> object is returned.

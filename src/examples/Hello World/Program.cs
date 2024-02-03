@@ -9,36 +9,36 @@ using Telegram.BotAPI.GettingUpdates;
 
 namespace HelloWorld
 {
-	class Program
-	{
-		static void Main()
-		{
-			Console.WriteLine("Start!");
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Start!");
 
-			var bot = new TelegramBotClient("<your bot token>");
+            var bot = new TelegramBotClient("<your bot token>");
 
-			// Long POlling
-			var updates = bot.GetUpdates();
-			while (true)
-			{
-				if (updates.Length > 0)
-				{
-					foreach (var update in updates)
-					{
-						if (update.Message != null)
-						{
-							var message = update.Message;
-							//bot.SendChatAction(message.Chat.Id, ChatAction.Typing);
-							bot.SendMessage(message.Chat.Id, "Hello World!");
-						}
-					}
-					updates = bot.GetUpdates(offset: updates.Max(u => u.UpdateId) + 1);
-				}
-				else
-				{
-					updates = bot.GetUpdates();
-				}
-			}
-		}
-	}
+            // Long POlling
+            var updates = bot.GetUpdates();
+            while (true)
+            {
+                if (updates.Any())
+                {
+                    foreach (var update in updates)
+                    {
+                        if (update.Message != null)
+                        {
+                            var message = update.Message;
+                            //bot.SendChatAction(message.Chat.Id, ChatAction.Typing);
+                            bot.SendMessage(message.Chat.Id, "Hello World!");
+                        }
+                    }
+                    updates = bot.GetUpdates(offset: updates.Max(u => u.UpdateId) + 1);
+                }
+                else
+                {
+                    updates = bot.GetUpdates();
+                }
+            }
+        }
+    }
 }

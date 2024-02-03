@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatPhoto(this ITelegramBotClient client, SetChatPhotoArgs args)
-        => client.SetChatPhotoAsync(args).GetAwaiter().GetResult();
+    public static bool SetChatPhoto(this ITelegramBotClient client, SetChatPhotoArgs args) =>
+        client.SetChatPhotoAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
@@ -48,8 +48,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatPhoto(this ITelegramBotClient client)
-        => client.SetChatPhotoAsync().GetAwaiter().GetResult();
+    public static bool SetChatPhoto(this ITelegramBotClient client) =>
+        client.SetChatPhotoAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.

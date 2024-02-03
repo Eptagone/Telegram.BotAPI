@@ -30,19 +30,19 @@ public class InlineQueryResultMpeg4Gif : InlineQueryResult
     public string Mpeg4Url { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Video width
+    /// Optional. Video width
     /// </summary>
     [JsonPropertyName(PropertyNames.Mpeg4Width)]
     public int? Mpeg4Width { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Video height
+    /// Optional. Video height
     /// </summary>
     [JsonPropertyName(PropertyNames.Mpeg4Height)]
     public int? Mpeg4Height { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Video duration in seconds
+    /// Optional. Video duration in seconds
     /// </summary>
     [JsonPropertyName(PropertyNames.Mpeg4Duration)]
     public int? Mpeg4Duration { get; set; }
@@ -54,43 +54,43 @@ public class InlineQueryResultMpeg4Gif : InlineQueryResult
     public string ThumbnailUrl { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. MIME type of the thumbnail, must be one of “image/jpeg”, “image/gif”, or “video/mp4”. Defaults to “image/jpeg”
+    /// Optional. MIME type of the thumbnail, must be one of “image/jpeg”, “image/gif”, or “video/mp4”. Defaults to “image/jpeg”
     /// </summary>
     [JsonPropertyName(PropertyNames.ThumbnailMimeType)]
     public string? ThumbnailMimeType { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Title for the result
+    /// Optional. Title for the result
     /// </summary>
     [JsonPropertyName(PropertyNames.Title)]
     public string? Title { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing
+    /// Optional. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]
     public string? Caption { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Mode for parsing entities in the caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// Optional. Mode for parsing entities in the caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
     /// </summary>
     [JsonPropertyName(PropertyNames.ParseMode)]
     public string? ParseMode { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. List of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em>
+    /// Optional. List of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.CaptionEntities)]
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
+    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Content of the message to be sent instead of the video animation
+    /// Optional. Content of the message to be sent instead of the video animation
     /// </summary>
     [JsonPropertyName(PropertyNames.InputMessageContent)]
     public InputMessageContent? InputMessageContent { get; set; }

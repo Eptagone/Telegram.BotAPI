@@ -30,19 +30,19 @@ public class Game
     public IEnumerable<PhotoSize> Photo { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls <a href="https://core.telegram.org/bots/api#setgamescore">setGameScore</a>, or manually edited using <a href="https://core.telegram.org/bots/api#editmessagetext">editMessageText</a>. 0-4096 characters.
+    /// Optional. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls <a href="https://core.telegram.org/bots/api#setgamescore">setGameScore</a>, or manually edited using <a href="https://core.telegram.org/bots/api#editmessagetext">editMessageText</a>. 0-4096 characters.
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
     public string? Text { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Special entities that appear in <em>text</em>, such as usernames, URLs, bot commands, etc.
+    /// Optional. Special entities that appear in <em>text</em>, such as usernames, URLs, bot commands, etc.
     /// </summary>
     [JsonPropertyName(PropertyNames.TextEntities)]
     public IEnumerable<MessageEntity>? TextEntities { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Animation that will be displayed in the game message in chats. Upload via <a href="https://t.me/botfather">BotFather</a>
+    /// Optional. Animation that will be displayed in the game message in chats. Upload via <a href="https://t.me/botfather">BotFather</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Animation)]
     public Animation? Animation { get; set; }

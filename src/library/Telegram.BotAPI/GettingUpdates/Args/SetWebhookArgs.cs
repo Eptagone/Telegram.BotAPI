@@ -45,7 +45,7 @@ public class SetWebhookArgs : AttachedFilesArgsBase
     public int? MaxConnections { get; set; }
 
     /// <summary>
-    /// A JSON-serialized list of the update types you want your bot to receive. For example, specify <code>["message", "edited_channel_post", "callback_query"]</code> to only receive updates of these types. See <see cref="Update"/> for a complete list of available update types. Specify an empty list to receive all update types except <em>chat_member</em>, <em>message_reaction</em>, and <em>message_reaction_count</em> (default). If not specified, the previous setting will be used.<br />Please note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.
+    /// A JSON-serialized list of the update types you want your bot to receive. For example, specify <em>["message", "edited_channel_post", "callback_query"]</em> to only receive updates of these types. See <see cref="Update"/> for a complete list of available update types. Specify an empty list to receive all update types except <em>chat_member</em>, <em>message_reaction</em>, and <em>message_reaction_count</em> (default). If not specified, the previous setting will be used.<br />Please note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowedUpdates)]
     public IEnumerable<string>? AllowedUpdates { get; set; }
@@ -57,7 +57,7 @@ public class SetWebhookArgs : AttachedFilesArgsBase
     public bool? DropPendingUpdates { get; set; }
 
     /// <summary>
-    /// A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>_</code> and <code>-</code> are allowed. The header is useful to ensure that the request comes from a webhook set by you.
+    /// A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters <em>A-Z</em>, <em>a-z</em>, <em>0-9</em>, <em>_</em> and <em>-</em> are allowed. The header is useful to ensure that the request comes from a webhook set by you.
     /// </summary>
     [JsonPropertyName(PropertyNames.SecretToken)]
     public string? SecretToken { get; set; }

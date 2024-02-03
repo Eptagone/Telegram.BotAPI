@@ -18,8 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMyDescription(this ITelegramBotClient client, string? description = null, string? languageCode = null)
-        => client.SetMyDescriptionAsync(description, languageCode).GetAwaiter().GetResult();
+    public static bool SetMyDescription(this ITelegramBotClient client, string? description = null, string? languageCode = null) =>
+        client.SetMyDescriptionAsync(description, languageCode).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the bot's description, which is shown in the chat with the bot if the chat is empty. Returns <em>True</em> on success.

@@ -36,37 +36,37 @@ public class InlineQueryResultCachedVideo : InlineQueryResult
     public string Title { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Short description of the result
+    /// Optional. Short description of the result
     /// </summary>
     [JsonPropertyName(PropertyNames.Description)]
     public string? Description { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Caption of the video to be sent, 0-1024 characters after entities parsing
+    /// Optional. Caption of the video to be sent, 0-1024 characters after entities parsing
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]
     public string? Caption { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// Optional. Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
     /// </summary>
     [JsonPropertyName(PropertyNames.ParseMode)]
     public string? ParseMode { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. List of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em>
+    /// Optional. List of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.CaptionEntities)]
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
+    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Content of the message to be sent instead of the video
+    /// Optional. Content of the message to be sent instead of the video
     /// </summary>
     [JsonPropertyName(PropertyNames.InputMessageContent)]
     public InputMessageContent? InputMessageContent { get; set; }

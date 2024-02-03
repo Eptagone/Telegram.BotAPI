@@ -14,7 +14,7 @@ public class SendPollArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendPollArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of answer options, 2-10 strings 1-100 characters each</param>
     public SendPollArgs(long chatId, string question, IEnumerable<string> options)
@@ -27,7 +27,7 @@ public class SendPollArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendPollArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of answer options, 2-10 strings 1-100 characters each</param>
     public SendPollArgs(string chatId, string question, IEnumerable<string> options)
@@ -38,7 +38,7 @@ public class SendPollArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

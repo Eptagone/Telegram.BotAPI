@@ -40,13 +40,13 @@ public class ChatMemberUpdated
     public ChatMember NewChatMember { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.
+    /// Optional. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.
     /// </summary>
     [JsonPropertyName(PropertyNames.InviteLink)]
     public ChatInviteLink? InviteLink { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. True, if the user joined the chat via a chat folder invite link
+    /// Optional. True, if the user joined the chat via a chat folder invite link
     /// </summary>
     [JsonPropertyName(PropertyNames.ViaChatFolderInviteLink)]
     public bool? ViaChatFolderInviteLink { get; set; }

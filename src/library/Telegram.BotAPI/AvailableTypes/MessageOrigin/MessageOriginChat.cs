@@ -22,7 +22,7 @@ public class MessageOriginChat : MessageOrigin
     public Chat SenderChat { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. For messages originally sent by an anonymous chat administrator, original message author signature
+    /// Optional. For messages originally sent by an anonymous chat administrator, original message author signature
     /// </summary>
     [JsonPropertyName(PropertyNames.AuthorSignature)]
     public string? AuthorSignature { get; set; }

@@ -22,7 +22,7 @@ public class ChatMemberOwner : ChatMember
     public bool IsAnonymous { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Custom title for this user
+    /// Optional. Custom title for this user
     /// </summary>
     [JsonPropertyName(PropertyNames.CustomTitle)]
     public string? CustomTitle { get; set; }

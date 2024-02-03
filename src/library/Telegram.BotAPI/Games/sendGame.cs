@@ -19,8 +19,8 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendGame(this ITelegramBotClient client, SendGameArgs args)
-        => client.SendGameAsync(args).GetAwaiter().GetResult();
+    public static Message SendGame(this ITelegramBotClient client, SendGameArgs args) =>
+        client.SendGameAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a game. On success, the sent <see cref="Message"/> is returned.
@@ -55,8 +55,8 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendGame(this ITelegramBotClient client, long chatId, string gameShortName, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null)
-        => client.SendGameAsync(chatId, gameShortName, messageThreadId, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendGame(this ITelegramBotClient client, long chatId, string gameShortName, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendGameAsync(chatId, gameShortName, messageThreadId, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a game. On success, the sent <see cref="Message"/> is returned.

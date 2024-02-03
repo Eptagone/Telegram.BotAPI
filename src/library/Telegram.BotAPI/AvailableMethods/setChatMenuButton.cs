@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatMenuButton(this ITelegramBotClient client, SetChatMenuButtonArgs args)
-        => client.SetChatMenuButtonAsync(args).GetAwaiter().GetResult();
+    public static bool SetChatMenuButton(this ITelegramBotClient client, SetChatMenuButtonArgs args) =>
+        client.SetChatMenuButtonAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the bot's menu button in a private chat, or the default menu button. Returns <em>True</em> on success.
@@ -50,8 +50,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatMenuButton(this ITelegramBotClient client, long? chatId = null, MenuButton? menuButton = null)
-        => client.SetChatMenuButtonAsync(chatId, menuButton).GetAwaiter().GetResult();
+    public static bool SetChatMenuButton(this ITelegramBotClient client, long? chatId = null, MenuButton? menuButton = null) =>
+        client.SetChatMenuButtonAsync(chatId, menuButton).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the bot's menu button in a private chat, or the default menu button. Returns <em>True</em> on success.

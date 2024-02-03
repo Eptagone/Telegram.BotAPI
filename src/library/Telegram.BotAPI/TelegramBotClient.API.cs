@@ -3,25 +3,25 @@
 
 using System.Collections;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
-using System.Linq;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI;
 
 public partial class TelegramBotClient : ITelegramBotClient
 {
-	internal static readonly JsonSerializerOptions SerializerOptions = new()
-	{
-		DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-	};
+	internal static readonly JsonSerializerOptions SerializerOptions =
+		new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
 
-	private async Task<TResult?> CallApiMethodAndGetResultAsync<TResult>(string method, object? args = null, CancellationToken cancellationToken = default)
+	private async Task<TResult?> CallApiMethodAndGetResultAsync<TResult>(
+		string method,
+		object? args = null,
+		CancellationToken cancellationToken = default
+	)
 	{
 		BotResponse<TResult>? response = null;
 
@@ -30,10 +30,11 @@ public partial class TelegramBotClient : ITelegramBotClient
 			if (response is not null)
 			{
 				var retryAfter = response.Parameters?.RetryAfter ?? 1;
-				await Task.Delay((int)retryAfter * 1000, cancellationToken).ConfigureAwait(false);
+				await Task.Delay(retryAfter * 1000, cancellationToken).ConfigureAwait(false);
 			}
 
-			response = await this.CallApiMethodAsync<TResult>(method, args, cancellationToken).ConfigureAwait(false);
+			response = await this.CallApiMethodAsync<TResult>(method, args, cancellationToken)
+				.ConfigureAwait(false);
 		}
 		// Try again and again if the error code is 429 (Too Many Requests and AutoRetryOnRateLimit is true)
 		while (response.ErrorCode == 429 && this.options.AutoRetryOnRateLimit);
@@ -53,10 +54,18 @@ public partial class TelegramBotClient : ITelegramBotClient
 			throw new JsonException("Cannot deserialize the response error.");
 		}
 
-		throw new BotRequestException((int)response.ErrorCode, response.Description, response.Parameters);
+		throw new BotRequestException(
+			(int)response.ErrorCode,
+			response.Description,
+			response.Parameters
+		);
 	}
 
-	private async Task<BotResponse<TReturn>> CallApiMethodAsync<TReturn>(string method, object? args = null, CancellationToken cancellationToken = default)
+	private async Task<BotResponse<TReturn>> CallApiMethodAsync<TReturn>(
+		string method,
+		object? args = null,
+		CancellationToken cancellationToken = default
+	)
 	{
 		var requestUri = this.options.UseTestEnvironment
 			? $"bot{this.options.BotToken}/test/{method}"
@@ -97,7 +106,9 @@ public partial class TelegramBotClient : ITelegramBotClient
 		else
 		{
 			var stream = new MemoryStream();
-			await JsonSerializer.SerializeAsync(stream, args, args.GetType(), SerializerOptions, cancellationToken).ConfigureAwait(false);
+			await JsonSerializer
+				.SerializeAsync(stream, args, args.GetType(), SerializerOptions, cancellationToken)
+				.ConfigureAwait(false);
 			stream.Seek(0, SeekOrigin.Begin);
 			var content = new StreamContent(stream);
 			content.Headers.ContentType = new("application/json");
@@ -107,7 +118,9 @@ public partial class TelegramBotClient : ITelegramBotClient
 			};
 		}
 
-		var response = await this.httpClient.SendAsync(requestMessage, cancellationToken).ConfigureAwait(false);
+		var response = await this
+			.httpClient.SendAsync(requestMessage, cancellationToken)
+			.ConfigureAwait(false);
 
 		try
 		{
@@ -122,14 +135,22 @@ public partial class TelegramBotClient : ITelegramBotClient
 		}
 
 		var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-		var botResponse = await JsonSerializer.DeserializeAsync<BotResponse<TReturn>>(responseStream, SerializerOptions, cancellationToken).ConfigureAwait(false);
+		var botResponse = await JsonSerializer
+			.DeserializeAsync<BotResponse<TReturn>>(
+				responseStream,
+				SerializerOptions,
+				cancellationToken
+			)
+			.ConfigureAwait(false);
 
 		return botResponse ?? throw new JsonException("Cannot deserialize the response.");
 	}
 
 	private static MultipartFormDataContent CreateFormDataFromObject(object args)
 	{
-		var content = new MultipartFormDataContent(Guid.NewGuid().ToString() + DateTime.UtcNow.Ticks);
+		var content = new MultipartFormDataContent(
+			Guid.NewGuid().ToString() + DateTime.UtcNow.Ticks
+		);
 
 		// If the value is an enumerable, add each item to the content.
 		if (args is IDictionary<string, object> dictionary)

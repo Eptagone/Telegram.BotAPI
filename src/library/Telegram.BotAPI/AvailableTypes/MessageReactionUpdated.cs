@@ -22,13 +22,13 @@ public class MessageReactionUpdated
     public int MessageId { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. The user that changed the reaction, if the user isn't anonymous
+    /// Optional. The user that changed the reaction, if the user isn't anonymous
     /// </summary>
     [JsonPropertyName(PropertyNames.User)]
     public User? User { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. The chat on behalf of which the reaction was changed, if the user is anonymous
+    /// Optional. The chat on behalf of which the reaction was changed, if the user is anonymous
     /// </summary>
     [JsonPropertyName(PropertyNames.ActorChat)]
     public Chat? ActorChat { get; set; }

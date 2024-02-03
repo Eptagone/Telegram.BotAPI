@@ -17,8 +17,8 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeleteMessages(this ITelegramBotClient client, DeleteMessagesArgs args)
-        => client.DeleteMessagesAsync(args).GetAwaiter().GetResult();
+    public static bool DeleteMessages(this ITelegramBotClient client, DeleteMessagesArgs args) =>
+        client.DeleteMessagesAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns <em>True</em> on success.
@@ -46,8 +46,8 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeleteMessages(this ITelegramBotClient client)
-        => client.DeleteMessagesAsync().GetAwaiter().GetResult();
+    public static bool DeleteMessages(this ITelegramBotClient client) =>
+        client.DeleteMessagesAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns <em>True</em> on success.

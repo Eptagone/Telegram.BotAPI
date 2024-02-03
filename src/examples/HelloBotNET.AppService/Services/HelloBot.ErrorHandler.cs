@@ -12,13 +12,13 @@ namespace HelloBotNET.AppService.Services;
 /// </summary>
 public partial class HelloBot : SimpleTelegramBotBase
 {
-	protected override void OnBotException(BotRequestException exp)
-	{
-		this.logger.LogError("BotRequestException: {Message}", exp.Message);
-	}
+    protected override void OnBotException(BotRequestException exp)
+    {
+        this.logger.LogError("BotRequestException: {Message}", exp.Message);
+    }
 
-	protected override void OnException(Exception exp)
-	{
-		this.logger.LogError("Exception: {Message}", exp.Message);
-	}
+    protected override void OnException(Exception exp)
+    {
+        this.logger.LogError("Exception: {Message}", exp.Message);
+    }
 }

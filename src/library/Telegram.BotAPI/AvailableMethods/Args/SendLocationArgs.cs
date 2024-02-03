@@ -14,7 +14,7 @@ public class SendLocationArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendLocationArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="latitude">Latitude of the location</param>
     /// <param name="longitude">Longitude of the location</param>
     public SendLocationArgs(long chatId, float latitude, float longitude)
@@ -27,7 +27,7 @@ public class SendLocationArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendLocationArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="latitude">Latitude of the location</param>
     /// <param name="longitude">Longitude of the location</param>
     public SendLocationArgs(string chatId, float latitude, float longitude)
@@ -38,7 +38,7 @@ public class SendLocationArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

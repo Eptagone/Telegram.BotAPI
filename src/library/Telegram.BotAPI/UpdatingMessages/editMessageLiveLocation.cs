@@ -19,8 +19,8 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static TResult EditMessageLiveLocation<TResult>(this ITelegramBotClient client, EditMessageLiveLocationArgs args)
-        => client.EditMessageLiveLocationAsync<TResult>(args).GetAwaiter().GetResult();
+    public static TResult EditMessageLiveLocation<TResult>(this ITelegramBotClient client, EditMessageLiveLocationArgs args) =>
+        client.EditMessageLiveLocationAsync<TResult>(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit live location messages. A location can be edited until its <em>live_period</em> expires or editing is explicitly disabled by a call to <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
@@ -45,7 +45,7 @@ public static partial class UpdatingMessagesExtensions
     /// Use this method to edit live location messages. A location can be edited until its <em>live_period</em> expires or editing is explicitly disabled by a call to <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
@@ -56,14 +56,14 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message EditMessageLiveLocation(this ITelegramBotClient client, long chatId, int messageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null)
-        => client.EditMessageLiveLocationAsync(chatId, messageId, latitude, longitude, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
+    public static Message EditMessageLiveLocation(this ITelegramBotClient client, long chatId, int messageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null) =>
+        client.EditMessageLiveLocationAsync(chatId, messageId, latitude, longitude, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit live location messages. A location can be edited until its <em>live_period</em> expires or editing is explicitly disabled by a call to <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
@@ -113,7 +113,7 @@ public static partial class UpdatingMessagesExtensions
     /// Use this method to edit live location messages. A location can be edited until its <em>live_period</em> expires or editing is explicitly disabled by a call to <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
@@ -124,14 +124,14 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message EditMessageLiveLocation(this ITelegramBotClient client, string chatId, int messageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null)
-        => client.EditMessageLiveLocationAsync(chatId, messageId, latitude, longitude, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
+    public static Message EditMessageLiveLocation(this ITelegramBotClient client, string chatId, int messageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null) =>
+        client.EditMessageLiveLocationAsync(chatId, messageId, latitude, longitude, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit live location messages. A location can be edited until its <em>live_period</em> expires or editing is explicitly disabled by a call to <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
@@ -191,8 +191,8 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool EditMessageLiveLocation(this ITelegramBotClient client, string inlineMessageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null)
-        => client.EditMessageLiveLocationAsync(inlineMessageId, latitude, longitude, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
+    public static bool EditMessageLiveLocation(this ITelegramBotClient client, string inlineMessageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null) =>
+        client.EditMessageLiveLocationAsync(inlineMessageId, latitude, longitude, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit live location messages. A location can be edited until its <em>live_period</em> expires or editing is explicitly disabled by a call to <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.

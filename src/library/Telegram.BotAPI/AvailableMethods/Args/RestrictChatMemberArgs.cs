@@ -14,7 +14,7 @@ public class RestrictChatMemberArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="RestrictChatMemberArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     /// <param name="permissions">A JSON-serialized object for new user permissions</param>
     public RestrictChatMemberArgs(long chatId, long userId, ChatPermissions permissions)
@@ -27,7 +27,7 @@ public class RestrictChatMemberArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="RestrictChatMemberArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     /// <param name="permissions">A JSON-serialized object for new user permissions</param>
     public RestrictChatMemberArgs(string chatId, long userId, ChatPermissions permissions)
@@ -38,7 +38,7 @@ public class RestrictChatMemberArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target supergroup (in the format <code>@supergroupusername</code>)
+    /// Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

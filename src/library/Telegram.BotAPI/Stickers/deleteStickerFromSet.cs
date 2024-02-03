@@ -16,8 +16,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeleteStickerFromSet(this ITelegramBotClient client)
-        => client.DeleteStickerFromSetAsync().GetAwaiter().GetResult();
+    public static bool DeleteStickerFromSet(this ITelegramBotClient client) =>
+        client.DeleteStickerFromSetAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to delete a sticker from a set created by the bot. Returns <em>True</em> on success.

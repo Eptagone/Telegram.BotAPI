@@ -18,8 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMyShortDescription(this ITelegramBotClient client, string? shortDescription = null, string? languageCode = null)
-        => client.SetMyShortDescriptionAsync(shortDescription, languageCode).GetAwaiter().GetResult();
+    public static bool SetMyShortDescription(this ITelegramBotClient client, string? shortDescription = null, string? languageCode = null) =>
+        client.SetMyShortDescriptionAsync(shortDescription, languageCode).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the bot's short description, which is shown on the bot's profile page and is sent together with the link when users share the bot. Returns <em>True</em> on success.

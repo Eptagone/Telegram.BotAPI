@@ -16,13 +16,13 @@ public class PollAnswer
     public string PollId { get; set; } = null!;
 
     /// <summary>
-    /// <em>Optional</em>. The chat that changed the answer to the poll, if the voter is anonymous
+    /// Optional. The chat that changed the answer to the poll, if the voter is anonymous
     /// </summary>
     [JsonPropertyName(PropertyNames.VoterChat)]
     public Chat? VoterChat { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. The user that changed the answer to the poll, if the voter isn't anonymous
+    /// Optional. The user that changed the answer to the poll, if the voter isn't anonymous
     /// </summary>
     [JsonPropertyName(PropertyNames.User)]
     public User? User { get; set; }

@@ -20,8 +20,8 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<GameHighScore> GetGameHighScores(this ITelegramBotClient client, long userId, long? chatId = null, int? messageId = null, string? inlineMessageId = null)
-        => client.GetGameHighScoresAsync(userId, chatId, messageId, inlineMessageId).GetAwaiter().GetResult();
+    public static IEnumerable<GameHighScore> GetGameHighScores(this ITelegramBotClient client, long userId, long? chatId = null, int? messageId = null, string? inlineMessageId = null) =>
+        client.GetGameHighScoresAsync(userId, chatId, messageId, inlineMessageId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get data for high score tables. Will return the score of the specified user and several of their neighbors in a game. Returns an Array of <see cref="GameHighScore"/> objects.

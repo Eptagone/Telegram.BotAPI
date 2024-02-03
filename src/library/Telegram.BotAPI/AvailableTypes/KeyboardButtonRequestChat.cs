@@ -33,37 +33,37 @@ public class KeyboardButtonRequestChat
     public bool ChatIsChannel { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> to request a forum supergroup, pass <em>False</em> to request a non-forum chat. If not specified, no additional restrictions are applied.
+    /// Optional. Pass <em>True</em> to request a forum supergroup, pass <em>False</em> to request a non-forum chat. If not specified, no additional restrictions are applied.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatIsForum)]
     public bool? ChatIsForum { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> to request a supergroup or a channel with a username, pass <em>False</em> to request a chat without a username. If not specified, no additional restrictions are applied.
+    /// Optional. Pass <em>True</em> to request a supergroup or a channel with a username, pass <em>False</em> to request a chat without a username. If not specified, no additional restrictions are applied.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatHasUsername)]
     public bool? ChatHasUsername { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> to request a chat owned by the user. Otherwise, no additional restrictions are applied.
+    /// Optional. Pass <em>True</em> to request a chat owned by the user. Otherwise, no additional restrictions are applied.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatIsCreated)]
     public bool? ChatIsCreated { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. A JSON-serialized object listing the required administrator rights of the user in the chat. The rights must be a superset of <em>bot_administrator_rights</em>. If not specified, no additional restrictions are applied.
+    /// Optional. A JSON-serialized object listing the required administrator rights of the user in the chat. The rights must be a superset of <em>bot_administrator_rights</em>. If not specified, no additional restrictions are applied.
     /// </summary>
     [JsonPropertyName(PropertyNames.UserAdministratorRights)]
     public ChatAdministratorRights? UserAdministratorRights { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. A JSON-serialized object listing the required administrator rights of the bot in the chat. The rights must be a subset of <em>user_administrator_rights</em>. If not specified, no additional restrictions are applied.
+    /// Optional. A JSON-serialized object listing the required administrator rights of the bot in the chat. The rights must be a subset of <em>user_administrator_rights</em>. If not specified, no additional restrictions are applied.
     /// </summary>
     [JsonPropertyName(PropertyNames.BotAdministratorRights)]
     public ChatAdministratorRights? BotAdministratorRights { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Pass <em>True</em> to request a chat with the bot as a member. Otherwise, no additional restrictions are applied.
+    /// Optional. Pass <em>True</em> to request a chat with the bot as a member. Otherwise, no additional restrictions are applied.
     /// </summary>
     [JsonPropertyName(PropertyNames.BotIsMember)]
     public bool? BotIsMember { get; set; }

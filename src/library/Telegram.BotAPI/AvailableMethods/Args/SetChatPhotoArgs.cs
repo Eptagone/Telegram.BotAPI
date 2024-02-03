@@ -14,7 +14,7 @@ public class SetChatPhotoArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SetChatPhotoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="photo">New chat photo, uploaded using multipart/form-data</param>
     public SetChatPhotoArgs(long chatId, InputFile photo)
     {
@@ -25,7 +25,7 @@ public class SetChatPhotoArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SetChatPhotoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="photo">New chat photo, uploaded using multipart/form-data</param>
     public SetChatPhotoArgs(string chatId, InputFile photo)
     {
@@ -34,7 +34,7 @@ public class SetChatPhotoArgs : AttachedFilesArgsBase
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

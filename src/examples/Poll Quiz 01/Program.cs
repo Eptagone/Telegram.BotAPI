@@ -8,48 +8,49 @@ using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.GettingUpdates;
 
-namespace Poll_Quiz_01
+namespace Poll_Quiz_01;
+
+class Program
 {
-	class Program
-	{
-		static void Main()
-		{
-			Console.WriteLine("Start!");
+    static void Main()
+    {
+        Console.WriteLine("Start!");
 
-			var bot = new TelegramBotClient("<BOT TOKEN>");
-			bot.SetMyCommands(new BotCommand("quiz", "New quiz"));
+        var bot = new TelegramBotClient("<BOT TOKEN>");
+        bot.SetMyCommands([new BotCommand("quiz", "New quiz")]);
 
-			// Long Polling
-			var updates = bot.GetUpdates();
-			while (true)
-			{
-				if (updates.Length > 0)
-				{
-					foreach (var update in updates)
-					{
-						if (update.Message != null)
-						{
-							if (update.Message.Text.Contains("/quiz"))
-							{
-								bot.SendPoll(
-									new SendPollArgs(
-										update.Message.Chat.Id,
-										"¿5 + 5?",
-										new string[] { "56", "7", "10", "-4" })
-									{
-										Type = "quiz",
-										CorrectOptionId = 2
-									});
-							}
-						}
-					}
-					updates = bot.GetUpdates(offset: updates.Max(u => u.UpdateId) + 1);
-				}
-				else
-				{
-					updates = bot.GetUpdates();
-				}
-			}
-		}
-	}
+        // Long Polling
+        var updates = bot.GetUpdates();
+        while (true)
+        {
+            if (updates.Any())
+            {
+                foreach (var update in updates)
+                {
+                    if (update.Message != null)
+                    {
+                        if (update.Message.Text.Contains("/quiz"))
+                        {
+                            bot.SendPoll(
+                                new SendPollArgs(
+                                    update.Message.Chat.Id,
+                                    "¿5 + 5?",
+                                    ["56", "7", "10", "-4"]
+                                )
+                                {
+                                    Type = "quiz",
+                                    CorrectOptionId = 2
+                                }
+                            );
+                        }
+                    }
+                }
+                updates = bot.GetUpdates(offset: updates.Max(u => u.UpdateId) + 1);
+            }
+            else
+            {
+                updates = bot.GetUpdates();
+            }
+        }
+    }
 }

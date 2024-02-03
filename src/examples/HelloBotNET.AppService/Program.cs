@@ -3,17 +3,18 @@
 
 using HelloBotNET.AppService;
 using HelloBotNET.AppService.Services;
-using Telegram.BotAPI;
 
 IHost host = Host.CreateDefaultBuilder(args)
-	.ConfigureServices((context, services) =>
-	{
-		// Add bot service.
-		services.AddSingleton<HelloBot>();
+    .ConfigureServices(
+        (context, services) =>
+        {
+            // Add bot service.
+            services.AddSingleton<HelloBot>();
 
-		// Add long polling service
-		services.AddHostedService<Worker>();
-	})
-	.Build();
+            // Add long polling service
+            services.AddHostedService<Worker>();
+        }
+    )
+    .Build();
 
 await host.RunAsync();

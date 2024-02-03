@@ -14,7 +14,7 @@ public class SendDiceArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendDiceArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     public SendDiceArgs(long chatId)
     {
         this.ChatId = chatId;
@@ -23,14 +23,14 @@ public class SendDiceArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendDiceArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     public SendDiceArgs(string chatId)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

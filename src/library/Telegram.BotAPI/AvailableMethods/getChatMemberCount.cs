@@ -16,8 +16,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static int GetChatMemberCount(this ITelegramBotClient client)
-        => client.GetChatMemberCountAsync().GetAwaiter().GetResult();
+    public static int GetChatMemberCount(this ITelegramBotClient client) =>
+        client.GetChatMemberCountAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get the number of members in a chat. Returns <em>Int</em> on success.

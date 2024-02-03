@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static MenuButton GetChatMenuButton(this ITelegramBotClient client, long? chatId = null)
-        => client.GetChatMenuButtonAsync(chatId).GetAwaiter().GetResult();
+    public static MenuButton GetChatMenuButton(this ITelegramBotClient client, long? chatId = null) =>
+        client.GetChatMenuButtonAsync(chatId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get the current value of the bot's menu button in a private chat, or the default menu button. Returns <see cref="MenuButton"/> on success.

@@ -165,7 +165,12 @@ static async Task<BotApiDefinitions> ScrapBotApiDefinitions()
                     } while (element != null && element is not IHtmlHeadingElement);
 
                     // If there are at least one property, add the type name to the list
-                    if (typeProperties.Count > 0 || typeOrGroupDescription.Any(d => d.Contains("urrently holds no information")))
+                    if (
+                        typeProperties.Count > 0
+                        || typeOrGroupDescription.Any(d =>
+                            d.Contains("urrently holds no information")
+                        )
+                    )
                     {
                         types.Add(
                             new TelegramType(

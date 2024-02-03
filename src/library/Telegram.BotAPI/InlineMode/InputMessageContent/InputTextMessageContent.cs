@@ -27,19 +27,19 @@ public class InputTextMessageContent : InputMessageContent
     public string MessageText { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// Optional. Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
     /// </summary>
     [JsonPropertyName(PropertyNames.ParseMode)]
     public string? ParseMode { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. List of special entities that appear in message text, which can be specified instead of <em>parse_mode</em>
+    /// Optional. List of special entities that appear in message text, which can be specified instead of <em>parse_mode</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Entities)]
     public IEnumerable<MessageEntity>? Entities { get; set; }
 
     /// <summary>
-    /// <em>Optional</em>. Link preview generation options for the message
+    /// Optional. Link preview generation options for the message
     /// </summary>
     [JsonPropertyName(PropertyNames.LinkPreviewOptions)]
     public LinkPreviewOptions? LinkPreviewOptions { get; set; }

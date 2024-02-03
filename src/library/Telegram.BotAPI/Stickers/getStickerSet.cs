@@ -16,8 +16,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static StickerSet GetStickerSet(this ITelegramBotClient client)
-        => client.GetStickerSetAsync().GetAwaiter().GetResult();
+    public static StickerSet GetStickerSet(this ITelegramBotClient client) =>
+        client.GetStickerSetAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get a sticker set. On success, a <see cref="StickerSet"/> object is returned.

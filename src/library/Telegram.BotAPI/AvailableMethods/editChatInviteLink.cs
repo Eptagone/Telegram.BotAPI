@@ -19,8 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static ChatInviteLink EditChatInviteLink(this ITelegramBotClient client, EditChatInviteLinkArgs args)
-        => client.EditChatInviteLinkAsync(args).GetAwaiter().GetResult();
+    public static ChatInviteLink EditChatInviteLink(this ITelegramBotClient client, EditChatInviteLinkArgs args) =>
+        client.EditChatInviteLinkAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
@@ -45,7 +45,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="inviteLink">The invite link to edit</param>
     /// <param name="name">Invite link name; 0-32 characters</param>
     /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire</param>
@@ -54,14 +54,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static ChatInviteLink EditChatInviteLink(this ITelegramBotClient client, long chatId, string inviteLink, string? name = null, int? expireDate = null, int? memberLimit = null, bool? createsJoinRequest = null)
-        => client.EditChatInviteLinkAsync(chatId, inviteLink, name, expireDate, memberLimit, createsJoinRequest).GetAwaiter().GetResult();
+    public static ChatInviteLink EditChatInviteLink(this ITelegramBotClient client, long chatId, string inviteLink, string? name = null, int? expireDate = null, int? memberLimit = null, bool? createsJoinRequest = null) =>
+        client.EditChatInviteLinkAsync(chatId, inviteLink, name, expireDate, memberLimit, createsJoinRequest).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="inviteLink">The invite link to edit</param>
     /// <param name="name">Invite link name; 0-32 characters</param>
     /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire</param>
@@ -107,7 +107,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="inviteLink">The invite link to edit</param>
     /// <param name="name">Invite link name; 0-32 characters</param>
     /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire</param>
@@ -116,14 +116,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static ChatInviteLink EditChatInviteLink(this ITelegramBotClient client, string chatId, string inviteLink, string? name = null, int? expireDate = null, int? memberLimit = null, bool? createsJoinRequest = null)
-        => client.EditChatInviteLinkAsync(chatId, inviteLink, name, expireDate, memberLimit, createsJoinRequest).GetAwaiter().GetResult();
+    public static ChatInviteLink EditChatInviteLink(this ITelegramBotClient client, string chatId, string inviteLink, string? name = null, int? expireDate = null, int? memberLimit = null, bool? createsJoinRequest = null) =>
+        client.EditChatInviteLinkAsync(chatId, inviteLink, name, expireDate, memberLimit, createsJoinRequest).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="inviteLink">The invite link to edit</param>
     /// <param name="name">Invite link name; 0-32 characters</param>
     /// <param name="expireDate">Point in time (Unix timestamp) when the link will expire</param>

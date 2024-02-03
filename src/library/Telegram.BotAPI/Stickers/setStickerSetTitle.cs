@@ -16,8 +16,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerSetTitle(this ITelegramBotClient client)
-        => client.SetStickerSetTitleAsync().GetAwaiter().GetResult();
+    public static bool SetStickerSetTitle(this ITelegramBotClient client) =>
+        client.SetStickerSetTitleAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the title of a created sticker set. Returns <em>True</em> on success.

@@ -16,18 +16,16 @@ public sealed partial class BotClient : TelegramBotClient
 	/// </summary>
 	/// <param name="botToken">Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</param>
 	/// <param name="httpClient">Optional. Provide a specific HttpClient for this instance of BotClient.</param>
-	public BotClient(string botToken, HttpClient? httpClient = null) : base(botToken, httpClient)
-	{
-	}
+	public BotClient(string botToken, HttpClient? httpClient = null)
+		: base(botToken, httpClient) { }
 
 	/// <summary>
 	/// Initialize a Telegram Bot Client.
 	/// </summary>
 	/// <param name="options">Options for the <see cref="TelegramBotClient"/>.</param>
 	/// <param name="httpClient">Optional. Provide a specific HttpClient for this instance of BotClient.</param>
-	public BotClient(TelegramBotClientOptions options, HttpClient? httpClient = null) : base(options, httpClient)
-	{
-	}
+	public BotClient(TelegramBotClientOptions options, HttpClient? httpClient = null)
+		: base(options, httpClient) { }
 
 	/// <summary>
 	/// Initialize a Telegram Bot Client.
@@ -37,9 +35,13 @@ public sealed partial class BotClient : TelegramBotClient
 	/// <param name="serverAddress">Optional. The server address to connect to. Default value is "https://api.telegram.org". Change this parameter if you're using a <a href="https://core.telegram.org/bots/api#using-a-local-bot-api-server">Local Bot API Server</a>.</param>
 	/// <exception cref="ArgumentNullException">Thrown when accessToken is null or empty.</exception>
 	[Obsolete("Use the constructor with BotClientOptions.")]
-	public BotClient(string botToken, HttpClient? httpClient, string serverAddress = "https://api.telegram.org") : base(new TelegramBotClientOptions(botToken) { ServerAddress = serverAddress }, httpClient)
-	{
-	}
+	public BotClient(
+		string botToken,
+		HttpClient? httpClient,
+		string serverAddress = "https://api.telegram.org"
+	)
+		: base(new TelegramBotClientOptions(botToken) { ServerAddress = serverAddress }, httpClient)
+	{ }
 
 	/// <summary>Initialize a Telegram Bot Client.</summary>
 	/// <param name="botToken">Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</param>
@@ -49,9 +51,23 @@ public sealed partial class BotClient : TelegramBotClient
 	/// <param name="useTestEnvironment">Optional. Set true if the new client will use the Test Environment. If true, all requests methods will be prefixed with "/test". Example: "/test/getMe".</param>
 	/// <exception cref="ArgumentNullException">Thrown when accessToken is null or empty.</exception>
 	[Obsolete("Use the constructor with BotClientOptions.")]
-	public BotClient(string botToken, bool ignoreBotExceptions, HttpClient httpClient = null, string serverAddress = "https://api.telegram.org", bool useTestEnvironment = false) : base(new TelegramBotClientOptions(botToken) { IgnoreBotExceptions = ignoreBotExceptions, ServerAddress = serverAddress, UseTestEnvironment = useTestEnvironment }, httpClient)
-	{
-	}
+	public BotClient(
+		string botToken,
+		bool ignoreBotExceptions,
+		HttpClient? httpClient = null,
+		string serverAddress = "https://api.telegram.org",
+		bool useTestEnvironment = false
+	)
+		: base(
+			new TelegramBotClientOptions(botToken)
+			{
+				IgnoreBotExceptions = ignoreBotExceptions,
+				ServerAddress = serverAddress,
+				UseTestEnvironment = useTestEnvironment
+			},
+			httpClient
+		)
+	{ }
 
 	/// <summary>
 	/// Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.

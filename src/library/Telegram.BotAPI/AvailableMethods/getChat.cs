@@ -18,8 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Chat GetChat(this ITelegramBotClient client)
-        => client.GetChatAsync().GetAwaiter().GetResult();
+    public static Chat GetChat(this ITelegramBotClient client) =>
+        client.GetChatAsync().GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get up to date information about the chat. Returns a <see cref="Chat"/> object on success.

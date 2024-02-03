@@ -1,8 +1,6 @@
 // Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
-using System.Threading;
-using System.Threading.Tasks;
 using Telegram.BotAPI.GettingUpdates;
 
 namespace Telegram.BotAPI;

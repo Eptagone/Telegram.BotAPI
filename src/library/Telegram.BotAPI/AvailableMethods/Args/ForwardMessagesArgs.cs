@@ -12,8 +12,8 @@ public class ForwardMessagesArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="ForwardMessagesArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageIds">Identifiers of 1-100 messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     public ForwardMessagesArgs(long chatId, long fromChatId, IEnumerable<int> messageIds)
     {
@@ -25,8 +25,8 @@ public class ForwardMessagesArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="ForwardMessagesArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageIds">Identifiers of 1-100 messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     public ForwardMessagesArgs(long chatId, string fromChatId, IEnumerable<int> messageIds)
     {
@@ -38,8 +38,8 @@ public class ForwardMessagesArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="ForwardMessagesArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageIds">Identifiers of 1-100 messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     public ForwardMessagesArgs(string chatId, long fromChatId, IEnumerable<int> messageIds)
     {
@@ -51,8 +51,8 @@ public class ForwardMessagesArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="ForwardMessagesArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <code>@channelusername</code>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageIds">Identifiers of 1-100 messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     public ForwardMessagesArgs(string chatId, string fromChatId, IEnumerable<int> messageIds)
     {
@@ -62,7 +62,7 @@ public class ForwardMessagesArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <code>@channelusername</code>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }
@@ -74,7 +74,7 @@ public class ForwardMessagesArgs
     public int? MessageThreadId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the chat where the original messages were sent (or channel username in the format <code>@channelusername</code>)
+    /// Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.FromChatId)]
     public object FromChatId { get; set; }
