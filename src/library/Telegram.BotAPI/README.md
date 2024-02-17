@@ -1,17 +1,17 @@
 # Telegram.BotAPI
 
-[![Compatible with Bot API v7.0](https://img.shields.io/badge/Bot%20API%20version-v7.0-blue?style=flat-square)](https://core.telegram.org/bots/api#december-29-2023)
+[![Compatible with Bot API v.7.1](https://img.shields.io/badge/Bot%20API%20version-v.7.1-blue?style=flat-square)](https://core.telegram.org/bots/api#february-16-2024)
 
 **Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. Free and open source.
 
-It contains all the methods and types available in the Bot API 7.0 released on December 29, 2023.
+It contains all the methods and types available in the Bot API 7.1 released on February 16, 2024.
 
 ---
 
 ## Features
 
-- Contains pre-defined methods for all Bot API 7.0 methods.
-- Contains classes for each object type used in the Bot API 7.0.
+- Contains pre-defined methods for all Bot API 7.1 methods.
+- Contains classes for each object type used in the Bot API 7.1.
 - Sync and async methods.
 - Uses [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) by default.
 

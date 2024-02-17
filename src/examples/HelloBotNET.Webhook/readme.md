@@ -10,10 +10,10 @@ Your `secrets.json` or `appsettings.json` should look like the following code:
 
 ```JSON
 {
-  "ApplicationUrl": "https://www.example.com",
   //"Certificate": "/etc/ssl/certs/custom_cert.pem",
   "Telegram": {
     "BotToken": "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11",
+    "WebhookUrl": "https://www.example.com",
     "WebhookToken": "SUPERSECRETPATH"
   }
 }
@@ -23,9 +23,9 @@ You can also use enviroment variables instead:
 
 | Env                               | Description                                                      |
 | :-------------------------------- | :--------------------------------------------------------------- |
-| ApplicationUrl                    | Your application url. Ex: <https://example.com>                  |
 | Certificate                       | Optional. Certificate Path.                                      |
 | Telegram__BotToken                | Your bot token provided by [@BotFather](https://t.me/BotFather). |
+| Telegram__WebhookUrl              | Your application url. Ex: <https://example.com>                  |
 | Telegram__WebhookToken            | Your secret token. It must be specified by yourself.             |
 
 Finally, run `HelloBotNET.Webhook` and see the magic.

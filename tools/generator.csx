@@ -371,7 +371,9 @@ static void GenerateClasses(IEnumerable<ClassDefinition> classes, string outputP
             // Remove empty lines at the end of the class
             .Replace($"{Environment.NewLine}{Environment.NewLine}}}", $"{Environment.NewLine}}}")
             // Replace tabs with 4 spaces
-            .Replace("\t", "    ");
+            .Replace("\t", "    ")
+            // Replace CRLF with LF
+            .Replace("\r\n", "\n");
 
         // Write the file
         var filePath = Path.Combine(outputPath, @class.FileName);

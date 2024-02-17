@@ -38,6 +38,8 @@ public static partial class PropertyNames
     public const string BigFileUniqueId = "big_file_unique_id";
     public const string Bio = "bio";
     public const string Boost = "boost";
+    public const string BoostAdded = "boost_added";
+    public const string BoostCount = "boost_count";
     public const string BoostId = "boost_id";
     public const string Boosts = "boosts";
     public const string BotAdministratorRights = "bot_administrator_rights";
@@ -112,6 +114,7 @@ public static partial class PropertyNames
     public const string Currency = "currency";
     public const string CustomEmojiId = "custom_emoji_id";
     public const string CustomEmojiIds = "custom_emoji_ids";
+    public const string CustomEmojiStickerSetName = "custom_emoji_sticker_set_name";
     public const string CustomTitle = "custom_title";
     public const string Data = "data";
     public const string DataHash = "data_hash";
@@ -363,6 +366,7 @@ public static partial class PropertyNames
     public const string ReplyMarkup = "reply_markup";
     public const string ReplyParameters = "reply_parameters";
     public const string ReplyToMessage = "reply_to_message";
+    public const string ReplyToStory = "reply_to_story";
     public const string RequestChat = "request_chat";
     public const string RequestContact = "request_contact";
     public const string RequestId = "request_id";
@@ -387,6 +391,7 @@ public static partial class PropertyNames
     public const string Selfie = "selfie";
     public const string SendEmailToProvider = "send_email_to_provider";
     public const string SendPhoneNumberToProvider = "send_phone_number_to_provider";
+    public const string SenderBoostCount = "sender_boost_count";
     public const string SenderChat = "sender_chat";
     public const string SenderChatId = "sender_chat_id";
     public const string SenderUser = "sender_user";
@@ -442,6 +447,7 @@ public static partial class PropertyNames
     public const string Traveler = "traveler";
     public const string Type = "type";
     public const string UnclaimedPrizeCount = "unclaimed_prize_count";
+    public const string UnrestrictBoostCount = "unrestrict_boost_count";
     public const string UntilDate = "until_date";
     public const string UpdateId = "update_id";
     public const string Url = "url";

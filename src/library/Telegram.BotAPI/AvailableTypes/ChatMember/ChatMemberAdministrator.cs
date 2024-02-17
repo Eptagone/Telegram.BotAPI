@@ -28,7 +28,7 @@ public class ChatMemberAdministrator : ChatMember
     public bool IsAnonymous { get; set; }
 
     /// <summary>
-    /// <em>True</em>, if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege
+    /// <em>True</em>, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageChat)]
     public bool CanManageChat { get; set; }
@@ -70,6 +70,24 @@ public class ChatMemberAdministrator : ChatMember
     public bool CanInviteUsers { get; set; }
 
     /// <summary>
+    /// <em>True</em>, if the administrator can post stories to the chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanPostStories)]
+    public bool CanPostStories { get; set; }
+
+    /// <summary>
+    /// <em>True</em>, if the administrator can edit stories posted by other users
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanEditStories)]
+    public bool CanEditStories { get; set; }
+
+    /// <summary>
+    /// <em>True</em>, if the administrator can delete stories posted by other users
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanDeleteStories)]
+    public bool CanDeleteStories { get; set; }
+
+    /// <summary>
     /// Optional. <em>True</em>, if the administrator can post messages in the channel, or access channel statistics; channels only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPostMessages)]
@@ -86,24 +104,6 @@ public class ChatMemberAdministrator : ChatMember
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPinMessages)]
     public bool? CanPinMessages { get; set; }
-
-    /// <summary>
-    /// Optional. <em>True</em>, if the administrator can post stories in the channel; channels only
-    /// </summary>
-    [JsonPropertyName(PropertyNames.CanPostStories)]
-    public bool? CanPostStories { get; set; }
-
-    /// <summary>
-    /// Optional. <em>True</em>, if the administrator can edit stories posted by other users; channels only
-    /// </summary>
-    [JsonPropertyName(PropertyNames.CanEditStories)]
-    public bool? CanEditStories { get; set; }
-
-    /// <summary>
-    /// Optional. <em>True</em>, if the administrator can delete stories posted by other users; channels only
-    /// </summary>
-    [JsonPropertyName(PropertyNames.CanDeleteStories)]
-    public bool? CanDeleteStories { get; set; }
 
     /// <summary>
     /// Optional. <em>True</em>, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only

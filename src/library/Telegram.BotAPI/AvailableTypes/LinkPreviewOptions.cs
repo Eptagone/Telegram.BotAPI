@@ -22,13 +22,13 @@ public class LinkPreviewOptions
     public string? Url { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the media in the link preview is suppposed to be shrunk; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview
+    /// Optional. <em>True</em>, if the media in the link preview is supposed to be shrunk; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview
     /// </summary>
     [JsonPropertyName(PropertyNames.PreferSmallMedia)]
     public bool? PreferSmallMedia { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the media in the link preview is suppposed to be enlarged; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview
+    /// Optional. <em>True</em>, if the media in the link preview is supposed to be enlarged; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview
     /// </summary>
     [JsonPropertyName(PropertyNames.PreferLargeMedia)]
     public bool? PreferLargeMedia { get; set; }

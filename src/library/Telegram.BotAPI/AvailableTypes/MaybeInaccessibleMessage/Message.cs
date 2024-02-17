@@ -39,6 +39,12 @@ public class Message : MaybeInaccessibleMessage
     public Chat? SenderChat { get; set; }
 
     /// <summary>
+    /// Optional. If the sender of the message boosted the chat, the number of boosts added by the user
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SenderBoostCount)]
+    public int? SenderBoostCount { get; set; }
+
+    /// <summary>
     /// Date the message was sent in Unix time. It is always a positive number, representing a valid date.
     /// </summary>
     [JsonPropertyName(PropertyNames.Date)]
@@ -85,6 +91,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.Quote)]
     public TextQuote? Quote { get; set; }
+
+    /// <summary>
+    /// Optional. For replies to a story, the original story
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyToStory)]
+    public Story? ReplyToStory { get; set; }
 
     /// <summary>
     /// Optional. Bot through which the message was sent
@@ -361,6 +373,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.ProximityAlertTriggered)]
     public ProximityAlertTriggered? ProximityAlertTriggered { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: user boosted the chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BoostAdded)]
+    public ChatBoostAdded? BoostAdded { get; set; }
 
     /// <summary>
     /// Optional. Service message: forum topic created

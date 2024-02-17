@@ -35,7 +35,7 @@ public static class ApplicationBuilderExtensions
         // Delete my old commands
         bot.Client.DeleteMyCommands();
         // Set my commands
-        bot.Client.SetMyCommands(new BotCommand("hello", "Hello world!"));
+        bot.Client.SetMyCommands([new BotCommand("hello", "Hello world!")]);
 
         // Delete webhook
         bot.Client.DeleteWebhook();

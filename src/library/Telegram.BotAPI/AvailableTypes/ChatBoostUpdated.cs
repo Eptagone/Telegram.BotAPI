@@ -16,7 +16,7 @@ public class ChatBoostUpdated
     public Chat Chat { get; set; } = null!;
 
     /// <summary>
-    /// Infomation about the chat boost
+    /// Information about the chat boost
     /// </summary>
     [JsonPropertyName(PropertyNames.Boost)]
     public ChatBoost Boost { get; set; } = null!;

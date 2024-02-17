@@ -16,7 +16,7 @@ public class GiveawayWinners
     public Chat Chat { get; set; } = null!;
 
     /// <summary>
-    /// Identifier of the messsage with the giveaway in the chat
+    /// Identifier of the message with the giveaway in the chat
     /// </summary>
     [JsonPropertyName(PropertyNames.GiveawayMessageId)]
     public int GiveawayMessageId { get; set; }

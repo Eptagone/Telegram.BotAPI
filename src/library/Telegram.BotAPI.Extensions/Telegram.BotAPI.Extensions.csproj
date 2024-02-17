@@ -14,7 +14,7 @@
         <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
         <PackageTags>Telegram;Bot;API;Extensions</PackageTags>
-        <Version>1</Version>
+        <Version>0.2.0</Version>
         <Title>Extensions for Telegram.BotAPI package</Title>
         <PackageIcon>packicon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -26,9 +26,9 @@
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
         </None>
-        <None Include="..\Telegram.BotAPI\packicon.png">
-          <Pack>True</Pack>
-          <PackagePath>\</PackagePath>
+        <None Include="packicon.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
         </None>
     </ItemGroup>
 
@@ -37,10 +37,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="README.md">
-        <Pack>True</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
+        <None Update="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
     </ItemGroup>
 
 </Project>
