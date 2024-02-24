@@ -10,16 +10,16 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class Location
 {
     /// <summary>
-    /// Longitude as defined by sender
-    /// </summary>
-    [JsonPropertyName(PropertyNames.Longitude)]
-    public float Longitude { get; set; }
-
-    /// <summary>
     /// Latitude as defined by sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Latitude)]
     public float Latitude { get; set; }
+
+    /// <summary>
+    /// Longitude as defined by sender
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Longitude)]
+    public float Longitude { get; set; }
 
     /// <summary>
     /// Optional. The radius of uncertainty for the location, measured in meters; 0-1500

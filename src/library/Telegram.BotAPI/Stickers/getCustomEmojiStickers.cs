@@ -43,27 +43,34 @@ public static partial class StickersExtensions
     /// Use this method to get information about custom emoji stickers by their identifiers. Returns an Array of <see cref="Sticker"/> objects.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="customEmojiIds">List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Sticker> GetCustomEmojiStickers(this ITelegramBotClient client) =>
-        client.GetCustomEmojiStickersAsync().GetAwaiter().GetResult();
+    public static IEnumerable<Sticker> GetCustomEmojiStickers(this ITelegramBotClient client, IEnumerable<string> customEmojiIds) =>
+        client.GetCustomEmojiStickersAsync(customEmojiIds).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get information about custom emoji stickers by their identifiers. Returns an Array of <see cref="Sticker"/> objects.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="customEmojiIds">List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<Sticker>> GetCustomEmojiStickersAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    public static Task<IEnumerable<Sticker>> GetCustomEmojiStickersAsync(this ITelegramBotClient client, IEnumerable<string> customEmojiIds, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<IEnumerable<Sticker>>(MethodNames.GetCustomEmojiStickers, cancellationToken: cancellationToken);
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.CustomEmojiIds, customEmojiIds ?? throw new ArgumentNullException(nameof(customEmojiIds)) }
+        };
+
+        return client.CallMethodAsync<IEnumerable<Sticker>>(MethodNames.GetCustomEmojiStickers, args, cancellationToken);
     }
 }

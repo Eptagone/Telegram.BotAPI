@@ -476,6 +476,10 @@ static IEnumerable<ClassDefinition> MapMethodsIntoClasses(this BotApiDefinitions
                 {
                     parametersCombinations = optionalParametersCombinations;
                 }
+                else if (optionalParametersCombinations.Count() == 0)
+                {
+                    parametersCombinations = requiredParametersCombinations;
+                }
                 else
                 {
                     parametersCombinations = requiredParametersCombinations.SelectMany(

@@ -13,27 +13,34 @@ public static partial class StickersExtensions
     /// Use this method to delete a sticker from a set created by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="sticker">File identifier of the sticker</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeleteStickerFromSet(this ITelegramBotClient client) =>
-        client.DeleteStickerFromSetAsync().GetAwaiter().GetResult();
+    public static bool DeleteStickerFromSet(this ITelegramBotClient client, string sticker) =>
+        client.DeleteStickerFromSetAsync(sticker).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to delete a sticker from a set created by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="sticker">File identifier of the sticker</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> DeleteStickerFromSetAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    public static Task<bool> DeleteStickerFromSetAsync(this ITelegramBotClient client, string sticker, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.DeleteStickerFromSet, cancellationToken: cancellationToken);
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.Sticker, sticker ?? throw new ArgumentNullException(nameof(sticker)) }
+        };
+
+        return client.CallMethodAsync<bool>(MethodNames.DeleteStickerFromSet, args, cancellationToken);
     }
 }

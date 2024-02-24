@@ -13,27 +13,75 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to decline a chat join request. The bot must be an administrator in the chat for this to work and must have the <em>can_invite_users</em> administrator right. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeclineChatJoinRequest(this ITelegramBotClient client) =>
-        client.DeclineChatJoinRequestAsync().GetAwaiter().GetResult();
+    public static bool DeclineChatJoinRequest(this ITelegramBotClient client, long chatId, long userId) =>
+        client.DeclineChatJoinRequestAsync(chatId, userId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to decline a chat join request. The bot must be an administrator in the chat for this to work and must have the <em>can_invite_users</em> administrator right. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> DeclineChatJoinRequestAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    public static Task<bool> DeclineChatJoinRequestAsync(this ITelegramBotClient client, long chatId, long userId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.DeclineChatJoinRequest, cancellationToken: cancellationToken);
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId },
+            { PropertyNames.UserId, userId }
+        };
+
+        return client.CallMethodAsync<bool>(MethodNames.DeclineChatJoinRequest, args, cancellationToken);
+    }
+
+    /// <summary>
+    /// Use this method to decline a chat join request. The bot must be an administrator in the chat for this to work and must have the <em>can_invite_users</em> administrator right. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static bool DeclineChatJoinRequest(this ITelegramBotClient client, string chatId, long userId) =>
+        client.DeclineChatJoinRequestAsync(chatId, userId).GetAwaiter().GetResult();
+
+    /// <summary>
+    /// Use this method to decline a chat join request. The bot must be an administrator in the chat for this to work and must have the <em>can_invite_users</em> administrator right. Returns <em>True</em> on success.
+    /// </summary>
+    /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="userId">Unique identifier of the target user</param>
+    /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
+    /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
+    /// <returns></returns>
+    public static Task<bool> DeclineChatJoinRequestAsync(this ITelegramBotClient client, string chatId, long userId, CancellationToken cancellationToken = default)
+    {
+        if (client is null)
+        {
+            throw new ArgumentNullException(nameof(client));
+        }
+
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
+            { PropertyNames.UserId, userId }
+        };
+
+        return client.CallMethodAsync<bool>(MethodNames.DeclineChatJoinRequest, args, cancellationToken);
     }
 }
