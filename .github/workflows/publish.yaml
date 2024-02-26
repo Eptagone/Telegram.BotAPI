@@ -3,6 +3,7 @@ name: Publish
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   publish:
@@ -19,7 +20,7 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-      
+
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
