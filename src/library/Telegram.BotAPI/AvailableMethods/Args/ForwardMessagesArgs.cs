@@ -14,7 +14,7 @@ public class ForwardMessagesArgs
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
-    /// <param name="messageIds">Identifiers of 1-100 messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
+    /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     public ForwardMessagesArgs(long chatId, long fromChatId, IEnumerable<int> messageIds)
     {
         this.ChatId = chatId;
@@ -27,7 +27,7 @@ public class ForwardMessagesArgs
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
-    /// <param name="messageIds">Identifiers of 1-100 messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
+    /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     public ForwardMessagesArgs(long chatId, string fromChatId, IEnumerable<int> messageIds)
     {
         this.ChatId = chatId;
@@ -40,7 +40,7 @@ public class ForwardMessagesArgs
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
-    /// <param name="messageIds">Identifiers of 1-100 messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
+    /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     public ForwardMessagesArgs(string chatId, long fromChatId, IEnumerable<int> messageIds)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -53,7 +53,7 @@ public class ForwardMessagesArgs
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
-    /// <param name="messageIds">Identifiers of 1-100 messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
+    /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     public ForwardMessagesArgs(string chatId, string fromChatId, IEnumerable<int> messageIds)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -80,7 +80,7 @@ public class ForwardMessagesArgs
     public object FromChatId { get; set; }
 
     /// <summary>
-    /// Identifiers of 1-100 messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.
+    /// A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageIds)]
     public IEnumerable<int> MessageIds { get; set; }

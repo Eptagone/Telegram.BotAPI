@@ -64,6 +64,36 @@ public class Chat
     public IEnumerable<string>? ActiveUsernames { get; set; }
 
     /// <summary>
+    /// Optional. For private chats, the date of birth of the user. Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Birthdate)]
+    public Birthdate? Birthdate { get; set; }
+
+    /// <summary>
+    /// Optional. For private chats with business accounts, the intro of the business. Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BusinessIntro)]
+    public BusinessIntro? BusinessIntro { get; set; }
+
+    /// <summary>
+    /// Optional. For private chats with business accounts, the location of the business. Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BusinessLocation)]
+    public BusinessLocation? BusinessLocation { get; set; }
+
+    /// <summary>
+    /// Optional. For private chats with business accounts, the opening hours of the business. Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BusinessOpeningHours)]
+    public BusinessOpeningHours? BusinessOpeningHours { get; set; }
+
+    /// <summary>
+    /// Optional. For private chats, the personal channel of the user. Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PersonalChat)]
+    public Chat? PersonalChat { get; set; }
+
+    /// <summary>
     /// Optional. List of available reactions allowed in the chat. If omitted, then all <a href="https://core.telegram.org/bots/api#reactiontypeemoji">emoji reactions</a> are allowed. Returned only in <a href="https://core.telegram.org/bots/api#getchat">getChat</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.AvailableReactions)]

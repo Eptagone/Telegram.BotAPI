@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object contains information about the chat whose identifier was shared with the bot using a <see cref="KeyboardButtonRequestChat"/> button.
+/// This object contains information about a chat that was shared with the bot using a <see cref="KeyboardButtonRequestChat"/> button.
 /// </summary>
 public class ChatShared
 {
@@ -20,4 +20,22 @@ public class ChatShared
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public long ChatId { get; set; }
+
+    /// <summary>
+    /// Optional. Title of the chat, if the title was requested by the bot.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Title)]
+    public string? Title { get; set; }
+
+    /// <summary>
+    /// Optional. Username of the chat, if the username was requested by the bot and available.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Username)]
+    public string? Username { get; set; }
+
+    /// <summary>
+    /// Optional. Available sizes of the chat photo, if the photo was requested by the bot
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Photo)]
+    public IEnumerable<PhotoSize>? Photo { get; set; }
 }

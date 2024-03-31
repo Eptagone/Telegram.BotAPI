@@ -110,25 +110,25 @@ public class PromoteChatMemberArgs
     public bool? CanDeleteStories { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; channels only
+    /// Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPostMessages)]
     public bool? CanPostMessages { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; channels only
+    /// Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanEditMessages)]
     public bool? CanEditMessages { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> if the administrator can pin messages, supergroups only
+    /// Pass <em>True</em> if the administrator can pin messages; for supergroups only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPinMessages)]
     public bool? CanPinMessages { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics, supergroups only
+    /// Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageTopics)]
     public bool? CanManageTopics { get; set; }

@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.Stickers;
 public static partial class StickersExtensions
 {
     /// <summary>
-    /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a> and <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
+    /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a>, <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>, or <a href="https://core.telegram.org/bots/api#replacestickerinset">replaceStickerInSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "UploadStickerFile" method.</param>
@@ -23,7 +23,7 @@ public static partial class StickersExtensions
         client.UploadStickerFileAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a> and <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
+    /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a>, <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>, or <a href="https://core.telegram.org/bots/api#replacestickerinset">replaceStickerInSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "UploadStickerFile" method.</param>
@@ -42,7 +42,7 @@ public static partial class StickersExtensions
     }
 
     /// <summary>
-    /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a> and <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
+    /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a>, <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>, or <a href="https://core.telegram.org/bots/api#replacestickerinset">replaceStickerInSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier of sticker file owner</param>
@@ -55,7 +55,7 @@ public static partial class StickersExtensions
         client.UploadStickerFileAsync(userId, sticker, stickerFormat).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a> and <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
+    /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a>, <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>, or <a href="https://core.telegram.org/bots/api#replacestickerinset">replaceStickerInSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier of sticker file owner</param>

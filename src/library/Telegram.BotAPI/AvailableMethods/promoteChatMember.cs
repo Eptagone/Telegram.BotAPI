@@ -56,10 +56,10 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
-    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; channels only</param>
-    /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; channels only</param>
-    /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages, supergroups only</param>
-    /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics, supergroups only</param>
+    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
+    /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
+    /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
+    /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -83,10 +83,10 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
-    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; channels only</param>
-    /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; channels only</param>
-    /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages, supergroups only</param>
-    /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics, supergroups only</param>
+    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
+    /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
+    /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
+    /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -184,10 +184,10 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
-    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; channels only</param>
-    /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; channels only</param>
-    /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages, supergroups only</param>
-    /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics, supergroups only</param>
+    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
+    /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
+    /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
+    /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -211,10 +211,10 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
-    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; channels only</param>
-    /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; channels only</param>
-    /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages, supergroups only</param>
-    /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics, supergroups only</param>
+    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
+    /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
+    /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
+    /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

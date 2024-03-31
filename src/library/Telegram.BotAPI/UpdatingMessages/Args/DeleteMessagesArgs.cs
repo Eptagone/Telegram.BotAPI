@@ -13,7 +13,7 @@ public class DeleteMessagesArgs
     /// Initializes a new instance of the <see cref="DeleteMessagesArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="messageIds">Identifiers of 1-100 messages to delete. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted</param>
+    /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages to delete. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted</param>
     public DeleteMessagesArgs(long chatId, IEnumerable<int> messageIds)
     {
         this.ChatId = chatId;
@@ -24,7 +24,7 @@ public class DeleteMessagesArgs
     /// Initializes a new instance of the <see cref="DeleteMessagesArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="messageIds">Identifiers of 1-100 messages to delete. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted</param>
+    /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages to delete. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted</param>
     public DeleteMessagesArgs(string chatId, IEnumerable<int> messageIds)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -38,7 +38,7 @@ public class DeleteMessagesArgs
     public object ChatId { get; set; }
 
     /// <summary>
-    /// Identifiers of 1-100 messages to delete. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted
+    /// A JSON-serialized list of 1-100 identifiers of messages to delete. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageIds)]
     public IEnumerable<int> MessageIds { get; set; }

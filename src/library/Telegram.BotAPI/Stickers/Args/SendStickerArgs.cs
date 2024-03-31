@@ -15,7 +15,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendStickerArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP or .TGS sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video stickers can only be sent by a file_id. Animated stickers can't be sent via an HTTP URL.</param>
+    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
     public SendStickerArgs(long chatId, InputFile sticker)
     {
         this.ChatId = chatId;
@@ -26,7 +26,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendStickerArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP or .TGS sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video stickers can only be sent by a file_id. Animated stickers can't be sent via an HTTP URL.</param>
+    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
     public SendStickerArgs(long chatId, string sticker)
     {
         this.ChatId = chatId;
@@ -37,7 +37,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendStickerArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP or .TGS sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video stickers can only be sent by a file_id. Animated stickers can't be sent via an HTTP URL.</param>
+    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
     public SendStickerArgs(string chatId, InputFile sticker)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -48,12 +48,18 @@ public class SendStickerArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendStickerArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP or .TGS sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video stickers can only be sent by a file_id. Animated stickers can't be sent via an HTTP URL.</param>
+    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
     public SendStickerArgs(string chatId, string sticker)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Sticker = sticker ?? throw new ArgumentNullException(nameof(sticker));
     }
+
+    /// <summary>
+    /// Unique identifier of the business connection on behalf of which the message will be sent
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BusinessConnectionId)]
+    public string? BusinessConnectionId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
@@ -68,7 +74,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     public int? MessageThreadId { get; set; }
 
     /// <summary>
-    /// Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP or .TGS sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video stickers can only be sent by a file_id. Animated stickers can't be sent via an HTTP URL.
+    /// Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.
     /// </summary>
     [JsonPropertyName(PropertyNames.Sticker)]
     public object Sticker { get; set; }
@@ -98,7 +104,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.
+    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public object? ReplyMarkup { get; set; }

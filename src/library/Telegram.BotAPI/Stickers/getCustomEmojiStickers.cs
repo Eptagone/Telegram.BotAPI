@@ -43,7 +43,7 @@ public static partial class StickersExtensions
     /// Use this method to get information about custom emoji stickers by their identifiers. Returns an Array of <see cref="Sticker"/> objects.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="customEmojiIds">List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.</param>
+    /// <param name="customEmojiIds">A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -54,7 +54,7 @@ public static partial class StickersExtensions
     /// Use this method to get information about custom emoji stickers by their identifiers. Returns an Array of <see cref="Sticker"/> objects.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="customEmojiIds">List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.</param>
+    /// <param name="customEmojiIds">A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

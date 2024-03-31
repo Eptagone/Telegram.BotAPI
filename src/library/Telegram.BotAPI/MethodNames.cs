@@ -49,6 +49,7 @@ public static partial class MethodNames
     public const string ExportChatInviteLink = "exportChatInviteLink";
     public const string ForwardMessage = "forwardMessage";
     public const string ForwardMessages = "forwardMessages";
+    public const string GetBusinessConnection = "getBusinessConnection";
     public const string GetChat = "getChat";
     public const string GetChatAdministrators = "getChatAdministrators";
     public const string GetChatMember = "getChatMember";
@@ -76,6 +77,7 @@ public static partial class MethodNames
     public const string PromoteChatMember = "promoteChatMember";
     public const string ReopenForumTopic = "reopenForumTopic";
     public const string ReopenGeneralForumTopic = "reopenGeneralForumTopic";
+    public const string ReplaceStickerInSet = "replaceStickerInSet";
     public const string RestrictChatMember = "restrictChatMember";
     public const string RevokeChatInviteLink = "revokeChatInviteLink";
     public const string SendAnimation = "sendAnimation";

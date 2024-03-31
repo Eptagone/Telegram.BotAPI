@@ -44,6 +44,30 @@ public class Update
     public Message? EditedChannelPost { get; set; }
 
     /// <summary>
+    /// Optional. The bot was connected to or disconnected from a business account, or a user edited an existing connection with the bot
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BusinessConnection)]
+    public BusinessConnection? BusinessConnection { get; set; }
+
+    /// <summary>
+    /// Optional. New non-service message from a connected business account
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BusinessMessage)]
+    public Message? BusinessMessage { get; set; }
+
+    /// <summary>
+    /// Optional. New version of a message from a connected business account
+    /// </summary>
+    [JsonPropertyName(PropertyNames.EditedBusinessMessage)]
+    public Message? EditedBusinessMessage { get; set; }
+
+    /// <summary>
+    /// Optional. Messages were deleted from a connected business account
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DeletedBusinessMessages)]
+    public BusinessMessagesDeleted? DeletedBusinessMessages { get; set; }
+
+    /// <summary>
     /// Optional. A reaction to a message was changed by a user. The bot must be an administrator in the chat and must explicitly specify <em>"message_reaction"</em> in the list of <em>allowed_updates</em> to receive these updates. The update isn't received for reactions set by bots.
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageReaction)]

@@ -16,10 +16,12 @@ public class SetStickerSetThumbnailArgs : AttachedFilesArgsBase
     /// </summary>
     /// <param name="name">Sticker set name</param>
     /// <param name="userId">User identifier of the sticker set owner</param>
-    public SetStickerSetThumbnailArgs(string name, long userId)
+    /// <param name="format">Format of the thumbnail, must be one of “static” for a <strong>.WEBP</strong> or <strong>.PNG</strong> image, “animated” for a <strong>.TGS</strong> animation, or “video” for a <strong>WEBM</strong> video</param>
+    public SetStickerSetThumbnailArgs(string name, long userId, string format)
     {
         this.Name = name ?? throw new ArgumentNullException(nameof(name));
         this.UserId = userId;
+        this.Format = format ?? throw new ArgumentNullException(nameof(format));
     }
 
     /// <summary>
@@ -39,4 +41,10 @@ public class SetStickerSetThumbnailArgs : AttachedFilesArgsBase
     /// </summary>
     [JsonPropertyName(PropertyNames.Thumbnail)]
     public object? Thumbnail { get; set; }
+
+    /// <summary>
+    /// Format of the thumbnail, must be one of “static” for a <strong>.WEBP</strong> or <strong>.PNG</strong> image, “animated” for a <strong>.TGS</strong> animation, or “video” for a <strong>WEBM</strong> video
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Format)]
+    public string Format { get; set; }
 }

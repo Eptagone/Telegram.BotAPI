@@ -30,18 +30,6 @@ public class StickerSet
     public string StickerType { get; set; } = null!;
 
     /// <summary>
-    /// <em>True</em>, if the sticker set contains <a href="https://telegram.org/blog/animated-stickers">animated stickers</a>
-    /// </summary>
-    [JsonPropertyName(PropertyNames.IsAnimated)]
-    public bool IsAnimated { get; set; }
-
-    /// <summary>
-    /// <em>True</em>, if the sticker set contains <a href="https://telegram.org/blog/video-stickers-better-reactions">video stickers</a>
-    /// </summary>
-    [JsonPropertyName(PropertyNames.IsVideo)]
-    public bool IsVideo { get; set; }
-
-    /// <summary>
     /// List of all set stickers
     /// </summary>
     [JsonPropertyName(PropertyNames.Stickers)]

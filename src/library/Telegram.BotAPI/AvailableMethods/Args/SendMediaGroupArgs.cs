@@ -100,6 +100,12 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     }
 
     /// <summary>
+    /// Unique identifier of the business connection on behalf of which the message will be sent
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BusinessConnectionId)]
+    public string? BusinessConnectionId { get; set; }
+
+    /// <summary>
     /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]

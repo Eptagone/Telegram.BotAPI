@@ -23,6 +23,12 @@ public class SendGameArgs
     }
 
     /// <summary>
+    /// Unique identifier of the business connection on behalf of which the message will be sent
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BusinessConnectionId)]
+    public string? BusinessConnectionId { get; set; }
+
+    /// <summary>
     /// Unique identifier for the target chat
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
@@ -59,7 +65,7 @@ public class SendGameArgs
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Play game_title' button will be shown. If not empty, the first button must launch the game.
+    /// A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Play game_title' button will be shown. If not empty, the first button must launch the game. Not supported for messages sent on behalf of a business account.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }

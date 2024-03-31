@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object defines the criteria used to request suitable users. The identifiers of the selected users will be shared with the bot when the corresponding button is pressed. <a href="https://core.telegram.org/bots/features#chat-and-user-selection">More about requesting users »</a>
+/// This object defines the criteria used to request suitable users. Information about the selected users will be shared with the bot when the corresponding button is pressed. <a href="https://core.telegram.org/bots/features#chat-and-user-selection">More about requesting users »</a>
 /// </summary>
 public class KeyboardButtonRequestUsers
 {
@@ -41,4 +41,22 @@ public class KeyboardButtonRequestUsers
     /// </summary>
     [JsonPropertyName(PropertyNames.MaxQuantity)]
     public int? MaxQuantity { get; set; }
+
+    /// <summary>
+    /// Optional. Pass <em>True</em> to request the users' first and last name
+    /// </summary>
+    [JsonPropertyName(PropertyNames.RequestName)]
+    public bool? RequestName { get; set; }
+
+    /// <summary>
+    /// Optional. Pass <em>True</em> to request the users' username
+    /// </summary>
+    [JsonPropertyName(PropertyNames.RequestUsername)]
+    public bool? RequestUsername { get; set; }
+
+    /// <summary>
+    /// Optional. Pass <em>True</em> to request the users' photo
+    /// </summary>
+    [JsonPropertyName(PropertyNames.RequestPhoto)]
+    public bool? RequestPhoto { get; set; }
 }

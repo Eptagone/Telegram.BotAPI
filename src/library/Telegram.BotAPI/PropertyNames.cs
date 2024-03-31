@@ -37,6 +37,7 @@ public static partial class PropertyNames
     public const string BigFileId = "big_file_id";
     public const string BigFileUniqueId = "big_file_unique_id";
     public const string Bio = "bio";
+    public const string Birthdate = "birthdate";
     public const string Boost = "boost";
     public const string BoostAdded = "boost_added";
     public const string BoostCount = "boost_count";
@@ -45,6 +46,12 @@ public static partial class PropertyNames
     public const string BotAdministratorRights = "bot_administrator_rights";
     public const string BotIsMember = "bot_is_member";
     public const string BotUsername = "bot_username";
+    public const string BusinessConnection = "business_connection";
+    public const string BusinessConnectionId = "business_connection_id";
+    public const string BusinessIntro = "business_intro";
+    public const string BusinessLocation = "business_location";
+    public const string BusinessMessage = "business_message";
+    public const string BusinessOpeningHours = "business_opening_hours";
     public const string Button = "button";
     public const string ButtonText = "button_text";
     public const string CacheTime = "cache_time";
@@ -55,6 +62,7 @@ public static partial class PropertyNames
     public const string CanAddWebPagePreviews = "can_add_web_page_previews";
     public const string CanBeEdited = "can_be_edited";
     public const string CanChangeInfo = "can_change_info";
+    public const string CanConnectToBusiness = "can_connect_to_business";
     public const string CanDeleteMessages = "can_delete_messages";
     public const string CanDeleteStories = "can_delete_stories";
     public const string CanEditMessages = "can_edit_messages";
@@ -69,6 +77,7 @@ public static partial class PropertyNames
     public const string CanPostStories = "can_post_stories";
     public const string CanPromoteMembers = "can_promote_members";
     public const string CanReadAllGroupMessages = "can_read_all_group_messages";
+    public const string CanReply = "can_reply";
     public const string CanRestrictMembers = "can_restrict_members";
     public const string CanSendAudios = "can_send_audios";
     public const string CanSendDocuments = "can_send_documents";
@@ -101,6 +110,7 @@ public static partial class PropertyNames
     public const string ChosenInlineResult = "chosen_inline_result";
     public const string City = "city";
     public const string CloseDate = "close_date";
+    public const string ClosingMinute = "closing_minute";
     public const string Command = "command";
     public const string Commands = "commands";
     public const string ConnectedWebsite = "connected_website";
@@ -119,7 +129,9 @@ public static partial class PropertyNames
     public const string Data = "data";
     public const string DataHash = "data_hash";
     public const string Date = "date";
+    public const string Day = "day";
     public const string DeleteChatPhoto = "delete_chat_photo";
+    public const string DeletedBusinessMessages = "deleted_business_messages";
     public const string Description = "description";
     public const string Dice = "dice";
     public const string DisableContentTypeDetection = "disable_content_type_detection";
@@ -132,6 +144,7 @@ public static partial class PropertyNames
     public const string DropPendingUpdates = "drop_pending_updates";
     public const string Duration = "duration";
     public const string EditDate = "edit_date";
+    public const string EditedBusinessMessage = "edited_business_message";
     public const string EditedChannelPost = "edited_channel_post";
     public const string EditedMessage = "edited_message";
     public const string ElementHash = "element_hash";
@@ -163,6 +176,7 @@ public static partial class PropertyNames
     public const string ForChannels = "for_channels";
     public const string Force = "force";
     public const string ForceReply = "force_reply";
+    public const string Format = "format";
     public const string ForumTopicClosed = "forum_topic_closed";
     public const string ForumTopicCreated = "forum_topic_created";
     public const string ForumTopicEdited = "forum_topic_edited";
@@ -229,8 +243,10 @@ public static partial class PropertyNames
     public const string IsBot = "is_bot";
     public const string IsClosed = "is_closed";
     public const string IsDisabled = "is_disabled";
+    public const string IsEnabled = "is_enabled";
     public const string IsFlexible = "is_flexible";
     public const string IsForum = "is_forum";
+    public const string IsFromOffline = "is_from_offline";
     public const string IsManual = "is_manual";
     public const string IsMember = "is_member";
     public const string IsPersistent = "is_persistent";
@@ -282,6 +298,7 @@ public static partial class PropertyNames
     public const string MigrateFromChatId = "migrate_from_chat_id";
     public const string MigrateToChatId = "migrate_to_chat_id";
     public const string MimeType = "mime_type";
+    public const string Month = "month";
     public const string Mpeg4Duration = "mpeg4_duration";
     public const string Mpeg4FileId = "mpeg4_file_id";
     public const string Mpeg4Height = "mpeg4_height";
@@ -304,10 +321,13 @@ public static partial class PropertyNames
     public const string Ok = "ok";
     public const string OldChatMember = "old_chat_member";
     public const string OldReaction = "old_reaction";
+    public const string OldSticker = "old_sticker";
     public const string OneTimeKeyboard = "one_time_keyboard";
     public const string OnlyIfBanned = "only_if_banned";
     public const string OnlyNewMembers = "only_new_members";
     public const string OpenPeriod = "open_period";
+    public const string OpeningHours = "opening_hours";
+    public const string OpeningMinute = "opening_minute";
     public const string OptionIds = "option_ids";
     public const string Options = "options";
     public const string OrderInfo = "order_info";
@@ -320,6 +340,7 @@ public static partial class PropertyNames
     public const string PendingUpdateCount = "pending_update_count";
     public const string Performer = "performer";
     public const string Permissions = "permissions";
+    public const string PersonalChat = "personal_chat";
     public const string PhoneNumber = "phone_number";
     public const string Photo = "photo";
     public const string PhotoFileId = "photo_file_id";
@@ -371,7 +392,11 @@ public static partial class PropertyNames
     public const string RequestContact = "request_contact";
     public const string RequestId = "request_id";
     public const string RequestLocation = "request_location";
+    public const string RequestName = "request_name";
+    public const string RequestPhoto = "request_photo";
     public const string RequestPoll = "request_poll";
+    public const string RequestTitle = "request_title";
+    public const string RequestUsername = "request_username";
     public const string RequestUsers = "request_users";
     public const string RequestWriteAccess = "request_write_access";
     public const string ResizeKeyboard = "resize_keyboard";
@@ -392,6 +417,7 @@ public static partial class PropertyNames
     public const string SendEmailToProvider = "send_email_to_provider";
     public const string SendPhoneNumberToProvider = "send_phone_number_to_provider";
     public const string SenderBoostCount = "sender_boost_count";
+    public const string SenderBusinessBot = "sender_business_bot";
     public const string SenderChat = "sender_chat";
     public const string SenderChatId = "sender_chat_id";
     public const string SenderUser = "sender_user";
@@ -438,6 +464,7 @@ public static partial class PropertyNames
     public const string ThumbnailMimeType = "thumbnail_mime_type";
     public const string ThumbnailUrl = "thumbnail_url";
     public const string ThumbnailWidth = "thumbnail_width";
+    public const string TimeZoneName = "time_zone_name";
     public const string Timeout = "timeout";
     public const string Title = "title";
     public const string TotalAmount = "total_amount";
@@ -456,7 +483,6 @@ public static partial class PropertyNames
     public const string UserAdministratorRights = "user_administrator_rights";
     public const string UserChatId = "user_chat_id";
     public const string UserId = "user_id";
-    public const string UserIds = "user_ids";
     public const string UserIsBot = "user_is_bot";
     public const string UserIsPremium = "user_is_premium";
     public const string Username = "username";
@@ -497,5 +523,6 @@ public static partial class PropertyNames
     public const string WriteAccessAllowed = "write_access_allowed";
     public const string XShift = "x_shift";
     public const string YShift = "y_shift";
+    public const string Year = "year";
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }
