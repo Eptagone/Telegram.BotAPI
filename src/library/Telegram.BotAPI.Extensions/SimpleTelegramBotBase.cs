@@ -38,6 +38,22 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
             {
                 this.OnEditedChannelPost(update.EditedChannelPost);
             }
+            else if (update.BusinessConnection != null)
+            {
+                this.OnBusinessConnection(update.BusinessConnection);
+            }
+            else if (update.BusinessMessage != null)
+            {
+                this.OnBusinessMessage(update.BusinessMessage);
+            }
+            else if (update.EditedBusinessMessage != null)
+            {
+                this.OnEditedBusinessMessage(update.EditedBusinessMessage);
+            }
+            else if (update.DeletedBusinessMessages != null)
+            {
+                this.OnDeletedBusinessMessages(update.DeletedBusinessMessages);
+            }
             else if (update.MessageReaction != null)
             {
                 this.OnMessageReaction(update.MessageReaction);
@@ -130,6 +146,32 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
             else if (update.EditedChannelPost != null)
             {
                 await this.OnEditedChannelPostAsync(update.EditedChannelPost, cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            else if (update.BusinessConnection != null)
+            {
+                await this.OnBusinessConnectionAsync(update.BusinessConnection, cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            else if (update.BusinessMessage != null)
+            {
+                await this.OnBusinessMessageAsync(update.BusinessMessage, cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            else if (update.EditedBusinessMessage != null)
+            {
+                await this.OnEditedBusinessMessageAsync(
+                        update.EditedBusinessMessage,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
+            }
+            else if (update.DeletedBusinessMessages != null)
+            {
+                await this.OnDeletedBusinessMessagesAsync(
+                        update.DeletedBusinessMessages,
+                        cancellationToken
+                    )
                     .ConfigureAwait(false);
             }
             else if (update.MessageReaction != null)
@@ -329,6 +371,79 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
     /// <param name="message">The edited channel post.</param>
     protected virtual void OnEditedChannelPost(Message message) =>
         this.OnEditedChannelPostAsync(message).Wait();
+
+    /// <summary>
+    /// Handles a business connection update.
+    /// </summary>
+    /// <param name="businessConnection">The business connection.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    protected virtual Task OnBusinessConnectionAsync(
+        BusinessConnection businessConnection,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles a business connection update.
+    /// </summary>
+    /// <param name="businessConnection">The business connection.</param>
+    protected virtual void OnBusinessConnection(BusinessConnection businessConnection) =>
+        this.OnBusinessConnectionAsync(businessConnection).Wait();
+
+    /// <summary>
+    /// Handles a business message update.
+    /// </summary>
+    /// <param name="businessMessage">The business message.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    protected virtual Task OnBusinessMessageAsync(
+        Message businessMessage,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles a business message update.
+    /// </summary>
+    /// <param name="businessMessage">The business message.</param>
+    protected virtual void OnBusinessMessage(Message businessMessage) =>
+        this.OnBusinessMessageAsync(businessMessage).Wait();
+
+    /// <summary>
+    /// Handles an edited business message update.
+    /// </summary>
+    /// <param name="editedBusinessMessage">The edited business message.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    protected virtual Task OnEditedBusinessMessageAsync(
+        Message editedBusinessMessage,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles an edited business message update.
+    /// </summary>
+    /// <param name="editedBusinessMessage">The edited business message.</param>
+    protected virtual void OnEditedBusinessMessage(Message editedBusinessMessage) =>
+        this.OnEditedBusinessMessageAsync(editedBusinessMessage).Wait();
+
+    /// <summary>
+    /// Handles a deleted business messages update.
+    /// </summary>
+    /// <param name="deletedBusinessMessages">The deleted business messages.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    protected virtual Task OnDeletedBusinessMessagesAsync(
+        BusinessMessagesDeleted deletedBusinessMessages,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles a deleted business messages update.
+    /// </summary>
+    /// <param name="deletedBusinessMessages">The deleted business messages.</param>
+    protected virtual void OnDeletedBusinessMessages(
+        BusinessMessagesDeleted deletedBusinessMessages
+    ) => this.OnDeletedBusinessMessagesAsync(deletedBusinessMessages).Wait();
 
     /// <summary>
     /// Handles an edited channel post update.

@@ -1,6 +1,6 @@
 # Telegram.BotAPI
 
-[![Compatible with Bot API v.7.2](https://img.shields.io/badge/Bot%20API%20version-v.7.2-blue?style=flat-square)](https://core.telegram.org/bots/api#march-31-2024)
+[![Compatible with Bot API v7.2](https://img.shields.io/badge/Bot%20API%20version-v7.2-blue?style=flat-square)](https://core.telegram.org/bots/api#march-31-2024)
 
 **Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. Free and open source.
 
@@ -13,7 +13,7 @@ It contains all the methods and types available in the Bot API 7.2 released on M
 - Contains pre-defined methods for all Bot API 7.2 methods.
 - Contains classes for each object type used in the Bot API 7.2.
 - Sync and async methods.
-- Uses [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) by default.
+- Uses [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/).
 
 ---
 
@@ -136,7 +136,7 @@ Your bot can also send multimedia messages like photos, gifs, videos, and others
 
 ## Uploading files
 
-You can also send attached files using InputFile objects. You have two ways to do it: By using an InputFile object directly or by using an AttachedFile object.
+You can also send attached files using InputFile objects. You have two ways to do it: By using an InputFile object directly or by using a dictionary of InputFile objects.
 
 ### Option 1
 

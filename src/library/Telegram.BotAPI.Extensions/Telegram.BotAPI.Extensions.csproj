@@ -13,8 +13,13 @@
         <Copyright>Quetzal Rivera 2024 ©</Copyright>
         <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
+        <PackageReleaseNotes>
+            - Add new updates from Bot API 7.2 to SimpleTelegramBotBase and ContextTelegramBotBase
+            classes
+            - Fix ContextTelegramBotBase onUpdate method
+        </PackageReleaseNotes>
         <PackageTags>Telegram;Bot;API;Extensions</PackageTags>
-        <Version>0.2.1</Version>
+        <Version>0.3.0</Version>
         <Title>Extensions for Telegram.BotAPI package</Title>
         <PackageIcon>packicon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -33,7 +38,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Telegram.BotAPI" Version="7.1.0" />
+        <PackageReference Include="Telegram.BotAPI" Version="7.2.0" />
     </ItemGroup>
 
     <ItemGroup>

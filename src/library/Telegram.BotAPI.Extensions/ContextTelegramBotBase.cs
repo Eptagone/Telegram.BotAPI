@@ -69,84 +69,100 @@ public abstract class ContextTelegramBotBase<TBotContext>
             context = this.CreateContext(update);
             if (update.Message != null)
             {
-                this.OnMessageAsync(context, update.Message);
+                this.OnMessage(context, update.Message);
             }
             else if (update.EditedMessage != null)
             {
-                this.OnEditedMessageAsync(context, update.EditedMessage);
+                this.OnEditedMessage(context, update.EditedMessage);
             }
             else if (update.ChannelPost != null)
             {
-                this.OnChannelPostAsync(context, update.ChannelPost);
+                this.OnChannelPost(context, update.ChannelPost);
             }
             else if (update.EditedChannelPost != null)
             {
-                this.OnEditedChannelPostAsync(context, update.EditedChannelPost);
+                this.OnEditedChannelPost(context, update.EditedChannelPost);
+            }
+            else if (update.BusinessConnection != null)
+            {
+                this.OnBusinessConnection(context, update.BusinessConnection);
+            }
+            else if (update.BusinessMessage != null)
+            {
+                this.OnBusinessMessage(context, update.BusinessMessage);
+            }
+            else if (update.EditedBusinessMessage != null)
+            {
+                this.OnEditedBusinessMessage(context, update.EditedBusinessMessage);
+            }
+            else if (update.DeletedBusinessMessages != null)
+            {
+                this.OnDeletedBusinessMessages(context, update.DeletedBusinessMessages);
             }
             else if (update.MessageReaction != null)
             {
-                this.OnMessageReactionAsync(context, update.MessageReaction);
+                this.OnMessageReaction(context, update.MessageReaction);
             }
             else if (update.MessageReactionCount != null)
             {
-                this.OnMessageReactionCountAsync(context, update.MessageReactionCount);
+                this.OnMessageReactionCount(context, update.MessageReactionCount);
             }
             else if (update.InlineQuery != null)
             {
-                this.OnInlineQueryAsync(context, update.InlineQuery);
+                this.OnInlineQuery(context, update.InlineQuery);
             }
             else if (update.ChosenInlineResult != null)
             {
-                this.OnChosenInlineResultAsync(context, update.ChosenInlineResult);
+                this.OnChosenInlineResult(context, update.ChosenInlineResult);
             }
             else if (update.CallbackQuery != null)
             {
-                this.OnCallbackQueryAsync(context, update.CallbackQuery);
+                this.OnCallbackQuery(context, update.CallbackQuery);
             }
             else if (update.ShippingQuery != null)
             {
-                this.OnShippingQueryAsync(context, update.ShippingQuery);
+                this.OnShippingQuery(context, update.ShippingQuery);
             }
             else if (update.PreCheckoutQuery != null)
             {
-                this.OnPreCheckoutQueryAsync(context, update.PreCheckoutQuery);
+                this.OnPreCheckoutQuery(context, update.PreCheckoutQuery);
             }
             else if (update.Poll != null)
             {
-                this.OnPollAsync(context, update.Poll);
+                this.OnPoll(context, update.Poll);
             }
             else if (update.PollAnswer != null)
             {
-                this.OnPollAnswerAsync(context, update.PollAnswer);
+                this.OnPollAnswer(context, update.PollAnswer);
             }
             else if (update.MyChatMember != null)
             {
-                this.OnMyChatMemberAsync(context, update.MyChatMember);
+                this.OnMyChatMember(context, update.MyChatMember);
             }
             else if (update.ChatMember != null)
             {
-                this.OnChatMemberAsync(context, update.ChatMember);
+                this.OnChatMember(context, update.ChatMember);
             }
             else if (update.ChatJoinRequest != null)
             {
-                this.OnChatJoinRequestAsync(context, update.ChatJoinRequest);
+                this.OnChatJoinRequest(context, update.ChatJoinRequest);
             }
             else if (update.ChatBoost != null)
             {
-                this.OnChatBoostAsync(context, update.ChatBoost);
+                this.OnChatBoost(context, update.ChatBoost);
             }
             else if (update.RemovedChatBoost != null)
             {
-                this.OnRemovedChatBoostAsync(context, update.RemovedChatBoost);
+                this.OnRemovedChatBoost(context, update.RemovedChatBoost);
             }
         }
         catch (BotRequestException exp)
         {
-            this.OnBotExceptionAsync(context, exp);
+            this.OnBotException(context, exp);
         }
         catch (Exception exp)
         {
-            this.OnExceptionAsync(context, exp);
+            this.OnException(context, exp);
         }
     }
 
@@ -180,6 +196,42 @@ public abstract class ContextTelegramBotBase<TBotContext>
                 await this.OnEditedChannelPostAsync(
                         context,
                         update.EditedChannelPost,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
+            }
+            else if (update.BusinessConnection != null)
+            {
+                await this.OnBusinessConnectionAsync(
+                        context,
+                        update.BusinessConnection,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
+            }
+            else if (update.BusinessMessage != null)
+            {
+                await this.OnBusinessMessageAsync(
+                        context,
+                        update.BusinessMessage,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
+            }
+            else if (update.EditedBusinessMessage != null)
+            {
+                await this.OnEditedBusinessMessageAsync(
+                        context,
+                        update.EditedBusinessMessage,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
+            }
+            else if (update.DeletedBusinessMessages != null)
+            {
+                await this.OnDeletedBusinessMessagesAsync(
+                        context,
+                        update.DeletedBusinessMessages,
                         cancellationToken
                     )
                     .ConfigureAwait(false);
@@ -426,6 +478,96 @@ public abstract class ContextTelegramBotBase<TBotContext>
         Message message,
         CancellationToken cancellationToken = default
     ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles a business connection update.
+    /// </summary>
+    /// <param name="context">Bot context.</param>
+    /// <param name="businessConnection">The business connection.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    protected virtual Task OnBusinessConnectionAsync(
+        TBotContext context,
+        BusinessConnection businessConnection,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles a business connection update.
+    /// </summary>
+    /// <param name="context">Bot context.</param>
+    /// <param name="businessConnection">The business connection.</param>
+    protected virtual void OnBusinessConnection(
+        TBotContext context,
+        BusinessConnection businessConnection
+    ) => this.OnBusinessConnectionAsync(context, businessConnection).Wait();
+
+    /// <summary>
+    /// Handles a business message update.
+    /// </summary>
+    /// <param name="context">Bot context.</param>
+    /// <param name="businessMessage">The business message.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    protected virtual Task OnBusinessMessageAsync(
+        TBotContext context,
+        Message businessMessage,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles a business message update.
+    /// </summary>
+    /// <param name="context">Bot context.</param>
+    /// <param name="businessMessage">The business message.</param>
+    protected virtual void OnBusinessMessage(TBotContext context, Message businessMessage) =>
+        this.OnBusinessMessageAsync(context, businessMessage).Wait();
+
+    /// <summary>
+    /// Handles an edited business message update.
+    /// </summary>
+    /// <param name="context">Bot context.</param>
+    /// <param name="editedBusinessMessage">The edited business message.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    protected virtual Task OnEditedBusinessMessageAsync(
+        TBotContext context,
+        Message editedBusinessMessage,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles an edited business message update.
+    /// </summary>
+    /// <param name="context">Bot context.</param>
+    /// <param name="editedBusinessMessage">The edited business message.</param>
+    protected virtual void OnEditedBusinessMessage(
+        TBotContext context,
+        Message editedBusinessMessage
+    ) => this.OnEditedBusinessMessageAsync(context, editedBusinessMessage).Wait();
+
+    /// <summary>
+    /// Handles a deleted business messages update.
+    /// </summary>
+    /// <param name="context">Bot context.</param>
+    /// <param name="deletedBusinessMessages">The deleted business messages.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    protected virtual Task OnDeletedBusinessMessagesAsync(
+        TBotContext context,
+        BusinessMessagesDeleted deletedBusinessMessages,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles a deleted business messages update.
+    /// </summary>
+    /// <param name="context">Bot context.</param>
+    /// <param name="deletedBusinessMessages">The deleted business messages.</param>
+    protected virtual void OnDeletedBusinessMessages(
+        TBotContext context,
+        BusinessMessagesDeleted deletedBusinessMessages
+    ) => this.OnDeletedBusinessMessagesAsync(context, deletedBusinessMessages).Wait();
 
     /// <summary>
     /// Handles a message reaction update.

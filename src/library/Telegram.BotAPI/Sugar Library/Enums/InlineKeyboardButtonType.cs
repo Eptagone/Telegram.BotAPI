@@ -6,7 +6,7 @@ namespace Telegram.BotAPI;
 /// <summary>
 /// Inlinekeyboardbutton Type
 /// </summary>
-[Obsolete]
+[Obsolete("Use InlineKeyboardButtonTypes instead.")]
 public enum InlineKeyboardButtonType
 {
 	/// <summary>Unknown button.</summary>
