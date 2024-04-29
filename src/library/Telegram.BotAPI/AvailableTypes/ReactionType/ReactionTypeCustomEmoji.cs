@@ -10,6 +10,15 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class ReactionTypeCustomEmoji : ReactionType
 {
     /// <summary>
+    /// Initializes a new instance of the <see cref="ReactionTypeCustomEmoji"/> class.
+    /// </summary>
+    /// <param name="customEmojiId">Custom emoji identifier</param>
+    public ReactionTypeCustomEmoji(string customEmojiId)
+    {
+        this.CustomEmojiId = customEmojiId ?? throw new ArgumentNullException(nameof(customEmojiId));
+    }
+
+    /// <summary>
     /// Type of the reaction, always “custom_emoji”
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
@@ -19,5 +28,5 @@ public class ReactionTypeCustomEmoji : ReactionType
     /// Custom emoji identifier
     /// </summary>
     [JsonPropertyName(PropertyNames.CustomEmojiId)]
-    public string CustomEmojiId { get; set; } = null!;
+    public string CustomEmojiId { get; set; }
 }

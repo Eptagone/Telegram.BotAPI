@@ -789,7 +789,8 @@ static bool IsModelLikeArgs(string modelName, BotApiDefinitions definitions)
         "InputMedia",
         "ReplyMarkup",
         "InputMessageContent",
-        "BotCommandScope"
+        "BotCommandScope",
+        "ReactionType"
     };
     var baseClasses = definitions.TypeGroups.Where(g => baseClassNames.Contains(g.Name));
     var @classes = new[]

@@ -143,3 +143,4 @@ dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:sil
 
 # Extra rules
 file_header_template = Copyright (c) 2024 Quetzal Rivera.\nLicensed under the MIT License, See LICENCE in the project root for license information.
+indent_style = space

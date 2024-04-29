@@ -10,6 +10,15 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class ReactionTypeEmoji : ReactionType
 {
     /// <summary>
+    /// Initializes a new instance of the <see cref="ReactionTypeEmoji"/> class.
+    /// </summary>
+    /// <param name="emoji">Reaction emoji. Currently, it can be one of "👍", "👎", "❤", "🔥", "🥰", "👏", "😁", "🤔", "🤯", "😱", "🤬", "😢", "🎉", "🤩", "🤮", "💩", "🙏", "👌", "🕊", "🤡", "🥱", "🥴", "😍", "🐳", "❤‍🔥", "🌚", "🌭", "💯", "🤣", "⚡", "🍌", "🏆", "💔", "🤨", "😐", "🍓", "🍾", "💋", "🖕", "😈", "😴", "😭", "🤓", "👻", "👨‍💻", "👀", "🎃", "🙈", "😇", "😨", "🤝", "✍", "🤗", "🫡", "🎅", "🎄", "☃", "💅", "🤪", "🗿", "🆒", "💘", "🙉", "🦄", "😘", "💊", "🙊", "😎", "👾", "🤷‍♂", "🤷", "🤷‍♀", "😡"</param>
+    public ReactionTypeEmoji(string emoji)
+    {
+        this.Emoji = emoji ?? throw new ArgumentNullException(nameof(emoji));
+    }
+
+    /// <summary>
     /// Type of the reaction, always “emoji”
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
@@ -19,5 +28,5 @@ public class ReactionTypeEmoji : ReactionType
     /// Reaction emoji. Currently, it can be one of "👍", "👎", "❤", "🔥", "🥰", "👏", "😁", "🤔", "🤯", "😱", "🤬", "😢", "🎉", "🤩", "🤮", "💩", "🙏", "👌", "🕊", "🤡", "🥱", "🥴", "😍", "🐳", "❤‍🔥", "🌚", "🌭", "💯", "🤣", "⚡", "🍌", "🏆", "💔", "🤨", "😐", "🍓", "🍾", "💋", "🖕", "😈", "😴", "😭", "🤓", "👻", "👨‍💻", "👀", "🎃", "🙈", "😇", "😨", "🤝", "✍", "🤗", "🫡", "🎅", "🎄", "☃", "💅", "🤪", "🗿", "🆒", "💘", "🙉", "🦄", "😘", "💊", "🙊", "😎", "👾", "🤷‍♂", "🤷", "🤷‍♀", "😡"
     /// </summary>
     [JsonPropertyName(PropertyNames.Emoji)]
-    public string Emoji { get; set; } = null!;
+    public string Emoji { get; set; }
 }

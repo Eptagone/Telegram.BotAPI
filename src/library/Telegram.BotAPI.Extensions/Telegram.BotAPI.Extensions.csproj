@@ -19,7 +19,7 @@
             - Fix ContextTelegramBotBase onUpdate method
         </PackageReleaseNotes>
         <PackageTags>Telegram;Bot;API;Extensions</PackageTags>
-        <Version>0.3.0</Version>
+        <Version>0.4.0</Version>
         <Title>Extensions for Telegram.BotAPI package</Title>
         <PackageIcon>packicon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
