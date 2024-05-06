@@ -22,7 +22,7 @@ public class BusinessMessagesDeleted
     public Chat Chat { get; set; } = null!;
 
     /// <summary>
-    /// A JSON-serialized list of identifiers of deleted messages in the chat of the business account
+    /// The list of identifiers of deleted messages in the chat of the business account
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageIds)]
     public IEnumerable<int> MessageIds { get; set; } = null!;

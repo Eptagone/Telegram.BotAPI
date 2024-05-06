@@ -25,7 +25,7 @@ public class PassportFile
     /// File size in bytes
     /// </summary>
     [JsonPropertyName(PropertyNames.FileSize)]
-    public int FileSize { get; set; }
+    public long FileSize { get; set; }
 
     /// <summary>
     /// Unix time when the file was uploaded

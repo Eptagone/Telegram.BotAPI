@@ -43,19 +43,19 @@ public class KeyboardButtonRequestUsers
     public int? MaxQuantity { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> to request the users' first and last name
+    /// Optional. Pass <em>True</em> to request the users' first and last names
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestName)]
     public bool? RequestName { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> to request the users' username
+    /// Optional. Pass <em>True</em> to request the users' usernames
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestUsername)]
     public bool? RequestUsername { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> to request the users' photo
+    /// Optional. Pass <em>True</em> to request the users' photos
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestPhoto)]
     public bool? RequestPhoto { get; set; }

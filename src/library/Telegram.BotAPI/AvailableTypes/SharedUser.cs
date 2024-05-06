@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object contains information about a user that was shared with the bot using a <a href="https://core.telegram.org/bots/api#keyboardbuttonrequestuser">KeyboardButtonRequestUser</a> button.
+/// This object contains information about a user that was shared with the bot using a <see cref="KeyboardButtonRequestUsers"/> button.
 /// </summary>
 public class SharedUser
 {

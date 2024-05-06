@@ -729,7 +729,7 @@ static string AdjustTypeName(string type, string? propName = null, string? paren
         case "Integer":
             if (propName != null)
             {
-                if ((new string[] { "chat_id", "user_id" }).Any(propName.EndsWith))
+                if ((new string[] { "chat_id", "user_id", "file_size" }).Any(propName.EndsWith))
                 {
                     return "long";
                 }

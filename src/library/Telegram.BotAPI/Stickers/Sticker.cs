@@ -99,5 +99,5 @@ public class Sticker
     /// Optional. File size in bytes
     /// </summary>
     [JsonPropertyName(PropertyNames.FileSize)]
-    public int? FileSize { get; set; }
+    public long? FileSize { get; set; }
 }
