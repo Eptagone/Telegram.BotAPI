@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// No description available
+/// Describes the opening hours of a business.
 /// </summary>
 public class BusinessOpeningHours
 {

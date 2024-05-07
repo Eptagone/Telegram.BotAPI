@@ -46,6 +46,7 @@ public static partial class PropertyNames
     public const string BotAdministratorRights = "bot_administrator_rights";
     public const string BotIsMember = "bot_is_member";
     public const string BotUsername = "bot_username";
+    public const string BottomColor = "bottom_color";
     public const string BusinessConnection = "business_connection";
     public const string BusinessConnectionId = "business_connection_id";
     public const string BusinessIntro = "business_intro";
@@ -95,6 +96,7 @@ public static partial class PropertyNames
     public const string ChannelChatCreated = "channel_chat_created";
     public const string ChannelPost = "channel_post";
     public const string Chat = "chat";
+    public const string ChatBackgroundSet = "chat_background_set";
     public const string ChatBoost = "chat_boost";
     public const string ChatHasUsername = "chat_has_username";
     public const string ChatId = "chat_id";
@@ -111,6 +113,8 @@ public static partial class PropertyNames
     public const string City = "city";
     public const string CloseDate = "close_date";
     public const string ClosingMinute = "closing_minute";
+    public const string Color = "color";
+    public const string Colors = "colors";
     public const string Command = "command";
     public const string Commands = "commands";
     public const string ConnectedWebsite = "connected_website";
@@ -126,6 +130,7 @@ public static partial class PropertyNames
     public const string CustomEmojiIds = "custom_emoji_ids";
     public const string CustomEmojiStickerSetName = "custom_emoji_sticker_set_name";
     public const string CustomTitle = "custom_title";
+    public const string DarkThemeDimming = "dark_theme_dimming";
     public const string Data = "data";
     public const string DataHash = "data_hash";
     public const string Date = "date";
@@ -172,6 +177,7 @@ public static partial class PropertyNames
     public const string FileSize = "file_size";
     public const string FileUniqueId = "file_unique_id";
     public const string Files = "files";
+    public const string Fill = "fill";
     public const string FirstName = "first_name";
     public const string ForChannels = "for_channels";
     public const string Force = "force";
@@ -232,6 +238,7 @@ public static partial class PropertyNames
     public const string InlineQueryId = "inline_query_id";
     public const string InputFieldPlaceholder = "input_field_placeholder";
     public const string InputMessageContent = "input_message_content";
+    public const string Intensity = "intensity";
     public const string InviteLink = "invite_link";
     public const string Invoice = "invoice";
     public const string InvoicePayload = "invoice_payload";
@@ -240,6 +247,7 @@ public static partial class PropertyNames
     public const string IsAnonymous = "is_anonymous";
     public const string IsAutomaticForward = "is_automatic_forward";
     public const string IsBig = "is_big";
+    public const string IsBlurred = "is_blurred";
     public const string IsBot = "is_bot";
     public const string IsClosed = "is_closed";
     public const string IsDisabled = "is_disabled";
@@ -247,8 +255,10 @@ public static partial class PropertyNames
     public const string IsFlexible = "is_flexible";
     public const string IsForum = "is_forum";
     public const string IsFromOffline = "is_from_offline";
+    public const string IsInverted = "is_inverted";
     public const string IsManual = "is_manual";
     public const string IsMember = "is_member";
+    public const string IsMoving = "is_moving";
     public const string IsPersistent = "is_persistent";
     public const string IsPersonal = "is_personal";
     public const string IsPremium = "is_premium";
@@ -281,6 +291,7 @@ public static partial class PropertyNames
     public const string MaskPosition = "mask_position";
     public const string MaxConnections = "max_connections";
     public const string MaxQuantity = "max_quantity";
+    public const string MaxReactionCount = "max_reaction_count";
     public const string MaxTipAmount = "max_tip_amount";
     public const string Media = "media";
     public const string MediaGroupId = "media_group_id";
@@ -374,6 +385,8 @@ public static partial class PropertyNames
     public const string ProximityAlertTriggered = "proximity_alert_triggered";
     public const string Query = "query";
     public const string Question = "question";
+    public const string QuestionEntities = "question_entities";
+    public const string QuestionParseMode = "question_parse_mode";
     public const string Quote = "quote";
     public const string QuoteEntities = "quote_entities";
     public const string QuoteParseMode = "quote_parse_mode";
@@ -407,6 +420,7 @@ public static partial class PropertyNames
     public const string ReverseSide = "reverse_side";
     public const string RevokeMessages = "revoke_messages";
     public const string Rights = "rights";
+    public const string RotationAngle = "rotation_angle";
     public const string Scale = "scale";
     public const string Scope = "scope";
     public const string Score = "score";
@@ -459,6 +473,8 @@ public static partial class PropertyNames
     public const string TelegramPaymentChargeId = "telegram_payment_charge_id";
     public const string Text = "text";
     public const string TextEntities = "text_entities";
+    public const string TextParseMode = "text_parse_mode";
+    public const string ThemeName = "theme_name";
     public const string Thumbnail = "thumbnail";
     public const string ThumbnailHeight = "thumbnail_height";
     public const string ThumbnailMimeType = "thumbnail_mime_type";
@@ -467,6 +483,7 @@ public static partial class PropertyNames
     public const string TimeZoneName = "time_zone_name";
     public const string Timeout = "timeout";
     public const string Title = "title";
+    public const string TopColor = "top_color";
     public const string TotalAmount = "total_amount";
     public const string TotalCount = "total_count";
     public const string TotalVoterCount = "total_voter_count";
@@ -493,6 +510,7 @@ public static partial class PropertyNames
     public const string Venue = "venue";
     public const string ViaBot = "via_bot";
     public const string ViaChatFolderInviteLink = "via_chat_folder_invite_link";
+    public const string ViaJoinRequest = "via_join_request";
     public const string Video = "video";
     public const string VideoChatEnded = "video_chat_ended";
     public const string VideoChatParticipantsInvited = "video_chat_participants_invited";

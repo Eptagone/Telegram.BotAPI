@@ -22,6 +22,12 @@ public class Poll
     public string Question { get; set; } = null!;
 
     /// <summary>
+    /// Optional. Special entities that appear in the <em>question</em>. Currently, only custom emoji entities are allowed in poll questions
+    /// </summary>
+    [JsonPropertyName(PropertyNames.QuestionEntities)]
+    public IEnumerable<MessageEntity>? QuestionEntities { get; set; }
+
+    /// <summary>
     /// List of poll options
     /// </summary>
     [JsonPropertyName(PropertyNames.Options)]

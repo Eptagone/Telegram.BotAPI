@@ -53,6 +53,12 @@ public class EditMessageLiveLocationArgs
     public float Longitude { get; set; }
 
     /// <summary>
+    /// New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current <em>live_period</em> by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then <em>live_period</em> remains unchanged
+    /// </summary>
+    [JsonPropertyName(PropertyNames.LivePeriod)]
+    public int? LivePeriod { get; set; }
+
+    /// <summary>
     /// The radius of uncertainty for the location, measured in meters; 0-1500
     /// </summary>
     [JsonPropertyName(PropertyNames.HorizontalAccuracy)]

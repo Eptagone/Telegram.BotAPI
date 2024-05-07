@@ -98,7 +98,7 @@ public class PromoteChatMemberArgs
     public bool? CanPostStories { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> if the administrator can edit stories posted by other users
+    /// Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive
     /// </summary>
     [JsonPropertyName(PropertyNames.CanEditStories)]
     public bool? CanEditStories { get; set; }

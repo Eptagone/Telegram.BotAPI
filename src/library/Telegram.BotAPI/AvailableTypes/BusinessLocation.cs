@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// No description available
+/// Contains information about the location of a Telegram Business account.
 /// </summary>
 public class BusinessLocation
 {

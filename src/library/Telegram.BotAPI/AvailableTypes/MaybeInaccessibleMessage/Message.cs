@@ -399,6 +399,12 @@ public class Message : MaybeInaccessibleMessage
     public ChatBoostAdded? BoostAdded { get; set; }
 
     /// <summary>
+    /// Optional. Service message: chat background set
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChatBackgroundSet)]
+    public ChatBackground? ChatBackgroundSet { get; set; }
+
+    /// <summary>
     /// Optional. Service message: forum topic created
     /// </summary>
     [JsonPropertyName(PropertyNames.ForumTopicCreated)]

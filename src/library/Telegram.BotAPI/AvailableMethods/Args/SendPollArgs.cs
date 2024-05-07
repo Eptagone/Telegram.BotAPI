@@ -16,8 +16,8 @@ public class SendPollArgs
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of answer options, 2-10 strings 1-100 characters each</param>
-    public SendPollArgs(long chatId, string question, IEnumerable<string> options)
+    /// <param name="options">A JSON-serialized list of 2-10 answer options</param>
+    public SendPollArgs(long chatId, string question, IEnumerable<InputPollOption> options)
     {
         this.ChatId = chatId;
         this.Question = question ?? throw new ArgumentNullException(nameof(question));
@@ -29,8 +29,8 @@ public class SendPollArgs
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of answer options, 2-10 strings 1-100 characters each</param>
-    public SendPollArgs(string chatId, string question, IEnumerable<string> options)
+    /// <param name="options">A JSON-serialized list of 2-10 answer options</param>
+    public SendPollArgs(string chatId, string question, IEnumerable<InputPollOption> options)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Question = question ?? throw new ArgumentNullException(nameof(question));
@@ -62,10 +62,22 @@ public class SendPollArgs
     public string Question { get; set; }
 
     /// <summary>
-    /// A JSON-serialized list of answer options, 2-10 strings 1-100 characters each
+    /// Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed
+    /// </summary>
+    [JsonPropertyName(PropertyNames.QuestionParseMode)]
+    public string? QuestionParseMode { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.QuestionEntities)]
+    public IEnumerable<MessageEntity>? QuestionEntities { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized list of 2-10 answer options
     /// </summary>
     [JsonPropertyName(PropertyNames.Options)]
-    public IEnumerable<string> Options { get; set; }
+    public IEnumerable<InputPollOption> Options { get; set; }
 
     /// <summary>
     /// <em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em>
@@ -104,7 +116,7 @@ public class SendPollArgs
     public string? ExplanationParseMode { get; set; }
 
     /// <summary>
-    /// A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of <em>parse_mode</em>
+    /// A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ExplanationEntities)]
     public IEnumerable<MessageEntity>? ExplanationEntities { get; set; }
@@ -146,7 +158,7 @@ public class SendPollArgs
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account.
+    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public object? ReplyMarkup { get; set; }

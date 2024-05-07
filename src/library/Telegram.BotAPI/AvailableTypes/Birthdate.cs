@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// No description available
+/// Describes the birthdate of a user.
 /// </summary>
 public class Birthdate
 {

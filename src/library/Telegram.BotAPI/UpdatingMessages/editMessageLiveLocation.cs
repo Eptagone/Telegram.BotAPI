@@ -49,6 +49,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
+    /// <param name="livePeriod">New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current <em>live_period</em> by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then <em>live_period</em> remains unchanged</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
     /// <param name="heading">Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
@@ -56,8 +57,8 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message EditMessageLiveLocation(this ITelegramBotClient client, long chatId, int messageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null) =>
-        client.EditMessageLiveLocationAsync(chatId, messageId, latitude, longitude, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
+    public static Message EditMessageLiveLocation(this ITelegramBotClient client, long chatId, int messageId, float latitude, float longitude, int? livePeriod = null, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null) =>
+        client.EditMessageLiveLocationAsync(chatId, messageId, latitude, longitude, livePeriod, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit live location messages. A location can be edited until its <em>live_period</em> expires or editing is explicitly disabled by a call to <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
@@ -67,6 +68,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
+    /// <param name="livePeriod">New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current <em>live_period</em> by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then <em>live_period</em> remains unchanged</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
     /// <param name="heading">Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
@@ -75,7 +77,7 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> EditMessageLiveLocationAsync(this ITelegramBotClient client, long chatId, int messageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> EditMessageLiveLocationAsync(this ITelegramBotClient client, long chatId, int messageId, float latitude, float longitude, int? livePeriod = null, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -89,6 +91,10 @@ public static partial class UpdatingMessagesExtensions
             { PropertyNames.Latitude, latitude },
             { PropertyNames.Longitude, longitude }
         };
+        if (livePeriod is not null)
+        {
+            args.Add(PropertyNames.LivePeriod, livePeriod);
+        }
         if (horizontalAccuracy is not null)
         {
             args.Add(PropertyNames.HorizontalAccuracy, horizontalAccuracy);
@@ -117,6 +123,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
+    /// <param name="livePeriod">New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current <em>live_period</em> by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then <em>live_period</em> remains unchanged</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
     /// <param name="heading">Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
@@ -124,8 +131,8 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message EditMessageLiveLocation(this ITelegramBotClient client, string chatId, int messageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null) =>
-        client.EditMessageLiveLocationAsync(chatId, messageId, latitude, longitude, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
+    public static Message EditMessageLiveLocation(this ITelegramBotClient client, string chatId, int messageId, float latitude, float longitude, int? livePeriod = null, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null) =>
+        client.EditMessageLiveLocationAsync(chatId, messageId, latitude, longitude, livePeriod, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit live location messages. A location can be edited until its <em>live_period</em> expires or editing is explicitly disabled by a call to <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
@@ -135,6 +142,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
+    /// <param name="livePeriod">New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current <em>live_period</em> by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then <em>live_period</em> remains unchanged</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
     /// <param name="heading">Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
@@ -143,7 +151,7 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> EditMessageLiveLocationAsync(this ITelegramBotClient client, string chatId, int messageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> EditMessageLiveLocationAsync(this ITelegramBotClient client, string chatId, int messageId, float latitude, float longitude, int? livePeriod = null, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -157,6 +165,10 @@ public static partial class UpdatingMessagesExtensions
             { PropertyNames.Latitude, latitude },
             { PropertyNames.Longitude, longitude }
         };
+        if (livePeriod is not null)
+        {
+            args.Add(PropertyNames.LivePeriod, livePeriod);
+        }
         if (horizontalAccuracy is not null)
         {
             args.Add(PropertyNames.HorizontalAccuracy, horizontalAccuracy);
@@ -184,6 +196,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
+    /// <param name="livePeriod">New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current <em>live_period</em> by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then <em>live_period</em> remains unchanged</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
     /// <param name="heading">Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
@@ -191,8 +204,8 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool EditMessageLiveLocation(this ITelegramBotClient client, string inlineMessageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null) =>
-        client.EditMessageLiveLocationAsync(inlineMessageId, latitude, longitude, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
+    public static bool EditMessageLiveLocation(this ITelegramBotClient client, string inlineMessageId, float latitude, float longitude, int? livePeriod = null, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null) =>
+        client.EditMessageLiveLocationAsync(inlineMessageId, latitude, longitude, livePeriod, horizontalAccuracy, heading, proximityAlertRadius, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit live location messages. A location can be edited until its <em>live_period</em> expires or editing is explicitly disabled by a call to <a href="https://core.telegram.org/bots/api#stopmessagelivelocation">stopMessageLiveLocation</a>. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
@@ -201,6 +214,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message</param>
     /// <param name="latitude">Latitude of new location</param>
     /// <param name="longitude">Longitude of new location</param>
+    /// <param name="livePeriod">New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current <em>live_period</em> by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then <em>live_period</em> remains unchanged</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
     /// <param name="heading">Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
@@ -209,7 +223,7 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> EditMessageLiveLocationAsync(this ITelegramBotClient client, string inlineMessageId, float latitude, float longitude, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<bool> EditMessageLiveLocationAsync(this ITelegramBotClient client, string inlineMessageId, float latitude, float longitude, int? livePeriod = null, float? horizontalAccuracy = null, int? heading = null, int? proximityAlertRadius = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -222,6 +236,10 @@ public static partial class UpdatingMessagesExtensions
             { PropertyNames.Latitude, latitude },
             { PropertyNames.Longitude, longitude }
         };
+        if (livePeriod is not null)
+        {
+            args.Add(PropertyNames.LivePeriod, livePeriod);
+        }
         if (horizontalAccuracy is not null)
         {
             args.Add(PropertyNames.HorizontalAccuracy, horizontalAccuracy);

@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object represents a <a href="https://core.telegram.org/bots/features#keyboards">custom keyboard</a> with reply options (see <a href="https://core.telegram.org/bots/features#keyboards">Introduction to bots</a> for details and examples).
+/// This object represents a <a href="https://core.telegram.org/bots/features#keyboards">custom keyboard</a> with reply options (see <a href="https://core.telegram.org/bots/features#keyboards">Introduction to bots</a> for details and examples). Not supported in channels and for messages sent on behalf of a Telegram Business account.
 /// </summary>
 public class ReplyKeyboardMarkup : ReplyMarkup
 {

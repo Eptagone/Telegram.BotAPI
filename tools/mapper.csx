@@ -20,6 +20,7 @@ using Microsoft.VisualBasic;
 static IEnumerable<ClassDefinition> MapTypesIntoClasses(this BotApiDefinitions definitions)
 {
     ICollection<ClassDefinition> baseClasses = [];
+    ICollection<ClassDefinition> classes = [];
 
     // Generate the base classes for each type group
     foreach (var telegramTypeGroup in definitions.TypeGroups)
@@ -208,17 +209,36 @@ static IEnumerable<ClassDefinition> MapTypesIntoClasses(this BotApiDefinitions d
         var parsedDocs = ParseDocReferences(classDescription, definitions);
         usings.AddRange(ExtractUsingsFromParsedDoc(parsedDocs, definitions));
 
+        string path;
+        // Make an exception for the Chat and ChatFullInfo classes
+        if (className == "Chat" || className == "ChatFullInfo")
+        {
+            path = Path.Combine(
+                telegramType.SectionName.Pascalize(),
+                Path.Combine("Chat", $"{className}.cs")
+            );
+            if (className == "ChatFullInfo")
+            {
+                // Make ChatFullInfo inherit from Chat
+                baseClass = classes.First(c => c.Name == "Chat");
+            }
+        }
+        else
+        {
+            path = Path.Combine(
+                telegramType.SectionName.Pascalize(),
+                baseClass is null
+                    ? $"{className}.cs"
+                    : Path.Combine(baseClass.Name, $"{className}.cs")
+            );
+        }
+
         // Generate the class
         var classDefinition = new ClassDefinition(
             className,
             parsedDocs,
             @namespace,
-            Path.Combine(
-                telegramType.SectionName.Pascalize(),
-                baseClass is null
-                    ? $"{className}.cs"
-                    : Path.Combine(baseClass.Name, $"{className}.cs")
-            ),
+            path,
             properties,
             new List<ClassMethodDefinition>(),
             IsModelLikeArgs(className, definitions)
@@ -228,6 +248,7 @@ static IEnumerable<ClassDefinition> MapTypesIntoClasses(this BotApiDefinitions d
             baseClass
         );
 
+        classes.Add(classDefinition);
         yield return classDefinition;
     }
 }

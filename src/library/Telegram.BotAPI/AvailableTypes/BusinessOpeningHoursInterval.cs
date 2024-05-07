@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// No description available
+/// Describes an interval of time during which a business is open.
 /// </summary>
 public class BusinessOpeningHoursInterval
 {

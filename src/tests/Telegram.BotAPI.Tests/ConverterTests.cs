@@ -1,24 +1,20 @@
 ﻿// Copyright (c) 2024 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using IBB = Telegram.BotAPI.InlineButtonBuilder;
-using IKB = Telegram.BotAPI.AvailableTypes.InlineKeyboardButton;
-using IKM = Telegram.BotAPI.AvailableTypes.InlineKeyboardMarkup;
-using KB = Telegram.BotAPI.AvailableTypes.KeyboardButton;
-using RKM = Telegram.BotAPI.AvailableTypes.ReplyKeyboardMarkup;
-using RKR = Telegram.BotAPI.AvailableTypes.ReplyKeyboardRemove;
+using Telegram.BotAPI.Extensions;
 
 namespace Telegram.BotAPI.Tests;
 
 public sealed class ConverterTests(ITestOutputHelper outputHelper)
 {
-	private readonly ITestOutputHelper outputHelper = outputHelper;
+    private readonly ITestOutputHelper outputHelper = outputHelper;
 
-	[Theory]
-	[InlineData(
-		@"{
+    [Theory]
+    [InlineData(
+        @"{
       ""user"": {
         ""id"": 777000,
         ""is_bot"": false,
@@ -30,9 +26,9 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
       ""custom_title"": ""T"",
       ""is_anonymous"": false
     }"
-	)]
-	[InlineData(
-		@"{
+    )]
+    [InlineData(
+        @"{
       ""user"": {
         ""id"": 777000,
         ""is_bot"": false,
@@ -40,9 +36,9 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
       },
       ""status"": ""member""
     }"
-	)]
-	[InlineData(
-		@"{
+    )]
+    [InlineData(
+        @"{
       ""user"": {
         ""id"": 2383311034,
         ""is_bot"": false,
@@ -61,117 +57,154 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
       ""can_manage_voice_chats"": true,
       ""is_anonymous"": false
     }"
-	)]
-	public void DeserializeChatMemberReturnsIChatMember(string jsonChatMember)
-	{
-		var chatMember = JsonSerializer.Deserialize<ChatMember>(jsonChatMember);
-		switch (chatMember.Status)
+    )]
+    public void DeserializeChatMember(string jsonChatMember)
+    {
+        var chatMember = JsonSerializer.Deserialize<ChatMember>(jsonChatMember);
+        switch (chatMember.Status)
+        {
+            case "member":
+                Assert.IsType<ChatMemberMember>(chatMember);
+                break;
+            case "kicked":
+                Assert.IsType<ChatMemberBanned>(chatMember);
+                break;
+            case "administrator":
+                Assert.IsType<ChatMemberAdministrator>(chatMember);
+                break;
+            case "creator":
+                Assert.IsType<ChatMemberOwner>(chatMember);
+                break;
+            case "restricted":
+                Assert.IsType<ChatMemberRestricted>(chatMember);
+                break;
+            case "left":
+                Assert.IsType<ChatMemberLeft>(chatMember);
+                break;
+            default:
+                break;
+        }
+    }
+
+    [Theory]
+    [InlineData(
+        @"{
+      ""type"": ""solid"",
+      ""color"": 128
+    }"
+    )]
+    [InlineData(
+        @"{
+      ""type"": ""gradient"",
+      ""top_color"": 1,
+      ""bottom_color"": 2,
+      ""rotation_angle"": 3
+    }"
+    )]
+    [InlineData(
+        @"{
+      ""type"": ""freeform_gradient"",
+      ""colors"": [1,2,3]
+    }"
+    )]
+    public void DeserializeBackgroundFill(string jsonBackgroundFill)
+    {
+        var chatMember = JsonSerializer.Deserialize<BackgroundFill>(jsonBackgroundFill);
+		switch (chatMember.Type)
 		{
-			case "member":
-				Assert.IsType<ChatMemberMember>(chatMember);
+			case "solid":
+				Assert.IsType<BackgroundFillSolid>(chatMember);
 				break;
-			case "kicked":
-				Assert.IsType<ChatMemberBanned>(chatMember);
+			case "gradient":
+				Assert.IsType<BackgroundFillGradient>(chatMember);
 				break;
-			case "administrator":
-				Assert.IsType<ChatMemberAdministrator>(chatMember);
-				break;
-			case "creator":
-				Assert.IsType<ChatMemberOwner>(chatMember);
-				break;
-			case "restricted":
-				Assert.IsType<ChatMemberRestricted>(chatMember);
-				break;
-			case "left":
-				Assert.IsType<ChatMemberLeft>(chatMember);
+			case "freeform_gradient":
+				Assert.IsType<BackgroundFillFreeformGradient>(chatMember);
+				Assert.Equal(3, ((BackgroundFillFreeformGradient)chatMember).Colors.Count());
 				break;
 			default:
 				break;
 		}
-	}
+    }
 
-	[Fact]
-	public void SerializeChatMemberReturnsJsonString()
-	{
-		var members = new ChatMember[]
-		{
-			new ChatMemberMember
-			{
-				User = new User
-				{
-					Id = 777000,
-					FirstName = "Telegram",
-					IsBot = false
-				}
-			},
-			new ChatMemberBanned
-			{
-				User = new User
-				{
-					Id = 777000,
-					FirstName = "Sadman",
-					IsBot = false
-				},
-				UntilDate = (int)TimeSpan.FromSeconds(3819829182).TotalSeconds
-			},
-			new ChatMemberOwner
-			{
-				CustomTitle = "God",
-				User = new User
-				{
-					Id = 777000,
-					FirstName = "Telegram",
-					IsBot = false
-				}
-			},
-			new ChatMemberAdministrator
-			{
-				CustomTitle = "Duckman",
-				User = new User
-				{
-					Id = 777000,
-					FirstName = "Cat-Dog ♡︎",
-					IsBot = false
-				},
-				CanBeEdited = true,
-				CanRestrictMembers = true,
-				CanManageVideoChats = true
-			}
-		};
-		var options = new JsonSerializerOptions
-		{
-			DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-		};
-		foreach (var chatMember in members)
-		{
-			var jsonObject = JsonSerializer.Serialize(chatMember, options);
-			this.outputHelper.WriteLine(jsonObject);
-			Assert.NotNull(jsonObject);
-		}
-	}
+    [Fact]
+    public void SerializeChatMemberReturnsJsonString()
+    {
+        var members = new ChatMember[]
+        {
+            new ChatMemberMember
+            {
+                User = new User
+                {
+                    Id = 777000,
+                    FirstName = "Telegram",
+                    IsBot = false
+                }
+            },
+            new ChatMemberBanned
+            {
+                User = new User
+                {
+                    Id = 777000,
+                    FirstName = "Sadman",
+                    IsBot = false
+                },
+                UntilDate = (int)TimeSpan.FromSeconds(3819829182).TotalSeconds
+            },
+            new ChatMemberOwner
+            {
+                CustomTitle = "God",
+                User = new User
+                {
+                    Id = 777000,
+                    FirstName = "Telegram",
+                    IsBot = false
+                }
+            },
+            new ChatMemberAdministrator
+            {
+                CustomTitle = "Duckman",
+                User = new User
+                {
+                    Id = 777000,
+                    FirstName = "Cat-Dog ♡︎",
+                    IsBot = false
+                },
+                CanBeEdited = true,
+                CanRestrictMembers = true,
+                CanManageVideoChats = true
+            }
+        };
+        var options = new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        };
+        foreach (var chatMember in members)
+        {
+            var jsonObject = JsonSerializer.Serialize(chatMember, options);
+            this.outputHelper.WriteLine(jsonObject);
+            Assert.NotNull(jsonObject);
+        }
+    }
 
-	[Fact]
-	public void SerializeAndDeserializeInlineKeyboardMarkup()
-	{
-		var keyboard = new IKM(
-			new IKB[][]
-			{
-				[
-					IBB.SetCallbackData("Your text", "example"),
-					IBB.SetCallbackData("Your chatId", "example")
-				],
-				[IBB.SetCallbackData("Your text", "example")]
-			}
-		);
+    [Fact]
+    public void SerializeAndDeserializeInlineKeyboardMarkup()
+    {
+        var keyboard = new InlineKeyboardBuilder()
+            .AppendCallbackData("Your text", "example")
+            .AppendCallbackData("Your chatId", "example")
+            .AppendRow()
+            .AppendCallbackData("Your text", "example");
+        var markup = new InlineKeyboardMarkup(keyboard);
 
-		var options = new JsonSerializerOptions
-		{
-			DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-		};
+        var options = new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        };
 
-		var rawText = JsonSerializer.Serialize(keyboard, options);
-		this.outputHelper.WriteLine(rawText);
-		var keyboardAgain = JsonSerializer.Deserialize<IKM>(rawText, options);
-		Assert.Equal(rawText, JsonSerializer.Serialize(keyboardAgain, options));
-	}
+        var rawText = JsonSerializer.Serialize(markup, options);
+        this.outputHelper.WriteLine(rawText);
+        var keyboardAgain = JsonSerializer.Deserialize<InlineKeyboardMarkup>(rawText, options);
+        Assert.Equal(rawText, JsonSerializer.Serialize(keyboardAgain, options));
+    }
 }

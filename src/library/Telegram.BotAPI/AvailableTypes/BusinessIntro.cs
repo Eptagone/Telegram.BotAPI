@@ -7,7 +7,7 @@ using Telegram.BotAPI.Stickers;
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// No description available
+/// Contains information about the start page settings of a Telegram Business account.
 /// </summary>
 public class BusinessIntro
 {

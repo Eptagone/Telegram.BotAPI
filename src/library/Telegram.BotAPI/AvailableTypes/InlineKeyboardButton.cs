@@ -33,13 +33,13 @@ public class InlineKeyboardButton
     public string? Url { get; set; }
 
     /// <summary>
-    /// Optional. Data to be sent in a <a href="https://core.telegram.org/bots/api#callbackquery">callback query</a> to the bot when button is pressed, 1-64 bytes
+    /// Optional. Data to be sent in a <a href="https://core.telegram.org/bots/api#callbackquery">callback query</a> to the bot when button is pressed, 1-64 bytes. Not supported for messages sent on behalf of a Telegram Business account.
     /// </summary>
     [JsonPropertyName(PropertyNames.CallbackData)]
     public string? CallbackData { get; set; }
 
     /// <summary>
-    /// Optional. Description of the <a href="https://core.telegram.org/bots/webapps">Web App</a> that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method <a href="https://core.telegram.org/bots/api#answerwebappquery">answerWebAppQuery</a>. Available only in private chats between a user and the bot.
+    /// Optional. Description of the <a href="https://core.telegram.org/bots/webapps">Web App</a> that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method <a href="https://core.telegram.org/bots/api#answerwebappquery">answerWebAppQuery</a>. Available only in private chats between a user and the bot. Not supported for messages sent on behalf of a Telegram Business account.
     /// </summary>
     [JsonPropertyName(PropertyNames.WebApp)]
     public WebAppInfo? WebApp { get; set; }
@@ -51,19 +51,19 @@ public class InlineKeyboardButton
     public LoginUrl? LoginUrl { get; set; }
 
     /// <summary>
-    /// Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. May be empty, in which case just the bot's username will be inserted.
+    /// Optional. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. May be empty, in which case just the bot's username will be inserted. Not supported for messages sent on behalf of a Telegram Business account.
     /// </summary>
     [JsonPropertyName(PropertyNames.SwitchInlineQuery)]
     public string? SwitchInlineQuery { get; set; }
 
     /// <summary>
-    /// Optional. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. May be empty, in which case only the bot's username will be inserted.<br /><br />This offers a quick way for the user to open your bot in inline mode in the same chat - good for selecting something from multiple options.
+    /// Optional. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. May be empty, in which case only the bot's username will be inserted.<br /><br />This offers a quick way for the user to open your bot in inline mode in the same chat - good for selecting something from multiple options. Not supported in channels and for messages sent on behalf of a Telegram Business account.
     /// </summary>
     [JsonPropertyName(PropertyNames.SwitchInlineQueryCurrentChat)]
     public string? SwitchInlineQueryCurrentChat { get; set; }
 
     /// <summary>
-    /// Optional. If set, pressing the button will prompt the user to select one of their chats of the specified type, open that chat and insert the bot's username and the specified inline query in the input field
+    /// Optional. If set, pressing the button will prompt the user to select one of their chats of the specified type, open that chat and insert the bot's username and the specified inline query in the input field. Not supported for messages sent on behalf of a Telegram Business account.
     /// </summary>
     [JsonPropertyName(PropertyNames.SwitchInlineQueryChosenChat)]
     public SwitchInlineQueryChosenChat? SwitchInlineQueryChosenChat { get; set; }

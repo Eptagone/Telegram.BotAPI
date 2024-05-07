@@ -54,7 +54,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
-    /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users</param>
+    /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
     /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
@@ -81,7 +81,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
-    /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users</param>
+    /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
     /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
@@ -182,7 +182,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
-    /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users</param>
+    /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
     /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
@@ -209,7 +209,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
-    /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users</param>
+    /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
     /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>

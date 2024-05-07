@@ -24,6 +24,21 @@ public abstract class DiscriminatorJsonConverter<T> : JsonConverter<T>
 	private static ReadOnlyDictionary<string, Type>? discriminatorMapping;
 
 	/// <inheritdoc />
+	public override void Write(
+		Utf8JsonWriter writer,
+		T value,
+		JsonSerializerOptions options
+	)
+	{
+		if (value == null)
+		{
+			throw new ArgumentNullException(nameof(value));
+		}
+		var type = value.GetType();
+		JsonSerializer.Serialize(writer, value, type, options);
+	}
+
+	/// <inheritdoc />
 	public override T? Read(
 		ref Utf8JsonReader reader,
 		Type typeToConvert,
