@@ -2,6 +2,8 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
+using Telegram.BotAPI.Converters;
+
 namespace Telegram.BotAPI.InlineMode;
 
 /// <summary>
@@ -14,6 +16,7 @@ namespace Telegram.BotAPI.InlineMode;
 /// <item><description><see cref="InputInvoiceMessageContent"/></description></item>
 /// </list>
 /// </summary>
+[JsonConverter(typeof(InputMessageContentConverter))]
 public abstract class InputMessageContent
 {
 }
