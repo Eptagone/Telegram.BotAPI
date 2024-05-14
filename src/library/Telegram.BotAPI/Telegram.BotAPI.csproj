@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>7.3</Version>
+		<Version>7.3.1</Version>
 		<PackageId>$(AssemblyName)</PackageId>
 		<Authors>Quetzal Rivera</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -25,7 +25,7 @@
 		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
 		<RepositoryType></RepositoryType>
 		<AssemblyName>Telegram.BotAPI</AssemblyName>
-		<PackageReleaseNotes>Updated to Bot API 7.3</PackageReleaseNotes>
+		<PackageReleaseNotes>Add missing converters for InputMessageContent and ReplyMarkup</PackageReleaseNotes>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
