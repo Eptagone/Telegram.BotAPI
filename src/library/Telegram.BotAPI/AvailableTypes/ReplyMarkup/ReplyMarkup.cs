@@ -2,6 +2,8 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
+using Telegram.BotAPI.Converters;
+
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
@@ -13,6 +15,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 /// <item><description><see cref="ForceReply"/></description></item>
 /// </list>
 /// </summary>
+[JsonConverter(typeof(ReplyMarkupConverter))]
 public abstract class ReplyMarkup
 {
 }

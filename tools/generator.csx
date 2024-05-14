@@ -17,7 +17,8 @@ static void GenerateClasses(IEnumerable<ClassDefinition> classes, string outputP
         builder.AppendLine("//* This file is auto-generated. Don't edit it manually!");
         builder.AppendLine();
         var usings = @class.Usings.Where(u => u != @class.Namespace);
-        if (@class.ClassType == ClassModelType.BaseModel && @class.Properties.Any())
+        // if (@class.ClassType == ClassModelType.BaseModel && @class.Properties.Any())
+        if (@class.ClassType == ClassModelType.BaseModel)
         {
             builder.AppendLine($"using {ScriptConstants.PROJECT_NAME}.Converters;");
             if (!usings.Any())
@@ -49,11 +50,12 @@ static void GenerateClasses(IEnumerable<ClassDefinition> classes, string outputP
                 builder.AppendLine($"public static partial class {@class.Name}");
                 break;
             case ClassModelType.BaseModel:
-                // If the class has properties, set a JSON converter
-                if (@class.Properties.Any())
-                {
-                    builder.AppendLine($"[JsonConverter(typeof({@class.Name}Converter))]");
-                }
+                //// If the class has properties, set a JSON converter
+                // if (@class.Properties.Any())
+                // {
+                //    builder.AppendLine($"[JsonConverter(typeof({@class.Name}Converter))]");
+                // }
+                builder.AppendLine($"[JsonConverter(typeof({@class.Name}Converter))]");
                 builder.AppendLine($"public abstract class {@class.Name}");
                 break;
             default:
