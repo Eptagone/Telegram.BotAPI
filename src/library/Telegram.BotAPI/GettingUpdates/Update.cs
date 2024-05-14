@@ -50,7 +50,7 @@ public class Update
     public BusinessConnection? BusinessConnection { get; set; }
 
     /// <summary>
-    /// Optional. New non-service message from a connected business account
+    /// Optional. New message from a connected business account
     /// </summary>
     [JsonPropertyName(PropertyNames.BusinessMessage)]
     public Message? BusinessMessage { get; set; }

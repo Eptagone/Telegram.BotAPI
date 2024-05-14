@@ -124,7 +124,7 @@ public class ChatFullInfo : Chat
     public bool? JoinToSendMessages { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if all users directly joining the supergroup need to be approved by supergroup administrators
+    /// Optional. <em>True</em>, if all users directly joining the supergroup without using an invite link need to be approved by supergroup administrators
     /// </summary>
     [JsonPropertyName(PropertyNames.JoinByRequest)]
     public bool? JoinByRequest { get; set; }
