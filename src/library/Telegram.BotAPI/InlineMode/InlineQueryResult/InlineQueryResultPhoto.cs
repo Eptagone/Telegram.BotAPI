@@ -78,6 +78,12 @@ public class InlineQueryResultPhoto : InlineQueryResult
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
+    /// Optional. Pass <em>True</em>, if the caption must be shown above the message media
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
+    public bool? ShowCaptionAboveMedia { get; set; }
+
+    /// <summary>
     /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]

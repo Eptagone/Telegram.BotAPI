@@ -48,6 +48,12 @@ public class EditMessageCaptionArgs
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
+    /// Pass <em>True</em>, if the caption must be shown above the message media. Supported only for animation, photo and video messages.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
+    public bool? ShowCaptionAboveMedia { get; set; }
+
+    /// <summary>
     /// A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]

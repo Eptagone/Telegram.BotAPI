@@ -7,7 +7,7 @@ using Telegram.BotAPI.Games;
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object represents one button of an inline keyboard. You <strong>must</strong> use exactly one of the optional fields.
+/// This object represents one button of an inline keyboard. Exactly one of the optional fields must be used to specify type of the button.
 /// </summary>
 public class InlineKeyboardButton
 {
@@ -75,7 +75,7 @@ public class InlineKeyboardButton
     public CallbackGame? CallbackGame { get; set; }
 
     /// <summary>
-    /// Optional. Specify <em>True</em>, to send a <a href="https://core.telegram.org/bots/api#payments">Pay button</a>.<br /><br /><strong>NOTE:</strong> This type of button <strong>must</strong> always be the first button in the first row and can only be used in invoice messages.
+    /// Optional. Specify <em>True</em>, to send a <a href="https://core.telegram.org/bots/api#payments">Pay button</a>. Substrings “⭐” and “XTR” in the buttons's text will be replaced with a Telegram Star icon.<br /><br /><strong>NOTE:</strong> This type of button <strong>must</strong> always be the first button in the first row and can only be used in invoice messages.
     /// </summary>
     [JsonPropertyName(PropertyNames.Pay)]
     public bool? Pay { get; set; }

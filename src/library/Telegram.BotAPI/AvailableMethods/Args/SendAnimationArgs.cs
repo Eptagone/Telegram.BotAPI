@@ -122,6 +122,12 @@ public class SendAnimationArgs : AttachedFilesArgsBase
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
+    /// Pass <em>True</em>, if the caption must be shown above the message media
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
+    public bool? ShowCaptionAboveMedia { get; set; }
+
+    /// <summary>
     /// Pass <em>True</em> if the animation needs to be covered with a spoiler animation
     /// </summary>
     [JsonPropertyName(PropertyNames.HasSpoiler)]
@@ -138,6 +144,12 @@ public class SendAnimationArgs : AttachedFilesArgsBase
     /// </summary>
     [JsonPropertyName(PropertyNames.ProtectContent)]
     public bool? ProtectContent { get; set; }
+
+    /// <summary>
+    /// Unique identifier of the message effect to be added to the message; for private chats only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.MessageEffectId)]
+    public string? MessageEffectId { get; set; }
 
     /// <summary>
     /// Description of the message to reply to

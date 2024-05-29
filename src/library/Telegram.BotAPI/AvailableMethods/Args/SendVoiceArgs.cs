@@ -116,6 +116,12 @@ public class SendVoiceArgs : AttachedFilesArgsBase
     public bool? ProtectContent { get; set; }
 
     /// <summary>
+    /// Unique identifier of the message effect to be added to the message; for private chats only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.MessageEffectId)]
+    public string? MessageEffectId { get; set; }
+
+    /// <summary>
     /// Description of the message to reply to
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyParameters)]

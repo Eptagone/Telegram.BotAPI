@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class MessageEntity
 {
     /// <summary>
-    /// Type of the entity. Currently, can be “mention” (<em>@username</em>), “hashtag” (<em>#hashtag</em>), “cashtag” (<em>$USD</em>), “bot_command” (<em>/start@jobs_bot</em>), “url” (<em>https://telegram.org</em>), “email” (<em>do-not-reply@telegram.org</em>), “phone_number” (<em>+1-212-555-0123</em>), “bold” (<strong>bold text</strong>), “italic” (<em>italic text</em>), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom_emoji” (for inline custom emoji stickers)
+    /// Type of the entity. Currently, can be “mention” (<em>@username</em>), “hashtag” (<em>#hashtag</em>), “cashtag” (<em>$USD</em>), “bot_command” (<em>/start@jobs_bot</em>), “url” (<em>https://telegram.org</em>), “email” (<em>do-not-reply@telegram.org</em>), “phone_number” (<em>+1-212-555-0123</em>), “bold” (<strong>bold text</strong>), “italic” (<em>italic text</em>), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable_blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom_emoji” (for inline custom emoji stickers)
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public string Type { get; set; } = null!;

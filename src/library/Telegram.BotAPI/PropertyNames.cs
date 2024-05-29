@@ -152,6 +152,7 @@ public static partial class PropertyNames
     public const string EditedBusinessMessage = "edited_business_message";
     public const string EditedChannelPost = "edited_channel_post";
     public const string EditedMessage = "edited_message";
+    public const string EffectId = "effect_id";
     public const string ElementHash = "element_hash";
     public const string Email = "email";
     public const string Emoji = "emoji";
@@ -300,6 +301,7 @@ public static partial class PropertyNames
     public const string Message = "message";
     public const string MessageAutoDeleteTime = "message_auto_delete_time";
     public const string MessageAutoDeleteTimerChanged = "message_auto_delete_timer_changed";
+    public const string MessageEffectId = "message_effect_id";
     public const string MessageId = "message_id";
     public const string MessageIds = "message_ids";
     public const string MessageReaction = "message_reaction";
@@ -445,6 +447,7 @@ public static partial class PropertyNames
     public const string ShortDescription = "short_description";
     public const string ShowAboveText = "show_above_text";
     public const string ShowAlert = "show_alert";
+    public const string ShowCaptionAboveMedia = "show_caption_above_media";
     public const string SlowModeDelay = "slow_mode_delay";
     public const string SmallFileId = "small_file_id";
     public const string SmallFileUniqueId = "small_file_unique_id";

@@ -37,6 +37,12 @@ public class InputMediaPhoto : InputMedia
     public override string? ParseMode { get; set; }
 
     /// <summary>
+    /// Optional. Pass <em>True</em>, if the caption must be shown above the message media
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
+    public bool? ShowCaptionAboveMedia { get; set; }
+
+    /// <summary>
     /// Optional. Pass <em>True</em> if the photo needs to be covered with a spoiler animation
     /// </summary>
     [JsonPropertyName(PropertyNames.HasSpoiler)]

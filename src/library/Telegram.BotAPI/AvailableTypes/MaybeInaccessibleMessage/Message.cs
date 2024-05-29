@@ -165,6 +165,12 @@ public class Message : MaybeInaccessibleMessage
     public LinkPreviewOptions? LinkPreviewOptions { get; set; }
 
     /// <summary>
+    /// Optional. Unique identifier of the message effect added to the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.EffectId)]
+    public string? EffectId { get; set; }
+
+    /// <summary>
     /// Optional. Message is an animation, information about the animation. For backward compatibility, when this field is set, the <em>document</em> field will also be set
     /// </summary>
     [JsonPropertyName(PropertyNames.Animation)]
@@ -229,6 +235,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.CaptionEntities)]
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
+
+    /// <summary>
+    /// Optional. True, if the caption must be shown above the message media
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
+    public bool? ShowCaptionAboveMedia { get; set; }
 
     /// <summary>
     /// Optional. <em>True</em>, if the message media is covered by a spoiler animation

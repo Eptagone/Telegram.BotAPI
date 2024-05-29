@@ -66,6 +66,12 @@ public class InlineQueryResultVideo : InlineQueryResult
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
+    /// Optional. Pass <em>True</em>, if the caption must be shown above the message media
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
+    public bool? ShowCaptionAboveMedia { get; set; }
+
+    /// <summary>
     /// Optional. Video width
     /// </summary>
     [JsonPropertyName(PropertyNames.VideoWidth)]

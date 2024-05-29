@@ -56,17 +56,19 @@ public static partial class AvailableMethodsExtensions
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="hasSpoiler">Pass <em>True</em> if the video needs to be covered with a spoiler animation</param>
     /// <param name="supportsStreaming">Pass <em>True</em> if the uploaded video is suitable for streaming</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideo(this ITelegramBotClient client, long chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, supportsStreaming, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendVideo(this ITelegramBotClient client, long chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
@@ -83,17 +85,19 @@ public static partial class AvailableMethodsExtensions
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="hasSpoiler">Pass <em>True</em> if the video needs to be covered with a spoiler animation</param>
     /// <param name="supportsStreaming">Pass <em>True</em> if the uploaded video is suitable for streaming</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -141,6 +145,10 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.CaptionEntities, captionEntities);
         }
+        if (showCaptionAboveMedia is not null)
+        {
+            args.Add(PropertyNames.ShowCaptionAboveMedia, showCaptionAboveMedia);
+        }
         if (hasSpoiler is not null)
         {
             args.Add(PropertyNames.HasSpoiler, hasSpoiler);
@@ -156,6 +164,10 @@ public static partial class AvailableMethodsExtensions
         if (protectContent is not null)
         {
             args.Add(PropertyNames.ProtectContent, protectContent);
+        }
+        if (messageEffectId is not null)
+        {
+            args.Add(PropertyNames.MessageEffectId, messageEffectId);
         }
         if (replyParameters is not null)
         {
@@ -184,18 +196,20 @@ public static partial class AvailableMethodsExtensions
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="hasSpoiler">Pass <em>True</em> if the video needs to be covered with a spoiler animation</param>
     /// <param name="supportsStreaming">Pass <em>True</em> if the uploaded video is suitable for streaming</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideo(this ITelegramBotClient client, long chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, supportsStreaming, disableNotification, protectContent, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendVideo(this ITelegramBotClient client, long chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, messageEffectId, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
@@ -212,10 +226,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="hasSpoiler">Pass <em>True</em> if the video needs to be covered with a spoiler animation</param>
     /// <param name="supportsStreaming">Pass <em>True</em> if the uploaded video is suitable for streaming</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <param name="files">The files to upload.</param>
@@ -223,7 +239,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -271,6 +287,10 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.CaptionEntities, captionEntities);
         }
+        if (showCaptionAboveMedia is not null)
+        {
+            args.Add(PropertyNames.ShowCaptionAboveMedia, showCaptionAboveMedia);
+        }
         if (hasSpoiler is not null)
         {
             args.Add(PropertyNames.HasSpoiler, hasSpoiler);
@@ -286,6 +306,10 @@ public static partial class AvailableMethodsExtensions
         if (protectContent is not null)
         {
             args.Add(PropertyNames.ProtectContent, protectContent);
+        }
+        if (messageEffectId is not null)
+        {
+            args.Add(PropertyNames.MessageEffectId, messageEffectId);
         }
         if (replyParameters is not null)
         {
@@ -321,17 +345,19 @@ public static partial class AvailableMethodsExtensions
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="hasSpoiler">Pass <em>True</em> if the video needs to be covered with a spoiler animation</param>
     /// <param name="supportsStreaming">Pass <em>True</em> if the uploaded video is suitable for streaming</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideo(this ITelegramBotClient client, string chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, supportsStreaming, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendVideo(this ITelegramBotClient client, string chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
@@ -348,17 +374,19 @@ public static partial class AvailableMethodsExtensions
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="hasSpoiler">Pass <em>True</em> if the video needs to be covered with a spoiler animation</param>
     /// <param name="supportsStreaming">Pass <em>True</em> if the uploaded video is suitable for streaming</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -406,6 +434,10 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.CaptionEntities, captionEntities);
         }
+        if (showCaptionAboveMedia is not null)
+        {
+            args.Add(PropertyNames.ShowCaptionAboveMedia, showCaptionAboveMedia);
+        }
         if (hasSpoiler is not null)
         {
             args.Add(PropertyNames.HasSpoiler, hasSpoiler);
@@ -421,6 +453,10 @@ public static partial class AvailableMethodsExtensions
         if (protectContent is not null)
         {
             args.Add(PropertyNames.ProtectContent, protectContent);
+        }
+        if (messageEffectId is not null)
+        {
+            args.Add(PropertyNames.MessageEffectId, messageEffectId);
         }
         if (replyParameters is not null)
         {
@@ -449,18 +485,20 @@ public static partial class AvailableMethodsExtensions
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="hasSpoiler">Pass <em>True</em> if the video needs to be covered with a spoiler animation</param>
     /// <param name="supportsStreaming">Pass <em>True</em> if the uploaded video is suitable for streaming</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideo(this ITelegramBotClient client, string chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, hasSpoiler, supportsStreaming, disableNotification, protectContent, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendVideo(this ITelegramBotClient client, string chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, messageEffectId, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
@@ -477,10 +515,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="hasSpoiler">Pass <em>True</em> if the video needs to be covered with a spoiler animation</param>
     /// <param name="supportsStreaming">Pass <em>True</em> if the uploaded video is suitable for streaming</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <param name="files">The files to upload.</param>
@@ -488,7 +528,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -536,6 +576,10 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.CaptionEntities, captionEntities);
         }
+        if (showCaptionAboveMedia is not null)
+        {
+            args.Add(PropertyNames.ShowCaptionAboveMedia, showCaptionAboveMedia);
+        }
         if (hasSpoiler is not null)
         {
             args.Add(PropertyNames.HasSpoiler, hasSpoiler);
@@ -551,6 +595,10 @@ public static partial class AvailableMethodsExtensions
         if (protectContent is not null)
         {
             args.Add(PropertyNames.ProtectContent, protectContent);
+        }
+        if (messageEffectId is not null)
+        {
+            args.Add(PropertyNames.MessageEffectId, messageEffectId);
         }
         if (replyParameters is not null)
         {

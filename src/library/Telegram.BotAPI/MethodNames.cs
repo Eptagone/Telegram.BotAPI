@@ -75,6 +75,7 @@ public static partial class MethodNames
     public const string LogOut = "logOut";
     public const string PinChatMessage = "pinChatMessage";
     public const string PromoteChatMember = "promoteChatMember";
+    public const string RefundStarPayment = "refundStarPayment";
     public const string ReopenForumTopic = "reopenForumTopic";
     public const string ReopenGeneralForumTopic = "reopenGeneralForumTopic";
     public const string ReplaceStickerInSet = "replaceStickerInSet";

@@ -17,15 +17,13 @@ public class InputInvoiceMessageContent : InputMessageContent
     /// <param name="title">Product name, 1-32 characters</param>
     /// <param name="description">Product description, 1-255 characters</param>
     /// <param name="payload">Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.</param>
-    /// <param name="providerToken">Payment provider token, obtained via <a href="https://t.me/botfather">@BotFather</a></param>
-    /// <param name="currency">Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a></param>
-    /// <param name="prices">Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)</param>
-    public InputInvoiceMessageContent(string title, string description, string payload, string providerToken, string currency, IEnumerable<LabeledPrice> prices)
+    /// <param name="currency">Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a>. Pass “XTR” for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
+    /// <param name="prices">Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
+    public InputInvoiceMessageContent(string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices)
     {
         this.Title = title ?? throw new ArgumentNullException(nameof(title));
         this.Description = description ?? throw new ArgumentNullException(nameof(description));
         this.Payload = payload ?? throw new ArgumentNullException(nameof(payload));
-        this.ProviderToken = providerToken ?? throw new ArgumentNullException(nameof(providerToken));
         this.Currency = currency ?? throw new ArgumentNullException(nameof(currency));
         this.Prices = prices ?? throw new ArgumentNullException(nameof(prices));
     }
@@ -49,25 +47,25 @@ public class InputInvoiceMessageContent : InputMessageContent
     public string Payload { get; set; }
 
     /// <summary>
-    /// Payment provider token, obtained via <a href="https://t.me/botfather">@BotFather</a>
+    /// Optional. Payment provider token, obtained via <a href="https://t.me/botfather">@BotFather</a>. Pass an empty string for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.ProviderToken)]
-    public string ProviderToken { get; set; }
+    public string? ProviderToken { get; set; }
 
     /// <summary>
-    /// Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a>
+    /// Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a>. Pass “XTR” for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.Currency)]
     public string Currency { get; set; }
 
     /// <summary>
-    /// Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)
+    /// Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.Prices)]
     public IEnumerable<LabeledPrice> Prices { get; set; }
 
     /// <summary>
-    /// Optional. The maximum accepted amount for tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of <em>US$ 1.45</em> pass <em>max_tip_amount = 145</em>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0
+    /// Optional. The maximum accepted amount for tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of <em>US$ 1.45</em> pass <em>max_tip_amount = 145</em>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.MaxTipAmount)]
     public int? MaxTipAmount { get; set; }
@@ -109,43 +107,43 @@ public class InputInvoiceMessageContent : InputMessageContent
     public int? PhotoHeight { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> if you require the user's full name to complete the order
+    /// Optional. Pass <em>True</em> if you require the user's full name to complete the order. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.NeedName)]
     public bool? NeedName { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> if you require the user's phone number to complete the order
+    /// Optional. Pass <em>True</em> if you require the user's phone number to complete the order. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.NeedPhoneNumber)]
     public bool? NeedPhoneNumber { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> if you require the user's email address to complete the order
+    /// Optional. Pass <em>True</em> if you require the user's email address to complete the order. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.NeedEmail)]
     public bool? NeedEmail { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> if you require the user's shipping address to complete the order
+    /// Optional. Pass <em>True</em> if you require the user's shipping address to complete the order. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.NeedShippingAddress)]
     public bool? NeedShippingAddress { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> if the user's phone number should be sent to provider
+    /// Optional. Pass <em>True</em> if the user's phone number should be sent to the provider. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.SendPhoneNumberToProvider)]
     public bool? SendPhoneNumberToProvider { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> if the user's email address should be sent to provider
+    /// Optional. Pass <em>True</em> if the user's email address should be sent to the provider. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.SendEmailToProvider)]
     public bool? SendEmailToProvider { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> if the final price depends on the shipping method
+    /// Optional. Pass <em>True</em> if the final price depends on the shipping method. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.IsFlexible)]
     public bool? IsFlexible { get; set; }
