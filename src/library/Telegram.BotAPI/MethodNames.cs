@@ -65,6 +65,7 @@ public static partial class MethodNames
     public const string GetMyDescription = "getMyDescription";
     public const string GetMyName = "getMyName";
     public const string GetMyShortDescription = "getMyShortDescription";
+    public const string GetStarTransactions = "getStarTransactions";
     public const string GetStickerSet = "getStickerSet";
     public const string GetUpdates = "getUpdates";
     public const string GetUserChatBoosts = "getUserChatBoosts";

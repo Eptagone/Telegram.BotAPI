@@ -33,7 +33,7 @@ public class InlineKeyboardButton
     public string? Url { get; set; }
 
     /// <summary>
-    /// Optional. Data to be sent in a <a href="https://core.telegram.org/bots/api#callbackquery">callback query</a> to the bot when button is pressed, 1-64 bytes. Not supported for messages sent on behalf of a Telegram Business account.
+    /// Optional. Data to be sent in a <a href="https://core.telegram.org/bots/api#callbackquery">callback query</a> to the bot when the button is pressed, 1-64 bytes
     /// </summary>
     [JsonPropertyName(PropertyNames.CallbackData)]
     public string? CallbackData { get; set; }

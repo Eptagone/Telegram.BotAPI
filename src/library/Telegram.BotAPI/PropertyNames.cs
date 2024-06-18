@@ -395,6 +395,7 @@ public static partial class PropertyNames
     public const string QuotePosition = "quote_position";
     public const string Reaction = "reaction";
     public const string Reactions = "reactions";
+    public const string Receiver = "receiver";
     public const string RemoveCaption = "remove_caption";
     public const string RemoveDate = "remove_date";
     public const string RemoveKeyboard = "remove_keyboard";
@@ -490,6 +491,7 @@ public static partial class PropertyNames
     public const string TotalAmount = "total_amount";
     public const string TotalCount = "total_count";
     public const string TotalVoterCount = "total_voter_count";
+    public const string Transactions = "transactions";
     public const string Translation = "translation";
     public const string Traveler = "traveler";
     public const string Type = "type";
@@ -541,6 +543,7 @@ public static partial class PropertyNames
     public const string WinnerCount = "winner_count";
     public const string Winners = "winners";
     public const string WinnersSelectionDate = "winners_selection_date";
+    public const string WithdrawalState = "withdrawal_state";
     public const string WriteAccessAllowed = "write_access_allowed";
     public const string XShift = "x_shift";
     public const string YShift = "y_shift";

@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>7.4</Version>
+		<Version>7.5</Version>
 		<PackageId>$(AssemblyName)</PackageId>
 		<Authors>Quetzal Rivera</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -10,7 +10,7 @@
 		<Copyright>Quetzal Rivera 2024 ©</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<Description>A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v7.4 (May 28, 2024).
+		<Description>A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v7.5 (June 18, 2024).
 - Contains all classes and methods available from the Bot API.
 		</Description>
 		<PackageTags>Telegram;Bot;API</PackageTags>
@@ -25,7 +25,7 @@
 		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
 		<RepositoryType></RepositoryType>
 		<AssemblyName>Telegram.BotAPI</AssemblyName>
-		<PackageReleaseNotes>Updated to Bot API 7.4</PackageReleaseNotes>
+		<PackageReleaseNotes>Updated to Bot API 7.5</PackageReleaseNotes>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

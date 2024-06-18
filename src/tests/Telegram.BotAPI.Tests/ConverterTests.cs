@@ -110,21 +110,21 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
     public void DeserializeBackgroundFill(string jsonBackgroundFill)
     {
         var chatMember = JsonSerializer.Deserialize<BackgroundFill>(jsonBackgroundFill);
-		switch (chatMember.Type)
-		{
-			case "solid":
-				Assert.IsType<BackgroundFillSolid>(chatMember);
-				break;
-			case "gradient":
-				Assert.IsType<BackgroundFillGradient>(chatMember);
-				break;
-			case "freeform_gradient":
-				Assert.IsType<BackgroundFillFreeformGradient>(chatMember);
-				Assert.Equal(3, ((BackgroundFillFreeformGradient)chatMember).Colors.Count());
-				break;
-			default:
-				break;
-		}
+        switch (chatMember.Type)
+        {
+            case "solid":
+                Assert.IsType<BackgroundFillSolid>(chatMember);
+                break;
+            case "gradient":
+                Assert.IsType<BackgroundFillGradient>(chatMember);
+                break;
+            case "freeform_gradient":
+                Assert.IsType<BackgroundFillFreeformGradient>(chatMember);
+                Assert.Equal(3, ((BackgroundFillFreeformGradient)chatMember).Colors.Count());
+                break;
+            default:
+                break;
+        }
     }
 
     [Fact]
@@ -206,5 +206,37 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
         this.outputHelper.WriteLine(rawText);
         var keyboardAgain = JsonSerializer.Deserialize<InlineKeyboardMarkup>(rawText, options);
         Assert.Equal(rawText, JsonSerializer.Serialize(keyboardAgain, options));
+    }
+
+    [Fact]
+    public void SerializeAndDeserializeTransactionPartner()
+    {
+        var partner = new TransactionPartnerFragment();
+        var options = new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        };
+        var rawText = JsonSerializer.Serialize(partner, options);
+        this.outputHelper.WriteLine(rawText);
+        var partnerAgain = JsonSerializer.Deserialize<TransactionPartnerFragment>(rawText, options);
+        Assert.Equal(rawText, JsonSerializer.Serialize(partnerAgain, options));
+    }
+
+    [Fact]
+    public void SerializeAndDeserializeRevenueWithdrawalState()
+    {
+        var state = new RevenueWithdrawalStateSucceeded();
+
+        var options = new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        };
+        var rawText = JsonSerializer.Serialize(state, options);
+        this.outputHelper.WriteLine(rawText);
+        var stateAgain = JsonSerializer.Deserialize<RevenueWithdrawalStateSucceeded>(
+            rawText,
+            options
+        );
+        Assert.Equal(rawText, JsonSerializer.Serialize(stateAgain, options));
     }
 }
