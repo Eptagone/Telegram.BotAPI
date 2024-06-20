@@ -336,50 +336,61 @@ static async Task<BotApiDefinitions> ScrapBotApiDefinitions()
 static IEnumerable<TelegramReturnType> ExtractReturnTypesFromDescription(string description)
 {
     var sentences = description.Split(". ");
-    var sentenceWithReturn = sentences.First(s =>
+    var sentenceWithReturns = sentences.Where(s =>
         s.Contains("is returned") || s.Contains("Returns") || s.Contains("returns")
     );
-    // Methods that return more than one type will have a sentence like these:
-    // "if the edited message is not an inline message, the edited Message is returned, otherwise True is returned."
-    // "if the message is not an inline message, the edited Message is returned, otherwise True is returned."
-    var count = Regex.Matches(sentenceWithReturn, "is returned").Count;
-    // If true, the method returns only one type
-    if (count <= 1)
-    {
-        if (
-            sentenceWithReturn.Contains("<em>True</em> is returned")
-            || sentenceWithReturn.Contains("Returns <em>True</em> on success")
-        )
-        {
-            return [new TelegramReturnType("bool", 0, Enumerable.Empty<string>())];
-        }
 
-        var arrayLevels = (ushort)Regex.Matches(sentenceWithReturn, "[Aa]rray of").Count;
-        // Extract the type from first Anchor element
-        var type = Regex
-            .Match(sentenceWithReturn, @"<a.*?>(?<type>[\w_]*)</a>")
-            .Groups["type"]
-            .Value;
-        if (string.IsNullOrEmpty(type))
+    foreach (var sentenceWithReturn in sentenceWithReturns)
+    {
+        // Methods that return more than one type will have a sentence like these:
+        // "if the edited message is not an inline message, the edited Message is returned, otherwise True is returned."
+        // "if the message is not an inline message, the edited Message is returned, otherwise True is returned."
+        var count = Regex.Matches(sentenceWithReturn, "is returned").Count;
+        // If true, the method returns only one type
+        if (count <= 1)
         {
-            type = Regex
-                .Match(sentenceWithReturn, @"<em>(?<type>[\w_]*)</em>")
+            if (
+                sentenceWithReturn.Contains("<em>True</em> is returned")
+                || sentenceWithReturn.Contains("Returns <em>True</em> on success")
+            )
+            {
+                return [new TelegramReturnType("bool", 0, Enumerable.Empty<string>())];
+            }
+
+            var arrayLevels = (ushort)Regex.Matches(sentenceWithReturn, "[Aa]rray of").Count;
+            // Extract the type from first Anchor element
+            var type = Regex
+                .Match(sentenceWithReturn, @"<a.*?>(?<type>[\w_]*)</a>")
                 .Groups["type"]
                 .Value;
+            if (string.IsNullOrEmpty(type))
+            {
+                type = Regex
+                    .Match(sentenceWithReturn, @"<em>(?<type>[\w_]*)</em>")
+                    .Groups["type"]
+                    .Value;
+            }
+            else if (type.EndsWith('s') && arrayLevels > 0)
+            {
+                type = type.Remove(type.Length - 1);
+            }
+
+            // If the type is still empty, try to extract it from the next sentence.
+            if (string.IsNullOrEmpty(type))
+            {
+                continue;
+            }
+
+            return [new TelegramReturnType(type, arrayLevels, Enumerable.Empty<string>())];
         }
-        else if (type.EndsWith('s') && arrayLevels > 0)
+        else if (description.Contains("message is not an inline message, the"))
         {
-            type = type.Remove(type.Length - 1);
+            return
+            [
+                new TelegramReturnType("Message", 0, new string[] { "chat_id", "message_id" }),
+                new TelegramReturnType("bool", 0, new string[] { "inline_message_id" })
+            ];
         }
-        return [new TelegramReturnType(type, arrayLevels, Enumerable.Empty<string>())];
-    }
-    else if (description.Contains("message is not an inline message, the"))
-    {
-        return
-        [
-            new TelegramReturnType("Message", 0, new string[] { "chat_id", "message_id" }),
-            new TelegramReturnType("bool", 0, new string[] { "inline_message_id" })
-        ];
     }
 
     throw new Exception("Could not parse return types from description");
