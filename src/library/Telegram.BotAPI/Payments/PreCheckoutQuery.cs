@@ -36,7 +36,7 @@ public class PreCheckoutQuery
     public int TotalAmount { get; set; }
 
     /// <summary>
-    /// Bot specified invoice payload
+    /// Bot-specified invoice payload
     /// </summary>
     [JsonPropertyName(PropertyNames.InvoicePayload)]
     public string InvoicePayload { get; set; } = null!;

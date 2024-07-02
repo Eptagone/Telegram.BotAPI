@@ -22,19 +22,19 @@ public class Document
     public string FileUniqueId { get; set; } = null!;
 
     /// <summary>
-    /// Optional. Document thumbnail as defined by sender
+    /// Optional. Document thumbnail as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Thumbnail)]
     public PhotoSize? Thumbnail { get; set; }
 
     /// <summary>
-    /// Optional. Original filename as defined by sender
+    /// Optional. Original filename as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.FileName)]
     public string? FileName { get; set; }
 
     /// <summary>
-    /// Optional. MIME type of the file as defined by sender
+    /// Optional. MIME type of the file as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.MimeType)]
     public string? MimeType { get; set; }

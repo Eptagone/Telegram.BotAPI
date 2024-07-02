@@ -22,13 +22,13 @@ public class Voice
     public string FileUniqueId { get; set; } = null!;
 
     /// <summary>
-    /// Duration of the audio in seconds as defined by sender
+    /// Duration of the audio in seconds as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Duration)]
     public int Duration { get; set; }
 
     /// <summary>
-    /// Optional. MIME type of the file as defined by sender
+    /// Optional. MIME type of the file as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.MimeType)]
     public string? MimeType { get; set; }

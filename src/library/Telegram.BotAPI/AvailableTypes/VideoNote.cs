@@ -22,13 +22,13 @@ public class VideoNote
     public string FileUniqueId { get; set; } = null!;
 
     /// <summary>
-    /// Video width and height (diameter of the video message) as defined by sender
+    /// Video width and height (diameter of the video message) as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Length)]
     public int Length { get; set; }
 
     /// <summary>
-    /// Duration of the video in seconds as defined by sender
+    /// Duration of the video in seconds as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Duration)]
     public int Duration { get; set; }

@@ -24,7 +24,7 @@ public class ShippingQuery
     public User From { get; set; } = null!;
 
     /// <summary>
-    /// Bot specified invoice payload
+    /// Bot-specified invoice payload
     /// </summary>
     [JsonPropertyName(PropertyNames.InvoicePayload)]
     public string InvoicePayload { get; set; } = null!;

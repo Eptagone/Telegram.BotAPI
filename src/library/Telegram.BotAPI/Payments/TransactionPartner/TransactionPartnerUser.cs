@@ -22,4 +22,10 @@ public class TransactionPartnerUser : TransactionPartner
     /// </summary>
     [JsonPropertyName(PropertyNames.User)]
     public User User { get; set; } = null!;
+
+    /// <summary>
+    /// Optional. Bot-specified invoice payload
+    /// </summary>
+    [JsonPropertyName(PropertyNames.InvoicePayload)]
+    public string? InvoicePayload { get; set; }
 }

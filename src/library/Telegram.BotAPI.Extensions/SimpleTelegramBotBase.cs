@@ -373,6 +373,17 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
         this.OnEditedChannelPostAsync(message).Wait();
 
     /// <summary>
+    /// Handles an edited channel post update.
+    /// </summary>
+    /// <param name="message">The edited channel post.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    protected virtual Task OnEditedChannelPostAsync(
+        Message message,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
     /// Handles a business connection update.
     /// </summary>
     /// <param name="businessConnection">The business connection.</param>
@@ -444,17 +455,6 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
     protected virtual void OnDeletedBusinessMessages(
         BusinessMessagesDeleted deletedBusinessMessages
     ) => this.OnDeletedBusinessMessagesAsync(deletedBusinessMessages).Wait();
-
-    /// <summary>
-    /// Handles an edited channel post update.
-    /// </summary>
-    /// <param name="message">The edited channel post.</param>
-    /// <param name="cancellationToken">Cancellation token</param>
-    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-    protected virtual Task OnEditedChannelPostAsync(
-        Message message,
-        CancellationToken cancellationToken = default
-    ) => Task.CompletedTask;
 
     /// <summary>
     /// Handles a message reaction update.

@@ -154,6 +154,12 @@ public class ChatFullInfo : Chat
     public ChatPermissions? Permissions { get; set; }
 
     /// <summary>
+    /// Optional. <em>True</em>, if paid media messages can be sent or forwarded to the channel chat. The field is available only for channel chats.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanSendPaidMedia)]
+    public bool? CanSendPaidMedia { get; set; }
+
+    /// <summary>
     /// Optional. For supergroups, the minimum allowed delay between consecutive messages sent by each unprivileged user; in seconds
     /// </summary>
     [JsonPropertyName(PropertyNames.SlowModeDelay)]

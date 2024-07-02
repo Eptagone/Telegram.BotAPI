@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object contains information about one answer option in a poll to send.
+/// This object contains information about one answer option in a poll to be sent.
 /// </summary>
 public class InputPollOption
 {

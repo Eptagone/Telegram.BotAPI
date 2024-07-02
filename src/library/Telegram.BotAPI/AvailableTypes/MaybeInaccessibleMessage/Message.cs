@@ -189,6 +189,12 @@ public class Message : MaybeInaccessibleMessage
     public Document? Document { get; set; }
 
     /// <summary>
+    /// Optional. Message contains paid media; information about the paid media
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PaidMedia)]
+    public PaidMediaInfo? PaidMedia { get; set; }
+
+    /// <summary>
     /// Optional. Message is a photo, available sizes of the photo
     /// </summary>
     [JsonPropertyName(PropertyNames.Photo)]
@@ -225,7 +231,7 @@ public class Message : MaybeInaccessibleMessage
     public Voice? Voice { get; set; }
 
     /// <summary>
-    /// Optional. Caption for the animation, audio, document, photo, video or voice
+    /// Optional. Caption for the animation, audio, document, paid media, photo, video or voice
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]
     public string? Caption { get; set; }

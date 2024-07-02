@@ -56,6 +56,12 @@ public class ExternalReplyInfo
     public Document? Document { get; set; }
 
     /// <summary>
+    /// Optional. Message contains paid media; information about the paid media
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PaidMedia)]
+    public PaidMediaInfo? PaidMedia { get; set; }
+
+    /// <summary>
     /// Optional. Message is a photo, available sizes of the photo
     /// </summary>
     [JsonPropertyName(PropertyNames.Photo)]

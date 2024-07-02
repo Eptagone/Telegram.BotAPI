@@ -84,6 +84,7 @@ public static partial class PropertyNames
     public const string CanSendDocuments = "can_send_documents";
     public const string CanSendMessages = "can_send_messages";
     public const string CanSendOtherMessages = "can_send_other_messages";
+    public const string CanSendPaidMedia = "can_send_paid_media";
     public const string CanSendPhotos = "can_send_photos";
     public const string CanSendPolls = "can_send_polls";
     public const string CanSendVideoNotes = "can_send_video_notes";
@@ -345,6 +346,7 @@ public static partial class PropertyNames
     public const string Options = "options";
     public const string OrderInfo = "order_info";
     public const string Origin = "origin";
+    public const string PaidMedia = "paid_media";
     public const string ParseMode = "parse_mode";
     public const string PassportData = "passport_data";
     public const string Pay = "pay";
@@ -453,6 +455,7 @@ public static partial class PropertyNames
     public const string SmallFileId = "small_file_id";
     public const string SmallFileUniqueId = "small_file_unique_id";
     public const string Source = "source";
+    public const string StarCount = "star_count";
     public const string StartDate = "start_date";
     public const string StartParameter = "start_parameter";
     public const string State = "state";

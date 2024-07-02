@@ -10,13 +10,13 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class Location
 {
     /// <summary>
-    /// Latitude as defined by sender
+    /// Latitude as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Latitude)]
     public float Latitude { get; set; }
 
     /// <summary>
-    /// Longitude as defined by sender
+    /// Longitude as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Longitude)]
     public float Longitude { get; set; }

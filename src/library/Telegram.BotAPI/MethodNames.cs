@@ -93,6 +93,7 @@ public static partial class MethodNames
     public const string SendLocation = "sendLocation";
     public const string SendMediaGroup = "sendMediaGroup";
     public const string SendMessage = "sendMessage";
+    public const string SendPaidMedia = "sendPaidMedia";
     public const string SendPhoto = "sendPhoto";
     public const string SendPoll = "sendPoll";
     public const string SendSticker = "sendSticker";

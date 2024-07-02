@@ -22,37 +22,37 @@ public class Animation
     public string FileUniqueId { get; set; } = null!;
 
     /// <summary>
-    /// Video width as defined by sender
+    /// Video width as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Width)]
     public int Width { get; set; }
 
     /// <summary>
-    /// Video height as defined by sender
+    /// Video height as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Height)]
     public int Height { get; set; }
 
     /// <summary>
-    /// Duration of the video in seconds as defined by sender
+    /// Duration of the video in seconds as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Duration)]
     public int Duration { get; set; }
 
     /// <summary>
-    /// Optional. Animation thumbnail as defined by sender
+    /// Optional. Animation thumbnail as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.Thumbnail)]
     public PhotoSize? Thumbnail { get; set; }
 
     /// <summary>
-    /// Optional. Original animation filename as defined by sender
+    /// Optional. Original animation filename as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.FileName)]
     public string? FileName { get; set; }
 
     /// <summary>
-    /// Optional. MIME type of the file as defined by sender
+    /// Optional. MIME type of the file as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.MimeType)]
     public string? MimeType { get; set; }
