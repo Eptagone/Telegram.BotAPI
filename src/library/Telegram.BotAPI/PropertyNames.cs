@@ -398,6 +398,7 @@ public static partial class PropertyNames
     public const string Reaction = "reaction";
     public const string Reactions = "reactions";
     public const string Receiver = "receiver";
+    public const string RefundedPayment = "refunded_payment";
     public const string RemoveCaption = "remove_caption";
     public const string RemoveDate = "remove_date";
     public const string RemoveKeyboard = "remove_keyboard";

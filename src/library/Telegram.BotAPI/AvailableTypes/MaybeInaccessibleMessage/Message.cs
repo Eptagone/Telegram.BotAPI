@@ -375,6 +375,12 @@ public class Message : MaybeInaccessibleMessage
     public SuccessfulPayment? SuccessfulPayment { get; set; }
 
     /// <summary>
+    /// Optional. Message is a service message about a refunded payment, information about the payment. <a href="https://core.telegram.org/bots/api#payments">More about payments »</a>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.RefundedPayment)]
+    public RefundedPayment? RefundedPayment { get; set; }
+
+    /// <summary>
     /// Optional. Service message: users were shared with the bot
     /// </summary>
     [JsonPropertyName(PropertyNames.UsersShared)]
