@@ -219,6 +219,7 @@ public static partial class PropertyNames
     public const string HasAggressiveAntiSpamEnabled = "has_aggressive_anti_spam_enabled";
     public const string HasCustomCertificate = "has_custom_certificate";
     public const string HasHiddenMembers = "has_hidden_members";
+    public const string HasMainWebApp = "has_main_web_app";
     public const string HasMediaSpoiler = "has_media_spoiler";
     public const string HasPrivateForwards = "has_private_forwards";
     public const string HasProtectedContent = "has_protected_content";

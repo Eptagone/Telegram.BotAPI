@@ -80,4 +80,10 @@ public class User
     /// </summary>
     [JsonPropertyName(PropertyNames.CanConnectToBusiness)]
     public bool? CanConnectToBusiness { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the bot has a main Web App. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.HasMainWebApp)]
+    public bool? HasMainWebApp { get; set; }
 }

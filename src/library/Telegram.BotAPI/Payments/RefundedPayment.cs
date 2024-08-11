@@ -13,7 +13,7 @@ public class RefundedPayment
     /// Three-letter ISO 4217 <a href="https://core.telegram.org/bots/payments#supported-currencies">currency</a> code, or “XTR” for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>. Currently, always “XTR”
     /// </summary>
     [JsonPropertyName(PropertyNames.Currency)]
-    public string Currency { get; set; } = null!;
+    public string Currency => "XTR";
 
     /// <summary>
     /// Total refunded price in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a price of <em>US$ 1.45</em>, <em>total_amount = 145</em>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
