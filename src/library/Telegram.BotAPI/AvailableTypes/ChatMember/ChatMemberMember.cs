@@ -14,4 +14,10 @@ public class ChatMemberMember : ChatMember
     /// </summary>
     [JsonPropertyName(PropertyNames.Status)]
     public override string Status => "member";
+
+    /// <summary>
+    /// Optional. Date when the user's subscription will expire; Unix time
+    /// </summary>
+    [JsonPropertyName(PropertyNames.UntilDate)]
+    public int? UntilDate { get; set; }
 }

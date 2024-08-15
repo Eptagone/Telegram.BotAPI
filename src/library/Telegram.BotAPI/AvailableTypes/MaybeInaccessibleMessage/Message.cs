@@ -27,13 +27,13 @@ public class Message : MaybeInaccessibleMessage
     public int? MessageThreadId { get; set; }
 
     /// <summary>
-    /// Optional. Sender of the message; empty for messages sent to channels. For backward compatibility, the field contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.
+    /// Optional. Sender of the message; may be empty for messages sent to channels. For backward compatibility, if the message was sent on behalf of a chat, the field contains a fake sender user in non-channel chats
     /// </summary>
     [JsonPropertyName(PropertyNames.From)]
     public User? From { get; set; }
 
     /// <summary>
-    /// Optional. Sender of the message, sent on behalf of a chat. For example, the channel itself for channel posts, the supergroup itself for messages from anonymous group administrators, the linked channel for messages automatically forwarded to the discussion group. For backward compatibility, the field <em>from</em> contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.
+    /// Optional. Sender of the message when sent on behalf of a chat. For example, the supergroup itself for messages sent by its anonymous administrators or a linked channel for messages automatically forwarded to the channel's discussion group. For backward compatibility, if the message was sent on behalf of a chat, the field <em>from</em> contains a fake sender user in non-channel chats.
     /// </summary>
     [JsonPropertyName(PropertyNames.SenderChat)]
     public Chat? SenderChat { get; set; }

@@ -25,6 +25,7 @@ public static partial class MethodNames
     public const string CopyMessage = "copyMessage";
     public const string CopyMessages = "copyMessages";
     public const string CreateChatInviteLink = "createChatInviteLink";
+    public const string CreateChatSubscriptionInviteLink = "createChatSubscriptionInviteLink";
     public const string CreateForumTopic = "createForumTopic";
     public const string CreateInvoiceLink = "createInvoiceLink";
     public const string CreateNewStickerSet = "createNewStickerSet";
@@ -39,6 +40,7 @@ public static partial class MethodNames
     public const string DeleteStickerSet = "deleteStickerSet";
     public const string DeleteWebhook = "deleteWebhook";
     public const string EditChatInviteLink = "editChatInviteLink";
+    public const string EditChatSubscriptionInviteLink = "editChatSubscriptionInviteLink";
     public const string EditForumTopic = "editForumTopic";
     public const string EditGeneralForumTopic = "editGeneralForumTopic";
     public const string EditMessageCaption = "editMessageCaption";

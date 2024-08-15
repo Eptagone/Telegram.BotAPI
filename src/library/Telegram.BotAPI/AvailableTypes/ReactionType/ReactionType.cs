@@ -11,6 +11,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 /// <list type="bullet">
 /// <item><description><see cref="ReactionTypeEmoji"/></description></item>
 /// <item><description><see cref="ReactionTypeCustomEmoji"/></description></item>
+/// <item><description><see cref="ReactionTypePaid"/></description></item>
 /// </list>
 /// </summary>
 [JsonConverter(typeof(ReactionTypeConverter))]

@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to send paid media to channel chats. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendPaidMedia" method.</param>
@@ -23,7 +23,7 @@ public static partial class AvailableMethodsExtensions
         client.SendPaidMediaAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send paid media to channel chats. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendPaidMedia" method.</param>
@@ -42,12 +42,13 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to send paid media to channel chats. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
+    /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="caption">Media caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the media caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -59,16 +60,17 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendPaidMedia(this ITelegramBotClient client, long chatId, int starCount, IEnumerable<InputPaidMedia> media, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendPaidMediaAsync(chatId, starCount, media, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendPaidMedia(this ITelegramBotClient client, long chatId, int starCount, IEnumerable<InputPaidMedia> media, string? businessConnectionId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendPaidMediaAsync(chatId, starCount, media, businessConnectionId, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send paid media to channel chats. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
+    /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="caption">Media caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the media caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -81,7 +83,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendPaidMediaAsync(this ITelegramBotClient client, long chatId, int starCount, IEnumerable<InputPaidMedia> media, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendPaidMediaAsync(this ITelegramBotClient client, long chatId, int starCount, IEnumerable<InputPaidMedia> media, string? businessConnectionId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -94,6 +96,10 @@ public static partial class AvailableMethodsExtensions
             { PropertyNames.StarCount, starCount },
             { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) }
         };
+        if (businessConnectionId is not null)
+        {
+            args.Add(PropertyNames.BusinessConnectionId, businessConnectionId);
+        }
         if (caption is not null)
         {
             args.Add(PropertyNames.Caption, caption);
@@ -131,12 +137,13 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to send paid media to channel chats. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
+    /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="caption">Media caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the media caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -148,16 +155,17 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendPaidMedia(this ITelegramBotClient client, string chatId, int starCount, IEnumerable<InputPaidMedia> media, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendPaidMediaAsync(chatId, starCount, media, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendPaidMedia(this ITelegramBotClient client, string chatId, int starCount, IEnumerable<InputPaidMedia> media, string? businessConnectionId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendPaidMediaAsync(chatId, starCount, media, businessConnectionId, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send paid media to channel chats. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
+    /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="caption">Media caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the media caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -170,7 +178,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendPaidMediaAsync(this ITelegramBotClient client, string chatId, int starCount, IEnumerable<InputPaidMedia> media, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendPaidMediaAsync(this ITelegramBotClient client, string chatId, int starCount, IEnumerable<InputPaidMedia> media, string? businessConnectionId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -183,6 +191,10 @@ public static partial class AvailableMethodsExtensions
             { PropertyNames.StarCount, starCount },
             { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) }
         };
+        if (businessConnectionId is not null)
+        {
+            args.Add(PropertyNames.BusinessConnectionId, businessConnectionId);
+        }
         if (caption is not null)
         {
             args.Add(PropertyNames.Caption, caption);

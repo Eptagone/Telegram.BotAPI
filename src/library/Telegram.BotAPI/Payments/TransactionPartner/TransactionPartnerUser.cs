@@ -28,4 +28,10 @@ public class TransactionPartnerUser : TransactionPartner
     /// </summary>
     [JsonPropertyName(PropertyNames.InvoicePayload)]
     public string? InvoicePayload { get; set; }
+
+    /// <summary>
+    /// Optional. Information about the paid media bought by the user
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PaidMedia)]
+    public IEnumerable<PaidMedia>? PaidMedia { get; set; }
 }

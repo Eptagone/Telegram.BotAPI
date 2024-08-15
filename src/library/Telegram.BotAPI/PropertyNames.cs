@@ -471,6 +471,8 @@ public static partial class PropertyNames
     public const string Story = "story";
     public const string StreetLine1 = "street_line1";
     public const string StreetLine2 = "street_line2";
+    public const string SubscriptionPeriod = "subscription_period";
+    public const string SubscriptionPrice = "subscription_price";
     public const string SuccessfulPayment = "successful_payment";
     public const string SuggestedTipAmounts = "suggested_tip_amounts";
     public const string SupergroupChatCreated = "supergroup_chat_created";
