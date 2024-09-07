@@ -267,6 +267,7 @@ public static partial class PropertyNames
     public const string IsPremium = "is_premium";
     public const string IsPrimary = "is_primary";
     public const string IsRevoked = "is_revoked";
+    public const string IsStarGiveaway = "is_star_giveaway";
     public const string IsTopicMessage = "is_topic_message";
     public const string IsUnclaimed = "is_unclaimed";
     public const string IsVideo = "is_video";
@@ -348,6 +349,7 @@ public static partial class PropertyNames
     public const string OrderInfo = "order_info";
     public const string Origin = "origin";
     public const string PaidMedia = "paid_media";
+    public const string PaidMediaPayload = "paid_media_payload";
     public const string ParseMode = "parse_mode";
     public const string PassportData = "passport_data";
     public const string Pay = "pay";
@@ -380,6 +382,7 @@ public static partial class PropertyNames
     public const string PremiumSubscriptionMonthCount = "premium_subscription_month_count";
     public const string Prices = "prices";
     public const string PrizeDescription = "prize_description";
+    public const string PrizeStarCount = "prize_star_count";
     public const string ProfileAccentColorId = "profile_accent_color_id";
     public const string ProfileBackgroundCustomEmojiId = "profile_background_custom_emoji_id";
     public const string ProtectContent = "protect_content";
@@ -388,6 +391,7 @@ public static partial class PropertyNames
     public const string ProviderToken = "provider_token";
     public const string ProximityAlertRadius = "proximity_alert_radius";
     public const string ProximityAlertTriggered = "proximity_alert_triggered";
+    public const string PurchasedPaidMedia = "purchased_paid_media";
     public const string Query = "query";
     public const string Question = "question";
     public const string QuestionEntities = "question_entities";

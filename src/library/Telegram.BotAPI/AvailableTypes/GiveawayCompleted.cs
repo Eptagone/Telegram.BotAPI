@@ -26,4 +26,10 @@ public class GiveawayCompleted
     /// </summary>
     [JsonPropertyName(PropertyNames.GiveawayMessage)]
     public Message? GiveawayMessage { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the giveaway is a Telegram Premium giveaway.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsStarGiveaway)]
+    public bool? IsStarGiveaway { get; set; }
 }

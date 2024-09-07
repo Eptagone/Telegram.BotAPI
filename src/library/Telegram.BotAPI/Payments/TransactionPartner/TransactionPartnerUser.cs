@@ -34,4 +34,10 @@ public class TransactionPartnerUser : TransactionPartner
     /// </summary>
     [JsonPropertyName(PropertyNames.PaidMedia)]
     public IEnumerable<PaidMedia>? PaidMedia { get; set; }
+
+    /// <summary>
+    /// Optional. Bot-specified paid media payload
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PaidMediaPayload)]
+    public string? PaidMediaPayload { get; set; }
 }

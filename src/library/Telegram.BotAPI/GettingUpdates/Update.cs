@@ -110,6 +110,12 @@ public class Update
     public PreCheckoutQuery? PreCheckoutQuery { get; set; }
 
     /// <summary>
+    /// Optional. A user purchased paid media with a non-empty payload sent by the bot in a non-channel chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PurchasedPaidMedia)]
+    public PaidMediaPurchased? PurchasedPaidMedia { get; set; }
+
+    /// <summary>
     /// Optional. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot
     /// </summary>
     [JsonPropertyName(PropertyNames.Poll)]

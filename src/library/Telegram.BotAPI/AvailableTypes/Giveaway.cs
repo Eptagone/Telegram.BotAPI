@@ -52,7 +52,13 @@ public class Giveaway
     public IEnumerable<string>? CountryCodes { get; set; }
 
     /// <summary>
-    /// Optional. The number of months the Telegram Premium subscription won from the giveaway will be active for
+    /// Optional. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PrizeStarCount)]
+    public int? PrizeStarCount { get; set; }
+
+    /// <summary>
+    /// Optional. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only
     /// </summary>
     [JsonPropertyName(PropertyNames.PremiumSubscriptionMonthCount)]
     public int? PremiumSubscriptionMonthCount { get; set; }
