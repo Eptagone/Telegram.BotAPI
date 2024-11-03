@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.Payments;
 public class StarTransaction
 {
     /// <summary>
-    /// Unique identifier of the transaction. Coincides with the identifer of the original transaction for refund transactions. Coincides with <em>SuccessfulPayment.telegram_payment_charge_id</em> for successful incoming payments from users.
+    /// Unique identifier of the transaction. Coincides with the identifier of the original transaction for refund transactions. Coincides with <em>SuccessfulPayment.telegram_payment_charge_id</em> for successful incoming payments from users.
     /// </summary>
     [JsonPropertyName(PropertyNames.Id)]
     public string Id { get; set; } = null!;

@@ -70,14 +70,15 @@ public static partial class PaymentsExtensions
     /// <param name="isFlexible">Pass <em>True</em> if the final price depends on the shipping method. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Pay <em>total price</em>' button will be shown. If not empty, the first button must be a Pay button.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendInvoice(this ITelegramBotClient client, long chatId, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, int? messageThreadId = null, string? providerToken = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? startParameter = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendInvoiceAsync(chatId, title, description, payload, currency, prices, messageThreadId, providerToken, maxTipAmount, suggestedTipAmounts, startParameter, providerData, photoUrl, photoSize, photoWidth, photoHeight, needName, needPhoneNumber, needEmail, needShippingAddress, sendPhoneNumberToProvider, sendEmailToProvider, isFlexible, disableNotification, protectContent, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendInvoice(this ITelegramBotClient client, long chatId, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, int? messageThreadId = null, string? providerToken = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? startParameter = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendInvoiceAsync(chatId, title, description, payload, currency, prices, messageThreadId, providerToken, maxTipAmount, suggestedTipAmounts, startParameter, providerData, photoUrl, photoSize, photoWidth, photoHeight, needName, needPhoneNumber, needEmail, needShippingAddress, sendPhoneNumberToProvider, sendEmailToProvider, isFlexible, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send invoices. On success, the sent <see cref="Message"/> is returned.
@@ -108,6 +109,7 @@ public static partial class PaymentsExtensions
     /// <param name="isFlexible">Pass <em>True</em> if the final price depends on the shipping method. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Pay <em>total price</em>' button will be shown. If not empty, the first button must be a Pay button.</param>
@@ -115,7 +117,7 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendInvoiceAsync(this ITelegramBotClient client, long chatId, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, int? messageThreadId = null, string? providerToken = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? startParameter = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendInvoiceAsync(this ITelegramBotClient client, long chatId, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, int? messageThreadId = null, string? providerToken = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? startParameter = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -207,6 +209,10 @@ public static partial class PaymentsExtensions
         {
             args.Add(PropertyNames.ProtectContent, protectContent);
         }
+        if (allowPaidBroadcast is not null)
+        {
+            args.Add(PropertyNames.AllowPaidBroadcast, allowPaidBroadcast);
+        }
         if (messageEffectId is not null)
         {
             args.Add(PropertyNames.MessageEffectId, messageEffectId);
@@ -252,14 +258,15 @@ public static partial class PaymentsExtensions
     /// <param name="isFlexible">Pass <em>True</em> if the final price depends on the shipping method. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Pay <em>total price</em>' button will be shown. If not empty, the first button must be a Pay button.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendInvoice(this ITelegramBotClient client, string chatId, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, int? messageThreadId = null, string? providerToken = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? startParameter = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendInvoiceAsync(chatId, title, description, payload, currency, prices, messageThreadId, providerToken, maxTipAmount, suggestedTipAmounts, startParameter, providerData, photoUrl, photoSize, photoWidth, photoHeight, needName, needPhoneNumber, needEmail, needShippingAddress, sendPhoneNumberToProvider, sendEmailToProvider, isFlexible, disableNotification, protectContent, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendInvoice(this ITelegramBotClient client, string chatId, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, int? messageThreadId = null, string? providerToken = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? startParameter = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendInvoiceAsync(chatId, title, description, payload, currency, prices, messageThreadId, providerToken, maxTipAmount, suggestedTipAmounts, startParameter, providerData, photoUrl, photoSize, photoWidth, photoHeight, needName, needPhoneNumber, needEmail, needShippingAddress, sendPhoneNumberToProvider, sendEmailToProvider, isFlexible, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send invoices. On success, the sent <see cref="Message"/> is returned.
@@ -290,6 +297,7 @@ public static partial class PaymentsExtensions
     /// <param name="isFlexible">Pass <em>True</em> if the final price depends on the shipping method. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Pay <em>total price</em>' button will be shown. If not empty, the first button must be a Pay button.</param>
@@ -297,7 +305,7 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendInvoiceAsync(this ITelegramBotClient client, string chatId, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, int? messageThreadId = null, string? providerToken = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? startParameter = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendInvoiceAsync(this ITelegramBotClient client, string chatId, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, int? messageThreadId = null, string? providerToken = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? startParameter = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -388,6 +396,10 @@ public static partial class PaymentsExtensions
         if (protectContent is not null)
         {
             args.Add(PropertyNames.ProtectContent, protectContent);
+        }
+        if (allowPaidBroadcast is not null)
+        {
+            args.Add(PropertyNames.AllowPaidBroadcast, allowPaidBroadcast);
         }
         if (messageEffectId is not null)
         {

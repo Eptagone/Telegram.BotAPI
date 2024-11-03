@@ -21,6 +21,7 @@ public static partial class PropertyNames
     public const string AllowBotChats = "allow_bot_chats";
     public const string AllowChannelChats = "allow_channel_chats";
     public const string AllowGroupChats = "allow_group_chats";
+    public const string AllowPaidBroadcast = "allow_paid_broadcast";
     public const string AllowSendingWithoutReply = "allow_sending_without_reply";
     public const string AllowUserChats = "allow_user_chats";
     public const string AllowedUpdates = "allowed_updates";
@@ -120,6 +121,7 @@ public static partial class PropertyNames
     public const string Commands = "commands";
     public const string ConnectedWebsite = "connected_website";
     public const string Contact = "contact";
+    public const string CopyText = "copy_text";
     public const string CorrectOptionId = "correct_option_id";
     public const string CountryCode = "country_code";
     public const string CountryCodes = "country_codes";
@@ -414,6 +416,7 @@ public static partial class PropertyNames
     public const string ReplyToStory = "reply_to_story";
     public const string RequestChat = "request_chat";
     public const string RequestContact = "request_contact";
+    public const string RequestCount = "request_count";
     public const string RequestId = "request_id";
     public const string RequestLocation = "request_location";
     public const string RequestName = "request_name";

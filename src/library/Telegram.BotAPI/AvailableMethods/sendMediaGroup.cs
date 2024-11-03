@@ -51,13 +51,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends messages <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null) =>
-        client.SendMediaGroupAsync(chatId, media, businessConnectionId, messageThreadId, disableNotification, protectContent, messageEffectId, replyParameters).GetAwaiter().GetResult();
+    public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null) =>
+        client.SendMediaGroupAsync(chatId, media, businessConnectionId, messageThreadId, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a group of photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type. On success, an array of <a href="https://core.telegram.org/bots/api#message">Messages</a> that were sent is returned.
@@ -69,13 +70,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends messages <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, CancellationToken cancellationToken = default)
+    public static Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -103,6 +105,10 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.ProtectContent, protectContent);
         }
+        if (allowPaidBroadcast is not null)
+        {
+            args.Add(PropertyNames.AllowPaidBroadcast, allowPaidBroadcast);
+        }
         if (messageEffectId is not null)
         {
             args.Add(PropertyNames.MessageEffectId, messageEffectId);
@@ -125,13 +131,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends messages <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null) =>
-        client.SendMediaGroupAsync(chatId, media, businessConnectionId, messageThreadId, disableNotification, protectContent, messageEffectId, replyParameters).GetAwaiter().GetResult();
+    public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null) =>
+        client.SendMediaGroupAsync(chatId, media, businessConnectionId, messageThreadId, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a group of photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type. On success, an array of <a href="https://core.telegram.org/bots/api#message">Messages</a> that were sent is returned.
@@ -143,13 +150,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="disableNotification">Sends messages <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent messages from forwarding and saving</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, CancellationToken cancellationToken = default)
+    public static Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -176,6 +184,10 @@ public static partial class AvailableMethodsExtensions
         if (protectContent is not null)
         {
             args.Add(PropertyNames.ProtectContent, protectContent);
+        }
+        if (allowPaidBroadcast is not null)
+        {
+            args.Add(PropertyNames.AllowPaidBroadcast, allowPaidBroadcast);
         }
         if (messageEffectId is not null)
         {

@@ -69,6 +69,12 @@ public class InlineKeyboardButton
     public SwitchInlineQueryChosenChat? SwitchInlineQueryChosenChat { get; set; }
 
     /// <summary>
+    /// Optional. Description of the button that copies the specified text to the clipboard.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CopyText)]
+    public CopyTextButton? CopyText { get; set; }
+
+    /// <summary>
     /// Optional. Description of the game that will be launched when the user presses the button.<br /><br /><strong>NOTE:</strong> This type of button <strong>must</strong> always be the first button in the first row.
     /// </summary>
     [JsonPropertyName(PropertyNames.CallbackGame)]

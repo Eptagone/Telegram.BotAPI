@@ -12,6 +12,7 @@ namespace Telegram.BotAPI.Payments;
 /// <item><description><see cref="TransactionPartnerUser"/></description></item>
 /// <item><description><see cref="TransactionPartnerFragment"/></description></item>
 /// <item><description><see cref="TransactionPartnerTelegramAds"/></description></item>
+/// <item><description><see cref="TransactionPartnerTelegramApi"/></description></item>
 /// <item><description><see cref="TransactionPartnerOther"/></description></item>
 /// </list>
 /// </summary>
