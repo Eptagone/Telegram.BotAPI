@@ -48,9 +48,11 @@ public static partial class MethodNames
     public const string EditMessageMedia = "editMessageMedia";
     public const string EditMessageReplyMarkup = "editMessageReplyMarkup";
     public const string EditMessageText = "editMessageText";
+    public const string EditUserStarSubscription = "editUserStarSubscription";
     public const string ExportChatInviteLink = "exportChatInviteLink";
     public const string ForwardMessage = "forwardMessage";
     public const string ForwardMessages = "forwardMessages";
+    public const string GetAvailableGifts = "getAvailableGifts";
     public const string GetBusinessConnection = "getBusinessConnection";
     public const string GetChat = "getChat";
     public const string GetChatAdministrators = "getChatAdministrators";
@@ -84,6 +86,7 @@ public static partial class MethodNames
     public const string ReplaceStickerInSet = "replaceStickerInSet";
     public const string RestrictChatMember = "restrictChatMember";
     public const string RevokeChatInviteLink = "revokeChatInviteLink";
+    public const string SavePreparedInlineMessage = "savePreparedInlineMessage";
     public const string SendAnimation = "sendAnimation";
     public const string SendAudio = "sendAudio";
     public const string SendChatAction = "sendChatAction";
@@ -91,6 +94,7 @@ public static partial class MethodNames
     public const string SendDice = "sendDice";
     public const string SendDocument = "sendDocument";
     public const string SendGame = "sendGame";
+    public const string SendGift = "sendGift";
     public const string SendInvoice = "sendInvoice";
     public const string SendLocation = "sendLocation";
     public const string SendMediaGroup = "sendMediaGroup";
@@ -125,6 +129,7 @@ public static partial class MethodNames
     public const string SetStickerPositionInSet = "setStickerPositionInSet";
     public const string SetStickerSetThumbnail = "setStickerSetThumbnail";
     public const string SetStickerSetTitle = "setStickerSetTitle";
+    public const string SetUserEmojiStatus = "setUserEmojiStatus";
     public const string SetWebhook = "setWebhook";
     public const string StopMessageLiveLocation = "stopMessageLiveLocation";
     public const string StopPoll = "stopPoll";

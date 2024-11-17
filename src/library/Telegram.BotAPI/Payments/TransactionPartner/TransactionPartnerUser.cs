@@ -30,6 +30,12 @@ public class TransactionPartnerUser : TransactionPartner
     public string? InvoicePayload { get; set; }
 
     /// <summary>
+    /// Optional. The duration of the paid subscription
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SubscriptionPeriod)]
+    public int? SubscriptionPeriod { get; set; }
+
+    /// <summary>
     /// Optional. Information about the paid media bought by the user
     /// </summary>
     [JsonPropertyName(PropertyNames.PaidMedia)]
@@ -40,4 +46,10 @@ public class TransactionPartnerUser : TransactionPartner
     /// </summary>
     [JsonPropertyName(PropertyNames.PaidMediaPayload)]
     public string? PaidMediaPayload { get; set; }
+
+    /// <summary>
+    /// Optional. The gift sent to the user by the bot
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Gift)]
+    public string? Gift { get; set; }
 }

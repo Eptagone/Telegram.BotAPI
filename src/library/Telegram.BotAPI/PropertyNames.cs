@@ -209,6 +209,9 @@ public static partial class PropertyNames
     public const string GifHeight = "gif_height";
     public const string GifUrl = "gif_url";
     public const string GifWidth = "gif_width";
+    public const string Gift = "gift";
+    public const string GiftId = "gift_id";
+    public const string Gifts = "gifts";
     public const string Giveaway = "giveaway";
     public const string GiveawayCompleted = "giveaway_completed";
     public const string GiveawayCreated = "giveaway_created";
@@ -254,9 +257,11 @@ public static partial class PropertyNames
     public const string IsBig = "is_big";
     public const string IsBlurred = "is_blurred";
     public const string IsBot = "is_bot";
+    public const string IsCanceled = "is_canceled";
     public const string IsClosed = "is_closed";
     public const string IsDisabled = "is_disabled";
     public const string IsEnabled = "is_enabled";
+    public const string IsFirstRecurring = "is_first_recurring";
     public const string IsFlexible = "is_flexible";
     public const string IsForum = "is_forum";
     public const string IsFromOffline = "is_from_offline";
@@ -268,6 +273,7 @@ public static partial class PropertyNames
     public const string IsPersonal = "is_personal";
     public const string IsPremium = "is_premium";
     public const string IsPrimary = "is_primary";
+    public const string IsRecurring = "is_recurring";
     public const string IsRevoked = "is_revoked";
     public const string IsStarGiveaway = "is_star_giveaway";
     public const string IsTopicMessage = "is_topic_message";
@@ -406,6 +412,7 @@ public static partial class PropertyNames
     public const string Reactions = "reactions";
     public const string Receiver = "receiver";
     public const string RefundedPayment = "refunded_payment";
+    public const string RemainingCount = "remaining_count";
     public const string RemoveCaption = "remove_caption";
     public const string RemoveDate = "remove_date";
     public const string RemoveKeyboard = "remove_keyboard";
@@ -478,6 +485,7 @@ public static partial class PropertyNames
     public const string Story = "story";
     public const string StreetLine1 = "street_line1";
     public const string StreetLine2 = "street_line2";
+    public const string SubscriptionExpirationDate = "subscription_expiration_date";
     public const string SubscriptionPeriod = "subscription_period";
     public const string SubscriptionPrice = "subscription_price";
     public const string SuccessfulPayment = "successful_payment";

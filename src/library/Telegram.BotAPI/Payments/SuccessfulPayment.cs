@@ -28,6 +28,24 @@ public class SuccessfulPayment
     public string InvoicePayload { get; set; } = null!;
 
     /// <summary>
+    /// Optional. Expiration date of the subscription, in Unix time; for recurring payments only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SubscriptionExpirationDate)]
+    public int? SubscriptionExpirationDate { get; set; }
+
+    /// <summary>
+    /// Optional. True, if the payment is a recurring payment for a subscription
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsRecurring)]
+    public bool? IsRecurring { get; set; }
+
+    /// <summary>
+    /// Optional. True, if the payment is the first payment for a subscription
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsFirstRecurring)]
+    public bool? IsFirstRecurring { get; set; }
+
+    /// <summary>
     /// Optional. Identifier of the shipping option chosen by the user
     /// </summary>
     [JsonPropertyName(PropertyNames.ShippingOptionId)]

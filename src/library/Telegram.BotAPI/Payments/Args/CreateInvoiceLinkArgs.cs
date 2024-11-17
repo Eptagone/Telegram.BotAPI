@@ -27,6 +27,12 @@ public class CreateInvoiceLinkArgs
     }
 
     /// <summary>
+    /// Unique identifier of the business connection on behalf of which the link will be created
+    /// </summary>
+    [JsonPropertyName(PropertyNames.BusinessConnectionId)]
+    public string? BusinessConnectionId { get; set; }
+
+    /// <summary>
     /// Product name, 1-32 characters
     /// </summary>
     [JsonPropertyName(PropertyNames.Title)]
@@ -61,6 +67,12 @@ public class CreateInvoiceLinkArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.Prices)]
     public IEnumerable<LabeledPrice> Prices { get; set; }
+
+    /// <summary>
+    /// The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SubscriptionPeriod)]
+    public int? SubscriptionPeriod { get; set; }
 
     /// <summary>
     /// The maximum accepted amount for tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of <em>US$ 1.45</em> pass <em>max_tip_amount = 145</em>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.

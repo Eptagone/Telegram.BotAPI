@@ -407,6 +407,7 @@ static string WritePropName(string propName, ClassDefinition @class)
         {
             "ForceReply" => "ForceReplyFlag",
             "MessageId" => "Id",
+            "Gifts" => "GiftList",
             _ => throw new Exception($"Invalid property name: {propName}")
         };
     }
