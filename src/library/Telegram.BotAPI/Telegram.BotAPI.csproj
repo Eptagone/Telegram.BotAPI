@@ -14,7 +14,7 @@
 - Contains all classes and methods available from the Bot API.
 		</Description>
 		<PackageTags>Telegram;Bot;API</PackageTags>
-		<Title></Title>
+		<Title>Telegram.BotAPI</Title>
 		<SignAssembly>false</SignAssembly>
 		<AssemblyOriginatorKeyFile>Telegram.BotAPI.pfx</AssemblyOriginatorKeyFile>
 		<LangVersion>latest</LangVersion>
@@ -34,7 +34,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Text.Json" Version="*" />
+		<PackageReference Include="System.Text.Json" Version="8.0.5" />
 	</ItemGroup>
 
 	<ItemGroup>
