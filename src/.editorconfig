@@ -1,18 +1,18 @@
 [*.cs]
-csharp_indent_braces=false
-insert_final_newline=true
-dotnet_diagnostic.CA1200.severity=suggestion
-dotnet_diagnostic.CA1805.severity=suggestion
+csharp_indent_braces = false
+insert_final_newline = true
+dotnet_diagnostic.ca1200.severity = suggestion
+dotnet_diagnostic.ca1805.severity = suggestion
 
-dotnet_diagnostic.CS8766.severity=silent
+dotnet_diagnostic.cs8766.severity = silent
 csharp_using_directive_placement = outside_namespace:silent
 csharp_prefer_simple_using_statement = true:suggestion
 csharp_prefer_braces = true:silent
-csharp_style_namespace_declarations = block_scoped:silent
+csharp_style_namespace_declarations = file_scoped:suggestion
 csharp_style_prefer_method_group_conversion = true:silent
 csharp_style_prefer_top_level_statements = true:silent
-csharp_style_expression_bodied_methods = false:silent
-csharp_style_expression_bodied_constructors = false:silent
+csharp_style_expression_bodied_methods = true:none
+csharp_style_expression_bodied_constructors = true:none
 csharp_style_expression_bodied_operators = false:silent
 csharp_style_expression_bodied_properties = true:silent
 csharp_style_expression_bodied_indexers = true:silent
@@ -53,11 +53,14 @@ csharp_style_prefer_primary_constructors = true:suggestion
 csharp_style_allow_blank_line_after_token_in_conditional_expression_experimental = true:silent
 csharp_style_allow_blank_line_after_token_in_arrow_expression_clause_experimental = true:silent
 
+# ReSharper properties
+resharper_local_function_body = expression_body
+
 [*.{cs,vb}]
-dotnet_diagnostic.CA1707.severity=suggestion
-dotnet_diagnostic.CA1710.severity=silent
-dotnet_diagnostic.CA1713.severity=suggestion
-dotnet_diagnostic.CA1727.severity=warning
+dotnet_diagnostic.ca1707.severity = suggestion
+dotnet_diagnostic.ca1710.severity = silent
+dotnet_diagnostic.ca1713.severity = suggestion
+dotnet_diagnostic.ca1727.severity = warning
 
 [*.{cs,vb}]
 #### Naming styles ####

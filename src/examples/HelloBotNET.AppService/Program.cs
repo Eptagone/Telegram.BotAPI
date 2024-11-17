@@ -6,7 +6,7 @@ using HelloBotNET.AppService.Services;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(
-        (context, services) =>
+        (_, services) =>
         {
             // Add bot service.
             services.AddSingleton<HelloBot>();

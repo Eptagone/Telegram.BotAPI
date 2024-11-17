@@ -10,10 +10,19 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class InputPollOption
 {
     /// <summary>
+    /// Initializes a new instance of the <see cref="InputPollOption"/> class.
+    /// </summary>
+    /// <param name="text">Option text, 1-100 characters</param>
+    public InputPollOption(string text)
+    {
+        this.Text = text ?? throw new ArgumentNullException(nameof(text));
+    }
+
+    /// <summary>
     /// Option text, 1-100 characters
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
-    public string Text { get; set; } = null!;
+    public string Text { get; set; }
 
     /// <summary>
     /// Optional. Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed

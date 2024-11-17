@@ -3,17 +3,10 @@
 
 using System;
 
-namespace TelegramCalendar
-{
-    public sealed class Day
-    {
-        public Day(DayOfWeek name, ushort number)
-        {
-            this.Name = name;
-            this.Number = number;
-        }
+namespace TelegramCalendar;
 
-        public DayOfWeek Name { get; set; }
-        public ushort Number { get; set; }
-    }
+public sealed class Day(DayOfWeek name, ushort number)
+{
+    public DayOfWeek Name { get; set; } = name;
+    public ushort Number { get; set; } = number;
 }

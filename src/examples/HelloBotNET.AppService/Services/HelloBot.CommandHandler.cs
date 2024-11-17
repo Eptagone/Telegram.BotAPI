@@ -4,19 +4,18 @@
 using Telegram.BotAPI;
 using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.AvailableTypes;
-using Telegram.BotAPI.Extensions;
 
 namespace HelloBotNET.AppService.Services;
 
 /// <summary>
-/// It contains the main functionality of the telegram bot. <br />
-/// The application creates a new instance of this class to process each update received.
+///     It contains the main functionality of the telegram bot. <br />
+///     The application creates a new instance of this class to process each update received.
 /// </summary>
-public partial class HelloBot : SimpleTelegramBotBase
+public partial class HelloBot
 {
     protected override void OnCommand(Message message, string commandName, string commandParameters)
     {
-        var args = commandParameters.Split(' ');
+        string[] args = commandParameters.Split(' ');
 #if DEBUG
         this.logger.LogInformation("Params: {ArgsLenght}", args.Length);
 #endif
@@ -24,7 +23,7 @@ public partial class HelloBot : SimpleTelegramBotBase
         switch (commandName)
         {
             case "hello": // Reply to /hello command
-                var hello = string.Format("Hello World, {0}!", message.From!.FirstName);
+                string hello = $"Hello World, {message.From!.FirstName}!";
                 this.Client.SendMessage(message.Chat.Id, hello);
                 break;
             /*
@@ -40,6 +39,7 @@ public partial class HelloBot : SimpleTelegramBotBase
                 {
                     this.Client.SendMessage(message.Chat.Id, "Unrecognized command.");
                 }
+
                 break;
         }
     }

@@ -7,28 +7,30 @@ using Telegram.BotAPI.AvailableTypes;
 namespace Telegram.BotAPI.Extensions;
 
 /// <summary>
-/// Defines methods to format text in HTML.
+///     Defines methods to format text in HTML.
 /// </summary>
 public static class HtmlTextFormatter
 {
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public static string FromEntities(string input, IEnumerable<MessageEntity> entities)
     {
         if (input is null)
         {
             throw new ArgumentNullException(nameof(input));
         }
+
         if (entities == null)
         {
             throw new ArgumentNullException(nameof(input));
         }
+
         if (entities.Any())
         {
-            var buffer = new StringBuilder();
-            var offset = 0;
+            StringBuilder? buffer = new();
+            int offset = 0;
             string nFsubText;
             string subText;
-            foreach (var e in entities)
+            foreach (MessageEntity? e in entities)
             {
                 if (offset < e.Offset)
                 {
@@ -37,6 +39,7 @@ public static class HtmlTextFormatter
                     buffer.Append(subText);
                     offset = e.Offset;
                 }
+
                 subText = input.Substring(offset, e.Length);
                 switch (e.Type)
                 {
@@ -75,23 +78,24 @@ public static class HtmlTextFormatter
                         buffer.Append(subText);
                         break;
                 }
+
                 offset += e.Length;
             }
+
             if (offset < input.Length)
             {
                 nFsubText = input.Substring(offset, input.Length - offset);
                 subText = EncodeHtmlCharacters(nFsubText);
                 buffer.Append(subText);
             }
+
             return buffer.ToString();
         }
-        else
-        {
-            return EncodeHtmlCharacters(input);
-        }
+
+        return EncodeHtmlCharacters(input);
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public static string Bold(string input)
     {
         input ??= string.Empty;
@@ -99,7 +103,7 @@ public static class HtmlTextFormatter
         return $"<b>{text}</b>";
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public static string Italic(string input)
     {
         input ??= string.Empty;
@@ -107,7 +111,7 @@ public static class HtmlTextFormatter
         return $"<i>{text}</i>";
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public static string Underline(string input)
     {
         input ??= string.Empty;
@@ -115,7 +119,7 @@ public static class HtmlTextFormatter
         return $"<u>{text}</u>";
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public static string Strikethrough(string input)
     {
         input ??= string.Empty;
@@ -123,7 +127,7 @@ public static class HtmlTextFormatter
         return $"<s>{text}</s>";
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public static string Spoiler(string input)
     {
         input ??= string.Empty;
@@ -131,7 +135,7 @@ public static class HtmlTextFormatter
         return $"<span class=\"tg-spoiler\">{text}</span>";
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public static string Code(string input)
     {
         input ??= string.Empty;
@@ -139,7 +143,7 @@ public static class HtmlTextFormatter
         return $"<code>{text}</code>";
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public static string Pre(string input, string? language = null)
     {
         input ??= string.Empty;
@@ -155,7 +159,7 @@ public static class HtmlTextFormatter
     /// <param name="url">Url.</param>
     /// <param name="parseMode">Style to be applied to the new text.</param>
     /// <param name="useFixer">True, if you want to use the StyleParser.</param>
-    /// <returns>Stylized <see cref="string"/></returns>
+    /// <returns>Stylized <see cref="string" /></returns>
     public static string TextLink(string input, string url)
     {
         if (string.IsNullOrEmpty(url))
@@ -168,7 +172,7 @@ public static class HtmlTextFormatter
         return $"<a href=\"{url}\">{text}</a>";
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public static string TextMention(string input, long userId)
     {
         input ??= string.Empty;
@@ -177,22 +181,23 @@ public static class HtmlTextFormatter
     }
 
     /// <summary>
-    /// Format text. Custom Emoji. <br />
+    ///     Format text. Custom Emoji. <br />
     /// </summary>
     /// <remarks>
-    /// Custom emoji is not supported with Markdown. Use MarkdownV2 instead.
+    ///     Custom emoji is not supported with Markdown. Use MarkdownV2 instead.
     /// </remarks>
     /// <param name="customEmojiId">Unique identifier of the custom emoji.</param>
     /// <param name="emoji">The emoji.</param>
     /// <param name="parseMode">Style to be applied to the new text.</param>
     /// <param name="useFixer">True, if you want to use the StyleParser.</param>
-    /// <returns>Stylized <see cref="string"/></returns>
+    /// <returns>Stylized <see cref="string" /></returns>
     public static string CustomEmoji(string customEmojiId, string emoji)
     {
         if (string.IsNullOrEmpty(customEmojiId))
         {
             throw new ArgumentNullException(nameof(customEmojiId));
         }
+
         if (string.IsNullOrEmpty(emoji))
         {
             throw new ArgumentNullException(nameof(emoji));
@@ -202,11 +207,14 @@ public static class HtmlTextFormatter
     }
 
     /// <summary>
-    /// Replaces symbols that are not part of an HTML tag or entity with HTML entities (&lt; with &amp;lt;, &gt; with &amp;gt; and &amp; with &amp;amp;).
+    ///     Replaces symbols that are not part of an HTML tag or entity with HTML entities (&lt; with &amp;lt;, &gt; with &amp;
+    ///     gt; and &amp; with &amp;amp;).
     /// </summary>
     /// <param name="input">Input text.</param>
     /// <returns>String with HTML entities.</returns>
-    /// <returns><see cref="string"/></returns>
+    /// <returns>
+    ///     <see cref="string" />
+    /// </returns>
     public static string EncodeHtmlCharacters(string input)
     {
         if (string.IsNullOrEmpty(input))

@@ -5,27 +5,29 @@ using Telegram.BotAPI;
 using Telegram.BotAPI.AvailableMethods;
 using Telegram.BotAPI.Extensions;
 
-namespace HelloBotNET.Webhook.Services
+namespace HelloBotNET.Webhook.Services;
+
+/// <summary>
+///     It contains the main functionality of the telegram bot. <br />
+///     The application creates a new instance of this class to process each update received.
+/// </summary>
+public partial class HelloBot : SimpleTelegramBotBase
 {
-    /// <summary>
-    /// It contains the main functionality of the telegram bot. <br />
-    /// The application creates a new instance of this class to process each update received.
-    /// </summary>
-    public partial class HelloBot : SimpleTelegramBotBase
+    private readonly ILogger<HelloBot> logger;
+
+    public HelloBot(ILogger<HelloBot> logger, IConfiguration configuration)
     {
-        private readonly ILogger<HelloBot> logger;
-        public ITelegramBotClient Client { get; }
+        this.logger = logger;
 
-        public HelloBot(ILogger<HelloBot> logger, IConfiguration configuration)
-        {
-            this.logger = logger;
+        string botToken =
+            configuration.GetValue<string>("Telegram:BotToken")
+            ?? throw new ArgumentNullException("Telegram:BotToken");
+        this.Client = new TelegramBotClient(botToken);
 
-            var botToken = configuration.GetValue<string>("Telegram:BotToken");
-            this.Client = new TelegramBotClient(botToken);
-
-            var myUsername = this.Client.GetMe().Username!;
-            // This will provide a better command filtering.
-            this.SetCommandExtractor(myUsername, true);
-        }
+        string myUsername = this.Client.GetMe().Username!;
+        // This will provide a better command filtering.
+        this.SetCommandExtractor(myUsername);
     }
+
+    public ITelegramBotClient Client { get; }
 }

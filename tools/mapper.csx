@@ -824,7 +824,8 @@ static bool IsModelLikeArgs(string modelName, BotApiDefinitions definitions)
         "LabeledPrice",
         "BotCommand",
         "WebAppInfo",
-        "LoginUrl"
+        "LoginUrl",
+        "InputPollOption"
     };
 
     return @classes.Contains(modelName) || baseClasses.Any(g => g.Types.Contains(modelName));

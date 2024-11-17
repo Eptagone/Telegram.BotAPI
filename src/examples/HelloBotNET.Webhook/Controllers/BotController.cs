@@ -5,52 +5,48 @@ using HelloBotNET.Webhook.Services;
 using Microsoft.AspNetCore.Mvc;
 using Telegram.BotAPI.GettingUpdates;
 
-namespace HelloBotNET.Webhook.Controllers
+namespace HelloBotNET.Webhook.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class BotController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class BotController : ControllerBase
+    private readonly HelloBot bot;
+    private readonly IConfiguration configuration;
+    private readonly ILogger<BotController> logger;
+
+    public BotController(ILogger<BotController> logger, IConfiguration configuration, HelloBot bot)
     {
-        private readonly IConfiguration configuration;
-        private readonly ILogger<BotController> logger;
-        private readonly HelloBot bot;
+        this.logger = logger;
+        this.configuration = configuration;
+        this.bot = bot;
+    }
 
-        public BotController(
-            ILogger<BotController> logger,
-            IConfiguration configuration,
-            HelloBot bot
-        )
-            : base()
+    [HttpPost]
+    public async Task<IActionResult> PostAsync(
+        [FromHeader(Name = "X-Telegram-Bot-Api-Secret-Token")] string webhookToken,
+        [FromBody] Update update,
+        CancellationToken cancellationToken
+    )
+    {
+        if (this.configuration["Telegram:WebhookToken"] != webhookToken)
         {
-            this.logger = logger;
-            this.configuration = configuration;
-            this.bot = bot;
+#if DEBUG
+            this.logger.LogWarning("Failed access");
+#endif
+            this.Unauthorized();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PostAsync(
-            [FromHeader(Name = "X-Telegram-Bot-Api-Secret-Token")] string webhookToken,
-            [FromBody] Update update,
-            CancellationToken cancellationToken
-        )
+        if (update == default)
         {
-            if (this.configuration["Telegram:WebhookToken"] != webhookToken)
-            {
 #if DEBUG
-                this.logger.LogWarning("Failed access");
+            this.logger.LogWarning("Invalid update detected");
 #endif
-                this.Unauthorized();
-            }
-            if (update == default)
-            {
-#if DEBUG
-                this.logger.LogWarning("Invalid update detected");
-#endif
-                return this.BadRequest();
-            }
-            this.bot.OnUpdate(update);
-
-            return await Task.FromResult(this.Ok());
+            return this.BadRequest();
         }
+
+        this.bot.OnUpdate(update);
+
+        return await Task.FromResult(this.Ok());
     }
 }

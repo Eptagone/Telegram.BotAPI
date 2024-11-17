@@ -5,54 +5,44 @@ using HelloBotNET.AppService.Services;
 using Telegram.BotAPI;
 using Telegram.BotAPI.GettingUpdates;
 
-namespace HelloBotNET.AppService
+namespace HelloBotNET.AppService;
+
+public class Worker(ILogger<Worker> logger, HelloBot bot) : BackgroundService
 {
-    public class Worker(ILogger<Worker> logger, HelloBot bot) : BackgroundService
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        private readonly ILogger<Worker> logger = logger;
-        private readonly HelloBot bot = bot;
+        logger.LogInformation("Worker running at: {Time}", DateTimeOffset.Now);
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        ITelegramBotClient client = bot.Client;
+
+        // Long Polling
+        IEnumerable<Update> updates = await client.GetUpdatesAsync(
+            cancellationToken: stoppingToken
+        );
+        while (!stoppingToken.IsCancellationRequested)
         {
-            this.logger.LogInformation("Worker running at: {Time}", DateTimeOffset.Now);
-
-            var client = this.bot.Client;
-
-            // Long Polling
-            var updates = await client
-                .GetUpdatesAsync(cancellationToken: stoppingToken)
-                .ConfigureAwait(false);
-            while (!stoppingToken.IsCancellationRequested)
+            if (updates.Any())
             {
-                if (updates.Any())
-                {
-                    Parallel.ForEach(updates, this.ProcessUpdate);
+                Parallel.ForEach(updates, this.ProcessUpdate);
 
-                    updates = await client
-                        .GetUpdatesAsync(
-                            updates.Last().UpdateId + 1,
-                            cancellationToken: stoppingToken
-                        )
-                        .ConfigureAwait(false);
-                }
-                else
-                {
-                    updates = await client
-                        .GetUpdatesAsync(cancellationToken: stoppingToken)
-                        .ConfigureAwait(false);
-                }
+                updates = await client
+                    .GetUpdatesAsync(updates.Last().UpdateId + 1, cancellationToken: stoppingToken)
+                    .ConfigureAwait(false);
+            }
+            else
+            {
+                updates = await client
+                    .GetUpdatesAsync(cancellationToken: stoppingToken)
+                    .ConfigureAwait(false);
             }
         }
+    }
 
-        private void ProcessUpdate(Update update)
-        {
-            this.bot.OnUpdate(update);
-        }
+    private void ProcessUpdate(Update update) => bot.OnUpdate(update);
 
-        public override Task StopAsync(CancellationToken cancellationToken)
-        {
-            this.logger.LogInformation("Worker stopping at: {Time}", DateTimeOffset.Now);
-            return base.StopAsync(cancellationToken);
-        }
+    public override Task StopAsync(CancellationToken cancellationToken)
+    {
+        logger.LogInformation("Worker stopping at: {Time}", DateTimeOffset.Now);
+        return base.StopAsync(cancellationToken);
     }
 }
