@@ -18,6 +18,9 @@ public static partial class PropertyNames
     public const string AddedToAttachmentMenu = "added_to_attachment_menu";
     public const string AdditionalChatCount = "additional_chat_count";
     public const string Address = "address";
+    public const string Affiliate = "affiliate";
+    public const string AffiliateChat = "affiliate_chat";
+    public const string AffiliateUser = "affiliate_user";
     public const string AllowBotChats = "allow_bot_chats";
     public const string AllowChannelChats = "allow_channel_chats";
     public const string AllowGroupChats = "allow_group_chats";
@@ -119,6 +122,7 @@ public static partial class PropertyNames
     public const string Colors = "colors";
     public const string Command = "command";
     public const string Commands = "commands";
+    public const string CommissionPerMille = "commission_per_mille";
     public const string ConnectedWebsite = "connected_website";
     public const string Contact = "contact";
     public const string CopyText = "copy_text";
@@ -330,6 +334,7 @@ public static partial class PropertyNames
     public const string Mpeg4Width = "mpeg4_width";
     public const string MyChatMember = "my_chat_member";
     public const string Name = "name";
+    public const string NanostarAmount = "nanostar_amount";
     public const string NeedEmail = "need_email";
     public const string NeedName = "need_name";
     public const string NeedPhoneNumber = "need_phone_number";
@@ -471,6 +476,7 @@ public static partial class PropertyNames
     public const string SmallFileId = "small_file_id";
     public const string SmallFileUniqueId = "small_file_unique_id";
     public const string Source = "source";
+    public const string SponsorUser = "sponsor_user";
     public const string StarCount = "star_count";
     public const string StartDate = "start_date";
     public const string StartParameter = "start_parameter";

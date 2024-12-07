@@ -10,6 +10,7 @@ namespace Telegram.BotAPI.Payments;
 /// This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of
 /// <list type="bullet">
 /// <item><description><see cref="TransactionPartnerUser"/></description></item>
+/// <item><description><see cref="TransactionPartnerAffiliateProgram"/></description></item>
 /// <item><description><see cref="TransactionPartnerFragment"/></description></item>
 /// <item><description><see cref="TransactionPartnerTelegramAds"/></description></item>
 /// <item><description><see cref="TransactionPartnerTelegramApi"/></description></item>

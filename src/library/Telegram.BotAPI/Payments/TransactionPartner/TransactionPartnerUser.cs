@@ -3,6 +3,7 @@
 //* This file is auto-generated. Don't edit it manually!
 
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.Stickers;
 
 namespace Telegram.BotAPI.Payments;
 
@@ -22,6 +23,12 @@ public class TransactionPartnerUser : TransactionPartner
     /// </summary>
     [JsonPropertyName(PropertyNames.User)]
     public User User { get; set; } = null!;
+
+    /// <summary>
+    /// Optional. Information about the affiliate that received a commission via this transaction
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Affiliate)]
+    public AffiliateInfo? Affiliate { get; set; }
 
     /// <summary>
     /// Optional. Bot-specified invoice payload
@@ -51,5 +58,5 @@ public class TransactionPartnerUser : TransactionPartner
     /// Optional. The gift sent to the user by the bot
     /// </summary>
     [JsonPropertyName(PropertyNames.Gift)]
-    public string? Gift { get; set; }
+    public Gift? Gift { get; set; }
 }

@@ -27,7 +27,7 @@ public class CreateInvoiceLinkArgs
     }
 
     /// <summary>
-    /// Unique identifier of the business connection on behalf of which the link will be created
+    /// Unique identifier of the business connection on behalf of which the link will be created. For payments in <a href="https://t.me/BotNews/90">Telegram Stars</a> only.
     /// </summary>
     [JsonPropertyName(PropertyNames.BusinessConnectionId)]
     public string? BusinessConnectionId { get; set; }
@@ -69,7 +69,7 @@ public class CreateInvoiceLinkArgs
     public IEnumerable<LabeledPrice> Prices { get; set; }
 
     /// <summary>
-    /// The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified.
+    /// The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user. Subscription price must no exceed 2500 Telegram Stars.
     /// </summary>
     [JsonPropertyName(PropertyNames.SubscriptionPeriod)]
     public int? SubscriptionPeriod { get; set; }

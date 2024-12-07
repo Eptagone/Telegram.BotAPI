@@ -16,10 +16,16 @@ public class StarTransaction
     public string Id { get; set; } = null!;
 
     /// <summary>
-    /// Number of Telegram Stars transferred by the transaction
+    /// Integer amount of Telegram Stars transferred by the transaction
     /// </summary>
     [JsonPropertyName(PropertyNames.Amount)]
     public int Amount { get; set; }
+
+    /// <summary>
+    /// Optional. The number of 1/1000000000 shares of Telegram Stars transferred by the transaction; from 0 to 999999999
+    /// </summary>
+    [JsonPropertyName(PropertyNames.NanostarAmount)]
+    public int? NanostarAmount { get; set; }
 
     /// <summary>
     /// Date the transaction was created in Unix time
