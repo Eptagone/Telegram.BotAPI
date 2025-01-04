@@ -10,7 +10,7 @@ static void GenerateClasses(IEnumerable<ClassDefinition> classes, string outputP
     foreach (var @class in classes)
     {
         var builder = new StringBuilder();
-        builder.AppendLine("// Copyright (c) 2024 Quetzal Rivera.");
+        builder.AppendLine("// Copyright (c) 2025 Quetzal Rivera.");
         builder.AppendLine(
             "// Licensed under the MIT License, See LICENCE in the project root for license information."
         );
