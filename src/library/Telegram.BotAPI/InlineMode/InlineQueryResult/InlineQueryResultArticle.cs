@@ -48,12 +48,6 @@ public class InlineQueryResultArticle : InlineQueryResult
     public string? Url { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> if you don't want the URL to be shown in the message
-    /// </summary>
-    [JsonPropertyName(PropertyNames.HideUrl)]
-    public bool? HideUrl { get; set; }
-
-    /// <summary>
     /// Optional. Short description of the result
     /// </summary>
     [JsonPropertyName(PropertyNames.Description)]

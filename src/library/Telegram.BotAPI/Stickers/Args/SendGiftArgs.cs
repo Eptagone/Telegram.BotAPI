@@ -35,6 +35,12 @@ public class SendGiftArgs
     public string GiftId { get; set; }
 
     /// <summary>
+    /// Pass <em>True</em> to pay for the gift upgrade from the bot's balance, thereby making the upgrade free for the receiver
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PayForUpgrade)]
+    public bool? PayForUpgrade { get; set; }
+
+    /// <summary>
     /// Text that will be shown along with the gift; 0-255 characters
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]

@@ -24,7 +24,7 @@ public class InlineQueryResultGif : InlineQueryResult
     public override string Id { get; set; } = null!;
 
     /// <summary>
-    /// A valid URL for the GIF file. File size must not exceed 1MB
+    /// A valid URL for the GIF file
     /// </summary>
     [JsonPropertyName(PropertyNames.GifUrl)]
     public string GifUrl { get; set; } = null!;

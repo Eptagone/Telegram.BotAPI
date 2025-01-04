@@ -133,6 +133,7 @@ public static partial class PropertyNames
     public const string Creator = "creator";
     public const string Credentials = "credentials";
     public const string Currency = "currency";
+    public const string CustomDescription = "custom_description";
     public const string CustomEmojiId = "custom_emoji_id";
     public const string CustomEmojiIds = "custom_emoji_ids";
     public const string CustomEmojiStickerSetName = "custom_emoji_sticker_set_name";
@@ -239,7 +240,6 @@ public static partial class PropertyNames
     public const string Hash = "hash";
     public const string Heading = "heading";
     public const string Height = "height";
-    public const string HideUrl = "hide_url";
     public const string HorizontalAccuracy = "horizontal_accuracy";
     public const string IconColor = "icon_color";
     public const string IconCustomEmojiId = "icon_custom_emoji_id";
@@ -366,6 +366,7 @@ public static partial class PropertyNames
     public const string ParseMode = "parse_mode";
     public const string PassportData = "passport_data";
     public const string Pay = "pay";
+    public const string PayForUpgrade = "pay_for_upgrade";
     public const string Payload = "payload";
     public const string PendingJoinRequestCount = "pending_join_request_count";
     public const string PendingUpdateCount = "pending_update_count";
@@ -527,6 +528,7 @@ public static partial class PropertyNames
     public const string UnrestrictBoostCount = "unrestrict_boost_count";
     public const string UntilDate = "until_date";
     public const string UpdateId = "update_id";
+    public const string UpgradeStarCount = "upgrade_star_count";
     public const string Url = "url";
     public const string UseIndependentChatPermissions = "use_independent_chat_permissions";
     public const string User = "user";

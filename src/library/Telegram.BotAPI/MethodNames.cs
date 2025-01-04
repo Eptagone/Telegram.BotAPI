@@ -81,6 +81,8 @@ public static partial class MethodNames
     public const string PinChatMessage = "pinChatMessage";
     public const string PromoteChatMember = "promoteChatMember";
     public const string RefundStarPayment = "refundStarPayment";
+    public const string RemoveChatVerification = "removeChatVerification";
+    public const string RemoveUserVerification = "removeUserVerification";
     public const string ReopenForumTopic = "reopenForumTopic";
     public const string ReopenGeneralForumTopic = "reopenGeneralForumTopic";
     public const string ReplaceStickerInSet = "replaceStickerInSet";
@@ -141,5 +143,7 @@ public static partial class MethodNames
     public const string UnpinAllGeneralForumTopicMessages = "unpinAllGeneralForumTopicMessages";
     public const string UnpinChatMessage = "unpinChatMessage";
     public const string UploadStickerFile = "uploadStickerFile";
+    public const string VerifyChat = "verifyChat";
+    public const string VerifyUser = "verifyUser";
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

@@ -24,7 +24,7 @@ public class InlineQueryResultMpeg4Gif : InlineQueryResult
     public override string Id { get; set; } = null!;
 
     /// <summary>
-    /// A valid URL for the MPEG4 file. File size must not exceed 1MB
+    /// A valid URL for the MPEG4 file
     /// </summary>
     [JsonPropertyName(PropertyNames.Mpeg4Url)]
     public string Mpeg4Url { get; set; } = null!;

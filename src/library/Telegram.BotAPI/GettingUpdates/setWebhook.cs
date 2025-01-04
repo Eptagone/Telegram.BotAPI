@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.GettingUpdates;
 public static partial class GettingUpdatesExtensions
 {
     /// <summary>
-    /// Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <see cref="Update"/>. In case of an unsuccessful request, we will give up after a reasonable amount of attempts. Returns <em>True</em> on success.
+    /// Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <see cref="Update"/>. In case of an unsuccessful request (a request with response <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> different from <em>2XY</em>), we will repeat the request and give up after a reasonable amount of attempts. Returns <em>True</em> on success.
     /// If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter <em>secret_token</em>. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
@@ -24,7 +24,7 @@ public static partial class GettingUpdatesExtensions
         client.SetWebhookAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <see cref="Update"/>. In case of an unsuccessful request, we will give up after a reasonable amount of attempts. Returns <em>True</em> on success.
+    /// Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <see cref="Update"/>. In case of an unsuccessful request (a request with response <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> different from <em>2XY</em>), we will repeat the request and give up after a reasonable amount of attempts. Returns <em>True</em> on success.
     /// If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter <em>secret_token</em>. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
@@ -44,7 +44,7 @@ public static partial class GettingUpdatesExtensions
     }
 
     /// <summary>
-    /// Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <see cref="Update"/>. In case of an unsuccessful request, we will give up after a reasonable amount of attempts. Returns <em>True</em> on success.
+    /// Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <see cref="Update"/>. In case of an unsuccessful request (a request with response <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> different from <em>2XY</em>), we will repeat the request and give up after a reasonable amount of attempts. Returns <em>True</em> on success.
     /// If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter <em>secret_token</em>. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
@@ -62,7 +62,7 @@ public static partial class GettingUpdatesExtensions
         client.SetWebhookAsync(url, certificate, ipAddress, maxConnections, allowedUpdates, dropPendingUpdates, secretToken).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <see cref="Update"/>. In case of an unsuccessful request, we will give up after a reasonable amount of attempts. Returns <em>True</em> on success.
+    /// Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <see cref="Update"/>. In case of an unsuccessful request (a request with response <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> different from <em>2XY</em>), we will repeat the request and give up after a reasonable amount of attempts. Returns <em>True</em> on success.
     /// If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter <em>secret_token</em>. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>

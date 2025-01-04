@@ -16,7 +16,7 @@ public class InputSticker
     public object Sticker { get; set; } = null!;
 
     /// <summary>
-    /// Format of the added sticker, must be one of “static” for a <strong>.WEBP</strong> or <strong>.PNG</strong> image, “animated” for a <strong>.TGS</strong> animation, “video” for a <strong>WEBM</strong> video
+    /// Format of the added sticker, must be one of “static” for a <strong>.WEBP</strong> or <strong>.PNG</strong> image, “animated” for a <strong>.TGS</strong> animation, “video” for a <strong>.WEBM</strong> video
     /// </summary>
     [JsonPropertyName(PropertyNames.Format)]
     public string Format { get; set; } = null!;
