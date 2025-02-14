@@ -88,6 +88,12 @@ public class CopyMessageArgs
     public int MessageId { get; set; }
 
     /// <summary>
+    /// New start timestamp for the copied video in the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.VideoStartTimestamp)]
+    public int? VideoStartTimestamp { get; set; }
+
+    /// <summary>
     /// New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]

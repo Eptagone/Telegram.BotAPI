@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.Stickers;
 public static partial class StickersExtensions
 {
     /// <summary>
-    /// Returns the list of gifts that can be sent by the bot to users. Requires no parameters. Returns a <see cref="Gifts"/> object.
+    /// Returns the list of gifts that can be sent by the bot to users and channel chats. Requires no parameters. Returns a <see cref="Gifts"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -20,7 +20,7 @@ public static partial class StickersExtensions
         client.GetAvailableGiftsAsync().GetAwaiter().GetResult();
 
     /// <summary>
-    /// Returns the list of gifts that can be sent by the bot to users. Requires no parameters. Returns a <see cref="Gifts"/> object.
+    /// Returns the list of gifts that can be sent by the bot to users and channel chats. Requires no parameters. Returns a <see cref="Gifts"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>

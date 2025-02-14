@@ -86,6 +86,7 @@ public static partial class PropertyNames
     public const string CanRestrictMembers = "can_restrict_members";
     public const string CanSendAudios = "can_send_audios";
     public const string CanSendDocuments = "can_send_documents";
+    public const string CanSendGift = "can_send_gift";
     public const string CanSendMessages = "can_send_messages";
     public const string CanSendOtherMessages = "can_send_other_messages";
     public const string CanSendPaidMedia = "can_send_paid_media";
@@ -129,6 +130,7 @@ public static partial class PropertyNames
     public const string CorrectOptionId = "correct_option_id";
     public const string CountryCode = "country_code";
     public const string CountryCodes = "country_codes";
+    public const string Cover = "cover";
     public const string CreatesJoinRequest = "creates_join_request";
     public const string Creator = "creator";
     public const string Credentials = "credentials";
@@ -481,6 +483,7 @@ public static partial class PropertyNames
     public const string StarCount = "star_count";
     public const string StartDate = "start_date";
     public const string StartParameter = "start_parameter";
+    public const string StartTimestamp = "start_timestamp";
     public const string State = "state";
     public const string Status = "status";
     public const string Sticker = "sticker";
@@ -555,6 +558,7 @@ public static partial class PropertyNames
     public const string VideoFileId = "video_file_id";
     public const string VideoHeight = "video_height";
     public const string VideoNote = "video_note";
+    public const string VideoStartTimestamp = "video_start_timestamp";
     public const string VideoUrl = "video_url";
     public const string VideoWidth = "video_width";
     public const string Voice = "voice";

@@ -14,19 +14,23 @@ public class SendGiftArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendGiftArgs"/> class.
     /// </summary>
-    /// <param name="userId">Unique identifier of the target user that will receive the gift</param>
     /// <param name="giftId">Identifier of the gift</param>
-    public SendGiftArgs(long userId, string giftId)
+    public SendGiftArgs(string giftId)
     {
-        this.UserId = userId;
         this.GiftId = giftId ?? throw new ArgumentNullException(nameof(giftId));
     }
 
     /// <summary>
-    /// Unique identifier of the target user that will receive the gift
+    /// Required if <em>chat_id</em> is not specified. Unique identifier of the target user who will receive the gift.
     /// </summary>
     [JsonPropertyName(PropertyNames.UserId)]
-    public long UserId { get; set; }
+    public long? UserId { get; set; }
+
+    /// <summary>
+    /// Required if <em>user_id</em> is not specified. Unique identifier for the chat or username of the channel (in the format <em>@channelusername</em>) that will receive the gift.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChatId)]
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Identifier of the gift
@@ -41,7 +45,7 @@ public class SendGiftArgs
     public bool? PayForUpgrade { get; set; }
 
     /// <summary>
-    /// Text that will be shown along with the gift; 0-255 characters
+    /// Text that will be shown along with the gift; 0-128 characters
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
     public string? Text { get; set; }

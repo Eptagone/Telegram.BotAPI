@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.Stickers;
 public static partial class StickersExtensions
 {
     /// <summary>
-    /// Verifies a chat on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+    /// Verifies a chat <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
@@ -22,7 +22,7 @@ public static partial class StickersExtensions
         client.VerifyChatAsync(chatId, customDescription).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Verifies a chat on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+    /// Verifies a chat <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
@@ -51,7 +51,7 @@ public static partial class StickersExtensions
     }
 
     /// <summary>
-    /// Verifies a chat on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+    /// Verifies a chat <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
@@ -63,7 +63,7 @@ public static partial class StickersExtensions
         client.VerifyChatAsync(chatId, customDescription).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Verifies a chat on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+    /// Verifies a chat <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>

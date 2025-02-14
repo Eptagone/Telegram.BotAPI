@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.Stickers;
 public static partial class StickersExtensions
 {
     /// <summary>
-    /// Removes verification from a chat that is currently verified on behalf of the organization represented by the bot. Returns <em>True</em> on success.
+    /// Removes verification from a chat that is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
@@ -21,7 +21,7 @@ public static partial class StickersExtensions
         client.RemoveChatVerificationAsync(chatId).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Removes verification from a chat that is currently verified on behalf of the organization represented by the bot. Returns <em>True</em> on success.
+    /// Removes verification from a chat that is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
@@ -45,7 +45,7 @@ public static partial class StickersExtensions
     }
 
     /// <summary>
-    /// Removes verification from a chat that is currently verified on behalf of the organization represented by the bot. Returns <em>True</em> on success.
+    /// Removes verification from a chat that is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
@@ -56,7 +56,7 @@ public static partial class StickersExtensions
         client.RemoveChatVerificationAsync(chatId).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Removes verification from a chat that is currently verified on behalf of the organization represented by the bot. Returns <em>True</em> on success.
+    /// Removes verification from a chat that is currently verified <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>

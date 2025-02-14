@@ -80,6 +80,12 @@ public class ForwardMessageArgs
     public object FromChatId { get; set; }
 
     /// <summary>
+    /// New start timestamp for the forwarded video in the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.VideoStartTimestamp)]
+    public int? VideoStartTimestamp { get; set; }
+
+    /// <summary>
     /// Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.
     /// </summary>
     [JsonPropertyName(PropertyNames.DisableNotification)]

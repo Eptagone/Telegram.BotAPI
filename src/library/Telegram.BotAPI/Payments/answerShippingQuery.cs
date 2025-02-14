@@ -48,7 +48,7 @@ public static partial class PaymentsExtensions
     /// <param name="shippingQueryId">Unique identifier for the query to be answered</param>
     /// <param name="ok">Pass <em>True</em> if delivery to the specified address is possible and <em>False</em> if there are any problems (for example, if delivery to the specified address is not possible)</param>
     /// <param name="shippingOptions">Required if <em>ok</em> is <em>True</em>. A JSON-serialized array of available shipping options.</param>
-    /// <param name="errorMessage">Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.</param>
+    /// <param name="errorMessage">Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains why it is impossible to complete the order (e.g. “Sorry, delivery to your desired address is unavailable”). Telegram will display this message to the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -62,7 +62,7 @@ public static partial class PaymentsExtensions
     /// <param name="shippingQueryId">Unique identifier for the query to be answered</param>
     /// <param name="ok">Pass <em>True</em> if delivery to the specified address is possible and <em>False</em> if there are any problems (for example, if delivery to the specified address is not possible)</param>
     /// <param name="shippingOptions">Required if <em>ok</em> is <em>True</em>. A JSON-serialized array of available shipping options.</param>
-    /// <param name="errorMessage">Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.</param>
+    /// <param name="errorMessage">Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains why it is impossible to complete the order (e.g. “Sorry, delivery to your desired address is unavailable”). Telegram will display this message to the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

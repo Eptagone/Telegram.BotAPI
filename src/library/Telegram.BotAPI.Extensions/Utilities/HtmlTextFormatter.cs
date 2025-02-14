@@ -84,7 +84,7 @@ public static class HtmlTextFormatter
 
             if (offset < input.Length)
             {
-                nFsubText = input.Substring(offset, input.Length - offset);
+                nFsubText = input.Substring(offset);
                 subText = EncodeHtmlCharacters(nFsubText);
                 buffer.Append(subText);
             }

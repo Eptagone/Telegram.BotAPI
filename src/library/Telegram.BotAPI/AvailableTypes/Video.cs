@@ -46,6 +46,18 @@ public class Video
     public PhotoSize? Thumbnail { get; set; }
 
     /// <summary>
+    /// Optional. Available sizes of the cover of the video in the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Cover)]
+    public IEnumerable<PhotoSize>? Cover { get; set; }
+
+    /// <summary>
+    /// Optional. Timestamp in seconds from which the video will play in the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.StartTimestamp)]
+    public int? StartTimestamp { get; set; }
+
+    /// <summary>
     /// Optional. Original filename as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.FileName)]

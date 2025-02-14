@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.Stickers;
 public static partial class StickersExtensions
 {
     /// <summary>
-    /// Verifies a user on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+    /// Verifies a user <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">Unique identifier of the target user</param>
@@ -22,7 +22,7 @@ public static partial class StickersExtensions
         client.VerifyUserAsync(userId, customDescription).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Verifies a user on behalf of the organization which is represented by the bot. Returns <em>True</em> on success.
+    /// Verifies a user <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">Unique identifier of the target user</param>

@@ -53,6 +53,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="width">Video width</param>
     /// <param name="height">Video height</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="cover">Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="startTimestamp">Start timestamp for the video in the message</param>
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -68,8 +70,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideo(this ITelegramBotClient client, long chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendVideo(this ITelegramBotClient client, long chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, InputFile? cover = null, int? startTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, cover, startTimestamp, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
@@ -83,6 +85,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="width">Video width</param>
     /// <param name="height">Video height</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="cover">Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="startTimestamp">Start timestamp for the video in the message</param>
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -99,7 +103,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, InputFile? cover = null, int? startTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -134,6 +138,14 @@ public static partial class AvailableMethodsExtensions
         if (thumbnail is not null)
         {
             args.Add(PropertyNames.Thumbnail, thumbnail);
+        }
+        if (cover is not null)
+        {
+            args.Add(PropertyNames.Cover, cover);
+        }
+        if (startTimestamp is not null)
+        {
+            args.Add(PropertyNames.StartTimestamp, startTimestamp);
         }
         if (caption is not null)
         {
@@ -199,6 +211,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="width">Video width</param>
     /// <param name="height">Video height</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="cover">Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="startTimestamp">Start timestamp for the video in the message</param>
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -215,8 +229,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideo(this ITelegramBotClient client, long chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendVideo(this ITelegramBotClient client, long chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? cover = null, int? startTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, cover, startTimestamp, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
@@ -230,6 +244,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="width">Video width</param>
     /// <param name="height">Video height</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="cover">Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="startTimestamp">Start timestamp for the video in the message</param>
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -247,7 +263,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, long chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? cover = null, int? startTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -282,6 +298,14 @@ public static partial class AvailableMethodsExtensions
         if (thumbnail is not null)
         {
             args.Add(PropertyNames.Thumbnail, thumbnail);
+        }
+        if (cover is not null)
+        {
+            args.Add(PropertyNames.Cover, cover);
+        }
+        if (startTimestamp is not null)
+        {
+            args.Add(PropertyNames.StartTimestamp, startTimestamp);
         }
         if (caption is not null)
         {
@@ -354,6 +378,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="width">Video width</param>
     /// <param name="height">Video height</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="cover">Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="startTimestamp">Start timestamp for the video in the message</param>
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -369,8 +395,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideo(this ITelegramBotClient client, string chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendVideo(this ITelegramBotClient client, string chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, InputFile? cover = null, int? startTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, cover, startTimestamp, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
@@ -384,6 +410,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="width">Video width</param>
     /// <param name="height">Video height</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="cover">Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="startTimestamp">Start timestamp for the video in the message</param>
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -400,7 +428,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, InputFile video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, InputFile? cover = null, int? startTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -435,6 +463,14 @@ public static partial class AvailableMethodsExtensions
         if (thumbnail is not null)
         {
             args.Add(PropertyNames.Thumbnail, thumbnail);
+        }
+        if (cover is not null)
+        {
+            args.Add(PropertyNames.Cover, cover);
+        }
+        if (startTimestamp is not null)
+        {
+            args.Add(PropertyNames.StartTimestamp, startTimestamp);
         }
         if (caption is not null)
         {
@@ -500,6 +536,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="width">Video width</param>
     /// <param name="height">Video height</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="cover">Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="startTimestamp">Start timestamp for the video in the message</param>
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -516,8 +554,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideo(this ITelegramBotClient client, string chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendVideo(this ITelegramBotClient client, string chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? cover = null, int? startTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendVideoAsync(chatId, video, businessConnectionId, messageThreadId, duration, width, height, thumbnail, cover, startTimestamp, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, supportsStreaming, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
@@ -531,6 +569,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="width">Video width</param>
     /// <param name="height">Video height</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="cover">Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="startTimestamp">Start timestamp for the video in the message</param>
     /// <param name="caption">Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -548,7 +588,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoAsync(this ITelegramBotClient client, string chatId, string video, string? businessConnectionId = null, int? messageThreadId = null, int? duration = null, int? width = null, int? height = null, InputFile? thumbnail = null, string? cover = null, int? startTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? supportsStreaming = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -583,6 +623,14 @@ public static partial class AvailableMethodsExtensions
         if (thumbnail is not null)
         {
             args.Add(PropertyNames.Thumbnail, thumbnail);
+        }
+        if (cover is not null)
+        {
+            args.Add(PropertyNames.Cover, cover);
+        }
+        if (startTimestamp is not null)
+        {
+            args.Add(PropertyNames.StartTimestamp, startTimestamp);
         }
         if (caption is not null)
         {

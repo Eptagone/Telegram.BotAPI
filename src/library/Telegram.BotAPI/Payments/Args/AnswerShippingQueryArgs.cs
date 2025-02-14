@@ -39,7 +39,7 @@ public class AnswerShippingQueryArgs
     public IEnumerable<ShippingOption>? ShippingOptions { get; set; }
 
     /// <summary>
-    /// Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.
+    /// Required if <em>ok</em> is <em>False</em>. Error message in human readable form that explains why it is impossible to complete the order (e.g. “Sorry, delivery to your desired address is unavailable”). Telegram will display this message to the user.
     /// </summary>
     [JsonPropertyName(PropertyNames.ErrorMessage)]
     public string? ErrorMessage { get; set; }

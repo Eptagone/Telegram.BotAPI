@@ -49,13 +49,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="videoStartTimestamp">New start timestamp for the forwarded video in the message</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null) =>
-        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, videoStartTimestamp, disableNotification, protectContent).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
@@ -65,13 +66,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="videoStartTimestamp">New start timestamp for the forwarded video in the message</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, CancellationToken cancellationToken = default)
+    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -88,6 +90,10 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.MessageThreadId, messageThreadId);
         }
+        if (videoStartTimestamp is not null)
+        {
+            args.Add(PropertyNames.VideoStartTimestamp, videoStartTimestamp);
+        }
         if (disableNotification is not null)
         {
             args.Add(PropertyNames.DisableNotification, disableNotification);
@@ -108,13 +114,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="videoStartTimestamp">New start timestamp for the forwarded video in the message</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null) =>
-        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, videoStartTimestamp, disableNotification, protectContent).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
@@ -124,13 +131,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="videoStartTimestamp">New start timestamp for the forwarded video in the message</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, CancellationToken cancellationToken = default)
+    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -147,6 +155,10 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.MessageThreadId, messageThreadId);
         }
+        if (videoStartTimestamp is not null)
+        {
+            args.Add(PropertyNames.VideoStartTimestamp, videoStartTimestamp);
+        }
         if (disableNotification is not null)
         {
             args.Add(PropertyNames.DisableNotification, disableNotification);
@@ -167,13 +179,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="videoStartTimestamp">New start timestamp for the forwarded video in the message</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null) =>
-        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, videoStartTimestamp, disableNotification, protectContent).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
@@ -183,13 +196,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="videoStartTimestamp">New start timestamp for the forwarded video in the message</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, CancellationToken cancellationToken = default)
+    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -206,6 +220,10 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.MessageThreadId, messageThreadId);
         }
+        if (videoStartTimestamp is not null)
+        {
+            args.Add(PropertyNames.VideoStartTimestamp, videoStartTimestamp);
+        }
         if (disableNotification is not null)
         {
             args.Add(PropertyNames.DisableNotification, disableNotification);
@@ -226,13 +244,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="videoStartTimestamp">New start timestamp for the forwarded video in the message</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null) =>
-        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, disableNotification, protectContent).GetAwaiter().GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, videoStartTimestamp, disableNotification, protectContent).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
@@ -242,13 +261,14 @@ public static partial class AvailableMethodsExtensions
     /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="videoStartTimestamp">New start timestamp for the forwarded video in the message</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the forwarded message from forwarding and saving</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, CancellationToken cancellationToken = default)
+    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -264,6 +284,10 @@ public static partial class AvailableMethodsExtensions
         if (messageThreadId is not null)
         {
             args.Add(PropertyNames.MessageThreadId, messageThreadId);
+        }
+        if (videoStartTimestamp is not null)
+        {
+            args.Add(PropertyNames.VideoStartTimestamp, videoStartTimestamp);
         }
         if (disableNotification is not null)
         {

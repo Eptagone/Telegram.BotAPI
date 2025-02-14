@@ -104,6 +104,18 @@ public class SendVideoArgs : AttachedFilesArgsBase
     public object? Thumbnail { get; set; }
 
     /// <summary>
+    /// Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Cover)]
+    public object? Cover { get; set; }
+
+    /// <summary>
+    /// Start timestamp for the video in the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.StartTimestamp)]
+    public int? StartTimestamp { get; set; }
+
+    /// <summary>
     /// Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]
