@@ -154,10 +154,10 @@ public class ChatFullInfo : Chat
     public ChatPermissions? Permissions { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if gifts can be sent to the chat
+    /// Information about types of gifts that are accepted by the chat or by the corresponding user for private chats
     /// </summary>
-    [JsonPropertyName(PropertyNames.CanSendGift)]
-    public bool? CanSendGift { get; set; }
+    [JsonPropertyName(PropertyNames.AcceptedGiftTypes)]
+    public AcceptedGiftTypes AcceptedGiftTypes { get; set; } = null!;
 
     /// <summary>
     /// Optional. <em>True</em>, if paid media messages can be sent or forwarded to the channel chat. The field is available only for channel chats.

@@ -3,7 +3,6 @@
 //* This file is auto-generated. Don't edit it manually!
 
 using Telegram.BotAPI.AvailableTypes;
-using Telegram.BotAPI.Stickers;
 
 namespace Telegram.BotAPI.Payments;
 

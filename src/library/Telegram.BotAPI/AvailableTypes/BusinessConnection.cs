@@ -34,10 +34,10 @@ public class BusinessConnection
     public int Date { get; set; }
 
     /// <summary>
-    /// True, if the bot can act on behalf of the business account in chats that were active in the last 24 hours
+    /// Optional. Rights of the business bot
     /// </summary>
-    [JsonPropertyName(PropertyNames.CanReply)]
-    public bool CanReply { get; set; }
+    [JsonPropertyName(PropertyNames.Rights)]
+    public BusinessBotRights? Rights { get; set; }
 
     /// <summary>
     /// True, if the connection is active

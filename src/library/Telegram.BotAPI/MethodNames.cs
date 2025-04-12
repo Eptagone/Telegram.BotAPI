@@ -22,6 +22,7 @@ public static partial class MethodNames
     public const string Close = "close";
     public const string CloseForumTopic = "closeForumTopic";
     public const string CloseGeneralForumTopic = "closeGeneralForumTopic";
+    public const string ConvertGiftToStars = "convertGiftToStars";
     public const string CopyMessage = "copyMessage";
     public const string CopyMessages = "copyMessages";
     public const string CreateChatInviteLink = "createChatInviteLink";
@@ -30,6 +31,7 @@ public static partial class MethodNames
     public const string CreateInvoiceLink = "createInvoiceLink";
     public const string CreateNewStickerSet = "createNewStickerSet";
     public const string DeclineChatJoinRequest = "declineChatJoinRequest";
+    public const string DeleteBusinessMessages = "deleteBusinessMessages";
     public const string DeleteChatPhoto = "deleteChatPhoto";
     public const string DeleteChatStickerSet = "deleteChatStickerSet";
     public const string DeleteForumTopic = "deleteForumTopic";
@@ -38,6 +40,7 @@ public static partial class MethodNames
     public const string DeleteMyCommands = "deleteMyCommands";
     public const string DeleteStickerFromSet = "deleteStickerFromSet";
     public const string DeleteStickerSet = "deleteStickerSet";
+    public const string DeleteStory = "deleteStory";
     public const string DeleteWebhook = "deleteWebhook";
     public const string EditChatInviteLink = "editChatInviteLink";
     public const string EditChatSubscriptionInviteLink = "editChatSubscriptionInviteLink";
@@ -48,11 +51,14 @@ public static partial class MethodNames
     public const string EditMessageMedia = "editMessageMedia";
     public const string EditMessageReplyMarkup = "editMessageReplyMarkup";
     public const string EditMessageText = "editMessageText";
+    public const string EditStory = "editStory";
     public const string EditUserStarSubscription = "editUserStarSubscription";
     public const string ExportChatInviteLink = "exportChatInviteLink";
     public const string ForwardMessage = "forwardMessage";
     public const string ForwardMessages = "forwardMessages";
     public const string GetAvailableGifts = "getAvailableGifts";
+    public const string GetBusinessAccountGifts = "getBusinessAccountGifts";
+    public const string GetBusinessAccountStarBalance = "getBusinessAccountStarBalance";
     public const string GetBusinessConnection = "getBusinessConnection";
     public const string GetChat = "getChat";
     public const string GetChatAdministrators = "getChatAdministrators";
@@ -75,12 +81,16 @@ public static partial class MethodNames
     public const string GetUserChatBoosts = "getUserChatBoosts";
     public const string GetUserProfilePhotos = "getUserProfilePhotos";
     public const string GetWebhookInfo = "getWebhookInfo";
+    public const string GiftPremiumSubscription = "giftPremiumSubscription";
     public const string HideGeneralForumTopic = "hideGeneralForumTopic";
     public const string LeaveChat = "leaveChat";
     public const string LogOut = "logOut";
     public const string PinChatMessage = "pinChatMessage";
+    public const string PostStory = "postStory";
     public const string PromoteChatMember = "promoteChatMember";
+    public const string ReadBusinessMessage = "readBusinessMessage";
     public const string RefundStarPayment = "refundStarPayment";
+    public const string RemoveBusinessAccountProfilePhoto = "removeBusinessAccountProfilePhoto";
     public const string RemoveChatVerification = "removeChatVerification";
     public const string RemoveUserVerification = "removeUserVerification";
     public const string ReopenForumTopic = "reopenForumTopic";
@@ -109,6 +119,11 @@ public static partial class MethodNames
     public const string SendVideo = "sendVideo";
     public const string SendVideoNote = "sendVideoNote";
     public const string SendVoice = "sendVoice";
+    public const string SetBusinessAccountBio = "setBusinessAccountBio";
+    public const string SetBusinessAccountGiftSettings = "setBusinessAccountGiftSettings";
+    public const string SetBusinessAccountName = "setBusinessAccountName";
+    public const string SetBusinessAccountProfilePhoto = "setBusinessAccountProfilePhoto";
+    public const string SetBusinessAccountUsername = "setBusinessAccountUsername";
     public const string SetChatAdministratorCustomTitle = "setChatAdministratorCustomTitle";
     public const string SetChatDescription = "setChatDescription";
     public const string SetChatMenuButton = "setChatMenuButton";
@@ -135,6 +150,8 @@ public static partial class MethodNames
     public const string SetWebhook = "setWebhook";
     public const string StopMessageLiveLocation = "stopMessageLiveLocation";
     public const string StopPoll = "stopPoll";
+    public const string TransferBusinessAccountStars = "transferBusinessAccountStars";
+    public const string TransferGift = "transferGift";
     public const string UnbanChatMember = "unbanChatMember";
     public const string UnbanChatSenderChat = "unbanChatSenderChat";
     public const string UnhideGeneralForumTopic = "unhideGeneralForumTopic";
@@ -142,6 +159,7 @@ public static partial class MethodNames
     public const string UnpinAllForumTopicMessages = "unpinAllForumTopicMessages";
     public const string UnpinAllGeneralForumTopicMessages = "unpinAllGeneralForumTopicMessages";
     public const string UnpinChatMessage = "unpinChatMessage";
+    public const string UpgradeGift = "upgradeGift";
     public const string UploadStickerFile = "uploadStickerFile";
     public const string VerifyChat = "verifyChat";
     public const string VerifyUser = "verifyUser";

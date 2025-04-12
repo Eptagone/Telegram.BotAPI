@@ -147,6 +147,12 @@ public class Message : MaybeInaccessibleMessage
     public string? AuthorSignature { get; set; }
 
     /// <summary>
+    /// Optional. The number of Telegram Stars that were paid by the sender of the message to send it
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PaidStarCount)]
+    public int? PaidStarCount { get; set; }
+
+    /// <summary>
     /// Optional. For text messages, the actual UTF-8 text of the message
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
@@ -393,6 +399,18 @@ public class Message : MaybeInaccessibleMessage
     public ChatShared? ChatShared { get; set; }
 
     /// <summary>
+    /// Optional. Service message: a regular gift was sent or received
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Gift)]
+    public GiftInfo? Gift { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: a unique gift was sent or received
+    /// </summary>
+    [JsonPropertyName(PropertyNames.UniqueGift)]
+    public UniqueGiftInfo? UniqueGift { get; set; }
+
+    /// <summary>
     /// Optional. The domain name of the website on which the user has logged in. <a href="https://core.telegram.org/widgets/login">More about Telegram Login »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.ConnectedWebsite)]
@@ -487,6 +505,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.GiveawayCompleted)]
     public GiveawayCompleted? GiveawayCompleted { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: the price for paid messages has changed in the chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PaidMessagePriceChanged)]
+    public PaidMessagePriceChanged? PaidMessagePriceChanged { get; set; }
 
     /// <summary>
     /// Optional. Service message: video chat scheduled
