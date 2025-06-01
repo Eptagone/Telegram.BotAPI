@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.UpdatingMessages;
 public static partial class UpdatingMessagesExtensions
 {
     /// <summary>
-    /// Delete messages on behalf of a business account. Requires the <em>can_delete_outgoing_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
+    /// Delete messages on behalf of a business account. Requires the <em>can_delete_sent_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "DeleteBusinessMessages" method.</param>
@@ -21,7 +21,7 @@ public static partial class UpdatingMessagesExtensions
         client.DeleteBusinessMessagesAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Delete messages on behalf of a business account. Requires the <em>can_delete_outgoing_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
+    /// Delete messages on behalf of a business account. Requires the <em>can_delete_sent_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "DeleteBusinessMessages" method.</param>
@@ -40,7 +40,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Delete messages on behalf of a business account. Requires the <em>can_delete_outgoing_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
+    /// Delete messages on behalf of a business account. Requires the <em>can_delete_sent_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which to delete the messages</param>
@@ -52,7 +52,7 @@ public static partial class UpdatingMessagesExtensions
         client.DeleteBusinessMessagesAsync(businessConnectionId, messageIds).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Delete messages on behalf of a business account. Requires the <em>can_delete_outgoing_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
+    /// Delete messages on behalf of a business account. Requires the <em>can_delete_sent_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which to delete the messages</param>

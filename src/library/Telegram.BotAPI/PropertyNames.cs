@@ -80,7 +80,7 @@ public static partial class PropertyNames
     public const string CanConvertGiftsToStars = "can_convert_gifts_to_stars";
     public const string CanDeleteAllMessages = "can_delete_all_messages";
     public const string CanDeleteMessages = "can_delete_messages";
-    public const string CanDeleteOutgoingMessages = "can_delete_outgoing_messages";
+    public const string CanDeleteSentMessages = "can_delete_sent_messages";
     public const string CanDeleteStories = "can_delete_stories";
     public const string CanEditBio = "can_edit_bio";
     public const string CanEditMessages = "can_edit_messages";

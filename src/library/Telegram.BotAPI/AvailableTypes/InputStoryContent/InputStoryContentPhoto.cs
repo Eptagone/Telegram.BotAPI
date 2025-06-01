@@ -10,14 +10,23 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class InputStoryContentPhoto : InputStoryContent
 {
     /// <summary>
-    /// Type of the content, must be “photo”
+    /// Initializes a new instance of the <see cref="InputStoryContentPhoto"/> class.
+    /// </summary>
+    /// <param name="photo">The photo to post as a story. The photo must be of the size 1080x1920 and must not exceed 10 MB. The photo can't be reused and can only be uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the photo was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    public InputStoryContentPhoto(string photo)
+    {
+        this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
+    }
+
+    /// <summary>
+    /// Type of the content, must be <em>photo</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
-    public override string Type { get; set; } = null!;
+    public override string Type => "photo";
 
     /// <summary>
     /// The photo to post as a story. The photo must be of the size 1080x1920 and must not exceed 10 MB. The photo can't be reused and can only be uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the photo was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Photo)]
-    public string Photo { get; set; } = null!;
+    public string Photo { get; set; }
 }

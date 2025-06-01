@@ -10,16 +10,25 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class InputStoryContentVideo : InputStoryContent
 {
     /// <summary>
-    /// Type of the content, must be “video”
+    /// Initializes a new instance of the <see cref="InputStoryContentVideo"/> class.
+    /// </summary>
+    /// <param name="video">The video to post as a story. The video must be of the size 720x1280, streamable, encoded with H.265 codec, with key frames added each second in the MPEG4 format, and must not exceed 30 MB. The video can't be reused and can only be uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the video was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    public InputStoryContentVideo(string video)
+    {
+        this.Video = video ?? throw new ArgumentNullException(nameof(video));
+    }
+
+    /// <summary>
+    /// Type of the content, must be <em>video</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
-    public override string Type { get; set; } = null!;
+    public override string Type => "video";
 
     /// <summary>
     /// The video to post as a story. The video must be of the size 720x1280, streamable, encoded with H.265 codec, with key frames added each second in the MPEG4 format, and must not exceed 30 MB. The video can't be reused and can only be uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the video was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Video)]
-    public string Video { get; set; } = null!;
+    public string Video { get; set; }
 
     /// <summary>
     /// Optional. Precise duration of the video in seconds; 0-60

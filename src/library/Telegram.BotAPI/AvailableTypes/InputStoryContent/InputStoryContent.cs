@@ -20,5 +20,5 @@ public abstract class InputStoryContent
     /// Type of the content
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
-    public abstract string Type { get; set; }
+    public abstract string Type { get; }
 }

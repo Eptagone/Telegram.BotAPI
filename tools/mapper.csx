@@ -52,6 +52,19 @@ static IEnumerable<ClassDefinition> MapTypesIntoClasses(this BotApiDefinitions d
             .GroupBy(p => p.Name)
             .Where(g =>
                 g.Count() == types.Count() && g.Select(p => p.IsRequired).Distinct().Count() == 1
+            )
+            // Don't include incompatible properties
+            .Where(g =>
+                g.Select(p => p.Types)
+                    .Aggregate(
+                        new List<IEnumerable<string>>(),
+                        (acc, next) =>
+                        {
+                            acc.Add(next);
+                            return acc;
+                        },
+                        (acc) => acc.Skip(1).All(t => t.SequenceEqual(acc.First()))
+                    )
             );
 
         // Generate the properties for the base class
@@ -638,13 +651,13 @@ static IEnumerable<ClassDefinition> MapConstantsIntoClasses(this BotApiDefinitio
         {
             ClassName = "PropertyNames",
             Description = "Defines all the property names used by models and methods in the Telegram Bot API.",
-            Values = definitions.PropertyNames.Order()
+            Values = definitions.PropertyNames.Order(),
         },
         new
         {
             ClassName = "MethodNames",
             Description = "Defines all the method names used by methods in the Telegram Bot API.",
-            Values = definitions.MethodNames.Order()
+            Values = definitions.MethodNames.Order(),
         },
     };
 
@@ -811,7 +824,9 @@ static bool IsModelLikeArgs(string modelName, BotApiDefinitions definitions)
         "ReplyMarkup",
         "InputMessageContent",
         "BotCommandScope",
-        "ReactionType"
+        "ReactionType",
+        "InputStoryContent",
+        "InputProfilePhoto",
     };
     var baseClasses = definitions.TypeGroups.Where(g => baseClassNames.Contains(g.Name));
     var @classes = new[]
@@ -825,7 +840,7 @@ static bool IsModelLikeArgs(string modelName, BotApiDefinitions definitions)
         "BotCommand",
         "WebAppInfo",
         "LoginUrl",
-        "InputPollOption"
+        "InputPollOption",
     };
 
     return @classes.Contains(modelName) || baseClasses.Any(g => g.Types.Contains(modelName));

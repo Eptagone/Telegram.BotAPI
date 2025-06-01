@@ -20,5 +20,5 @@ public abstract class InputProfilePhoto
     /// Type of the profile photo
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
-    public abstract string Type { get; set; }
+    public abstract string Type { get; }
 }

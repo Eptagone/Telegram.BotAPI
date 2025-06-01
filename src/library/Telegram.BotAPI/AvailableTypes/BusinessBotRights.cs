@@ -24,8 +24,8 @@ public class BusinessBotRights
     /// <summary>
     /// Optional. True, if the bot can delete messages sent by the bot
     /// </summary>
-    [JsonPropertyName(PropertyNames.CanDeleteOutgoingMessages)]
-    public bool? CanDeleteOutgoingMessages { get; set; }
+    [JsonPropertyName(PropertyNames.CanDeleteSentMessages)]
+    public bool? CanDeleteSentMessages { get; set; }
 
     /// <summary>
     /// Optional. True, if the bot can delete all private messages in managed chats
