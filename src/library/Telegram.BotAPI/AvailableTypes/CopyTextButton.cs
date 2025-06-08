@@ -10,8 +10,17 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class CopyTextButton
 {
     /// <summary>
+    /// Initializes a new instance of the <see cref="CopyTextButton"/> class.
+    /// </summary>
+    /// <param name="text">The text to be copied to the clipboard; 1-256 characters</param>
+    public CopyTextButton(string text)
+    {
+        this.Text = text ?? throw new ArgumentNullException(nameof(text));
+    }
+
+    /// <summary>
     /// The text to be copied to the clipboard; 1-256 characters
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
-    public string Text { get; set; } = null!;
+    public string Text { get; set; }
 }

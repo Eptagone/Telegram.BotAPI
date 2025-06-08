@@ -12,8 +12,8 @@ namespace Telegram.BotAPI;
 public static class FormatStyles
 {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-	public const string HTML = "HTML";
-	public const string Markdown = "Markdown";
-	public const string MarkdownV2 = "MarkdownV2";
+    public const string HTML = "HTML";
+    public const string Markdown = "Markdown";
+    public const string MarkdownV2 = "MarkdownV2";
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

@@ -9,7 +9,7 @@ namespace Telegram.BotAPI;
 public static class PollTypes
 {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-	public const string Quiz = "quiz";
-	public const string Regular = "regular";
+    public const string Quiz = "quiz";
+    public const string Regular = "regular";
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

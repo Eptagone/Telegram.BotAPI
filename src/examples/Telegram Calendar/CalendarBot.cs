@@ -11,7 +11,7 @@ using Telegram.BotAPI.UpdatingMessages;
 
 namespace TelegramCalendar;
 
-public sealed class CalendarBot : SimpleTelegramBotBase
+public sealed class CalendarBot : SimpleUpdateHandlerBase
 {
     public TelegramBotClient Client { get; } = new("<your bot token>");
 
@@ -65,13 +65,15 @@ public sealed class CalendarBot : SimpleTelegramBotBase
         }
     }
 
-    protected override void OnBotException(BotRequestException exp)
-    {
-        Console.WriteLine("Bot Exception: {0}.", exp.Message);
-    }
-
     protected override void OnException(Exception exp)
     {
-        Console.WriteLine("Exception: {0}.", exp.Message);
+        if (exp is BotRequestException)
+        {
+            Console.WriteLine("Bot Exception: {0}.", exp.Message);
+        }
+        else
+        {
+            Console.WriteLine("Exception: {0}.", exp.Message);
+        }
     }
 }

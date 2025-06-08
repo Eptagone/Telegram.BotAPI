@@ -89,7 +89,7 @@ public sealed class InlineKeyboardBuilder(
         this.Append(
             new InlineKeyboardButton(text)
             {
-                SwitchInlineQueryCurrentChat = switchInlineQueryCurrentChat
+                SwitchInlineQueryCurrentChat = switchInlineQueryCurrentChat,
             }
         );
 
@@ -108,9 +108,18 @@ public sealed class InlineKeyboardBuilder(
         this.Append(
             new InlineKeyboardButton(text)
             {
-                SwitchInlineQueryChosenChat = switchInlineQueryChosenChat
+                SwitchInlineQueryChosenChat = switchInlineQueryChosenChat,
             }
         );
+
+    /// <summary>
+    /// Appends a new <see cref="CopyTextButton" /> button to the keyboard.
+    /// </summary>
+    /// <param name="text">The text of the button.</param>
+    /// <param name="button">The <see cref="CopyTextButton" /> instance with the text to be copied when the button is pressed.</param>
+    /// <returns>The current instance of <see cref="InlineKeyboardBuilder"/>.</returns>
+    public InlineKeyboardBuilder AppendCopyText(string text, CopyTextButton button) =>
+        this.Append(new InlineKeyboardButton(text) { CopyText = button });
 
     /// <summary>
     /// Appends a new <see cref="CallbackGame" /> button to the keyboard.

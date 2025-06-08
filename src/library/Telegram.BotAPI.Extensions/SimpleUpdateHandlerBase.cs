@@ -9,12 +9,12 @@ using Telegram.BotAPI.Payments;
 namespace Telegram.BotAPI.Extensions;
 
 /// <summary>
-/// Represents a base class to create a Telegram Bot.
+/// Represents a base class to handle incoming updates.
 /// </summary>
-/// <remarks>
-/// If you want to manage a context object for each update, use <see cref="ComplexTelegramBotBase{TBotContext}"/> instead.
-/// </remarks>
-public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITelegramBot
+public abstract class SimpleUpdateHandlerBase
+    : TelegramBotSharedMethodsBase,
+        IUpdateHandler,
+        IAsyncUpdateHandler
 {
     #region Handlers
     /// <inheritdoc/>
@@ -110,10 +110,6 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
             {
                 this.OnRemovedChatBoost(update.RemovedChatBoost);
             }
-        }
-        catch (BotRequestException exp)
-        {
-            this.OnBotException(exp);
         }
         catch (Exception exp)
         {
@@ -246,10 +242,6 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
                 await this.OnRemovedChatBoostAsync(update.RemovedChatBoost, cancellationToken)
                     .ConfigureAwait(false);
             }
-        }
-        catch (BotRequestException exp)
-        {
-            await this.OnBotExceptionAsync(exp, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception exp)
         {
@@ -735,23 +727,6 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
     ) => Task.CompletedTask;
 
     /// <summary>
-    /// Handles an exception thrown by a bot request.
-    /// </summary>
-    /// <param name="exp">Bot exception</param>
-    protected virtual void OnBotException(BotRequestException exp) =>
-        this.OnBotExceptionAsync(exp).Wait();
-
-    /// <summary>
-    /// Handles an exception thrown by a bot request.
-    /// </summary>
-    /// <param name="exp">Bot exception</param>
-    /// <param name="cancellationToken">Cancellation token</param>
-    protected virtual Task OnBotExceptionAsync(
-        BotRequestException exp,
-        CancellationToken cancellationToken = default
-    ) => Task.CompletedTask;
-
-    /// <summary>
     /// Handles an exception thrown by the application.
     /// </summary>
     /// <param name="exp">Exception</param>
@@ -767,4 +742,52 @@ public abstract class SimpleTelegramBotBase : TelegramBotSharedMethodsBase, ITel
         CancellationToken cancellationToken = default
     ) => Task.CompletedTask;
     #endregion
+}
+
+/// <inheritdoc />
+[Obsolete("Use SimpleUpdateHandlerBase instead")]
+public abstract class SimpleTelegramBotBase : SimpleUpdateHandlerBase, ITelegramBot
+{
+    /// <inheritdoc />
+    protected override void OnException(Exception exp)
+    {
+        if (exp is BotRequestException botException)
+        {
+            this.OnBotException(botException);
+            return;
+        }
+
+        base.OnException(exp);
+    }
+
+    /// <inheritdoc />
+    protected override Task OnExceptionAsync(
+        Exception exp,
+        CancellationToken cancellationToken = default
+    )
+    {
+        if (exp is BotRequestException botException)
+        {
+            return this.OnBotExceptionAsync(botException, cancellationToken);
+        }
+
+        return base.OnExceptionAsync(exp, cancellationToken);
+    }
+
+    /// <summary>
+    /// Handles an exception thrown by a bot request.
+    /// </summary>
+    /// <param name="exp">Bot exception</param>
+    protected virtual void OnBotException(BotRequestException exp) =>
+        this.OnBotExceptionAsync(exp).Wait();
+
+    /// <summary>
+    /// Handles an exception thrown by a bot request.
+    /// </summary>
+    /// <param name="exp">Bot exception</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    protected virtual Task OnBotExceptionAsync(
+        BotRequestException exp,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
 }

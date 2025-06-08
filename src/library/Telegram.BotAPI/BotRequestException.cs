@@ -12,17 +12,17 @@ namespace Telegram.BotAPI;
 /// <param name="description">Description.</param>
 /// <param name="parameters">Parameters.</param>
 public sealed class BotRequestException(
-	int errorCode,
-	string description,
-	ResponseParameters? parameters
+    int errorCode,
+    string description,
+    ResponseParameters? parameters
 ) : Exception(description)
 {
-	/// <summary>Error code.</summary>
-	public int ErrorCode { get; } = errorCode;
+    /// <summary>Error code.</summary>
+    public int ErrorCode { get; } = errorCode;
 
-	/// <summary>Error description.</summary>
-	public string Description { get; } = description;
+    /// <summary>Error description.</summary>
+    public string Description { get; } = description;
 
-	/// <summary>Parameters.</summary>
-	public ResponseParameters? Parameters { get; } = parameters;
+    /// <summary>Parameters.</summary>
+    public ResponseParameters? Parameters { get; } = parameters;
 }

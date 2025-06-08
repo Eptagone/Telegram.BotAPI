@@ -11,7 +11,7 @@ namespace HelloBotNET.Webhook.Services;
 ///     It contains the main functionality of the telegram bot. <br />
 ///     The application creates a new instance of this class to process each update received.
 /// </summary>
-public partial class HelloBot : SimpleTelegramBotBase
+public partial class HelloBot : SimpleUpdateHandlerBase
 {
     private readonly ILogger<HelloBot> logger;
 

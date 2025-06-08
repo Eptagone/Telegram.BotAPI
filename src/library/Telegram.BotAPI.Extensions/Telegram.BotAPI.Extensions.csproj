@@ -10,11 +10,11 @@
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <NeutralLanguage>en</NeutralLanguage>
         <Authors>Quetzal Rivera</Authors>
-        <Copyright>Quetzal Rivera 2024 ©</Copyright>
+        <Copyright>Quetzal Rivera 2025 ©</Copyright>
         <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
         <PackageTags>Telegram;Bot;API;Extensions</PackageTags>
-        <Version>0.4.1</Version>
+        <Version>0.5.0</Version>
         <Title>Extensions for Telegram.BotAPI package</Title>
         <PackageIcon>packicon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -33,7 +33,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Telegram.BotAPI" Version="8.2.0" />
+        <PackageReference Include="Telegram.BotAPI" Version="9.0.0" />
     </ItemGroup>
 
     <ItemGroup>

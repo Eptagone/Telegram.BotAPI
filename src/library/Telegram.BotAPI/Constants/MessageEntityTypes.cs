@@ -11,93 +11,98 @@ namespace Telegram.BotAPI;
 /// </remarks>
 public static class MessageEntityTypes
 {
-	/// <summary>
-	/// “mention” (@username)
-	/// </summary>
-	public const string Mention = "mention";
+    /// <summary>
+    /// “mention” (@username)
+    /// </summary>
+    public const string Mention = "mention";
 
-	/// <summary>
-	/// “hashtag” (#hashtag)
-	/// </summary>
-	public const string Hashtag = "hashtag";
+    /// <summary>
+    /// “hashtag” (#hashtag)
+    /// </summary>
+    public const string Hashtag = "hashtag";
 
-	/// <summary>
-	/// “cashtag” ($USD)
-	/// </summary>
-	public const string Cashtag = "cashtag";
+    /// <summary>
+    /// “cashtag” ($USD)
+    /// </summary>
+    public const string Cashtag = "cashtag";
 
-	/// <summary>
-	/// “bot_command” (/start@jobs_bot)
-	/// </summary>
-	public const string BotCommand = "bot_command";
+    /// <summary>
+    /// “bot_command” (/start@jobs_bot)
+    /// </summary>
+    public const string BotCommand = "bot_command";
 
-	/// <summary>
-	/// “url” (https://telegram.org)
-	/// </summary>
-	public const string Url = "url";
+    /// <summary>
+    /// “url” (https://telegram.org)
+    /// </summary>
+    public const string Url = "url";
 
-	/// <summary>
-	/// “email” (do-not-reply@telegram.org)
-	/// </summary>
-	public const string Email = "email";
+    /// <summary>
+    /// “email” (do-not-reply@telegram.org)
+    /// </summary>
+    public const string Email = "email";
 
-	/// <summary>
-	/// “phone_number” (+1-212-555-0123)
-	/// </summary>
-	public const string PhoneNumber = "phone_number";
+    /// <summary>
+    /// “phone_number” (+1-212-555-0123)
+    /// </summary>
+    public const string PhoneNumber = "phone_number";
 
-	/// <summary>
-	/// “bold” (bold text)
-	/// </summary>
-	public const string Bold = "bold";
+    /// <summary>
+    /// “bold” (bold text)
+    /// </summary>
+    public const string Bold = "bold";
 
-	/// <summary>
-	/// “italic” (italic text)
-	/// </summary>
-	public const string Italic = "italic";
+    /// <summary>
+    /// “italic” (italic text)
+    /// </summary>
+    public const string Italic = "italic";
 
-	/// <summary>
-	/// “underline” (underlined text)
-	/// </summary>
-	public const string Underline = "underline";
+    /// <summary>
+    /// “underline” (underlined text)
+    /// </summary>
+    public const string Underline = "underline";
 
-	/// <summary>
-	/// “strikethrough” (strikethrough text)
-	/// </summary>
-	public const string Strikethrough = "strikethrough";
+    /// <summary>
+    /// “strikethrough” (strikethrough text)
+    /// </summary>
+    public const string Strikethrough = "strikethrough";
 
-	/// <summary>
-	/// “spoiler” (spoiler message)
-	/// </summary>
-	public const string Spoiler = "spoiler";
+    /// <summary>
+    /// “spoiler” (spoiler message)
+    /// </summary>
+    public const string Spoiler = "spoiler";
 
-	/// <summary>
-	/// “blockquote” (block quotation)
-	/// </summary>
-	public const string Blockquote = "blockquote";
+    /// <summary>
+    /// “blockquote” (block quotation)
+    /// </summary>
+    public const string Blockquote = "blockquote";
 
-	/// <summary>
-	/// “code” (monowidth string)
-	/// </summary>
-	public const string Code = "code";
+    /// <summary>
+    /// “collapsed-by-default” (block quotation)
+    /// </summary>
+    public const string ExpandableBlockquote = "expandable_blockquote";
 
-	/// <summary>
-	/// “pre” (monowidth block)
-	/// </summary>
-	public const string Pre = "pre";
+    /// <summary>
+    /// “code” (monowidth string)
+    /// </summary>
+    public const string Code = "code";
 
-	/// <summary>
-	/// “text_link” (for clickable text URLs)
-	/// </summary>
-	public const string TextLink = "text_link";
+    /// <summary>
+    /// “pre” (monowidth block)
+    /// </summary>
+    public const string Pre = "pre";
 
-	/// <summary>
-	/// “text_mention” (for users without usernames)
-	/// </summary>
-	public const string TextMention = "text_mention";
+    /// <summary>
+    /// “text_link” (for clickable text URLs)
+    /// </summary>
+    public const string TextLink = "text_link";
 
-	/// <summary>
-	/// “custom_emoji” (for inline custom emoji stickers)
-	/// </summary>
-	public const string CustomEmoji = "custom_emoji";
+    /// <summary>
+    /// “text_mention” (for users without usernames)
+    /// </summary>
+    public const string TextMention = "text_mention";
+
+    /// <summary>
+    /// “custom_emoji” (for inline custom emoji stickers)
+    /// </summary>
+    public const string CustomEmoji = "custom_emoji";
 }

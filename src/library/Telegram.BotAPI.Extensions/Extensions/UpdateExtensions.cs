@@ -28,9 +28,13 @@ public static class UpdateExtensions
         }
 
         // Get all properties of the Update class where the value is not null.
-        var properties = typeof(Update).GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(p => p.GetValue(update) != null);
+        var properties = typeof(Update)
+            .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+            .Where(p => p.GetValue(update) != null);
         // Get the json name of the first property ignoring UpdateId.
-        var property = properties.FirstOrDefault(p => p.Name != nameof(Update.UpdateId)) ?? throw new InvalidOperationException("The update is not valid.");
+        var property =
+            properties.FirstOrDefault(p => p.Name != nameof(Update.UpdateId))
+            ?? throw new InvalidOperationException("The update is not valid.");
 
         return property.GetCustomAttribute<JsonPropertyNameAttribute>()!.Name;
     }

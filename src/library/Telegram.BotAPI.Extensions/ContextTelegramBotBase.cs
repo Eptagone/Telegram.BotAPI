@@ -11,6 +11,7 @@ namespace Telegram.BotAPI.Extensions;
 /// <summary>
 /// Represents a Telegram Bot.
 /// </summary>
+[Obsolete("Use your own context system instead.")]
 public abstract class ContextTelegramBotBase : ContextTelegramBotBase<IDictionary<string, object>>
 {
     /// <summary>
@@ -34,9 +35,12 @@ public abstract class ContextTelegramBotBase : ContextTelegramBotBase<IDictionar
 /// Represents a Telegram Bot.
 /// </summary>
 /// <typeparam name="TBotContext">The type of the bot context.</typeparam>
+[Obsolete("Use your own context system instead.")]
 public abstract class ContextTelegramBotBase<TBotContext>
     : TelegramBotSharedMethodsBase,
-        ITelegramBot
+        ITelegramBot,
+        IUpdateHandler,
+        IAsyncUpdateHandler
     where TBotContext : class
 {
     /// <summary>

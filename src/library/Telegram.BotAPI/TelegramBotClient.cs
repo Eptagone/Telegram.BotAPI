@@ -23,7 +23,7 @@ using System.Net.Http;
 namespace Telegram.BotAPI;
 
 /// <summary>
-///     Provides a class for sending requests to the Telegram Bot API.
+/// Provides a client for sending requests to the Telegram Bot API.
 /// </summary>
 public partial class TelegramBotClient : ITelegramBotClient
 {

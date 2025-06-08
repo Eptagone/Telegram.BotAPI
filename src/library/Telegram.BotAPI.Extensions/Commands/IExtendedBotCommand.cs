@@ -7,6 +7,7 @@ namespace Telegram.BotAPI.Extensions;
 /// Represents a Telegram bot command.
 /// Defines additional properties like aliases and possible translations.
 /// </summary>
+[Obsolete("Use your own command registry instead.")]
 public interface IExtendedBotCommand
 {
     /// <summary>

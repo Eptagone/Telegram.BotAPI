@@ -7,11 +7,15 @@ using Telegram.BotAPI.AvailableTypes;
 namespace Telegram.BotAPI.Extensions;
 
 /// <summary>
-///     Defines methods to format text in HTML.
+/// Defines methods to format text in HTML.
 /// </summary>
 public static class HtmlTextFormatter
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Create a new stylized text from message entities.
+    /// </summary>
+    /// <param name="input">Input text.</param>
+    /// <param name="entities">Message entities.</param>
     public static string FromEntities(string input, IEnumerable<MessageEntity> entities)
     {
         if (input is null)
@@ -95,7 +99,11 @@ public static class HtmlTextFormatter
         return EncodeHtmlCharacters(input);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Convert the given text to bold.
+    /// </summary>
+    /// <param name="input">Input text.</param>
+    /// <returns>Stylized <see cref="string"/></returns>
     public static string Bold(string input)
     {
         input ??= string.Empty;
@@ -103,7 +111,11 @@ public static class HtmlTextFormatter
         return $"<b>{text}</b>";
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Convert the given text to italic.
+    /// </summary>
+    /// <param name="input">Input text.</param>
+    /// <returns>The text in italic.</returns>
     public static string Italic(string input)
     {
         input ??= string.Empty;
@@ -111,7 +123,11 @@ public static class HtmlTextFormatter
         return $"<i>{text}</i>";
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Convert the given text to underline.
+    /// </summary>
+    /// <param name="input">Input text.</param>
+    /// <returns>The text underlined.</returns>
     public static string Underline(string input)
     {
         input ??= string.Empty;
@@ -119,7 +135,11 @@ public static class HtmlTextFormatter
         return $"<u>{text}</u>";
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Convert the given text to strikethrough.
+    /// </summary>
+    /// <param name="input">Input text.</param>
+    /// <returns>A strikethrough text</returns>
     public static string Strikethrough(string input)
     {
         input ??= string.Empty;
@@ -127,7 +147,9 @@ public static class HtmlTextFormatter
         return $"<s>{text}</s>";
     }
 
-    /// <inheritdoc />
+    /// <summary>Conver the fiven text into a spoiler.</summary>
+    /// <param name="input">Input text.</param>
+    /// <returns>The spoiler</returns>
     public static string Spoiler(string input)
     {
         input ??= string.Empty;
@@ -135,7 +157,9 @@ public static class HtmlTextFormatter
         return $"<span class=\"tg-spoiler\">{text}</span>";
     }
 
-    /// <inheritdoc />
+    /// <summary>Convert the text into a code block</summary>
+    /// <param name="input">Input text.</param>
+    /// <returns>A code block</returns>
     public static string Code(string input)
     {
         input ??= string.Empty;
@@ -143,7 +167,11 @@ public static class HtmlTextFormatter
         return $"<code>{text}</code>";
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Convert the given text into a block of pre-formatted text.
+    /// </summary>
+    /// <param name="input">Input text.</param>
+    /// <returns>A pre-formatted text</returns>
     public static string Pre(string input, string? language = null)
     {
         input ??= string.Empty;
@@ -154,12 +182,12 @@ public static class HtmlTextFormatter
             : $"<pre><code class=\"language-{language}\">{text}</code></pre>";
     }
 
-    /// <summary> Format text. Text link. </summary>
+    /// <summary>
+    /// Create a new text with a hyperlink.
+    /// </summary>
     /// <param name="input">Input text.</param>
     /// <param name="url">Url.</param>
-    /// <param name="parseMode">Style to be applied to the new text.</param>
-    /// <param name="useFixer">True, if you want to use the StyleParser.</param>
-    /// <returns>Stylized <see cref="string" /></returns>
+    /// <returns>A text link</returns>
     public static string TextLink(string input, string url)
     {
         if (string.IsNullOrEmpty(url))
@@ -172,7 +200,12 @@ public static class HtmlTextFormatter
         return $"<a href=\"{url}\">{text}</a>";
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Create a new text with a mention.
+    /// </summary>
+    /// <param name="input">Input text.</param>
+    /// <param name="userId">Unique identifier for this user or bot.</param>
+    /// <returns>The text mention</returns>
     public static string TextMention(string input, long userId)
     {
         input ??= string.Empty;
@@ -188,8 +221,6 @@ public static class HtmlTextFormatter
     /// </remarks>
     /// <param name="customEmojiId">Unique identifier of the custom emoji.</param>
     /// <param name="emoji">The emoji.</param>
-    /// <param name="parseMode">Style to be applied to the new text.</param>
-    /// <param name="useFixer">True, if you want to use the StyleParser.</param>
     /// <returns>Stylized <see cref="string" /></returns>
     public static string CustomEmoji(string customEmojiId, string emoji)
     {

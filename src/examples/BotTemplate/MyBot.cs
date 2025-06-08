@@ -12,7 +12,7 @@ using Telegram.BotAPI.GettingUpdates;
 
 namespace BotTemplateSample
 {
-    public sealed class MyBot : SimpleTelegramBotBase
+    public sealed class MyBot : SimpleUpdateHandlerBase
     {
         public static readonly TelegramBotClient Bot = new("<BOT TOKEN>");
         private static readonly User Me = Bot.GetMe();
@@ -86,16 +86,17 @@ namespace BotTemplateSample
             }
         }
 
-        protected override void OnBotException(BotRequestException exp)
-        {
-            Console.WriteLine("New BotException: {0}", exp.Message);
-            Console.WriteLine("Error Code: {0}", exp.ErrorCode);
-            Console.WriteLine();
-        }
-
         protected override void OnException(Exception exp)
         {
-            Console.WriteLine("New Exception: {0}", exp.Message);
+            if (exp is BotRequestException botException)
+            {
+                Console.WriteLine("New BotException: {0}", botException.Message);
+                Console.WriteLine("Error Code: {0}", botException.ErrorCode);
+            }
+            else
+            {
+                Console.WriteLine("New Exception: {0}", exp.Message);
+            }
             Console.WriteLine();
         }
     }

@@ -13,7 +13,7 @@ using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI;
 
-public partial class TelegramBotClient
+public partial class TelegramBotClient : ITelegramBotClient
 {
     internal static readonly JsonSerializerOptions SerializerOptions =
         new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
@@ -108,13 +108,7 @@ public partial class TelegramBotClient
         {
             MemoryStream stream = new();
             await JsonSerializer
-                .SerializeAsync(
-                    stream,
-                    args,
-                    args.GetType(),
-                    SerializerOptions,
-                    cancellationToken
-                )
+                .SerializeAsync(stream, args, args.GetType(), SerializerOptions, cancellationToken)
                 .ConfigureAwait(false);
             stream.Seek(0, SeekOrigin.Begin);
             StreamContent content = new(stream);
@@ -141,9 +135,7 @@ public partial class TelegramBotClient
             }
         }
 
-        Stream? responseStream = await response
-            .Content.ReadAsStreamAsync()
-            .ConfigureAwait(false);
+        Stream? responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
         BotResponse<TReturn>? botResponse = await JsonSerializer
             .DeserializeAsync<BotResponse<TReturn>>(
                 responseStream,
@@ -157,8 +149,7 @@ public partial class TelegramBotClient
 
     private static MultipartFormDataContent CreateFormDataFromObject(object args)
     {
-        MultipartFormDataContent content =
-            new(Guid.NewGuid().ToString() + DateTime.UtcNow.Ticks);
+        MultipartFormDataContent content = new(Guid.NewGuid().ToString() + DateTime.UtcNow.Ticks);
 
         // If the value is an enumerable, add each item to the content.
         if (args is IDictionary<string, object> dictionary)
@@ -192,10 +183,7 @@ public partial class TelegramBotClient
                         }
                         default:
                         {
-                            string json = JsonSerializer.Serialize(
-                                item.Value,
-                                SerializerOptions
-                            );
+                            string json = JsonSerializer.Serialize(item.Value, SerializerOptions);
                             content.Add(new StringContent(json, Encoding.UTF8), item.Key);
                             break;
                         }

@@ -7,7 +7,7 @@
 		<Authors>Quetzal Rivera</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<RootNamespace>Telegram.BotAPI</RootNamespace>
-		<Copyright>Quetzal Rivera 2024 ©</Copyright>
+		<Copyright>Quetzal Rivera 2025 ©</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Description>A very complete library to use Telegram Bot API in your NET project. Full support for Bot API v9.0 (April 11, 2025).

@@ -9,6 +9,7 @@ namespace Telegram.BotAPI.Extensions;
 /// Represents a Telegram bot command created from a type that represents a bot command.
 /// Defines additional properties like aliases and possible translations extracted from the <see cref="TelegramBotCommandAttribute"/> attributes present in the type.
 /// </summary>
+[Obsolete("Use your own command registry instead.")]
 public class ExtendedBotCommand : IExtendedBotCommand
 {
     private const string BOT_COMMAND_SUFFIX = "Command";

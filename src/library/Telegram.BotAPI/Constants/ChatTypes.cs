@@ -9,10 +9,10 @@ namespace Telegram.BotAPI;
 public static class ChatTypes
 {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-	public const string Sender = "sender";
-	public const string Private = "private";
-	public const string Group = "group";
-	public const string Supergroup = "supergroup";
-	public const string Channel = "channel";
+    public const string Sender = "sender";
+    public const string Private = "private";
+    public const string Group = "group";
+    public const string Supergroup = "supergroup";
+    public const string Channel = "channel";
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

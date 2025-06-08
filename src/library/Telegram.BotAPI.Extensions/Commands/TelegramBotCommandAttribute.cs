@@ -4,9 +4,9 @@
 namespace Telegram.BotAPI.Extensions;
 
 /// <summary>
-/// Attribute to define a command for a bot.
+/// Attribute to define a class or method as a Telegram bot command.
 /// </summary>
-[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
 public sealed class TelegramBotCommandAttribute : Attribute
 {
     /// <summary>
@@ -48,5 +48,6 @@ public sealed class TelegramBotCommandAttribute : Attribute
     /// <summary>
     /// Optional. The language code of the command.
     /// </summary>
+    [Obsolete("Use a different way to handle multiple languages.")]
     public string? LanguageCode { get; set; }
 }
