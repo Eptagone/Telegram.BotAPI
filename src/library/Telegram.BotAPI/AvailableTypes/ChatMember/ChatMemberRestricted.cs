@@ -64,7 +64,7 @@ public class ChatMemberRestricted : ChatMember
     public bool CanSendVoiceNotes { get; set; }
 
     /// <summary>
-    /// <em>True</em>, if the user is allowed to send polls
+    /// <em>True</em>, if the user is allowed to send polls and checklists
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendPolls)]
     public bool CanSendPolls { get; set; }

@@ -46,12 +46,12 @@ public static partial class UpdatingMessagesExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
-    /// <param name="excludeUnsaved">Pass True to exclude gifts that aren't saved to the account's profile page</param>
-    /// <param name="excludeSaved">Pass True to exclude gifts that are saved to the account's profile page</param>
-    /// <param name="excludeUnlimited">Pass True to exclude gifts that can be purchased an unlimited number of times</param>
-    /// <param name="excludeLimited">Pass True to exclude gifts that can be purchased a limited number of times</param>
-    /// <param name="excludeUnique">Pass True to exclude unique gifts</param>
-    /// <param name="sortByPrice">Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.</param>
+    /// <param name="excludeUnsaved">Pass <em>True</em> to exclude gifts that aren't saved to the account's profile page</param>
+    /// <param name="excludeSaved">Pass <em>True</em> to exclude gifts that are saved to the account's profile page</param>
+    /// <param name="excludeUnlimited">Pass <em>True</em> to exclude gifts that can be purchased an unlimited number of times</param>
+    /// <param name="excludeLimited">Pass <em>True</em> to exclude gifts that can be purchased a limited number of times</param>
+    /// <param name="excludeUnique">Pass <em>True</em> to exclude unique gifts</param>
+    /// <param name="sortByPrice">Pass <em>True</em> to sort results by gift price instead of send date. Sorting is applied before pagination.</param>
     /// <param name="offset">Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results</param>
     /// <param name="limit">The maximum number of gifts to be returned; 1-100. Defaults to 100</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -65,12 +65,12 @@ public static partial class UpdatingMessagesExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
-    /// <param name="excludeUnsaved">Pass True to exclude gifts that aren't saved to the account's profile page</param>
-    /// <param name="excludeSaved">Pass True to exclude gifts that are saved to the account's profile page</param>
-    /// <param name="excludeUnlimited">Pass True to exclude gifts that can be purchased an unlimited number of times</param>
-    /// <param name="excludeLimited">Pass True to exclude gifts that can be purchased a limited number of times</param>
-    /// <param name="excludeUnique">Pass True to exclude unique gifts</param>
-    /// <param name="sortByPrice">Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.</param>
+    /// <param name="excludeUnsaved">Pass <em>True</em> to exclude gifts that aren't saved to the account's profile page</param>
+    /// <param name="excludeSaved">Pass <em>True</em> to exclude gifts that are saved to the account's profile page</param>
+    /// <param name="excludeUnlimited">Pass <em>True</em> to exclude gifts that can be purchased an unlimited number of times</param>
+    /// <param name="excludeLimited">Pass <em>True</em> to exclude gifts that can be purchased a limited number of times</param>
+    /// <param name="excludeUnique">Pass <em>True</em> to exclude unique gifts</param>
+    /// <param name="sortByPrice">Pass <em>True</em> to sort results by gift price instead of send date. Sorting is applied before pagination.</param>
     /// <param name="offset">Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results</param>
     /// <param name="limit">The maximum number of gifts to be returned; 1-100. Defaults to 100</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>

@@ -46,7 +46,7 @@ public static partial class UpdatingMessagesExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
-    /// <param name="showGiftButton">Pass True, if a button for sending a gift to the user or by the business account must always be shown in the input field</param>
+    /// <param name="showGiftButton">Pass <em>True</em>, if a button for sending a gift to the user or by the business account must always be shown in the input field</param>
     /// <param name="acceptedGiftTypes">Types of gifts accepted by the business account</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -59,7 +59,7 @@ public static partial class UpdatingMessagesExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
-    /// <param name="showGiftButton">Pass True, if a button for sending a gift to the user or by the business account must always be shown in the input field</param>
+    /// <param name="showGiftButton">Pass <em>True</em>, if a button for sending a gift to the user or by the business account must always be shown in the input field</param>
     /// <param name="acceptedGiftTypes">Types of gifts accepted by the business account</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>

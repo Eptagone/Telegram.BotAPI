@@ -25,37 +25,37 @@ public class GetBusinessAccountGiftsArgs
     public string BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Pass True to exclude gifts that aren't saved to the account's profile page
+    /// Pass <em>True</em> to exclude gifts that aren't saved to the account's profile page
     /// </summary>
     [JsonPropertyName(PropertyNames.ExcludeUnsaved)]
     public bool? ExcludeUnsaved { get; set; }
 
     /// <summary>
-    /// Pass True to exclude gifts that are saved to the account's profile page
+    /// Pass <em>True</em> to exclude gifts that are saved to the account's profile page
     /// </summary>
     [JsonPropertyName(PropertyNames.ExcludeSaved)]
     public bool? ExcludeSaved { get; set; }
 
     /// <summary>
-    /// Pass True to exclude gifts that can be purchased an unlimited number of times
+    /// Pass <em>True</em> to exclude gifts that can be purchased an unlimited number of times
     /// </summary>
     [JsonPropertyName(PropertyNames.ExcludeUnlimited)]
     public bool? ExcludeUnlimited { get; set; }
 
     /// <summary>
-    /// Pass True to exclude gifts that can be purchased a limited number of times
+    /// Pass <em>True</em> to exclude gifts that can be purchased a limited number of times
     /// </summary>
     [JsonPropertyName(PropertyNames.ExcludeLimited)]
     public bool? ExcludeLimited { get; set; }
 
     /// <summary>
-    /// Pass True to exclude unique gifts
+    /// Pass <em>True</em> to exclude unique gifts
     /// </summary>
     [JsonPropertyName(PropertyNames.ExcludeUnique)]
     public bool? ExcludeUnique { get; set; }
 
     /// <summary>
-    /// Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.
+    /// Pass <em>True</em> to sort results by gift price instead of send date. Sorting is applied before pagination.
     /// </summary>
     [JsonPropertyName(PropertyNames.SortByPrice)]
     public bool? SortByPrice { get; set; }

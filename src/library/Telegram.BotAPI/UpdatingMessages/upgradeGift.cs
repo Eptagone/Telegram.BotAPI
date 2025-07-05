@@ -15,7 +15,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
     /// <param name="ownedGiftId">Unique identifier of the regular gift that should be upgraded to a unique one</param>
-    /// <param name="keepOriginalDetails">Pass True to keep the original gift text, sender and receiver in the upgraded gift</param>
+    /// <param name="keepOriginalDetails">Pass <em>True</em> to keep the original gift text, sender and receiver in the upgraded gift</param>
     /// <param name="starCount">The amount of Telegram Stars that will be paid for the upgrade from the business account balance. If <em>gift.prepaid_upgrade_star_count &gt; 0</em>, then pass 0, otherwise, the <em>can_transfer_stars</em> business bot right is required and <em>gift.upgrade_star_count</em> must be passed.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -29,7 +29,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
     /// <param name="ownedGiftId">Unique identifier of the regular gift that should be upgraded to a unique one</param>
-    /// <param name="keepOriginalDetails">Pass True to keep the original gift text, sender and receiver in the upgraded gift</param>
+    /// <param name="keepOriginalDetails">Pass <em>True</em> to keep the original gift text, sender and receiver in the upgraded gift</param>
     /// <param name="starCount">The amount of Telegram Stars that will be paid for the upgrade from the business account balance. If <em>gift.prepaid_upgrade_star_count &gt; 0</em>, then pass 0, otherwise, the <em>can_transfer_stars</em> business bot right is required and <em>gift.upgrade_star_count</em> must be passed.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>

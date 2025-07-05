@@ -47,7 +47,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
     /// <param name="photo">The new profile photo to set</param>
-    /// <param name="isPublic">Pass True to set the public photo, which will be visible even if the main photo is hidden by the business account's privacy settings. An account can have only one public photo.</param>
+    /// <param name="isPublic">Pass <em>True</em> to set the public photo, which will be visible even if the main photo is hidden by the business account's privacy settings. An account can have only one public photo.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -60,7 +60,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
     /// <param name="photo">The new profile photo to set</param>
-    /// <param name="isPublic">Pass True to set the public photo, which will be visible even if the main photo is hidden by the business account's privacy settings. An account can have only one public photo.</param>
+    /// <param name="isPublic">Pass <em>True</em> to set the public photo, which will be visible even if the main photo is hidden by the business account's privacy settings. An account can have only one public photo.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

@@ -15,7 +15,7 @@ public class SetBusinessAccountGiftSettingsArgs
     /// Initializes a new instance of the <see cref="SetBusinessAccountGiftSettingsArgs"/> class.
     /// </summary>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
-    /// <param name="showGiftButton">Pass True, if a button for sending a gift to the user or by the business account must always be shown in the input field</param>
+    /// <param name="showGiftButton">Pass <em>True</em>, if a button for sending a gift to the user or by the business account must always be shown in the input field</param>
     /// <param name="acceptedGiftTypes">Types of gifts accepted by the business account</param>
     public SetBusinessAccountGiftSettingsArgs(string businessConnectionId, bool showGiftButton, AcceptedGiftTypes acceptedGiftTypes)
     {
@@ -31,7 +31,7 @@ public class SetBusinessAccountGiftSettingsArgs
     public string BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Pass True, if a button for sending a gift to the user or by the business account must always be shown in the input field
+    /// Pass <em>True</em>, if a button for sending a gift to the user or by the business account must always be shown in the input field
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowGiftButton)]
     public bool ShowGiftButton { get; set; }

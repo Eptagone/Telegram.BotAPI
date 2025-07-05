@@ -40,19 +40,19 @@ public class OwnedGiftRegular : OwnedGift
     public IEnumerable<MessageEntity>? Entities { get; set; }
 
     /// <summary>
-    /// Optional. True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
+    /// Optional. <em>True</em>, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
     /// </summary>
     [JsonPropertyName(PropertyNames.IsPrivate)]
     public bool? IsPrivate { get; set; }
 
     /// <summary>
-    /// Optional. True, if the gift can be upgraded to a unique gift; for gifts received on behalf of business accounts only
+    /// Optional. <em>True</em>, if the gift can be upgraded to a unique gift; for gifts received on behalf of business accounts only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanBeUpgraded)]
     public bool? CanBeUpgraded { get; set; }
 
     /// <summary>
-    /// Optional. True, if the gift was refunded and isn't available anymore
+    /// Optional. <em>True</em>, if the gift was refunded and isn't available anymore
     /// </summary>
     [JsonPropertyName(PropertyNames.WasRefunded)]
     public bool? WasRefunded { get; set; }

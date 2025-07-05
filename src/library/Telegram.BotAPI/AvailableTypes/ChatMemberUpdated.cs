@@ -46,13 +46,13 @@ public class ChatMemberUpdated
     public ChatInviteLink? InviteLink { get; set; }
 
     /// <summary>
-    /// Optional. True, if the user joined the chat after sending a direct join request without using an invite link and being approved by an administrator
+    /// Optional. <em>True</em>, if the user joined the chat after sending a direct join request without using an invite link and being approved by an administrator
     /// </summary>
     [JsonPropertyName(PropertyNames.ViaJoinRequest)]
     public bool? ViaJoinRequest { get; set; }
 
     /// <summary>
-    /// Optional. True, if the user joined the chat via a chat folder invite link
+    /// Optional. <em>True</em>, if the user joined the chat via a chat folder invite link
     /// </summary>
     [JsonPropertyName(PropertyNames.ViaChatFolderInviteLink)]
     public bool? ViaChatFolderInviteLink { get; set; }

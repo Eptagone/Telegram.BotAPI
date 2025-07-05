@@ -28,7 +28,7 @@ public class ChatMemberAdministrator : ChatMember
     public bool IsAnonymous { get; set; }
 
     /// <summary>
-    /// <em>True</em>, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.
+    /// <em>True</em>, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages, ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other administrator privilege.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageChat)]
     public bool CanManageChat { get; set; }
@@ -88,7 +88,7 @@ public class ChatMemberAdministrator : ChatMember
     public bool CanDeleteStories { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the administrator can post messages in the channel, or access channel statistics; for channels only
+    /// Optional. <em>True</em>, if the administrator can post messages in the channel, approve suggested posts, or access channel statistics; for channels only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPostMessages)]
     public bool? CanPostMessages { get; set; }

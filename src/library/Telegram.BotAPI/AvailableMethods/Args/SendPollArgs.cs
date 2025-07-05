@@ -16,7 +16,7 @@ public class SendPollArgs
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of 2-10 answer options</param>
+    /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     public SendPollArgs(long chatId, string question, IEnumerable<InputPollOption> options)
     {
         this.ChatId = chatId;
@@ -29,7 +29,7 @@ public class SendPollArgs
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of 2-10 answer options</param>
+    /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     public SendPollArgs(string chatId, string question, IEnumerable<InputPollOption> options)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -74,7 +74,7 @@ public class SendPollArgs
     public IEnumerable<MessageEntity>? QuestionEntities { get; set; }
 
     /// <summary>
-    /// A JSON-serialized list of 2-10 answer options
+    /// A JSON-serialized list of 2-12 answer options
     /// </summary>
     [JsonPropertyName(PropertyNames.Options)]
     public IEnumerable<InputPollOption> Options { get; set; }

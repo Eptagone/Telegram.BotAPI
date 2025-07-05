@@ -34,13 +34,13 @@ public class SuccessfulPayment
     public int? SubscriptionExpirationDate { get; set; }
 
     /// <summary>
-    /// Optional. True, if the payment is a recurring payment for a subscription
+    /// Optional. <em>True</em>, if the payment is a recurring payment for a subscription
     /// </summary>
     [JsonPropertyName(PropertyNames.IsRecurring)]
     public bool? IsRecurring { get; set; }
 
     /// <summary>
-    /// Optional. True, if the payment is the first payment for a subscription
+    /// Optional. <em>True</em>, if the payment is the first payment for a subscription
     /// </summary>
     [JsonPropertyName(PropertyNames.IsFirstRecurring)]
     public bool? IsFirstRecurring { get; set; }

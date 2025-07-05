@@ -52,7 +52,7 @@ public class ChatPermissions
     public bool? CanSendVoiceNotes { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the user is allowed to send polls
+    /// Optional. <em>True</em>, if the user is allowed to send polls and checklists
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendPolls)]
     public bool? CanSendPolls { get; set; }

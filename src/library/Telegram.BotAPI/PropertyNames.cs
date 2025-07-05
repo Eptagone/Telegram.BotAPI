@@ -33,6 +33,7 @@ public static partial class PropertyNames
     public const string AllowsMultipleAnswers = "allows_multiple_answers";
     public const string Amount = "amount";
     public const string Animation = "animation";
+    public const string AreDirectMessagesEnabled = "are_direct_messages_enabled";
     public const string Areas = "areas";
     public const string Audio = "audio";
     public const string AudioDuration = "audio_duration";
@@ -136,6 +137,10 @@ public static partial class PropertyNames
     public const string ChatShared = "chat_shared";
     public const string ChatType = "chat_type";
     public const string Chats = "chats";
+    public const string Checklist = "checklist";
+    public const string ChecklistMessage = "checklist_message";
+    public const string ChecklistTasksAdded = "checklist_tasks_added";
+    public const string ChecklistTasksDone = "checklist_tasks_done";
     public const string ChosenInlineResult = "chosen_inline_result";
     public const string City = "city";
     public const string CloseDate = "close_date";
@@ -145,6 +150,8 @@ public static partial class PropertyNames
     public const string Command = "command";
     public const string Commands = "commands";
     public const string CommissionPerMille = "commission_per_mille";
+    public const string CompletedByUser = "completed_by_user";
+    public const string CompletionDate = "completion_date";
     public const string ConnectedWebsite = "connected_website";
     public const string Contact = "contact";
     public const string Content = "content";
@@ -174,6 +181,8 @@ public static partial class PropertyNames
     public const string DeletedBusinessMessages = "deleted_business_messages";
     public const string Description = "description";
     public const string Dice = "dice";
+    public const string DirectMessagePriceChanged = "direct_message_price_changed";
+    public const string DirectMessageStarCount = "direct_message_star_count";
     public const string DisableContentTypeDetection = "disable_content_type_detection";
     public const string DisableEditMessage = "disable_edit_message";
     public const string DisableNotification = "disable_notification";
@@ -334,6 +343,7 @@ public static partial class PropertyNames
     public const string LastErrorDate = "last_error_date";
     public const string LastErrorMessage = "last_error_message";
     public const string LastName = "last_name";
+    public const string LastResaleStarCount = "last_resale_star_count";
     public const string LastSynchronizationErrorDate = "last_synchronization_error_date";
     public const string Latitude = "latitude";
     public const string LeftChatMember = "left_chat_member";
@@ -347,6 +357,8 @@ public static partial class PropertyNames
     public const string LoginUrl = "login_url";
     public const string Longitude = "longitude";
     public const string MainFrameTimestamp = "main_frame_timestamp";
+    public const string MarkedAsDoneTaskIds = "marked_as_done_task_ids";
+    public const string MarkedAsNotDoneTaskIds = "marked_as_not_done_task_ids";
     public const string MaskPosition = "mask_position";
     public const string MaxConnections = "max_connections";
     public const string MaxQuantity = "max_quantity";
@@ -392,6 +404,7 @@ public static partial class PropertyNames
     public const string NewOwnerChatId = "new_owner_chat_id";
     public const string NewReaction = "new_reaction";
     public const string NextOffset = "next_offset";
+    public const string NextTransferDate = "next_transfer_date";
     public const string Number = "number";
     public const string Offset = "offset";
     public const string Ok = "ok";
@@ -408,6 +421,8 @@ public static partial class PropertyNames
     public const string Options = "options";
     public const string OrderInfo = "order_info";
     public const string Origin = "origin";
+    public const string OthersCanAddTasks = "others_can_add_tasks";
+    public const string OthersCanMarkTasksAsDone = "others_can_mark_tasks_as_done";
     public const string OwnedGiftId = "owned_gift_id";
     public const string PaidMedia = "paid_media";
     public const string PaidMediaPayload = "paid_media_payload";
@@ -568,6 +583,7 @@ public static partial class PropertyNames
     public const string SwitchInlineQueryCurrentChat = "switch_inline_query_current_chat";
     public const string Symbol = "symbol";
     public const string SymbolColor = "symbol_color";
+    public const string Tasks = "tasks";
     public const string TelegramPaymentChargeId = "telegram_payment_charge_id";
     public const string Temperature = "temperature";
     public const string Text = "text";
@@ -583,6 +599,7 @@ public static partial class PropertyNames
     public const string TimeZoneName = "time_zone_name";
     public const string Timeout = "timeout";
     public const string Title = "title";
+    public const string TitleEntities = "title_entities";
     public const string TopColor = "top_color";
     public const string TotalAmount = "total_amount";
     public const string TotalCount = "total_count";

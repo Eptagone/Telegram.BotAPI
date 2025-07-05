@@ -35,7 +35,7 @@ public class SetBusinessAccountProfilePhotoArgs : AttachedFilesArgsBase
     public InputProfilePhoto Photo { get; set; }
 
     /// <summary>
-    /// Pass True to set the public photo, which will be visible even if the main photo is hidden by the business account's privacy settings. An account can have only one public photo.
+    /// Pass <em>True</em> to set the public photo, which will be visible even if the main photo is hidden by the business account's privacy settings. An account can have only one public photo.
     /// </summary>
     [JsonPropertyName(PropertyNames.IsPublic)]
     public bool? IsPublic { get; set; }

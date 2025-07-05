@@ -41,7 +41,7 @@ public abstract class OwnedGift
     public int SendDate { get; set; }
 
     /// <summary>
-    /// Optional. True, if the gift is displayed on the account's profile page; for gifts received on behalf of business accounts only
+    /// Optional. <em>True</em>, if the gift is displayed on the account's profile page; for gifts received on behalf of business accounts only
     /// </summary>
     [JsonPropertyName(PropertyNames.IsSaved)]
     public bool? IsSaved { get; set; }

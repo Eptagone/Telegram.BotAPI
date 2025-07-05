@@ -47,7 +47,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of 2-10 answer options</param>
+    /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
@@ -80,7 +80,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of 2-10 answer options</param>
+    /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
@@ -208,7 +208,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of 2-10 answer options</param>
+    /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
@@ -241,7 +241,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of 2-10 answer options</param>
+    /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
     /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>

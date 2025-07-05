@@ -33,7 +33,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Telegram.BotAPI" Version="9.0.0" />
+        <PackageReference Include="Telegram.BotAPI" Version="9.0.1" />
     </ItemGroup>
 
     <ItemGroup>

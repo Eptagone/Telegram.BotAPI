@@ -47,6 +47,7 @@ public static partial class MethodNames
     public const string EditForumTopic = "editForumTopic";
     public const string EditGeneralForumTopic = "editGeneralForumTopic";
     public const string EditMessageCaption = "editMessageCaption";
+    public const string EditMessageChecklist = "editMessageChecklist";
     public const string EditMessageLiveLocation = "editMessageLiveLocation";
     public const string EditMessageMedia = "editMessageMedia";
     public const string EditMessageReplyMarkup = "editMessageReplyMarkup";
@@ -75,6 +76,7 @@ public static partial class MethodNames
     public const string GetMyDescription = "getMyDescription";
     public const string GetMyName = "getMyName";
     public const string GetMyShortDescription = "getMyShortDescription";
+    public const string GetMyStarBalance = "getMyStarBalance";
     public const string GetStarTransactions = "getStarTransactions";
     public const string GetStickerSet = "getStickerSet";
     public const string GetUpdates = "getUpdates";
@@ -102,6 +104,7 @@ public static partial class MethodNames
     public const string SendAnimation = "sendAnimation";
     public const string SendAudio = "sendAudio";
     public const string SendChatAction = "sendChatAction";
+    public const string SendChecklist = "sendChecklist";
     public const string SendContact = "sendContact";
     public const string SendDice = "sendDice";
     public const string SendDocument = "sendDocument";

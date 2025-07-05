@@ -40,7 +40,7 @@ public class BusinessConnection
     public BusinessBotRights? Rights { get; set; }
 
     /// <summary>
-    /// True, if the connection is active
+    /// <em>True</em>, if the connection is active
     /// </summary>
     [JsonPropertyName(PropertyNames.IsEnabled)]
     public bool IsEnabled { get; set; }

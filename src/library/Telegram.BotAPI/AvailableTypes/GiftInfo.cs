@@ -34,7 +34,7 @@ public class GiftInfo
     public int? PrepaidUpgradeStarCount { get; set; }
 
     /// <summary>
-    /// Optional. True, if the gift can be upgraded to a unique gift
+    /// Optional. <em>True</em>, if the gift can be upgraded to a unique gift
     /// </summary>
     [JsonPropertyName(PropertyNames.CanBeUpgraded)]
     public bool? CanBeUpgraded { get; set; }
@@ -52,7 +52,7 @@ public class GiftInfo
     public IEnumerable<MessageEntity>? Entities { get; set; }
 
     /// <summary>
-    /// Optional. True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
+    /// Optional. <em>True</em>, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
     /// </summary>
     [JsonPropertyName(PropertyNames.IsPrivate)]
     public bool? IsPrivate { get; set; }

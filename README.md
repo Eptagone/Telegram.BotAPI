@@ -1,10 +1,10 @@
 | <img src="./docs/icon.png" alt="Logo" width="64"/> | <h1>Telegram.BotAPI</h1> |
-| -------------------------------------------------- | -------------------------------- |
+| -------------------------------------------------- | ------------------------ |
 
 [![NuGet version (Telegram.BotAPI)](https://img.shields.io/nuget/v/Telegram.BotAPI?style=flat-square&logo=nuget)](https://www.nuget.org/packages/Telegram.BotAPI/)
-[![Compatible with Bot API v9.0](https://img.shields.io/badge/Bot%20API%20version-v9.0-blue?style=flat-square)](https://core.telegram.org/bots/api#april-11-2025)
+[![Compatible with Bot API v9.1](https://img.shields.io/badge/Bot%20API%20version-v9.1-blue?style=flat-square)](https://core.telegram.org/bots/api#july-3-2025)
 
-**Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. It contains all the methods and types available in the Bot API 9.0 released on April 11, 2025.
+**Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. It contains all the methods and types available in the Bot API 9.1 released on July 3, 2025.
 
 [![Telegram Chat](https://img.shields.io/badge/Telegram.BotAPI%20--%20Chat-Join-blue?style=social&logo=telegram)](https://t.me/TBAPINET)
 
@@ -12,8 +12,8 @@
 
 ## Features
 
-- Contains pre-defined methods for all Bot API 9.0 methods.
-- Contains classes for each object type used in the Bot API 9.0.
+- Contains pre-defined methods for all Bot API 9.1 methods.
+- Contains classes for each object type used in the Bot API 9.1.
 - Sync and async methods.
 - Uses [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/).
 
@@ -57,18 +57,18 @@ The methods and types are organized in namespaces according to their correspondi
 
 Currently the following namespaces are available:
 
-| Name                             | Description                                      |
-| :------------------------------- | :----------------------------------------------- |
-| Telegram.BotAPI                  | Contains the TelegramBotClient and other utilities       |
-| Telegram.BotAPI.GettingUpdates   | Contains methods and types for getting updates   |
-| Telegram.BotAPI.AvailableTypes   | Contains available types                         |
-| Telegram.BotAPI.AvailableMethods | Contains available methods                       |
-| Telegram.BotAPI.UpdatingMessages | Contains methods and types for updating messages |
-| Telegram.BotAPI.Stickers         | Contains methods and types for stickers          |
-| Telegram.BotAPI.InlineMode       | Contains methods and types for inline mode       |
-| Telegram.BotAPI.Payments         | Contains methods and types for payments          |
-| Telegram.BotAPI.TelegramPassport | Contains methods and types for Telegram Passport |
-| Telegram.BotAPI.Games            | Contains methods and types for games             |
+| Name                             | Description                                        |
+| :------------------------------- | :------------------------------------------------- |
+| Telegram.BotAPI                  | Contains the TelegramBotClient and other utilities |
+| Telegram.BotAPI.GettingUpdates   | Contains methods and types for getting updates     |
+| Telegram.BotAPI.AvailableTypes   | Contains available types                           |
+| Telegram.BotAPI.AvailableMethods | Contains available methods                         |
+| Telegram.BotAPI.UpdatingMessages | Contains methods and types for updating messages   |
+| Telegram.BotAPI.Stickers         | Contains methods and types for stickers            |
+| Telegram.BotAPI.InlineMode       | Contains methods and types for inline mode         |
+| Telegram.BotAPI.Payments         | Contains methods and types for payments            |
+| Telegram.BotAPI.TelegramPassport | Contains methods and types for Telegram Passport   |
+| Telegram.BotAPI.Games            | Contains methods and types for games               |
 
 Once the namespaces are included, you are ready to start managing your bot. For example, you can use the [getMe](https://core.telegram.org/bots/api#getme) method to get basic information about your bot.
 

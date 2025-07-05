@@ -34,7 +34,7 @@ public class ChatBoostSourceGiveaway : ChatBoostSource
     public int? PrizeStarCount { get; set; }
 
     /// <summary>
-    /// Optional. True, if the giveaway was completed, but there was no user to win the prize
+    /// Optional. <em>True</em>, if the giveaway was completed, but there was no user to win the prize
     /// </summary>
     [JsonPropertyName(PropertyNames.IsUnclaimed)]
     public bool? IsUnclaimed { get; set; }

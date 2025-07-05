@@ -10,25 +10,25 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class AcceptedGiftTypes
 {
     /// <summary>
-    /// True, if unlimited regular gifts are accepted
+    /// <em>True</em>, if unlimited regular gifts are accepted
     /// </summary>
     [JsonPropertyName(PropertyNames.UnlimitedGifts)]
     public bool UnlimitedGifts { get; set; }
 
     /// <summary>
-    /// True, if limited regular gifts are accepted
+    /// <em>True</em>, if limited regular gifts are accepted
     /// </summary>
     [JsonPropertyName(PropertyNames.LimitedGifts)]
     public bool LimitedGifts { get; set; }
 
     /// <summary>
-    /// True, if unique gifts or gifts that can be upgraded to unique for free are accepted
+    /// <em>True</em>, if unique gifts or gifts that can be upgraded to unique for free are accepted
     /// </summary>
     [JsonPropertyName(PropertyNames.UniqueGifts)]
     public bool UniqueGifts { get; set; }
 
     /// <summary>
-    /// True, if a Telegram Premium subscription is accepted
+    /// <em>True</em>, if a Telegram Premium subscription is accepted
     /// </summary>
     [JsonPropertyName(PropertyNames.PremiumSubscription)]
     public bool PremiumSubscription { get; set; }

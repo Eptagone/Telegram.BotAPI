@@ -28,7 +28,7 @@ public class OwnedGiftUnique : OwnedGift
     public override string? OwnedGiftId { get; set; }
 
     /// <summary>
-    /// Optional. True, if the gift can be transferred to another owner; for gifts received on behalf of business accounts only
+    /// Optional. <em>True</em>, if the gift can be transferred to another owner; for gifts received on behalf of business accounts only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanBeTransferred)]
     public bool? CanBeTransferred { get; set; }
@@ -38,4 +38,10 @@ public class OwnedGiftUnique : OwnedGift
     /// </summary>
     [JsonPropertyName(PropertyNames.TransferStarCount)]
     public int? TransferStarCount { get; set; }
+
+    /// <summary>
+    /// Optional. Point in time (Unix timestamp) when the gift can be transferred. If it is in the past, then the gift can be transferred now
+    /// </summary>
+    [JsonPropertyName(PropertyNames.NextTransferDate)]
+    public int? NextTransferDate { get; set; }
 }

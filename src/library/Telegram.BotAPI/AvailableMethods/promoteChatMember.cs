@@ -46,7 +46,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     /// <param name="isAnonymous">Pass <em>True</em> if the administrator's presence in the chat is hidden</param>
-    /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.</param>
+    /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages, ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other administrator privilege.</param>
     /// <param name="canDeleteMessages">Pass <em>True</em> if the administrator can delete messages of other users</param>
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
     /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics</param>
@@ -56,7 +56,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
-    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
+    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, approve suggested posts, or access channel statistics; for channels only</param>
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
     /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
     /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
@@ -73,7 +73,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     /// <param name="isAnonymous">Pass <em>True</em> if the administrator's presence in the chat is hidden</param>
-    /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.</param>
+    /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages, ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other administrator privilege.</param>
     /// <param name="canDeleteMessages">Pass <em>True</em> if the administrator can delete messages of other users</param>
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
     /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics</param>
@@ -83,7 +83,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
-    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
+    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, approve suggested posts, or access channel statistics; for channels only</param>
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
     /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
     /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
@@ -174,7 +174,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     /// <param name="isAnonymous">Pass <em>True</em> if the administrator's presence in the chat is hidden</param>
-    /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.</param>
+    /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages, ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other administrator privilege.</param>
     /// <param name="canDeleteMessages">Pass <em>True</em> if the administrator can delete messages of other users</param>
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
     /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics</param>
@@ -184,7 +184,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
-    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
+    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, approve suggested posts, or access channel statistics; for channels only</param>
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
     /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
     /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
@@ -201,7 +201,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="userId">Unique identifier of the target user</param>
     /// <param name="isAnonymous">Pass <em>True</em> if the administrator's presence in the chat is hidden</param>
-    /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.</param>
+    /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages, ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other administrator privilege.</param>
     /// <param name="canDeleteMessages">Pass <em>True</em> if the administrator can delete messages of other users</param>
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
     /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics</param>
@@ -211,7 +211,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
     /// <param name="canDeleteStories">Pass <em>True</em> if the administrator can delete stories posted by other users</param>
-    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, or access channel statistics; for channels only</param>
+    /// <param name="canPostMessages">Pass <em>True</em> if the administrator can post messages in the channel, approve suggested posts, or access channel statistics; for channels only</param>
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
     /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
     /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>

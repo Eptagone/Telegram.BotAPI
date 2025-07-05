@@ -129,7 +129,7 @@ public class Message : MaybeInaccessibleMessage
     public bool? HasProtectedContent { get; set; }
 
     /// <summary>
-    /// Optional. True, if the message was sent by an implicit action, for example, as an away or a greeting business message, or as a scheduled message
+    /// Optional. <em>True</em>, if the message was sent by an implicit action, for example, as an away or a greeting business message, or as a scheduled message
     /// </summary>
     [JsonPropertyName(PropertyNames.IsFromOffline)]
     public bool? IsFromOffline { get; set; }
@@ -249,7 +249,7 @@ public class Message : MaybeInaccessibleMessage
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// Optional. True, if the caption must be shown above the message media
+    /// Optional. <em>True</em>, if the caption must be shown above the message media
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
     public bool? ShowCaptionAboveMedia { get; set; }
@@ -259,6 +259,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.HasMediaSpoiler)]
     public bool? HasMediaSpoiler { get; set; }
+
+    /// <summary>
+    /// Optional. Message is a checklist
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Checklist)]
+    public Checklist? Checklist { get; set; }
 
     /// <summary>
     /// Optional. Message is a shared contact, information about the contact
@@ -445,6 +451,24 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatBackgroundSet)]
     public ChatBackground? ChatBackgroundSet { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: some tasks in a checklist were marked as done or not done
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChecklistTasksDone)]
+    public ChecklistTasksDone? ChecklistTasksDone { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: tasks were added to a checklist
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChecklistTasksAdded)]
+    public ChecklistTasksAdded? ChecklistTasksAdded { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: the price for paid messages in the corresponding direct messages chat of a channel has changed
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DirectMessagePriceChanged)]
+    public DirectMessagePriceChanged? DirectMessagePriceChanged { get; set; }
 
     /// <summary>
     /// Optional. Service message: forum topic created

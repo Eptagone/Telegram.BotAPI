@@ -14,7 +14,7 @@ public static partial class UpdatingMessagesExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
-    /// <param name="isPublic">Pass True to remove the public photo, which is visible even if the main photo is hidden by the business account's privacy settings. After the main photo is removed, the previous profile photo (if present) becomes the main photo.</param>
+    /// <param name="isPublic">Pass <em>True</em> to remove the public photo, which is visible even if the main photo is hidden by the business account's privacy settings. After the main photo is removed, the previous profile photo (if present) becomes the main photo.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -26,7 +26,7 @@ public static partial class UpdatingMessagesExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
-    /// <param name="isPublic">Pass True to remove the public photo, which is visible even if the main photo is hidden by the business account's privacy settings. After the main photo is removed, the previous profile photo (if present) becomes the main photo.</param>
+    /// <param name="isPublic">Pass <em>True</em> to remove the public photo, which is visible even if the main photo is hidden by the business account's privacy settings. After the main photo is removed, the previous profile photo (if present) becomes the main photo.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
