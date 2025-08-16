@@ -50,4 +50,10 @@ public class Chat
     /// </summary>
     [JsonPropertyName(PropertyNames.IsForum)]
     public bool? IsForum { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the chat is the direct messages chat of a channel
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsDirectMessages)]
+    public bool? IsDirectMessages { get; set; }
 }

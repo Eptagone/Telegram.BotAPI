@@ -98,4 +98,10 @@ public class ChatAdministratorRights
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageTopics)]
     public bool? CanManageTopics { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the administrator can manage direct messages of the channel and decline suggested posts; for channels only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanManageDirectMessages)]
+    public bool? CanManageDirectMessages { get; set; }
 }

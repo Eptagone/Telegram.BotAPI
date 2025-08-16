@@ -76,6 +76,12 @@ public class CopyMessageArgs
     public int? MessageThreadId { get; set; }
 
     /// <summary>
+    /// Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DirectMessagesTopicId)]
+    public int? DirectMessagesTopicId { get; set; }
+
+    /// <summary>
     /// Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.FromChatId)]
@@ -134,6 +140,12 @@ public class CopyMessageArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowPaidBroadcast)]
     public bool? AllowPaidBroadcast { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostParameters)]
+    public SuggestedPostParameters? SuggestedPostParameters { get; set; }
 
     /// <summary>
     /// Description of the message to reply to

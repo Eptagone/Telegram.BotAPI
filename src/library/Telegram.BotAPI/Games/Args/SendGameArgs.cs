@@ -14,7 +14,7 @@ public class SendGameArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendGameArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat</param>
+    /// <param name="chatId">Unique identifier for the target chat. Games can't be sent to channel direct messages chats and channel chats.</param>
     /// <param name="gameShortName">Short name of the game, serves as the unique identifier for the game. Set up your games via <a href="https://t.me/botfather">@BotFather</a>.</param>
     public SendGameArgs(long chatId, string gameShortName)
     {
@@ -29,7 +29,7 @@ public class SendGameArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat
+    /// Unique identifier for the target chat. Games can't be sent to channel direct messages chats and channel chats.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public long ChatId { get; set; }

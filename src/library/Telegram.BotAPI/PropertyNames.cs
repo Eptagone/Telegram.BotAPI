@@ -92,6 +92,7 @@ public static partial class PropertyNames
     public const string CanInviteUsers = "can_invite_users";
     public const string CanJoinGroups = "can_join_groups";
     public const string CanManageChat = "can_manage_chat";
+    public const string CanManageDirectMessages = "can_manage_direct_messages";
     public const string CanManageStories = "can_manage_stories";
     public const string CanManageTopics = "can_manage_topics";
     public const string CanManageVideoChats = "can_manage_video_chats";
@@ -139,6 +140,7 @@ public static partial class PropertyNames
     public const string Chats = "chats";
     public const string Checklist = "checklist";
     public const string ChecklistMessage = "checklist_message";
+    public const string ChecklistTaskId = "checklist_task_id";
     public const string ChecklistTasksAdded = "checklist_tasks_added";
     public const string ChecklistTasksDone = "checklist_tasks_done";
     public const string ChosenInlineResult = "chosen_inline_result";
@@ -149,6 +151,7 @@ public static partial class PropertyNames
     public const string Colors = "colors";
     public const string Command = "command";
     public const string Commands = "commands";
+    public const string Comment = "comment";
     public const string CommissionPerMille = "commission_per_mille";
     public const string CompletedByUser = "completed_by_user";
     public const string CompletionDate = "completion_date";
@@ -183,6 +186,8 @@ public static partial class PropertyNames
     public const string Dice = "dice";
     public const string DirectMessagePriceChanged = "direct_message_price_changed";
     public const string DirectMessageStarCount = "direct_message_star_count";
+    public const string DirectMessagesTopic = "direct_messages_topic";
+    public const string DirectMessagesTopicId = "direct_messages_topic_id";
     public const string DisableContentTypeDetection = "disable_content_type_detection";
     public const string DisableEditMessage = "disable_edit_message";
     public const string DisableNotification = "disable_notification";
@@ -308,6 +313,7 @@ public static partial class PropertyNames
     public const string IsCanceled = "is_canceled";
     public const string IsClosed = "is_closed";
     public const string IsDark = "is_dark";
+    public const string IsDirectMessages = "is_direct_messages";
     public const string IsDisabled = "is_disabled";
     public const string IsEnabled = "is_enabled";
     public const string IsFirstRecurring = "is_first_recurring";
@@ -319,6 +325,7 @@ public static partial class PropertyNames
     public const string IsManual = "is_manual";
     public const string IsMember = "is_member";
     public const string IsMoving = "is_moving";
+    public const string IsPaidPost = "is_paid_post";
     public const string IsPersistent = "is_persistent";
     public const string IsPersonal = "is_personal";
     public const string IsPremium = "is_premium";
@@ -429,6 +436,7 @@ public static partial class PropertyNames
     public const string PaidMessagePriceChanged = "paid_message_price_changed";
     public const string PaidMessageStarCount = "paid_message_star_count";
     public const string PaidStarCount = "paid_star_count";
+    public const string ParentChat = "parent_chat";
     public const string ParseMode = "parse_mode";
     public const string PassportData = "passport_data";
     public const string Pay = "pay";
@@ -464,6 +472,7 @@ public static partial class PropertyNames
     public const string PremiumSubscriptionDuration = "premium_subscription_duration";
     public const string PremiumSubscriptionMonthCount = "premium_subscription_month_count";
     public const string PrepaidUpgradeStarCount = "prepaid_upgrade_star_count";
+    public const string Price = "price";
     public const string Prices = "prices";
     public const string PrizeDescription = "prize_description";
     public const string PrizeStarCount = "prize_star_count";
@@ -475,6 +484,7 @@ public static partial class PropertyNames
     public const string ProviderToken = "provider_token";
     public const string ProximityAlertRadius = "proximity_alert_radius";
     public const string ProximityAlertTriggered = "proximity_alert_triggered";
+    public const string PublisherChat = "publisher_chat";
     public const string PurchasedPaidMedia = "purchased_paid_media";
     public const string Query = "query";
     public const string Question = "question";
@@ -488,6 +498,7 @@ public static partial class PropertyNames
     public const string Reaction = "reaction";
     public const string ReactionType = "reaction_type";
     public const string Reactions = "reactions";
+    public const string Reason = "reason";
     public const string Receiver = "receiver";
     public const string RefundedPayment = "refunded_payment";
     public const string RemainingCount = "remaining_count";
@@ -497,6 +508,7 @@ public static partial class PropertyNames
     public const string RemovedChatBoost = "removed_chat_boost";
     public const string ReplyMarkup = "reply_markup";
     public const string ReplyParameters = "reply_parameters";
+    public const string ReplyToChecklistTaskId = "reply_to_checklist_task_id";
     public const string ReplyToMessage = "reply_to_message";
     public const string ReplyToStory = "reply_to_story";
     public const string RequestChat = "request_chat";
@@ -553,6 +565,7 @@ public static partial class PropertyNames
     public const string SortByPrice = "sort_by_price";
     public const string Source = "source";
     public const string SponsorUser = "sponsor_user";
+    public const string StarAmount = "star_amount";
     public const string StarCount = "star_count";
     public const string StartDate = "start_date";
     public const string StartParameter = "start_parameter";
@@ -574,6 +587,14 @@ public static partial class PropertyNames
     public const string SubscriptionPeriod = "subscription_period";
     public const string SubscriptionPrice = "subscription_price";
     public const string SuccessfulPayment = "successful_payment";
+    public const string SuggestedPostApprovalFailed = "suggested_post_approval_failed";
+    public const string SuggestedPostApproved = "suggested_post_approved";
+    public const string SuggestedPostDeclined = "suggested_post_declined";
+    public const string SuggestedPostInfo = "suggested_post_info";
+    public const string SuggestedPostMessage = "suggested_post_message";
+    public const string SuggestedPostPaid = "suggested_post_paid";
+    public const string SuggestedPostParameters = "suggested_post_parameters";
+    public const string SuggestedPostRefunded = "suggested_post_refunded";
     public const string SuggestedTipAmounts = "suggested_tip_amounts";
     public const string SupergroupChatCreated = "supergroup_chat_created";
     public const string SupportsInlineQueries = "supports_inline_queries";
@@ -601,6 +622,7 @@ public static partial class PropertyNames
     public const string Title = "title";
     public const string TitleEntities = "title_entities";
     public const string TopColor = "top_color";
+    public const string TopicId = "topic_id";
     public const string TotalAmount = "total_amount";
     public const string TotalCount = "total_count";
     public const string TotalVoterCount = "total_voter_count";

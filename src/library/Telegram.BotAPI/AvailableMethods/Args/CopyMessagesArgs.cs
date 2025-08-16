@@ -74,6 +74,12 @@ public class CopyMessagesArgs
     public int? MessageThreadId { get; set; }
 
     /// <summary>
+    /// Identifier of the direct messages topic to which the messages will be sent; required if the messages are sent to a direct messages chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DirectMessagesTopicId)]
+    public int? DirectMessagesTopicId { get; set; }
+
+    /// <summary>
     /// Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.FromChatId)]

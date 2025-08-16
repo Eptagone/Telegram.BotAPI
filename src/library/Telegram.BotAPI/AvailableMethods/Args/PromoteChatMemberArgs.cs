@@ -132,4 +132,10 @@ public class PromoteChatMemberArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageTopics)]
     public bool? CanManageTopics { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can manage direct messages within the channel and decline suggested posts; for channels only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanManageDirectMessages)]
+    public bool? CanManageDirectMessages { get; set; }
 }

@@ -118,6 +118,12 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     public int? MessageThreadId { get; set; }
 
     /// <summary>
+    /// Identifier of the direct messages topic to which the messages will be sent; required if the messages are sent to a direct messages chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DirectMessagesTopicId)]
+    public int? DirectMessagesTopicId { get; set; }
+
+    /// <summary>
     /// A JSON-serialized array describing messages to be sent, must include 2-10 items
     /// </summary>
     [JsonPropertyName(PropertyNames.Media)]

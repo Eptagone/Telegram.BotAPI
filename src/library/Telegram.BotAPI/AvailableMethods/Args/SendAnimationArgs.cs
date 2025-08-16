@@ -74,6 +74,12 @@ public class SendAnimationArgs : AttachedFilesArgsBase
     public int? MessageThreadId { get; set; }
 
     /// <summary>
+    /// Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DirectMessagesTopicId)]
+    public int? DirectMessagesTopicId { get; set; }
+
+    /// <summary>
     /// Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Animation)]
@@ -156,6 +162,12 @@ public class SendAnimationArgs : AttachedFilesArgsBase
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageEffectId)]
     public string? MessageEffectId { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostParameters)]
+    public SuggestedPostParameters? SuggestedPostParameters { get; set; }
 
     /// <summary>
     /// Description of the message to reply to

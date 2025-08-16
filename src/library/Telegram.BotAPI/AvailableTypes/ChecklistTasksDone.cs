@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class ChecklistTasksDone
 {
     /// <summary>
-    /// Optional. Message containing the checklist whose tasks were marked as done or not done. Note that the Message object in this field will not contain the <em>reply_to_message</em> field even if it itself is a reply.
+    /// Optional. Message containing the checklist whose tasks were marked as done or not done. Note that the <see cref="Message"/> object in this field will not contain the <em>reply_to_message</em> field even if it itself is a reply.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChecklistMessage)]
     public Message? ChecklistMessage { get; set; }

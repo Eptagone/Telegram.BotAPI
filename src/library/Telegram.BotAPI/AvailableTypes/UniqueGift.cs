@@ -44,4 +44,10 @@ public class UniqueGift
     /// </summary>
     [JsonPropertyName(PropertyNames.Backdrop)]
     public UniqueGiftBackdrop Backdrop { get; set; } = null!;
+
+    /// <summary>
+    /// Optional. Information about the chat that published the gift
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PublisherChat)]
+    public Chat? PublisherChat { get; set; }
 }

@@ -17,6 +17,7 @@ public static partial class MethodNames
     public const string AnswerShippingQuery = "answerShippingQuery";
     public const string AnswerWebAppQuery = "answerWebAppQuery";
     public const string ApproveChatJoinRequest = "approveChatJoinRequest";
+    public const string ApproveSuggestedPost = "approveSuggestedPost";
     public const string BanChatMember = "banChatMember";
     public const string BanChatSenderChat = "banChatSenderChat";
     public const string Close = "close";
@@ -31,6 +32,7 @@ public static partial class MethodNames
     public const string CreateInvoiceLink = "createInvoiceLink";
     public const string CreateNewStickerSet = "createNewStickerSet";
     public const string DeclineChatJoinRequest = "declineChatJoinRequest";
+    public const string DeclineSuggestedPost = "declineSuggestedPost";
     public const string DeleteBusinessMessages = "deleteBusinessMessages";
     public const string DeleteChatPhoto = "deleteChatPhoto";
     public const string DeleteChatStickerSet = "deleteChatStickerSet";

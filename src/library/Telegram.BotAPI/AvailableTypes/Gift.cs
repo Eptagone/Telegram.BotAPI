@@ -46,4 +46,10 @@ public class Gift
     /// </summary>
     [JsonPropertyName(PropertyNames.RemainingCount)]
     public int? RemainingCount { get; set; }
+
+    /// <summary>
+    /// Optional. Information about the chat that published the gift
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PublisherChat)]
+    public Chat? PublisherChat { get; set; }
 }

@@ -56,6 +56,12 @@ public class SendContactArgs
     public int? MessageThreadId { get; set; }
 
     /// <summary>
+    /// Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DirectMessagesTopicId)]
+    public int? DirectMessagesTopicId { get; set; }
+
+    /// <summary>
     /// Contact's phone number
     /// </summary>
     [JsonPropertyName(PropertyNames.PhoneNumber)]
@@ -102,6 +108,12 @@ public class SendContactArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageEffectId)]
     public string? MessageEffectId { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostParameters)]
+    public SuggestedPostParameters? SuggestedPostParameters { get; set; }
 
     /// <summary>
     /// Description of the message to reply to

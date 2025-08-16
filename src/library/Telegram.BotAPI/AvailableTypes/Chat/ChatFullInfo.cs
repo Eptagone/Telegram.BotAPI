@@ -64,6 +64,12 @@ public class ChatFullInfo : Chat
     public Chat? PersonalChat { get; set; }
 
     /// <summary>
+    /// Optional. Information about the corresponding channel chat; for direct messages chats only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ParentChat)]
+    public Chat? ParentChat { get; set; }
+
+    /// <summary>
     /// Optional. List of available reactions allowed in the chat. If omitted, then all <a href="https://core.telegram.org/bots/api#reactiontypeemoji">emoji reactions</a> are allowed.
     /// </summary>
     [JsonPropertyName(PropertyNames.AvailableReactions)]

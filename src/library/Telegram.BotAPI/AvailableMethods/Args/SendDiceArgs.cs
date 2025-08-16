@@ -48,6 +48,12 @@ public class SendDiceArgs
     public int? MessageThreadId { get; set; }
 
     /// <summary>
+    /// Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DirectMessagesTopicId)]
+    public int? DirectMessagesTopicId { get; set; }
+
+    /// <summary>
     /// Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”
     /// </summary>
     [JsonPropertyName(PropertyNames.Emoji)]
@@ -76,6 +82,12 @@ public class SendDiceArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageEffectId)]
     public string? MessageEffectId { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostParameters)]
+    public SuggestedPostParameters? SuggestedPostParameters { get; set; }
 
     /// <summary>
     /// Description of the message to reply to

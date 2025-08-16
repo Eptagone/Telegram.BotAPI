@@ -10,6 +10,6 @@ namespace Telegram.BotAPI.Converters;
 /// </summary>
 public sealed class InputMediaConverter : DiscriminatorJsonConverter<InputMedia>
 {
-	/// <inheritdoc />
-	public override string PropertyName => PropertyNames.Type;
+    /// <inheritdoc />
+    public override string PropertyName => PropertyNames.Type;
 }

@@ -2,6 +2,8 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
+using Telegram.BotAPI.AvailableTypes;
+
 namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
@@ -74,6 +76,12 @@ public class ForwardMessageArgs
     public int? MessageThreadId { get; set; }
 
     /// <summary>
+    /// Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DirectMessagesTopicId)]
+    public int? DirectMessagesTopicId { get; set; }
+
+    /// <summary>
     /// Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.FromChatId)]
@@ -96,6 +104,12 @@ public class ForwardMessageArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.ProtectContent)]
     public bool? ProtectContent { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostParameters)]
+    public SuggestedPostParameters? SuggestedPostParameters { get; set; }
 
     /// <summary>
     /// Message identifier in the chat specified in <em>from_chat_id</em>

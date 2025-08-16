@@ -27,6 +27,12 @@ public class Message : MaybeInaccessibleMessage
     public int? MessageThreadId { get; set; }
 
     /// <summary>
+    /// Optional. Information about the direct messages chat topic that contains the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DirectMessagesTopic)]
+    public DirectMessagesTopic? DirectMessagesTopic { get; set; }
+
+    /// <summary>
     /// Optional. Sender of the message; may be empty for messages sent to channels. For backward compatibility, if the message was sent on behalf of a chat, the field contains a fake sender user in non-channel chats
     /// </summary>
     [JsonPropertyName(PropertyNames.From)]
@@ -87,7 +93,7 @@ public class Message : MaybeInaccessibleMessage
     public bool? IsAutomaticForward { get; set; }
 
     /// <summary>
-    /// Optional. For replies in the same chat and message thread, the original message. Note that the Message object in this field will not contain further <em>reply_to_message</em> fields even if it itself is a reply.
+    /// Optional. For replies in the same chat and message thread, the original message. Note that the <see cref="Message"/> object in this field will not contain further <em>reply_to_message</em> fields even if it itself is a reply.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyToMessage)]
     public Message? ReplyToMessage { get; set; }
@@ -109,6 +115,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyToStory)]
     public Story? ReplyToStory { get; set; }
+
+    /// <summary>
+    /// Optional. Identifier of the specific checklist task that is being replied to
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyToChecklistTaskId)]
+    public int? ReplyToChecklistTaskId { get; set; }
 
     /// <summary>
     /// Optional. Bot through which the message was sent
@@ -133,6 +145,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.IsFromOffline)]
     public bool? IsFromOffline { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the message is a paid post. Note that such posts must not be deleted for 24 hours to receive the payment and can't be edited.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsPaidPost)]
+    public bool? IsPaidPost { get; set; }
 
     /// <summary>
     /// Optional. The unique identifier of a media message group this message belongs to
@@ -169,6 +187,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.LinkPreviewOptions)]
     public LinkPreviewOptions? LinkPreviewOptions { get; set; }
+
+    /// <summary>
+    /// Optional. Information about suggested post parameters if the message is a suggested post in a channel direct messages chat. If the message is an approved or declined suggested post, then it can't be edited.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostInfo)]
+    public SuggestedPostInfo? SuggestedPostInfo { get; set; }
 
     /// <summary>
     /// Optional. Unique identifier of the message effect added to the message
@@ -369,7 +393,7 @@ public class Message : MaybeInaccessibleMessage
     public long? MigrateFromChatId { get; set; }
 
     /// <summary>
-    /// Optional. Specified message was pinned. Note that the Message object in this field will not contain further <em>reply_to_message</em> fields even if it itself is a reply.
+    /// Optional. Specified message was pinned. Note that the <see cref="Message"/> object in this field will not contain further <em>reply_to_message</em> fields even if it itself is a reply.
     /// </summary>
     [JsonPropertyName(PropertyNames.PinnedMessage)]
     public MaybeInaccessibleMessage? PinnedMessage { get; set; }
@@ -535,6 +559,36 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.PaidMessagePriceChanged)]
     public PaidMessagePriceChanged? PaidMessagePriceChanged { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: a suggested post was approved
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostApproved)]
+    public SuggestedPostApproved? SuggestedPostApproved { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: approval of a suggested post has failed
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostApprovalFailed)]
+    public SuggestedPostApprovalFailed? SuggestedPostApprovalFailed { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: a suggested post was declined
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostDeclined)]
+    public SuggestedPostDeclined? SuggestedPostDeclined { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: payment for a suggested post was received
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostPaid)]
+    public SuggestedPostPaid? SuggestedPostPaid { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: payment for a suggested post was refunded
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SuggestedPostRefunded)]
+    public SuggestedPostRefunded? SuggestedPostRefunded { get; set; }
 
     /// <summary>
     /// Optional. Service message: video chat scheduled

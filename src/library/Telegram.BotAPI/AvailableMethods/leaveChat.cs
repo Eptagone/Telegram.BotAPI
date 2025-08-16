@@ -13,7 +13,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method for your bot to leave a group, supergroup or channel. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel (in the format <em>@channelusername</em>). Channel direct messages chats aren't supported; leave the corresponding channel instead.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -24,7 +24,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method for your bot to leave a group, supergroup or channel. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel (in the format <em>@channelusername</em>). Channel direct messages chats aren't supported; leave the corresponding channel instead.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -48,7 +48,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method for your bot to leave a group, supergroup or channel. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel (in the format <em>@channelusername</em>). Channel direct messages chats aren't supported; leave the corresponding channel instead.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -59,7 +59,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method for your bot to leave a group, supergroup or channel. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel (in the format <em>@channelusername</em>). Channel direct messages chats aren't supported; leave the corresponding channel instead.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

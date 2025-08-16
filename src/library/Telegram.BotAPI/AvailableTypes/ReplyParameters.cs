@@ -16,7 +16,7 @@ public class ReplyParameters
     public int MessageId { get; set; }
 
     /// <summary>
-    /// Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format <em>@channelusername</em>). Not supported for messages sent on behalf of a business account.
+    /// Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format <em>@channelusername</em>). Not supported for messages sent on behalf of a business account and messages from channel direct messages chats.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object? ChatId { get; set; }
@@ -50,4 +50,10 @@ public class ReplyParameters
     /// </summary>
     [JsonPropertyName(PropertyNames.QuotePosition)]
     public int? QuotePosition { get; set; }
+
+    /// <summary>
+    /// Optional. Identifier of the specific checklist task to be replied to
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChecklistTaskId)]
+    public int? ChecklistTaskId { get; set; }
 }

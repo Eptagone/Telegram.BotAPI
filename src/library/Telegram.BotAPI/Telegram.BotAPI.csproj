@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>9.1.0</Version>
+		<Version>9.2.0</Version>
 		<PackageId>$(AssemblyName)</PackageId>
 		<Authors>Quetzal Rivera</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -11,7 +11,7 @@
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Description>A very complete library to use Telegram Bot API in your NET project. Full
-			support for Bot API v9.1 (July 3, 2025).
+			support for Bot API v9.2 (August 15, 2025).
 			- Contains all classes and methods available from the Bot API.
 		</Description>
 		<PackageTags>Telegram;Bot;API</PackageTags>
@@ -26,7 +26,7 @@
 		<PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
 		<RepositoryType></RepositoryType>
 		<AssemblyName>Telegram.BotAPI</AssemblyName>
-		<PackageReleaseNotes>Updated to Bot API v9.1</PackageReleaseNotes>
+		<PackageReleaseNotes>Updated to Bot API v9.2</PackageReleaseNotes>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

@@ -14,7 +14,7 @@ public class SendPollArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendPollArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). Polls can't be sent to channel direct messages chats.</param>
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     public SendPollArgs(long chatId, string question, IEnumerable<InputPollOption> options)
@@ -27,7 +27,7 @@ public class SendPollArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendPollArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). Polls can't be sent to channel direct messages chats.</param>
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     public SendPollArgs(string chatId, string question, IEnumerable<InputPollOption> options)
@@ -44,7 +44,7 @@ public class SendPollArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). Polls can't be sent to channel direct messages chats.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

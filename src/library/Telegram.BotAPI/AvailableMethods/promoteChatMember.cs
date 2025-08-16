@@ -60,11 +60,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
     /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
     /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
+    /// <param name="canManageDirectMessages">Pass <em>True</em> if the administrator can manage direct messages within the channel and decline suggested posts; for channels only</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool PromoteChatMember(this ITelegramBotClient client, long chatId, long userId, bool? isAnonymous = null, bool? canManageChat = null, bool? canDeleteMessages = null, bool? canManageVideoChats = null, bool? canRestrictMembers = null, bool? canPromoteMembers = null, bool? canChangeInfo = null, bool? canInviteUsers = null, bool? canPostStories = null, bool? canEditStories = null, bool? canDeleteStories = null, bool? canPostMessages = null, bool? canEditMessages = null, bool? canPinMessages = null, bool? canManageTopics = null) =>
-        client.PromoteChatMemberAsync(chatId, userId, isAnonymous, canManageChat, canDeleteMessages, canManageVideoChats, canRestrictMembers, canPromoteMembers, canChangeInfo, canInviteUsers, canPostStories, canEditStories, canDeleteStories, canPostMessages, canEditMessages, canPinMessages, canManageTopics).GetAwaiter().GetResult();
+    public static bool PromoteChatMember(this ITelegramBotClient client, long chatId, long userId, bool? isAnonymous = null, bool? canManageChat = null, bool? canDeleteMessages = null, bool? canManageVideoChats = null, bool? canRestrictMembers = null, bool? canPromoteMembers = null, bool? canChangeInfo = null, bool? canInviteUsers = null, bool? canPostStories = null, bool? canEditStories = null, bool? canDeleteStories = null, bool? canPostMessages = null, bool? canEditMessages = null, bool? canPinMessages = null, bool? canManageTopics = null, bool? canManageDirectMessages = null) =>
+        client.PromoteChatMemberAsync(chatId, userId, isAnonymous, canManageChat, canDeleteMessages, canManageVideoChats, canRestrictMembers, canPromoteMembers, canChangeInfo, canInviteUsers, canPostStories, canEditStories, canDeleteStories, canPostMessages, canEditMessages, canPinMessages, canManageTopics, canManageDirectMessages).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to promote or demote a user in a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Pass <em>False</em> for all boolean parameters to demote a user. Returns <em>True</em> on success.
@@ -87,11 +88,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
     /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
     /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
+    /// <param name="canManageDirectMessages">Pass <em>True</em> if the administrator can manage direct messages within the channel and decline suggested posts; for channels only</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> PromoteChatMemberAsync(this ITelegramBotClient client, long chatId, long userId, bool? isAnonymous = null, bool? canManageChat = null, bool? canDeleteMessages = null, bool? canManageVideoChats = null, bool? canRestrictMembers = null, bool? canPromoteMembers = null, bool? canChangeInfo = null, bool? canInviteUsers = null, bool? canPostStories = null, bool? canEditStories = null, bool? canDeleteStories = null, bool? canPostMessages = null, bool? canEditMessages = null, bool? canPinMessages = null, bool? canManageTopics = null, CancellationToken cancellationToken = default)
+    public static Task<bool> PromoteChatMemberAsync(this ITelegramBotClient client, long chatId, long userId, bool? isAnonymous = null, bool? canManageChat = null, bool? canDeleteMessages = null, bool? canManageVideoChats = null, bool? canRestrictMembers = null, bool? canPromoteMembers = null, bool? canChangeInfo = null, bool? canInviteUsers = null, bool? canPostStories = null, bool? canEditStories = null, bool? canDeleteStories = null, bool? canPostMessages = null, bool? canEditMessages = null, bool? canPinMessages = null, bool? canManageTopics = null, bool? canManageDirectMessages = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -163,6 +165,10 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.CanManageTopics, canManageTopics);
         }
+        if (canManageDirectMessages is not null)
+        {
+            args.Add(PropertyNames.CanManageDirectMessages, canManageDirectMessages);
+        }
 
         return client.CallMethodAsync<bool>(MethodNames.PromoteChatMember, args, cancellationToken);
     }
@@ -188,11 +194,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
     /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
     /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
+    /// <param name="canManageDirectMessages">Pass <em>True</em> if the administrator can manage direct messages within the channel and decline suggested posts; for channels only</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool PromoteChatMember(this ITelegramBotClient client, string chatId, long userId, bool? isAnonymous = null, bool? canManageChat = null, bool? canDeleteMessages = null, bool? canManageVideoChats = null, bool? canRestrictMembers = null, bool? canPromoteMembers = null, bool? canChangeInfo = null, bool? canInviteUsers = null, bool? canPostStories = null, bool? canEditStories = null, bool? canDeleteStories = null, bool? canPostMessages = null, bool? canEditMessages = null, bool? canPinMessages = null, bool? canManageTopics = null) =>
-        client.PromoteChatMemberAsync(chatId, userId, isAnonymous, canManageChat, canDeleteMessages, canManageVideoChats, canRestrictMembers, canPromoteMembers, canChangeInfo, canInviteUsers, canPostStories, canEditStories, canDeleteStories, canPostMessages, canEditMessages, canPinMessages, canManageTopics).GetAwaiter().GetResult();
+    public static bool PromoteChatMember(this ITelegramBotClient client, string chatId, long userId, bool? isAnonymous = null, bool? canManageChat = null, bool? canDeleteMessages = null, bool? canManageVideoChats = null, bool? canRestrictMembers = null, bool? canPromoteMembers = null, bool? canChangeInfo = null, bool? canInviteUsers = null, bool? canPostStories = null, bool? canEditStories = null, bool? canDeleteStories = null, bool? canPostMessages = null, bool? canEditMessages = null, bool? canPinMessages = null, bool? canManageTopics = null, bool? canManageDirectMessages = null) =>
+        client.PromoteChatMemberAsync(chatId, userId, isAnonymous, canManageChat, canDeleteMessages, canManageVideoChats, canRestrictMembers, canPromoteMembers, canChangeInfo, canInviteUsers, canPostStories, canEditStories, canDeleteStories, canPostMessages, canEditMessages, canPinMessages, canManageTopics, canManageDirectMessages).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to promote or demote a user in a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Pass <em>False</em> for all boolean parameters to demote a user. Returns <em>True</em> on success.
@@ -215,11 +222,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canEditMessages">Pass <em>True</em> if the administrator can edit messages of other users and can pin messages; for channels only</param>
     /// <param name="canPinMessages">Pass <em>True</em> if the administrator can pin messages; for supergroups only</param>
     /// <param name="canManageTopics">Pass <em>True</em> if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</param>
+    /// <param name="canManageDirectMessages">Pass <em>True</em> if the administrator can manage direct messages within the channel and decline suggested posts; for channels only</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> PromoteChatMemberAsync(this ITelegramBotClient client, string chatId, long userId, bool? isAnonymous = null, bool? canManageChat = null, bool? canDeleteMessages = null, bool? canManageVideoChats = null, bool? canRestrictMembers = null, bool? canPromoteMembers = null, bool? canChangeInfo = null, bool? canInviteUsers = null, bool? canPostStories = null, bool? canEditStories = null, bool? canDeleteStories = null, bool? canPostMessages = null, bool? canEditMessages = null, bool? canPinMessages = null, bool? canManageTopics = null, CancellationToken cancellationToken = default)
+    public static Task<bool> PromoteChatMemberAsync(this ITelegramBotClient client, string chatId, long userId, bool? isAnonymous = null, bool? canManageChat = null, bool? canDeleteMessages = null, bool? canManageVideoChats = null, bool? canRestrictMembers = null, bool? canPromoteMembers = null, bool? canChangeInfo = null, bool? canInviteUsers = null, bool? canPostStories = null, bool? canEditStories = null, bool? canDeleteStories = null, bool? canPostMessages = null, bool? canEditMessages = null, bool? canPinMessages = null, bool? canManageTopics = null, bool? canManageDirectMessages = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -290,6 +298,10 @@ public static partial class AvailableMethodsExtensions
         if (canManageTopics is not null)
         {
             args.Add(PropertyNames.CanManageTopics, canManageTopics);
+        }
+        if (canManageDirectMessages is not null)
+        {
+            args.Add(PropertyNames.CanManageDirectMessages, canManageDirectMessages);
         }
 
         return client.CallMethodAsync<bool>(MethodNames.PromoteChatMember, args, cancellationToken);

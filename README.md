@@ -2,9 +2,9 @@
 | -------------------------------------------------- | ------------------------ |
 
 [![NuGet version (Telegram.BotAPI)](https://img.shields.io/nuget/v/Telegram.BotAPI?style=flat-square&logo=nuget)](https://www.nuget.org/packages/Telegram.BotAPI/)
-[![Compatible with Bot API v9.1](https://img.shields.io/badge/Bot%20API%20version-v9.1-blue?style=flat-square)](https://core.telegram.org/bots/api#july-3-2025)
+[![Compatible with Bot API v9.2](https://img.shields.io/badge/Bot%20API%20version-v9.2-blue?style=flat-square)](https://core.telegram.org/bots/api-changelog#august-15-2025)
 
-**Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. It contains all the methods and types available in the Bot API 9.1 released on July 3, 2025.
+**Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. It contains all the methods and types available in the Bot API 9.2 released on August 15, 2025.
 
 [![Telegram Chat](https://img.shields.io/badge/Telegram.BotAPI%20--%20Chat-Join-blue?style=social&logo=telegram)](https://t.me/TBAPINET)
 
@@ -12,8 +12,8 @@
 
 ## Features
 
-- Contains pre-defined methods for all Bot API 9.1 methods.
-- Contains classes for each object type used in the Bot API 9.1.
+- Contains pre-defined methods for all Bot API 9.2 methods.
+- Contains classes for each object type used in the Bot API 9.2.
 - Sync and async methods.
 - Uses [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/).
 
@@ -252,5 +252,4 @@ You can see more examples [here](https://github.com/Eptagone/Telegram.BotAPI/tre
 If you wish, you can donate through the following methods:
 
 - [Buy me a cookie](https://www.buymeacoffee.com/eptagone)
-- Toncoin: [EQC3SWZxs_4ive2aD-njns1KnB4S2RUgaxDKJ7X44VA52SsY](ton://transfer/EQC3SWZxs_4ive2aD-njns1KnB4S2RUgaxDKJ7X44VA52SsY)
-- Bitcoin: bc1q0w43tprjn80zn248k7xlztu7lvhkzgy6dak8mt
+- TON: [UQBRpyQ2pUOngdVr5HW8KQ7G8CToGS4o0WFAtUb3bQx4lt_0](ton://transfer/UQBRpyQ2pUOngdVr5HW8KQ7G8CToGS4o0WFAtUb3bQx4lt_0)
