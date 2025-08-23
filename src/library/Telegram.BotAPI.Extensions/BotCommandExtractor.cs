@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.Extensions;
 /// <summary>
 /// Defines a method to extract commands from a message using regex.
 /// </summary>
-sealed class BotCommandExtractor : IBotCommandExtractor
+public sealed class BotCommandExtractor : IBotCommandExtractor
 {
     private const string COMMAND_EXTRACT_PATTERN = @"^\/(?<cmd>\w*)(?:|@{0})(?:$|\s(?<params>.*))";
     private readonly Regex cmdRegex;

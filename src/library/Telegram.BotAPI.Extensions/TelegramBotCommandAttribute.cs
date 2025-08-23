@@ -7,8 +7,24 @@ namespace Telegram.BotAPI.Extensions;
 /// Attribute to define a class or method as a Telegram bot command.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
+[Obsolete("Use BotCommandAttribute instead.", true)]
 public sealed class TelegramBotCommandAttribute : Attribute
 {
+    /// <summary>
+    /// Command name.
+    /// </summary>
+    public string Command { get; }
+
+    /// <summary>
+    /// Command description.
+    /// </summary>
+    public string Description { get; }
+
+    /// <summary>
+    /// A list of aliases for the command.
+    /// </summary>
+    public string[] Aliases { get; }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="TelegramBotCommandAttribute"/> class.
     /// </summary>
@@ -29,25 +45,4 @@ public sealed class TelegramBotCommandAttribute : Attribute
         this.Description = description;
         this.Aliases = aliases;
     }
-
-    /// <summary>
-    /// Command name.
-    /// </summary>
-    public string Command { get; }
-
-    /// <summary>
-    /// Command description.
-    /// </summary>
-    public string Description { get; }
-
-    /// <summary>
-    /// A list of aliases for the command.
-    /// </summary>
-    public string[] Aliases { get; }
-
-    /// <summary>
-    /// Optional. The language code of the command.
-    /// </summary>
-    [Obsolete("Use a different way to handle multiple languages.")]
-    public string? LanguageCode { get; set; }
 }
