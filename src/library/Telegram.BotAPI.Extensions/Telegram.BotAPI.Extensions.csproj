@@ -14,7 +14,7 @@
         <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
         <PackageTags>Telegram;Bot;API;Extensions</PackageTags>
-        <Version>0.6.1</Version>
+        <Version>0.6.2</Version>
         <Title>Extensions for Telegram.BotAPI package</Title>
         <PackageIcon>packicon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>

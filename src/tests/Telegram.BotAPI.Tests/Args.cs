@@ -20,7 +20,7 @@ public sealed class Args
         var prices = new LabeledPrice[] { new("Large", 499), new("Small", 199) };
         var invoiceArgs = new SendInvoiceArgs(chatId, title, description, payload, currency, prices)
         {
-            ProviderToken = providerToken
+            ProviderToken = providerToken,
         };
         Assert.IsType<long>(invoiceArgs.ChatId);
     }

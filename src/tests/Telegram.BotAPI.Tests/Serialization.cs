@@ -30,7 +30,7 @@ public sealed class Serialization(ITestOutputHelper outputHelper)
     {
         ReplyMarkup obj = new InlineKeyboardMarkup(
             [
-                [new InlineKeyboardButton("Button") { CallbackData = "data" }]
+                [new InlineKeyboardButton("Button") { CallbackData = "data" }],
             ]
         );
 
@@ -64,13 +64,13 @@ public sealed class Serialization(ITestOutputHelper outputHelper)
             Title = "Title",
             InputMessageContent = new InputTextMessageContent("Hello, World!")
             {
-                ParseMode = "MarkdownV2"
+                ParseMode = "MarkdownV2",
             },
             ReplyMarkup = new InlineKeyboardMarkup(
                 [
-                    [new InlineKeyboardButton("Button") { CallbackData = "data" }]
+                    [new InlineKeyboardButton("Button") { CallbackData = "data" }],
                 ]
-            )
+            ),
         };
 
         var rawText = JsonSerializer.Serialize(result, options);

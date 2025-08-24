@@ -5,12 +5,12 @@ namespace Telegram.BotAPI.Tests;
 
 public sealed class MethodTests
 {
-	[Fact]
-	public void SendMessageWithNullClient()
-	{
-		Assert.Throws<ArgumentNullException>(() =>
-		{
-			AvailableMethodsExtensions.SendMessage(null, 0, "Hello World");
-		});
-	}
+    [Fact]
+    public void SendMessageWithNullClient()
+    {
+        Assert.Throws<ArgumentNullException>(() =>
+        {
+            AvailableMethodsExtensions.SendMessage(null, 0, "Hello World");
+        });
+    }
 }

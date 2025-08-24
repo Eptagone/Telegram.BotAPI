@@ -8,6 +8,7 @@ namespace Telegram.BotAPI.Extensions;
 /// <summary>
 /// Defines methods to extract commands from a message.
 /// </summary>
+[Obsolete("Use BotCommandParser instead.")]
 public interface IBotCommandExtractor
 {
     /// <summary>
