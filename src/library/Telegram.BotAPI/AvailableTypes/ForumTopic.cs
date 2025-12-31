@@ -32,4 +32,10 @@ public class ForumTopic
     /// </summary>
     [JsonPropertyName(PropertyNames.IconCustomEmojiId)]
     public string? IconCustomEmojiId { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the name of the topic wasn't specified explicitly by its creator and likely needs to be changed by the bot
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsNameImplicit)]
+    public bool? IsNameImplicit { get; set; }
 }

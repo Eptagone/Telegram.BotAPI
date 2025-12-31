@@ -32,4 +32,10 @@ public class AcceptedGiftTypes
     /// </summary>
     [JsonPropertyName(PropertyNames.PremiumSubscription)]
     public bool PremiumSubscription { get; set; }
+
+    /// <summary>
+    /// <em>True</em>, if transfers of unique gifts from channels are accepted
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GiftsFromChannels)]
+    public bool GiftsFromChannels { get; set; }
 }

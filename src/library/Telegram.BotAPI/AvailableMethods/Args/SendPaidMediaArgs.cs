@@ -15,7 +15,7 @@ public class SendPaidMediaArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendPaidMediaArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
-    /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-10000</param>
+    /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-25000</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
     public SendPaidMediaArgs(long chatId, int starCount, IEnumerable<InputPaidMedia> media)
     {
@@ -28,7 +28,7 @@ public class SendPaidMediaArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendPaidMediaArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
-    /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-10000</param>
+    /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-25000</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
     public SendPaidMediaArgs(string chatId, int starCount, IEnumerable<InputPaidMedia> media)
     {
@@ -50,7 +50,7 @@ public class SendPaidMediaArgs : AttachedFilesArgsBase
     public object ChatId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageThreadId)]
     public int? MessageThreadId { get; set; }
@@ -62,7 +62,7 @@ public class SendPaidMediaArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// The number of Telegram Stars that must be paid to buy access to the media; 1-10000
+    /// The number of Telegram Stars that must be paid to buy access to the media; 1-25000
     /// </summary>
     [JsonPropertyName(PropertyNames.StarCount)]
     public int StarCount { get; set; }

@@ -65,6 +65,7 @@ public static partial class MethodNames
     public const string GetBusinessConnection = "getBusinessConnection";
     public const string GetChat = "getChat";
     public const string GetChatAdministrators = "getChatAdministrators";
+    public const string GetChatGifts = "getChatGifts";
     public const string GetChatMember = "getChatMember";
     public const string GetChatMemberCount = "getChatMemberCount";
     public const string GetChatMenuButton = "getChatMenuButton";
@@ -83,6 +84,7 @@ public static partial class MethodNames
     public const string GetStickerSet = "getStickerSet";
     public const string GetUpdates = "getUpdates";
     public const string GetUserChatBoosts = "getUserChatBoosts";
+    public const string GetUserGifts = "getUserGifts";
     public const string GetUserProfilePhotos = "getUserProfilePhotos";
     public const string GetWebhookInfo = "getWebhookInfo";
     public const string GiftPremiumSubscription = "giftPremiumSubscription";
@@ -100,6 +102,7 @@ public static partial class MethodNames
     public const string ReopenForumTopic = "reopenForumTopic";
     public const string ReopenGeneralForumTopic = "reopenGeneralForumTopic";
     public const string ReplaceStickerInSet = "replaceStickerInSet";
+    public const string RepostStory = "repostStory";
     public const string RestrictChatMember = "restrictChatMember";
     public const string RevokeChatInviteLink = "revokeChatInviteLink";
     public const string SavePreparedInlineMessage = "savePreparedInlineMessage";
@@ -116,6 +119,7 @@ public static partial class MethodNames
     public const string SendLocation = "sendLocation";
     public const string SendMediaGroup = "sendMediaGroup";
     public const string SendMessage = "sendMessage";
+    public const string SendMessageDraft = "sendMessageDraft";
     public const string SendPaidMedia = "sendPaidMedia";
     public const string SendPhoto = "sendPhoto";
     public const string SendPoll = "sendPoll";

@@ -49,7 +49,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages, ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other administrator privilege.</param>
     /// <param name="canDeleteMessages">Pass <em>True</em> if the administrator can delete messages of other users</param>
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
-    /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics</param>
+    /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to <em>True</em> for promotions of channel administrators</param>
     /// <param name="canPromoteMembers">Pass <em>True</em> if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)</param>
     /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
@@ -77,7 +77,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages, ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other administrator privilege.</param>
     /// <param name="canDeleteMessages">Pass <em>True</em> if the administrator can delete messages of other users</param>
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
-    /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics</param>
+    /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to <em>True</em> for promotions of channel administrators</param>
     /// <param name="canPromoteMembers">Pass <em>True</em> if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)</param>
     /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
@@ -183,7 +183,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages, ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other administrator privilege.</param>
     /// <param name="canDeleteMessages">Pass <em>True</em> if the administrator can delete messages of other users</param>
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
-    /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics</param>
+    /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to <em>True</em> for promotions of channel administrators</param>
     /// <param name="canPromoteMembers">Pass <em>True</em> if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)</param>
     /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
@@ -211,7 +211,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canManageChat">Pass <em>True</em> if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages, ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other administrator privilege.</param>
     /// <param name="canDeleteMessages">Pass <em>True</em> if the administrator can delete messages of other users</param>
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
-    /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics</param>
+    /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to <em>True</em> for promotions of channel administrators</param>
     /// <param name="canPromoteMembers">Pass <em>True</em> if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)</param>
     /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>

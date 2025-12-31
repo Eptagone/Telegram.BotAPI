@@ -5,33 +5,42 @@
 namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
-/// Represents the arguments of the "GetBusinessAccountGifts" method.
+/// Represents the arguments of the "GetChatGifts" method.
 /// </summary>
-public class GetBusinessAccountGiftsArgs
+public class GetChatGiftsArgs
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="GetBusinessAccountGiftsArgs"/> class.
+    /// Initializes a new instance of the <see cref="GetChatGiftsArgs"/> class.
     /// </summary>
-    /// <param name="businessConnectionId">Unique identifier of the business connection</param>
-    public GetBusinessAccountGiftsArgs(string businessConnectionId)
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    public GetChatGiftsArgs(long chatId)
     {
-        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.ChatId = chatId;
     }
 
     /// <summary>
-    /// Unique identifier of the business connection
+    /// Initializes a new instance of the <see cref="GetChatGiftsArgs"/> class.
     /// </summary>
-    [JsonPropertyName(PropertyNames.BusinessConnectionId)]
-    public string BusinessConnectionId { get; set; }
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    public GetChatGiftsArgs(string chatId)
+    {
+        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
+    }
 
     /// <summary>
-    /// Pass <em>True</em> to exclude gifts that aren't saved to the account's profile page
+    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChatId)]
+    public object ChatId { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> to exclude gifts that aren't saved to the chat's profile page. Always <em>True</em>, unless the bot has the <em>can_post_messages</em> administrator right in the channel.
     /// </summary>
     [JsonPropertyName(PropertyNames.ExcludeUnsaved)]
     public bool? ExcludeUnsaved { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> to exclude gifts that are saved to the account's profile page
+    /// Pass <em>True</em> to exclude gifts that are saved to the chat's profile page. Always <em>False</em>, unless the bot has the <em>can_post_messages</em> administrator right in the channel.
     /// </summary>
     [JsonPropertyName(PropertyNames.ExcludeSaved)]
     public bool? ExcludeSaved { get; set; }
@@ -55,16 +64,16 @@ public class GetBusinessAccountGiftsArgs
     public bool? ExcludeLimitedNonUpgradable { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> to exclude unique gifts
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ExcludeUnique)]
-    public bool? ExcludeUnique { get; set; }
-
-    /// <summary>
     /// Pass <em>True</em> to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram
     /// </summary>
     [JsonPropertyName(PropertyNames.ExcludeFromBlockchain)]
     public bool? ExcludeFromBlockchain { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> to exclude unique gifts
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ExcludeUnique)]
+    public bool? ExcludeUnique { get; set; }
 
     /// <summary>
     /// Pass <em>True</em> to sort results by gift price instead of send date. Sorting is applied before pagination.
@@ -73,7 +82,7 @@ public class GetBusinessAccountGiftsArgs
     public bool? SortByPrice { get; set; }
 
     /// <summary>
-    /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+    /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
     /// </summary>
     [JsonPropertyName(PropertyNames.Offset)]
     public string? Offset { get; set; }

@@ -49,7 +49,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
-    /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
@@ -82,7 +82,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
-    /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
@@ -210,7 +210,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
-    /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
@@ -243,7 +243,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="question">Poll question, 1-300 characters</param>
     /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
-    /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</param>
+    /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>

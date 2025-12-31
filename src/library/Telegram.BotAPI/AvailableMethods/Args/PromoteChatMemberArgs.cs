@@ -68,7 +68,7 @@ public class PromoteChatMemberArgs
     public bool? CanManageVideoChats { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics
+    /// Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to <em>True</em> for promotions of channel administrators
     /// </summary>
     [JsonPropertyName(PropertyNames.CanRestrictMembers)]
     public bool? CanRestrictMembers { get; set; }

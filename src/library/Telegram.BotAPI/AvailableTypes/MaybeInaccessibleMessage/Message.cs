@@ -21,7 +21,7 @@ public class Message : MaybeInaccessibleMessage
     public override int MessageId { get; set; }
 
     /// <summary>
-    /// Optional. Unique identifier of a message thread to which the message belongs; for supergroups only
+    /// Optional. Unique identifier of a message thread or forum topic to which the message belongs; for supergroups and private chats only
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageThreadId)]
     public int? MessageThreadId { get; set; }
@@ -81,7 +81,7 @@ public class Message : MaybeInaccessibleMessage
     public MessageOrigin? ForwardOrigin { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the message is sent to a forum topic
+    /// Optional. <em>True</em>, if the message is sent to a topic in a forum supergroup or a private chat with the bot
     /// </summary>
     [JsonPropertyName(PropertyNames.IsTopicMessage)]
     public bool? IsTopicMessage { get; set; }
@@ -439,6 +439,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.UniqueGift)]
     public UniqueGiftInfo? UniqueGift { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: upgrade of a gift was purchased after the gift was sent
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GiftUpgradeSent)]
+    public GiftInfo? GiftUpgradeSent { get; set; }
 
     /// <summary>
     /// Optional. The domain name of the website on which the user has logged in. <a href="https://core.telegram.org/widgets/login">More about Telegram Login »</a>

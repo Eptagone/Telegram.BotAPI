@@ -25,13 +25,13 @@ public class KeyboardButton
     public string Text { get; set; }
 
     /// <summary>
-    /// <em>Optional.</em> If specified, pressing the button will open a list of suitable users. Identifiers of selected users will be sent to the bot in a “users_shared” service message. Available in private chats only.
+    /// Optional. If specified, pressing the button will open a list of suitable users. Identifiers of selected users will be sent to the bot in a “users_shared” service message. Available in private chats only.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestUsers)]
     public KeyboardButtonRequestUsers? RequestUsers { get; set; }
 
     /// <summary>
-    /// <em>Optional.</em> If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat_shared” service message. Available in private chats only.
+    /// Optional. If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat_shared” service message. Available in private chats only.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestChat)]
     public KeyboardButtonRequestChat? RequestChat { get; set; }

@@ -5,36 +5,24 @@
 namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
-/// Represents the arguments of the "GetBusinessAccountGifts" method.
+/// Represents the arguments of the "GetUserGifts" method.
 /// </summary>
-public class GetBusinessAccountGiftsArgs
+public class GetUserGiftsArgs
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="GetBusinessAccountGiftsArgs"/> class.
+    /// Initializes a new instance of the <see cref="GetUserGiftsArgs"/> class.
     /// </summary>
-    /// <param name="businessConnectionId">Unique identifier of the business connection</param>
-    public GetBusinessAccountGiftsArgs(string businessConnectionId)
+    /// <param name="userId">Unique identifier of the user</param>
+    public GetUserGiftsArgs(long userId)
     {
-        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.UserId = userId;
     }
 
     /// <summary>
-    /// Unique identifier of the business connection
+    /// Unique identifier of the user
     /// </summary>
-    [JsonPropertyName(PropertyNames.BusinessConnectionId)]
-    public string BusinessConnectionId { get; set; }
-
-    /// <summary>
-    /// Pass <em>True</em> to exclude gifts that aren't saved to the account's profile page
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ExcludeUnsaved)]
-    public bool? ExcludeUnsaved { get; set; }
-
-    /// <summary>
-    /// Pass <em>True</em> to exclude gifts that are saved to the account's profile page
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ExcludeSaved)]
-    public bool? ExcludeSaved { get; set; }
+    [JsonPropertyName(PropertyNames.UserId)]
+    public long UserId { get; set; }
 
     /// <summary>
     /// Pass <em>True</em> to exclude gifts that can be purchased an unlimited number of times
@@ -55,16 +43,16 @@ public class GetBusinessAccountGiftsArgs
     public bool? ExcludeLimitedNonUpgradable { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> to exclude unique gifts
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ExcludeUnique)]
-    public bool? ExcludeUnique { get; set; }
-
-    /// <summary>
     /// Pass <em>True</em> to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram
     /// </summary>
     [JsonPropertyName(PropertyNames.ExcludeFromBlockchain)]
     public bool? ExcludeFromBlockchain { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> to exclude unique gifts
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ExcludeUnique)]
+    public bool? ExcludeUnique { get; set; }
 
     /// <summary>
     /// Pass <em>True</em> to sort results by gift price instead of send date. Sorting is applied before pagination.
@@ -73,7 +61,7 @@ public class GetBusinessAccountGiftsArgs
     public bool? SortByPrice { get; set; }
 
     /// <summary>
-    /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+    /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
     /// </summary>
     [JsonPropertyName(PropertyNames.Offset)]
     public string? Offset { get; set; }

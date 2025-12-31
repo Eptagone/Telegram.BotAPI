@@ -242,4 +242,22 @@ public class ChatFullInfo : Chat
     /// </summary>
     [JsonPropertyName(PropertyNames.Location)]
     public ChatLocation? Location { get; set; }
+
+    /// <summary>
+    /// Optional. For private chats, the rating of the user if any
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Rating)]
+    public UserRating? Rating { get; set; }
+
+    /// <summary>
+    /// Optional. The color scheme based on a unique gift that must be used for the chat's name, message replies and link previews
+    /// </summary>
+    [JsonPropertyName(PropertyNames.UniqueGiftColors)]
+    public UniqueGiftColors? UniqueGiftColors { get; set; }
+
+    /// <summary>
+    /// Optional. The number of Telegram Stars a general user have to pay to send a message to the chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PaidMessageStarCount)]
+    public int? PaidMessageStarCount { get; set; }
 }

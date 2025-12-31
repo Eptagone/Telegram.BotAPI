@@ -10,6 +10,12 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class UniqueGift
 {
     /// <summary>
+    /// Identifier of the regular gift from which the gift was upgraded
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GiftId)]
+    public string GiftId { get; set; } = null!;
+
+    /// <summary>
     /// Human-readable name of the regular gift from which this unique gift was upgraded
     /// </summary>
     [JsonPropertyName(PropertyNames.BaseName)]
@@ -44,6 +50,24 @@ public class UniqueGift
     /// </summary>
     [JsonPropertyName(PropertyNames.Backdrop)]
     public UniqueGiftBackdrop Backdrop { get; set; } = null!;
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the original regular gift was exclusively purchaseable by Telegram Premium subscribers
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsPremium)]
+    public bool? IsPremium { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the gift is assigned from the TON blockchain and can't be resold or transferred in Telegram
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsFromBlockchain)]
+    public bool? IsFromBlockchain { get; set; }
+
+    /// <summary>
+    /// Optional. The color scheme that can be used by the gift's owner for the chat's name, replies to messages and link previews; for business account gifts and gifts that are currently on sale only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Colors)]
+    public UniqueGiftColors? Colors { get; set; }
 
     /// <summary>
     /// Optional. Information about the chat that published the gift

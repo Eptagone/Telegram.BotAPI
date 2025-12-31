@@ -50,7 +50,7 @@ public class SendContactArgs
     public object ChatId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+    /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageThreadId)]
     public int? MessageThreadId { get; set; }

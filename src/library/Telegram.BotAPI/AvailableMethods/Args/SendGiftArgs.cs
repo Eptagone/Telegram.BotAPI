@@ -14,7 +14,7 @@ public class SendGiftArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendGiftArgs"/> class.
     /// </summary>
-    /// <param name="giftId">Identifier of the gift</param>
+    /// <param name="giftId">Identifier of the gift; limited gifts can't be sent to channel chats</param>
     public SendGiftArgs(string giftId)
     {
         this.GiftId = giftId ?? throw new ArgumentNullException(nameof(giftId));
@@ -33,7 +33,7 @@ public class SendGiftArgs
     public object? ChatId { get; set; }
 
     /// <summary>
-    /// Identifier of the gift
+    /// Identifier of the gift; limited gifts can't be sent to channel chats
     /// </summary>
     [JsonPropertyName(PropertyNames.GiftId)]
     public string GiftId { get; set; }

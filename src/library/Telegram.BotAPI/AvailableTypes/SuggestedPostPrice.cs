@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// Desribes price of a suggested post.
+/// Describes the price of a suggested post.
 /// </summary>
 public class SuggestedPostPrice
 {

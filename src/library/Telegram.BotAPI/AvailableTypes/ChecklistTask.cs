@@ -28,10 +28,16 @@ public class ChecklistTask
     public IEnumerable<MessageEntity>? TextEntities { get; set; }
 
     /// <summary>
-    /// Optional. User that completed the task; omitted if the task wasn't completed
+    /// Optional. User that completed the task; omitted if the task wasn't completed by a user
     /// </summary>
     [JsonPropertyName(PropertyNames.CompletedByUser)]
     public User? CompletedByUser { get; set; }
+
+    /// <summary>
+    /// Optional. Chat that completed the task; omitted if the task wasn't completed by a chat
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CompletedByChat)]
+    public Chat? CompletedByChat { get; set; }
 
     /// <summary>
     /// Optional. Point in time (Unix timestamp) when the task was completed; 0 if the task wasn't completed
