@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using Telegram.BotAPI.AvailableTypes;
 
@@ -10,11 +8,10 @@ namespace Telegram.BotAPI.Extensions.Commands;
 /// </summary>
 public static class BotCommandParser
 {
-    private static readonly Regex pattern =
-        new(
-            @"^\/(?<cmd>\w+)(?:@(?<username>[^\s]+))?(?:\s+(?<params>.+))?$",
-            RegexOptions.Compiled | RegexOptions.IgnoreCase
-        );
+    private static readonly Regex pattern = new(
+        @"^\/(?<cmd>\w+)(?:@(?<username>[^\s]+))?(?:\s+(?<params>.+))?$",
+        RegexOptions.Compiled | RegexOptions.IgnoreCase
+    );
 
     /// <summary>
     /// Parse the provided message and return the command name, arguments, and the username of the bot the command is targeted to (if available).

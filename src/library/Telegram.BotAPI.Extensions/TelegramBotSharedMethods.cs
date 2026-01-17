@@ -35,6 +35,7 @@ public abstract class TelegramBotSharedMethodsBase
     /// Configures the command extractor used by the bot to extract commands from messages.
     /// </summary>
     /// <param name="cmdExtractor">The command extractor to use.</param>
+    [Obsolete("Use the BotCommandParser utility class instead.")]
     public void SetCommandExtractor(IBotCommandExtractor cmdExtractor)
     {
         if (cmdExtractor is null)
@@ -52,6 +53,7 @@ public abstract class TelegramBotSharedMethodsBase
     /// <remarks>
     /// This method uses an internal implementation of <see cref="IBotCommandExtractor"/> that uses regex to extract commands.
     /// </remarks>
+    [Obsolete("Use the BotCommandParser utility class instead.")]
     protected void SetCommandExtractor(string username, bool useRegexCompile = true)
     {
         if (string.IsNullOrEmpty(username))

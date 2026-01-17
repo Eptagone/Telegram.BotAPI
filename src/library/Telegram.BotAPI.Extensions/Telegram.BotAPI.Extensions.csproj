@@ -1,46 +1,46 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <LangVersion>latest</LangVersion>
-        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-        <AnalysisLevel>latest-recommended</AnalysisLevel>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <NeutralLanguage>en</NeutralLanguage>
-        <Authors>Quetzal Rivera</Authors>
-        <Copyright>Quetzal Rivera 2025 ©</Copyright>
-        <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
-        <PackageTags>Telegram;Bot;API;Extensions</PackageTags>
-        <Version>0.6.2</Version>
-        <Title>Extensions for Telegram.BotAPI package</Title>
-        <PackageIcon>packicon.png</PackageIcon>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Authors>Quetzal Rivera</Authors>
+    <Copyright>Quetzal Rivera 2025 ©</Copyright>
+    <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
+    <PackageTags>Telegram;Bot;API;Extensions</PackageTags>
+    <Version>0.6.3</Version>
+    <Title>Extensions for Telegram.BotAPI package</Title>
+    <PackageIcon>packicon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <None Include="..\..\..\LICENSE">
-            <Pack>True</Pack>
-            <PackagePath>\</PackagePath>
-        </None>
-        <None Include="packicon.png">
-            <Pack>True</Pack>
-            <PackagePath></PackagePath>
-        </None>
-    </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="packicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Telegram.BotAPI" Version="9.0.1" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Telegram.BotAPI" Version="9.0.1" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <None Update="README.md">
-            <Pack>True</Pack>
-            <PackagePath>\</PackagePath>
-        </None>
-    </ItemGroup>
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
