@@ -25,10 +25,20 @@ namespace Telegram.BotAPI;
 /// <summary>
 /// Provides a client for sending requests to the Telegram Bot API.
 /// </summary>
-public partial class TelegramBotClient : ITelegramBotClient
+/// <param name="options">Options for the <see cref="TelegramBotClient" />.</param>
+public partial class TelegramBotClient(TelegramBotClientOptions options) : ITelegramBotClient
 {
-    internal readonly HttpClient httpClient;
-    private readonly TelegramBotClientOptions options;
+    private readonly TelegramBotClientOptions options = options;
+
+    /// <summary>
+    ///     Initialize a new instance of the <see cref="TelegramBotClient" /> class.
+    /// </summary>
+    /// <param name="botToken">
+    ///     Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram
+    ///     bot API.
+    /// </param>
+    public TelegramBotClient(string botToken)
+        : this(new TelegramBotClientOptions(botToken)) { }
 
     /// <summary>
     ///     Initialize a new instance of the <see cref="TelegramBotClient" /> class.
@@ -38,18 +48,28 @@ public partial class TelegramBotClient : ITelegramBotClient
     ///     bot API.
     /// </param>
     /// <param name="httpClient">Optional. Provide a specific HttpClient for this instance of BotClient.</param>
-    public TelegramBotClient(string botToken, HttpClient? httpClient = null)
-        : this(new TelegramBotClientOptions(botToken), httpClient) { }
+    [Obsolete("Specify the httpClient in the options instead")]
+    public TelegramBotClient(string botToken, HttpClient? httpClient)
+        : this(new TelegramBotClientOptions(botToken))
+    {
+        if (httpClient is not null)
+        {
+            this.options.HttpClient = httpClient;
+        }
+    }
 
     /// <summary>
     ///     Initialize a new instance of the <see cref="TelegramBotClient" /> class.
     /// </summary>
     /// <param name="options">Options for the <see cref="TelegramBotClient" />.</param>
     /// <param name="httpClient">Optional. Provide a specific HttpClient for this instance of BotClient.</param>
-    public TelegramBotClient(TelegramBotClientOptions options, HttpClient? httpClient = null)
+    [Obsolete("Specify the httpClient in the options instead")]
+    public TelegramBotClient(TelegramBotClientOptions options, HttpClient? httpClient)
+        : this(options)
     {
-        this.options = options;
-        this.httpClient =
-            httpClient ?? new HttpClient { BaseAddress = new Uri(options.ServerAddress) };
+        if (httpClient is not null)
+        {
+            this.options.HttpClient = httpClient;
+        }
     }
 }

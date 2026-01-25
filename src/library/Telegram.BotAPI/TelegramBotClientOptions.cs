@@ -1,6 +1,8 @@
 ﻿// Copyright (c) 2025 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
+using System.Net.Http;
+
 namespace Telegram.BotAPI;
 
 /// <summary>
@@ -19,7 +21,11 @@ public record TelegramBotClientOptions
     /// Initialize a Telegram Bot Client.
     /// </summary>
     /// <param name="botToken">Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</param>
-    public TelegramBotClientOptions(string botToken) => this.BotToken = botToken;
+    public TelegramBotClientOptions(string botToken)
+    {
+        this.BotToken = botToken;
+        this.HttpClient = new HttpClient { BaseAddress = new Uri(this.ServerAddress) };
+    }
 
     /// <summary>
     /// Set true if you want methods to automatically retry the request when the server returns a 429 (Too Many Requests) error.
@@ -32,6 +38,11 @@ public record TelegramBotClientOptions
     /// Required to access the Telegram bot API.
     /// </summary>
     public string BotToken { get; }
+
+    /// <summary>
+    /// Provide a specific HttpClient for this instance of bot client.
+    /// </summary>
+    public HttpClient HttpClient { get; set; }
 
     /// <summary>
     /// Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.

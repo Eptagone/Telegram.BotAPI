@@ -15,8 +15,10 @@ namespace Telegram.BotAPI;
 
 public partial class TelegramBotClient : ITelegramBotClient
 {
-    internal static readonly JsonSerializerOptions SerializerOptions =
-        new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
+    internal static readonly JsonSerializerOptions SerializerOptions = new()
+    {
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+    };
 
     private async Task<TResult?> CallApiMethodAndGetResultAsync<TResult>(
         string method,
@@ -72,7 +74,7 @@ public partial class TelegramBotClient : ITelegramBotClient
             ? $"bot{this.options.BotToken}/test/{method}"
             : $"bot{this.options.BotToken}/{method}";
 
-        if (this.httpClient.BaseAddress?.AbsoluteUri != this.options.ServerAddress)
+        if (this.options.HttpClient.BaseAddress?.AbsoluteUri != this.options.ServerAddress)
         {
             requestUri = $"{this.options.ServerAddress}/{requestUri}";
         }
@@ -120,7 +122,7 @@ public partial class TelegramBotClient : ITelegramBotClient
         }
 
         HttpResponseMessage? response = await this
-            .httpClient.SendAsync(requestMessage, cancellationToken)
+            .options.HttpClient.SendAsync(requestMessage, cancellationToken)
             .ConfigureAwait(false);
 
         try
