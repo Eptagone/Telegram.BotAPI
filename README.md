@@ -2,9 +2,9 @@
 | -------------------------------------------------- | ------------------------ |
 
 [![NuGet version (Telegram.BotAPI)](https://img.shields.io/nuget/v/Telegram.BotAPI?style=flat-square&logo=nuget)](https://www.nuget.org/packages/Telegram.BotAPI/)
-[![Compatible with Bot API v9.3](https://img.shields.io/badge/Bot%20API%20version-v9.3-blue?style=flat-square)](https://core.telegram.org/bots/api#december-31-2025)
+[![Compatible with Bot API v9.4](https://img.shields.io/badge/Bot%20API%20version-v9.4-blue?style=flat-square)](https://core.telegram.org/bots/api#february-9-2026)
 
-**Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. It contains all the methods and types available in the Bot API 9.3 released on December 31, 2025.
+**Telegram.BotAPI** is one of the most complete libraries available to interact with the Telegram Bot API in your .NET projects. It contains all the methods and types available in the Bot API 9.4 released on February 9, 2026.
 
 [![Telegram Chat](https://img.shields.io/badge/Telegram.BotAPI%20--%20Chat-Join-blue?style=social&logo=telegram)](https://t.me/TBAPINET)
 
@@ -12,8 +12,8 @@
 
 ## Features
 
-- Contains pre-defined methods for all Bot API 9.3 methods.
-- Contains classes for each object type used in the Bot API 9.3.
+- Contains pre-defined methods for all Bot API 9.4 methods.
+- Contains classes for each object type used in the Bot API 9.4.
 - Sync and async methods.
 - Uses [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/).
 

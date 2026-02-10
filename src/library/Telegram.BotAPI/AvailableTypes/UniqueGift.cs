@@ -58,6 +58,12 @@ public class UniqueGift
     public bool? IsPremium { get; set; }
 
     /// <summary>
+    /// Optional. <em>True</em>, if the gift was used to craft another gift and isn't available anymore
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsBurned)]
+    public bool? IsBurned { get; set; }
+
+    /// <summary>
     /// Optional. <em>True</em>, if the gift is assigned from the TON blockchain and can't be resold or transferred in Telegram
     /// </summary>
     [JsonPropertyName(PropertyNames.IsFromBlockchain)]

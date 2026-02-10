@@ -250,6 +250,12 @@ public class ChatFullInfo : Chat
     public UserRating? Rating { get; set; }
 
     /// <summary>
+    /// Optional. For private chats, the first audio added to the profile of the user
+    /// </summary>
+    [JsonPropertyName(PropertyNames.FirstProfileAudio)]
+    public Audio? FirstProfileAudio { get; set; }
+
+    /// <summary>
     /// Optional. The color scheme based on a unique gift that must be used for the chat's name, message replies and link previews
     /// </summary>
     [JsonPropertyName(PropertyNames.UniqueGiftColors)]

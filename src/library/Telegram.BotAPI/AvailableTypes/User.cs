@@ -92,4 +92,10 @@ public class User
     /// </summary>
     [JsonPropertyName(PropertyNames.HasTopicsEnabled)]
     public bool? HasTopicsEnabled { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the bot allows users to create and delete topics in private chats. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.AllowsUsersToCreateTopics)]
+    public bool? AllowsUsersToCreateTopics { get; set; }
 }

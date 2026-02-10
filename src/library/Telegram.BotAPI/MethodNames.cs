@@ -85,6 +85,7 @@ public static partial class MethodNames
     public const string GetUpdates = "getUpdates";
     public const string GetUserChatBoosts = "getUserChatBoosts";
     public const string GetUserGifts = "getUserGifts";
+    public const string GetUserProfileAudios = "getUserProfileAudios";
     public const string GetUserProfilePhotos = "getUserProfilePhotos";
     public const string GetWebhookInfo = "getWebhookInfo";
     public const string GiftPremiumSubscription = "giftPremiumSubscription";
@@ -98,6 +99,7 @@ public static partial class MethodNames
     public const string RefundStarPayment = "refundStarPayment";
     public const string RemoveBusinessAccountProfilePhoto = "removeBusinessAccountProfilePhoto";
     public const string RemoveChatVerification = "removeChatVerification";
+    public const string RemoveMyProfilePhoto = "removeMyProfilePhoto";
     public const string RemoveUserVerification = "removeUserVerification";
     public const string ReopenForumTopic = "reopenForumTopic";
     public const string ReopenGeneralForumTopic = "reopenGeneralForumTopic";
@@ -147,6 +149,7 @@ public static partial class MethodNames
     public const string SetMyDefaultAdministratorRights = "setMyDefaultAdministratorRights";
     public const string SetMyDescription = "setMyDescription";
     public const string SetMyName = "setMyName";
+    public const string SetMyProfilePhoto = "setMyProfilePhoto";
     public const string SetMyShortDescription = "setMyShortDescription";
     public const string SetPassportDataErrors = "setPassportDataErrors";
     public const string SetStickerEmojiList = "setStickerEmojiList";

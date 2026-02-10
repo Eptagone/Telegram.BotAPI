@@ -31,6 +31,7 @@ public static partial class PropertyNames
     public const string AllowUserChats = "allow_user_chats";
     public const string AllowedUpdates = "allowed_updates";
     public const string AllowsMultipleAnswers = "allows_multiple_answers";
+    public const string AllowsUsersToCreateTopics = "allows_users_to_create_topics";
     public const string Amount = "amount";
     public const string Animation = "animation";
     public const string AreDirectMessagesEnabled = "are_direct_messages_enabled";
@@ -39,6 +40,7 @@ public static partial class PropertyNames
     public const string AudioDuration = "audio_duration";
     public const string AudioFileId = "audio_file_id";
     public const string AudioUrl = "audio_url";
+    public const string Audios = "audios";
     public const string AuthorSignature = "author_signature";
     public const string AvailableReactions = "available_reactions";
     public const string Backdrop = "backdrop";
@@ -136,6 +138,8 @@ public static partial class PropertyNames
     public const string ChatIsForum = "chat_is_forum";
     public const string ChatJoinRequest = "chat_join_request";
     public const string ChatMember = "chat_member";
+    public const string ChatOwnerChanged = "chat_owner_changed";
+    public const string ChatOwnerLeft = "chat_owner_left";
     public const string ChatShared = "chat_shared";
     public const string ChatType = "chat_type";
     public const string Chats = "chats";
@@ -148,6 +152,7 @@ public static partial class PropertyNames
     public const string City = "city";
     public const string CloseDate = "close_date";
     public const string ClosingMinute = "closing_minute";
+    public const string Codec = "codec";
     public const string Color = "color";
     public const string Colors = "colors";
     public const string Command = "command";
@@ -244,6 +249,7 @@ public static partial class PropertyNames
     public const string Files = "files";
     public const string Fill = "fill";
     public const string FirstName = "first_name";
+    public const string FirstProfileAudio = "first_profile_audio";
     public const string ForChannels = "for_channels";
     public const string Force = "force";
     public const string ForceReply = "force_reply";
@@ -294,7 +300,8 @@ public static partial class PropertyNames
     public const string HasPrivateForwards = "has_private_forwards";
     public const string HasProtectedContent = "has_protected_content";
     public const string HasPublicWinners = "has_public_winners";
-    public const string HasRestrictedVoiceAndVideoMessages = "has_restricted_voice_and_video_messages";
+    public const string HasRestrictedVoiceAndVideoMessages =
+        "has_restricted_voice_and_video_messages";
     public const string HasSpoiler = "has_spoiler";
     public const string HasTopicsEnabled = "has_topics_enabled";
     public const string HasVisibleHistory = "has_visible_history";
@@ -324,6 +331,7 @@ public static partial class PropertyNames
     public const string IsBig = "is_big";
     public const string IsBlurred = "is_blurred";
     public const string IsBot = "is_bot";
+    public const string IsBurned = "is_burned";
     public const string IsCanceled = "is_canceled";
     public const string IsClosed = "is_closed";
     public const string IsDark = "is_dark";
@@ -430,6 +438,7 @@ public static partial class PropertyNames
     public const string NewChatMembers = "new_chat_members";
     public const string NewChatPhoto = "new_chat_photo";
     public const string NewChatTitle = "new_chat_title";
+    public const string NewOwner = "new_owner";
     public const string NewOwnerChatId = "new_owner_chat_id";
     public const string NewReaction = "new_reaction";
     public const string NextLevelRating = "next_level_rating";
@@ -511,6 +520,7 @@ public static partial class PropertyNames
     public const string ProximityAlertTriggered = "proximity_alert_triggered";
     public const string PublisherChat = "publisher_chat";
     public const string PurchasedPaidMedia = "purchased_paid_media";
+    public const string Qualities = "qualities";
     public const string Query = "query";
     public const string Question = "question";
     public const string QuestionEntities = "question_entities";
@@ -519,6 +529,7 @@ public static partial class PropertyNames
     public const string QuoteEntities = "quote_entities";
     public const string QuoteParseMode = "quote_parse_mode";
     public const string QuotePosition = "quote_position";
+    public const string Rarity = "rarity";
     public const string RarityPerMille = "rarity_per_mille";
     public const string Rating = "rating";
     public const string Reaction = "reaction";
@@ -609,6 +620,7 @@ public static partial class PropertyNames
     public const string Street = "street";
     public const string StreetLine1 = "street_line1";
     public const string StreetLine2 = "street_line2";
+    public const string Style = "style";
     public const string SubscriptionExpirationDate = "subscription_expiration_date";
     public const string SubscriptionPeriod = "subscription_period";
     public const string SubscriptionPrice = "subscription_price";

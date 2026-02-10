@@ -58,6 +58,12 @@ public class Video
     public int? StartTimestamp { get; set; }
 
     /// <summary>
+    /// Optional. List of available qualities of the video
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Qualities)]
+    public IEnumerable<VideoQuality>? Qualities { get; set; }
+
+    /// <summary>
     /// Optional. Original filename as defined by the sender
     /// </summary>
     [JsonPropertyName(PropertyNames.FileName)]

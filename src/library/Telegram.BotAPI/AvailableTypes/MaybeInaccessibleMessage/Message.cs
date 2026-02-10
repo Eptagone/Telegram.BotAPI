@@ -339,6 +339,18 @@ public class Message : MaybeInaccessibleMessage
     public User? LeftChatMember { get; set; }
 
     /// <summary>
+    /// Optional. Service message: chat owner has left
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChatOwnerLeft)]
+    public ChatOwnerLeft? ChatOwnerLeft { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: chat owner has changed
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ChatOwnerChanged)]
+    public ChatOwnerChanged? ChatOwnerChanged { get; set; }
+
+    /// <summary>
     /// Optional. A chat title was changed to this value
     /// </summary>
     [JsonPropertyName(PropertyNames.NewChatTitle)]

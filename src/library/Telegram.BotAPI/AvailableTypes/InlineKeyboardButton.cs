@@ -7,7 +7,7 @@ using Telegram.BotAPI.Games;
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object represents one button of an inline keyboard. Exactly one of the optional fields must be used to specify type of the button.
+/// This object represents one button of an inline keyboard. Exactly one of the fields other than <em>text</em>, <em>icon_custom_emoji_id</em>, and <em>style</em> must be used to specify the type of the button.
 /// </summary>
 public class InlineKeyboardButton
 {
@@ -25,6 +25,18 @@ public class InlineKeyboardButton
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
     public string Text { get; set; }
+
+    /// <summary>
+    /// Optional. Unique identifier of the custom emoji shown before the text of the button. Can only be used by bots that purchased additional usernames on <a href="https://fragment.com">Fragment</a> or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IconCustomEmojiId)]
+    public string? IconCustomEmojiId { get; set; }
+
+    /// <summary>
+    /// Optional. Style of the button. Must be one of “danger” (red), “success” (green) or “primary” (blue). If omitted, then an app-specific style is used.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Style)]
+    public string? Style { get; set; }
 
     /// <summary>
     /// Optional. HTTP or tg:// URL to be opened when the button is pressed. Links <em>tg://user?id=&lt;user_id&gt;</em> can be used to mention a user by their identifier without using a username, if this is allowed by their privacy settings.

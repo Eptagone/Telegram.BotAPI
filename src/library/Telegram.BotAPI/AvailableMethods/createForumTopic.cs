@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. Returns information about the created topic as a <see cref="ForumTopic"/> object.
+    /// Use this method to create a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator right. Returns information about the created topic as a <see cref="ForumTopic"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
@@ -26,7 +26,7 @@ public static partial class AvailableMethodsExtensions
         client.CreateForumTopicAsync(chatId, name, iconColor, iconCustomEmojiId).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. Returns information about the created topic as a <see cref="ForumTopic"/> object.
+    /// Use this method to create a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator right. Returns information about the created topic as a <see cref="ForumTopic"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
@@ -62,7 +62,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. Returns information about the created topic as a <see cref="ForumTopic"/> object.
+    /// Use this method to create a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator right. Returns information about the created topic as a <see cref="ForumTopic"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
@@ -76,7 +76,7 @@ public static partial class AvailableMethodsExtensions
         client.CreateForumTopicAsync(chatId, name, iconColor, iconCustomEmojiId).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator rights. Returns information about the created topic as a <see cref="ForumTopic"/> object.
+    /// Use this method to create a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_manage_topics</em> administrator right. Returns information about the created topic as a <see cref="ForumTopic"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>

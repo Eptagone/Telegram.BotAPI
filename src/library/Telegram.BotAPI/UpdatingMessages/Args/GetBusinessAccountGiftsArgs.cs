@@ -15,7 +15,8 @@ public class GetBusinessAccountGiftsArgs
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
     public GetBusinessAccountGiftsArgs(string businessConnectionId)
     {
-        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId =
+            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
     }
 
     /// <summary>
