@@ -8,23 +8,33 @@ namespace Telegram.BotAPI;
 /// <summary>
 /// Options for a <see cref="TelegramBotClient"/>.
 /// </summary>
+#pragma warning disable CA1001 // Types that own disposable fields should be disposable
 public record TelegramBotClientOptions
+#pragma warning restore CA1001 // Types that own disposable fields should be disposable
 {
     /// <summary>
     /// Default server address to send bot request.
     /// </summary>
     public const string BaseServerAddress = "https://api.telegram.org";
 
+    private bool isUsingCustomHttpClient;
+    private HttpClient httpClient;
     private string serverAddress = BaseServerAddress;
 
     /// <summary>
     /// Initialize a Telegram Bot Client.
     /// </summary>
     /// <param name="botToken">Token granted by <a href="https://t.me/BotFather">BotFather</a>. Required to access the Telegram bot API.</param>
-    public TelegramBotClientOptions(string botToken)
+    /// <param name="httpClient">Provide a specific HttpClient for this instance of bot client.</param>
+    public TelegramBotClientOptions(string botToken, HttpClient? httpClient = null)
     {
         this.BotToken = botToken;
-        this.HttpClient = new HttpClient { BaseAddress = new Uri(this.ServerAddress) };
+        this.httpClient =
+            httpClient ?? new HttpClient { BaseAddress = new Uri(this.serverAddress) };
+        if (httpClient is not null)
+        {
+            this.isUsingCustomHttpClient = true;
+        }
     }
 
     /// <summary>
@@ -42,7 +52,15 @@ public record TelegramBotClientOptions
     /// <summary>
     /// Provide a specific HttpClient for this instance of bot client.
     /// </summary>
-    public HttpClient HttpClient { get; set; }
+    public HttpClient HttpClient
+    {
+        get => this.httpClient;
+        set
+        {
+            this.httpClient = value;
+            this.isUsingCustomHttpClient = true;
+        }
+    }
 
     /// <summary>
     /// Set true if you want methods to return a default value when bot requests are rejected instead of throwing a <see cref="BotRequestException"/>.
@@ -71,6 +89,10 @@ public record TelegramBotClientOptions
                 throw new ArgumentException("The value must be a valid Uri.", nameof(value));
             }
             this.serverAddress = value;
+            if (!this.isUsingCustomHttpClient)
+            {
+                this.httpClient = new HttpClient { BaseAddress = new Uri(this.serverAddress) };
+            }
         }
     }
 
