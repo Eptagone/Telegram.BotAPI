@@ -2,6 +2,7 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.Extensions.Commands;
 using Telegram.BotAPI.GettingUpdates;
 using Telegram.BotAPI.InlineMode;
 using Telegram.BotAPI.Payments;
@@ -9,13 +10,14 @@ using Telegram.BotAPI.Payments;
 namespace Telegram.BotAPI.Extensions;
 
 /// <summary>
-/// Represents a base class to handle incoming updates.
+/// Represents a simple base class to handle incoming updates.
 /// </summary>
-public abstract class SimpleUpdateHandlerBase
-    : TelegramBotSharedMethodsBase,
-        IUpdateHandler,
-        IAsyncUpdateHandler
+public abstract class SimpleUpdateHandlerBase : IUpdateHandler, IAsyncUpdateHandler
 {
+    private string? cmdBotUserName;
+
+    protected void SetBotUserName(string botUserName) => this.cmdBotUserName = botUserName;
+
     #region Handlers
     /// <inheritdoc/>
     public virtual void OnUpdate(Update update)
@@ -208,6 +210,11 @@ public abstract class SimpleUpdateHandlerBase
                 await this.OnPreCheckoutQueryAsync(update.PreCheckoutQuery, cancellationToken)
                     .ConfigureAwait(false);
             }
+            else if (update.PurchasedPaidMedia != null)
+            {
+                await this.OnPurchasedPaidMediaAsync(update.PurchasedPaidMedia, cancellationToken)
+                    .ConfigureAwait(false);
+            }
             else if (update.Poll != null)
             {
                 await this.OnPollAsync(update.Poll, cancellationToken).ConfigureAwait(false);
@@ -255,30 +262,25 @@ public abstract class SimpleUpdateHandlerBase
     /// <param name="message">Message.</param>
     protected virtual void OnMessage(Message message)
     {
-        if (this.CommandExtractor is null)
+        if (
+            message.Entities?.Any(e => e.Type == "bot_command")
+            ?? message.CaptionEntities?.Any(e => e.Type == "bot_command")
+            ?? false
+        )
         {
+            var (commandName, args, username) = BotCommandParser.Parse(
+                message.Text ?? message.Caption ?? string.Empty
+            );
             if (
-                message.Entities?.Any(e => e.Type == "bot_command")
-                ?? message.CaptionEntities?.Any(e => e.Type == "bot_command")
-                ?? false
+                !string.IsNullOrEmpty(this.cmdBotUserName)
+                && !string.IsNullOrEmpty(username)
+                && username != this.cmdBotUserName
             )
             {
-                var textParts = (message.Text ?? message.Caption)!.Split(
-                    [' '],
-                    StringSplitOptions.RemoveEmptyEntries
-                );
-                var commandName = textParts.First().TrimStart('/').Split('@').First();
-                var args = string.Join(" ", textParts.Skip(1));
-                this.OnCommand(message, commandName, args);
+                return;
             }
-        }
-        else
-        {
-            if (this.CommandExtractor.HasCommand(message))
-            {
-                var (commandName, args) = this.CommandExtractor.ExtractCommand(message);
-                this.OnCommand(message, commandName, args);
-            }
+
+            this.OnCommand(message, commandName, args ?? string.Empty);
         }
     }
 
@@ -292,30 +294,30 @@ public abstract class SimpleUpdateHandlerBase
         CancellationToken cancellationToken = default
     )
     {
-        if (this.CommandExtractor is null)
+        if (
+            message.Entities?.Any(e => e.Type == "bot_command")
+            ?? message.CaptionEntities?.Any(e => e.Type == "bot_command")
+            ?? false
+        )
         {
+            var (commandName, args, username) = BotCommandParser.Parse(
+                message.Text ?? message.Caption ?? string.Empty
+            );
             if (
-                message.Entities?.Any(e => e.Type == "bot_command")
-                ?? message.CaptionEntities?.Any(e => e.Type == "bot_command")
-                ?? false
+                !string.IsNullOrEmpty(this.cmdBotUserName)
+                && !string.IsNullOrEmpty(username)
+                && username != this.cmdBotUserName
             )
             {
-                var textParts = (message.Text ?? message.Caption)!.Split(
-                    [' '],
-                    StringSplitOptions.RemoveEmptyEntries
-                );
-                var commandName = textParts.First().TrimStart('/').Split('@').First();
-                var args = string.Join(" ", textParts.Skip(1));
-                return this.OnCommandAsync(message, commandName, args, cancellationToken);
+                return Task.CompletedTask;
             }
-        }
-        else
-        {
-            if (this.CommandExtractor.HasCommand(message))
-            {
-                var (commandName, args) = this.CommandExtractor.ExtractCommand(message);
-                return this.OnCommandAsync(message, commandName, args, cancellationToken);
-            }
+
+            return this.OnCommandAsync(
+                message,
+                commandName,
+                args ?? string.Empty,
+                cancellationToken
+            );
         }
 
         return Task.CompletedTask;
@@ -574,6 +576,24 @@ public abstract class SimpleUpdateHandlerBase
     /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
     protected virtual Task OnPreCheckoutQueryAsync(
         PreCheckoutQuery preCheckoutQuery,
+        CancellationToken cancellationToken = default
+    ) => Task.CompletedTask;
+
+    /// <summary>
+    /// Handles a purchased paid media update.
+    /// </summary>
+    /// <param name="purchasedPaidMedia">The purchased paid media.</param>
+    protected virtual void OnPurchasedPaidMedia(PaidMediaPurchased purchasedPaidMedia) =>
+        this.OnPurchasedPaidMediaAsync(purchasedPaidMedia).Wait();
+
+    /// <summary>
+    /// Handles a purchased paid media update.
+    /// </summary>
+    /// <param name="purchasedPaidMedia">The purchased paid media.</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns></returns>
+    protected virtual Task OnPurchasedPaidMediaAsync(
+        PaidMediaPurchased purchasedPaidMedia,
         CancellationToken cancellationToken = default
     ) => Task.CompletedTask;
 

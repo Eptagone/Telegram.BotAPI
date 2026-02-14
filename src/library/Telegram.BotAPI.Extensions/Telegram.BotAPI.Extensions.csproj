@@ -14,7 +14,7 @@
     <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Eptagone/Telegram.BotAPI</RepositoryUrl>
     <PackageTags>Telegram;Bot;API;Extensions</PackageTags>
-    <Version>0.6.3</Version>
+    <Version>0.7.0</Version>
     <Title>Extensions for Telegram.BotAPI package</Title>
     <PackageIcon>packicon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Telegram.BotAPI" Version="9.0.1" />
+    <PackageReference Include="Telegram.BotAPI" Version="9.4.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,5 +42,4 @@
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-
 </Project>

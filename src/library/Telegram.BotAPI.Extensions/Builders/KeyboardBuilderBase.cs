@@ -18,7 +18,7 @@ public abstract class KeyboardBuilderBase<TBuilder, TButton> : IEnumerable<IEnum
 
     protected KeyboardBuilderBase(IEnumerable<IEnumerable<TButton>>? keyboard = null)
     {
-        this.rows = new(keyboard?.Where(k => k.Any()) ?? []);
+        this.rows = [.. keyboard?.Where(k => k.Any()) ?? []];
         this.currentRow = this.rows.LastOrDefault()?.ToList();
     }
 

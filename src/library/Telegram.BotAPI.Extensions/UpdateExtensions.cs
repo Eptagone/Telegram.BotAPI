@@ -19,7 +19,6 @@ public static class UpdateExtensions
     /// <returns>The JSON property name of the first non-null property in the <see cref="Update"/> instance, excluding the UpdateId property. This is used to determine the type of the update.</returns>
     /// <exception cref="ArgumentNullException">Thrown when the provided <see cref="Update"/> instance is null.</exception>
     /// <exception cref="InvalidOperationException">Thrown when the <see cref="Update"/> instance does not have any valid properties.</exception>
-
     public static string GetUpdateType(this Update update)
     {
         if (update is null)
