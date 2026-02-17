@@ -3,6 +3,7 @@ namespace Telegram.BotAPI.Extensions.Commands;
 /// <summary>
 /// Defines the visibility of a Telegram bot command.
 /// </summary>
+[Flags]
 public enum BotCommandVisibility
 {
     /// <summary>
