@@ -7,6 +7,11 @@ namespace Telegram.BotAPI.Extensions.Commands;
 public enum BotCommandVisibility
 {
     /// <summary>
+    /// Unspecified.
+    /// </summary>
+    Unspecified = 0,
+
+    /// <summary>
     /// All users can see the command.
     /// </summary>
     Default = 1,
