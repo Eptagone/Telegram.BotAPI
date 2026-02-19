@@ -9,25 +9,25 @@ public enum BotCommandVisibility
     /// <summary>
     /// All users can see the command.
     /// </summary>
-    Default,
+    Default = 1,
 
     /// <summary>
     /// Hide the command from the menu.
     /// </summary>
-    Hidden,
+    Hidden = 2,
 
     /// <summary>
     /// All users can see the command but only in private chats.
     /// </summary>
-    PrivateChats,
+    PrivateChats = 3,
 
     /// <summary>
     /// The command is visible for group members only.
     /// </summary>
-    Members,
+    Members = 4,
 
     /// <summary>
     /// The command is available for administrators only in groups and supergroups.
     /// </summary>
-    Administrators,
+    Administrators = 5,
 }
