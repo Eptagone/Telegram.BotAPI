@@ -7,11 +7,6 @@ namespace Telegram.BotAPI.Extensions.Commands;
 public enum BotCommandVisibility
 {
     /// <summary>
-    /// Unspecified.
-    /// </summary>
-    Unspecified = 0,
-
-    /// <summary>
     /// All users can see the command.
     /// </summary>
     Default = 1,
@@ -24,15 +19,15 @@ public enum BotCommandVisibility
     /// <summary>
     /// All users can see the command but only in private chats.
     /// </summary>
-    PrivateChats = 3,
+    PrivateChats = 4,
 
     /// <summary>
     /// The command is visible for group members only.
     /// </summary>
-    Members = 4,
+    Members = 8,
 
     /// <summary>
     /// The command is available for administrators only in groups and supergroups.
     /// </summary>
-    Administrators = 5,
+    Administrators = 16,
 }
