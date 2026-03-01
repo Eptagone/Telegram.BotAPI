@@ -58,7 +58,7 @@ public static class TelegramBotClientExtensions
 
         return new Uri(
             new Uri(client.Options.ServerAddress),
-            Path.Combine($"/file/bot{client.Options.BotToken}", safePath)
+            $"/file/bot{client.Options.BotToken}/{safePath.TrimStart(Path.AltDirectorySeparatorChar)}"
         );
     }
 }
