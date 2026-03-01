@@ -70,6 +70,12 @@ public class ChatPermissions
     public bool? CanAddWebPagePreviews { get; set; }
 
     /// <summary>
+    /// Optional. <em>True</em>, if the user is allowed to edit their own tag
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanEditTag)]
+    public bool? CanEditTag { get; set; }
+
+    /// <summary>
     /// Optional. <em>True</em>, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups
     /// </summary>
     [JsonPropertyName(PropertyNames.CanChangeInfo)]

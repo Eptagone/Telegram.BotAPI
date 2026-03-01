@@ -91,12 +91,14 @@ public static partial class PropertyNames
     public const string CanEditName = "can_edit_name";
     public const string CanEditProfilePhoto = "can_edit_profile_photo";
     public const string CanEditStories = "can_edit_stories";
+    public const string CanEditTag = "can_edit_tag";
     public const string CanEditUsername = "can_edit_username";
     public const string CanInviteUsers = "can_invite_users";
     public const string CanJoinGroups = "can_join_groups";
     public const string CanManageChat = "can_manage_chat";
     public const string CanManageDirectMessages = "can_manage_direct_messages";
     public const string CanManageStories = "can_manage_stories";
+    public const string CanManageTags = "can_manage_tags";
     public const string CanManageTopics = "can_manage_topics";
     public const string CanManageVideoChats = "can_manage_video_chats";
     public const string CanPinMessages = "can_pin_messages";
@@ -189,6 +191,7 @@ public static partial class PropertyNames
     public const string Data = "data";
     public const string DataHash = "data_hash";
     public const string Date = "date";
+    public const string DateTimeFormat = "date_time_format";
     public const string Day = "day";
     public const string DeleteChatPhoto = "delete_chat_photo";
     public const string DeletedBusinessMessages = "deleted_business_messages";
@@ -583,6 +586,7 @@ public static partial class PropertyNames
     public const string SenderBusinessBot = "sender_business_bot";
     public const string SenderChat = "sender_chat";
     public const string SenderChatId = "sender_chat_id";
+    public const string SenderTag = "sender_tag";
     public const string SenderUser = "sender_user";
     public const string SenderUserName = "sender_user_name";
     public const string SetName = "set_name";
@@ -643,6 +647,7 @@ public static partial class PropertyNames
     public const string Symbol = "symbol";
     public const string SymbolColor = "symbol_color";
     public const string SymbolCustomEmojiId = "symbol_custom_emoji_id";
+    public const string Tag = "tag";
     public const string Tasks = "tasks";
     public const string TelegramPaymentChargeId = "telegram_payment_charge_id";
     public const string Temperature = "temperature";
@@ -677,6 +682,7 @@ public static partial class PropertyNames
     public const string UniqueGiftNumber = "unique_gift_number";
     public const string UniqueGiftVariantCount = "unique_gift_variant_count";
     public const string UniqueGifts = "unique_gifts";
+    public const string UnixTime = "unix_time";
     public const string UnlimitedGifts = "unlimited_gifts";
     public const string UnrestrictBoostCount = "unrestrict_boost_count";
     public const string UntilDate = "until_date";

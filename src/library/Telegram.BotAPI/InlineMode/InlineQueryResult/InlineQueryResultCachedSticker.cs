@@ -30,12 +30,6 @@ public class InlineQueryResultCachedSticker : InlineQueryResult
     public string StickerFileId { get; set; } = null!;
 
     /// <summary>
-    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ReplyMarkup)]
-    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
-
-    /// <summary>
     /// Optional. Content of the message to be sent instead of the sticker
     /// </summary>
     [JsonPropertyName(PropertyNames.InputMessageContent)]

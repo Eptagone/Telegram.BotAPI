@@ -49,8 +49,8 @@ public abstract class InlineQueryResult
     public abstract string Id { get; set; }
 
     /// <summary>
-    /// No description available
+    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
-    public abstract InlineKeyboardMarkup? ReplyMarkup { get; set; }
+    public InlineKeyboardMarkup? ReplyMarkup { get; set; }
 }

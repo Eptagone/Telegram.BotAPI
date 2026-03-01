@@ -66,12 +66,6 @@ public class InlineQueryResultDocument : InlineQueryResult
     public string? Description { get; set; }
 
     /// <summary>
-    /// Optional. Inline keyboard attached to the message
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ReplyMarkup)]
-    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
-
-    /// <summary>
     /// Optional. Content of the message to be sent instead of the file
     /// </summary>
     [JsonPropertyName(PropertyNames.InputMessageContent)]

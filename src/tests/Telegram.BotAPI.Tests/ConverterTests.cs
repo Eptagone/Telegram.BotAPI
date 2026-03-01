@@ -61,7 +61,7 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
     public void DeserializeChatMember(string jsonChatMember)
     {
         var chatMember = JsonSerializer.Deserialize<ChatMember>(jsonChatMember);
-        switch (chatMember.Status)
+        switch (chatMember?.Status)
         {
             case "member":
                 Assert.IsType<ChatMemberMember>(chatMember);
@@ -138,8 +138,8 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
                 {
                     Id = 777000,
                     FirstName = "Telegram",
-                    IsBot = false
-                }
+                    IsBot = false,
+                },
             },
             new ChatMemberBanned
             {
@@ -147,9 +147,9 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
                 {
                     Id = 777000,
                     FirstName = "Sadman",
-                    IsBot = false
+                    IsBot = false,
                 },
-                UntilDate = (int)TimeSpan.FromSeconds(3819829182).TotalSeconds
+                UntilDate = (int)TimeSpan.FromSeconds(3819829182).TotalSeconds,
             },
             new ChatMemberOwner
             {
@@ -158,8 +158,8 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
                 {
                     Id = 777000,
                     FirstName = "Telegram",
-                    IsBot = false
-                }
+                    IsBot = false,
+                },
             },
             new ChatMemberAdministrator
             {
@@ -168,16 +168,16 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
                 {
                     Id = 777000,
                     FirstName = "Cat-Dog ♡︎",
-                    IsBot = false
+                    IsBot = false,
                 },
                 CanBeEdited = true,
                 CanRestrictMembers = true,
-                CanManageVideoChats = true
-            }
+                CanManageVideoChats = true,
+            },
         };
         var options = new JsonSerializerOptions
         {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         };
         foreach (var chatMember in members)
         {
@@ -199,7 +199,7 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
 
         var options = new JsonSerializerOptions
         {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         };
 
         var rawText = JsonSerializer.Serialize(markup, options);
@@ -214,7 +214,7 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
         var partner = new TransactionPartnerFragment();
         var options = new JsonSerializerOptions
         {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         };
         var rawText = JsonSerializer.Serialize(partner, options);
         this.outputHelper.WriteLine(rawText);
@@ -229,7 +229,7 @@ public sealed class ConverterTests(ITestOutputHelper outputHelper)
 
         var options = new JsonSerializerOptions
         {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         };
         var rawText = JsonSerializer.Serialize(state, options);
         this.outputHelper.WriteLine(rawText);

@@ -57,6 +57,12 @@ public class Message : MaybeInaccessibleMessage
     public User? SenderBusinessBot { get; set; }
 
     /// <summary>
+    /// Optional. Tag or custom title of the sender of the message; for supergroups only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SenderTag)]
+    public string? SenderTag { get; set; }
+
+    /// <summary>
     /// Date the message was sent in Unix time. It is always a positive number, representing a valid date.
     /// </summary>
     [JsonPropertyName(PropertyNames.Date)]
@@ -153,7 +159,7 @@ public class Message : MaybeInaccessibleMessage
     public bool? IsPaidPost { get; set; }
 
     /// <summary>
-    /// Optional. The unique identifier of a media message group this message belongs to
+    /// Optional. The unique identifier inside this chat of a media message group this message belongs to
     /// </summary>
     [JsonPropertyName(PropertyNames.MediaGroupId)]
     public string? MediaGroupId { get; set; }
@@ -639,7 +645,7 @@ public class Message : MaybeInaccessibleMessage
     public WebAppData? WebAppData { get; set; }
 
     /// <summary>
-    /// Optional. Inline keyboard attached to the message. <em>login_url</em> buttons are represented as ordinary <em>url</em> buttons.
+    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message. <em>login_url</em> buttons are represented as ordinary <em>url</em> buttons.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }

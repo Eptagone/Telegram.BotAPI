@@ -16,6 +16,12 @@ public class ChatMemberMember : ChatMember
     public override string Status => "member";
 
     /// <summary>
+    /// Optional. Tag of the member
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Tag)]
+    public string? Tag { get; set; }
+
+    /// <summary>
     /// Optional. Date when the user's subscription will expire; Unix time
     /// </summary>
     [JsonPropertyName(PropertyNames.UntilDate)]

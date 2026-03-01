@@ -137,6 +137,7 @@ public static partial class MethodNames
     public const string SetBusinessAccountUsername = "setBusinessAccountUsername";
     public const string SetChatAdministratorCustomTitle = "setChatAdministratorCustomTitle";
     public const string SetChatDescription = "setChatDescription";
+    public const string SetChatMemberTag = "setChatMemberTag";
     public const string SetChatMenuButton = "setChatMenuButton";
     public const string SetChatPermissions = "setChatPermissions";
     public const string SetChatPhoto = "setChatPhoto";

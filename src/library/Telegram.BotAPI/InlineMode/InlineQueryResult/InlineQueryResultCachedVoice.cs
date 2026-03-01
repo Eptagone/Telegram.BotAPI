@@ -54,12 +54,6 @@ public class InlineQueryResultCachedVoice : InlineQueryResult
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ReplyMarkup)]
-    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
-
-    /// <summary>
     /// Optional. Content of the message to be sent instead of the voice message
     /// </summary>
     [JsonPropertyName(PropertyNames.InputMessageContent)]

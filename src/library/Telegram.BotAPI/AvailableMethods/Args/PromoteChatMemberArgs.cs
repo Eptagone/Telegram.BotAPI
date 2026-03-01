@@ -138,4 +138,10 @@ public class PromoteChatMemberArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageDirectMessages)]
     public bool? CanManageDirectMessages { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can edit the tags of regular members; for groups and supergroups only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanManageTags)]
+    public bool? CanManageTags { get; set; }
 }

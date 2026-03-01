@@ -67,7 +67,7 @@ public class SendChecklistArgs
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for an inline keyboard
+    /// A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }

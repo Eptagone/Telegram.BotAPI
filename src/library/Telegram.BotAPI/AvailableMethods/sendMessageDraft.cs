@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to stream a partial message to a user while the message is being generated; supported only for bots with forum topic mode enabled. Returns <em>True</em> on success.
+    /// Use this method to stream a partial message to a user while the message is being generated. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendMessageDraft" method.</param>
@@ -23,7 +23,7 @@ public static partial class AvailableMethodsExtensions
         client.SendMessageDraftAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to stream a partial message to a user while the message is being generated; supported only for bots with forum topic mode enabled. Returns <em>True</em> on success.
+    /// Use this method to stream a partial message to a user while the message is being generated. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendMessageDraft" method.</param>
@@ -42,7 +42,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to stream a partial message to a user while the message is being generated; supported only for bots with forum topic mode enabled. Returns <em>True</em> on success.
+    /// Use this method to stream a partial message to a user while the message is being generated. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target private chat</param>
@@ -58,7 +58,7 @@ public static partial class AvailableMethodsExtensions
         client.SendMessageDraftAsync(chatId, draftId, text, messageThreadId, parseMode, entities).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to stream a partial message to a user while the message is being generated; supported only for bots with forum topic mode enabled. Returns <em>True</em> on success.
+    /// Use this method to stream a partial message to a user while the message is being generated. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target private chat</param>

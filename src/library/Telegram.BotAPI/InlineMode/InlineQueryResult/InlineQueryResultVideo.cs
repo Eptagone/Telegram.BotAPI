@@ -96,12 +96,6 @@ public class InlineQueryResultVideo : InlineQueryResult
     public string? Description { get; set; }
 
     /// <summary>
-    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ReplyMarkup)]
-    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
-
-    /// <summary>
     /// Optional. Content of the message to be sent instead of the video. This field is <strong>required</strong> if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).
     /// </summary>
     [JsonPropertyName(PropertyNames.InputMessageContent)]

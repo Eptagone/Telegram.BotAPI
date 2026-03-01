@@ -11,8 +11,10 @@ namespace Telegram.BotAPI.Tests;
 
 public sealed class Serialization(ITestOutputHelper outputHelper)
 {
-    private static readonly JsonSerializerOptions options =
-        new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
+    private static readonly JsonSerializerOptions options = new()
+    {
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+    };
 
     private readonly ITestOutputHelper _outputHelper = outputHelper;
 
@@ -79,7 +81,7 @@ public sealed class Serialization(ITestOutputHelper outputHelper)
         Assert.IsType<InlineQueryResultArticle>(deserializeResult);
         Assert.Equal(
             "data",
-            deserializeResult.ReplyMarkup.InlineKeyboard.First().First().CallbackData
+            deserializeResult.ReplyMarkup?.InlineKeyboard.First().First().CallbackData
         );
         Assert.IsType<InputTextMessageContent>(
             ((InlineQueryResultArticle)deserializeResult).InputMessageContent

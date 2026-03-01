@@ -60,12 +60,6 @@ public class InlineQueryResultCachedMpeg4Gif : InlineQueryResult
     public bool? ShowCaptionAboveMedia { get; set; }
 
     /// <summary>
-    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ReplyMarkup)]
-    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
-
-    /// <summary>
     /// Optional. Content of the message to be sent instead of the video animation
     /// </summary>
     [JsonPropertyName(PropertyNames.InputMessageContent)]

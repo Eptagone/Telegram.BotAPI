@@ -22,7 +22,7 @@ public sealed class ExtensionsTests
     public void GetUpdateType(string jsonUpdate, string updateType)
     {
         var update = JsonSerializer.Deserialize<Update>(jsonUpdate);
-        var uType = update.GetUpdateType();
+        var uType = update?.GetUpdateType();
         Assert.Equal(uType, updateType);
     }
 

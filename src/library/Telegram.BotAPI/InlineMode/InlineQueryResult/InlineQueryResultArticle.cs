@@ -36,12 +36,6 @@ public class InlineQueryResultArticle : InlineQueryResult
     public InputMessageContent InputMessageContent { get; set; } = null!;
 
     /// <summary>
-    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ReplyMarkup)]
-    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
-
-    /// <summary>
     /// Optional. URL of the result
     /// </summary>
     [JsonPropertyName(PropertyNames.Url)]

@@ -16,6 +16,12 @@ public class ChatMemberRestricted : ChatMember
     public override string Status => "restricted";
 
     /// <summary>
+    /// Optional. Tag of the member
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Tag)]
+    public string? Tag { get; set; }
+
+    /// <summary>
     /// <em>True</em>, if the user is a member of the chat at the moment of the request
     /// </summary>
     [JsonPropertyName(PropertyNames.IsMember)]
@@ -80,6 +86,12 @@ public class ChatMemberRestricted : ChatMember
     /// </summary>
     [JsonPropertyName(PropertyNames.CanAddWebPagePreviews)]
     public bool CanAddWebPagePreviews { get; set; }
+
+    /// <summary>
+    /// <em>True</em>, if the user is allowed to edit their own tag
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanEditTag)]
+    public bool CanEditTag { get; set; }
 
     /// <summary>
     /// <em>True</em>, if the user is allowed to change the chat title, photo and other settings

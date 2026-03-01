@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class MessageEntity
 {
     /// <summary>
-    /// Type of the entity. Currently, can be “mention” (<em>@username</em>), “hashtag” (<em>#hashtag</em> or <em>#hashtag@chatusername</em>), “cashtag” (<em>$USD</em> or <em>$USD@chatusername</em>), “bot_command” (<em>/start@jobs_bot</em>), “url” (<em>https://telegram.org</em>), “email” (<em>do-not-reply@telegram.org</em>), “phone_number” (<em>+1-212-555-0123</em>), “bold” (<strong>bold text</strong>), “italic” (<em>italic text</em>), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable_blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom_emoji” (for inline custom emoji stickers)
+    /// Type of the entity. Currently, can be “mention” (<em>@username</em>), “hashtag” (<em>#hashtag</em> or <em>#hashtag@chatusername</em>), “cashtag” (<em>$USD</em> or <em>$USD@chatusername</em>), “bot_command” (<em>/start@jobs_bot</em>), “url” (<em>https://telegram.org</em>), “email” (<em>do-not-reply@telegram.org</em>), “phone_number” (<em>+1-212-555-0123</em>), “bold” (<strong>bold text</strong>), “italic” (<em>italic text</em>), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable_blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom_emoji” (for inline custom emoji stickers), or “date_time” (for formatted date and time)
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public string Type { get; set; } = null!;
@@ -50,4 +50,16 @@ public class MessageEntity
     /// </summary>
     [JsonPropertyName(PropertyNames.CustomEmojiId)]
     public string? CustomEmojiId { get; set; }
+
+    /// <summary>
+    /// Optional. For “date_time” only, the Unix time associated with the entity
+    /// </summary>
+    [JsonPropertyName(PropertyNames.UnixTime)]
+    public int? UnixTime { get; set; }
+
+    /// <summary>
+    /// Optional. For “date_time” only, the string that defines the formatting of the date and time. See <a href="https://core.telegram.org/bots/api#date-time-entity-formatting">date-time entity formatting</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DateTimeFormat)]
+    public string? DateTimeFormat { get; set; }
 }

@@ -29,10 +29,4 @@ public class InlineQueryResultGame : InlineQueryResult
     /// </summary>
     [JsonPropertyName(PropertyNames.GameShortName)]
     public string GameShortName { get; set; } = null!;
-
-    /// <summary>
-    /// Optional. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message
-    /// </summary>
-    [JsonPropertyName(PropertyNames.ReplyMarkup)]
-    public override InlineKeyboardMarkup? ReplyMarkup { get; set; }
 }

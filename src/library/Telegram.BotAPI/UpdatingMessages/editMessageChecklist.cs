@@ -49,7 +49,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="chatId">Unique identifier for the target chat</param>
     /// <param name="messageId">Unique identifier for the target message</param>
     /// <param name="checklist">A JSON-serialized object for the new checklist</param>
-    /// <param name="replyMarkup">A JSON-serialized object for the new inline keyboard for the message</param>
+    /// <param name="replyMarkup">A JSON-serialized object for the new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a> for the message</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -64,7 +64,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="chatId">Unique identifier for the target chat</param>
     /// <param name="messageId">Unique identifier for the target message</param>
     /// <param name="checklist">A JSON-serialized object for the new checklist</param>
-    /// <param name="replyMarkup">A JSON-serialized object for the new inline keyboard for the message</param>
+    /// <param name="replyMarkup">A JSON-serialized object for the new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a> for the message</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

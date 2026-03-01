@@ -104,4 +104,10 @@ public class ChatAdministratorRights
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageDirectMessages)]
     public bool? CanManageDirectMessages { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the administrator can edit the tags of regular members; for groups and supergroups only. If omitted defaults to the value of can_pin_messages.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanManageTags)]
+    public bool? CanManageTags { get; set; }
 }

@@ -51,7 +51,7 @@ public class EditMessageChecklistArgs
     public InputChecklist Checklist { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for the new inline keyboard for the message
+    /// A JSON-serialized object for the new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a> for the message
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }
