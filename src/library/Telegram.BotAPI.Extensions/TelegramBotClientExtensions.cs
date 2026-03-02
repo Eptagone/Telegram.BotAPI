@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
+using System.Globalization;
 using File = Telegram.BotAPI.AvailableTypes.File;
 
 namespace Telegram.BotAPI.Extensions;
@@ -18,7 +19,32 @@ public static class TelegramBotClientExtensions
     /// <param name="file">The File.</param>
     /// <exception cref="ArgumentNullException"></exception>
     public static string? BuildFileDownloadLink(this ITelegramBotClient client, File file) =>
-        client.BuildFileDownloadUri(file)?.AbsoluteUri;
+        string.IsNullOrEmpty(file.FilePath) ? null : client.BuildFileDownloadLink(file.FilePath!);
+
+    /// <summary>
+    /// Constructs the URL to download a Telegram File.
+    /// </summary>
+    /// <remarks>Don't use this method if you're using the TBA server with --local mode enabled.</remarks>
+    /// <param name="client">The Telegram Bot Client.</param>
+    /// <param name="filePath">The file path.</param>
+    /// <exception cref="ArgumentNullException"></exception>
+    public static string BuildFileDownloadLink(this ITelegramBotClient client, string filePath)
+    {
+        var safePath = filePath;
+
+        // Remove the bot token from the path
+        var tokenIndex = safePath.IndexOf(
+            client.Options.BotToken,
+            StringComparison.InvariantCulture
+        );
+        if (tokenIndex != -1)
+        {
+            safePath = safePath.Substring(tokenIndex + client.Options.BotToken.Length);
+        }
+        safePath = safePath.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+
+        return $"{client.Options.ServerAddress.TrimEnd(Path.AltDirectorySeparatorChar)}/file/bot{client.Options.BotToken}/{safePath.TrimStart(Path.AltDirectorySeparatorChar)}";
+    }
 
     /// <summary>
     /// Constructs the URL to download a Telegram File using the format <c>https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;</c>
@@ -43,22 +69,6 @@ public static class TelegramBotClientExtensions
     /// <returns></returns>
     public static Uri BuildFileDownloadUri(this ITelegramBotClient client, string filePath)
     {
-        var safePath = filePath;
-
-        // Remove the bot token from the path
-        var tokenIndex = safePath.IndexOf(
-            client.Options.BotToken,
-            StringComparison.InvariantCulture
-        );
-        if (tokenIndex != -1)
-        {
-            safePath = safePath.Substring(tokenIndex + client.Options.BotToken.Length);
-        }
-        safePath = safePath.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-
-        return new Uri(
-            new Uri(client.Options.ServerAddress),
-            $"/file/bot{client.Options.BotToken}/{safePath.TrimStart(Path.AltDirectorySeparatorChar)}"
-        );
+        return new Uri(client.BuildFileDownloadLink(filePath));
     }
 }
