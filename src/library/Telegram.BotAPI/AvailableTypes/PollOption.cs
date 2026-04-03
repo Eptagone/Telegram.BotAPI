@@ -10,6 +10,12 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class PollOption
 {
     /// <summary>
+    /// Unique identifier of the option, persistent on option addition and deletion
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PersistentId)]
+    public string PersistentId { get; set; } = null!;
+
+    /// <summary>
     /// Option text, 1-100 characters
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
@@ -22,8 +28,26 @@ public class PollOption
     public IEnumerable<MessageEntity>? TextEntities { get; set; }
 
     /// <summary>
-    /// Number of users that voted for this option
+    /// Number of users who voted for this option; may be 0 if unknown
     /// </summary>
     [JsonPropertyName(PropertyNames.VoterCount)]
     public int VoterCount { get; set; }
+
+    /// <summary>
+    /// Optional. User who added the option; omitted if the option wasn't added by a user after poll creation
+    /// </summary>
+    [JsonPropertyName(PropertyNames.AddedByUser)]
+    public User? AddedByUser { get; set; }
+
+    /// <summary>
+    /// Optional. Chat that added the option; omitted if the option wasn't added by a chat after poll creation
+    /// </summary>
+    [JsonPropertyName(PropertyNames.AddedByChat)]
+    public Chat? AddedByChat { get; set; }
+
+    /// <summary>
+    /// Optional. Point in time (Unix timestamp) when the option was added; omitted if the option existed in the original poll
+    /// </summary>
+    [JsonPropertyName(PropertyNames.AdditionDate)]
+    public int? AdditionDate { get; set; }
 }

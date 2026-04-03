@@ -156,4 +156,10 @@ public class Update
     /// </summary>
     [JsonPropertyName(PropertyNames.RemovedChatBoost)]
     public ChatBoostRemoved? RemovedChatBoost { get; set; }
+
+    /// <summary>
+    /// Optional. A new bot was created to be managed by the bot or token of a bot was changed
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ManagedBot)]
+    public ManagedBotUpdated? ManagedBot { get; set; }
 }

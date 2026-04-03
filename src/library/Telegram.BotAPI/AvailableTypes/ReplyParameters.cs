@@ -28,7 +28,7 @@ public class ReplyParameters
     public bool? AllowSendingWithoutReply { get; set; }
 
     /// <summary>
-    /// Optional. Quoted part of the message to be replied to; 0-1024 characters after entities parsing. The quote must be an exact substring of the message to be replied to, including <em>bold</em>, <em>italic</em>, <em>underline</em>, <em>strikethrough</em>, <em>spoiler</em>, and <em>custom_emoji</em> entities. The message will fail to send if the quote isn't found in the original message.
+    /// Optional. Quoted part of the message to be replied to; 0-1024 characters after entities parsing. The quote must be an exact substring of the message to be replied to, including <em>bold</em>, <em>italic</em>, <em>underline</em>, <em>strikethrough</em>, <em>spoiler</em>, <em>custom_emoji</em>, and <em>date_time</em> entities. The message will fail to send if the quote isn't found in the original message.
     /// </summary>
     [JsonPropertyName(PropertyNames.Quote)]
     public string? Quote { get; set; }
@@ -56,4 +56,10 @@ public class ReplyParameters
     /// </summary>
     [JsonPropertyName(PropertyNames.ChecklistTaskId)]
     public int? ChecklistTaskId { get; set; }
+
+    /// <summary>
+    /// Optional. Persistent identifier of the specific poll option to be replied to
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PollOptionId)]
+    public string? PollOptionId { get; set; }
 }

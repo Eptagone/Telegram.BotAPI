@@ -54,7 +54,7 @@ public class SendDiceArgs
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”
+    /// Emoji on which the dice throw animation is based. Currently, must be one of “рџЋІ”, “рџЋЇ”, “рџЏЂ”, “вљЅ”, “рџЋі”, or “рџЋ°”. Dice can have values 1-6 for “рџЋІ”, “рџЋЇ” and “рџЋі”, values 1-5 for “рџЏЂ” and “вљЅ”, and values 1-64 for “рџЋ°”. Defaults to “рџЋІ”
     /// </summary>
     [JsonPropertyName(PropertyNames.Emoji)]
     public string? Emoji { get; set; }

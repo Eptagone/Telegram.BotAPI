@@ -129,6 +129,12 @@ public class Message : MaybeInaccessibleMessage
     public int? ReplyToChecklistTaskId { get; set; }
 
     /// <summary>
+    /// Optional. Persistent identifier of the specific poll option that is being replied to
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReplyToPollOptionId)]
+    public string? ReplyToPollOptionId { get; set; }
+
+    /// <summary>
     /// Optional. Bot through which the message was sent
     /// </summary>
     [JsonPropertyName(PropertyNames.ViaBot)]
@@ -309,7 +315,7 @@ public class Message : MaybeInaccessibleMessage
     public Dice? Dice { get; set; }
 
     /// <summary>
-    /// Optional. Message is a game, information about the game. <a href="https://core.telegram.org/bots/api#games">More about games »</a>
+    /// Optional. Message is a game, information about the game. <a href="https://core.telegram.org/bots/api#games">More about games В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Game)]
     public Game? Game { get; set; }
@@ -417,19 +423,19 @@ public class Message : MaybeInaccessibleMessage
     public MaybeInaccessibleMessage? PinnedMessage { get; set; }
 
     /// <summary>
-    /// Optional. Message is an invoice for a <a href="https://core.telegram.org/bots/api#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api#payments">More about payments »</a>
+    /// Optional. Message is an invoice for a <a href="https://core.telegram.org/bots/api#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api#payments">More about payments В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Invoice)]
     public Invoice? Invoice { get; set; }
 
     /// <summary>
-    /// Optional. Message is a service message about a successful payment, information about the payment. <a href="https://core.telegram.org/bots/api#payments">More about payments »</a>
+    /// Optional. Message is a service message about a successful payment, information about the payment. <a href="https://core.telegram.org/bots/api#payments">More about payments В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.SuccessfulPayment)]
     public SuccessfulPayment? SuccessfulPayment { get; set; }
 
     /// <summary>
-    /// Optional. Message is a service message about a refunded payment, information about the payment. <a href="https://core.telegram.org/bots/api#payments">More about payments »</a>
+    /// Optional. Message is a service message about a refunded payment, information about the payment. <a href="https://core.telegram.org/bots/api#payments">More about payments В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.RefundedPayment)]
     public RefundedPayment? RefundedPayment { get; set; }
@@ -465,7 +471,7 @@ public class Message : MaybeInaccessibleMessage
     public GiftInfo? GiftUpgradeSent { get; set; }
 
     /// <summary>
-    /// Optional. The domain name of the website on which the user has logged in. <a href="https://core.telegram.org/widgets/login">More about Telegram Login »</a>
+    /// Optional. The domain name of the website on which the user has logged in. <a href="https://core.telegram.org/widgets/login">More about Telegram Login В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.ConnectedWebsite)]
     public string? ConnectedWebsite { get; set; }
@@ -579,10 +585,28 @@ public class Message : MaybeInaccessibleMessage
     public GiveawayCompleted? GiveawayCompleted { get; set; }
 
     /// <summary>
+    /// Optional. Service message: user created a bot that will be managed by the current bot
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ManagedBotCreated)]
+    public ManagedBotCreated? ManagedBotCreated { get; set; }
+
+    /// <summary>
     /// Optional. Service message: the price for paid messages has changed in the chat
     /// </summary>
     [JsonPropertyName(PropertyNames.PaidMessagePriceChanged)]
     public PaidMessagePriceChanged? PaidMessagePriceChanged { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: answer option was added to a poll
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PollOptionAdded)]
+    public PollOptionAdded? PollOptionAdded { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: answer option was deleted from a poll
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PollOptionDeleted)]
+    public PollOptionDeleted? PollOptionDeleted { get; set; }
 
     /// <summary>
     /// Optional. Service message: a suggested post was approved

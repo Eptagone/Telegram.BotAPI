@@ -49,6 +49,12 @@ public class KeyboardButton
     public KeyboardButtonRequestChat? RequestChat { get; set; }
 
     /// <summary>
+    /// Optional. If specified, pressing the button will ask the user to create and share a bot that will be managed by the current bot. Available for bots that enabled management of other bots in the <a href="https://t.me/BotFather">@BotFather</a> Mini App. Available in private chats only.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.RequestManagedBot)]
+    public KeyboardButtonRequestManagedBot? RequestManagedBot { get; set; }
+
+    /// <summary>
     /// Optional. If <em>True</em>, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestContact)]

@@ -54,14 +54,21 @@ public static partial class AvailableMethodsExtensions
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
-    /// <param name="allowsMultipleAnswers"><em>True</em>, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to <em>False</em></param>
-    /// <param name="correctOptionId">0-based identifier of the correct answer option, required for polls in quiz mode</param>
+    /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
+    /// <param name="allowsRevoting">Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="shuffleOptions">Pass <em>True</em>, if the poll options must be shown in random order</param>
+    /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
+    /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
+    /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
     /// <param name="explanationParseMode">Mode for parsing entities in the explanation. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em></param>
-    /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with <em>close_date</em>.</param>
-    /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with <em>open_period</em>.</param>
+    /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.</param>
+    /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 2628000 seconds in the future. Can't be used together with <em>open_period</em>.</param>
     /// <param name="isClosed">Pass <em>True</em> if the poll needs to be immediately closed. This can be useful for poll preview.</param>
+    /// <param name="description">Description of the poll to be sent, 0-1024 characters after entities parsing</param>
+    /// <param name="descriptionParseMode">Mode for parsing entities in the poll description. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
+    /// <param name="descriptionEntities">A JSON-serialized list of special entities that appear in the poll description, which can be specified instead of <em>description_parse_mode</em></param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
     /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
@@ -71,8 +78,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendPoll(this ITelegramBotClient client, long chatId, string question, IEnumerable<InputPollOption> options, string? businessConnectionId = null, int? messageThreadId = null, string? questionParseMode = null, IEnumerable<MessageEntity>? questionEntities = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, int? correctOptionId = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendPollAsync(chatId, question, options, businessConnectionId, messageThreadId, questionParseMode, questionEntities, isAnonymous, type, allowsMultipleAnswers, correctOptionId, explanation, explanationParseMode, explanationEntities, openPeriod, closeDate, isClosed, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendPoll(this ITelegramBotClient client, long chatId, string question, IEnumerable<InputPollOption> options, string? businessConnectionId = null, int? messageThreadId = null, string? questionParseMode = null, IEnumerable<MessageEntity>? questionEntities = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, bool? allowsRevoting = null, bool? shuffleOptions = null, bool? allowAddingOptions = null, bool? hideResultsUntilCloses = null, IEnumerable<int>? correctOptionIds = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, string? description = null, string? descriptionParseMode = null, IEnumerable<MessageEntity>? descriptionEntities = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendPollAsync(chatId, question, options, businessConnectionId, messageThreadId, questionParseMode, questionEntities, isAnonymous, type, allowsMultipleAnswers, allowsRevoting, shuffleOptions, allowAddingOptions, hideResultsUntilCloses, correctOptionIds, explanation, explanationParseMode, explanationEntities, openPeriod, closeDate, isClosed, description, descriptionParseMode, descriptionEntities, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a native poll. On success, the sent <see cref="Message"/> is returned.
@@ -87,14 +94,21 @@ public static partial class AvailableMethodsExtensions
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
-    /// <param name="allowsMultipleAnswers"><em>True</em>, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to <em>False</em></param>
-    /// <param name="correctOptionId">0-based identifier of the correct answer option, required for polls in quiz mode</param>
+    /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
+    /// <param name="allowsRevoting">Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="shuffleOptions">Pass <em>True</em>, if the poll options must be shown in random order</param>
+    /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
+    /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
+    /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
     /// <param name="explanationParseMode">Mode for parsing entities in the explanation. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em></param>
-    /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with <em>close_date</em>.</param>
-    /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with <em>open_period</em>.</param>
+    /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.</param>
+    /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 2628000 seconds in the future. Can't be used together with <em>open_period</em>.</param>
     /// <param name="isClosed">Pass <em>True</em> if the poll needs to be immediately closed. This can be useful for poll preview.</param>
+    /// <param name="description">Description of the poll to be sent, 0-1024 characters after entities parsing</param>
+    /// <param name="descriptionParseMode">Mode for parsing entities in the poll description. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
+    /// <param name="descriptionEntities">A JSON-serialized list of special entities that appear in the poll description, which can be specified instead of <em>description_parse_mode</em></param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
     /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
@@ -105,7 +119,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendPollAsync(this ITelegramBotClient client, long chatId, string question, IEnumerable<InputPollOption> options, string? businessConnectionId = null, int? messageThreadId = null, string? questionParseMode = null, IEnumerable<MessageEntity>? questionEntities = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, int? correctOptionId = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendPollAsync(this ITelegramBotClient client, long chatId, string question, IEnumerable<InputPollOption> options, string? businessConnectionId = null, int? messageThreadId = null, string? questionParseMode = null, IEnumerable<MessageEntity>? questionEntities = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, bool? allowsRevoting = null, bool? shuffleOptions = null, bool? allowAddingOptions = null, bool? hideResultsUntilCloses = null, IEnumerable<int>? correctOptionIds = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, string? description = null, string? descriptionParseMode = null, IEnumerable<MessageEntity>? descriptionEntities = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -146,9 +160,25 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.AllowsMultipleAnswers, allowsMultipleAnswers);
         }
-        if (correctOptionId is not null)
+        if (allowsRevoting is not null)
         {
-            args.Add(PropertyNames.CorrectOptionId, correctOptionId);
+            args.Add(PropertyNames.AllowsRevoting, allowsRevoting);
+        }
+        if (shuffleOptions is not null)
+        {
+            args.Add(PropertyNames.ShuffleOptions, shuffleOptions);
+        }
+        if (allowAddingOptions is not null)
+        {
+            args.Add(PropertyNames.AllowAddingOptions, allowAddingOptions);
+        }
+        if (hideResultsUntilCloses is not null)
+        {
+            args.Add(PropertyNames.HideResultsUntilCloses, hideResultsUntilCloses);
+        }
+        if (correctOptionIds is not null)
+        {
+            args.Add(PropertyNames.CorrectOptionIds, correctOptionIds);
         }
         if (explanation is not null)
         {
@@ -173,6 +203,18 @@ public static partial class AvailableMethodsExtensions
         if (isClosed is not null)
         {
             args.Add(PropertyNames.IsClosed, isClosed);
+        }
+        if (description is not null)
+        {
+            args.Add(PropertyNames.Description, description);
+        }
+        if (descriptionParseMode is not null)
+        {
+            args.Add(PropertyNames.DescriptionParseMode, descriptionParseMode);
+        }
+        if (descriptionEntities is not null)
+        {
+            args.Add(PropertyNames.DescriptionEntities, descriptionEntities);
         }
         if (disableNotification is not null)
         {
@@ -215,14 +257,21 @@ public static partial class AvailableMethodsExtensions
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
-    /// <param name="allowsMultipleAnswers"><em>True</em>, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to <em>False</em></param>
-    /// <param name="correctOptionId">0-based identifier of the correct answer option, required for polls in quiz mode</param>
+    /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
+    /// <param name="allowsRevoting">Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="shuffleOptions">Pass <em>True</em>, if the poll options must be shown in random order</param>
+    /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
+    /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
+    /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
     /// <param name="explanationParseMode">Mode for parsing entities in the explanation. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em></param>
-    /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with <em>close_date</em>.</param>
-    /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with <em>open_period</em>.</param>
+    /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.</param>
+    /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 2628000 seconds in the future. Can't be used together with <em>open_period</em>.</param>
     /// <param name="isClosed">Pass <em>True</em> if the poll needs to be immediately closed. This can be useful for poll preview.</param>
+    /// <param name="description">Description of the poll to be sent, 0-1024 characters after entities parsing</param>
+    /// <param name="descriptionParseMode">Mode for parsing entities in the poll description. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
+    /// <param name="descriptionEntities">A JSON-serialized list of special entities that appear in the poll description, which can be specified instead of <em>description_parse_mode</em></param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
     /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
@@ -232,8 +281,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendPoll(this ITelegramBotClient client, string chatId, string question, IEnumerable<InputPollOption> options, string? businessConnectionId = null, int? messageThreadId = null, string? questionParseMode = null, IEnumerable<MessageEntity>? questionEntities = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, int? correctOptionId = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendPollAsync(chatId, question, options, businessConnectionId, messageThreadId, questionParseMode, questionEntities, isAnonymous, type, allowsMultipleAnswers, correctOptionId, explanation, explanationParseMode, explanationEntities, openPeriod, closeDate, isClosed, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendPoll(this ITelegramBotClient client, string chatId, string question, IEnumerable<InputPollOption> options, string? businessConnectionId = null, int? messageThreadId = null, string? questionParseMode = null, IEnumerable<MessageEntity>? questionEntities = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, bool? allowsRevoting = null, bool? shuffleOptions = null, bool? allowAddingOptions = null, bool? hideResultsUntilCloses = null, IEnumerable<int>? correctOptionIds = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, string? description = null, string? descriptionParseMode = null, IEnumerable<MessageEntity>? descriptionEntities = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendPollAsync(chatId, question, options, businessConnectionId, messageThreadId, questionParseMode, questionEntities, isAnonymous, type, allowsMultipleAnswers, allowsRevoting, shuffleOptions, allowAddingOptions, hideResultsUntilCloses, correctOptionIds, explanation, explanationParseMode, explanationEntities, openPeriod, closeDate, isClosed, description, descriptionParseMode, descriptionEntities, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a native poll. On success, the sent <see cref="Message"/> is returned.
@@ -248,14 +297,21 @@ public static partial class AvailableMethodsExtensions
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
-    /// <param name="allowsMultipleAnswers"><em>True</em>, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to <em>False</em></param>
-    /// <param name="correctOptionId">0-based identifier of the correct answer option, required for polls in quiz mode</param>
+    /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
+    /// <param name="allowsRevoting">Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="shuffleOptions">Pass <em>True</em>, if the poll options must be shown in random order</param>
+    /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
+    /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
+    /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
     /// <param name="explanationParseMode">Mode for parsing entities in the explanation. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em></param>
-    /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with <em>close_date</em>.</param>
-    /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with <em>open_period</em>.</param>
+    /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.</param>
+    /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 2628000 seconds in the future. Can't be used together with <em>open_period</em>.</param>
     /// <param name="isClosed">Pass <em>True</em> if the poll needs to be immediately closed. This can be useful for poll preview.</param>
+    /// <param name="description">Description of the poll to be sent, 0-1024 characters after entities parsing</param>
+    /// <param name="descriptionParseMode">Mode for parsing entities in the poll description. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
+    /// <param name="descriptionEntities">A JSON-serialized list of special entities that appear in the poll description, which can be specified instead of <em>description_parse_mode</em></param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
     /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
@@ -266,7 +322,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendPollAsync(this ITelegramBotClient client, string chatId, string question, IEnumerable<InputPollOption> options, string? businessConnectionId = null, int? messageThreadId = null, string? questionParseMode = null, IEnumerable<MessageEntity>? questionEntities = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, int? correctOptionId = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendPollAsync(this ITelegramBotClient client, string chatId, string question, IEnumerable<InputPollOption> options, string? businessConnectionId = null, int? messageThreadId = null, string? questionParseMode = null, IEnumerable<MessageEntity>? questionEntities = null, bool? isAnonymous = null, string? type = null, bool? allowsMultipleAnswers = null, bool? allowsRevoting = null, bool? shuffleOptions = null, bool? allowAddingOptions = null, bool? hideResultsUntilCloses = null, IEnumerable<int>? correctOptionIds = null, string? explanation = null, string? explanationParseMode = null, IEnumerable<MessageEntity>? explanationEntities = null, int? openPeriod = null, int? closeDate = null, bool? isClosed = null, string? description = null, string? descriptionParseMode = null, IEnumerable<MessageEntity>? descriptionEntities = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -307,9 +363,25 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.AllowsMultipleAnswers, allowsMultipleAnswers);
         }
-        if (correctOptionId is not null)
+        if (allowsRevoting is not null)
         {
-            args.Add(PropertyNames.CorrectOptionId, correctOptionId);
+            args.Add(PropertyNames.AllowsRevoting, allowsRevoting);
+        }
+        if (shuffleOptions is not null)
+        {
+            args.Add(PropertyNames.ShuffleOptions, shuffleOptions);
+        }
+        if (allowAddingOptions is not null)
+        {
+            args.Add(PropertyNames.AllowAddingOptions, allowAddingOptions);
+        }
+        if (hideResultsUntilCloses is not null)
+        {
+            args.Add(PropertyNames.HideResultsUntilCloses, hideResultsUntilCloses);
+        }
+        if (correctOptionIds is not null)
+        {
+            args.Add(PropertyNames.CorrectOptionIds, correctOptionIds);
         }
         if (explanation is not null)
         {
@@ -334,6 +406,18 @@ public static partial class AvailableMethodsExtensions
         if (isClosed is not null)
         {
             args.Add(PropertyNames.IsClosed, isClosed);
+        }
+        if (description is not null)
+        {
+            args.Add(PropertyNames.Description, description);
+        }
+        if (descriptionParseMode is not null)
+        {
+            args.Add(PropertyNames.DescriptionParseMode, descriptionParseMode);
+        }
+        if (descriptionEntities is not null)
+        {
+            args.Add(PropertyNames.DescriptionEntities, descriptionEntities);
         }
         if (disableNotification is not null)
         {

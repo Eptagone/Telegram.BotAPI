@@ -2,12 +2,15 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-namespace Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.AvailableTypes;
+
+namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
 /// Extension methods for the Telegram Bot API.
 /// </summary>
-public static partial class InlineModeExtensions
+public static partial class AvailableMethodsExtensions
 {
     /// <summary>
     /// Use this method to set the result of an interaction with a <a href="https://core.telegram.org/bots/webapps">Web App</a> and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a <see cref="SentWebAppMessage"/> object is returned.

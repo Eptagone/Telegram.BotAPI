@@ -2,7 +2,7 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-namespace Telegram.BotAPI.InlineMode;
+namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
 /// Describes an inline message sent by a <a href="https://core.telegram.org/bots/webapps">Web App</a> on behalf of a user.

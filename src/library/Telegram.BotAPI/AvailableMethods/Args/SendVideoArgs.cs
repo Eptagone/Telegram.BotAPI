@@ -15,7 +15,7 @@ public class SendVideoArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVideoArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a></param>
     public SendVideoArgs(long chatId, InputFile video)
     {
         this.ChatId = chatId;
@@ -26,7 +26,7 @@ public class SendVideoArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVideoArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a></param>
     public SendVideoArgs(long chatId, string video)
     {
         this.ChatId = chatId;
@@ -37,7 +37,7 @@ public class SendVideoArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVideoArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a></param>
     public SendVideoArgs(string chatId, InputFile video)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -48,7 +48,7 @@ public class SendVideoArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVideoArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a></param>
     public SendVideoArgs(string chatId, string video)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -80,7 +80,7 @@ public class SendVideoArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
+    /// Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Video)]
     public object Video { get; set; }
@@ -104,13 +104,13 @@ public class SendVideoArgs : AttachedFilesArgsBase
     public int? Height { get; set; }
 
     /// <summary>
-    /// Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
+    /// Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Thumbnail)]
     public object? Thumbnail { get; set; }
 
     /// <summary>
-    /// Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
+    /// Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Cover)]
     public object? Cover { get; set; }

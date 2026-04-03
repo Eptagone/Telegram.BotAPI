@@ -2,12 +2,15 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-namespace Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.AvailableTypes;
+
+namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
 /// Extension methods for the Telegram Bot API.
 /// </summary>
-public static partial class InlineModeExtensions
+public static partial class AvailableMethodsExtensions
 {
     /// <summary>
     /// Stores a message that can be sent by a user of a Mini App. Returns a <see cref="PreparedInlineMessage"/> object.

@@ -73,6 +73,7 @@ public static partial class MethodNames
     public const string GetFile = "getFile";
     public const string GetForumTopicIconStickers = "getForumTopicIconStickers";
     public const string GetGameHighScores = "getGameHighScores";
+    public const string GetManagedBotToken = "getManagedBotToken";
     public const string GetMe = "getMe";
     public const string GetMyCommands = "getMyCommands";
     public const string GetMyDefaultAdministratorRights = "getMyDefaultAdministratorRights";
@@ -103,11 +104,13 @@ public static partial class MethodNames
     public const string RemoveUserVerification = "removeUserVerification";
     public const string ReopenForumTopic = "reopenForumTopic";
     public const string ReopenGeneralForumTopic = "reopenGeneralForumTopic";
+    public const string ReplaceManagedBotToken = "replaceManagedBotToken";
     public const string ReplaceStickerInSet = "replaceStickerInSet";
     public const string RepostStory = "repostStory";
     public const string RestrictChatMember = "restrictChatMember";
     public const string RevokeChatInviteLink = "revokeChatInviteLink";
     public const string SavePreparedInlineMessage = "savePreparedInlineMessage";
+    public const string SavePreparedKeyboardButton = "savePreparedKeyboardButton";
     public const string SendAnimation = "sendAnimation";
     public const string SendAudio = "sendAudio";
     public const string SendChatAction = "sendChatAction";

@@ -15,7 +15,7 @@ public class SendVoiceArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVoiceArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a></param>
     public SendVoiceArgs(long chatId, InputFile voice)
     {
         this.ChatId = chatId;
@@ -26,7 +26,7 @@ public class SendVoiceArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVoiceArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a></param>
     public SendVoiceArgs(long chatId, string voice)
     {
         this.ChatId = chatId;
@@ -37,7 +37,7 @@ public class SendVoiceArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVoiceArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a></param>
     public SendVoiceArgs(string chatId, InputFile voice)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -48,7 +48,7 @@ public class SendVoiceArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVoiceArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a></param>
     public SendVoiceArgs(string chatId, string voice)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -80,7 +80,7 @@ public class SendVoiceArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
+    /// Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Voice)]
     public object Voice { get; set; }

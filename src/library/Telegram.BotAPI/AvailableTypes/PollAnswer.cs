@@ -32,4 +32,10 @@ public class PollAnswer
     /// </summary>
     [JsonPropertyName(PropertyNames.OptionIds)]
     public IEnumerable<int> OptionIds { get; set; } = null!;
+
+    /// <summary>
+    /// Persistent identifiers of the chosen answer options. May be empty if the vote was retracted.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.OptionPersistentIds)]
+    public IEnumerable<string> OptionPersistentIds { get; set; } = null!;
 }

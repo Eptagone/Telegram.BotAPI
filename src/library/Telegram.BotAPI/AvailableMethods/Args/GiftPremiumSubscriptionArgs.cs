@@ -49,13 +49,13 @@ public class GiftPremiumSubscriptionArgs
     public string? Text { get; set; }
 
     /// <summary>
-    /// Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom_emoji” are ignored.
+    /// Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, “custom_emoji”, and “date_time” are ignored.
     /// </summary>
     [JsonPropertyName(PropertyNames.TextParseMode)]
     public string? TextParseMode { get; set; }
 
     /// <summary>
-    /// A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of <em>text_parse_mode</em>. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom_emoji” are ignored.
+    /// A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of <em>text_parse_mode</em>. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, “custom_emoji”, and “date_time” are ignored.
     /// </summary>
     [JsonPropertyName(PropertyNames.TextEntities)]
     public IEnumerable<MessageEntity>? TextEntities { get; set; }

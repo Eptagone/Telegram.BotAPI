@@ -12,7 +12,7 @@ public class InputMediaPhoto : InputMedia
     /// <summary>
     /// Initializes a new instance of the <see cref="InputMediaPhoto"/> class.
     /// </summary>
-    /// <param name="media">File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="media">File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://&lt;file_attach_name&gt;” to upload a new one using multipart/form-data under &lt;file_attach_name&gt; name. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a></param>
     public InputMediaPhoto(string media)
     {
         this.Media = media ?? throw new ArgumentNullException(nameof(media));

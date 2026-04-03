@@ -15,7 +15,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendStickerArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
+    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
     public SendStickerArgs(long chatId, InputFile sticker)
     {
         this.ChatId = chatId;
@@ -26,7 +26,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendStickerArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
+    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
     public SendStickerArgs(long chatId, string sticker)
     {
         this.ChatId = chatId;
@@ -37,7 +37,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendStickerArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
+    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
     public SendStickerArgs(string chatId, InputFile sticker)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -48,7 +48,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendStickerArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
+    /// <param name="sticker">Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a>. Video and animated stickers can't be sent via an HTTP URL.</param>
     public SendStickerArgs(string chatId, string sticker)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -80,7 +80,7 @@ public class SendStickerArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Video and animated stickers can't be sent via an HTTP URL.
+    /// Sticker to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP, .TGS, or .WEBM sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files В»</a>. Video and animated stickers can't be sent via an HTTP URL.
     /// </summary>
     [JsonPropertyName(PropertyNames.Sticker)]
     public object Sticker { get; set; }

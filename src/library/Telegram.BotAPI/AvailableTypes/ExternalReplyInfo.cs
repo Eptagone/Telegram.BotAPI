@@ -122,7 +122,7 @@ public class ExternalReplyInfo
     public Dice? Dice { get; set; }
 
     /// <summary>
-    /// Optional. Message is a game, information about the game. <a href="https://core.telegram.org/bots/api#games">More about games »</a>
+    /// Optional. Message is a game, information about the game. <a href="https://core.telegram.org/bots/api#games">More about games В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Game)]
     public Game? Game { get; set; }
@@ -140,7 +140,7 @@ public class ExternalReplyInfo
     public GiveawayWinners? GiveawayWinners { get; set; }
 
     /// <summary>
-    /// Optional. Message is an invoice for a <a href="https://core.telegram.org/bots/api#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api#payments">More about payments »</a>
+    /// Optional. Message is an invoice for a <a href="https://core.telegram.org/bots/api#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api#payments">More about payments В»</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Invoice)]
     public Invoice? Invoice { get; set; }

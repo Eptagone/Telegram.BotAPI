@@ -22,7 +22,7 @@ public class InputChecklist
     public string? ParseMode { get; set; }
 
     /// <summary>
-    /// Optional. List of special entities that appear in the title, which can be specified instead of parse_mode. Currently, only <em>bold</em>, <em>italic</em>, <em>underline</em>, <em>strikethrough</em>, <em>spoiler</em>, and <em>custom_emoji</em> entities are allowed.
+    /// Optional. List of special entities that appear in the title, which can be specified instead of parse_mode. Currently, only <em>bold</em>, <em>italic</em>, <em>underline</em>, <em>strikethrough</em>, <em>spoiler</em>, <em>custom_emoji</em>, and <em>date_time</em> entities are allowed.
     /// </summary>
     [JsonPropertyName(PropertyNames.TitleEntities)]
     public IEnumerable<MessageEntity>? TitleEntities { get; set; }

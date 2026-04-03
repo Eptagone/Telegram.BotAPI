@@ -98,4 +98,10 @@ public class User
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowsUsersToCreateTopics)]
     public bool? AllowsUsersToCreateTopics { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if other bots can be created to be controlled by the bot. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanManageBots)]
+    public bool? CanManageBots { get; set; }
 }

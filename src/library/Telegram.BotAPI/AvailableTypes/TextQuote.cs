@@ -16,7 +16,7 @@ public class TextQuote
     public string Text { get; set; } = null!;
 
     /// <summary>
-    /// Optional. Special entities that appear in the quote. Currently, only <em>bold</em>, <em>italic</em>, <em>underline</em>, <em>strikethrough</em>, <em>spoiler</em>, and <em>custom_emoji</em> entities are kept in quotes.
+    /// Optional. Special entities that appear in the quote. Currently, only <em>bold</em>, <em>italic</em>, <em>underline</em>, <em>strikethrough</em>, <em>spoiler</em>, <em>custom_emoji</em>, and <em>date_time</em> entities are kept in quotes.
     /// </summary>
     [JsonPropertyName(PropertyNames.Entities)]
     public IEnumerable<MessageEntity>? Entities { get; set; }

@@ -92,16 +92,40 @@ public class SendPollArgs
     public string? Type { get; set; }
 
     /// <summary>
-    /// <em>True</em>, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to <em>False</em>
+    /// Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowsMultipleAnswers)]
     public bool? AllowsMultipleAnswers { get; set; }
 
     /// <summary>
-    /// 0-based identifier of the correct answer option, required for polls in quiz mode
+    /// Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls
     /// </summary>
-    [JsonPropertyName(PropertyNames.CorrectOptionId)]
-    public int? CorrectOptionId { get; set; }
+    [JsonPropertyName(PropertyNames.AllowsRevoting)]
+    public bool? AllowsRevoting { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em>, if the poll options must be shown in random order
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ShuffleOptions)]
+    public bool? ShuffleOptions { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes
+    /// </summary>
+    [JsonPropertyName(PropertyNames.AllowAddingOptions)]
+    public bool? AllowAddingOptions { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em>, if poll results must be shown only after the poll closes
+    /// </summary>
+    [JsonPropertyName(PropertyNames.HideResultsUntilCloses)]
+    public bool? HideResultsUntilCloses { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CorrectOptionIds)]
+    public IEnumerable<int>? CorrectOptionIds { get; set; }
 
     /// <summary>
     /// Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing
@@ -122,13 +146,13 @@ public class SendPollArgs
     public IEnumerable<MessageEntity>? ExplanationEntities { get; set; }
 
     /// <summary>
-    /// Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with <em>close_date</em>.
+    /// Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.OpenPeriod)]
     public int? OpenPeriod { get; set; }
 
     /// <summary>
-    /// Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with <em>open_period</em>.
+    /// Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 2628000 seconds in the future. Can't be used together with <em>open_period</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.CloseDate)]
     public int? CloseDate { get; set; }
@@ -138,6 +162,24 @@ public class SendPollArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.IsClosed)]
     public bool? IsClosed { get; set; }
+
+    /// <summary>
+    /// Description of the poll to be sent, 0-1024 characters after entities parsing
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Description)]
+    public string? Description { get; set; }
+
+    /// <summary>
+    /// Mode for parsing entities in the poll description. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DescriptionParseMode)]
+    public string? DescriptionParseMode { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized list of special entities that appear in the poll description, which can be specified instead of <em>description_parse_mode</em>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.DescriptionEntities)]
+    public IEnumerable<MessageEntity>? DescriptionEntities { get; set; }
 
     /// <summary>
     /// Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.

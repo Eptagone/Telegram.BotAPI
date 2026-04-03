@@ -50,8 +50,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="chatId">Required if <em>user_id</em> is not specified. Unique identifier for the chat or username of the channel (in the format <em>@channelusername</em>) that will receive the gift.</param>
     /// <param name="payForUpgrade">Pass <em>True</em> to pay for the gift upgrade from the bot's balance, thereby making the upgrade free for the receiver</param>
     /// <param name="text">Text that will be shown along with the gift; 0-128 characters</param>
-    /// <param name="textParseMode">Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom_emoji” are ignored.</param>
-    /// <param name="textEntities">A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of <em>text_parse_mode</em>. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom_emoji” are ignored.</param>
+    /// <param name="textParseMode">Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, “custom_emoji”, and “date_time” are ignored.</param>
+    /// <param name="textEntities">A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of <em>text_parse_mode</em>. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, “custom_emoji”, and “date_time” are ignored.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -67,8 +67,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="chatId">Required if <em>user_id</em> is not specified. Unique identifier for the chat or username of the channel (in the format <em>@channelusername</em>) that will receive the gift.</param>
     /// <param name="payForUpgrade">Pass <em>True</em> to pay for the gift upgrade from the bot's balance, thereby making the upgrade free for the receiver</param>
     /// <param name="text">Text that will be shown along with the gift; 0-128 characters</param>
-    /// <param name="textParseMode">Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom_emoji” are ignored.</param>
-    /// <param name="textEntities">A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of <em>text_parse_mode</em>. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom_emoji” are ignored.</param>
+    /// <param name="textParseMode">Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, “custom_emoji”, and “date_time” are ignored.</param>
+    /// <param name="textEntities">A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of <em>text_parse_mode</em>. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, “custom_emoji”, and “date_time” are ignored.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

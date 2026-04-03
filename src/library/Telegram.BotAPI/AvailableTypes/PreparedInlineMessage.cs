@@ -2,7 +2,7 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-namespace Telegram.BotAPI.InlineMode;
+namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
 /// Describes an inline message to be sent by a user of a Mini App.
