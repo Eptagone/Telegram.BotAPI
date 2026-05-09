@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -26,6 +26,12 @@ public class PollOption
     /// </summary>
     [JsonPropertyName(PropertyNames.TextEntities)]
     public IEnumerable<MessageEntity>? TextEntities { get; set; }
+
+    /// <summary>
+    /// Optional. Media added to the poll option
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Media)]
+    public PollMedia? Media { get; set; }
 
     /// <summary>
     /// Number of users who voted for this option; may be 0 if unknown

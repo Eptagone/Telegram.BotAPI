@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -14,7 +14,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaAudio> media)
     {
@@ -25,7 +25,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaDocument> media)
     {
@@ -36,7 +36,18 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaLivePhoto> media)
+    {
+        this.ChatId = chatId;
+        this.Media = media ?? throw new ArgumentNullException(nameof(media));
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
+    /// </summary>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaPhoto> media)
     {
@@ -47,7 +58,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaVideo> media)
     {
@@ -58,7 +69,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaAudio> media)
     {
@@ -69,7 +80,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaDocument> media)
     {
@@ -80,7 +91,18 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaLivePhoto> media)
+    {
+        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
+        this.Media = media ?? throw new ArgumentNullException(nameof(media));
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
+    /// </summary>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaPhoto> media)
     {
@@ -91,7 +113,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaVideo> media)
     {
@@ -106,7 +128,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
+    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }
@@ -142,7 +164,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     public bool? ProtectContent { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance
+    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowPaidBroadcast)]
     public bool? AllowPaidBroadcast { get; set; }

@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -20,8 +20,17 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool TransferGift(this ITelegramBotClient client, string businessConnectionId, string ownedGiftId, long newOwnerChatId, int? starCount = null) =>
-        client.TransferGiftAsync(businessConnectionId, ownedGiftId, newOwnerChatId, starCount).GetAwaiter().GetResult();
+    public static bool TransferGift(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        string ownedGiftId,
+        long newOwnerChatId,
+        int? starCount = null
+    ) =>
+        client
+            .TransferGiftAsync(businessConnectionId, ownedGiftId, newOwnerChatId, starCount)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Transfers an owned unique gift to another user. Requires the <em>can_transfer_and_upgrade_gifts</em> business bot right. Requires <em>can_transfer_stars</em> business bot right if the transfer is paid. Returns <em>True</em> on success.
@@ -35,7 +44,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> TransferGiftAsync(this ITelegramBotClient client, string businessConnectionId, string ownedGiftId, long newOwnerChatId, int? starCount = null, CancellationToken cancellationToken = default)
+    public static Task<bool> TransferGiftAsync(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        string ownedGiftId,
+        long newOwnerChatId,
+        int? starCount = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -44,9 +60,16 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
-            { PropertyNames.OwnedGiftId, ownedGiftId ?? throw new ArgumentNullException(nameof(ownedGiftId)) },
-            { PropertyNames.NewOwnerChatId, newOwnerChatId }
+            {
+                PropertyNames.BusinessConnectionId,
+                businessConnectionId
+                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
+            },
+            {
+                PropertyNames.OwnedGiftId,
+                ownedGiftId ?? throw new ArgumentNullException(nameof(ownedGiftId))
+            },
+            { PropertyNames.NewOwnerChatId, newOwnerChatId },
         };
         if (starCount is not null)
         {

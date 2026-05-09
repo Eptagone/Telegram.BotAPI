@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -14,7 +14,7 @@ public class SendDiceArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendDiceArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     public SendDiceArgs(long chatId)
     {
         this.ChatId = chatId;
@@ -23,7 +23,7 @@ public class SendDiceArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendDiceArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     public SendDiceArgs(string chatId)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -36,7 +36,7 @@ public class SendDiceArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
+    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }
@@ -54,7 +54,7 @@ public class SendDiceArgs
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// Emoji on which the dice throw animation is based. Currently, must be one of “рџЋІ”, “рџЋЇ”, “рџЏЂ”, “вљЅ”, “рџЋі”, or “рџЋ°”. Dice can have values 1-6 for “рџЋІ”, “рџЋЇ” and “рџЋі”, values 1-5 for “рџЏЂ” and “вљЅ”, and values 1-64 for “рџЋ°”. Defaults to “рџЋІ”
+    /// Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”
     /// </summary>
     [JsonPropertyName(PropertyNames.Emoji)]
     public string? Emoji { get; set; }
@@ -72,7 +72,7 @@ public class SendDiceArgs
     public bool? ProtectContent { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance
+    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowPaidBroadcast)]
     public bool? AllowPaidBroadcast { get; set; }

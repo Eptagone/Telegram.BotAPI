@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -18,8 +18,11 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerSetTitle(this ITelegramBotClient client, string name, string title) =>
-        client.SetStickerSetTitleAsync(name, title).GetAwaiter().GetResult();
+    public static bool SetStickerSetTitle(
+        this ITelegramBotClient client,
+        string name,
+        string title
+    ) => client.SetStickerSetTitleAsync(name, title).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the title of a created sticker set. Returns <em>True</em> on success.
@@ -31,7 +34,12 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetStickerSetTitleAsync(this ITelegramBotClient client, string name, string title, CancellationToken cancellationToken = default)
+    public static Task<bool> SetStickerSetTitleAsync(
+        this ITelegramBotClient client,
+        string name,
+        string title,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -41,9 +49,13 @@ public static partial class StickersExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.Name, name ?? throw new ArgumentNullException(nameof(name)) },
-            { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) }
+            { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) },
         };
 
-        return client.CallMethodAsync<bool>(MethodNames.SetStickerSetTitle, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetStickerSetTitle,
+            args,
+            cancellationToken
+        );
     }
 }

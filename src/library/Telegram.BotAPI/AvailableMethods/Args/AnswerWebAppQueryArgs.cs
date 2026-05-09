@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -18,7 +18,8 @@ public class AnswerWebAppQueryArgs
     /// <param name="result">A JSON-serialized object describing the message to be sent</param>
     public AnswerWebAppQueryArgs(string webAppQueryId, InlineQueryResult result)
     {
-        this.WebAppQueryId = webAppQueryId ?? throw new ArgumentNullException(nameof(webAppQueryId));
+        this.WebAppQueryId =
+            webAppQueryId ?? throw new ArgumentNullException(nameof(webAppQueryId));
         this.Result = result ?? throw new ArgumentNullException(nameof(result));
     }
 

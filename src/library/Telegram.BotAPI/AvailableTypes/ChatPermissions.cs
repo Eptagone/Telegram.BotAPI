@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -70,7 +70,13 @@ public class ChatPermissions
     public bool? CanAddWebPagePreviews { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the user is allowed to edit their own tag
+    /// Optional. <em>True</em>, if the user is allowed to react to messages. If omitted, defaults to the value of <em>can_send_messages</em>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanReactToMessages)]
+    public bool? CanReactToMessages { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the user is allowed to edit their own tag. If omitted, defaults to the value of <em>can_pin_messages</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanEditTag)]
     public bool? CanEditTag { get; set; }

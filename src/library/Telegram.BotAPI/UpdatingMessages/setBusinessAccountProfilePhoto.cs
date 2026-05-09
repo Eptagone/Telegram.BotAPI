@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -19,8 +19,10 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetBusinessAccountProfilePhoto(this ITelegramBotClient client, SetBusinessAccountProfilePhotoArgs args) =>
-        client.SetBusinessAccountProfilePhotoAsync(args).GetAwaiter().GetResult();
+    public static bool SetBusinessAccountProfilePhoto(
+        this ITelegramBotClient client,
+        SetBusinessAccountProfilePhotoArgs args
+    ) => client.SetBusinessAccountProfilePhotoAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Changes the profile photo of a managed business account. Requires the <em>can_edit_profile_photo</em> business bot right. Returns <em>True</em> on success.
@@ -31,14 +33,22 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetBusinessAccountProfilePhotoAsync(this ITelegramBotClient client, SetBusinessAccountProfilePhotoArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> SetBusinessAccountProfilePhotoAsync(
+        this ITelegramBotClient client,
+        SetBusinessAccountProfilePhotoArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.SetBusinessAccountProfilePhoto, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetBusinessAccountProfilePhoto,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -51,8 +61,16 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetBusinessAccountProfilePhoto(this ITelegramBotClient client, string businessConnectionId, InputProfilePhoto photo, bool? isPublic = null) =>
-        client.SetBusinessAccountProfilePhotoAsync(businessConnectionId, photo, isPublic).GetAwaiter().GetResult();
+    public static bool SetBusinessAccountProfilePhoto(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        InputProfilePhoto photo,
+        bool? isPublic = null
+    ) =>
+        client
+            .SetBusinessAccountProfilePhotoAsync(businessConnectionId, photo, isPublic)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Changes the profile photo of a managed business account. Requires the <em>can_edit_profile_photo</em> business bot right. Returns <em>True</em> on success.
@@ -65,7 +83,13 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetBusinessAccountProfilePhotoAsync(this ITelegramBotClient client, string businessConnectionId, InputProfilePhoto photo, bool? isPublic = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SetBusinessAccountProfilePhotoAsync(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        InputProfilePhoto photo,
+        bool? isPublic = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -74,14 +98,22 @@ public static partial class UpdatingMessagesExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
+            {
+                PropertyNames.BusinessConnectionId,
+                businessConnectionId
+                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
+            },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
         };
         if (isPublic is not null)
         {
             args.Add(PropertyNames.IsPublic, isPublic);
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.SetBusinessAccountProfilePhoto, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetBusinessAccountProfilePhoto,
+            args,
+            cancellationToken
+        );
     }
 }

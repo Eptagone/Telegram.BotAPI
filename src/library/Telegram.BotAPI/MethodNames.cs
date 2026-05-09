@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -12,6 +12,7 @@ public static partial class MethodNames
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public const string AddStickerToSet = "addStickerToSet";
     public const string AnswerCallbackQuery = "answerCallbackQuery";
+    public const string AnswerGuestQuery = "answerGuestQuery";
     public const string AnswerInlineQuery = "answerInlineQuery";
     public const string AnswerPreCheckoutQuery = "answerPreCheckoutQuery";
     public const string AnswerShippingQuery = "answerShippingQuery";
@@ -33,11 +34,13 @@ public static partial class MethodNames
     public const string CreateNewStickerSet = "createNewStickerSet";
     public const string DeclineChatJoinRequest = "declineChatJoinRequest";
     public const string DeclineSuggestedPost = "declineSuggestedPost";
+    public const string DeleteAllMessageReactions = "deleteAllMessageReactions";
     public const string DeleteBusinessMessages = "deleteBusinessMessages";
     public const string DeleteChatPhoto = "deleteChatPhoto";
     public const string DeleteChatStickerSet = "deleteChatStickerSet";
     public const string DeleteForumTopic = "deleteForumTopic";
     public const string DeleteMessage = "deleteMessage";
+    public const string DeleteMessageReaction = "deleteMessageReaction";
     public const string DeleteMessages = "deleteMessages";
     public const string DeleteMyCommands = "deleteMyCommands";
     public const string DeleteStickerFromSet = "deleteStickerFromSet";
@@ -73,6 +76,7 @@ public static partial class MethodNames
     public const string GetFile = "getFile";
     public const string GetForumTopicIconStickers = "getForumTopicIconStickers";
     public const string GetGameHighScores = "getGameHighScores";
+    public const string GetManagedBotAccessSettings = "getManagedBotAccessSettings";
     public const string GetManagedBotToken = "getManagedBotToken";
     public const string GetMe = "getMe";
     public const string GetMyCommands = "getMyCommands";
@@ -86,6 +90,7 @@ public static partial class MethodNames
     public const string GetUpdates = "getUpdates";
     public const string GetUserChatBoosts = "getUserChatBoosts";
     public const string GetUserGifts = "getUserGifts";
+    public const string GetUserPersonalChatMessages = "getUserPersonalChatMessages";
     public const string GetUserProfileAudios = "getUserProfileAudios";
     public const string GetUserProfilePhotos = "getUserProfilePhotos";
     public const string GetWebhookInfo = "getWebhookInfo";
@@ -121,6 +126,7 @@ public static partial class MethodNames
     public const string SendGame = "sendGame";
     public const string SendGift = "sendGift";
     public const string SendInvoice = "sendInvoice";
+    public const string SendLivePhoto = "sendLivePhoto";
     public const string SendLocation = "sendLocation";
     public const string SendMediaGroup = "sendMediaGroup";
     public const string SendMessage = "sendMessage";
@@ -148,6 +154,7 @@ public static partial class MethodNames
     public const string SetChatTitle = "setChatTitle";
     public const string SetCustomEmojiStickerSetThumbnail = "setCustomEmojiStickerSetThumbnail";
     public const string SetGameScore = "setGameScore";
+    public const string SetManagedBotAccessSettings = "setManagedBotAccessSettings";
     public const string SetMessageReaction = "setMessageReaction";
     public const string SetMyCommands = "setMyCommands";
     public const string SetMyDefaultAdministratorRights = "setMyDefaultAdministratorRights";

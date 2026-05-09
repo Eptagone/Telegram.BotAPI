@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -70,6 +70,18 @@ public class Poll
     public bool AllowsRevoting { get; set; }
 
     /// <summary>
+    /// <em>True</em> if voting is limited to users who have been members of the chat where the poll was originally sent for more than 24 hours
+    /// </summary>
+    [JsonPropertyName(PropertyNames.MembersOnly)]
+    public bool MembersOnly { get; set; }
+
+    /// <summary>
+    /// Optional. A list of two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll. If omitted, then users from any country can participate in the poll.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CountryCodes)]
+    public IEnumerable<string>? CountryCodes { get; set; }
+
+    /// <summary>
     /// Optional. Array of 0-based identifiers of the correct answer options. Available only for polls in quiz mode which are closed or were sent (not forwarded) by the bot or to the private chat with the bot.
     /// </summary>
     [JsonPropertyName(PropertyNames.CorrectOptionIds)]
@@ -86,6 +98,12 @@ public class Poll
     /// </summary>
     [JsonPropertyName(PropertyNames.ExplanationEntities)]
     public IEnumerable<MessageEntity>? ExplanationEntities { get; set; }
+
+    /// <summary>
+    /// Optional. Media added to the quiz explanation
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ExplanationMedia)]
+    public PollMedia? ExplanationMedia { get; set; }
 
     /// <summary>
     /// Optional. Amount of time in seconds the poll will be active after creation
@@ -110,4 +128,10 @@ public class Poll
     /// </summary>
     [JsonPropertyName(PropertyNames.DescriptionEntities)]
     public IEnumerable<MessageEntity>? DescriptionEntities { get; set; }
+
+    /// <summary>
+    /// Optional. Media added to the poll description; for polls inside the <see cref="Message"/> object only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Media)]
+    public PollMedia? Media { get; set; }
 }

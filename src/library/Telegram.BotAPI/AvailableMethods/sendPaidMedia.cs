@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -31,7 +31,11 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendPaidMediaAsync(this ITelegramBotClient client, SendPaidMediaArgs args, CancellationToken cancellationToken = default)
+    public static Task<Message> SendPaidMediaAsync(
+        this ITelegramBotClient client,
+        SendPaidMediaArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -45,7 +49,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>. If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-25000</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
@@ -58,21 +62,61 @@ public static partial class AvailableMethodsExtensions
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
-    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendPaidMedia(this ITelegramBotClient client, long chatId, int starCount, IEnumerable<InputPaidMedia> media, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? payload = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendPaidMediaAsync(chatId, starCount, media, businessConnectionId, messageThreadId, directMessagesTopicId, payload, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, allowPaidBroadcast, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendPaidMedia(
+        this ITelegramBotClient client,
+        long chatId,
+        int starCount,
+        IEnumerable<InputPaidMedia> media,
+        string? businessConnectionId = null,
+        int? messageThreadId = null,
+        int? directMessagesTopicId = null,
+        string? payload = null,
+        string? caption = null,
+        string? parseMode = null,
+        IEnumerable<MessageEntity>? captionEntities = null,
+        bool? showCaptionAboveMedia = null,
+        bool? disableNotification = null,
+        bool? protectContent = null,
+        bool? allowPaidBroadcast = null,
+        SuggestedPostParameters? suggestedPostParameters = null,
+        ReplyParameters? replyParameters = null,
+        ReplyMarkup? replyMarkup = null
+    ) =>
+        client
+            .SendPaidMediaAsync(
+                chatId,
+                starCount,
+                media,
+                businessConnectionId,
+                messageThreadId,
+                directMessagesTopicId,
+                payload,
+                caption,
+                parseMode,
+                captionEntities,
+                showCaptionAboveMedia,
+                disableNotification,
+                protectContent,
+                allowPaidBroadcast,
+                suggestedPostParameters,
+                replyParameters,
+                replyMarkup
+            )
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>. If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-25000</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
@@ -85,7 +129,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
-    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
@@ -93,7 +137,27 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendPaidMediaAsync(this ITelegramBotClient client, long chatId, int starCount, IEnumerable<InputPaidMedia> media, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? payload = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendPaidMediaAsync(
+        this ITelegramBotClient client,
+        long chatId,
+        int starCount,
+        IEnumerable<InputPaidMedia> media,
+        string? businessConnectionId = null,
+        int? messageThreadId = null,
+        int? directMessagesTopicId = null,
+        string? payload = null,
+        string? caption = null,
+        string? parseMode = null,
+        IEnumerable<MessageEntity>? captionEntities = null,
+        bool? showCaptionAboveMedia = null,
+        bool? disableNotification = null,
+        bool? protectContent = null,
+        bool? allowPaidBroadcast = null,
+        SuggestedPostParameters? suggestedPostParameters = null,
+        ReplyParameters? replyParameters = null,
+        ReplyMarkup? replyMarkup = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -104,7 +168,7 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId },
             { PropertyNames.StarCount, starCount },
-            { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) }
+            { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) },
         };
         if (businessConnectionId is not null)
         {
@@ -170,7 +234,7 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>. If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-25000</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
@@ -183,21 +247,61 @@ public static partial class AvailableMethodsExtensions
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
-    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendPaidMedia(this ITelegramBotClient client, string chatId, int starCount, IEnumerable<InputPaidMedia> media, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? payload = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendPaidMediaAsync(chatId, starCount, media, businessConnectionId, messageThreadId, directMessagesTopicId, payload, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, allowPaidBroadcast, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendPaidMedia(
+        this ITelegramBotClient client,
+        string chatId,
+        int starCount,
+        IEnumerable<InputPaidMedia> media,
+        string? businessConnectionId = null,
+        int? messageThreadId = null,
+        int? directMessagesTopicId = null,
+        string? payload = null,
+        string? caption = null,
+        string? parseMode = null,
+        IEnumerable<MessageEntity>? captionEntities = null,
+        bool? showCaptionAboveMedia = null,
+        bool? disableNotification = null,
+        bool? protectContent = null,
+        bool? allowPaidBroadcast = null,
+        SuggestedPostParameters? suggestedPostParameters = null,
+        ReplyParameters? replyParameters = null,
+        ReplyMarkup? replyMarkup = null
+    ) =>
+        client
+            .SendPaidMediaAsync(
+                chatId,
+                starCount,
+                media,
+                businessConnectionId,
+                messageThreadId,
+                directMessagesTopicId,
+                payload,
+                caption,
+                parseMode,
+                captionEntities,
+                showCaptionAboveMedia,
+                disableNotification,
+                protectContent,
+                allowPaidBroadcast,
+                suggestedPostParameters,
+                replyParameters,
+                replyMarkup
+            )
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Use this method to send paid media. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>. If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-25000</param>
     /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
@@ -210,7 +314,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
     /// <param name="protectContent">Protects the contents of the sent message from forwarding and saving</param>
-    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance</param>
+    /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
     /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
@@ -218,7 +322,27 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendPaidMediaAsync(this ITelegramBotClient client, string chatId, int starCount, IEnumerable<InputPaidMedia> media, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? payload = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendPaidMediaAsync(
+        this ITelegramBotClient client,
+        string chatId,
+        int starCount,
+        IEnumerable<InputPaidMedia> media,
+        string? businessConnectionId = null,
+        int? messageThreadId = null,
+        int? directMessagesTopicId = null,
+        string? payload = null,
+        string? caption = null,
+        string? parseMode = null,
+        IEnumerable<MessageEntity>? captionEntities = null,
+        bool? showCaptionAboveMedia = null,
+        bool? disableNotification = null,
+        bool? protectContent = null,
+        bool? allowPaidBroadcast = null,
+        SuggestedPostParameters? suggestedPostParameters = null,
+        ReplyParameters? replyParameters = null,
+        ReplyMarkup? replyMarkup = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -229,7 +353,7 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
             { PropertyNames.StarCount, starCount },
-            { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) }
+            { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) },
         };
         if (businessConnectionId is not null)
         {

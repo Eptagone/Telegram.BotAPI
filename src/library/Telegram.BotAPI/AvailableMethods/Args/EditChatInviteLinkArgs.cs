@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -12,7 +12,7 @@ public class EditChatInviteLinkArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="EditChatInviteLinkArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel in the format <em>@username</em></param>
     /// <param name="inviteLink">The invite link to edit</param>
     public EditChatInviteLinkArgs(long chatId, string inviteLink)
     {
@@ -23,7 +23,7 @@ public class EditChatInviteLinkArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="EditChatInviteLinkArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel in the format <em>@username</em></param>
     /// <param name="inviteLink">The invite link to edit</param>
     public EditChatInviteLinkArgs(string chatId, string inviteLink)
     {
@@ -32,7 +32,7 @@ public class EditChatInviteLinkArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
+    /// Unique identifier for the target chat or username of the target channel in the format <em>@username</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

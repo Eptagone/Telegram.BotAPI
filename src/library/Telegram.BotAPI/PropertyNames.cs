@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -16,10 +16,13 @@ public static partial class PropertyNames
     public const string ActivePeriod = "active_period";
     public const string ActiveUsernames = "active_usernames";
     public const string ActorChat = "actor_chat";
+    public const string ActorChatId = "actor_chat_id";
     public const string AddDate = "add_date";
     public const string AddedByChat = "added_by_chat";
     public const string AddedByUser = "added_by_user";
     public const string AddedToAttachmentMenu = "added_to_attachment_menu";
+    public const string AddedUserIds = "added_user_ids";
+    public const string AddedUsers = "added_users";
     public const string AdditionDate = "addition_date";
     public const string AdditionalChatCount = "additional_chat_count";
     public const string Address = "address";
@@ -112,6 +115,7 @@ public static partial class PropertyNames
     public const string CanPostMessages = "can_post_messages";
     public const string CanPostStories = "can_post_stories";
     public const string CanPromoteMembers = "can_promote_members";
+    public const string CanReactToMessages = "can_react_to_messages";
     public const string CanReadAllGroupMessages = "can_read_all_group_messages";
     public const string CanReadMessages = "can_read_messages";
     public const string CanReply = "can_reply";
@@ -247,6 +251,7 @@ public static partial class PropertyNames
     public const string ExpireDate = "expire_date";
     public const string Explanation = "explanation";
     public const string ExplanationEntities = "explanation_entities";
+    public const string ExplanationMedia = "explanation_media";
     public const string ExplanationParseMode = "explanation_parse_mode";
     public const string ExternalReply = "external_reply";
     public const string FieldName = "field_name";
@@ -303,6 +308,10 @@ public static partial class PropertyNames
     public const string GooglePlaceId = "google_place_id";
     public const string GooglePlaceType = "google_place_type";
     public const string GroupChatCreated = "group_chat_created";
+    public const string GuestBotCallerChat = "guest_bot_caller_chat";
+    public const string GuestBotCallerUser = "guest_bot_caller_user";
+    public const string GuestMessage = "guest_message";
+    public const string GuestQueryId = "guest_query_id";
     public const string HasAggressiveAntiSpamEnabled = "has_aggressive_anti_spam_enabled";
     public const string HasColors = "has_colors";
     public const string HasCustomCertificate = "has_custom_certificate";
@@ -337,6 +346,7 @@ public static partial class PropertyNames
     public const string Invoice = "invoice";
     public const string InvoicePayload = "invoice_payload";
     public const string IpAddress = "ip_address";
+    public const string IsAccessRestricted = "is_access_restricted";
     public const string IsAnimated = "is_animated";
     public const string IsAnimation = "is_animation";
     public const string IsAnonymous = "is_anonymous";
@@ -402,6 +412,7 @@ public static partial class PropertyNames
     public const string LinkPreviewOptions = "link_preview_options";
     public const string LinkedChatId = "linked_chat_id";
     public const string LivePeriod = "live_period";
+    public const string LivePhoto = "live_photo";
     public const string Location = "location";
     public const string LoginUrl = "login_url";
     public const string Longitude = "longitude";
@@ -418,6 +429,7 @@ public static partial class PropertyNames
     public const string Media = "media";
     public const string MediaGroupId = "media_group_id";
     public const string MemberLimit = "member_limit";
+    public const string MembersOnly = "members_only";
     public const string MenuButton = "menu_button";
     public const string Message = "message";
     public const string MessageAutoDeleteTime = "message_auto_delete_time";
@@ -591,6 +603,7 @@ public static partial class PropertyNames
     public const string ResultId = "result_id";
     public const string Results = "results";
     public const string RetryAfter = "retry_after";
+    public const string ReturnBots = "return_bots";
     public const string ReverseSide = "reverse_side";
     public const string RevokeMessages = "revoke_messages";
     public const string Rights = "rights";
@@ -665,6 +678,7 @@ public static partial class PropertyNames
     public const string SuggestedTipAmounts = "suggested_tip_amounts";
     public const string SuggestedUsername = "suggested_username";
     public const string SupergroupChatCreated = "supergroup_chat_created";
+    public const string SupportsGuestQueries = "supports_guest_queries";
     public const string SupportsInlineQueries = "supports_inline_queries";
     public const string SupportsStreaming = "supports_streaming";
     public const string SwitchInlineQuery = "switch_inline_query";

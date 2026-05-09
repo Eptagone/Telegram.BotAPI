@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -17,8 +17,10 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Update> GetUpdates(this ITelegramBotClient client, GetUpdatesArgs args) =>
-        client.GetUpdatesAsync(args).GetAwaiter().GetResult();
+    public static IEnumerable<Update> GetUpdates(
+        this ITelegramBotClient client,
+        GetUpdatesArgs args
+    ) => client.GetUpdatesAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to receive incoming updates using long polling (<a href="https://en.wikipedia.org/wiki/Push_technology#Long_polling">wiki</a>). Returns an Array of <see cref="Update"/> objects.
@@ -29,14 +31,22 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<Update>> GetUpdatesAsync(this ITelegramBotClient client, GetUpdatesArgs args, CancellationToken cancellationToken = default)
+    public static Task<IEnumerable<Update>> GetUpdatesAsync(
+        this ITelegramBotClient client,
+        GetUpdatesArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<IEnumerable<Update>>(MethodNames.GetUpdates, args, cancellationToken);
+        return client.CallMethodAsync<IEnumerable<Update>>(
+            MethodNames.GetUpdates,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -50,8 +60,13 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Update> GetUpdates(this ITelegramBotClient client, int? offset = null, int? limit = null, int? timeout = null, IEnumerable<string>? allowedUpdates = null) =>
-        client.GetUpdatesAsync(offset, limit, timeout, allowedUpdates).GetAwaiter().GetResult();
+    public static IEnumerable<Update> GetUpdates(
+        this ITelegramBotClient client,
+        int? offset = null,
+        int? limit = null,
+        int? timeout = null,
+        IEnumerable<string>? allowedUpdates = null
+    ) => client.GetUpdatesAsync(offset, limit, timeout, allowedUpdates).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to receive incoming updates using long polling (<a href="https://en.wikipedia.org/wiki/Push_technology#Long_polling">wiki</a>). Returns an Array of <see cref="Update"/> objects.
@@ -65,16 +80,21 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<Update>> GetUpdatesAsync(this ITelegramBotClient client, int? offset = null, int? limit = null, int? timeout = null, IEnumerable<string>? allowedUpdates = null, CancellationToken cancellationToken = default)
+    public static Task<IEnumerable<Update>> GetUpdatesAsync(
+        this ITelegramBotClient client,
+        int? offset = null,
+        int? limit = null,
+        int? timeout = null,
+        IEnumerable<string>? allowedUpdates = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>()
-        {
-        };
+        var args = new Dictionary<string, object>() { };
         if (offset is not null)
         {
             args.Add(PropertyNames.Offset, offset);
@@ -92,6 +112,10 @@ public static partial class GettingUpdatesExtensions
             args.Add(PropertyNames.AllowedUpdates, allowedUpdates);
         }
 
-        return client.CallMethodAsync<IEnumerable<Update>>(MethodNames.GetUpdates, args, cancellationToken);
+        return client.CallMethodAsync<IEnumerable<Update>>(
+            MethodNames.GetUpdates,
+            args,
+            cancellationToken
+        );
     }
 }

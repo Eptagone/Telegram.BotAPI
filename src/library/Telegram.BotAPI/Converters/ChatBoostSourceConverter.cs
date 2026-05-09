@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2025 Quetzal Rivera.
+﻿// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System.Text.Json;
@@ -46,14 +46,8 @@ public sealed class ChatBoostSourceConverter : JsonConverter<ChatBoostSource>
                     rawText,
                     options
                 ),
-                "giveaway" => JsonSerializer.Deserialize<ChatBoostSourceGiveaway>(
-                    rawText,
-                    options
-                ),
-                "premium" => JsonSerializer.Deserialize<ChatBoostSourcePremium>(
-                    rawText,
-                    options
-                ),
+                "giveaway" => JsonSerializer.Deserialize<ChatBoostSourceGiveaway>(rawText, options),
+                "premium" => JsonSerializer.Deserialize<ChatBoostSourcePremium>(rawText, options),
                 _ => throw new JsonException("Json object is not a valid ChatBoostSource."),
             };
         }

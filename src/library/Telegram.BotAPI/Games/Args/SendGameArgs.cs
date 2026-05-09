@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -14,12 +14,25 @@ public class SendGameArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendGameArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat. Games can't be sent to channel direct messages chats and channel chats.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot in the format <em>@username</em>. Games can't be sent to channel direct messages chats and channel chats.</param>
     /// <param name="gameShortName">Short name of the game, serves as the unique identifier for the game. Set up your games via <a href="https://t.me/botfather">@BotFather</a>.</param>
     public SendGameArgs(long chatId, string gameShortName)
     {
         this.ChatId = chatId;
-        this.GameShortName = gameShortName ?? throw new ArgumentNullException(nameof(gameShortName));
+        this.GameShortName =
+            gameShortName ?? throw new ArgumentNullException(nameof(gameShortName));
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SendGameArgs"/> class.
+    /// </summary>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot in the format <em>@username</em>. Games can't be sent to channel direct messages chats and channel chats.</param>
+    /// <param name="gameShortName">Short name of the game, serves as the unique identifier for the game. Set up your games via <a href="https://t.me/botfather">@BotFather</a>.</param>
+    public SendGameArgs(string chatId, string gameShortName)
+    {
+        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
+        this.GameShortName =
+            gameShortName ?? throw new ArgumentNullException(nameof(gameShortName));
     }
 
     /// <summary>
@@ -29,10 +42,10 @@ public class SendGameArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat. Games can't be sent to channel direct messages chats and channel chats.
+    /// Unique identifier for the target chat or username of the target bot in the format <em>@username</em>. Games can't be sent to channel direct messages chats and channel chats.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public long ChatId { get; set; }
+    public object ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
@@ -59,7 +72,7 @@ public class SendGameArgs
     public bool? ProtectContent { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance
+    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowPaidBroadcast)]
     public bool? AllowPaidBroadcast { get; set; }

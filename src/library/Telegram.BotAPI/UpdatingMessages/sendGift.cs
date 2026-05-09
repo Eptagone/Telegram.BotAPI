@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -31,7 +31,11 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SendGiftAsync(this ITelegramBotClient client, SendGiftArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> SendGiftAsync(
+        this ITelegramBotClient client,
+        SendGiftArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -55,8 +59,20 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SendGift(this ITelegramBotClient client, string giftId, long? userId = null, long? chatId = null, bool? payForUpgrade = null, string? text = null, string? textParseMode = null, IEnumerable<MessageEntity>? textEntities = null) =>
-        client.SendGiftAsync(giftId, userId, chatId, payForUpgrade, text, textParseMode, textEntities).GetAwaiter().GetResult();
+    public static bool SendGift(
+        this ITelegramBotClient client,
+        string giftId,
+        long? userId = null,
+        long? chatId = null,
+        bool? payForUpgrade = null,
+        string? text = null,
+        string? textParseMode = null,
+        IEnumerable<MessageEntity>? textEntities = null
+    ) =>
+        client
+            .SendGiftAsync(giftId, userId, chatId, payForUpgrade, text, textParseMode, textEntities)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Sends a gift to the given user or channel chat. The gift can't be converted to Telegram Stars by the receiver. Returns <em>True</em> on success.
@@ -73,7 +89,17 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SendGiftAsync(this ITelegramBotClient client, string giftId, long? userId = null, long? chatId = null, bool? payForUpgrade = null, string? text = null, string? textParseMode = null, IEnumerable<MessageEntity>? textEntities = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SendGiftAsync(
+        this ITelegramBotClient client,
+        string giftId,
+        long? userId = null,
+        long? chatId = null,
+        bool? payForUpgrade = null,
+        string? text = null,
+        string? textParseMode = null,
+        IEnumerable<MessageEntity>? textEntities = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -82,7 +108,7 @@ public static partial class UpdatingMessagesExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.GiftId, giftId ?? throw new ArgumentNullException(nameof(giftId)) }
+            { PropertyNames.GiftId, giftId ?? throw new ArgumentNullException(nameof(giftId)) },
         };
         if (userId is not null)
         {

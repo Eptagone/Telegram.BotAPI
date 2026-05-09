@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -18,8 +18,11 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeleteStory(this ITelegramBotClient client, string businessConnectionId, int storyId) =>
-        client.DeleteStoryAsync(businessConnectionId, storyId).GetAwaiter().GetResult();
+    public static bool DeleteStory(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        int storyId
+    ) => client.DeleteStoryAsync(businessConnectionId, storyId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Deletes a story previously posted by the bot on behalf of a managed business account. Requires the <em>can_manage_stories</em> business bot right. Returns <em>True</em> on success.
@@ -31,7 +34,12 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> DeleteStoryAsync(this ITelegramBotClient client, string businessConnectionId, int storyId, CancellationToken cancellationToken = default)
+    public static Task<bool> DeleteStoryAsync(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        int storyId,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -40,8 +48,12 @@ public static partial class UpdatingMessagesExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
-            { PropertyNames.StoryId, storyId }
+            {
+                PropertyNames.BusinessConnectionId,
+                businessConnectionId
+                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
+            },
+            { PropertyNames.StoryId, storyId },
         };
 
         return client.CallMethodAsync<bool>(MethodNames.DeleteStory, args, cancellationToken);

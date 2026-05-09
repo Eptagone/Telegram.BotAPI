@@ -1,10 +1,10 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-using Telegram.BotAPI.Stickers;
 using Telegram.BotAPI.Games;
 using Telegram.BotAPI.Payments;
+using Telegram.BotAPI.Stickers;
 using Telegram.BotAPI.TelegramPassport;
 
 namespace Telegram.BotAPI.AvailableTypes;
@@ -67,6 +67,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.Date)]
     public override int Date { get; set; }
+
+    /// <summary>
+    /// Optional. The unique identifier for the guest query. Use this identifier with the method <a href="https://core.telegram.org/bots/api#answerguestquery">answerGuestQuery</a> to send a response message. If non-empty, the message belongs to the chat where the guest bot was summoned, which may not coincide with other existing bot chats sharing the same identifier.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GuestQueryId)]
+    public string? GuestQueryId { get; set; }
 
     /// <summary>
     /// Optional. Unique identifier of the business connection from which the message was received. If non-empty, the message belongs to a chat of the corresponding business account that is independent from any potential bot chat which might share the same identifier.
@@ -139,6 +145,18 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.ViaBot)]
     public User? ViaBot { get; set; }
+
+    /// <summary>
+    /// Optional. For a message sent by a guest bot, this is the user whose original message triggered the bot's response
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GuestBotCallerUser)]
+    public User? GuestBotCallerUser { get; set; }
+
+    /// <summary>
+    /// Optional. For a message sent by a guest bot, this is the chat whose original message triggered the bot's response
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GuestBotCallerChat)]
+    public Chat? GuestBotCallerChat { get; set; }
 
     /// <summary>
     /// Optional. Date the message was last edited in Unix time
@@ -231,6 +249,12 @@ public class Message : MaybeInaccessibleMessage
     public Document? Document { get; set; }
 
     /// <summary>
+    /// Optional. Message is a live photo, information about the live photo. For backward compatibility, when this field is set, the <em>photo</em> field will also be set
+    /// </summary>
+    [JsonPropertyName(PropertyNames.LivePhoto)]
+    public LivePhoto? LivePhoto { get; set; }
+
+    /// <summary>
     /// Optional. Message contains paid media; information about the paid media
     /// </summary>
     [JsonPropertyName(PropertyNames.PaidMedia)]
@@ -315,7 +339,7 @@ public class Message : MaybeInaccessibleMessage
     public Dice? Dice { get; set; }
 
     /// <summary>
-    /// Optional. Message is a game, information about the game. <a href="https://core.telegram.org/bots/api#games">More about games В»</a>
+    /// Optional. Message is a game, information about the game. <a href="https://core.telegram.org/bots/api#games">More about games »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Game)]
     public Game? Game { get; set; }
@@ -423,19 +447,19 @@ public class Message : MaybeInaccessibleMessage
     public MaybeInaccessibleMessage? PinnedMessage { get; set; }
 
     /// <summary>
-    /// Optional. Message is an invoice for a <a href="https://core.telegram.org/bots/api#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api#payments">More about payments В»</a>
+    /// Optional. Message is an invoice for a <a href="https://core.telegram.org/bots/api#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api#payments">More about payments »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Invoice)]
     public Invoice? Invoice { get; set; }
 
     /// <summary>
-    /// Optional. Message is a service message about a successful payment, information about the payment. <a href="https://core.telegram.org/bots/api#payments">More about payments В»</a>
+    /// Optional. Message is a service message about a successful payment, information about the payment. <a href="https://core.telegram.org/bots/api#payments">More about payments »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.SuccessfulPayment)]
     public SuccessfulPayment? SuccessfulPayment { get; set; }
 
     /// <summary>
-    /// Optional. Message is a service message about a refunded payment, information about the payment. <a href="https://core.telegram.org/bots/api#payments">More about payments В»</a>
+    /// Optional. Message is a service message about a refunded payment, information about the payment. <a href="https://core.telegram.org/bots/api#payments">More about payments »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.RefundedPayment)]
     public RefundedPayment? RefundedPayment { get; set; }
@@ -471,7 +495,7 @@ public class Message : MaybeInaccessibleMessage
     public GiftInfo? GiftUpgradeSent { get; set; }
 
     /// <summary>
-    /// Optional. The domain name of the website on which the user has logged in. <a href="https://core.telegram.org/widgets/login">More about Telegram Login В»</a>
+    /// Optional. The domain name of the website on which the user has logged in. <a href="https://core.telegram.org/widgets/login">More about Telegram Login »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.ConnectedWebsite)]
     public string? ConnectedWebsite { get; set; }

@@ -1,8 +1,9 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
 using Telegram.BotAPI.AvailableTypes;
+using InputPollMedia = Telegram.BotAPI.AvailableTypes.InputMedia;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
@@ -14,9 +15,9 @@ public class SendPollArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendPollArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). Polls can't be sent to channel direct messages chats.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>. Polls can't be sent to channel direct messages chats.</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
+    /// <param name="options">A JSON-serialized list of 1-12 answer options</param>
     public SendPollArgs(long chatId, string question, IEnumerable<InputPollOption> options)
     {
         this.ChatId = chatId;
@@ -27,9 +28,9 @@ public class SendPollArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendPollArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). Polls can't be sent to channel direct messages chats.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>. Polls can't be sent to channel direct messages chats.</param>
     /// <param name="question">Poll question, 1-300 characters</param>
-    /// <param name="options">A JSON-serialized list of 2-12 answer options</param>
+    /// <param name="options">A JSON-serialized list of 1-12 answer options</param>
     public SendPollArgs(string chatId, string question, IEnumerable<InputPollOption> options)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -44,7 +45,7 @@ public class SendPollArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>). Polls can't be sent to channel direct messages chats.
+    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>. Polls can't be sent to channel direct messages chats.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }
@@ -74,7 +75,7 @@ public class SendPollArgs
     public IEnumerable<MessageEntity>? QuestionEntities { get; set; }
 
     /// <summary>
-    /// A JSON-serialized list of 2-12 answer options
+    /// A JSON-serialized list of 1-12 answer options
     /// </summary>
     [JsonPropertyName(PropertyNames.Options)]
     public IEnumerable<InputPollOption> Options { get; set; }
@@ -122,6 +123,18 @@ public class SendPollArgs
     public bool? HideResultsUntilCloses { get; set; }
 
     /// <summary>
+    /// Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only
+    /// </summary>
+    [JsonPropertyName(PropertyNames.MembersOnly)]
+    public bool? MembersOnly { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. If omitted or empty, then users from any country can participate in the poll.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CountryCodes)]
+    public IEnumerable<string>? CountryCodes { get; set; }
+
+    /// <summary>
     /// A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode
     /// </summary>
     [JsonPropertyName(PropertyNames.CorrectOptionIds)]
@@ -144,6 +157,12 @@ public class SendPollArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.ExplanationEntities)]
     public IEnumerable<MessageEntity>? ExplanationEntities { get; set; }
+
+    /// <summary>
+    /// Media added to the quiz explanation
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ExplanationMedia)]
+    public InputPollMedia? ExplanationMedia { get; set; }
 
     /// <summary>
     /// Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.
@@ -182,6 +201,12 @@ public class SendPollArgs
     public IEnumerable<MessageEntity>? DescriptionEntities { get; set; }
 
     /// <summary>
+    /// Media added to the poll description
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Media)]
+    public InputPollMedia? Media { get; set; }
+
+    /// <summary>
     /// Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.
     /// </summary>
     [JsonPropertyName(PropertyNames.DisableNotification)]
@@ -194,7 +219,7 @@ public class SendPollArgs
     public bool? ProtectContent { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance
+    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowPaidBroadcast)]
     public bool? AllowPaidBroadcast { get; set; }

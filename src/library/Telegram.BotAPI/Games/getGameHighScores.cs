@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -20,8 +20,17 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<GameHighScore> GetGameHighScores(this ITelegramBotClient client, long userId, long? chatId = null, int? messageId = null, string? inlineMessageId = null) =>
-        client.GetGameHighScoresAsync(userId, chatId, messageId, inlineMessageId).GetAwaiter().GetResult();
+    public static IEnumerable<GameHighScore> GetGameHighScores(
+        this ITelegramBotClient client,
+        long userId,
+        long? chatId = null,
+        int? messageId = null,
+        string? inlineMessageId = null
+    ) =>
+        client
+            .GetGameHighScoresAsync(userId, chatId, messageId, inlineMessageId)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Use this method to get data for high score tables. Will return the score of the specified user and several of their neighbors in a game. Returns an Array of <see cref="GameHighScore"/> objects.
@@ -35,17 +44,21 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<GameHighScore>> GetGameHighScoresAsync(this ITelegramBotClient client, long userId, long? chatId = null, int? messageId = null, string? inlineMessageId = null, CancellationToken cancellationToken = default)
+    public static Task<IEnumerable<GameHighScore>> GetGameHighScoresAsync(
+        this ITelegramBotClient client,
+        long userId,
+        long? chatId = null,
+        int? messageId = null,
+        string? inlineMessageId = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>()
-        {
-            { PropertyNames.UserId, userId }
-        };
+        var args = new Dictionary<string, object>() { { PropertyNames.UserId, userId } };
         if (chatId is not null)
         {
             args.Add(PropertyNames.ChatId, chatId);
@@ -59,6 +72,10 @@ public static partial class GamesExtensions
             args.Add(PropertyNames.InlineMessageId, inlineMessageId);
         }
 
-        return client.CallMethodAsync<IEnumerable<GameHighScore>>(MethodNames.GetGameHighScores, args, cancellationToken);
+        return client.CallMethodAsync<IEnumerable<GameHighScore>>(
+            MethodNames.GetGameHighScores,
+            args,
+            cancellationToken
+        );
     }
 }

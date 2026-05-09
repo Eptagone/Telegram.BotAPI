@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2025 Quetzal Rivera.
+﻿// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
@@ -30,19 +30,12 @@ while (true)
                     continue;
                 }
 
-                InlineKeyboardMarkup replyMarkup =
-                    new(
-                        new InlineKeyboardButton[][]
-                        {
-
-                            [
-                                new InlineKeyboardButton("Callback")
-                                {
-                                    CallbackData = "callback_data",
-                                },
-                            ],
-                        }
-                    );
+                InlineKeyboardMarkup replyMarkup = new(
+                    new InlineKeyboardButton[][]
+                    {
+                        [new InlineKeyboardButton("Callback") { CallbackData = "callback_data" }],
+                    }
+                );
                 bot.SendMessage(
                     update.Message.Chat.Id,
                     "Message with callback data",

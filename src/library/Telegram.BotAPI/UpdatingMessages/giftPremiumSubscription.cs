@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -19,8 +19,10 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool GiftPremiumSubscription(this ITelegramBotClient client, GiftPremiumSubscriptionArgs args) =>
-        client.GiftPremiumSubscriptionAsync(args).GetAwaiter().GetResult();
+    public static bool GiftPremiumSubscription(
+        this ITelegramBotClient client,
+        GiftPremiumSubscriptionArgs args
+    ) => client.GiftPremiumSubscriptionAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Gifts a Telegram Premium subscription to the given user. Returns <em>True</em> on success.
@@ -31,14 +33,22 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> GiftPremiumSubscriptionAsync(this ITelegramBotClient client, GiftPremiumSubscriptionArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> GiftPremiumSubscriptionAsync(
+        this ITelegramBotClient client,
+        GiftPremiumSubscriptionArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.GiftPremiumSubscription, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.GiftPremiumSubscription,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -54,8 +64,26 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool GiftPremiumSubscription(this ITelegramBotClient client, long userId, int monthCount, int starCount, string? text = null, string? textParseMode = null, IEnumerable<MessageEntity>? textEntities = null) =>
-        client.GiftPremiumSubscriptionAsync(userId, monthCount, starCount, text, textParseMode, textEntities).GetAwaiter().GetResult();
+    public static bool GiftPremiumSubscription(
+        this ITelegramBotClient client,
+        long userId,
+        int monthCount,
+        int starCount,
+        string? text = null,
+        string? textParseMode = null,
+        IEnumerable<MessageEntity>? textEntities = null
+    ) =>
+        client
+            .GiftPremiumSubscriptionAsync(
+                userId,
+                monthCount,
+                starCount,
+                text,
+                textParseMode,
+                textEntities
+            )
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Gifts a Telegram Premium subscription to the given user. Returns <em>True</em> on success.
@@ -71,7 +99,16 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> GiftPremiumSubscriptionAsync(this ITelegramBotClient client, long userId, int monthCount, int starCount, string? text = null, string? textParseMode = null, IEnumerable<MessageEntity>? textEntities = null, CancellationToken cancellationToken = default)
+    public static Task<bool> GiftPremiumSubscriptionAsync(
+        this ITelegramBotClient client,
+        long userId,
+        int monthCount,
+        int starCount,
+        string? text = null,
+        string? textParseMode = null,
+        IEnumerable<MessageEntity>? textEntities = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -82,7 +119,7 @@ public static partial class UpdatingMessagesExtensions
         {
             { PropertyNames.UserId, userId },
             { PropertyNames.MonthCount, monthCount },
-            { PropertyNames.StarCount, starCount }
+            { PropertyNames.StarCount, starCount },
         };
         if (text is not null)
         {
@@ -97,6 +134,10 @@ public static partial class UpdatingMessagesExtensions
             args.Add(PropertyNames.TextEntities, textEntities);
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.GiftPremiumSubscription, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.GiftPremiumSubscription,
+            args,
+            cancellationToken
+        );
     }
 }

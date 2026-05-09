@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -21,8 +21,16 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AnswerPreCheckoutQuery(this ITelegramBotClient client, string preCheckoutQueryId, bool ok, string? errorMessage = null) =>
-        client.AnswerPreCheckoutQueryAsync(preCheckoutQueryId, ok, errorMessage).GetAwaiter().GetResult();
+    public static bool AnswerPreCheckoutQuery(
+        this ITelegramBotClient client,
+        string preCheckoutQueryId,
+        bool ok,
+        string? errorMessage = null
+    ) =>
+        client
+            .AnswerPreCheckoutQueryAsync(preCheckoutQueryId, ok, errorMessage)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an <see cref="Update"/> with the field <em>pre_checkout_query</em>. Use this method to respond to such pre-checkout queries. On success, <em>True</em> is returned. <strong>Note:</strong> The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent.
@@ -35,7 +43,13 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> AnswerPreCheckoutQueryAsync(this ITelegramBotClient client, string preCheckoutQueryId, bool ok, string? errorMessage = null, CancellationToken cancellationToken = default)
+    public static Task<bool> AnswerPreCheckoutQueryAsync(
+        this ITelegramBotClient client,
+        string preCheckoutQueryId,
+        bool ok,
+        string? errorMessage = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -44,14 +58,21 @@ public static partial class PaymentsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.PreCheckoutQueryId, preCheckoutQueryId ?? throw new ArgumentNullException(nameof(preCheckoutQueryId)) },
-            { PropertyNames.Ok, ok }
+            {
+                PropertyNames.PreCheckoutQueryId,
+                preCheckoutQueryId ?? throw new ArgumentNullException(nameof(preCheckoutQueryId))
+            },
+            { PropertyNames.Ok, ok },
         };
         if (errorMessage is not null)
         {
             args.Add(PropertyNames.ErrorMessage, errorMessage);
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.AnswerPreCheckoutQuery, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.AnswerPreCheckoutQuery,
+            args,
+            cancellationToken
+        );
     }
 }

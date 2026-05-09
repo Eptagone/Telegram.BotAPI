@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -86,6 +86,12 @@ public class ChatMemberRestricted : ChatMember
     /// </summary>
     [JsonPropertyName(PropertyNames.CanAddWebPagePreviews)]
     public bool CanAddWebPagePreviews { get; set; }
+
+    /// <summary>
+    /// <em>True</em>, if the user is allowed to react to messages
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanReactToMessages)]
+    public bool CanReactToMessages { get; set; }
 
     /// <summary>
     /// <em>True</em>, if the user is allowed to edit their own tag

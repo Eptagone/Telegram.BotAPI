@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -17,8 +17,10 @@ public static partial class InlineModeExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AnswerInlineQuery(this ITelegramBotClient client, AnswerInlineQueryArgs args) =>
-        client.AnswerInlineQueryAsync(args).GetAwaiter().GetResult();
+    public static bool AnswerInlineQuery(
+        this ITelegramBotClient client,
+        AnswerInlineQueryArgs args
+    ) => client.AnswerInlineQueryAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send answers to an inline query. On success, <em>True</em> is returned.<br />No more than <strong>50</strong> results per query are allowed.
@@ -29,7 +31,11 @@ public static partial class InlineModeExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> AnswerInlineQueryAsync(this ITelegramBotClient client, AnswerInlineQueryArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> AnswerInlineQueryAsync(
+        this ITelegramBotClient client,
+        AnswerInlineQueryArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -52,8 +58,26 @@ public static partial class InlineModeExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AnswerInlineQuery(this ITelegramBotClient client, string inlineQueryId, IEnumerable<InlineQueryResult> results, int? cacheTime = null, bool? isPersonal = null, string? nextOffset = null, InlineQueryResultsButton? button = null) =>
-        client.AnswerInlineQueryAsync(inlineQueryId, results, cacheTime, isPersonal, nextOffset, button).GetAwaiter().GetResult();
+    public static bool AnswerInlineQuery(
+        this ITelegramBotClient client,
+        string inlineQueryId,
+        IEnumerable<InlineQueryResult> results,
+        int? cacheTime = null,
+        bool? isPersonal = null,
+        string? nextOffset = null,
+        InlineQueryResultsButton? button = null
+    ) =>
+        client
+            .AnswerInlineQueryAsync(
+                inlineQueryId,
+                results,
+                cacheTime,
+                isPersonal,
+                nextOffset,
+                button
+            )
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Use this method to send answers to an inline query. On success, <em>True</em> is returned.<br />No more than <strong>50</strong> results per query are allowed.
@@ -69,7 +93,16 @@ public static partial class InlineModeExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> AnswerInlineQueryAsync(this ITelegramBotClient client, string inlineQueryId, IEnumerable<InlineQueryResult> results, int? cacheTime = null, bool? isPersonal = null, string? nextOffset = null, InlineQueryResultsButton? button = null, CancellationToken cancellationToken = default)
+    public static Task<bool> AnswerInlineQueryAsync(
+        this ITelegramBotClient client,
+        string inlineQueryId,
+        IEnumerable<InlineQueryResult> results,
+        int? cacheTime = null,
+        bool? isPersonal = null,
+        string? nextOffset = null,
+        InlineQueryResultsButton? button = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -78,8 +111,11 @@ public static partial class InlineModeExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.InlineQueryId, inlineQueryId ?? throw new ArgumentNullException(nameof(inlineQueryId)) },
-            { PropertyNames.Results, results ?? throw new ArgumentNullException(nameof(results)) }
+            {
+                PropertyNames.InlineQueryId,
+                inlineQueryId ?? throw new ArgumentNullException(nameof(inlineQueryId))
+            },
+            { PropertyNames.Results, results ?? throw new ArgumentNullException(nameof(results)) },
         };
         if (cacheTime is not null)
         {

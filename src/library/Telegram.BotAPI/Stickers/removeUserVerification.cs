@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -29,18 +29,23 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> RemoveUserVerificationAsync(this ITelegramBotClient client, long userId, CancellationToken cancellationToken = default)
+    public static Task<bool> RemoveUserVerificationAsync(
+        this ITelegramBotClient client,
+        long userId,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>()
-        {
-            { PropertyNames.UserId, userId }
-        };
+        var args = new Dictionary<string, object>() { { PropertyNames.UserId, userId } };
 
-        return client.CallMethodAsync<bool>(MethodNames.RemoveUserVerification, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.RemoveUserVerification,
+            args,
+            cancellationToken
+        );
     }
 }

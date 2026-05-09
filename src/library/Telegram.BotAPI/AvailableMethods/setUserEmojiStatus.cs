@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -19,8 +19,16 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetUserEmojiStatus(this ITelegramBotClient client, long userId, string? emojiStatusCustomEmojiId = null, int? emojiStatusExpirationDate = null) =>
-        client.SetUserEmojiStatusAsync(userId, emojiStatusCustomEmojiId, emojiStatusExpirationDate).GetAwaiter().GetResult();
+    public static bool SetUserEmojiStatus(
+        this ITelegramBotClient client,
+        long userId,
+        string? emojiStatusCustomEmojiId = null,
+        int? emojiStatusExpirationDate = null
+    ) =>
+        client
+            .SetUserEmojiStatusAsync(userId, emojiStatusCustomEmojiId, emojiStatusExpirationDate)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Changes the emoji status for a given user that previously allowed the bot to manage their emoji status via the Mini App method <a href="https://core.telegram.org/bots/webapps#initializing-mini-apps">requestEmojiStatusAccess</a>. Returns <em>True</em> on success.
@@ -33,17 +41,20 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetUserEmojiStatusAsync(this ITelegramBotClient client, long userId, string? emojiStatusCustomEmojiId = null, int? emojiStatusExpirationDate = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SetUserEmojiStatusAsync(
+        this ITelegramBotClient client,
+        long userId,
+        string? emojiStatusCustomEmojiId = null,
+        int? emojiStatusExpirationDate = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>()
-        {
-            { PropertyNames.UserId, userId }
-        };
+        var args = new Dictionary<string, object>() { { PropertyNames.UserId, userId } };
         if (emojiStatusCustomEmojiId is not null)
         {
             args.Add(PropertyNames.EmojiStatusCustomEmojiId, emojiStatusCustomEmojiId);
@@ -53,6 +64,10 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.EmojiStatusExpirationDate, emojiStatusExpirationDate);
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.SetUserEmojiStatus, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetUserEmojiStatus,
+            args,
+            cancellationToken
+        );
     }
 }

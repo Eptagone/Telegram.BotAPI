@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -18,8 +18,11 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetBusinessAccountBio(this ITelegramBotClient client, string businessConnectionId, string? bio = null) =>
-        client.SetBusinessAccountBioAsync(businessConnectionId, bio).GetAwaiter().GetResult();
+    public static bool SetBusinessAccountBio(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        string? bio = null
+    ) => client.SetBusinessAccountBioAsync(businessConnectionId, bio).GetAwaiter().GetResult();
 
     /// <summary>
     /// Changes the bio of a managed business account. Requires the <em>can_change_bio</em> business bot right. Returns <em>True</em> on success.
@@ -31,7 +34,12 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetBusinessAccountBioAsync(this ITelegramBotClient client, string businessConnectionId, string? bio = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SetBusinessAccountBioAsync(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        string? bio = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -40,13 +48,21 @@ public static partial class UpdatingMessagesExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) }
+            {
+                PropertyNames.BusinessConnectionId,
+                businessConnectionId
+                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
+            },
         };
         if (bio is not null)
         {
             args.Add(PropertyNames.Bio, bio);
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.SetBusinessAccountBio, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetBusinessAccountBio,
+            args,
+            cancellationToken
+        );
     }
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -19,8 +19,10 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AnswerCallbackQuery(this ITelegramBotClient client, AnswerCallbackQueryArgs args) =>
-        client.AnswerCallbackQueryAsync(args).GetAwaiter().GetResult();
+    public static bool AnswerCallbackQuery(
+        this ITelegramBotClient client,
+        AnswerCallbackQueryArgs args
+    ) => client.AnswerCallbackQueryAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
@@ -31,14 +33,22 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> AnswerCallbackQueryAsync(this ITelegramBotClient client, AnswerCallbackQueryArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> AnswerCallbackQueryAsync(
+        this ITelegramBotClient client,
+        AnswerCallbackQueryArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.AnswerCallbackQuery, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.AnswerCallbackQuery,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -53,8 +63,18 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AnswerCallbackQuery(this ITelegramBotClient client, string callbackQueryId, string? text = null, bool? showAlert = null, string? url = null, int? cacheTime = null) =>
-        client.AnswerCallbackQueryAsync(callbackQueryId, text, showAlert, url, cacheTime).GetAwaiter().GetResult();
+    public static bool AnswerCallbackQuery(
+        this ITelegramBotClient client,
+        string callbackQueryId,
+        string? text = null,
+        bool? showAlert = null,
+        string? url = null,
+        int? cacheTime = null
+    ) =>
+        client
+            .AnswerCallbackQueryAsync(callbackQueryId, text, showAlert, url, cacheTime)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
@@ -69,7 +89,15 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> AnswerCallbackQueryAsync(this ITelegramBotClient client, string callbackQueryId, string? text = null, bool? showAlert = null, string? url = null, int? cacheTime = null, CancellationToken cancellationToken = default)
+    public static Task<bool> AnswerCallbackQueryAsync(
+        this ITelegramBotClient client,
+        string callbackQueryId,
+        string? text = null,
+        bool? showAlert = null,
+        string? url = null,
+        int? cacheTime = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -78,7 +106,10 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.CallbackQueryId, callbackQueryId ?? throw new ArgumentNullException(nameof(callbackQueryId)) }
+            {
+                PropertyNames.CallbackQueryId,
+                callbackQueryId ?? throw new ArgumentNullException(nameof(callbackQueryId))
+            },
         };
         if (text is not null)
         {
@@ -97,6 +128,10 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.CacheTime, cacheTime);
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.AnswerCallbackQuery, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.AnswerCallbackQuery,
+            args,
+            cancellationToken
+        );
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2025 Quetzal Rivera.
+﻿// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 namespace Telegram.BotAPI;
@@ -8,16 +8,18 @@ namespace Telegram.BotAPI;
 /// </summary>
 public static class StickerTypes
 {
-	/// <summary>
-	/// Regular sticker.
-	/// </summary>
-	public const string Regular = "regular";
-	/// <summary>
-	/// Mask sticker.
-	/// </summary>
-	public const string Mask = "mask";
-	/// <summary>
-	/// Custom emoji sticker.
-	/// </summary>
-	public const string CustomEmoji = "custom_emoji";
+    /// <summary>
+    /// Regular sticker.
+    /// </summary>
+    public const string Regular = "regular";
+
+    /// <summary>
+    /// Mask sticker.
+    /// </summary>
+    public const string Mask = "mask";
+
+    /// <summary>
+    /// Custom emoji sticker.
+    /// </summary>
+    public const string CustomEmoji = "custom_emoji";
 }

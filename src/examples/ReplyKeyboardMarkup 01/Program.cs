@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2025 Quetzal Rivera.
+﻿// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System;
@@ -26,28 +26,27 @@ while (true)
             {
                 if (update.Message.Text.Contains("/reply"))
                 {
-                    ReplyKeyboardMarkup keyboard =
-                        new(
+                    ReplyKeyboardMarkup keyboard = new(
+                        [
                             [
-                                [
-                                    new KeyboardButton("Button 1"), //column 1 row 1
-                                    new KeyboardButton(
-                                        "Button 2"
-                                    ) //column 1 row 2
-                                    ,
-                                ], // column 1
-                                [
-                                    new KeyboardButton(
-                                        "Button 3"
-                                    ) //col 2 row 1
-                                    ,
-                                ] // column 2
+                                new KeyboardButton("Button 1"), //column 1 row 1
+                                new KeyboardButton(
+                                    "Button 2"
+                                ) //column 1 row 2
                                 ,
-                            ]
-                        )
-                        {
-                            ResizeKeyboard = true,
-                        };
+                            ], // column 1
+                            [
+                                new KeyboardButton(
+                                    "Button 3"
+                                ) //col 2 row 1
+                                ,
+                            ] // column 2
+                            ,
+                        ]
+                    )
+                    {
+                        ResizeKeyboard = true,
+                    };
                     client.SendMessage(
                         update.Message.Chat.Id,
                         "new keyboard",

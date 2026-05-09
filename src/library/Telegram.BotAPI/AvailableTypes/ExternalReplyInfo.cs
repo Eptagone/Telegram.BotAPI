@@ -1,10 +1,10 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-using Telegram.BotAPI.Stickers;
 using Telegram.BotAPI.Games;
 using Telegram.BotAPI.Payments;
+using Telegram.BotAPI.Stickers;
 
 namespace Telegram.BotAPI.AvailableTypes;
 
@@ -54,6 +54,12 @@ public class ExternalReplyInfo
     /// </summary>
     [JsonPropertyName(PropertyNames.Document)]
     public Document? Document { get; set; }
+
+    /// <summary>
+    /// Optional. Message is a live photo, information about the live photo
+    /// </summary>
+    [JsonPropertyName(PropertyNames.LivePhoto)]
+    public LivePhoto? LivePhoto { get; set; }
 
     /// <summary>
     /// Optional. Message contains paid media; information about the paid media
@@ -122,7 +128,7 @@ public class ExternalReplyInfo
     public Dice? Dice { get; set; }
 
     /// <summary>
-    /// Optional. Message is a game, information about the game. <a href="https://core.telegram.org/bots/api#games">More about games В»</a>
+    /// Optional. Message is a game, information about the game. <a href="https://core.telegram.org/bots/api#games">More about games »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Game)]
     public Game? Game { get; set; }
@@ -140,7 +146,7 @@ public class ExternalReplyInfo
     public GiveawayWinners? GiveawayWinners { get; set; }
 
     /// <summary>
-    /// Optional. Message is an invoice for a <a href="https://core.telegram.org/bots/api#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api#payments">More about payments В»</a>
+    /// Optional. Message is an invoice for a <a href="https://core.telegram.org/bots/api#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api#payments">More about payments »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Invoice)]
     public Invoice? Invoice { get; set; }

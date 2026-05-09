@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -31,14 +31,22 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<OwnedGifts> GetUserGiftsAsync(this ITelegramBotClient client, GetUserGiftsArgs args, CancellationToken cancellationToken = default)
+    public static Task<OwnedGifts> GetUserGiftsAsync(
+        this ITelegramBotClient client,
+        GetUserGiftsArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<OwnedGifts>(MethodNames.GetUserGifts, args, cancellationToken);
+        return client.CallMethodAsync<OwnedGifts>(
+            MethodNames.GetUserGifts,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -57,8 +65,32 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static OwnedGifts GetUserGifts(this ITelegramBotClient client, long userId, bool? excludeUnlimited = null, bool? excludeLimitedUpgradable = null, bool? excludeLimitedNonUpgradable = null, bool? excludeFromBlockchain = null, bool? excludeUnique = null, bool? sortByPrice = null, string? offset = null, int? limit = null) =>
-        client.GetUserGiftsAsync(userId, excludeUnlimited, excludeLimitedUpgradable, excludeLimitedNonUpgradable, excludeFromBlockchain, excludeUnique, sortByPrice, offset, limit).GetAwaiter().GetResult();
+    public static OwnedGifts GetUserGifts(
+        this ITelegramBotClient client,
+        long userId,
+        bool? excludeUnlimited = null,
+        bool? excludeLimitedUpgradable = null,
+        bool? excludeLimitedNonUpgradable = null,
+        bool? excludeFromBlockchain = null,
+        bool? excludeUnique = null,
+        bool? sortByPrice = null,
+        string? offset = null,
+        int? limit = null
+    ) =>
+        client
+            .GetUserGiftsAsync(
+                userId,
+                excludeUnlimited,
+                excludeLimitedUpgradable,
+                excludeLimitedNonUpgradable,
+                excludeFromBlockchain,
+                excludeUnique,
+                sortByPrice,
+                offset,
+                limit
+            )
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Returns the gifts owned and hosted by a user. Returns <see cref="OwnedGifts"/> on success.
@@ -77,17 +109,26 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<OwnedGifts> GetUserGiftsAsync(this ITelegramBotClient client, long userId, bool? excludeUnlimited = null, bool? excludeLimitedUpgradable = null, bool? excludeLimitedNonUpgradable = null, bool? excludeFromBlockchain = null, bool? excludeUnique = null, bool? sortByPrice = null, string? offset = null, int? limit = null, CancellationToken cancellationToken = default)
+    public static Task<OwnedGifts> GetUserGiftsAsync(
+        this ITelegramBotClient client,
+        long userId,
+        bool? excludeUnlimited = null,
+        bool? excludeLimitedUpgradable = null,
+        bool? excludeLimitedNonUpgradable = null,
+        bool? excludeFromBlockchain = null,
+        bool? excludeUnique = null,
+        bool? sortByPrice = null,
+        string? offset = null,
+        int? limit = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>()
-        {
-            { PropertyNames.UserId, userId }
-        };
+        var args = new Dictionary<string, object>() { { PropertyNames.UserId, userId } };
         if (excludeUnlimited is not null)
         {
             args.Add(PropertyNames.ExcludeUnlimited, excludeUnlimited);
@@ -121,6 +162,10 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.Limit, limit);
         }
 
-        return client.CallMethodAsync<OwnedGifts>(MethodNames.GetUserGifts, args, cancellationToken);
+        return client.CallMethodAsync<OwnedGifts>(
+            MethodNames.GetUserGifts,
+            args,
+            cancellationToken
+        );
     }
 }

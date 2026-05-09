@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -19,8 +19,10 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMyDefaultAdministratorRights(this ITelegramBotClient client, SetMyDefaultAdministratorRightsArgs args) =>
-        client.SetMyDefaultAdministratorRightsAsync(args).GetAwaiter().GetResult();
+    public static bool SetMyDefaultAdministratorRights(
+        this ITelegramBotClient client,
+        SetMyDefaultAdministratorRightsArgs args
+    ) => client.SetMyDefaultAdministratorRightsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the default administrator rights requested by the bot when it's added as an administrator to groups or channels. These rights will be suggested to users, but they are free to modify the list before adding the bot. Returns <em>True</em> on success.
@@ -31,14 +33,22 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetMyDefaultAdministratorRightsAsync(this ITelegramBotClient client, SetMyDefaultAdministratorRightsArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> SetMyDefaultAdministratorRightsAsync(
+        this ITelegramBotClient client,
+        SetMyDefaultAdministratorRightsArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.SetMyDefaultAdministratorRights, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetMyDefaultAdministratorRights,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -50,8 +60,11 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMyDefaultAdministratorRights(this ITelegramBotClient client, ChatAdministratorRights? rights = null, bool? forChannels = null) =>
-        client.SetMyDefaultAdministratorRightsAsync(rights, forChannels).GetAwaiter().GetResult();
+    public static bool SetMyDefaultAdministratorRights(
+        this ITelegramBotClient client,
+        ChatAdministratorRights? rights = null,
+        bool? forChannels = null
+    ) => client.SetMyDefaultAdministratorRightsAsync(rights, forChannels).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the default administrator rights requested by the bot when it's added as an administrator to groups or channels. These rights will be suggested to users, but they are free to modify the list before adding the bot. Returns <em>True</em> on success.
@@ -63,16 +76,19 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetMyDefaultAdministratorRightsAsync(this ITelegramBotClient client, ChatAdministratorRights? rights = null, bool? forChannels = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SetMyDefaultAdministratorRightsAsync(
+        this ITelegramBotClient client,
+        ChatAdministratorRights? rights = null,
+        bool? forChannels = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>()
-        {
-        };
+        var args = new Dictionary<string, object>() { };
         if (rights is not null)
         {
             args.Add(PropertyNames.Rights, rights);
@@ -82,6 +98,10 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.ForChannels, forChannels);
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.SetMyDefaultAdministratorRights, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetMyDefaultAdministratorRights,
+            args,
+            cancellationToken
+        );
     }
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -70,13 +70,19 @@ public class User
     public bool? CanReadAllGroupMessages { get; set; }
 
     /// <summary>
+    /// Optional. <em>True</em>, if the bot supports guest queries from chats it is not a member of. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SupportsGuestQueries)]
+    public bool? SupportsGuestQueries { get; set; }
+
+    /// <summary>
     /// Optional. <em>True</em>, if the bot supports inline queries. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.SupportsInlineQueries)]
     public bool? SupportsInlineQueries { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the bot can be connected to a Telegram Business account to receive its messages. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
+    /// Optional. <em>True</em>, if the bot can be connected to a user account to manage it. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanConnectToBusiness)]
     public bool? CanConnectToBusiness { get; set; }

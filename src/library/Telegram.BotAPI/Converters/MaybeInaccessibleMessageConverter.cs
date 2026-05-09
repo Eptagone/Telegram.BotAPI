@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2025 Quetzal Rivera.
+﻿// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using System.Text.Json;
@@ -25,10 +25,7 @@ public sealed class MaybeInaccessibleMessageConverter : JsonConverter<MaybeInacc
     )
     {
         JsonDocument? jsonDoc = JsonSerializer.Deserialize<JsonDocument>(ref reader, options)!;
-        bool isValid = jsonDoc.RootElement.TryGetProperty(
-            PropertyNames.Date,
-            out JsonElement prop
-        );
+        bool isValid = jsonDoc.RootElement.TryGetProperty(PropertyNames.Date, out JsonElement prop);
         string? rawText = jsonDoc.RootElement.GetRawText();
         if (isValid)
         {

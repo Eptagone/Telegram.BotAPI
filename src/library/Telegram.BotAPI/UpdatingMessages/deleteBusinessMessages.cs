@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -17,8 +17,10 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeleteBusinessMessages(this ITelegramBotClient client, DeleteBusinessMessagesArgs args) =>
-        client.DeleteBusinessMessagesAsync(args).GetAwaiter().GetResult();
+    public static bool DeleteBusinessMessages(
+        this ITelegramBotClient client,
+        DeleteBusinessMessagesArgs args
+    ) => client.DeleteBusinessMessagesAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Delete messages on behalf of a business account. Requires the <em>can_delete_sent_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
@@ -29,14 +31,22 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> DeleteBusinessMessagesAsync(this ITelegramBotClient client, DeleteBusinessMessagesArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> DeleteBusinessMessagesAsync(
+        this ITelegramBotClient client,
+        DeleteBusinessMessagesArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.DeleteBusinessMessages, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.DeleteBusinessMessages,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -48,8 +58,15 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeleteBusinessMessages(this ITelegramBotClient client, string businessConnectionId, IEnumerable<int> messageIds) =>
-        client.DeleteBusinessMessagesAsync(businessConnectionId, messageIds).GetAwaiter().GetResult();
+    public static bool DeleteBusinessMessages(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        IEnumerable<int> messageIds
+    ) =>
+        client
+            .DeleteBusinessMessagesAsync(businessConnectionId, messageIds)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Delete messages on behalf of a business account. Requires the <em>can_delete_sent_messages</em> business bot right to delete messages sent by the bot itself, or the <em>can_delete_all_messages</em> business bot right to delete any message. Returns <em>True</em> on success.
@@ -61,7 +78,12 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> DeleteBusinessMessagesAsync(this ITelegramBotClient client, string businessConnectionId, IEnumerable<int> messageIds, CancellationToken cancellationToken = default)
+    public static Task<bool> DeleteBusinessMessagesAsync(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        IEnumerable<int> messageIds,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -70,10 +92,21 @@ public static partial class UpdatingMessagesExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
-            { PropertyNames.MessageIds, messageIds ?? throw new ArgumentNullException(nameof(messageIds)) }
+            {
+                PropertyNames.BusinessConnectionId,
+                businessConnectionId
+                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
+            },
+            {
+                PropertyNames.MessageIds,
+                messageIds ?? throw new ArgumentNullException(nameof(messageIds))
+            },
         };
 
-        return client.CallMethodAsync<bool>(MethodNames.DeleteBusinessMessages, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.DeleteBusinessMessages,
+            args,
+            cancellationToken
+        );
     }
 }

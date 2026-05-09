@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -15,13 +15,40 @@ public class EditMessageChecklistArgs
     /// Initializes a new instance of the <see cref="EditMessageChecklistArgs"/> class.
     /// </summary>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
-    /// <param name="chatId">Unique identifier for the target chat</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot in the format <em>@username</em></param>
     /// <param name="messageId">Unique identifier for the target message</param>
     /// <param name="checklist">A JSON-serialized object for the new checklist</param>
-    public EditMessageChecklistArgs(string businessConnectionId, long chatId, int messageId, InputChecklist checklist)
+    public EditMessageChecklistArgs(
+        string businessConnectionId,
+        long chatId,
+        int messageId,
+        InputChecklist checklist
+    )
     {
-        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId =
+            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.ChatId = chatId;
+        this.MessageId = messageId;
+        this.Checklist = checklist ?? throw new ArgumentNullException(nameof(checklist));
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EditMessageChecklistArgs"/> class.
+    /// </summary>
+    /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot in the format <em>@username</em></param>
+    /// <param name="messageId">Unique identifier for the target message</param>
+    /// <param name="checklist">A JSON-serialized object for the new checklist</param>
+    public EditMessageChecklistArgs(
+        string businessConnectionId,
+        string chatId,
+        int messageId,
+        InputChecklist checklist
+    )
+    {
+        this.BusinessConnectionId =
+            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.MessageId = messageId;
         this.Checklist = checklist ?? throw new ArgumentNullException(nameof(checklist));
     }
@@ -33,10 +60,10 @@ public class EditMessageChecklistArgs
     public string BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat
+    /// Unique identifier for the target chat or username of the target bot in the format <em>@username</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public long ChatId { get; set; }
+    public object ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message

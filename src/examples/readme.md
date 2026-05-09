@@ -1,7 +1,7 @@
 # Telegram.BotAPI NET Examples
 
 [![NuGet version (Telegram.BotAPI)](https://img.shields.io/nuget/v/Telegram.BotAPI?style=flat-square&logo=nuget)](https://www.nuget.org/packages/Telegram.BotAPI/)
-[![Compatible with Bot API v9.6](https://img.shields.io/badge/Bot%20API%20version-v9.6-blue?style=flat-square)](https://core.telegram.org/bots/api#april-3-2026)
+[![Compatible with Bot API v10.0](https://img.shields.io/badge/Bot%20API%20version-v10.0-blue?style=flat-square)](https://core.telegram.org/bots/api#april-3-2026)
 
 ## Sample list
 

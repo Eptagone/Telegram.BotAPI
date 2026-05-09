@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -17,8 +17,10 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static string CreateInvoiceLink(this ITelegramBotClient client, CreateInvoiceLinkArgs args) =>
-        client.CreateInvoiceLinkAsync(args).GetAwaiter().GetResult();
+    public static string CreateInvoiceLink(
+        this ITelegramBotClient client,
+        CreateInvoiceLinkArgs args
+    ) => client.CreateInvoiceLinkAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to create a link for an invoice. Returns the created invoice link as <em>String</em> on success.
@@ -29,14 +31,22 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<string> CreateInvoiceLinkAsync(this ITelegramBotClient client, CreateInvoiceLinkArgs args, CancellationToken cancellationToken = default)
+    public static Task<string> CreateInvoiceLinkAsync(
+        this ITelegramBotClient client,
+        CreateInvoiceLinkArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<string>(MethodNames.CreateInvoiceLink, args, cancellationToken);
+        return client.CallMethodAsync<string>(
+            MethodNames.CreateInvoiceLink,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -68,8 +78,58 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static string CreateInvoiceLink(this ITelegramBotClient client, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, string? businessConnectionId = null, string? providerToken = null, int? subscriptionPeriod = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null) =>
-        client.CreateInvoiceLinkAsync(title, description, payload, currency, prices, businessConnectionId, providerToken, subscriptionPeriod, maxTipAmount, suggestedTipAmounts, providerData, photoUrl, photoSize, photoWidth, photoHeight, needName, needPhoneNumber, needEmail, needShippingAddress, sendPhoneNumberToProvider, sendEmailToProvider, isFlexible).GetAwaiter().GetResult();
+    public static string CreateInvoiceLink(
+        this ITelegramBotClient client,
+        string title,
+        string description,
+        string payload,
+        string currency,
+        IEnumerable<LabeledPrice> prices,
+        string? businessConnectionId = null,
+        string? providerToken = null,
+        int? subscriptionPeriod = null,
+        int? maxTipAmount = null,
+        IEnumerable<int>? suggestedTipAmounts = null,
+        string? providerData = null,
+        string? photoUrl = null,
+        int? photoSize = null,
+        int? photoWidth = null,
+        int? photoHeight = null,
+        bool? needName = null,
+        bool? needPhoneNumber = null,
+        bool? needEmail = null,
+        bool? needShippingAddress = null,
+        bool? sendPhoneNumberToProvider = null,
+        bool? sendEmailToProvider = null,
+        bool? isFlexible = null
+    ) =>
+        client
+            .CreateInvoiceLinkAsync(
+                title,
+                description,
+                payload,
+                currency,
+                prices,
+                businessConnectionId,
+                providerToken,
+                subscriptionPeriod,
+                maxTipAmount,
+                suggestedTipAmounts,
+                providerData,
+                photoUrl,
+                photoSize,
+                photoWidth,
+                photoHeight,
+                needName,
+                needPhoneNumber,
+                needEmail,
+                needShippingAddress,
+                sendPhoneNumberToProvider,
+                sendEmailToProvider,
+                isFlexible
+            )
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Use this method to create a link for an invoice. Returns the created invoice link as <em>String</em> on success.
@@ -101,7 +161,32 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<string> CreateInvoiceLinkAsync(this ITelegramBotClient client, string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices, string? businessConnectionId = null, string? providerToken = null, int? subscriptionPeriod = null, int? maxTipAmount = null, IEnumerable<int>? suggestedTipAmounts = null, string? providerData = null, string? photoUrl = null, int? photoSize = null, int? photoWidth = null, int? photoHeight = null, bool? needName = null, bool? needPhoneNumber = null, bool? needEmail = null, bool? needShippingAddress = null, bool? sendPhoneNumberToProvider = null, bool? sendEmailToProvider = null, bool? isFlexible = null, CancellationToken cancellationToken = default)
+    public static Task<string> CreateInvoiceLinkAsync(
+        this ITelegramBotClient client,
+        string title,
+        string description,
+        string payload,
+        string currency,
+        IEnumerable<LabeledPrice> prices,
+        string? businessConnectionId = null,
+        string? providerToken = null,
+        int? subscriptionPeriod = null,
+        int? maxTipAmount = null,
+        IEnumerable<int>? suggestedTipAmounts = null,
+        string? providerData = null,
+        string? photoUrl = null,
+        int? photoSize = null,
+        int? photoWidth = null,
+        int? photoHeight = null,
+        bool? needName = null,
+        bool? needPhoneNumber = null,
+        bool? needEmail = null,
+        bool? needShippingAddress = null,
+        bool? sendPhoneNumberToProvider = null,
+        bool? sendEmailToProvider = null,
+        bool? isFlexible = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -111,10 +196,16 @@ public static partial class PaymentsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) },
-            { PropertyNames.Description, description ?? throw new ArgumentNullException(nameof(description)) },
+            {
+                PropertyNames.Description,
+                description ?? throw new ArgumentNullException(nameof(description))
+            },
             { PropertyNames.Payload, payload ?? throw new ArgumentNullException(nameof(payload)) },
-            { PropertyNames.Currency, currency ?? throw new ArgumentNullException(nameof(currency)) },
-            { PropertyNames.Prices, prices ?? throw new ArgumentNullException(nameof(prices)) }
+            {
+                PropertyNames.Currency,
+                currency ?? throw new ArgumentNullException(nameof(currency))
+            },
+            { PropertyNames.Prices, prices ?? throw new ArgumentNullException(nameof(prices)) },
         };
         if (businessConnectionId is not null)
         {
@@ -185,6 +276,10 @@ public static partial class PaymentsExtensions
             args.Add(PropertyNames.IsFlexible, isFlexible);
         }
 
-        return client.CallMethodAsync<string>(MethodNames.CreateInvoiceLink, args, cancellationToken);
+        return client.CallMethodAsync<string>(
+            MethodNames.CreateInvoiceLink,
+            args,
+            cancellationToken
+        );
     }
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -14,8 +14,8 @@ public class CopyMessageArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="CopyMessageArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     public CopyMessageArgs(long chatId, long fromChatId, int messageId)
     {
@@ -27,8 +27,8 @@ public class CopyMessageArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="CopyMessageArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     public CopyMessageArgs(long chatId, string fromChatId, int messageId)
     {
@@ -40,8 +40,8 @@ public class CopyMessageArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="CopyMessageArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     public CopyMessageArgs(string chatId, long fromChatId, int messageId)
     {
@@ -53,8 +53,8 @@ public class CopyMessageArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="CopyMessageArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     public CopyMessageArgs(string chatId, string fromChatId, int messageId)
     {
@@ -64,7 +64,7 @@ public class CopyMessageArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
+    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }
@@ -82,7 +82,7 @@ public class CopyMessageArgs
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the chat where the original message was sent (or channel username in the format <em>@channelusername</em>)
+    /// Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.FromChatId)]
     public object FromChatId { get; set; }
@@ -136,7 +136,7 @@ public class CopyMessageArgs
     public bool? ProtectContent { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance
+    /// Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowPaidBroadcast)]
     public bool? AllowPaidBroadcast { get; set; }

@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -18,8 +18,10 @@ public static partial class TelegramPassportExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetPassportDataErrors(this ITelegramBotClient client, SetPassportDataErrorsArgs args) =>
-        client.SetPassportDataErrorsAsync(args).GetAwaiter().GetResult();
+    public static bool SetPassportDataErrors(
+        this ITelegramBotClient client,
+        SetPassportDataErrorsArgs args
+    ) => client.SetPassportDataErrorsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns <em>True</em> on success.
@@ -31,14 +33,22 @@ public static partial class TelegramPassportExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetPassportDataErrorsAsync(this ITelegramBotClient client, SetPassportDataErrorsArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> SetPassportDataErrorsAsync(
+        this ITelegramBotClient client,
+        SetPassportDataErrorsArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.SetPassportDataErrors, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetPassportDataErrors,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -51,8 +61,11 @@ public static partial class TelegramPassportExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetPassportDataErrors(this ITelegramBotClient client, long userId, IEnumerable<PassportElementError> errors) =>
-        client.SetPassportDataErrorsAsync(userId, errors).GetAwaiter().GetResult();
+    public static bool SetPassportDataErrors(
+        this ITelegramBotClient client,
+        long userId,
+        IEnumerable<PassportElementError> errors
+    ) => client.SetPassportDataErrorsAsync(userId, errors).GetAwaiter().GetResult();
 
     /// <summary>
     /// Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns <em>True</em> on success.
@@ -65,7 +78,12 @@ public static partial class TelegramPassportExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetPassportDataErrorsAsync(this ITelegramBotClient client, long userId, IEnumerable<PassportElementError> errors, CancellationToken cancellationToken = default)
+    public static Task<bool> SetPassportDataErrorsAsync(
+        this ITelegramBotClient client,
+        long userId,
+        IEnumerable<PassportElementError> errors,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -75,9 +93,13 @@ public static partial class TelegramPassportExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.UserId, userId },
-            { PropertyNames.Errors, errors ?? throw new ArgumentNullException(nameof(errors)) }
+            { PropertyNames.Errors, errors ?? throw new ArgumentNullException(nameof(errors)) },
         };
 
-        return client.CallMethodAsync<bool>(MethodNames.SetPassportDataErrors, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetPassportDataErrors,
+            args,
+            cancellationToken
+        );
     }
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -27,13 +27,19 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<WebhookInfo> GetWebhookInfoAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
+    public static Task<WebhookInfo> GetWebhookInfoAsync(
+        this ITelegramBotClient client,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<WebhookInfo>(MethodNames.GetWebhookInfo, cancellationToken: cancellationToken);
+        return client.CallMethodAsync<WebhookInfo>(
+            MethodNames.GetWebhookInfo,
+            cancellationToken: cancellationToken
+        );
     }
 }

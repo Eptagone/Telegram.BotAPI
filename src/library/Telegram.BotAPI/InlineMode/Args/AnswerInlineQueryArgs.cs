@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -16,7 +16,8 @@ public class AnswerInlineQueryArgs
     /// <param name="results">A JSON-serialized array of results for the inline query</param>
     public AnswerInlineQueryArgs(string inlineQueryId, IEnumerable<InlineQueryResult> results)
     {
-        this.InlineQueryId = inlineQueryId ?? throw new ArgumentNullException(nameof(inlineQueryId));
+        this.InlineQueryId =
+            inlineQueryId ?? throw new ArgumentNullException(nameof(inlineQueryId));
         this.Results = results ?? throw new ArgumentNullException(nameof(results));
     }
 

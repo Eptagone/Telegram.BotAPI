@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -16,7 +16,7 @@ public class ReplyParameters
     public int MessageId { get; set; }
 
     /// <summary>
-    /// Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format <em>@channelusername</em>). Not supported for messages sent on behalf of a business account and messages from channel direct messages chats.
+    /// Optional. If the message to be replied to is from a different chat, unique identifier for the chat or username of the bot, supergroup or channel in the format <em>@username</em>. Not supported for messages sent on behalf of a business account and messages from channel direct messages chats.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object? ChatId { get; set; }

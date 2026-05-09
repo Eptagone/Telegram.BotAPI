@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -27,7 +27,7 @@ public class SendGiftArgs
     public long? UserId { get; set; }
 
     /// <summary>
-    /// Required if <em>user_id</em> is not specified. Unique identifier for the chat or username of the channel (in the format <em>@channelusername</em>) that will receive the gift.
+    /// Required if <em>user_id</em> is not specified. Unique identifier for the chat or username of the channel (in the format <em>@username</em>) that will receive the gift.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object? ChatId { get; set; }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2025 Quetzal Rivera.
+﻿// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 namespace Telegram.BotAPI;
@@ -8,16 +8,18 @@ namespace Telegram.BotAPI;
 /// </summary>
 public static class StickerFormats
 {
-	/// <summary>
-	/// Static sticker.
-	/// </summary>
-	public const string Static = "static";
-	/// <summary>
-	/// Animated sticker.
-	/// </summary>
-	public const string Animated = "animated";
-	/// <summary>
-	/// Video sticker.
-	/// </summary>
-	public const string Video = "video";
+    /// <summary>
+    /// Static sticker.
+    /// </summary>
+    public const string Static = "static";
+
+    /// <summary>
+    /// Animated sticker.
+    /// </summary>
+    public const string Animated = "animated";
+
+    /// <summary>
+    /// Video sticker.
+    /// </summary>
+    public const string Video = "video";
 }

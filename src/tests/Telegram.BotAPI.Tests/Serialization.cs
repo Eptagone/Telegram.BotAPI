@@ -52,9 +52,12 @@ public sealed class Serialization(ITestOutputHelper outputHelper)
 
         var rawText = JsonSerializer.Serialize(args, options);
         this._outputHelper.WriteLine(rawText);
-        var deserializeArgs = JsonSerializer.Deserialize<SendGameArgs>(rawText, options);
-        Assert.Equal(777777, deserializeArgs.ChatId);
-        Assert.Equal("Welcome to my game", deserializeArgs.GameShortName);
+        var deserializeArgs = JsonSerializer.Deserialize<JsonDocument>(rawText, options);
+        Assert.Equal(777777, deserializeArgs?.RootElement.GetProperty("chat_id").GetInt64());
+        Assert.Equal(
+            "Welcome to my game",
+            deserializeArgs?.RootElement.GetProperty("game_short_name").GetString()
+        );
     }
 
     [Fact]

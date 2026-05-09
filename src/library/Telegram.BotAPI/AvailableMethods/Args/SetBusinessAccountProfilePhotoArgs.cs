@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -18,7 +18,8 @@ public class SetBusinessAccountProfilePhotoArgs : AttachedFilesArgsBase
     /// <param name="photo">The new profile photo to set</param>
     public SetBusinessAccountProfilePhotoArgs(string businessConnectionId, InputProfilePhoto photo)
     {
-        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId =
+            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
     }
 

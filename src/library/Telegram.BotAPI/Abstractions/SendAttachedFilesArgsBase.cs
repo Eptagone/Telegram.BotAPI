@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 
 using Telegram.BotAPI.AvailableTypes;
@@ -10,9 +10,9 @@ namespace Telegram.BotAPI;
 /// </summary>
 public abstract class AttachedFilesArgsBase
 {
-	/// <summary>
-	/// Files to send.
-	/// </summary>
-	[JsonIgnore]
-	public IDictionary<string, InputFile> Files { get; set; } = new Dictionary<string, InputFile>();
+    /// <summary>
+    /// Files to send.
+    /// </summary>
+    [JsonIgnore]
+    public IDictionary<string, InputFile> Files { get; set; } = new Dictionary<string, InputFile>();
 }

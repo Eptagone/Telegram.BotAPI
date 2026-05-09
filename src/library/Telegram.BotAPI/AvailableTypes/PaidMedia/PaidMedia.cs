@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -9,8 +9,9 @@ namespace Telegram.BotAPI.AvailableTypes;
 /// <summary>
 /// This object describes paid media. Currently, it can be one of
 /// <list type="bullet">
-/// <item><description><see cref="PaidMediaPreview"/></description></item>
+/// <item><description><see cref="PaidMediaLivePhoto"/></description></item>
 /// <item><description><see cref="PaidMediaPhoto"/></description></item>
+/// <item><description><see cref="PaidMediaPreview"/></description></item>
 /// <item><description><see cref="PaidMediaVideo"/></description></item>
 /// </list>
 /// </summary>

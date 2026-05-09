@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -29,19 +29,24 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> RemoveChatVerificationAsync(this ITelegramBotClient client, long chatId, CancellationToken cancellationToken = default)
+    public static Task<bool> RemoveChatVerificationAsync(
+        this ITelegramBotClient client,
+        long chatId,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>()
-        {
-            { PropertyNames.ChatId, chatId }
-        };
+        var args = new Dictionary<string, object>() { { PropertyNames.ChatId, chatId } };
 
-        return client.CallMethodAsync<bool>(MethodNames.RemoveChatVerification, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.RemoveChatVerification,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -64,7 +69,11 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> RemoveChatVerificationAsync(this ITelegramBotClient client, string chatId, CancellationToken cancellationToken = default)
+    public static Task<bool> RemoveChatVerificationAsync(
+        this ITelegramBotClient client,
+        string chatId,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -73,9 +82,13 @@ public static partial class UpdatingMessagesExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) }
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
         };
 
-        return client.CallMethodAsync<bool>(MethodNames.RemoveChatVerification, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.RemoveChatVerification,
+            args,
+            cancellationToken
+        );
     }
 }

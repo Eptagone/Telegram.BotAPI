@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -18,8 +18,11 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMyShortDescription(this ITelegramBotClient client, string? shortDescription = null, string? languageCode = null) =>
-        client.SetMyShortDescriptionAsync(shortDescription, languageCode).GetAwaiter().GetResult();
+    public static bool SetMyShortDescription(
+        this ITelegramBotClient client,
+        string? shortDescription = null,
+        string? languageCode = null
+    ) => client.SetMyShortDescriptionAsync(shortDescription, languageCode).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the bot's short description, which is shown on the bot's profile page and is sent together with the link when users share the bot. Returns <em>True</em> on success.
@@ -31,16 +34,19 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetMyShortDescriptionAsync(this ITelegramBotClient client, string? shortDescription = null, string? languageCode = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SetMyShortDescriptionAsync(
+        this ITelegramBotClient client,
+        string? shortDescription = null,
+        string? languageCode = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>()
-        {
-        };
+        var args = new Dictionary<string, object>() { };
         if (shortDescription is not null)
         {
             args.Add(PropertyNames.ShortDescription, shortDescription);
@@ -50,6 +56,10 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.LanguageCode, languageCode);
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.SetMyShortDescription, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetMyShortDescription,
+            args,
+            cancellationToken
+        );
     }
 }

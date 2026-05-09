@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -12,8 +12,8 @@ public class CopyMessagesArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="CopyMessagesArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to copy. The identifiers must be specified in a strictly increasing order.</param>
     public CopyMessagesArgs(long chatId, long fromChatId, IEnumerable<int> messageIds)
     {
@@ -25,8 +25,8 @@ public class CopyMessagesArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="CopyMessagesArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to copy. The identifiers must be specified in a strictly increasing order.</param>
     public CopyMessagesArgs(long chatId, string fromChatId, IEnumerable<int> messageIds)
     {
@@ -38,8 +38,8 @@ public class CopyMessagesArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="CopyMessagesArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to copy. The identifiers must be specified in a strictly increasing order.</param>
     public CopyMessagesArgs(string chatId, long fromChatId, IEnumerable<int> messageIds)
     {
@@ -51,8 +51,8 @@ public class CopyMessagesArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="CopyMessagesArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to copy. The identifiers must be specified in a strictly increasing order.</param>
     public CopyMessagesArgs(string chatId, string fromChatId, IEnumerable<int> messageIds)
     {
@@ -62,7 +62,7 @@ public class CopyMessagesArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
+    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }
@@ -80,7 +80,7 @@ public class CopyMessagesArgs
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the chat where the original messages were sent (or channel username in the format <em>@channelusername</em>)
+    /// Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)
     /// </summary>
     [JsonPropertyName(PropertyNames.FromChatId)]
     public object FromChatId { get; set; }

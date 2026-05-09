@@ -311,14 +311,14 @@ static async Task<BotApiDefinitions> ScrapBotApiDefinitions()
             "ReplyMarkup",
             new string[]
             {
-                "Additional interface options. A JSON-serialized object for an <a href=\"/bots/features#inline-keyboards\">inline keyboard</a>, <a href=\"/bots/features#keyboards\">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user."
+                "Additional interface options. A JSON-serialized object for an <a href=\"/bots/features#inline-keyboards\">inline keyboard</a>, <a href=\"/bots/features#keyboards\">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.",
             },
             new string[]
             {
                 "InlineKeyboardMarkup",
                 "ReplyKeyboardMarkup",
                 "ReplyKeyboardRemove",
-                "ForceReply"
+                "ForceReply",
             }
         )
     );
@@ -329,6 +329,26 @@ static async Task<BotApiDefinitions> ScrapBotApiDefinitions()
         types.Count(),
         typeGroups.Count()
     );
+
+    // Temporary fix
+    var InputPollMedia = typeGroups.First(g => g.Name == "InputPollMedia");
+    var InputPollOptionMedia = typeGroups.First(g => g.Name == "InputPollOptionMedia");
+    var InputMedia = typeGroups.First(g => g.Name == "InputMedia");
+    InputMedia = new TelegramTypeGroup(
+        InputMedia.SectionName,
+        InputMedia.Name,
+        InputMedia.Description,
+        InputMedia.Types.Union(InputPollMedia.Types).Union(InputPollOptionMedia.Types)
+    );
+
+    typeGroups = typeGroups
+        .Where(g =>
+            !new string[] { "InputPollMedia", "InputPollOptionMedia", "InputMedia" }.Contains(
+                g.Name
+            )
+        )
+        .Append(InputMedia)
+        .ToList();
 
     return new BotApiDefinitions(types, methods, typeGroups);
 }
@@ -388,7 +408,7 @@ static IEnumerable<TelegramReturnType> ExtractReturnTypesFromDescription(string 
             return
             [
                 new TelegramReturnType("Message", 0, new string[] { "chat_id", "message_id" }),
-                new TelegramReturnType("bool", 0, new string[] { "inline_message_id" })
+                new TelegramReturnType("bool", 0, new string[] { "inline_message_id" }),
             ];
         }
     }

@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -12,7 +12,7 @@ public class BotCommandScopeChatAdministrators : BotCommandScope
     /// <summary>
     /// Initializes a new instance of the <see cref="BotCommandScopeChatAdministrators"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>). Channel direct messages chats and channel chats aren't supported.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em>. Channel direct messages chats and channel chats aren't supported.</param>
     public BotCommandScopeChatAdministrators(long chatId)
     {
         this.ChatId = chatId;
@@ -21,7 +21,7 @@ public class BotCommandScopeChatAdministrators : BotCommandScope
     /// <summary>
     /// Initializes a new instance of the <see cref="BotCommandScopeChatAdministrators"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>). Channel direct messages chats and channel chats aren't supported.</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em>. Channel direct messages chats and channel chats aren't supported.</param>
     public BotCommandScopeChatAdministrators(string chatId)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -34,7 +34,7 @@ public class BotCommandScopeChatAdministrators : BotCommandScope
     public override string Type => "chat_administrators";
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>). Channel direct messages chats and channel chats aren't supported.
+    /// Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em>. Channel direct messages chats and channel chats aren't supported.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

@@ -1,11 +1,11 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object contains information about the creation or token update of a bot that is managed by the current bot.
+/// This object contains information about the creation, token update, or owner update of a bot that is managed by the current bot.
 /// </summary>
 public class ManagedBotUpdated
 {

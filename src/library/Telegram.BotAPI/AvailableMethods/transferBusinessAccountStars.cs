@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -18,8 +18,15 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool TransferBusinessAccountStars(this ITelegramBotClient client, string businessConnectionId, int starCount) =>
-        client.TransferBusinessAccountStarsAsync(businessConnectionId, starCount).GetAwaiter().GetResult();
+    public static bool TransferBusinessAccountStars(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        int starCount
+    ) =>
+        client
+            .TransferBusinessAccountStarsAsync(businessConnectionId, starCount)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Transfers Telegram Stars from the business account balance to the bot's balance. Requires the <em>can_transfer_stars</em> business bot right. Returns <em>True</em> on success.
@@ -31,7 +38,12 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> TransferBusinessAccountStarsAsync(this ITelegramBotClient client, string businessConnectionId, int starCount, CancellationToken cancellationToken = default)
+    public static Task<bool> TransferBusinessAccountStarsAsync(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        int starCount,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -40,10 +52,18 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
-            { PropertyNames.StarCount, starCount }
+            {
+                PropertyNames.BusinessConnectionId,
+                businessConnectionId
+                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
+            },
+            { PropertyNames.StarCount, starCount },
         };
 
-        return client.CallMethodAsync<bool>(MethodNames.TransferBusinessAccountStars, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.TransferBusinessAccountStars,
+            args,
+            cancellationToken
+        );
     }
 }

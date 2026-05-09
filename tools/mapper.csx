@@ -841,7 +841,7 @@ static bool IsModelLikeArgs(string modelName, BotApiDefinitions definitions)
         "WebAppInfo",
         "LoginUrl",
         "InputPollOption",
-        "CopyTextButton"
+        "CopyTextButton",
     };
 
     return @classes.Contains(modelName) || baseClasses.Any(g => g.Types.Contains(modelName));
@@ -921,8 +921,9 @@ static IEnumerable<string> ParseDocReferences(
                 {
                     // Check if the reference is a type
                     var typeName =
-                        definitions.Types.FirstOrDefault(t => t.Name == text)?.Name
-                        ?? definitions.TypeGroups.FirstOrDefault(g => g.Name == text)?.Name;
+                        definitions.Types.FirstOrDefault(t => t.Name == text)?.Name ?? definitions
+                            .TypeGroups.FirstOrDefault(g => g.Name == text)
+                            ?.Name;
                     if (typeName != null)
                     {
                         // Replace the anchor for a `see` tag

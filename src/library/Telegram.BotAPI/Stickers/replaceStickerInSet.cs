@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -19,8 +19,10 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool ReplaceStickerInSet(this ITelegramBotClient client, ReplaceStickerInSetArgs args) =>
-        client.ReplaceStickerInSetAsync(args).GetAwaiter().GetResult();
+    public static bool ReplaceStickerInSet(
+        this ITelegramBotClient client,
+        ReplaceStickerInSetArgs args
+    ) => client.ReplaceStickerInSetAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to replace an existing sticker in a sticker set with a new one. The method is equivalent to calling <a href="https://core.telegram.org/bots/api#deletestickerfromset">deleteStickerFromSet</a>, then <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>, then <a href="https://core.telegram.org/bots/api#setstickerpositioninset">setStickerPositionInSet</a>. Returns <em>True</em> on success.
@@ -31,14 +33,22 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> ReplaceStickerInSetAsync(this ITelegramBotClient client, ReplaceStickerInSetArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> ReplaceStickerInSetAsync(
+        this ITelegramBotClient client,
+        ReplaceStickerInSetArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.ReplaceStickerInSet, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.ReplaceStickerInSet,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -52,7 +62,13 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool ReplaceStickerInSet(this ITelegramBotClient client, long userId, string name, string oldSticker, InputSticker sticker) =>
+    public static bool ReplaceStickerInSet(
+        this ITelegramBotClient client,
+        long userId,
+        string name,
+        string oldSticker,
+        InputSticker sticker
+    ) =>
         client.ReplaceStickerInSetAsync(userId, name, oldSticker, sticker).GetAwaiter().GetResult();
 
     /// <summary>
@@ -67,7 +83,14 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> ReplaceStickerInSetAsync(this ITelegramBotClient client, long userId, string name, string oldSticker, InputSticker sticker, CancellationToken cancellationToken = default)
+    public static Task<bool> ReplaceStickerInSetAsync(
+        this ITelegramBotClient client,
+        long userId,
+        string name,
+        string oldSticker,
+        InputSticker sticker,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -78,10 +101,17 @@ public static partial class StickersExtensions
         {
             { PropertyNames.UserId, userId },
             { PropertyNames.Name, name ?? throw new ArgumentNullException(nameof(name)) },
-            { PropertyNames.OldSticker, oldSticker ?? throw new ArgumentNullException(nameof(oldSticker)) },
-            { PropertyNames.Sticker, sticker ?? throw new ArgumentNullException(nameof(sticker)) }
+            {
+                PropertyNames.OldSticker,
+                oldSticker ?? throw new ArgumentNullException(nameof(oldSticker))
+            },
+            { PropertyNames.Sticker, sticker ?? throw new ArgumentNullException(nameof(sticker)) },
         };
 
-        return client.CallMethodAsync<bool>(MethodNames.ReplaceStickerInSet, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.ReplaceStickerInSet,
+            args,
+            cancellationToken
+        );
     }
 }

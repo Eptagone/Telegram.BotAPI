@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -31,7 +31,11 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Story> RepostStoryAsync(this ITelegramBotClient client, RepostStoryArgs args, CancellationToken cancellationToken = default)
+    public static Task<Story> RepostStoryAsync(
+        this ITelegramBotClient client,
+        RepostStoryArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -54,8 +58,26 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Story RepostStory(this ITelegramBotClient client, string businessConnectionId, long fromChatId, int fromStoryId, int activePeriod, bool? postToChatPage = null, bool? protectContent = null) =>
-        client.RepostStoryAsync(businessConnectionId, fromChatId, fromStoryId, activePeriod, postToChatPage, protectContent).GetAwaiter().GetResult();
+    public static Story RepostStory(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        long fromChatId,
+        int fromStoryId,
+        int activePeriod,
+        bool? postToChatPage = null,
+        bool? protectContent = null
+    ) =>
+        client
+            .RepostStoryAsync(
+                businessConnectionId,
+                fromChatId,
+                fromStoryId,
+                activePeriod,
+                postToChatPage,
+                protectContent
+            )
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Reposts a story on behalf of a business account from another business account. Both business accounts must be managed by the same bot, and the story on the source account must have been posted (or reposted) by the bot. Requires the <em>can_manage_stories</em> business bot right for both business accounts. Returns <see cref="Story"/> on success.
@@ -71,7 +93,16 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Story> RepostStoryAsync(this ITelegramBotClient client, string businessConnectionId, long fromChatId, int fromStoryId, int activePeriod, bool? postToChatPage = null, bool? protectContent = null, CancellationToken cancellationToken = default)
+    public static Task<Story> RepostStoryAsync(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        long fromChatId,
+        int fromStoryId,
+        int activePeriod,
+        bool? postToChatPage = null,
+        bool? protectContent = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -80,10 +111,14 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
+            {
+                PropertyNames.BusinessConnectionId,
+                businessConnectionId
+                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
+            },
             { PropertyNames.FromChatId, fromChatId },
             { PropertyNames.FromStoryId, fromStoryId },
-            { PropertyNames.ActivePeriod, activePeriod }
+            { PropertyNames.ActivePeriod, activePeriod },
         };
         if (postToChatPage is not null)
         {

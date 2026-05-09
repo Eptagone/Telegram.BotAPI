@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -19,8 +19,10 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetBusinessAccountGiftSettings(this ITelegramBotClient client, SetBusinessAccountGiftSettingsArgs args) =>
-        client.SetBusinessAccountGiftSettingsAsync(args).GetAwaiter().GetResult();
+    public static bool SetBusinessAccountGiftSettings(
+        this ITelegramBotClient client,
+        SetBusinessAccountGiftSettingsArgs args
+    ) => client.SetBusinessAccountGiftSettingsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Changes the privacy settings pertaining to incoming gifts in a managed business account. Requires the <em>can_change_gift_settings</em> business bot right. Returns <em>True</em> on success.
@@ -31,14 +33,22 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetBusinessAccountGiftSettingsAsync(this ITelegramBotClient client, SetBusinessAccountGiftSettingsArgs args, CancellationToken cancellationToken = default)
+    public static Task<bool> SetBusinessAccountGiftSettingsAsync(
+        this ITelegramBotClient client,
+        SetBusinessAccountGiftSettingsArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.SetBusinessAccountGiftSettings, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetBusinessAccountGiftSettings,
+            args,
+            cancellationToken
+        );
     }
 
     /// <summary>
@@ -51,8 +61,20 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetBusinessAccountGiftSettings(this ITelegramBotClient client, string businessConnectionId, bool showGiftButton, AcceptedGiftTypes acceptedGiftTypes) =>
-        client.SetBusinessAccountGiftSettingsAsync(businessConnectionId, showGiftButton, acceptedGiftTypes).GetAwaiter().GetResult();
+    public static bool SetBusinessAccountGiftSettings(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        bool showGiftButton,
+        AcceptedGiftTypes acceptedGiftTypes
+    ) =>
+        client
+            .SetBusinessAccountGiftSettingsAsync(
+                businessConnectionId,
+                showGiftButton,
+                acceptedGiftTypes
+            )
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Changes the privacy settings pertaining to incoming gifts in a managed business account. Requires the <em>can_change_gift_settings</em> business bot right. Returns <em>True</em> on success.
@@ -65,7 +87,13 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetBusinessAccountGiftSettingsAsync(this ITelegramBotClient client, string businessConnectionId, bool showGiftButton, AcceptedGiftTypes acceptedGiftTypes, CancellationToken cancellationToken = default)
+    public static Task<bool> SetBusinessAccountGiftSettingsAsync(
+        this ITelegramBotClient client,
+        string businessConnectionId,
+        bool showGiftButton,
+        AcceptedGiftTypes acceptedGiftTypes,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -74,11 +102,22 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
+            {
+                PropertyNames.BusinessConnectionId,
+                businessConnectionId
+                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
+            },
             { PropertyNames.ShowGiftButton, showGiftButton },
-            { PropertyNames.AcceptedGiftTypes, acceptedGiftTypes ?? throw new ArgumentNullException(nameof(acceptedGiftTypes)) }
+            {
+                PropertyNames.AcceptedGiftTypes,
+                acceptedGiftTypes ?? throw new ArgumentNullException(nameof(acceptedGiftTypes))
+            },
         };
 
-        return client.CallMethodAsync<bool>(MethodNames.SetBusinessAccountGiftSettings, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.SetBusinessAccountGiftSettings,
+            args,
+            cancellationToken
+        );
     }
 }

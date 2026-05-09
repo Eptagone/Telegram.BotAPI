@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class ChatOwnerLeft
 {
     /// <summary>
-    /// Optional. The user which will be the new owner of the chat if the previous owner does not return to the chat
+    /// Optional. The user who will become the new owner of the chat if the previous owner does not return to the chat
     /// </summary>
     [JsonPropertyName(PropertyNames.NewOwner)]
     public User? NewOwner { get; set; }

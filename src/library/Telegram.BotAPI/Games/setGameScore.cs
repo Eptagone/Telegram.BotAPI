@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -19,8 +19,10 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static TResult SetGameScore<TResult>(this ITelegramBotClient client, SetGameScoreArgs args) =>
-        client.SetGameScoreAsync<TResult>(args).GetAwaiter().GetResult();
+    public static TResult SetGameScore<TResult>(
+        this ITelegramBotClient client,
+        SetGameScoreArgs args
+    ) => client.SetGameScoreAsync<TResult>(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
@@ -31,7 +33,11 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<TResult> SetGameScoreAsync<TResult>(this ITelegramBotClient client, SetGameScoreArgs args, CancellationToken cancellationToken = default)
+    public static Task<TResult> SetGameScoreAsync<TResult>(
+        this ITelegramBotClient client,
+        SetGameScoreArgs args,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -54,8 +60,19 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SetGameScore(this ITelegramBotClient client, long userId, int score, long chatId, int messageId, bool? force = null, bool? disableEditMessage = null) =>
-        client.SetGameScoreAsync(userId, score, chatId, messageId, force, disableEditMessage).GetAwaiter().GetResult();
+    public static Message SetGameScore(
+        this ITelegramBotClient client,
+        long userId,
+        int score,
+        long chatId,
+        int messageId,
+        bool? force = null,
+        bool? disableEditMessage = null
+    ) =>
+        client
+            .SetGameScoreAsync(userId, score, chatId, messageId, force, disableEditMessage)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
@@ -71,7 +88,16 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SetGameScoreAsync(this ITelegramBotClient client, long userId, int score, long chatId, int messageId, bool? force = null, bool? disableEditMessage = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SetGameScoreAsync(
+        this ITelegramBotClient client,
+        long userId,
+        int score,
+        long chatId,
+        int messageId,
+        bool? force = null,
+        bool? disableEditMessage = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -83,7 +109,7 @@ public static partial class GamesExtensions
             { PropertyNames.UserId, userId },
             { PropertyNames.Score, score },
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.MessageId, messageId }
+            { PropertyNames.MessageId, messageId },
         };
         if (force is not null)
         {
@@ -109,8 +135,18 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetGameScore(this ITelegramBotClient client, long userId, int score, string inlineMessageId, bool? force = null, bool? disableEditMessage = null) =>
-        client.SetGameScoreAsync(userId, score, inlineMessageId, force, disableEditMessage).GetAwaiter().GetResult();
+    public static bool SetGameScore(
+        this ITelegramBotClient client,
+        long userId,
+        int score,
+        string inlineMessageId,
+        bool? force = null,
+        bool? disableEditMessage = null
+    ) =>
+        client
+            .SetGameScoreAsync(userId, score, inlineMessageId, force, disableEditMessage)
+            .GetAwaiter()
+            .GetResult();
 
     /// <summary>
     /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
@@ -125,7 +161,15 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetGameScoreAsync(this ITelegramBotClient client, long userId, int score, string inlineMessageId, bool? force = null, bool? disableEditMessage = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SetGameScoreAsync(
+        this ITelegramBotClient client,
+        long userId,
+        int score,
+        string inlineMessageId,
+        bool? force = null,
+        bool? disableEditMessage = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -136,7 +180,10 @@ public static partial class GamesExtensions
         {
             { PropertyNames.UserId, userId },
             { PropertyNames.Score, score },
-            { PropertyNames.InlineMessageId, inlineMessageId ?? throw new ArgumentNullException(nameof(inlineMessageId)) }
+            {
+                PropertyNames.InlineMessageId,
+                inlineMessageId ?? throw new ArgumentNullException(nameof(inlineMessageId))
+            },
         };
         if (force is not null)
         {

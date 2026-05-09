@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -14,7 +14,7 @@ public class SetChatPhotoArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SetChatPhotoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel in the format <em>@username</em></param>
     /// <param name="photo">New chat photo, uploaded using multipart/form-data</param>
     public SetChatPhotoArgs(long chatId, InputFile photo)
     {
@@ -25,7 +25,7 @@ public class SetChatPhotoArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SetChatPhotoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target channel in the format <em>@username</em></param>
     /// <param name="photo">New chat photo, uploaded using multipart/form-data</param>
     public SetChatPhotoArgs(string chatId, InputFile photo)
     {
@@ -34,7 +34,7 @@ public class SetChatPhotoArgs : AttachedFilesArgsBase
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
+    /// Unique identifier for the target chat or username of the target channel in the format <em>@username</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

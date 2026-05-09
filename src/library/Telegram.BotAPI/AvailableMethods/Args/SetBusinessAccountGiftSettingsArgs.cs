@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -17,11 +17,17 @@ public class SetBusinessAccountGiftSettingsArgs
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
     /// <param name="showGiftButton">Pass <em>True</em>, if a button for sending a gift to the user or by the business account must always be shown in the input field</param>
     /// <param name="acceptedGiftTypes">Types of gifts accepted by the business account</param>
-    public SetBusinessAccountGiftSettingsArgs(string businessConnectionId, bool showGiftButton, AcceptedGiftTypes acceptedGiftTypes)
+    public SetBusinessAccountGiftSettingsArgs(
+        string businessConnectionId,
+        bool showGiftButton,
+        AcceptedGiftTypes acceptedGiftTypes
+    )
     {
-        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId =
+            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.ShowGiftButton = showGiftButton;
-        this.AcceptedGiftTypes = acceptedGiftTypes ?? throw new ArgumentNullException(nameof(acceptedGiftTypes));
+        this.AcceptedGiftTypes =
+            acceptedGiftTypes ?? throw new ArgumentNullException(nameof(acceptedGiftTypes));
     }
 
     /// <summary>

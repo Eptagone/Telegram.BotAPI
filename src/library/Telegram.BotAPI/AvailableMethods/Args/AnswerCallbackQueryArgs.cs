@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -17,7 +17,8 @@ public class AnswerCallbackQueryArgs
     /// <param name="callbackQueryId">Unique identifier for the query to be answered</param>
     public AnswerCallbackQueryArgs(string callbackQueryId)
     {
-        this.CallbackQueryId = callbackQueryId ?? throw new ArgumentNullException(nameof(callbackQueryId));
+        this.CallbackQueryId =
+            callbackQueryId ?? throw new ArgumentNullException(nameof(callbackQueryId));
     }
 
     /// <summary>

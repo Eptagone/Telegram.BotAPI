@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -14,7 +14,7 @@ public class SetChatPermissionsArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SetChatPermissionsArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em></param>
     /// <param name="permissions">A JSON-serialized object for new default chat permissions</param>
     public SetChatPermissionsArgs(long chatId, ChatPermissions permissions)
     {
@@ -25,7 +25,7 @@ public class SetChatPermissionsArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SetChatPermissionsArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em></param>
     /// <param name="permissions">A JSON-serialized object for new default chat permissions</param>
     public SetChatPermissionsArgs(string chatId, ChatPermissions permissions)
     {
@@ -34,7 +34,7 @@ public class SetChatPermissionsArgs
     }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target supergroup (in the format <em>@supergroupusername</em>)
+    /// Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -16,7 +16,7 @@ public class Dice
     public string Emoji { get; set; } = null!;
 
     /// <summary>
-    /// Value of the dice, 1-6 for “рџЋІ”, “рџЋЇ” and “рџЋі” base emoji, 1-5 for “рџЏЂ” and “вљЅ” base emoji, 1-64 for “рџЋ°” base emoji
+    /// Value of the dice, 1-6 for “🎲”, “🎯” and “🎳” base emoji, 1-5 for “🏀” and “⚽” base emoji, 1-64 for “🎰” base emoji
     /// </summary>
     [JsonPropertyName(PropertyNames.Value)]
     public int Value { get; set; }

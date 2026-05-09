@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -9,7 +9,7 @@ using Telegram.BotAPI.Payments;
 namespace Telegram.BotAPI.GettingUpdates;
 
 /// <summary>
-/// This <a href="https://core.telegram.org/bots/api#available-types">object</a> represents an incoming update.<br />At most <strong>one</strong> of the optional parameters can be present in any given update.
+/// This <a href="https://core.telegram.org/bots/api#available-types">object</a> represents an incoming update.<br />At most <strong>one</strong> of the optional fields can be present in any given update.
 /// </summary>
 public class Update
 {
@@ -66,6 +66,12 @@ public class Update
     /// </summary>
     [JsonPropertyName(PropertyNames.DeletedBusinessMessages)]
     public BusinessMessagesDeleted? DeletedBusinessMessages { get; set; }
+
+    /// <summary>
+    /// Optional. New guest message. The bot can use the field <em>Message.guest_query_id</em> and the method <a href="https://core.telegram.org/bots/api#answerguestquery">answerGuestQuery</a> to send a message in response.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GuestMessage)]
+    public Message? GuestMessage { get; set; }
 
     /// <summary>
     /// Optional. A reaction to a message was changed by a user. The bot must be an administrator in the chat and must explicitly specify <em>"message_reaction"</em> in the list of <em>allowed_updates</em> to receive these updates. The update isn't received for reactions set by bots.
@@ -158,7 +164,7 @@ public class Update
     public ChatBoostRemoved? RemovedChatBoost { get; set; }
 
     /// <summary>
-    /// Optional. A new bot was created to be managed by the bot or token of a bot was changed
+    /// Optional. A new bot was created to be managed by the bot, or token or owner of a managed bot was changed
     /// </summary>
     [JsonPropertyName(PropertyNames.ManagedBot)]
     public ManagedBotUpdated? ManagedBot { get; set; }

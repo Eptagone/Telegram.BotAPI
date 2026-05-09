@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -15,13 +15,11 @@ public class SendMessageDraftArgs
     /// Initializes a new instance of the <see cref="SendMessageDraftArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target private chat</param>
-    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes of drafts with the same identifier are animated</param>
-    /// <param name="text">Text of the message to be sent, 1-4096 characters after entities parsing</param>
-    public SendMessageDraftArgs(long chatId, int draftId, string text)
+    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes of drafts with the same identifier are animated.</param>
+    public SendMessageDraftArgs(long chatId, int draftId)
     {
         this.ChatId = chatId;
         this.DraftId = draftId;
-        this.Text = text ?? throw new ArgumentNullException(nameof(text));
     }
 
     /// <summary>
@@ -37,16 +35,16 @@ public class SendMessageDraftArgs
     public int? MessageThreadId { get; set; }
 
     /// <summary>
-    /// Unique identifier of the message draft; must be non-zero. Changes of drafts with the same identifier are animated
+    /// Unique identifier of the message draft; must be non-zero. Changes of drafts with the same identifier are animated.
     /// </summary>
     [JsonPropertyName(PropertyNames.DraftId)]
     public int DraftId { get; set; }
 
     /// <summary>
-    /// Text of the message to be sent, 1-4096 characters after entities parsing
+    /// Text of the message to be sent, 0-4096 characters after entities parsing. Pass an empty text to show a “Thinking…” placeholder.
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
-    public string Text { get; set; }
+    public string? Text { get; set; }
 
     /// <summary>
     /// Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.

@@ -1,11 +1,11 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object represents a <a href="https://core.telegram.org/bots/features#keyboards">custom keyboard</a> with reply options (see <a href="https://core.telegram.org/bots/features#keyboards">Introduction to bots</a> for details and examples). Not supported in channels and for messages sent on behalf of a Telegram Business account.
+/// This object represents a <a href="https://core.telegram.org/bots/features#keyboards">custom keyboard</a> with reply options (see <a href="https://core.telegram.org/bots/features#keyboards">Introduction to bots</a> for details and examples). Not supported in channels and for messages sent on behalf of a business account.
 /// </summary>
 public class ReplyKeyboardMarkup : ReplyMarkup
 {

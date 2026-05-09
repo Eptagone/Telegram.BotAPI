@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Quetzal Rivera.
+// Copyright (c) 2026 Quetzal Rivera.
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
@@ -19,8 +19,12 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool ApproveSuggestedPost(this ITelegramBotClient client, long chatId, int messageId, int? sendDate = null) =>
-        client.ApproveSuggestedPostAsync(chatId, messageId, sendDate).GetAwaiter().GetResult();
+    public static bool ApproveSuggestedPost(
+        this ITelegramBotClient client,
+        long chatId,
+        int messageId,
+        int? sendDate = null
+    ) => client.ApproveSuggestedPostAsync(chatId, messageId, sendDate).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to approve a suggested post in a direct messages chat. The bot must have the 'can_post_messages' administrator right in the corresponding channel chat. Returns <em>True</em> on success.
@@ -33,7 +37,13 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> ApproveSuggestedPostAsync(this ITelegramBotClient client, long chatId, int messageId, int? sendDate = null, CancellationToken cancellationToken = default)
+    public static Task<bool> ApproveSuggestedPostAsync(
+        this ITelegramBotClient client,
+        long chatId,
+        int messageId,
+        int? sendDate = null,
+        CancellationToken cancellationToken = default
+    )
     {
         if (client is null)
         {
@@ -43,13 +53,17 @@ public static partial class UpdatingMessagesExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.MessageId, messageId }
+            { PropertyNames.MessageId, messageId },
         };
         if (sendDate is not null)
         {
             args.Add(PropertyNames.SendDate, sendDate);
         }
 
-        return client.CallMethodAsync<bool>(MethodNames.ApproveSuggestedPost, args, cancellationToken);
+        return client.CallMethodAsync<bool>(
+            MethodNames.ApproveSuggestedPost,
+            args,
+            cancellationToken
+        );
     }
 }
