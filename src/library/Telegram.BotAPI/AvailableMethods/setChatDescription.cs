@@ -18,11 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatDescription(
-        this ITelegramBotClient client,
-        long chatId,
-        string? description = null
-    ) => client.SetChatDescriptionAsync(chatId, description).GetAwaiter().GetResult();
+    public static bool SetChatDescription(this ITelegramBotClient client, long chatId, string? description = null) =>
+        client.SetChatDescriptionAsync(chatId, description).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the description of a group, a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
@@ -34,29 +31,23 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatDescriptionAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string? description = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatDescriptionAsync(this ITelegramBotClient client, long chatId, string? description = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>() { { PropertyNames.ChatId, chatId } };
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId }
+        };
         if (description is not null)
         {
             args.Add(PropertyNames.Description, description);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetChatDescription,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetChatDescription, args, cancellationToken);
     }
 
     /// <summary>
@@ -68,11 +59,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatDescription(
-        this ITelegramBotClient client,
-        string chatId,
-        string? description = null
-    ) => client.SetChatDescriptionAsync(chatId, description).GetAwaiter().GetResult();
+    public static bool SetChatDescription(this ITelegramBotClient client, string chatId, string? description = null) =>
+        client.SetChatDescriptionAsync(chatId, description).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the description of a group, a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
@@ -84,12 +72,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatDescriptionAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string? description = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatDescriptionAsync(this ITelegramBotClient client, string chatId, string? description = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -98,17 +81,13 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) }
         };
         if (description is not null)
         {
             args.Add(PropertyNames.Description, description);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetChatDescription,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetChatDescription, args, cancellationToken);
     }
 }

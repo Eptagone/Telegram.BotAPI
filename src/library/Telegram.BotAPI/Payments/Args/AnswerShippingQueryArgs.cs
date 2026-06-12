@@ -16,8 +16,7 @@ public class AnswerShippingQueryArgs
     /// <param name="ok">Pass <em>True</em> if delivery to the specified address is possible and <em>False</em> if there are any problems (for example, if delivery to the specified address is not possible)</param>
     public AnswerShippingQueryArgs(string shippingQueryId, bool ok)
     {
-        this.ShippingQueryId =
-            shippingQueryId ?? throw new ArgumentNullException(nameof(shippingQueryId));
+        this.ShippingQueryId = shippingQueryId ?? throw new ArgumentNullException(nameof(shippingQueryId));
         this.Ok = ok;
     }
 

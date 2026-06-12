@@ -15,8 +15,7 @@ public class ReactionTypeCustomEmoji : ReactionType
     /// <param name="customEmojiId">Custom emoji identifier</param>
     public ReactionTypeCustomEmoji(string customEmojiId)
     {
-        this.CustomEmojiId =
-            customEmojiId ?? throw new ArgumentNullException(nameof(customEmojiId));
+        this.CustomEmojiId = customEmojiId ?? throw new ArgumentNullException(nameof(customEmojiId));
     }
 
     /// <summary>

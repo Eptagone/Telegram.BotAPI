@@ -24,7 +24,7 @@ public class InlineQueryResultPhoto : InlineQueryResult
     public override string Id { get; set; } = null!;
 
     /// <summary>
-    /// A valid URL of the photo. Photo must be in <strong>JPEG</strong> format. Photo size must not exceed 5MB
+    /// A valid URL of the photo. Photo must be in <strong>JPEG</strong> format. Photo size must not exceed 5MB.
     /// </summary>
     [JsonPropertyName(PropertyNames.PhotoUrl)]
     public string PhotoUrl { get; set; } = null!;

@@ -15,8 +15,7 @@ public class InlineKeyboardMarkup : ReplyMarkup
     /// <param name="inlineKeyboard">Array of button rows, each represented by an Array of <see cref="InlineKeyboardButton"/> objects</param>
     public InlineKeyboardMarkup(IEnumerable<IEnumerable<InlineKeyboardButton>> inlineKeyboard)
     {
-        this.InlineKeyboard =
-            inlineKeyboard ?? throw new ArgumentNullException(nameof(inlineKeyboard));
+        this.InlineKeyboard = inlineKeyboard ?? throw new ArgumentNullException(nameof(inlineKeyboard));
     }
 
     /// <summary>

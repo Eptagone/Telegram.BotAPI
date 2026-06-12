@@ -18,11 +18,8 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool RefundStarPayment(
-        this ITelegramBotClient client,
-        long userId,
-        string telegramPaymentChargeId
-    ) => client.RefundStarPaymentAsync(userId, telegramPaymentChargeId).GetAwaiter().GetResult();
+    public static bool RefundStarPayment(this ITelegramBotClient client, long userId, string telegramPaymentChargeId) =>
+        client.RefundStarPaymentAsync(userId, telegramPaymentChargeId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Refunds a successful payment in <a href="https://t.me/BotNews/90">Telegram Stars</a>. Returns <em>True</em> on success.
@@ -34,12 +31,7 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> RefundStarPaymentAsync(
-        this ITelegramBotClient client,
-        long userId,
-        string telegramPaymentChargeId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> RefundStarPaymentAsync(this ITelegramBotClient client, long userId, string telegramPaymentChargeId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -49,11 +41,7 @@ public static partial class PaymentsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.UserId, userId },
-            {
-                PropertyNames.TelegramPaymentChargeId,
-                telegramPaymentChargeId
-                    ?? throw new ArgumentNullException(nameof(telegramPaymentChargeId))
-            },
+            { PropertyNames.TelegramPaymentChargeId, telegramPaymentChargeId ?? throw new ArgumentNullException(nameof(telegramPaymentChargeId)) }
         };
 
         return client.CallMethodAsync<bool>(MethodNames.RefundStarPayment, args, cancellationToken);

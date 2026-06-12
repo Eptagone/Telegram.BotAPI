@@ -2,8 +2,8 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
@@ -20,10 +20,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static SentGuestMessage AnswerGuestQuery(
-        this ITelegramBotClient client,
-        AnswerGuestQueryArgs args
-    ) => client.AnswerGuestQueryAsync(args).GetAwaiter().GetResult();
+    public static SentGuestMessage AnswerGuestQuery(this ITelegramBotClient client, AnswerGuestQueryArgs args) =>
+        client.AnswerGuestQueryAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to reply to a received guest message. On success, a <see cref="SentGuestMessage"/> object is returned.
@@ -34,22 +32,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<SentGuestMessage> AnswerGuestQueryAsync(
-        this ITelegramBotClient client,
-        AnswerGuestQueryArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<SentGuestMessage> AnswerGuestQueryAsync(this ITelegramBotClient client, AnswerGuestQueryArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<SentGuestMessage>(
-            MethodNames.AnswerGuestQuery,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<SentGuestMessage>(MethodNames.AnswerGuestQuery, args, cancellationToken);
     }
 
     /// <summary>
@@ -61,11 +51,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static SentGuestMessage AnswerGuestQuery(
-        this ITelegramBotClient client,
-        string guestQueryId,
-        InlineQueryResult result
-    ) => client.AnswerGuestQueryAsync(guestQueryId, result).GetAwaiter().GetResult();
+    public static SentGuestMessage AnswerGuestQuery(this ITelegramBotClient client, string guestQueryId, InlineQueryResult result) =>
+        client.AnswerGuestQueryAsync(guestQueryId, result).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to reply to a received guest message. On success, a <see cref="SentGuestMessage"/> object is returned.
@@ -77,12 +64,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<SentGuestMessage> AnswerGuestQueryAsync(
-        this ITelegramBotClient client,
-        string guestQueryId,
-        InlineQueryResult result,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<SentGuestMessage> AnswerGuestQueryAsync(this ITelegramBotClient client, string guestQueryId, InlineQueryResult result, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -91,17 +73,10 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            {
-                PropertyNames.GuestQueryId,
-                guestQueryId ?? throw new ArgumentNullException(nameof(guestQueryId))
-            },
-            { PropertyNames.Result, result ?? throw new ArgumentNullException(nameof(result)) },
+            { PropertyNames.GuestQueryId, guestQueryId ?? throw new ArgumentNullException(nameof(guestQueryId)) },
+            { PropertyNames.Result, result ?? throw new ArgumentNullException(nameof(result)) }
         };
 
-        return client.CallMethodAsync<SentGuestMessage>(
-            MethodNames.AnswerGuestQuery,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<SentGuestMessage>(MethodNames.AnswerGuestQuery, args, cancellationToken);
     }
 }

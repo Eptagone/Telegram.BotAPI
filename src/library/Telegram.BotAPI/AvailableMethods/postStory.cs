@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Story> PostStoryAsync(
-        this ITelegramBotClient client,
-        PostStoryArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Story> PostStoryAsync(this ITelegramBotClient client, PostStoryArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -61,32 +57,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Story PostStory(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        InputStoryContent content,
-        int activePeriod,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        IEnumerable<StoryArea>? areas = null,
-        bool? postToChatPage = null,
-        bool? protectContent = null
-    ) =>
-        client
-            .PostStoryAsync(
-                businessConnectionId,
-                content,
-                activePeriod,
-                caption,
-                parseMode,
-                captionEntities,
-                areas,
-                postToChatPage,
-                protectContent
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Story PostStory(this ITelegramBotClient client, string businessConnectionId, InputStoryContent content, int activePeriod, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, IEnumerable<StoryArea>? areas = null, bool? postToChatPage = null, bool? protectContent = null) =>
+        client.PostStoryAsync(businessConnectionId, content, activePeriod, caption, parseMode, captionEntities, areas, postToChatPage, protectContent).GetAwaiter().GetResult();
 
     /// <summary>
     /// Posts a story on behalf of a managed business account. Requires the <em>can_manage_stories</em> business bot right. Returns <see cref="Story"/> on success.
@@ -105,19 +77,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Story> PostStoryAsync(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        InputStoryContent content,
-        int activePeriod,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        IEnumerable<StoryArea>? areas = null,
-        bool? postToChatPage = null,
-        bool? protectContent = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Story> PostStoryAsync(this ITelegramBotClient client, string businessConnectionId, InputStoryContent content, int activePeriod, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, IEnumerable<StoryArea>? areas = null, bool? postToChatPage = null, bool? protectContent = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -126,13 +86,9 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            {
-                PropertyNames.BusinessConnectionId,
-                businessConnectionId
-                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
-            },
+            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
             { PropertyNames.Content, content ?? throw new ArgumentNullException(nameof(content)) },
-            { PropertyNames.ActivePeriod, activePeriod },
+            { PropertyNames.ActivePeriod, activePeriod }
         };
         if (caption is not null)
         {

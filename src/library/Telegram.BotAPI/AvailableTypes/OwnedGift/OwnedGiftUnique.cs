@@ -40,7 +40,7 @@ public class OwnedGiftUnique : OwnedGift
     public int? TransferStarCount { get; set; }
 
     /// <summary>
-    /// Optional. Point in time (Unix timestamp) when the gift can be transferred. If it is in the past, then the gift can be transferred now
+    /// Optional. Point in time (Unix timestamp) when the gift can be transferred. If it is in the past, then the gift can be transferred now.
     /// </summary>
     [JsonPropertyName(PropertyNames.NextTransferDate)]
     public int? NextTransferDate { get; set; }

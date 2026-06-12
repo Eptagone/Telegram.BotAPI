@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVoiceAsync(
-        this ITelegramBotClient client,
-        SendVoiceArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVoiceAsync(this ITelegramBotClient client, SendVoiceArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -64,50 +60,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVoice(
-        this ITelegramBotClient client,
-        long chatId,
-        InputFile voice,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        int? duration = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendVoiceAsync(
-                chatId,
-                voice,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                duration,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVoice(this ITelegramBotClient client, long chatId, InputFile voice, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVoiceAsync(chatId, voice, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, duration, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as <see cref="Audio"/> or <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
@@ -128,31 +86,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVoiceAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        InputFile voice,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        int? duration = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVoiceAsync(this ITelegramBotClient client, long chatId, InputFile voice, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -162,7 +101,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.Voice, voice ?? throw new ArgumentNullException(nameof(voice)) },
+            { PropertyNames.Voice, voice ?? throw new ArgumentNullException(nameof(voice)) }
         };
         if (businessConnectionId is not null)
         {
@@ -243,50 +182,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVoice(
-        this ITelegramBotClient client,
-        long chatId,
-        string voice,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        int? duration = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendVoiceAsync(
-                chatId,
-                voice,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                duration,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVoice(this ITelegramBotClient client, long chatId, string voice, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVoiceAsync(chatId, voice, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, duration, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as <see cref="Audio"/> or <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
@@ -307,31 +208,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVoiceAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string voice,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        int? duration = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVoiceAsync(this ITelegramBotClient client, long chatId, string voice, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -341,7 +223,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.Voice, voice ?? throw new ArgumentNullException(nameof(voice)) },
+            { PropertyNames.Voice, voice ?? throw new ArgumentNullException(nameof(voice)) }
         };
         if (businessConnectionId is not null)
         {
@@ -422,50 +304,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVoice(
-        this ITelegramBotClient client,
-        string chatId,
-        InputFile voice,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        int? duration = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendVoiceAsync(
-                chatId,
-                voice,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                duration,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVoice(this ITelegramBotClient client, string chatId, InputFile voice, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVoiceAsync(chatId, voice, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, duration, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as <see cref="Audio"/> or <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
@@ -486,31 +330,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVoiceAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        InputFile voice,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        int? duration = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVoiceAsync(this ITelegramBotClient client, string chatId, InputFile voice, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -520,7 +345,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.Voice, voice ?? throw new ArgumentNullException(nameof(voice)) },
+            { PropertyNames.Voice, voice ?? throw new ArgumentNullException(nameof(voice)) }
         };
         if (businessConnectionId is not null)
         {
@@ -601,50 +426,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVoice(
-        this ITelegramBotClient client,
-        string chatId,
-        string voice,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        int? duration = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendVoiceAsync(
-                chatId,
-                voice,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                duration,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVoice(this ITelegramBotClient client, string chatId, string voice, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVoiceAsync(chatId, voice, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, duration, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as <see cref="Audio"/> or <see cref="Document"/>). On success, the sent <see cref="Message"/> is returned. Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
@@ -665,31 +452,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVoiceAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string voice,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        int? duration = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVoiceAsync(this ITelegramBotClient client, string chatId, string voice, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -699,7 +467,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.Voice, voice ?? throw new ArgumentNullException(nameof(voice)) },
+            { PropertyNames.Voice, voice ?? throw new ArgumentNullException(nameof(voice)) }
         };
         if (businessConnectionId is not null)
         {

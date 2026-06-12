@@ -16,7 +16,7 @@ public class ChatMemberBanned : ChatMember
     public override string Status => "kicked";
 
     /// <summary>
-    /// Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever
+    /// Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever.
     /// </summary>
     [JsonPropertyName(PropertyNames.UntilDate)]
     public int UntilDate { get; set; }

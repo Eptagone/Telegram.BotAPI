@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class ChatPermissions
 {
     /// <summary>
-    /// Optional. <em>True</em>, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues
+    /// Optional. <em>True</em>, if the user is allowed to send text messages, rich messages, contacts, giveaways, giveaway winners, invoices, locations and venues
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendMessages)]
     public bool? CanSendMessages { get; set; }
@@ -82,7 +82,7 @@ public class ChatPermissions
     public bool? CanEditTag { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups
+    /// Optional. <em>True</em>, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanChangeInfo)]
     public bool? CanChangeInfo { get; set; }
@@ -94,13 +94,13 @@ public class ChatPermissions
     public bool? CanInviteUsers { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the user is allowed to pin messages. Ignored in public supergroups
+    /// Optional. <em>True</em>, if the user is allowed to pin messages. Ignored in public supergroups.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanPinMessages)]
     public bool? CanPinMessages { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the user is allowed to create forum topics. If omitted defaults to the value of can_pin_messages
+    /// Optional. <em>True</em>, if the user is allowed to create forum topics. If omitted defaults to the value of can_pin_messages.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageTopics)]
     public bool? CanManageTopics { get; set; }

@@ -14,14 +14,14 @@ public class SetWebhookArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SetWebhookArgs"/> class.
     /// </summary>
-    /// <param name="url">HTTPS URL to send updates to. Use an empty string to remove webhook integration</param>
+    /// <param name="url">HTTPS URL to send updates to. Use an empty string to remove webhook integration.</param>
     public SetWebhookArgs(string url)
     {
         this.Url = url ?? throw new ArgumentNullException(nameof(url));
     }
 
     /// <summary>
-    /// HTTPS URL to send updates to. Use an empty string to remove webhook integration
+    /// HTTPS URL to send updates to. Use an empty string to remove webhook integration.
     /// </summary>
     [JsonPropertyName(PropertyNames.Url)]
     public string Url { get; set; }

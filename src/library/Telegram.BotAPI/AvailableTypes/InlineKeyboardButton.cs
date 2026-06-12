@@ -81,7 +81,7 @@ public class InlineKeyboardButton
     public SwitchInlineQueryChosenChat? SwitchInlineQueryChosenChat { get; set; }
 
     /// <summary>
-    /// Optional. Description of the button that copies the specified text to the clipboard.
+    /// Optional. Description of the button that copies the specified text to the clipboard
     /// </summary>
     [JsonPropertyName(PropertyNames.CopyText)]
     public CopyTextButton? CopyText { get; set; }

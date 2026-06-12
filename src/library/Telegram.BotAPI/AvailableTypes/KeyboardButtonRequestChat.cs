@@ -12,8 +12,8 @@ public class KeyboardButtonRequestChat
     /// <summary>
     /// Initializes a new instance of the <see cref="KeyboardButtonRequestChat"/> class.
     /// </summary>
-    /// <param name="requestId">Signed 32-bit identifier of the request, which will be received back in the <see cref="ChatShared"/> object. Must be unique within the message</param>
-    /// <param name="chatIsChannel">Pass <em>True</em> to request a channel chat, pass <em>False</em> to request a group or a supergroup chat.</param>
+    /// <param name="requestId">Signed 32-bit identifier of the request, which will be received back in the <see cref="ChatShared"/> object. Must be unique within the message.</param>
+    /// <param name="chatIsChannel">Pass <em>True</em> to request a channel chat, pass <em>False</em> to request a group or a supergroup chat</param>
     public KeyboardButtonRequestChat(int requestId, bool chatIsChannel)
     {
         this.RequestId = requestId;
@@ -21,13 +21,13 @@ public class KeyboardButtonRequestChat
     }
 
     /// <summary>
-    /// Signed 32-bit identifier of the request, which will be received back in the <see cref="ChatShared"/> object. Must be unique within the message
+    /// Signed 32-bit identifier of the request, which will be received back in the <see cref="ChatShared"/> object. Must be unique within the message.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestId)]
     public int RequestId { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> to request a channel chat, pass <em>False</em> to request a group or a supergroup chat.
+    /// Pass <em>True</em> to request a channel chat, pass <em>False</em> to request a group or a supergroup chat
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatIsChannel)]
     public bool ChatIsChannel { get; set; }

@@ -19,10 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static BusinessConnection GetBusinessConnection(
-        this ITelegramBotClient client,
-        string businessConnectionId
-    ) => client.GetBusinessConnectionAsync(businessConnectionId).GetAwaiter().GetResult();
+    public static BusinessConnection GetBusinessConnection(this ITelegramBotClient client, string businessConnectionId) =>
+        client.GetBusinessConnectionAsync(businessConnectionId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get information about the connection of the bot with a business account. Returns a <see cref="BusinessConnection"/> object on success.
@@ -33,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<BusinessConnection> GetBusinessConnectionAsync(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<BusinessConnection> GetBusinessConnectionAsync(this ITelegramBotClient client, string businessConnectionId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -46,17 +40,9 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            {
-                PropertyNames.BusinessConnectionId,
-                businessConnectionId
-                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
-            },
+            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) }
         };
 
-        return client.CallMethodAsync<BusinessConnection>(
-            MethodNames.GetBusinessConnection,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<BusinessConnection>(MethodNames.GetBusinessConnection, args, cancellationToken);
     }
 }

@@ -31,11 +31,7 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> AddStickerToSetAsync(
-        this ITelegramBotClient client,
-        AddStickerToSetArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> AddStickerToSetAsync(this ITelegramBotClient client, AddStickerToSetArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -55,12 +51,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool AddStickerToSet(
-        this ITelegramBotClient client,
-        long userId,
-        string name,
-        InputSticker sticker
-    ) => client.AddStickerToSetAsync(userId, name, sticker).GetAwaiter().GetResult();
+    public static bool AddStickerToSet(this ITelegramBotClient client, long userId, string name, InputSticker sticker) =>
+        client.AddStickerToSetAsync(userId, name, sticker).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to add a new sticker to a set created by the bot. Emoji sticker sets can have up to 200 stickers. Other sticker sets can have up to 120 stickers. Returns <em>True</em> on success.
@@ -73,13 +65,7 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> AddStickerToSetAsync(
-        this ITelegramBotClient client,
-        long userId,
-        string name,
-        InputSticker sticker,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> AddStickerToSetAsync(this ITelegramBotClient client, long userId, string name, InputSticker sticker, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -90,7 +76,7 @@ public static partial class StickersExtensions
         {
             { PropertyNames.UserId, userId },
             { PropertyNames.Name, name ?? throw new ArgumentNullException(nameof(name)) },
-            { PropertyNames.Sticker, sticker ?? throw new ArgumentNullException(nameof(sticker)) },
+            { PropertyNames.Sticker, sticker ?? throw new ArgumentNullException(nameof(sticker)) }
         };
 
         return client.CallMethodAsync<bool>(MethodNames.AddStickerToSet, args, cancellationToken);

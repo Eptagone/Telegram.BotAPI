@@ -35,13 +35,13 @@ public class EditMessageLiveLocationArgs
     public object? ChatId { get; set; }
 
     /// <summary>
-    /// Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit
+    /// Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageId)]
     public int? MessageId { get; set; }
 
     /// <summary>
-    /// Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message
+    /// Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.
     /// </summary>
     [JsonPropertyName(PropertyNames.InlineMessageId)]
     public string? InlineMessageId { get; set; }
@@ -59,7 +59,7 @@ public class EditMessageLiveLocationArgs
     public float Longitude { get; set; }
 
     /// <summary>
-    /// New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current <em>live_period</em> by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then <em>live_period</em> remains unchanged
+    /// New period in seconds during which the location can be updated, starting from the message send date. If 0x7FFFFFFF is specified, then the location can be updated forever. Otherwise, the new value must not exceed the current <em>live_period</em> by more than a day, and the live location expiration date must remain within the next 90 days. If not specified, then <em>live_period</em> remains unchanged.
     /// </summary>
     [JsonPropertyName(PropertyNames.LivePeriod)]
     public int? LivePeriod { get; set; }
@@ -83,7 +83,7 @@ public class EditMessageLiveLocationArgs
     public int? ProximityAlertRadius { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.
+    /// A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }

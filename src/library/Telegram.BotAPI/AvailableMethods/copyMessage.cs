@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<MessageId> CopyMessageAsync(
-        this ITelegramBotClient client,
-        CopyMessageArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<MessageId> CopyMessageAsync(this ITelegramBotClient client, CopyMessageArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -55,7 +51,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="videoStartTimestamp">New start timestamp for the copied video in the message</param>
-    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept</param>
+    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept.</param>
     /// <param name="parseMode">Mode for parsing entities in the new caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't specified.</param>
@@ -65,52 +61,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; only available when copying to private chats</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static MessageId CopyMessage(
-        this ITelegramBotClient client,
-        long chatId,
-        long fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .CopyMessageAsync(
-                chatId,
-                fromChatId,
-                messageId,
-                messageThreadId,
-                directMessagesTopicId,
-                videoStartTimestamp,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static MessageId CopyMessage(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.CopyMessageAsync(chatId, fromChatId, messageId, messageThreadId, directMessagesTopicId, videoStartTimestamp, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to copy messages of any kind. Service messages, paid media messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz <a href="https://core.telegram.org/bots/api#poll">poll</a> can be copied only if the value of the field <em>correct_option_id</em> is known to the bot. The method is analogous to the method <a href="https://core.telegram.org/bots/api#forwardmessage">forwardMessage</a>, but the copied message doesn't have a link to the original message. Returns the <see cref="MessageId"/> of the sent message on success.
@@ -122,7 +78,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="videoStartTimestamp">New start timestamp for the copied video in the message</param>
-    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept</param>
+    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept.</param>
     /// <param name="parseMode">Mode for parsing entities in the new caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't specified.</param>
@@ -132,32 +88,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; only available when copying to private chats</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<MessageId> CopyMessageAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        long fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<MessageId> CopyMessageAsync(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -168,7 +104,7 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId },
             { PropertyNames.FromChatId, fromChatId },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
         if (messageThreadId is not null)
         {
@@ -240,7 +176,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="videoStartTimestamp">New start timestamp for the copied video in the message</param>
-    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept</param>
+    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept.</param>
     /// <param name="parseMode">Mode for parsing entities in the new caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't specified.</param>
@@ -250,52 +186,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; only available when copying to private chats</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static MessageId CopyMessage(
-        this ITelegramBotClient client,
-        long chatId,
-        string fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .CopyMessageAsync(
-                chatId,
-                fromChatId,
-                messageId,
-                messageThreadId,
-                directMessagesTopicId,
-                videoStartTimestamp,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static MessageId CopyMessage(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.CopyMessageAsync(chatId, fromChatId, messageId, messageThreadId, directMessagesTopicId, videoStartTimestamp, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to copy messages of any kind. Service messages, paid media messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz <a href="https://core.telegram.org/bots/api#poll">poll</a> can be copied only if the value of the field <em>correct_option_id</em> is known to the bot. The method is analogous to the method <a href="https://core.telegram.org/bots/api#forwardmessage">forwardMessage</a>, but the copied message doesn't have a link to the original message. Returns the <see cref="MessageId"/> of the sent message on success.
@@ -307,7 +203,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="videoStartTimestamp">New start timestamp for the copied video in the message</param>
-    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept</param>
+    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept.</param>
     /// <param name="parseMode">Mode for parsing entities in the new caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't specified.</param>
@@ -317,32 +213,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; only available when copying to private chats</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<MessageId> CopyMessageAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<MessageId> CopyMessageAsync(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -352,11 +228,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.FromChatId,
-                fromChatId ?? throw new ArgumentNullException(nameof(fromChatId))
-            },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.FromChatId, fromChatId ?? throw new ArgumentNullException(nameof(fromChatId)) },
+            { PropertyNames.MessageId, messageId }
         };
         if (messageThreadId is not null)
         {
@@ -428,7 +301,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="videoStartTimestamp">New start timestamp for the copied video in the message</param>
-    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept</param>
+    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept.</param>
     /// <param name="parseMode">Mode for parsing entities in the new caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't specified.</param>
@@ -438,52 +311,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; only available when copying to private chats</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static MessageId CopyMessage(
-        this ITelegramBotClient client,
-        string chatId,
-        long fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .CopyMessageAsync(
-                chatId,
-                fromChatId,
-                messageId,
-                messageThreadId,
-                directMessagesTopicId,
-                videoStartTimestamp,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static MessageId CopyMessage(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.CopyMessageAsync(chatId, fromChatId, messageId, messageThreadId, directMessagesTopicId, videoStartTimestamp, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to copy messages of any kind. Service messages, paid media messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz <a href="https://core.telegram.org/bots/api#poll">poll</a> can be copied only if the value of the field <em>correct_option_id</em> is known to the bot. The method is analogous to the method <a href="https://core.telegram.org/bots/api#forwardmessage">forwardMessage</a>, but the copied message doesn't have a link to the original message. Returns the <see cref="MessageId"/> of the sent message on success.
@@ -495,7 +328,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="videoStartTimestamp">New start timestamp for the copied video in the message</param>
-    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept</param>
+    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept.</param>
     /// <param name="parseMode">Mode for parsing entities in the new caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't specified.</param>
@@ -505,32 +338,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; only available when copying to private chats</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<MessageId> CopyMessageAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        long fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<MessageId> CopyMessageAsync(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -541,7 +354,7 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
             { PropertyNames.FromChatId, fromChatId },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
         if (messageThreadId is not null)
         {
@@ -613,7 +426,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="videoStartTimestamp">New start timestamp for the copied video in the message</param>
-    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept</param>
+    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept.</param>
     /// <param name="parseMode">Mode for parsing entities in the new caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't specified.</param>
@@ -623,52 +436,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; only available when copying to private chats</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static MessageId CopyMessage(
-        this ITelegramBotClient client,
-        string chatId,
-        string fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .CopyMessageAsync(
-                chatId,
-                fromChatId,
-                messageId,
-                messageThreadId,
-                directMessagesTopicId,
-                videoStartTimestamp,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static MessageId CopyMessage(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.CopyMessageAsync(chatId, fromChatId, messageId, messageThreadId, directMessagesTopicId, videoStartTimestamp, caption, parseMode, captionEntities, showCaptionAboveMedia, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to copy messages of any kind. Service messages, paid media messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz <a href="https://core.telegram.org/bots/api#poll">poll</a> can be copied only if the value of the field <em>correct_option_id</em> is known to the bot. The method is analogous to the method <a href="https://core.telegram.org/bots/api#forwardmessage">forwardMessage</a>, but the copied message doesn't have a link to the original message. Returns the <see cref="MessageId"/> of the sent message on success.
@@ -680,7 +453,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="videoStartTimestamp">New start timestamp for the copied video in the message</param>
-    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept</param>
+    /// <param name="caption">New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept.</param>
     /// <param name="parseMode">Mode for parsing entities in the new caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't specified.</param>
@@ -690,32 +463,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; only available when copying to private chats</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<MessageId> CopyMessageAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<MessageId> CopyMessageAsync(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -725,11 +478,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.FromChatId,
-                fromChatId ?? throw new ArgumentNullException(nameof(fromChatId))
-            },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.FromChatId, fromChatId ?? throw new ArgumentNullException(nameof(fromChatId)) },
+            { PropertyNames.MessageId, messageId }
         };
         if (messageThreadId is not null)
         {

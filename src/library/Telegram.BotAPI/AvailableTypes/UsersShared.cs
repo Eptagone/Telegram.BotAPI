@@ -16,7 +16,7 @@ public class UsersShared
     public int RequestId { get; set; }
 
     /// <summary>
-    /// Information about users shared with the bot.
+    /// Information about users shared with the bot
     /// </summary>
     [JsonPropertyName(PropertyNames.Users)]
     public IEnumerable<SharedUser> Users { get; set; } = null!;

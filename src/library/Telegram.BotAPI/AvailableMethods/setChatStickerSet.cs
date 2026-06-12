@@ -18,11 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatStickerSet(
-        this ITelegramBotClient client,
-        long chatId,
-        string stickerSetName
-    ) => client.SetChatStickerSetAsync(chatId, stickerSetName).GetAwaiter().GetResult();
+    public static bool SetChatStickerSet(this ITelegramBotClient client, long chatId, string stickerSetName) =>
+        client.SetChatStickerSetAsync(chatId, stickerSetName).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field <em>can_set_sticker_set</em> optionally returned in <a href="https://core.telegram.org/bots/api#getchat">getChat</a> requests to check if the bot can use this method. Returns <em>True</em> on success.
@@ -34,12 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatStickerSetAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string stickerSetName,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatStickerSetAsync(this ITelegramBotClient client, long chatId, string stickerSetName, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -49,10 +41,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.StickerSetName,
-                stickerSetName ?? throw new ArgumentNullException(nameof(stickerSetName))
-            },
+            { PropertyNames.StickerSetName, stickerSetName ?? throw new ArgumentNullException(nameof(stickerSetName)) }
         };
 
         return client.CallMethodAsync<bool>(MethodNames.SetChatStickerSet, args, cancellationToken);
@@ -67,11 +56,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatStickerSet(
-        this ITelegramBotClient client,
-        string chatId,
-        string stickerSetName
-    ) => client.SetChatStickerSetAsync(chatId, stickerSetName).GetAwaiter().GetResult();
+    public static bool SetChatStickerSet(this ITelegramBotClient client, string chatId, string stickerSetName) =>
+        client.SetChatStickerSetAsync(chatId, stickerSetName).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field <em>can_set_sticker_set</em> optionally returned in <a href="https://core.telegram.org/bots/api#getchat">getChat</a> requests to check if the bot can use this method. Returns <em>True</em> on success.
@@ -83,12 +69,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatStickerSetAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string stickerSetName,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatStickerSetAsync(this ITelegramBotClient client, string chatId, string stickerSetName, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -98,10 +79,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.StickerSetName,
-                stickerSetName ?? throw new ArgumentNullException(nameof(stickerSetName))
-            },
+            { PropertyNames.StickerSetName, stickerSetName ?? throw new ArgumentNullException(nameof(stickerSetName)) }
         };
 
         return client.CallMethodAsync<bool>(MethodNames.SetChatStickerSet, args, cancellationToken);

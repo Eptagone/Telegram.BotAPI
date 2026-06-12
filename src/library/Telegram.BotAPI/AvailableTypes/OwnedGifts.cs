@@ -22,7 +22,7 @@ public class OwnedGifts
     public IEnumerable<OwnedGift> Gifts { get; set; } = null!;
 
     /// <summary>
-    /// Optional. Offset for the next request. If empty, then there are no more results
+    /// Optional. Offset for the next request. If empty, then there are no more results.
     /// </summary>
     [JsonPropertyName(PropertyNames.NextOffset)]
     public string? NextOffset { get; set; }

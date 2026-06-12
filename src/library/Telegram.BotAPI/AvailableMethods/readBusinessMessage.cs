@@ -19,16 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool ReadBusinessMessage(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        long chatId,
-        int messageId
-    ) =>
-        client
-            .ReadBusinessMessageAsync(businessConnectionId, chatId, messageId)
-            .GetAwaiter()
-            .GetResult();
+    public static bool ReadBusinessMessage(this ITelegramBotClient client, string businessConnectionId, long chatId, int messageId) =>
+        client.ReadBusinessMessageAsync(businessConnectionId, chatId, messageId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Marks incoming message as read on behalf of a business account. Requires the <em>can_read_messages</em> business bot right. Returns <em>True</em> on success.
@@ -41,13 +33,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> ReadBusinessMessageAsync(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        long chatId,
-        int messageId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> ReadBusinessMessageAsync(this ITelegramBotClient client, string businessConnectionId, long chatId, int messageId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -56,19 +42,11 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            {
-                PropertyNames.BusinessConnectionId,
-                businessConnectionId
-                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
-            },
+            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.ReadBusinessMessage,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.ReadBusinessMessage, args, cancellationToken);
     }
 }

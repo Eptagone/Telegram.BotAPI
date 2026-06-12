@@ -20,11 +20,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static ChatMember GetChatMember(
-        this ITelegramBotClient client,
-        long chatId,
-        long userId
-    ) => client.GetChatMemberAsync(chatId, userId).GetAwaiter().GetResult();
+    public static ChatMember GetChatMember(this ITelegramBotClient client, long chatId, long userId) =>
+        client.GetChatMemberAsync(chatId, userId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get information about a member of a chat. The method is only guaranteed to work for other users if the bot is an administrator in the chat. Returns a <see cref="ChatMember"/> object on success.
@@ -36,12 +33,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<ChatMember> GetChatMemberAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        long userId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<ChatMember> GetChatMemberAsync(this ITelegramBotClient client, long chatId, long userId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -51,14 +43,10 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.UserId, userId },
+            { PropertyNames.UserId, userId }
         };
 
-        return client.CallMethodAsync<ChatMember>(
-            MethodNames.GetChatMember,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<ChatMember>(MethodNames.GetChatMember, args, cancellationToken);
     }
 
     /// <summary>
@@ -70,11 +58,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static ChatMember GetChatMember(
-        this ITelegramBotClient client,
-        string chatId,
-        long userId
-    ) => client.GetChatMemberAsync(chatId, userId).GetAwaiter().GetResult();
+    public static ChatMember GetChatMember(this ITelegramBotClient client, string chatId, long userId) =>
+        client.GetChatMemberAsync(chatId, userId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get information about a member of a chat. The method is only guaranteed to work for other users if the bot is an administrator in the chat. Returns a <see cref="ChatMember"/> object on success.
@@ -86,12 +71,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<ChatMember> GetChatMemberAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        long userId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<ChatMember> GetChatMemberAsync(this ITelegramBotClient client, string chatId, long userId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -101,13 +81,9 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.UserId, userId },
+            { PropertyNames.UserId, userId }
         };
 
-        return client.CallMethodAsync<ChatMember>(
-            MethodNames.GetChatMember,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<ChatMember>(MethodNames.GetChatMember, args, cancellationToken);
     }
 }

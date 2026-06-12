@@ -19,12 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatMemberTag(
-        this ITelegramBotClient client,
-        long chatId,
-        long userId,
-        string? tag = null
-    ) => client.SetChatMemberTagAsync(chatId, userId, tag).GetAwaiter().GetResult();
+    public static bool SetChatMemberTag(this ITelegramBotClient client, long chatId, long userId, string? tag = null) =>
+        client.SetChatMemberTagAsync(chatId, userId, tag).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a tag for a regular member in a group or a supergroup. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_tags</em> administrator right. Returns <em>True</em> on success.
@@ -37,13 +33,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatMemberTagAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        long userId,
-        string? tag = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatMemberTagAsync(this ITelegramBotClient client, long chatId, long userId, string? tag = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -53,7 +43,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.UserId, userId },
+            { PropertyNames.UserId, userId }
         };
         if (tag is not null)
         {
@@ -73,12 +63,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatMemberTag(
-        this ITelegramBotClient client,
-        string chatId,
-        long userId,
-        string? tag = null
-    ) => client.SetChatMemberTagAsync(chatId, userId, tag).GetAwaiter().GetResult();
+    public static bool SetChatMemberTag(this ITelegramBotClient client, string chatId, long userId, string? tag = null) =>
+        client.SetChatMemberTagAsync(chatId, userId, tag).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a tag for a regular member in a group or a supergroup. The bot must be an administrator in the chat for this to work and must have the <em>can_manage_tags</em> administrator right. Returns <em>True</em> on success.
@@ -91,13 +77,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatMemberTagAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        long userId,
-        string? tag = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatMemberTagAsync(this ITelegramBotClient client, string chatId, long userId, string? tag = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -107,7 +87,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.UserId, userId },
+            { PropertyNames.UserId, userId }
         };
         if (tag is not null)
         {

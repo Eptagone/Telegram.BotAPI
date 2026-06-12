@@ -80,7 +80,7 @@ public class SendLocationArgs
     public float? HorizontalAccuracy { get; set; }
 
     /// <summary>
-    /// Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely.
+    /// Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely
     /// </summary>
     [JsonPropertyName(PropertyNames.LivePeriod)]
     public int? LivePeriod { get; set; }
@@ -134,7 +134,7 @@ public class SendLocationArgs
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user
+    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public object? ReplyMarkup { get; set; }

@@ -1,0 +1,30 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/bin": true,
+    "**/obj": true,
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "npm.packageManager": "pnpm",
+  "eslint.useFlatConfig": true,
+  "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
+  "js/ts.inlayHints.variableTypes.enabled": true,
+  "js/ts.referencesCodeLens.enabled": true,
+  "js/ts.preferences.preferTypeOnlyAutoImports": true,
+  "js/ts.tsdk.path": "tools/node_modules/typescript/lib",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "editor.formatOnSave": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "dotnet.defaultSolution": "src/Telegram.BotAPI.sln",
+}

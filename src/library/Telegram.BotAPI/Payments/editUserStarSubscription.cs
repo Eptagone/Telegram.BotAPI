@@ -19,16 +19,8 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool EditUserStarSubscription(
-        this ITelegramBotClient client,
-        long userId,
-        string telegramPaymentChargeId,
-        bool isCanceled
-    ) =>
-        client
-            .EditUserStarSubscriptionAsync(userId, telegramPaymentChargeId, isCanceled)
-            .GetAwaiter()
-            .GetResult();
+    public static bool EditUserStarSubscription(this ITelegramBotClient client, long userId, string telegramPaymentChargeId, bool isCanceled) =>
+        client.EditUserStarSubscriptionAsync(userId, telegramPaymentChargeId, isCanceled).GetAwaiter().GetResult();
 
     /// <summary>
     /// Allows the bot to cancel or re-enable extension of a subscription paid in Telegram Stars. Returns <em>True</em> on success.
@@ -41,13 +33,7 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> EditUserStarSubscriptionAsync(
-        this ITelegramBotClient client,
-        long userId,
-        string telegramPaymentChargeId,
-        bool isCanceled,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> EditUserStarSubscriptionAsync(this ITelegramBotClient client, long userId, string telegramPaymentChargeId, bool isCanceled, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -57,18 +43,10 @@ public static partial class PaymentsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.UserId, userId },
-            {
-                PropertyNames.TelegramPaymentChargeId,
-                telegramPaymentChargeId
-                    ?? throw new ArgumentNullException(nameof(telegramPaymentChargeId))
-            },
-            { PropertyNames.IsCanceled, isCanceled },
+            { PropertyNames.TelegramPaymentChargeId, telegramPaymentChargeId ?? throw new ArgumentNullException(nameof(telegramPaymentChargeId)) },
+            { PropertyNames.IsCanceled, isCanceled }
         };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.EditUserStarSubscription,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.EditUserStarSubscription, args, cancellationToken);
     }
 }

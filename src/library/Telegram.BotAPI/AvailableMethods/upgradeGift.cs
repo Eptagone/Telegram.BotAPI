@@ -20,17 +20,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool UpgradeGift(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        string ownedGiftId,
-        bool? keepOriginalDetails = null,
-        int? starCount = null
-    ) =>
-        client
-            .UpgradeGiftAsync(businessConnectionId, ownedGiftId, keepOriginalDetails, starCount)
-            .GetAwaiter()
-            .GetResult();
+    public static bool UpgradeGift(this ITelegramBotClient client, string businessConnectionId, string ownedGiftId, bool? keepOriginalDetails = null, int? starCount = null) =>
+        client.UpgradeGiftAsync(businessConnectionId, ownedGiftId, keepOriginalDetails, starCount).GetAwaiter().GetResult();
 
     /// <summary>
     /// Upgrades a given regular gift to a unique gift. Requires the <em>can_transfer_and_upgrade_gifts</em> business bot right. Additionally requires the <em>can_transfer_stars</em> business bot right if the upgrade is paid. Returns <em>True</em> on success.
@@ -44,14 +35,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> UpgradeGiftAsync(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        string ownedGiftId,
-        bool? keepOriginalDetails = null,
-        int? starCount = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> UpgradeGiftAsync(this ITelegramBotClient client, string businessConnectionId, string ownedGiftId, bool? keepOriginalDetails = null, int? starCount = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -60,15 +44,8 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            {
-                PropertyNames.BusinessConnectionId,
-                businessConnectionId
-                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
-            },
-            {
-                PropertyNames.OwnedGiftId,
-                ownedGiftId ?? throw new ArgumentNullException(nameof(ownedGiftId))
-            },
+            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
+            { PropertyNames.OwnedGiftId, ownedGiftId ?? throw new ArgumentNullException(nameof(ownedGiftId)) }
         };
         if (keepOriginalDetails is not null)
         {

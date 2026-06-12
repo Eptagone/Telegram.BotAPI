@@ -262,8 +262,14 @@ public class ChatFullInfo : Chat
     public UniqueGiftColors? UniqueGiftColors { get; set; }
 
     /// <summary>
-    /// Optional. The number of Telegram Stars a general user have to pay to send a message to the chat
+    /// Optional. The number of Telegram Stars a general user has to pay to send a message to the chat
     /// </summary>
     [JsonPropertyName(PropertyNames.PaidMessageStarCount)]
     public int? PaidMessageStarCount { get; set; }
+
+    /// <summary>
+    /// Optional. The bot that processes join request queries in the chat. The field is only available to chat administrators.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.GuardBot)]
+    public User? GuardBot { get; set; }
 }

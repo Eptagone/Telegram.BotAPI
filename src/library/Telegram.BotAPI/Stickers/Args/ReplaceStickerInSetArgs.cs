@@ -16,12 +16,7 @@ public class ReplaceStickerInSetArgs : AttachedFilesArgsBase
     /// <param name="name">Sticker set name</param>
     /// <param name="oldSticker">File identifier of the replaced sticker</param>
     /// <param name="sticker">A JSON-serialized object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set remains unchanged.</param>
-    public ReplaceStickerInSetArgs(
-        long userId,
-        string name,
-        string oldSticker,
-        InputSticker sticker
-    )
+    public ReplaceStickerInSetArgs(long userId, string name, string oldSticker, InputSticker sticker)
     {
         this.UserId = userId;
         this.Name = name ?? throw new ArgumentNullException(nameof(name));

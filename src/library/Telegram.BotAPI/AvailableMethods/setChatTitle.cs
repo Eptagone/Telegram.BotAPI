@@ -31,12 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatTitleAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string title,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatTitleAsync(this ITelegramBotClient client, long chatId, string title, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -46,7 +41,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) },
+            { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) }
         };
 
         return client.CallMethodAsync<bool>(MethodNames.SetChatTitle, args, cancellationToken);
@@ -74,12 +69,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatTitleAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string title,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatTitleAsync(this ITelegramBotClient client, string chatId, string title, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -89,7 +79,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) },
+            { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) }
         };
 
         return client.CallMethodAsync<bool>(MethodNames.SetChatTitle, args, cancellationToken);

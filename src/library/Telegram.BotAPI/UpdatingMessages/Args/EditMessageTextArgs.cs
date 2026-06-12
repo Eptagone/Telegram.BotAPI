@@ -3,6 +3,7 @@
 //* This file is auto-generated. Don't edit it manually!
 
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.RichMessages;
 
 namespace Telegram.BotAPI.UpdatingMessages;
 
@@ -11,15 +12,6 @@ namespace Telegram.BotAPI.UpdatingMessages;
 /// </summary>
 public class EditMessageTextArgs
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="EditMessageTextArgs"/> class.
-    /// </summary>
-    /// <param name="text">New text of the message, 1-4096 characters after entities parsing</param>
-    public EditMessageTextArgs(string text)
-    {
-        this.Text = text ?? throw new ArgumentNullException(nameof(text));
-    }
-
     /// <summary>
     /// Unique identifier of the business connection on behalf of which the message to be edited was sent
     /// </summary>
@@ -33,22 +25,22 @@ public class EditMessageTextArgs
     public object? ChatId { get; set; }
 
     /// <summary>
-    /// Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit
+    /// Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageId)]
     public int? MessageId { get; set; }
 
     /// <summary>
-    /// Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message
+    /// Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.
     /// </summary>
     [JsonPropertyName(PropertyNames.InlineMessageId)]
     public string? InlineMessageId { get; set; }
 
     /// <summary>
-    /// New text of the message, 1-4096 characters after entities parsing
+    /// New text of the message, 1-4096 characters after entity parsing; required if <em>rich_message</em> isn't specified
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
-    public string Text { get; set; }
+    public string? Text { get; set; }
 
     /// <summary>
     /// Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
@@ -69,7 +61,13 @@ public class EditMessageTextArgs
     public LinkPreviewOptions? LinkPreviewOptions { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.
+    /// New rich content of the message; required if <em>text</em> isn't specified
+    /// </summary>
+    [JsonPropertyName(PropertyNames.RichMessage)]
+    public InputRichMessage? RichMessage { get; set; }
+
+    /// <summary>
+    /// A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }

@@ -52,7 +52,7 @@ public class CreateChatInviteLinkArgs
     public int? MemberLimit { get; set; }
 
     /// <summary>
-    /// <em>True</em>, if users joining the chat via the link need to be approved by chat administrators. If <em>True</em>, <em>member_limit</em> can't be specified
+    /// <em>True</em>, if users joining the chat via the link need to be approved by chat administrators. If <em>True</em>, <em>member_limit</em> can't be specified.
     /// </summary>
     [JsonPropertyName(PropertyNames.CreatesJoinRequest)]
     public bool? CreatesJoinRequest { get; set; }

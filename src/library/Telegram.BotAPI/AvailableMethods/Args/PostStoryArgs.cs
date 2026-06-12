@@ -19,8 +19,7 @@ public class PostStoryArgs : AttachedFilesArgsBase
     /// <param name="activePeriod">Period after which the story is moved to the archive, in seconds; must be one of <em>6 * 3600</em>, <em>12 * 3600</em>, <em>86400</em>, or <em>2 * 86400</em></param>
     public PostStoryArgs(string businessConnectionId, InputStoryContent content, int activePeriod)
     {
-        this.BusinessConnectionId =
-            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.Content = content ?? throw new ArgumentNullException(nameof(content));
         this.ActivePeriod = activePeriod;
     }

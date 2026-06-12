@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVenueAsync(
-        this ITelegramBotClient client,
-        SendVenueArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVenueAsync(this ITelegramBotClient client, SendVenueArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -67,56 +63,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVenue(
-        this ITelegramBotClient client,
-        long chatId,
-        float latitude,
-        float longitude,
-        string title,
-        string address,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? foursquareId = null,
-        string? foursquareType = null,
-        string? googlePlaceId = null,
-        string? googlePlaceType = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendVenueAsync(
-                chatId,
-                latitude,
-                longitude,
-                title,
-                address,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                foursquareId,
-                foursquareType,
-                googlePlaceId,
-                googlePlaceType,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVenue(this ITelegramBotClient client, long chatId, float latitude, float longitude, string title, string address, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? foursquareId = null, string? foursquareType = null, string? googlePlaceId = null, string? googlePlaceType = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVenueAsync(chatId, latitude, longitude, title, address, businessConnectionId, messageThreadId, directMessagesTopicId, foursquareId, foursquareType, googlePlaceId, googlePlaceType, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send information about a venue. On success, the sent <see cref="Message"/> is returned.
@@ -140,34 +92,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVenueAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        float latitude,
-        float longitude,
-        string title,
-        string address,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? foursquareId = null,
-        string? foursquareType = null,
-        string? googlePlaceId = null,
-        string? googlePlaceType = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVenueAsync(this ITelegramBotClient client, long chatId, float latitude, float longitude, string title, string address, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? foursquareId = null, string? foursquareType = null, string? googlePlaceId = null, string? googlePlaceType = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -180,7 +110,7 @@ public static partial class AvailableMethodsExtensions
             { PropertyNames.Latitude, latitude },
             { PropertyNames.Longitude, longitude },
             { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) },
-            { PropertyNames.Address, address ?? throw new ArgumentNullException(nameof(address)) },
+            { PropertyNames.Address, address ?? throw new ArgumentNullException(nameof(address)) }
         };
         if (businessConnectionId is not null)
         {
@@ -264,56 +194,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVenue(
-        this ITelegramBotClient client,
-        string chatId,
-        float latitude,
-        float longitude,
-        string title,
-        string address,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? foursquareId = null,
-        string? foursquareType = null,
-        string? googlePlaceId = null,
-        string? googlePlaceType = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendVenueAsync(
-                chatId,
-                latitude,
-                longitude,
-                title,
-                address,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                foursquareId,
-                foursquareType,
-                googlePlaceId,
-                googlePlaceType,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVenue(this ITelegramBotClient client, string chatId, float latitude, float longitude, string title, string address, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? foursquareId = null, string? foursquareType = null, string? googlePlaceId = null, string? googlePlaceType = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVenueAsync(chatId, latitude, longitude, title, address, businessConnectionId, messageThreadId, directMessagesTopicId, foursquareId, foursquareType, googlePlaceId, googlePlaceType, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send information about a venue. On success, the sent <see cref="Message"/> is returned.
@@ -337,34 +223,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVenueAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        float latitude,
-        float longitude,
-        string title,
-        string address,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? foursquareId = null,
-        string? foursquareType = null,
-        string? googlePlaceId = null,
-        string? googlePlaceType = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVenueAsync(this ITelegramBotClient client, string chatId, float latitude, float longitude, string title, string address, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? foursquareId = null, string? foursquareType = null, string? googlePlaceId = null, string? googlePlaceType = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -377,7 +241,7 @@ public static partial class AvailableMethodsExtensions
             { PropertyNames.Latitude, latitude },
             { PropertyNames.Longitude, longitude },
             { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) },
-            { PropertyNames.Address, address ?? throw new ArgumentNullException(nameof(address)) },
+            { PropertyNames.Address, address ?? throw new ArgumentNullException(nameof(address)) }
         };
         if (businessConnectionId is not null)
         {

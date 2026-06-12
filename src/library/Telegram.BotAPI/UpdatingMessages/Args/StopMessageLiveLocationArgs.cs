@@ -24,19 +24,19 @@ public class StopMessageLiveLocationArgs
     public object? ChatId { get; set; }
 
     /// <summary>
-    /// Required if <em>inline_message_id</em> is not specified. Identifier of the message with live location to stop
+    /// Required if <em>inline_message_id</em> is not specified. Identifier of the message with live location to stop.
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageId)]
     public int? MessageId { get; set; }
 
     /// <summary>
-    /// Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message
+    /// Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.
     /// </summary>
     [JsonPropertyName(PropertyNames.InlineMessageId)]
     public string? InlineMessageId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.
+    /// A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }

@@ -2,8 +2,8 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-using Telegram.BotAPI.AvailableTypes;
 using Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
@@ -20,10 +20,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static PreparedInlineMessage SavePreparedInlineMessage(
-        this ITelegramBotClient client,
-        SavePreparedInlineMessageArgs args
-    ) => client.SavePreparedInlineMessageAsync(args).GetAwaiter().GetResult();
+    public static PreparedInlineMessage SavePreparedInlineMessage(this ITelegramBotClient client, SavePreparedInlineMessageArgs args) =>
+        client.SavePreparedInlineMessageAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Stores a message that can be sent by a user of a Mini App. Returns a <see cref="PreparedInlineMessage"/> object.
@@ -34,22 +32,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<PreparedInlineMessage> SavePreparedInlineMessageAsync(
-        this ITelegramBotClient client,
-        SavePreparedInlineMessageArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<PreparedInlineMessage> SavePreparedInlineMessageAsync(this ITelegramBotClient client, SavePreparedInlineMessageArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<PreparedInlineMessage>(
-            MethodNames.SavePreparedInlineMessage,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<PreparedInlineMessage>(MethodNames.SavePreparedInlineMessage, args, cancellationToken);
     }
 
     /// <summary>
@@ -65,26 +55,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static PreparedInlineMessage SavePreparedInlineMessage(
-        this ITelegramBotClient client,
-        long userId,
-        InlineQueryResult result,
-        bool? allowUserChats = null,
-        bool? allowBotChats = null,
-        bool? allowGroupChats = null,
-        bool? allowChannelChats = null
-    ) =>
-        client
-            .SavePreparedInlineMessageAsync(
-                userId,
-                result,
-                allowUserChats,
-                allowBotChats,
-                allowGroupChats,
-                allowChannelChats
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static PreparedInlineMessage SavePreparedInlineMessage(this ITelegramBotClient client, long userId, InlineQueryResult result, bool? allowUserChats = null, bool? allowBotChats = null, bool? allowGroupChats = null, bool? allowChannelChats = null) =>
+        client.SavePreparedInlineMessageAsync(userId, result, allowUserChats, allowBotChats, allowGroupChats, allowChannelChats).GetAwaiter().GetResult();
 
     /// <summary>
     /// Stores a message that can be sent by a user of a Mini App. Returns a <see cref="PreparedInlineMessage"/> object.
@@ -100,16 +72,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<PreparedInlineMessage> SavePreparedInlineMessageAsync(
-        this ITelegramBotClient client,
-        long userId,
-        InlineQueryResult result,
-        bool? allowUserChats = null,
-        bool? allowBotChats = null,
-        bool? allowGroupChats = null,
-        bool? allowChannelChats = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<PreparedInlineMessage> SavePreparedInlineMessageAsync(this ITelegramBotClient client, long userId, InlineQueryResult result, bool? allowUserChats = null, bool? allowBotChats = null, bool? allowGroupChats = null, bool? allowChannelChats = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -119,7 +82,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.UserId, userId },
-            { PropertyNames.Result, result ?? throw new ArgumentNullException(nameof(result)) },
+            { PropertyNames.Result, result ?? throw new ArgumentNullException(nameof(result)) }
         };
         if (allowUserChats is not null)
         {
@@ -138,10 +101,6 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.AllowChannelChats, allowChannelChats);
         }
 
-        return client.CallMethodAsync<PreparedInlineMessage>(
-            MethodNames.SavePreparedInlineMessage,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<PreparedInlineMessage>(MethodNames.SavePreparedInlineMessage, args, cancellationToken);
     }
 }

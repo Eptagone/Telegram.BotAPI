@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class SuggestedPostPrice
 {
     /// <summary>
-    /// Currency in which the post will be paid. Currently, must be one of “XTR” for Telegram Stars or “TON” for toncoins
+    /// Currency in which the post will be paid. Currently, must be one of “XTR” for Telegram Stars or “TON” for toncoins.
     /// </summary>
     [JsonPropertyName(PropertyNames.Currency)]
     public string Currency { get; set; } = null!;

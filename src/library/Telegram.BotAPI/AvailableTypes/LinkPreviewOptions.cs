@@ -16,7 +16,7 @@ public class LinkPreviewOptions
     public bool? IsDisabled { get; set; }
 
     /// <summary>
-    /// Optional. URL to use for the link preview. If empty, then the first URL found in the message text will be used
+    /// Optional. URL to use for the link preview. If empty, then the first URL found in the message text will be used.
     /// </summary>
     [JsonPropertyName(PropertyNames.Url)]
     public string? Url { get; set; }

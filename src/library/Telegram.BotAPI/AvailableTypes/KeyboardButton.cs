@@ -12,14 +12,14 @@ public class KeyboardButton
     /// <summary>
     /// Initializes a new instance of the <see cref="KeyboardButton"/> class.
     /// </summary>
-    /// <param name="text">Text of the button. If none of the fields other than <em>text</em>, <em>icon_custom_emoji_id</em>, and <em>style</em> are used, it will be sent as a message when the button is pressed</param>
+    /// <param name="text">Text of the button. If none of the fields other than <em>text</em>, <em>icon_custom_emoji_id</em>, and <em>style</em> are used, it will be sent as a message when the button is pressed.</param>
     public KeyboardButton(string text)
     {
         this.Text = text ?? throw new ArgumentNullException(nameof(text));
     }
 
     /// <summary>
-    /// Text of the button. If none of the fields other than <em>text</em>, <em>icon_custom_emoji_id</em>, and <em>style</em> are used, it will be sent as a message when the button is pressed
+    /// Text of the button. If none of the fields other than <em>text</em>, <em>icon_custom_emoji_id</em>, and <em>style</em> are used, it will be sent as a message when the button is pressed.
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
     public string Text { get; set; }

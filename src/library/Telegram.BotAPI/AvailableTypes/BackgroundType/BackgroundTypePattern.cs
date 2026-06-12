@@ -34,7 +34,7 @@ public class BackgroundTypePattern : BackgroundType
     public int Intensity { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the background fill must be applied only to the pattern itself. All other pixels are black in this case. For dark themes only
+    /// Optional. <em>True</em>, if the background fill must be applied only to the pattern itself. All other pixels are black in this case. For dark themes only.
     /// </summary>
     [JsonPropertyName(PropertyNames.IsInverted)]
     public bool? IsInverted { get; set; }

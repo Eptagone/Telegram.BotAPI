@@ -22,13 +22,13 @@ public class ChatShared
     public long ChatId { get; set; }
 
     /// <summary>
-    /// Optional. Title of the chat, if the title was requested by the bot.
+    /// Optional. Title of the chat, if the title was requested by the bot
     /// </summary>
     [JsonPropertyName(PropertyNames.Title)]
     public string? Title { get; set; }
 
     /// <summary>
-    /// Optional. Username of the chat, if the username was requested by the bot and available.
+    /// Optional. Username of the chat, if the username was requested by the bot and available
     /// </summary>
     [JsonPropertyName(PropertyNames.Username)]
     public string? Username { get; set; }

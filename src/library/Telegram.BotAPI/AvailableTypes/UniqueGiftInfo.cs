@@ -16,7 +16,7 @@ public class UniqueGiftInfo
     public UniqueGift Gift { get; set; } = null!;
 
     /// <summary>
-    /// Origin of the gift. Currently, either “upgrade” for gifts upgraded from regular gifts, “transfer” for gifts transferred from other users or channels, “resale” for gifts bought from other users, “gifted_upgrade” for upgrades purchased after the gift was sent, or “offer” for gifts bought or sold through gift purchase offers
+    /// Origin of the gift. Currently, either “upgrade” for gifts upgraded from regular gifts, “transfer” for gifts transferred from other users or channels, “resale” for gifts bought from other users, “gifted_upgrade” for upgrades purchased after the gift was sent, or “offer” for gifts bought or sold through gift purchase offers.
     /// </summary>
     [JsonPropertyName(PropertyNames.Origin)]
     public string Origin { get; set; } = null!;
@@ -46,7 +46,7 @@ public class UniqueGiftInfo
     public int? TransferStarCount { get; set; }
 
     /// <summary>
-    /// Optional. Point in time (Unix timestamp) when the gift can be transferred. If it is in the past, then the gift can be transferred now
+    /// Optional. Point in time (Unix timestamp) when the gift can be transferred. If it is in the past, then the gift can be transferred now.
     /// </summary>
     [JsonPropertyName(PropertyNames.NextTransferDate)]
     public int? NextTransferDate { get; set; }

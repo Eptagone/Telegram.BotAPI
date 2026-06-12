@@ -13,11 +13,10 @@ public class DeleteBusinessMessagesArgs
     /// Initializes a new instance of the <see cref="DeleteBusinessMessagesArgs"/> class.
     /// </summary>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which to delete the messages</param>
-    /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages to delete. All messages must be from the same chat. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted</param>
+    /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages to delete. All messages must be from the same chat. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted.</param>
     public DeleteBusinessMessagesArgs(string businessConnectionId, IEnumerable<int> messageIds)
     {
-        this.BusinessConnectionId =
-            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.MessageIds = messageIds ?? throw new ArgumentNullException(nameof(messageIds));
     }
 
@@ -28,7 +27,7 @@ public class DeleteBusinessMessagesArgs
     public string BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized list of 1-100 identifiers of messages to delete. All messages must be from the same chat. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted
+    /// A JSON-serialized list of 1-100 identifiers of messages to delete. All messages must be from the same chat. See <a href="https://core.telegram.org/bots/api#deletemessage">deleteMessage</a> for limitations on which messages can be deleted.
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageIds)]
     public IEnumerable<int> MessageIds { get; set; }

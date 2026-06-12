@@ -2,9 +2,10 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
+using Telegram.BotAPI.RichMessages;
+using Telegram.BotAPI.Stickers;
 using Telegram.BotAPI.Games;
 using Telegram.BotAPI.Payments;
-using Telegram.BotAPI.Stickers;
 using Telegram.BotAPI.TelegramPassport;
 
 namespace Telegram.BotAPI.AvailableTypes;
@@ -15,7 +16,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class Message : MaybeInaccessibleMessage
 {
     /// <summary>
-    /// Unique message identifier inside this chat. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent
+    /// Unique message identifier inside this chat. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent.
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageId)]
     public override int MessageId { get; set; }
@@ -33,7 +34,7 @@ public class Message : MaybeInaccessibleMessage
     public DirectMessagesTopic? DirectMessagesTopic { get; set; }
 
     /// <summary>
-    /// Optional. Sender of the message; may be empty for messages sent to channels. For backward compatibility, if the message was sent on behalf of a chat, the field contains a fake sender user in non-channel chats
+    /// Optional. Sender of the message; may be empty for messages sent to channels. For backward compatibility, if the message was sent on behalf of a chat, the field contains a fake sender user in non-channel chats.
     /// </summary>
     [JsonPropertyName(PropertyNames.From)]
     public User? From { get; set; }
@@ -231,7 +232,13 @@ public class Message : MaybeInaccessibleMessage
     public string? EffectId { get; set; }
 
     /// <summary>
-    /// Optional. Message is an animation, information about the animation. For backward compatibility, when this field is set, the <em>document</em> field will also be set
+    /// Optional. Message is a rich formatted message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.RichMessage)]
+    public RichMessage? RichMessage { get; set; }
+
+    /// <summary>
+    /// Optional. Message is an animation, information about the animation. For backward compatibility, when this field is set, the <em>document</em> field will also be set.
     /// </summary>
     [JsonPropertyName(PropertyNames.Animation)]
     public Animation? Animation { get; set; }
@@ -249,7 +256,7 @@ public class Message : MaybeInaccessibleMessage
     public Document? Document { get; set; }
 
     /// <summary>
-    /// Optional. Message is a live photo, information about the live photo. For backward compatibility, when this field is set, the <em>photo</em> field will also be set
+    /// Optional. Message is a live photo, information about the live photo. For backward compatibility, when this field is set, the <em>photo</em> field will also be set.
     /// </summary>
     [JsonPropertyName(PropertyNames.LivePhoto)]
     public LivePhoto? LivePhoto { get; set; }
@@ -351,7 +358,7 @@ public class Message : MaybeInaccessibleMessage
     public Poll? Poll { get; set; }
 
     /// <summary>
-    /// Optional. Message is a venue, information about the venue. For backward compatibility, when this field is set, the <em>location</em> field will also be set
+    /// Optional. Message is a venue, information about the venue. For backward compatibility, when this field is set, the <em>location</em> field will also be set.
     /// </summary>
     [JsonPropertyName(PropertyNames.Venue)]
     public Venue? Venue { get; set; }

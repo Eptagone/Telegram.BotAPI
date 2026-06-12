@@ -18,8 +18,7 @@ public class AnswerWebAppQueryArgs
     /// <param name="result">A JSON-serialized object describing the message to be sent</param>
     public AnswerWebAppQueryArgs(string webAppQueryId, InlineQueryResult result)
     {
-        this.WebAppQueryId =
-            webAppQueryId ?? throw new ArgumentNullException(nameof(webAppQueryId));
+        this.WebAppQueryId = webAppQueryId ?? throw new ArgumentNullException(nameof(webAppQueryId));
         this.Result = result ?? throw new ArgumentNullException(nameof(result));
     }
 

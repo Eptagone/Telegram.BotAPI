@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLocationAsync(
-        this ITelegramBotClient client,
-        SendLocationArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLocationAsync(this ITelegramBotClient client, SendLocationArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -56,7 +52,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
-    /// <param name="livePeriod">Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely.</param>
+    /// <param name="livePeriod">Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely</param>
     /// <param name="heading">For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -65,52 +61,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLocation(
-        this ITelegramBotClient client,
-        long chatId,
-        float latitude,
-        float longitude,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        float? horizontalAccuracy = null,
-        int? livePeriod = null,
-        int? heading = null,
-        int? proximityAlertRadius = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLocationAsync(
-                chatId,
-                latitude,
-                longitude,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                horizontalAccuracy,
-                livePeriod,
-                heading,
-                proximityAlertRadius,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLocation(this ITelegramBotClient client, long chatId, float latitude, float longitude, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, float? horizontalAccuracy = null, int? livePeriod = null, int? heading = null, int? proximityAlertRadius = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLocationAsync(chatId, latitude, longitude, businessConnectionId, messageThreadId, directMessagesTopicId, horizontalAccuracy, livePeriod, heading, proximityAlertRadius, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send point on the map. On success, the sent <see cref="Message"/> is returned.
@@ -123,7 +79,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
-    /// <param name="livePeriod">Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely.</param>
+    /// <param name="livePeriod">Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely</param>
     /// <param name="heading">For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -132,32 +88,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLocationAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        float latitude,
-        float longitude,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        float? horizontalAccuracy = null,
-        int? livePeriod = null,
-        int? heading = null,
-        int? proximityAlertRadius = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLocationAsync(this ITelegramBotClient client, long chatId, float latitude, float longitude, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, float? horizontalAccuracy = null, int? livePeriod = null, int? heading = null, int? proximityAlertRadius = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -168,7 +104,7 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId },
             { PropertyNames.Latitude, latitude },
-            { PropertyNames.Longitude, longitude },
+            { PropertyNames.Longitude, longitude }
         };
         if (businessConnectionId is not null)
         {
@@ -241,7 +177,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
-    /// <param name="livePeriod">Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely.</param>
+    /// <param name="livePeriod">Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely</param>
     /// <param name="heading">For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -250,52 +186,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLocation(
-        this ITelegramBotClient client,
-        string chatId,
-        float latitude,
-        float longitude,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        float? horizontalAccuracy = null,
-        int? livePeriod = null,
-        int? heading = null,
-        int? proximityAlertRadius = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLocationAsync(
-                chatId,
-                latitude,
-                longitude,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                horizontalAccuracy,
-                livePeriod,
-                heading,
-                proximityAlertRadius,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLocation(this ITelegramBotClient client, string chatId, float latitude, float longitude, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, float? horizontalAccuracy = null, int? livePeriod = null, int? heading = null, int? proximityAlertRadius = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLocationAsync(chatId, latitude, longitude, businessConnectionId, messageThreadId, directMessagesTopicId, horizontalAccuracy, livePeriod, heading, proximityAlertRadius, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send point on the map. On success, the sent <see cref="Message"/> is returned.
@@ -308,7 +204,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
     /// <param name="horizontalAccuracy">The radius of uncertainty for the location, measured in meters; 0-1500</param>
-    /// <param name="livePeriod">Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely.</param>
+    /// <param name="livePeriod">Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely</param>
     /// <param name="heading">For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</param>
     /// <param name="proximityAlertRadius">For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</param>
     /// <param name="disableNotification">Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</param>
@@ -317,32 +213,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLocationAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        float latitude,
-        float longitude,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        float? horizontalAccuracy = null,
-        int? livePeriod = null,
-        int? heading = null,
-        int? proximityAlertRadius = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLocationAsync(this ITelegramBotClient client, string chatId, float latitude, float longitude, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, float? horizontalAccuracy = null, int? livePeriod = null, int? heading = null, int? proximityAlertRadius = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -353,7 +229,7 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
             { PropertyNames.Latitude, latitude },
-            { PropertyNames.Longitude, longitude },
+            { PropertyNames.Longitude, longitude }
         };
         if (businessConnectionId is not null)
         {

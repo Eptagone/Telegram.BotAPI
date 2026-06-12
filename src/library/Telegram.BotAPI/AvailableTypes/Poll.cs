@@ -76,7 +76,7 @@ public class Poll
     public bool MembersOnly { get; set; }
 
     /// <summary>
-    /// Optional. A list of two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll. If omitted, then users from any country can participate in the poll.
+    /// Optional. A list of two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll. The country code “FT” is used for users with anonymous numbers. If omitted, then users from any country can participate in the poll.
     /// </summary>
     [JsonPropertyName(PropertyNames.CountryCodes)]
     public IEnumerable<string>? CountryCodes { get; set; }

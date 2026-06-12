@@ -12,13 +12,13 @@ namespace Telegram.BotAPI.AvailableMethods;
 public class SetChatMenuButtonArgs
 {
     /// <summary>
-    /// Unique identifier for the target private chat. If not specified, default bot's menu button will be changed
+    /// Unique identifier for the target private chat. If not specified, the bot's default menu button will be changed.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public long? ChatId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for the bot's new menu button. Defaults to <see cref="MenuButtonDefault"/>
+    /// A JSON-serialized object for the bot's new menu button. Defaults to <see cref="MenuButtonDefault"/>.
     /// </summary>
     [JsonPropertyName(PropertyNames.MenuButton)]
     public MenuButton? MenuButton { get; set; }

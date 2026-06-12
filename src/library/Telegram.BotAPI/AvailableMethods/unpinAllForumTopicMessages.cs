@@ -18,11 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool UnpinAllForumTopicMessages(
-        this ITelegramBotClient client,
-        long chatId,
-        int messageThreadId
-    ) => client.UnpinAllForumTopicMessagesAsync(chatId, messageThreadId).GetAwaiter().GetResult();
+    public static bool UnpinAllForumTopicMessages(this ITelegramBotClient client, long chatId, int messageThreadId) =>
+        client.UnpinAllForumTopicMessagesAsync(chatId, messageThreadId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to clear the list of pinned messages in a forum topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_pin_messages</em> administrator right in the supergroup. Returns <em>True</em> on success.
@@ -34,12 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> UnpinAllForumTopicMessagesAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        int messageThreadId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> UnpinAllForumTopicMessagesAsync(this ITelegramBotClient client, long chatId, int messageThreadId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -49,14 +41,10 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.MessageThreadId, messageThreadId },
+            { PropertyNames.MessageThreadId, messageThreadId }
         };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.UnpinAllForumTopicMessages,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.UnpinAllForumTopicMessages, args, cancellationToken);
     }
 
     /// <summary>
@@ -68,11 +56,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool UnpinAllForumTopicMessages(
-        this ITelegramBotClient client,
-        string chatId,
-        int messageThreadId
-    ) => client.UnpinAllForumTopicMessagesAsync(chatId, messageThreadId).GetAwaiter().GetResult();
+    public static bool UnpinAllForumTopicMessages(this ITelegramBotClient client, string chatId, int messageThreadId) =>
+        client.UnpinAllForumTopicMessagesAsync(chatId, messageThreadId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to clear the list of pinned messages in a forum topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the <em>can_pin_messages</em> administrator right in the supergroup. Returns <em>True</em> on success.
@@ -84,12 +69,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> UnpinAllForumTopicMessagesAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        int messageThreadId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> UnpinAllForumTopicMessagesAsync(this ITelegramBotClient client, string chatId, int messageThreadId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -99,13 +79,9 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.MessageThreadId, messageThreadId },
+            { PropertyNames.MessageThreadId, messageThreadId }
         };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.UnpinAllForumTopicMessages,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.UnpinAllForumTopicMessages, args, cancellationToken);
     }
 }

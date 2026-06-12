@@ -19,10 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Message> SendMediaGroup(
-        this ITelegramBotClient client,
-        SendMediaGroupArgs args
-    ) => client.SendMediaGroupAsync(args).GetAwaiter().GetResult();
+    public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, SendMediaGroupArgs args) =>
+        client.SendMediaGroupAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type. On success, an array of <see cref="Message"/> objects that were sent is returned.
@@ -33,22 +31,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<Message>> SendMediaGroupAsync(
-        this ITelegramBotClient client,
-        SendMediaGroupArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, SendMediaGroupArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<IEnumerable<Message>>(
-            MethodNames.SendMediaGroup,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<IEnumerable<Message>>(MethodNames.SendMediaGroup, args, cancellationToken);
     }
 
     /// <summary>
@@ -68,34 +58,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Message> SendMediaGroup(
-        this ITelegramBotClient client,
-        long chatId,
-        IEnumerable<InputMedia> media,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null
-    ) =>
-        client
-            .SendMediaGroupAsync(
-                chatId,
-                media,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                replyParameters
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null) =>
+        client.SendMediaGroupAsync(chatId, media, businessConnectionId, messageThreadId, directMessagesTopicId, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type. On success, an array of <see cref="Message"/> objects that were sent is returned.
@@ -115,20 +79,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<Message>> SendMediaGroupAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        IEnumerable<InputMedia> media,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, long chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -138,7 +89,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) },
+            { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) }
         };
         if (businessConnectionId is not null)
         {
@@ -173,11 +124,7 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.ReplyParameters, replyParameters);
         }
 
-        return client.CallMethodAsync<IEnumerable<Message>>(
-            MethodNames.SendMediaGroup,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<IEnumerable<Message>>(MethodNames.SendMediaGroup, args, cancellationToken);
     }
 
     /// <summary>
@@ -197,34 +144,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<Message> SendMediaGroup(
-        this ITelegramBotClient client,
-        string chatId,
-        IEnumerable<InputMedia> media,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null
-    ) =>
-        client
-            .SendMediaGroupAsync(
-                chatId,
-                media,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                replyParameters
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static IEnumerable<Message> SendMediaGroup(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null) =>
+        client.SendMediaGroupAsync(chatId, media, businessConnectionId, messageThreadId, directMessagesTopicId, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type. On success, an array of <see cref="Message"/> objects that were sent is returned.
@@ -244,20 +165,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<Message>> SendMediaGroupAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        IEnumerable<InputMedia> media,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<IEnumerable<Message>> SendMediaGroupAsync(this ITelegramBotClient client, string chatId, IEnumerable<InputMedia> media, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -267,7 +175,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) },
+            { PropertyNames.Media, media ?? throw new ArgumentNullException(nameof(media)) }
         };
         if (businessConnectionId is not null)
         {
@@ -302,10 +210,6 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.ReplyParameters, replyParameters);
         }
 
-        return client.CallMethodAsync<IEnumerable<Message>>(
-            MethodNames.SendMediaGroup,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<IEnumerable<Message>>(MethodNames.SendMediaGroup, args, cancellationToken);
     }
 }

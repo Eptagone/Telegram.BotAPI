@@ -31,11 +31,7 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendGameAsync(
-        this ITelegramBotClient client,
-        SendGameArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendGameAsync(this ITelegramBotClient client, SendGameArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -62,34 +58,8 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendGame(
-        this ITelegramBotClient client,
-        long chatId,
-        string gameShortName,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendGameAsync(
-                chatId,
-                gameShortName,
-                businessConnectionId,
-                messageThreadId,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendGame(this ITelegramBotClient client, long chatId, string gameShortName, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendGameAsync(chatId, gameShortName, businessConnectionId, messageThreadId, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a game. On success, the sent <see cref="Message"/> is returned.
@@ -109,20 +79,7 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendGameAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string gameShortName,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendGameAsync(this ITelegramBotClient client, long chatId, string gameShortName, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -132,10 +89,7 @@ public static partial class GamesExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.GameShortName,
-                gameShortName ?? throw new ArgumentNullException(nameof(gameShortName))
-            },
+            { PropertyNames.GameShortName, gameShortName ?? throw new ArgumentNullException(nameof(gameShortName)) }
         };
         if (businessConnectionId is not null)
         {
@@ -190,34 +144,8 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendGame(
-        this ITelegramBotClient client,
-        string chatId,
-        string gameShortName,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendGameAsync(
-                chatId,
-                gameShortName,
-                businessConnectionId,
-                messageThreadId,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendGame(this ITelegramBotClient client, string chatId, string gameShortName, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendGameAsync(chatId, gameShortName, businessConnectionId, messageThreadId, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a game. On success, the sent <see cref="Message"/> is returned.
@@ -237,20 +165,7 @@ public static partial class GamesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendGameAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string gameShortName,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendGameAsync(this ITelegramBotClient client, string chatId, string gameShortName, string? businessConnectionId = null, int? messageThreadId = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -260,10 +175,7 @@ public static partial class GamesExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.GameShortName,
-                gameShortName ?? throw new ArgumentNullException(nameof(gameShortName))
-            },
+            { PropertyNames.GameShortName, gameShortName ?? throw new ArgumentNullException(nameof(gameShortName)) }
         };
         if (businessConnectionId is not null)
         {

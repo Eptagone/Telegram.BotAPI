@@ -34,13 +34,13 @@ public class StarTransaction
     public int Date { get; set; }
 
     /// <summary>
-    /// Optional. Source of an incoming transaction (e.g., a user purchasing goods or services, Fragment refunding a failed withdrawal). Only for incoming transactions
+    /// Optional. Source of an incoming transaction (e.g., a user purchasing goods or services, Fragment refunding a failed withdrawal). Only for incoming transactions.
     /// </summary>
     [JsonPropertyName(PropertyNames.Source)]
     public TransactionPartner? Source { get; set; }
 
     /// <summary>
-    /// Optional. Receiver of an outgoing transaction (e.g., a user for a purchase refund, Fragment for a withdrawal). Only for outgoing transactions
+    /// Optional. Receiver of an outgoing transaction (e.g., a user for a purchase refund, Fragment for a withdrawal). Only for outgoing transactions.
     /// </summary>
     [JsonPropertyName(PropertyNames.Receiver)]
     public TransactionPartner? Receiver { get; set; }

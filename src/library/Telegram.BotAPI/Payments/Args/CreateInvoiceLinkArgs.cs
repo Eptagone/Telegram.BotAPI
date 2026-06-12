@@ -17,13 +17,7 @@ public class CreateInvoiceLinkArgs
     /// <param name="payload">Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.</param>
     /// <param name="currency">Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a>. Pass “XTR” for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
     /// <param name="prices">Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
-    public CreateInvoiceLinkArgs(
-        string title,
-        string description,
-        string payload,
-        string currency,
-        IEnumerable<LabeledPrice> prices
-    )
+    public CreateInvoiceLinkArgs(string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices)
     {
         this.Title = title ?? throw new ArgumentNullException(nameof(title));
         this.Description = description ?? throw new ArgumentNullException(nameof(description));

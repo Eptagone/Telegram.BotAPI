@@ -12,6 +12,7 @@ public static partial class MethodNames
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public const string AddStickerToSet = "addStickerToSet";
     public const string AnswerCallbackQuery = "answerCallbackQuery";
+    public const string AnswerChatJoinRequestQuery = "answerChatJoinRequestQuery";
     public const string AnswerGuestQuery = "answerGuestQuery";
     public const string AnswerInlineQuery = "answerInlineQuery";
     public const string AnswerPreCheckoutQuery = "answerPreCheckoutQuery";
@@ -119,6 +120,7 @@ public static partial class MethodNames
     public const string SendAnimation = "sendAnimation";
     public const string SendAudio = "sendAudio";
     public const string SendChatAction = "sendChatAction";
+    public const string SendChatJoinRequestWebApp = "sendChatJoinRequestWebApp";
     public const string SendChecklist = "sendChecklist";
     public const string SendContact = "sendContact";
     public const string SendDice = "sendDice";
@@ -134,6 +136,8 @@ public static partial class MethodNames
     public const string SendPaidMedia = "sendPaidMedia";
     public const string SendPhoto = "sendPhoto";
     public const string SendPoll = "sendPoll";
+    public const string SendRichMessage = "sendRichMessage";
+    public const string SendRichMessageDraft = "sendRichMessageDraft";
     public const string SendSticker = "sendSticker";
     public const string SendVenue = "sendVenue";
     public const string SendVideo = "sendVideo";

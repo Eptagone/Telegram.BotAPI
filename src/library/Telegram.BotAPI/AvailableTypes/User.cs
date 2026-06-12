@@ -110,4 +110,10 @@ public class User
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageBots)]
     public bool? CanManageBots { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the bot supports join request queries and can be assigned to process them. Returned only in <a href="https://core.telegram.org/bots/api#getme">getMe</a>.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SupportsJoinRequestQueries)]
+    public bool? SupportsJoinRequestQueries { get; set; }
 }

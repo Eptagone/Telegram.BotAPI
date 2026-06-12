@@ -15,7 +15,7 @@ public class SavePreparedKeyboardButtonArgs
     /// Initializes a new instance of the <see cref="SavePreparedKeyboardButtonArgs"/> class.
     /// </summary>
     /// <param name="userId">Unique identifier of the target user that can use the button</param>
-    /// <param name="button">A JSON-serialized object describing the button to be saved. The button must be of the type <em>request_users</em>, <em>request_chat</em>, or <em>request_managed_bot</em></param>
+    /// <param name="button">A JSON-serialized object describing the button to be saved. The button must be of the type <em>request_users</em>, <em>request_chat</em>, or <em>request_managed_bot</em>.</param>
     public SavePreparedKeyboardButtonArgs(long userId, KeyboardButton button)
     {
         this.UserId = userId;
@@ -29,7 +29,7 @@ public class SavePreparedKeyboardButtonArgs
     public long UserId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object describing the button to be saved. The button must be of the type <em>request_users</em>, <em>request_chat</em>, or <em>request_managed_bot</em>
+    /// A JSON-serialized object describing the button to be saved. The button must be of the type <em>request_users</em>, <em>request_chat</em>, or <em>request_managed_bot</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.Button)]
     public KeyboardButton Button { get; set; }

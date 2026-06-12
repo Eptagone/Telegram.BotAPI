@@ -104,13 +104,13 @@ public class Update
     public CallbackQuery? CallbackQuery { get; set; }
 
     /// <summary>
-    /// Optional. New incoming shipping query. Only for invoices with flexible price
+    /// Optional. New incoming shipping query. Only for invoices with flexible price.
     /// </summary>
     [JsonPropertyName(PropertyNames.ShippingQuery)]
     public ShippingQuery? ShippingQuery { get; set; }
 
     /// <summary>
-    /// Optional. New incoming pre-checkout query. Contains full information about checkout
+    /// Optional. New incoming pre-checkout query. Contains full information about checkout.
     /// </summary>
     [JsonPropertyName(PropertyNames.PreCheckoutQuery)]
     public PreCheckoutQuery? PreCheckoutQuery { get; set; }
@@ -122,7 +122,7 @@ public class Update
     public PaidMediaPurchased? PurchasedPaidMedia { get; set; }
 
     /// <summary>
-    /// Optional. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot
+    /// Optional. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot.
     /// </summary>
     [JsonPropertyName(PropertyNames.Poll)]
     public Poll? Poll { get; set; }

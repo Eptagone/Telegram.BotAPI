@@ -18,11 +18,8 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static StarTransactions GetStarTransactions(
-        this ITelegramBotClient client,
-        int? offset = null,
-        int? limit = null
-    ) => client.GetStarTransactionsAsync(offset, limit).GetAwaiter().GetResult();
+    public static StarTransactions GetStarTransactions(this ITelegramBotClient client, int? offset = null, int? limit = null) =>
+        client.GetStarTransactionsAsync(offset, limit).GetAwaiter().GetResult();
 
     /// <summary>
     /// Returns the bot's Telegram Star transactions in chronological order. On success, returns a <see cref="StarTransactions"/> object.
@@ -34,19 +31,16 @@ public static partial class PaymentsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<StarTransactions> GetStarTransactionsAsync(
-        this ITelegramBotClient client,
-        int? offset = null,
-        int? limit = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<StarTransactions> GetStarTransactionsAsync(this ITelegramBotClient client, int? offset = null, int? limit = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>() { };
+        var args = new Dictionary<string, object>()
+        {
+        };
         if (offset is not null)
         {
             args.Add(PropertyNames.Offset, offset);
@@ -56,10 +50,6 @@ public static partial class PaymentsExtensions
             args.Add(PropertyNames.Limit, limit);
         }
 
-        return client.CallMethodAsync<StarTransactions>(
-            MethodNames.GetStarTransactions,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<StarTransactions>(MethodNames.GetStarTransactions, args, cancellationToken);
     }
 }

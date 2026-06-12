@@ -29,24 +29,19 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> DeleteChatStickerSetAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> DeleteChatStickerSetAsync(this ITelegramBotClient client, long chatId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>() { { PropertyNames.ChatId, chatId } };
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId }
+        };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.DeleteChatStickerSet,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.DeleteChatStickerSet, args, cancellationToken);
     }
 
     /// <summary>
@@ -69,11 +64,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> DeleteChatStickerSetAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> DeleteChatStickerSetAsync(this ITelegramBotClient client, string chatId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -82,13 +73,9 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) }
         };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.DeleteChatStickerSet,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.DeleteChatStickerSet, args, cancellationToken);
     }
 }

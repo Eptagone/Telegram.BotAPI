@@ -19,16 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetBusinessAccountName(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        string firstName,
-        string? lastName = null
-    ) =>
-        client
-            .SetBusinessAccountNameAsync(businessConnectionId, firstName, lastName)
-            .GetAwaiter()
-            .GetResult();
+    public static bool SetBusinessAccountName(this ITelegramBotClient client, string businessConnectionId, string firstName, string? lastName = null) =>
+        client.SetBusinessAccountNameAsync(businessConnectionId, firstName, lastName).GetAwaiter().GetResult();
 
     /// <summary>
     /// Changes the first and last name of a managed business account. Requires the <em>can_change_name</em> business bot right. Returns <em>True</em> on success.
@@ -41,13 +33,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetBusinessAccountNameAsync(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        string firstName,
-        string? lastName = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetBusinessAccountNameAsync(this ITelegramBotClient client, string businessConnectionId, string firstName, string? lastName = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -56,25 +42,14 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            {
-                PropertyNames.BusinessConnectionId,
-                businessConnectionId
-                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
-            },
-            {
-                PropertyNames.FirstName,
-                firstName ?? throw new ArgumentNullException(nameof(firstName))
-            },
+            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
+            { PropertyNames.FirstName, firstName ?? throw new ArgumentNullException(nameof(firstName)) }
         };
         if (lastName is not null)
         {
             args.Add(PropertyNames.LastName, lastName);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetBusinessAccountName,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetBusinessAccountName, args, cancellationToken);
     }
 }

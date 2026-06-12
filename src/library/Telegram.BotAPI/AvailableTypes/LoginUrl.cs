@@ -26,7 +26,7 @@ public class LoginUrl
     public string Url { get; set; }
 
     /// <summary>
-    /// Optional. New text of the button in forwarded messages.
+    /// Optional. New text of the button in forwarded messages
     /// </summary>
     [JsonPropertyName(PropertyNames.ForwardText)]
     public string? ForwardText { get; set; }
@@ -38,7 +38,7 @@ public class LoginUrl
     public string? BotUsername { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> to request the permission for your bot to send messages to the user.
+    /// Optional. Pass <em>True</em> to request the permission for your bot to send messages to the user
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestWriteAccess)]
     public bool? RequestWriteAccess { get; set; }

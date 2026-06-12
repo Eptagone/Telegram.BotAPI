@@ -34,7 +34,7 @@ public class ChatJoinRequest
     public int Date { get; set; }
 
     /// <summary>
-    /// Optional. Bio of the user.
+    /// Optional. Bio of the user
     /// </summary>
     [JsonPropertyName(PropertyNames.Bio)]
     public string? Bio { get; set; }
@@ -44,4 +44,10 @@ public class ChatJoinRequest
     /// </summary>
     [JsonPropertyName(PropertyNames.InviteLink)]
     public ChatInviteLink? InviteLink { get; set; }
+
+    /// <summary>
+    /// Optional. Identifier of the join request query. If present, then the bot must call <a href="https://core.telegram.org/bots/api#sendchatjoinrequestwebapp">sendChatJoinRequestWebApp</a> or directly call <a href="https://core.telegram.org/bots/api#answerchatjoinrequestquery">answerChatJoinRequestQuery</a> within 10 seconds.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.QueryId)]
+    public string? QueryId { get; set; }
 }

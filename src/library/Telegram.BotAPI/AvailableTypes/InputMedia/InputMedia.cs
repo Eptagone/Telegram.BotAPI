@@ -17,6 +17,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 /// <item><description><see cref="InputMediaVideo"/></description></item>
 /// <item><description><see cref="InputMediaLocation"/></description></item>
 /// <item><description><see cref="InputMediaVenue"/></description></item>
+/// <item><description><see cref="InputMediaLink"/></description></item>
 /// <item><description><see cref="InputMediaSticker"/></description></item>
 /// </list>
 /// </summary>

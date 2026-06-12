@@ -17,10 +17,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerKeywords(
-        this ITelegramBotClient client,
-        SetStickerKeywordsArgs args
-    ) => client.SetStickerKeywordsAsync(args).GetAwaiter().GetResult();
+    public static bool SetStickerKeywords(this ITelegramBotClient client, SetStickerKeywordsArgs args) =>
+        client.SetStickerKeywordsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change search keywords assigned to a regular or custom emoji sticker. The sticker must belong to a sticker set created by the bot. Returns <em>True</em> on success.
@@ -31,22 +29,14 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetStickerKeywordsAsync(
-        this ITelegramBotClient client,
-        SetStickerKeywordsArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetStickerKeywordsAsync(this ITelegramBotClient client, SetStickerKeywordsArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetStickerKeywords,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetStickerKeywords, args, cancellationToken);
     }
 
     /// <summary>
@@ -58,11 +48,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerKeywords(
-        this ITelegramBotClient client,
-        string sticker,
-        IEnumerable<string>? keywords = null
-    ) => client.SetStickerKeywordsAsync(sticker, keywords).GetAwaiter().GetResult();
+    public static bool SetStickerKeywords(this ITelegramBotClient client, string sticker, IEnumerable<string>? keywords = null) =>
+        client.SetStickerKeywordsAsync(sticker, keywords).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change search keywords assigned to a regular or custom emoji sticker. The sticker must belong to a sticker set created by the bot. Returns <em>True</em> on success.
@@ -74,12 +61,7 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetStickerKeywordsAsync(
-        this ITelegramBotClient client,
-        string sticker,
-        IEnumerable<string>? keywords = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetStickerKeywordsAsync(this ITelegramBotClient client, string sticker, IEnumerable<string>? keywords = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -88,17 +70,13 @@ public static partial class StickersExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.Sticker, sticker ?? throw new ArgumentNullException(nameof(sticker)) },
+            { PropertyNames.Sticker, sticker ?? throw new ArgumentNullException(nameof(sticker)) }
         };
         if (keywords is not null)
         {
             args.Add(PropertyNames.Keywords, keywords);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetStickerKeywords,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetStickerKeywords, args, cancellationToken);
     }
 }

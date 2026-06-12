@@ -55,8 +55,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="options">A JSON-serialized list of 1-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
-    /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
-    /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
+    /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed.</param>
+    /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em>.</param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
     /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
@@ -65,11 +65,11 @@ public static partial class AvailableMethodsExtensions
     /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
     /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
     /// <param name="membersOnly">Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
-    /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. If omitted or empty, then users from any country can participate in the poll.</param>
+    /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. Use “FT” as a country code to allow users with anonymous numbers to vote. If omitted or empty, then users from any country can participate in the poll.</param>
     /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
     /// <param name="explanationParseMode">Mode for parsing entities in the explanation. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
-    /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em></param>
+    /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em>.</param>
     /// <param name="explanationMedia">Media added to the quiz explanation</param>
     /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.</param>
     /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 2628000 seconds in the future. Can't be used together with <em>open_period</em>.</param>
@@ -83,7 +83,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -173,8 +173,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="options">A JSON-serialized list of 1-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
-    /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
-    /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
+    /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed.</param>
+    /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em>.</param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
     /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
@@ -183,11 +183,11 @@ public static partial class AvailableMethodsExtensions
     /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
     /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
     /// <param name="membersOnly">Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
-    /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. If omitted or empty, then users from any country can participate in the poll.</param>
+    /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. Use “FT” as a country code to allow users with anonymous numbers to vote. If omitted or empty, then users from any country can participate in the poll.</param>
     /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
     /// <param name="explanationParseMode">Mode for parsing entities in the explanation. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
-    /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em></param>
+    /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em>.</param>
     /// <param name="explanationMedia">Media added to the quiz explanation</param>
     /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.</param>
     /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 2628000 seconds in the future. Can't be used together with <em>open_period</em>.</param>
@@ -201,7 +201,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -396,8 +396,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="options">A JSON-serialized list of 1-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
-    /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
-    /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
+    /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed.</param>
+    /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em>.</param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
     /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
@@ -406,11 +406,11 @@ public static partial class AvailableMethodsExtensions
     /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
     /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
     /// <param name="membersOnly">Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
-    /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. If omitted or empty, then users from any country can participate in the poll.</param>
+    /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. Use “FT” as a country code to allow users with anonymous numbers to vote. If omitted or empty, then users from any country can participate in the poll.</param>
     /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
     /// <param name="explanationParseMode">Mode for parsing entities in the explanation. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
-    /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em></param>
+    /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em>.</param>
     /// <param name="explanationMedia">Media added to the quiz explanation</param>
     /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.</param>
     /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 2628000 seconds in the future. Can't be used together with <em>open_period</em>.</param>
@@ -424,7 +424,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -514,8 +514,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="options">A JSON-serialized list of 1-12 answer options</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
-    /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed</param>
-    /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em></param>
+    /// <param name="questionParseMode">Mode for parsing entities in the question. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed.</param>
+    /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em>.</param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
     /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
@@ -524,11 +524,11 @@ public static partial class AvailableMethodsExtensions
     /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
     /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
     /// <param name="membersOnly">Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
-    /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. If omitted or empty, then users from any country can participate in the poll.</param>
+    /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. Use “FT” as a country code to allow users with anonymous numbers to vote. If omitted or empty, then users from any country can participate in the poll.</param>
     /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
     /// <param name="explanationParseMode">Mode for parsing entities in the explanation. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
-    /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em></param>
+    /// <param name="explanationEntities">A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of <em>explanation_parse_mode</em>.</param>
     /// <param name="explanationMedia">Media added to the quiz explanation</param>
     /// <param name="openPeriod">Amount of time in seconds the poll will be active after creation, 5-2628000. Can't be used together with <em>close_date</em>.</param>
     /// <param name="closeDate">Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 2628000 seconds in the future. Can't be used together with <em>open_period</em>.</param>
@@ -542,7 +542,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="allowPaidBroadcast">Pass <em>True</em> to allow up to 1000 messages per second, ignoring <a href="https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once">broadcasting limits</a> for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.</param>
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

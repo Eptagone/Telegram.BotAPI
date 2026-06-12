@@ -54,7 +54,7 @@ public class SendDiceArgs
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”
+    /// Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”.
     /// </summary>
     [JsonPropertyName(PropertyNames.Emoji)]
     public string? Emoji { get; set; }
@@ -96,7 +96,7 @@ public class SendDiceArgs
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user
+    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public object? ReplyMarkup { get; set; }

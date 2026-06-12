@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> ForwardMessageAsync(
-        this ITelegramBotClient client,
-        ForwardMessageArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, ForwardMessageArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -62,34 +58,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(
-        this ITelegramBotClient client,
-        long chatId,
-        long fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null
-    ) =>
-        client
-            .ForwardMessageAsync(
-                chatId,
-                fromChatId,
-                messageId,
-                messageThreadId,
-                directMessagesTopicId,
-                videoStartTimestamp,
-                disableNotification,
-                protectContent,
-                messageEffectId,
-                suggestedPostParameters
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, directMessagesTopicId, videoStartTimestamp, disableNotification, protectContent, messageEffectId, suggestedPostParameters).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
@@ -109,20 +79,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> ForwardMessageAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        long fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, long chatId, long fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -133,7 +90,7 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId },
             { PropertyNames.FromChatId, fromChatId },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
         if (messageThreadId is not null)
         {
@@ -184,34 +141,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(
-        this ITelegramBotClient client,
-        long chatId,
-        string fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null
-    ) =>
-        client
-            .ForwardMessageAsync(
-                chatId,
-                fromChatId,
-                messageId,
-                messageThreadId,
-                directMessagesTopicId,
-                videoStartTimestamp,
-                disableNotification,
-                protectContent,
-                messageEffectId,
-                suggestedPostParameters
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, directMessagesTopicId, videoStartTimestamp, disableNotification, protectContent, messageEffectId, suggestedPostParameters).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
@@ -231,20 +162,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> ForwardMessageAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, long chatId, string fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -254,11 +172,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.FromChatId,
-                fromChatId ?? throw new ArgumentNullException(nameof(fromChatId))
-            },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.FromChatId, fromChatId ?? throw new ArgumentNullException(nameof(fromChatId)) },
+            { PropertyNames.MessageId, messageId }
         };
         if (messageThreadId is not null)
         {
@@ -309,34 +224,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(
-        this ITelegramBotClient client,
-        string chatId,
-        long fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null
-    ) =>
-        client
-            .ForwardMessageAsync(
-                chatId,
-                fromChatId,
-                messageId,
-                messageThreadId,
-                directMessagesTopicId,
-                videoStartTimestamp,
-                disableNotification,
-                protectContent,
-                messageEffectId,
-                suggestedPostParameters
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, directMessagesTopicId, videoStartTimestamp, disableNotification, protectContent, messageEffectId, suggestedPostParameters).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
@@ -356,20 +245,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> ForwardMessageAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        long fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, string chatId, long fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -380,7 +256,7 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
             { PropertyNames.FromChatId, fromChatId },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
         if (messageThreadId is not null)
         {
@@ -431,34 +307,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message ForwardMessage(
-        this ITelegramBotClient client,
-        string chatId,
-        string fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null
-    ) =>
-        client
-            .ForwardMessageAsync(
-                chatId,
-                fromChatId,
-                messageId,
-                messageThreadId,
-                directMessagesTopicId,
-                videoStartTimestamp,
-                disableNotification,
-                protectContent,
-                messageEffectId,
-                suggestedPostParameters
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message ForwardMessage(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null) =>
+        client.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId, directMessagesTopicId, videoStartTimestamp, disableNotification, protectContent, messageEffectId, suggestedPostParameters).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
@@ -478,20 +328,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> ForwardMessageAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string fromChatId,
-        int messageId,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? videoStartTimestamp = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> ForwardMessageAsync(this ITelegramBotClient client, string chatId, string fromChatId, int messageId, int? messageThreadId = null, int? directMessagesTopicId = null, int? videoStartTimestamp = null, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -501,11 +338,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.FromChatId,
-                fromChatId ?? throw new ArgumentNullException(nameof(fromChatId))
-            },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.FromChatId, fromChatId ?? throw new ArgumentNullException(nameof(fromChatId)) },
+            { PropertyNames.MessageId, messageId }
         };
         if (messageThreadId is not null)
         {

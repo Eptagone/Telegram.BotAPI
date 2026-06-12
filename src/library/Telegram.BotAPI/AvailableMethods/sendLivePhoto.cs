@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLivePhotoAsync(
-        this ITelegramBotClient client,
-        SendLivePhotoArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLivePhotoAsync(this ITelegramBotClient client, SendLivePhotoArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -70,50 +66,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLivePhoto(
-        this ITelegramBotClient client,
-        long chatId,
-        InputFile livePhoto,
-        InputFile photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLivePhotoAsync(
-                chatId,
-                livePhoto,
-                photo,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                hasSpoiler,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLivePhoto(this ITelegramBotClient client, long chatId, InputFile livePhoto, InputFile photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLivePhotoAsync(chatId, livePhoto, photo, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send live photos. On success, the sent <see cref="Message"/> is returned.
@@ -141,28 +95,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLivePhotoAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        InputFile livePhoto,
-        InputFile photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLivePhotoAsync(this ITelegramBotClient client, long chatId, InputFile livePhoto, InputFile photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -172,11 +105,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.LivePhoto,
-                livePhoto ?? throw new ArgumentNullException(nameof(livePhoto))
-            },
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
+            { PropertyNames.LivePhoto, livePhoto ?? throw new ArgumentNullException(nameof(livePhoto)) },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
         };
         if (businessConnectionId is not null)
         {
@@ -267,50 +197,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLivePhoto(
-        this ITelegramBotClient client,
-        long chatId,
-        InputFile livePhoto,
-        string photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLivePhotoAsync(
-                chatId,
-                livePhoto,
-                photo,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                hasSpoiler,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLivePhoto(this ITelegramBotClient client, long chatId, InputFile livePhoto, string photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLivePhotoAsync(chatId, livePhoto, photo, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send live photos. On success, the sent <see cref="Message"/> is returned.
@@ -338,28 +226,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLivePhotoAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        InputFile livePhoto,
-        string photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLivePhotoAsync(this ITelegramBotClient client, long chatId, InputFile livePhoto, string photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -369,11 +236,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.LivePhoto,
-                livePhoto ?? throw new ArgumentNullException(nameof(livePhoto))
-            },
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
+            { PropertyNames.LivePhoto, livePhoto ?? throw new ArgumentNullException(nameof(livePhoto)) },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
         };
         if (businessConnectionId is not null)
         {
@@ -464,50 +328,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLivePhoto(
-        this ITelegramBotClient client,
-        long chatId,
-        string livePhoto,
-        InputFile photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLivePhotoAsync(
-                chatId,
-                livePhoto,
-                photo,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                hasSpoiler,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLivePhoto(this ITelegramBotClient client, long chatId, string livePhoto, InputFile photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLivePhotoAsync(chatId, livePhoto, photo, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send live photos. On success, the sent <see cref="Message"/> is returned.
@@ -535,28 +357,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLivePhotoAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string livePhoto,
-        InputFile photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLivePhotoAsync(this ITelegramBotClient client, long chatId, string livePhoto, InputFile photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -566,11 +367,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.LivePhoto,
-                livePhoto ?? throw new ArgumentNullException(nameof(livePhoto))
-            },
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
+            { PropertyNames.LivePhoto, livePhoto ?? throw new ArgumentNullException(nameof(livePhoto)) },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
         };
         if (businessConnectionId is not null)
         {
@@ -661,50 +459,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLivePhoto(
-        this ITelegramBotClient client,
-        long chatId,
-        string livePhoto,
-        string photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLivePhotoAsync(
-                chatId,
-                livePhoto,
-                photo,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                hasSpoiler,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLivePhoto(this ITelegramBotClient client, long chatId, string livePhoto, string photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLivePhotoAsync(chatId, livePhoto, photo, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send live photos. On success, the sent <see cref="Message"/> is returned.
@@ -732,28 +488,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLivePhotoAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string livePhoto,
-        string photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLivePhotoAsync(this ITelegramBotClient client, long chatId, string livePhoto, string photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -763,11 +498,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.LivePhoto,
-                livePhoto ?? throw new ArgumentNullException(nameof(livePhoto))
-            },
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
+            { PropertyNames.LivePhoto, livePhoto ?? throw new ArgumentNullException(nameof(livePhoto)) },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
         };
         if (businessConnectionId is not null)
         {
@@ -858,50 +590,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLivePhoto(
-        this ITelegramBotClient client,
-        string chatId,
-        InputFile livePhoto,
-        InputFile photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLivePhotoAsync(
-                chatId,
-                livePhoto,
-                photo,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                hasSpoiler,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLivePhoto(this ITelegramBotClient client, string chatId, InputFile livePhoto, InputFile photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLivePhotoAsync(chatId, livePhoto, photo, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send live photos. On success, the sent <see cref="Message"/> is returned.
@@ -929,28 +619,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLivePhotoAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        InputFile livePhoto,
-        InputFile photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLivePhotoAsync(this ITelegramBotClient client, string chatId, InputFile livePhoto, InputFile photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -960,11 +629,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.LivePhoto,
-                livePhoto ?? throw new ArgumentNullException(nameof(livePhoto))
-            },
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
+            { PropertyNames.LivePhoto, livePhoto ?? throw new ArgumentNullException(nameof(livePhoto)) },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
         };
         if (businessConnectionId is not null)
         {
@@ -1055,50 +721,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLivePhoto(
-        this ITelegramBotClient client,
-        string chatId,
-        InputFile livePhoto,
-        string photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLivePhotoAsync(
-                chatId,
-                livePhoto,
-                photo,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                hasSpoiler,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLivePhoto(this ITelegramBotClient client, string chatId, InputFile livePhoto, string photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLivePhotoAsync(chatId, livePhoto, photo, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send live photos. On success, the sent <see cref="Message"/> is returned.
@@ -1126,28 +750,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLivePhotoAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        InputFile livePhoto,
-        string photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLivePhotoAsync(this ITelegramBotClient client, string chatId, InputFile livePhoto, string photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -1157,11 +760,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.LivePhoto,
-                livePhoto ?? throw new ArgumentNullException(nameof(livePhoto))
-            },
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
+            { PropertyNames.LivePhoto, livePhoto ?? throw new ArgumentNullException(nameof(livePhoto)) },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
         };
         if (businessConnectionId is not null)
         {
@@ -1252,50 +852,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLivePhoto(
-        this ITelegramBotClient client,
-        string chatId,
-        string livePhoto,
-        InputFile photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLivePhotoAsync(
-                chatId,
-                livePhoto,
-                photo,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                hasSpoiler,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLivePhoto(this ITelegramBotClient client, string chatId, string livePhoto, InputFile photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLivePhotoAsync(chatId, livePhoto, photo, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send live photos. On success, the sent <see cref="Message"/> is returned.
@@ -1323,28 +881,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLivePhotoAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string livePhoto,
-        InputFile photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLivePhotoAsync(this ITelegramBotClient client, string chatId, string livePhoto, InputFile photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -1354,11 +891,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.LivePhoto,
-                livePhoto ?? throw new ArgumentNullException(nameof(livePhoto))
-            },
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
+            { PropertyNames.LivePhoto, livePhoto ?? throw new ArgumentNullException(nameof(livePhoto)) },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
         };
         if (businessConnectionId is not null)
         {
@@ -1449,50 +983,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendLivePhoto(
-        this ITelegramBotClient client,
-        string chatId,
-        string livePhoto,
-        string photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendLivePhotoAsync(
-                chatId,
-                livePhoto,
-                photo,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                caption,
-                parseMode,
-                captionEntities,
-                showCaptionAboveMedia,
-                hasSpoiler,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendLivePhoto(this ITelegramBotClient client, string chatId, string livePhoto, string photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendLivePhotoAsync(chatId, livePhoto, photo, businessConnectionId, messageThreadId, directMessagesTopicId, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send live photos. On success, the sent <see cref="Message"/> is returned.
@@ -1520,28 +1012,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendLivePhotoAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string livePhoto,
-        string photo,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        string? caption = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? captionEntities = null,
-        bool? showCaptionAboveMedia = null,
-        bool? hasSpoiler = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendLivePhotoAsync(this ITelegramBotClient client, string chatId, string livePhoto, string photo, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, bool? hasSpoiler = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -1551,11 +1022,8 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.LivePhoto,
-                livePhoto ?? throw new ArgumentNullException(nameof(livePhoto))
-            },
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
+            { PropertyNames.LivePhoto, livePhoto ?? throw new ArgumentNullException(nameof(livePhoto)) },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
         };
         if (businessConnectionId is not null)
         {

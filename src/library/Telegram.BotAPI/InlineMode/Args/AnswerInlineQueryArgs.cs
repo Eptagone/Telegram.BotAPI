@@ -16,8 +16,7 @@ public class AnswerInlineQueryArgs
     /// <param name="results">A JSON-serialized array of results for the inline query</param>
     public AnswerInlineQueryArgs(string inlineQueryId, IEnumerable<InlineQueryResult> results)
     {
-        this.InlineQueryId =
-            inlineQueryId ?? throw new ArgumentNullException(nameof(inlineQueryId));
+        this.InlineQueryId = inlineQueryId ?? throw new ArgumentNullException(nameof(inlineQueryId));
         this.Results = results ?? throw new ArgumentNullException(nameof(results));
     }
 

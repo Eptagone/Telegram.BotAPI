@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoNoteAsync(
-        this ITelegramBotClient client,
-        SendVideoNoteArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, SendVideoNoteArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -50,7 +46,7 @@ public static partial class AvailableMethodsExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
@@ -63,55 +59,19 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideoNote(
-        this ITelegramBotClient client,
-        long chatId,
-        InputFile videoNote,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? duration = null,
-        int? length = null,
-        InputFile? thumbnail = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendVideoNoteAsync(
-                chatId,
-                videoNote,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                duration,
-                length,
-                thumbnail,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVideoNote(this ITelegramBotClient client, long chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
@@ -124,30 +84,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoNoteAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        InputFile videoNote,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? duration = null,
-        int? length = null,
-        InputFile? thumbnail = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, long chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -157,10 +99,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.VideoNote,
-                videoNote ?? throw new ArgumentNullException(nameof(videoNote))
-            },
+            { PropertyNames.VideoNote, videoNote ?? throw new ArgumentNullException(nameof(videoNote)) }
         };
         if (businessConnectionId is not null)
         {
@@ -223,7 +162,7 @@ public static partial class AvailableMethodsExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
@@ -236,58 +175,20 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideoNote(
-        this ITelegramBotClient client,
-        long chatId,
-        string videoNote,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? duration = null,
-        int? length = null,
-        string? thumbnail = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        IDictionary<string, InputFile>? files = null
-    ) =>
-        client
-            .SendVideoNoteAsync(
-                chatId,
-                videoNote,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                duration,
-                length,
-                thumbnail,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup,
-                files
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVideoNote(this ITelegramBotClient client, long chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
@@ -300,32 +201,13 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoNoteAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string videoNote,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? duration = null,
-        int? length = null,
-        string? thumbnail = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        IDictionary<string, InputFile>? files = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, long chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -335,10 +217,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.VideoNote,
-                videoNote ?? throw new ArgumentNullException(nameof(videoNote))
-            },
+            { PropertyNames.VideoNote, videoNote ?? throw new ArgumentNullException(nameof(videoNote)) }
         };
         if (businessConnectionId is not null)
         {
@@ -408,7 +287,7 @@ public static partial class AvailableMethodsExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
@@ -421,55 +300,19 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideoNote(
-        this ITelegramBotClient client,
-        string chatId,
-        InputFile videoNote,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? duration = null,
-        int? length = null,
-        InputFile? thumbnail = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendVideoNoteAsync(
-                chatId,
-                videoNote,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                duration,
-                length,
-                thumbnail,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVideoNote(this ITelegramBotClient client, string chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
@@ -482,30 +325,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoNoteAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        InputFile videoNote,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? duration = null,
-        int? length = null,
-        InputFile? thumbnail = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, string chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -515,10 +340,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.VideoNote,
-                videoNote ?? throw new ArgumentNullException(nameof(videoNote))
-            },
+            { PropertyNames.VideoNote, videoNote ?? throw new ArgumentNullException(nameof(videoNote)) }
         };
         if (businessConnectionId is not null)
         {
@@ -581,7 +403,7 @@ public static partial class AvailableMethodsExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
@@ -594,58 +416,20 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideoNote(
-        this ITelegramBotClient client,
-        string chatId,
-        string videoNote,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? duration = null,
-        int? length = null,
-        string? thumbnail = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        IDictionary<string, InputFile>? files = null
-    ) =>
-        client
-            .SendVideoNoteAsync(
-                chatId,
-                videoNote,
-                businessConnectionId,
-                messageThreadId,
-                directMessagesTopicId,
-                duration,
-                length,
-                thumbnail,
-                disableNotification,
-                protectContent,
-                allowPaidBroadcast,
-                messageEffectId,
-                suggestedPostParameters,
-                replyParameters,
-                replyMarkup,
-                files
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendVideoNote(this ITelegramBotClient client, string chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
@@ -658,32 +442,13 @@ public static partial class AvailableMethodsExtensions
     /// <param name="messageEffectId">Unique identifier of the message effect to be added to the message; for private chats only</param>
     /// <param name="suggestedPostParameters">A JSON-serialized object containing the parameters of the suggested post to send; for direct messages chats only. If the message is sent as a reply to another suggested post, then that suggested post is automatically declined.</param>
     /// <param name="replyParameters">Description of the message to reply to</param>
-    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user</param>
+    /// <param name="replyMarkup">Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.</param>
     /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoNoteAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string videoNote,
-        string? businessConnectionId = null,
-        int? messageThreadId = null,
-        int? directMessagesTopicId = null,
-        int? duration = null,
-        int? length = null,
-        string? thumbnail = null,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        bool? allowPaidBroadcast = null,
-        string? messageEffectId = null,
-        SuggestedPostParameters? suggestedPostParameters = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        IDictionary<string, InputFile>? files = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, string chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -693,10 +458,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.VideoNote,
-                videoNote ?? throw new ArgumentNullException(nameof(videoNote))
-            },
+            { PropertyNames.VideoNote, videoNote ?? throw new ArgumentNullException(nameof(videoNote)) }
         };
         if (businessConnectionId is not null)
         {

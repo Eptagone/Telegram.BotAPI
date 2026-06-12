@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class KeyboardButtonRequestManagedBot
 {
     /// <summary>
-    /// Signed 32-bit identifier of the request. Must be unique within the message
+    /// Signed 32-bit identifier of the request. Must be unique within the message.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestId)]
     public int RequestId { get; set; }

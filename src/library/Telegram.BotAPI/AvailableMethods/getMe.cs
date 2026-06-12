@@ -29,19 +29,13 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<User> GetMeAsync(
-        this ITelegramBotClient client,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<User> GetMeAsync(this ITelegramBotClient client, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<User>(
-            MethodNames.GetMe,
-            cancellationToken: cancellationToken
-        );
+        return client.CallMethodAsync<User>(MethodNames.GetMe, cancellationToken: cancellationToken);
     }
 }

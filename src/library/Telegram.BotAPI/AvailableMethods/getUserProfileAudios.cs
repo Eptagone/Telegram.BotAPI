@@ -21,12 +21,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static UserProfileAudios GetUserProfileAudios(
-        this ITelegramBotClient client,
-        long userId,
-        int? offset = null,
-        int? limit = null
-    ) => client.GetUserProfileAudiosAsync(userId, offset, limit).GetAwaiter().GetResult();
+    public static UserProfileAudios GetUserProfileAudios(this ITelegramBotClient client, long userId, int? offset = null, int? limit = null) =>
+        client.GetUserProfileAudiosAsync(userId, offset, limit).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get a list of profile audios for a user. Returns a <see cref="UserProfileAudios"/> object.
@@ -39,20 +35,17 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<UserProfileAudios> GetUserProfileAudiosAsync(
-        this ITelegramBotClient client,
-        long userId,
-        int? offset = null,
-        int? limit = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<UserProfileAudios> GetUserProfileAudiosAsync(this ITelegramBotClient client, long userId, int? offset = null, int? limit = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>() { { PropertyNames.UserId, userId } };
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.UserId, userId }
+        };
         if (offset is not null)
         {
             args.Add(PropertyNames.Offset, offset);
@@ -62,10 +55,6 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.Limit, limit);
         }
 
-        return client.CallMethodAsync<UserProfileAudios>(
-            MethodNames.GetUserProfileAudios,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<UserProfileAudios>(MethodNames.GetUserProfileAudios, args, cancellationToken);
     }
 }

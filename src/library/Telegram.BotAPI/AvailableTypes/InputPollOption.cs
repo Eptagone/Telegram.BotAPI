@@ -27,13 +27,13 @@ public class InputPollOption
     public string Text { get; set; }
 
     /// <summary>
-    /// Optional. Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed
+    /// Optional. Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Currently, only custom emoji entities are allowed.
     /// </summary>
     [JsonPropertyName(PropertyNames.TextParseMode)]
     public string? TextParseMode { get; set; }
 
     /// <summary>
-    /// Optional. A JSON-serialized list of special entities that appear in the poll option text. It can be specified instead of <em>text_parse_mode</em>
+    /// Optional. A JSON-serialized list of special entities that appear in the poll option text. It can be specified instead of <em>text_parse_mode</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.TextEntities)]
     public IEnumerable<MessageEntity>? TextEntities { get; set; }

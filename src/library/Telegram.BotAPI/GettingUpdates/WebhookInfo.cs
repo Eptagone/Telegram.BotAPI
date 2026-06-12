@@ -58,7 +58,7 @@ public class WebhookInfo
     public int? MaxConnections { get; set; }
 
     /// <summary>
-    /// Optional. A list of update types the bot is subscribed to. Defaults to all update types except <em>chat_member</em>
+    /// Optional. A list of update types the bot is subscribed to. Defaults to all update types except <em>chat_member</em>, <em>message_reaction</em>, and <em>message_reaction_count</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowedUpdates)]
     public IEnumerable<string>? AllowedUpdates { get; set; }

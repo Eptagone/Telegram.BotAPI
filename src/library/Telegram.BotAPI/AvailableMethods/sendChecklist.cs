@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendChecklistAsync(
-        this ITelegramBotClient client,
-        SendChecklistArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendChecklistAsync(this ITelegramBotClient client, SendChecklistArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -60,30 +56,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendChecklist(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        long chatId,
-        InputChecklist checklist,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendChecklistAsync(
-                businessConnectionId,
-                chatId,
-                checklist,
-                disableNotification,
-                protectContent,
-                messageEffectId,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendChecklist(this ITelegramBotClient client, string businessConnectionId, long chatId, InputChecklist checklist, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendChecklistAsync(businessConnectionId, chatId, checklist, disableNotification, protectContent, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a checklist on behalf of a connected business account. On success, the sent <see cref="Message"/> is returned.
@@ -101,18 +75,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendChecklistAsync(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        long chatId,
-        InputChecklist checklist,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendChecklistAsync(this ITelegramBotClient client, string businessConnectionId, long chatId, InputChecklist checklist, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -121,16 +84,9 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            {
-                PropertyNames.BusinessConnectionId,
-                businessConnectionId
-                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
-            },
+            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.Checklist,
-                checklist ?? throw new ArgumentNullException(nameof(checklist))
-            },
+            { PropertyNames.Checklist, checklist ?? throw new ArgumentNullException(nameof(checklist)) }
         };
         if (disableNotification is not null)
         {
@@ -171,30 +127,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendChecklist(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        string chatId,
-        InputChecklist checklist,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null
-    ) =>
-        client
-            .SendChecklistAsync(
-                businessConnectionId,
-                chatId,
-                checklist,
-                disableNotification,
-                protectContent,
-                messageEffectId,
-                replyParameters,
-                replyMarkup
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static Message SendChecklist(this ITelegramBotClient client, string businessConnectionId, string chatId, InputChecklist checklist, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendChecklistAsync(businessConnectionId, chatId, checklist, disableNotification, protectContent, messageEffectId, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send a checklist on behalf of a connected business account. On success, the sent <see cref="Message"/> is returned.
@@ -212,18 +146,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendChecklistAsync(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        string chatId,
-        InputChecklist checklist,
-        bool? disableNotification = null,
-        bool? protectContent = null,
-        string? messageEffectId = null,
-        ReplyParameters? replyParameters = null,
-        ReplyMarkup? replyMarkup = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<Message> SendChecklistAsync(this ITelegramBotClient client, string businessConnectionId, string chatId, InputChecklist checklist, bool? disableNotification = null, bool? protectContent = null, string? messageEffectId = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -232,16 +155,9 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            {
-                PropertyNames.BusinessConnectionId,
-                businessConnectionId
-                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
-            },
+            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) },
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.Checklist,
-                checklist ?? throw new ArgumentNullException(nameof(checklist))
-            },
+            { PropertyNames.Checklist, checklist ?? throw new ArgumentNullException(nameof(checklist)) }
         };
         if (disableNotification is not null)
         {

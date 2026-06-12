@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.Payments;
 public class RefundedPayment
 {
     /// <summary>
-    /// Three-letter ISO 4217 <a href="https://core.telegram.org/bots/payments#supported-currencies">currency</a> code, or “XTR” for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>. Currently, always “XTR”
+    /// Three-letter ISO 4217 <a href="https://core.telegram.org/bots/payments#supported-currencies">currency</a> code, or “XTR” for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>. Currently, always “XTR”.
     /// </summary>
     [JsonPropertyName(PropertyNames.Currency)]
     public string Currency => "XTR";

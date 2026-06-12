@@ -64,7 +64,7 @@ public class GiftInfo
     public bool? IsPrivate { get; set; }
 
     /// <summary>
-    /// Optional. Unique number reserved for this gift when upgraded. See the <em>number</em> field in <see cref="UniqueGift"/>
+    /// Optional. Unique number reserved for this gift when upgraded. See the <em>number</em> field in <see cref="UniqueGift"/>.
     /// </summary>
     [JsonPropertyName(PropertyNames.UniqueGiftNumber)]
     public int? UniqueGiftNumber { get; set; }

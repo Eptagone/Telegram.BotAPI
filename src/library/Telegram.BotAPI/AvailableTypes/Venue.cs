@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class Venue
 {
     /// <summary>
-    /// Venue location. Can't be a live location
+    /// Venue location. Can't be a live location.
     /// </summary>
     [JsonPropertyName(PropertyNames.Location)]
     public Location Location { get; set; } = null!;

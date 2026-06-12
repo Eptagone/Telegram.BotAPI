@@ -15,7 +15,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     public SendVideoNoteArgs(long chatId, InputFile videoNote)
     {
         this.ChatId = chatId;
@@ -26,7 +26,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     public SendVideoNoteArgs(long chatId, string videoNote)
     {
         this.ChatId = chatId;
@@ -37,7 +37,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     public SendVideoNoteArgs(string chatId, InputFile videoNote)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -48,7 +48,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</param>
+    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
     public SendVideoNoteArgs(string chatId, string videoNote)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -80,7 +80,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported
+    /// Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.
     /// </summary>
     [JsonPropertyName(PropertyNames.VideoNote)]
     public object VideoNote { get; set; }
@@ -140,7 +140,7 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user
+    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public object? ReplyMarkup { get; set; }

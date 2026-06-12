@@ -20,17 +20,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool PinChatMessage(
-        this ITelegramBotClient client,
-        long chatId,
-        int messageId,
-        string? businessConnectionId = null,
-        bool? disableNotification = null
-    ) =>
-        client
-            .PinChatMessageAsync(chatId, messageId, businessConnectionId, disableNotification)
-            .GetAwaiter()
-            .GetResult();
+    public static bool PinChatMessage(this ITelegramBotClient client, long chatId, int messageId, string? businessConnectionId = null, bool? disableNotification = null) =>
+        client.PinChatMessageAsync(chatId, messageId, businessConnectionId, disableNotification).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to add a message to the list of pinned messages in a chat. In private chats and channel direct messages chats, all non-service messages can be pinned. Conversely, the bot must be an administrator with the 'can_pin_messages' right or the 'can_edit_messages' right to pin messages in groups and channels respectively. Returns <em>True</em> on success.
@@ -44,14 +35,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> PinChatMessageAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        int messageId,
-        string? businessConnectionId = null,
-        bool? disableNotification = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> PinChatMessageAsync(this ITelegramBotClient client, long chatId, int messageId, string? businessConnectionId = null, bool? disableNotification = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -61,7 +45,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
         if (businessConnectionId is not null)
         {
@@ -86,17 +70,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool PinChatMessage(
-        this ITelegramBotClient client,
-        string chatId,
-        int messageId,
-        string? businessConnectionId = null,
-        bool? disableNotification = null
-    ) =>
-        client
-            .PinChatMessageAsync(chatId, messageId, businessConnectionId, disableNotification)
-            .GetAwaiter()
-            .GetResult();
+    public static bool PinChatMessage(this ITelegramBotClient client, string chatId, int messageId, string? businessConnectionId = null, bool? disableNotification = null) =>
+        client.PinChatMessageAsync(chatId, messageId, businessConnectionId, disableNotification).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to add a message to the list of pinned messages in a chat. In private chats and channel direct messages chats, all non-service messages can be pinned. Conversely, the bot must be an administrator with the 'can_pin_messages' right or the 'can_edit_messages' right to pin messages in groups and channels respectively. Returns <em>True</em> on success.
@@ -110,14 +85,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> PinChatMessageAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        int messageId,
-        string? businessConnectionId = null,
-        bool? disableNotification = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> PinChatMessageAsync(this ITelegramBotClient client, string chatId, int messageId, string? businessConnectionId = null, bool? disableNotification = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -127,7 +95,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
         if (businessConnectionId is not null)
         {

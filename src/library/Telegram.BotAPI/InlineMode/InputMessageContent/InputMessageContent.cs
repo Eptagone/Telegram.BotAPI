@@ -7,9 +7,10 @@ using Telegram.BotAPI.Converters;
 namespace Telegram.BotAPI.InlineMode;
 
 /// <summary>
-/// This object represents the content of a message to be sent as a result of an inline query. Telegram clients currently support the following 5 types:
+/// This object represents the content of a message to be sent as a result of an inline query. Telegram clients currently support the following types:
 /// <list type="bullet">
 /// <item><description><see cref="InputTextMessageContent"/></description></item>
+/// <item><description><see cref="InputRichMessageContent"/></description></item>
 /// <item><description><see cref="InputLocationMessageContent"/></description></item>
 /// <item><description><see cref="InputVenueMessageContent"/></description></item>
 /// <item><description><see cref="InputContactMessageContent"/></description></item>
@@ -17,4 +18,6 @@ namespace Telegram.BotAPI.InlineMode;
 /// </list>
 /// </summary>
 [JsonConverter(typeof(InputMessageContentConverter))]
-public abstract class InputMessageContent { }
+public abstract class InputMessageContent
+{
+}

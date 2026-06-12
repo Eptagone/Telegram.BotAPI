@@ -52,7 +52,7 @@ public class StopPollArgs
     public int MessageId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.
+    /// A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public InlineKeyboardMarkup? ReplyMarkup { get; set; }

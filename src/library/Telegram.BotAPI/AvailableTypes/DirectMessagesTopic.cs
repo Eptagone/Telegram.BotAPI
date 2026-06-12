@@ -16,7 +16,7 @@ public class DirectMessagesTopic
     public int TopicId { get; set; }
 
     /// <summary>
-    /// Optional. Information about the user that created the topic. Currently, it is always present
+    /// Optional. Information about the user that created the topic. Currently, it is always present.
     /// </summary>
     [JsonPropertyName(PropertyNames.User)]
     public User? User { get; set; }

@@ -20,11 +20,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<ChatMember> GetChatAdministrators(
-        this ITelegramBotClient client,
-        long chatId,
-        bool? returnBots = null
-    ) => client.GetChatAdministratorsAsync(chatId, returnBots).GetAwaiter().GetResult();
+    public static IEnumerable<ChatMember> GetChatAdministrators(this ITelegramBotClient client, long chatId, bool? returnBots = null) =>
+        client.GetChatAdministratorsAsync(chatId, returnBots).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get a list of administrators in a chat. Returns an Array of <see cref="ChatMember"/> objects.
@@ -36,29 +33,23 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<ChatMember>> GetChatAdministratorsAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        bool? returnBots = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<IEnumerable<ChatMember>> GetChatAdministratorsAsync(this ITelegramBotClient client, long chatId, bool? returnBots = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>() { { PropertyNames.ChatId, chatId } };
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId }
+        };
         if (returnBots is not null)
         {
             args.Add(PropertyNames.ReturnBots, returnBots);
         }
 
-        return client.CallMethodAsync<IEnumerable<ChatMember>>(
-            MethodNames.GetChatAdministrators,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<IEnumerable<ChatMember>>(MethodNames.GetChatAdministrators, args, cancellationToken);
     }
 
     /// <summary>
@@ -70,11 +61,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static IEnumerable<ChatMember> GetChatAdministrators(
-        this ITelegramBotClient client,
-        string chatId,
-        bool? returnBots = null
-    ) => client.GetChatAdministratorsAsync(chatId, returnBots).GetAwaiter().GetResult();
+    public static IEnumerable<ChatMember> GetChatAdministrators(this ITelegramBotClient client, string chatId, bool? returnBots = null) =>
+        client.GetChatAdministratorsAsync(chatId, returnBots).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get a list of administrators in a chat. Returns an Array of <see cref="ChatMember"/> objects.
@@ -86,12 +74,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<IEnumerable<ChatMember>> GetChatAdministratorsAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        bool? returnBots = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<IEnumerable<ChatMember>> GetChatAdministratorsAsync(this ITelegramBotClient client, string chatId, bool? returnBots = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -100,17 +83,13 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) }
         };
         if (returnBots is not null)
         {
             args.Add(PropertyNames.ReturnBots, returnBots);
         }
 
-        return client.CallMethodAsync<IEnumerable<ChatMember>>(
-            MethodNames.GetChatAdministrators,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<IEnumerable<ChatMember>>(MethodNames.GetChatAdministrators, args, cancellationToken);
     }
 }

@@ -19,10 +19,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static File UploadStickerFile(
-        this ITelegramBotClient client,
-        UploadStickerFileArgs args
-    ) => client.UploadStickerFileAsync(args).GetAwaiter().GetResult();
+    public static File UploadStickerFile(this ITelegramBotClient client, UploadStickerFileArgs args) =>
+        client.UploadStickerFileAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a>, <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>, or <a href="https://core.telegram.org/bots/api#replacestickerinset">replaceStickerInSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
@@ -33,11 +31,7 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<File> UploadStickerFileAsync(
-        this ITelegramBotClient client,
-        UploadStickerFileArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<File> UploadStickerFileAsync(this ITelegramBotClient client, UploadStickerFileArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -57,12 +51,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static File UploadStickerFile(
-        this ITelegramBotClient client,
-        long userId,
-        InputFile sticker,
-        string stickerFormat
-    ) => client.UploadStickerFileAsync(userId, sticker, stickerFormat).GetAwaiter().GetResult();
+    public static File UploadStickerFile(this ITelegramBotClient client, long userId, InputFile sticker, string stickerFormat) =>
+        client.UploadStickerFileAsync(userId, sticker, stickerFormat).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to upload a file with a sticker for later use in the <a href="https://core.telegram.org/bots/api#createnewstickerset">createNewStickerSet</a>, <a href="https://core.telegram.org/bots/api#addstickertoset">addStickerToSet</a>, or <a href="https://core.telegram.org/bots/api#replacestickerinset">replaceStickerInSet</a> methods (the file can be used multiple times). Returns the uploaded <see cref="File"/> on success.
@@ -75,13 +65,7 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<File> UploadStickerFileAsync(
-        this ITelegramBotClient client,
-        long userId,
-        InputFile sticker,
-        string stickerFormat,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<File> UploadStickerFileAsync(this ITelegramBotClient client, long userId, InputFile sticker, string stickerFormat, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -92,10 +76,7 @@ public static partial class StickersExtensions
         {
             { PropertyNames.UserId, userId },
             { PropertyNames.Sticker, sticker ?? throw new ArgumentNullException(nameof(sticker)) },
-            {
-                PropertyNames.StickerFormat,
-                stickerFormat ?? throw new ArgumentNullException(nameof(stickerFormat))
-            },
+            { PropertyNames.StickerFormat, stickerFormat ?? throw new ArgumentNullException(nameof(stickerFormat)) }
         };
 
         return client.CallMethodAsync<File>(MethodNames.UploadStickerFile, args, cancellationToken);

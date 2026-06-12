@@ -1,0 +1,23 @@
+// Copyright (c) 2026 Quetzal Rivera.
+// Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
+
+namespace Telegram.BotAPI.RichMessages;
+
+/// <summary>
+/// A text covered by a spoiler.
+/// </summary>
+public class RichTextSpoiler : RichText
+{
+    /// <summary>
+    /// Type of the rich text, always “spoiler”
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Type)]
+    public override string Type => "spoiler";
+
+    /// <summary>
+    /// The text
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Text)]
+    public RichText Text { get; set; } = null!;
+}

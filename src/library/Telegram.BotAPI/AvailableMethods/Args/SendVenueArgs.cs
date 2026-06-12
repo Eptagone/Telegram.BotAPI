@@ -36,13 +36,7 @@ public class SendVenueArgs
     /// <param name="longitude">Longitude of the venue</param>
     /// <param name="title">Name of the venue</param>
     /// <param name="address">Address of the venue</param>
-    public SendVenueArgs(
-        string chatId,
-        float latitude,
-        float longitude,
-        string title,
-        string address
-    )
+    public SendVenueArgs(string chatId, float latitude, float longitude, string title, string address)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Latitude = latitude;
@@ -160,7 +154,7 @@ public class SendVenueArgs
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user
+    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public object? ReplyMarkup { get; set; }

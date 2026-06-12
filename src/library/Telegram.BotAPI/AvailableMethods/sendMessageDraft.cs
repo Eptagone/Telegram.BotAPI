@@ -19,10 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SendMessageDraft(
-        this ITelegramBotClient client,
-        SendMessageDraftArgs args
-    ) => client.SendMessageDraftAsync(args).GetAwaiter().GetResult();
+    public static bool SendMessageDraft(this ITelegramBotClient client, SendMessageDraftArgs args) =>
+        client.SendMessageDraftAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to stream a partial message to a user while the message is being generated. Note that the streamed draft is ephemeral and acts as a temporary 30-second preview - once the output is finalized, you <strong>must</strong> call <a href="https://core.telegram.org/bots/api#sendmessage">sendMessage</a> with the complete message to persist it in the user's chat. Returns <em>True</em> on success.
@@ -33,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SendMessageDraftAsync(
-        this ITelegramBotClient client,
-        SendMessageDraftArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SendMessageDraftAsync(this ITelegramBotClient client, SendMessageDraftArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -60,19 +54,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SendMessageDraft(
-        this ITelegramBotClient client,
-        long chatId,
-        int draftId,
-        int? messageThreadId = null,
-        string? text = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? entities = null
-    ) =>
-        client
-            .SendMessageDraftAsync(chatId, draftId, messageThreadId, text, parseMode, entities)
-            .GetAwaiter()
-            .GetResult();
+    public static bool SendMessageDraft(this ITelegramBotClient client, long chatId, int draftId, int? messageThreadId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null) =>
+        client.SendMessageDraftAsync(chatId, draftId, messageThreadId, text, parseMode, entities).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to stream a partial message to a user while the message is being generated. Note that the streamed draft is ephemeral and acts as a temporary 30-second preview - once the output is finalized, you <strong>must</strong> call <a href="https://core.telegram.org/bots/api#sendmessage">sendMessage</a> with the complete message to persist it in the user's chat. Returns <em>True</em> on success.
@@ -88,16 +71,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SendMessageDraftAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        int draftId,
-        int? messageThreadId = null,
-        string? text = null,
-        string? parseMode = null,
-        IEnumerable<MessageEntity>? entities = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SendMessageDraftAsync(this ITelegramBotClient client, long chatId, int draftId, int? messageThreadId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -107,7 +81,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.DraftId, draftId },
+            { PropertyNames.DraftId, draftId }
         };
         if (messageThreadId is not null)
         {

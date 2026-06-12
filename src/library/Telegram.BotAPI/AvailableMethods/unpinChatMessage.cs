@@ -19,16 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool UnpinChatMessage(
-        this ITelegramBotClient client,
-        long chatId,
-        string? businessConnectionId = null,
-        int? messageId = null
-    ) =>
-        client
-            .UnpinChatMessageAsync(chatId, businessConnectionId, messageId)
-            .GetAwaiter()
-            .GetResult();
+    public static bool UnpinChatMessage(this ITelegramBotClient client, long chatId, string? businessConnectionId = null, int? messageId = null) =>
+        client.UnpinChatMessageAsync(chatId, businessConnectionId, messageId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to remove a message from the list of pinned messages in a chat. In private chats and channel direct messages chats, all messages can be unpinned. Conversely, the bot must be an administrator with the 'can_pin_messages' right or the 'can_edit_messages' right to unpin messages in groups and channels respectively. Returns <em>True</em> on success.
@@ -41,20 +33,17 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> UnpinChatMessageAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string? businessConnectionId = null,
-        int? messageId = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> UnpinChatMessageAsync(this ITelegramBotClient client, long chatId, string? businessConnectionId = null, int? messageId = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>() { { PropertyNames.ChatId, chatId } };
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId }
+        };
         if (businessConnectionId is not null)
         {
             args.Add(PropertyNames.BusinessConnectionId, businessConnectionId);
@@ -77,16 +66,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool UnpinChatMessage(
-        this ITelegramBotClient client,
-        string chatId,
-        string? businessConnectionId = null,
-        int? messageId = null
-    ) =>
-        client
-            .UnpinChatMessageAsync(chatId, businessConnectionId, messageId)
-            .GetAwaiter()
-            .GetResult();
+    public static bool UnpinChatMessage(this ITelegramBotClient client, string chatId, string? businessConnectionId = null, int? messageId = null) =>
+        client.UnpinChatMessageAsync(chatId, businessConnectionId, messageId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to remove a message from the list of pinned messages in a chat. In private chats and channel direct messages chats, all messages can be unpinned. Conversely, the bot must be an administrator with the 'can_pin_messages' right or the 'can_edit_messages' right to unpin messages in groups and channels respectively. Returns <em>True</em> on success.
@@ -99,13 +80,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> UnpinChatMessageAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string? businessConnectionId = null,
-        int? messageId = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> UnpinChatMessageAsync(this ITelegramBotClient client, string chatId, string? businessConnectionId = null, int? messageId = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -114,7 +89,7 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) }
         };
         if (businessConnectionId is not null)
         {

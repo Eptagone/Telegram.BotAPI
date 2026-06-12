@@ -15,8 +15,7 @@ public class GetBusinessAccountGiftsArgs
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
     public GetBusinessAccountGiftsArgs(string businessConnectionId)
     {
-        this.BusinessConnectionId =
-            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
     }
 
     /// <summary>
@@ -80,7 +79,7 @@ public class GetBusinessAccountGiftsArgs
     public string? Offset { get; set; }
 
     /// <summary>
-    /// The maximum number of gifts to be returned; 1-100. Defaults to 100
+    /// The maximum number of gifts to be returned; 1-100. Defaults to 100.
     /// </summary>
     [JsonPropertyName(PropertyNames.Limit)]
     public int? Limit { get; set; }

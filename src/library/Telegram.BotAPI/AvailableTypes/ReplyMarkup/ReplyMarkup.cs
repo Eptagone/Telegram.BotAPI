@@ -16,4 +16,6 @@ namespace Telegram.BotAPI.AvailableTypes;
 /// </list>
 /// </summary>
 [JsonConverter(typeof(ReplyMarkupConverter))]
-public abstract class ReplyMarkup { }
+public abstract class ReplyMarkup
+{
+}

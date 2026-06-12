@@ -19,8 +19,7 @@ public class SendChecklistArgs
     /// <param name="checklist">A JSON-serialized object for the checklist to send</param>
     public SendChecklistArgs(string businessConnectionId, long chatId, InputChecklist checklist)
     {
-        this.BusinessConnectionId =
-            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.ChatId = chatId;
         this.Checklist = checklist ?? throw new ArgumentNullException(nameof(checklist));
     }
@@ -33,8 +32,7 @@ public class SendChecklistArgs
     /// <param name="checklist">A JSON-serialized object for the checklist to send</param>
     public SendChecklistArgs(string businessConnectionId, string chatId, InputChecklist checklist)
     {
-        this.BusinessConnectionId =
-            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Checklist = checklist ?? throw new ArgumentNullException(nameof(checklist));
     }

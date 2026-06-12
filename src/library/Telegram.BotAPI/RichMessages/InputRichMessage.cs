@@ -1,0 +1,35 @@
+// Copyright (c) 2026 Quetzal Rivera.
+// Licensed under the MIT License, See LICENCE in the project root for license information.
+//* This file is auto-generated. Don't edit it manually!
+
+namespace Telegram.BotAPI.RichMessages;
+
+/// <summary>
+/// Describes a rich message to be sent. Exactly <strong>one</strong> of the fields <em>html</em> or <em>markdown</em> must be used.
+/// </summary>
+public class InputRichMessage
+{
+    /// <summary>
+    /// Optional. Content of the rich message to send described using HTML formatting. See <a href="https://core.telegram.org/bots/api#rich-message-formatting-options">rich message formatting options</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Html)]
+    public string? Html { get; set; }
+
+    /// <summary>
+    /// Optional. Content of the rich message to send described using Markdown formatting. See <a href="https://core.telegram.org/bots/api#rich-message-formatting-options">rich message formatting options</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Markdown)]
+    public string? Markdown { get; set; }
+
+    /// <summary>
+    /// Optional. Pass <em>True</em> if the rich message must be shown right-to-left
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsRtl)]
+    public bool? IsRtl { get; set; }
+
+    /// <summary>
+    /// Optional. Pass <em>True</em> to skip automatic detection of entities (e.g., URLs, email addresses, username mentions, hashtags, cashtags, bot commands, or phone numbers) in the text
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SkipEntityDetection)]
+    public bool? SkipEntityDetection { get; set; }
+}

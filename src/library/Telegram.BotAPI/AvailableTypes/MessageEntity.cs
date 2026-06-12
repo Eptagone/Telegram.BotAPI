@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class MessageEntity
 {
     /// <summary>
-    /// Type of the entity. Currently, can be “mention” (<em>@username</em>), “hashtag” (<em>#hashtag</em> or <em>#hashtag@chatusername</em>), “cashtag” (<em>$USD</em> or <em>$USD@chatusername</em>), “bot_command” (<em>/start@jobs_bot</em>), “url” (<em>https://telegram.org</em>), “email” (<em>do-not-reply@telegram.org</em>), “phone_number” (<em>+1-212-555-0123</em>), “bold” (<strong>bold text</strong>), “italic” (<em>italic text</em>), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable_blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom_emoji” (for inline custom emoji stickers), or “date_time” (for formatted date and time)
+    /// Type of the entity. Currently, can be “mention” (<em>@username</em>), “hashtag” (<em>#hashtag</em> or <em>#hashtag@chatusername</em>), “cashtag” (<em>$USD</em> or <em>$USD@chatusername</em>), “bot_command” (<em>/start@jobs_bot</em>), “url” (<em>https://telegram.org</em>), “email” (<em>do-not-reply@telegram.org</em>), “phone_number” (<em>+1-212-555-0123</em>), “bold” (<strong>bold text</strong>), “italic” (<em>italic text</em>), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable_blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text_link” (for clickable text URLs), “text_mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom_emoji” (for inline custom emoji stickers), or “date_time” (for formatted date and time).
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public string Type { get; set; } = null!;
@@ -46,7 +46,7 @@ public class MessageEntity
     public string? Language { get; set; }
 
     /// <summary>
-    /// Optional. For “custom_emoji” only, unique identifier of the custom emoji. Use <a href="https://core.telegram.org/bots/api#getcustomemojistickers">getCustomEmojiStickers</a> to get full information about the sticker
+    /// Optional. For “custom_emoji” only, unique identifier of the custom emoji. Use <a href="https://core.telegram.org/bots/api#getcustomemojistickers">getCustomEmojiStickers</a> to get full information about the sticker.
     /// </summary>
     [JsonPropertyName(PropertyNames.CustomEmojiId)]
     public string? CustomEmojiId { get; set; }

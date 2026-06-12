@@ -19,10 +19,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool CreateNewStickerSet(
-        this ITelegramBotClient client,
-        CreateNewStickerSetArgs args
-    ) => client.CreateNewStickerSetAsync(args).GetAwaiter().GetResult();
+    public static bool CreateNewStickerSet(this ITelegramBotClient client, CreateNewStickerSetArgs args) =>
+        client.CreateNewStickerSetAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. Returns <em>True</em> on success.
@@ -33,22 +31,14 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> CreateNewStickerSetAsync(
-        this ITelegramBotClient client,
-        CreateNewStickerSetArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> CreateNewStickerSetAsync(this ITelegramBotClient client, CreateNewStickerSetArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.CreateNewStickerSet,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.CreateNewStickerSet, args, cancellationToken);
     }
 
     /// <summary>
@@ -64,19 +54,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool CreateNewStickerSet(
-        this ITelegramBotClient client,
-        long userId,
-        string name,
-        string title,
-        IEnumerable<InputSticker> stickers,
-        string? stickerType = null,
-        bool? needsRepainting = null
-    ) =>
-        client
-            .CreateNewStickerSetAsync(userId, name, title, stickers, stickerType, needsRepainting)
-            .GetAwaiter()
-            .GetResult();
+    public static bool CreateNewStickerSet(this ITelegramBotClient client, long userId, string name, string title, IEnumerable<InputSticker> stickers, string? stickerType = null, bool? needsRepainting = null) =>
+        client.CreateNewStickerSetAsync(userId, name, title, stickers, stickerType, needsRepainting).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. Returns <em>True</em> on success.
@@ -92,16 +71,7 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> CreateNewStickerSetAsync(
-        this ITelegramBotClient client,
-        long userId,
-        string name,
-        string title,
-        IEnumerable<InputSticker> stickers,
-        string? stickerType = null,
-        bool? needsRepainting = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> CreateNewStickerSetAsync(this ITelegramBotClient client, long userId, string name, string title, IEnumerable<InputSticker> stickers, string? stickerType = null, bool? needsRepainting = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -113,10 +83,7 @@ public static partial class StickersExtensions
             { PropertyNames.UserId, userId },
             { PropertyNames.Name, name ?? throw new ArgumentNullException(nameof(name)) },
             { PropertyNames.Title, title ?? throw new ArgumentNullException(nameof(title)) },
-            {
-                PropertyNames.Stickers,
-                stickers ?? throw new ArgumentNullException(nameof(stickers))
-            },
+            { PropertyNames.Stickers, stickers ?? throw new ArgumentNullException(nameof(stickers)) }
         };
         if (stickerType is not null)
         {
@@ -127,10 +94,6 @@ public static partial class StickersExtensions
             args.Add(PropertyNames.NeedsRepainting, needsRepainting);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.CreateNewStickerSet,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.CreateNewStickerSet, args, cancellationToken);
     }
 }

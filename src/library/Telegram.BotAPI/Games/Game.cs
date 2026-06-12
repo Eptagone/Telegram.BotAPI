@@ -24,7 +24,7 @@ public class Game
     public string Description { get; set; } = null!;
 
     /// <summary>
-    /// Photo that will be displayed in the game message in chats.
+    /// Photo that will be displayed in the game message in chats
     /// </summary>
     [JsonPropertyName(PropertyNames.Photo)]
     public IEnumerable<PhotoSize> Photo { get; set; } = null!;
@@ -42,7 +42,7 @@ public class Game
     public IEnumerable<MessageEntity>? TextEntities { get; set; }
 
     /// <summary>
-    /// Optional. Animation that will be displayed in the game message in chats. Upload via <a href="https://t.me/botfather">BotFather</a>
+    /// Optional. Animation that will be displayed in the game message in chats. Upload via <a href="https://t.me/botfather">BotFather</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.Animation)]
     public Animation? Animation { get; set; }

@@ -13,7 +13,7 @@ public class BotCommand
     /// Initializes a new instance of the <see cref="BotCommand"/> class.
     /// </summary>
     /// <param name="command">Text of the command; 1-32 characters. Can contain only lowercase English letters, digits and underscores.</param>
-    /// <param name="description">Description of the command; 1-256 characters.</param>
+    /// <param name="description">Description of the command; 1-256 characters</param>
     public BotCommand(string command, string description)
     {
         this.Command = command ?? throw new ArgumentNullException(nameof(command));
@@ -27,7 +27,7 @@ public class BotCommand
     public string Command { get; set; }
 
     /// <summary>
-    /// Description of the command; 1-256 characters.
+    /// Description of the command; 1-256 characters
     /// </summary>
     [JsonPropertyName(PropertyNames.Description)]
     public string Description { get; set; }

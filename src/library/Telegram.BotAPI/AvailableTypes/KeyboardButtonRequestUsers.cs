@@ -12,14 +12,14 @@ public class KeyboardButtonRequestUsers
     /// <summary>
     /// Initializes a new instance of the <see cref="KeyboardButtonRequestUsers"/> class.
     /// </summary>
-    /// <param name="requestId">Signed 32-bit identifier of the request that will be received back in the <see cref="UsersShared"/> object. Must be unique within the message</param>
+    /// <param name="requestId">Signed 32-bit identifier of the request that will be received back in the <see cref="UsersShared"/> object. Must be unique within the message.</param>
     public KeyboardButtonRequestUsers(int requestId)
     {
         this.RequestId = requestId;
     }
 
     /// <summary>
-    /// Signed 32-bit identifier of the request that will be received back in the <see cref="UsersShared"/> object. Must be unique within the message
+    /// Signed 32-bit identifier of the request that will be received back in the <see cref="UsersShared"/> object. Must be unique within the message.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestId)]
     public int RequestId { get; set; }

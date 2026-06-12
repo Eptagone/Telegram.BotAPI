@@ -19,10 +19,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerSetThumbnail(
-        this ITelegramBotClient client,
-        SetStickerSetThumbnailArgs args
-    ) => client.SetStickerSetThumbnailAsync(args).GetAwaiter().GetResult();
+    public static bool SetStickerSetThumbnail(this ITelegramBotClient client, SetStickerSetThumbnailArgs args) =>
+        client.SetStickerSetThumbnailAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the thumbnail of a regular or mask sticker set. The format of the thumbnail file must match the format of the stickers in the set. Returns <em>True</em> on success.
@@ -33,22 +31,14 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetStickerSetThumbnailAsync(
-        this ITelegramBotClient client,
-        SetStickerSetThumbnailArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetStickerSetThumbnailAsync(this ITelegramBotClient client, SetStickerSetThumbnailArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetStickerSetThumbnail,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetStickerSetThumbnail, args, cancellationToken);
     }
 
     /// <summary>
@@ -62,17 +52,8 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetStickerSetThumbnail(
-        this ITelegramBotClient client,
-        string name,
-        long userId,
-        string format,
-        InputFile? thumbnail = null
-    ) =>
-        client
-            .SetStickerSetThumbnailAsync(name, userId, format, thumbnail)
-            .GetAwaiter()
-            .GetResult();
+    public static bool SetStickerSetThumbnail(this ITelegramBotClient client, string name, long userId, string format, InputFile? thumbnail = null) =>
+        client.SetStickerSetThumbnailAsync(name, userId, format, thumbnail).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set the thumbnail of a regular or mask sticker set. The format of the thumbnail file must match the format of the stickers in the set. Returns <em>True</em> on success.
@@ -86,14 +67,7 @@ public static partial class StickersExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetStickerSetThumbnailAsync(
-        this ITelegramBotClient client,
-        string name,
-        long userId,
-        string format,
-        InputFile? thumbnail = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetStickerSetThumbnailAsync(this ITelegramBotClient client, string name, long userId, string format, InputFile? thumbnail = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -104,17 +78,13 @@ public static partial class StickersExtensions
         {
             { PropertyNames.Name, name ?? throw new ArgumentNullException(nameof(name)) },
             { PropertyNames.UserId, userId },
-            { PropertyNames.Format, format ?? throw new ArgumentNullException(nameof(format)) },
+            { PropertyNames.Format, format ?? throw new ArgumentNullException(nameof(format)) }
         };
         if (thumbnail is not null)
         {
             args.Add(PropertyNames.Thumbnail, thumbnail);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetStickerSetThumbnail,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetStickerSetThumbnail, args, cancellationToken);
     }
 }

@@ -19,8 +19,7 @@ public class SendGameArgs
     public SendGameArgs(long chatId, string gameShortName)
     {
         this.ChatId = chatId;
-        this.GameShortName =
-            gameShortName ?? throw new ArgumentNullException(nameof(gameShortName));
+        this.GameShortName = gameShortName ?? throw new ArgumentNullException(nameof(gameShortName));
     }
 
     /// <summary>
@@ -31,8 +30,7 @@ public class SendGameArgs
     public SendGameArgs(string chatId, string gameShortName)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-        this.GameShortName =
-            gameShortName ?? throw new ArgumentNullException(nameof(gameShortName));
+        this.GameShortName = gameShortName ?? throw new ArgumentNullException(nameof(gameShortName));
     }
 
     /// <summary>

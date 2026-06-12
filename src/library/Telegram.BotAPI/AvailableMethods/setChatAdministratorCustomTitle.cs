@@ -19,16 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatAdministratorCustomTitle(
-        this ITelegramBotClient client,
-        long chatId,
-        long userId,
-        string customTitle
-    ) =>
-        client
-            .SetChatAdministratorCustomTitleAsync(chatId, userId, customTitle)
-            .GetAwaiter()
-            .GetResult();
+    public static bool SetChatAdministratorCustomTitle(this ITelegramBotClient client, long chatId, long userId, string customTitle) =>
+        client.SetChatAdministratorCustomTitleAsync(chatId, userId, customTitle).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a custom title for an administrator in a supergroup promoted by the bot. Returns <em>True</em> on success.
@@ -41,13 +33,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatAdministratorCustomTitleAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        long userId,
-        string customTitle,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatAdministratorCustomTitleAsync(this ITelegramBotClient client, long chatId, long userId, string customTitle, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -58,17 +44,10 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId },
             { PropertyNames.UserId, userId },
-            {
-                PropertyNames.CustomTitle,
-                customTitle ?? throw new ArgumentNullException(nameof(customTitle))
-            },
+            { PropertyNames.CustomTitle, customTitle ?? throw new ArgumentNullException(nameof(customTitle)) }
         };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetChatAdministratorCustomTitle,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetChatAdministratorCustomTitle, args, cancellationToken);
     }
 
     /// <summary>
@@ -81,16 +60,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatAdministratorCustomTitle(
-        this ITelegramBotClient client,
-        string chatId,
-        long userId,
-        string customTitle
-    ) =>
-        client
-            .SetChatAdministratorCustomTitleAsync(chatId, userId, customTitle)
-            .GetAwaiter()
-            .GetResult();
+    public static bool SetChatAdministratorCustomTitle(this ITelegramBotClient client, string chatId, long userId, string customTitle) =>
+        client.SetChatAdministratorCustomTitleAsync(chatId, userId, customTitle).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set a custom title for an administrator in a supergroup promoted by the bot. Returns <em>True</em> on success.
@@ -103,13 +74,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatAdministratorCustomTitleAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        long userId,
-        string customTitle,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatAdministratorCustomTitleAsync(this ITelegramBotClient client, string chatId, long userId, string customTitle, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -120,16 +85,9 @@ public static partial class AvailableMethodsExtensions
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
             { PropertyNames.UserId, userId },
-            {
-                PropertyNames.CustomTitle,
-                customTitle ?? throw new ArgumentNullException(nameof(customTitle))
-            },
+            { PropertyNames.CustomTitle, customTitle ?? throw new ArgumentNullException(nameof(customTitle)) }
         };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetChatAdministratorCustomTitle,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetChatAdministratorCustomTitle, args, cancellationToken);
     }
 }

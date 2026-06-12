@@ -30,7 +30,7 @@ public class CallbackQuery
     public MaybeInaccessibleMessage? Message { get; set; }
 
     /// <summary>
-    /// Optional. Identifier of the message sent via the bot in inline mode, that originated the query.
+    /// Optional. Identifier of the message sent via the bot in inline mode, that originated the query
     /// </summary>
     [JsonPropertyName(PropertyNames.InlineMessageId)]
     public string? InlineMessageId { get; set; }

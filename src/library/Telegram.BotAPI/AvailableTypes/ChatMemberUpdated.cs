@@ -40,7 +40,7 @@ public class ChatMemberUpdated
     public ChatMember NewChatMember { get; set; } = null!;
 
     /// <summary>
-    /// Optional. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.
+    /// Optional. Chat invite link, which was used by the user to join the chat; for joining by invite link events only
     /// </summary>
     [JsonPropertyName(PropertyNames.InviteLink)]
     public ChatInviteLink? InviteLink { get; set; }

@@ -16,7 +16,7 @@ public class PreparedInlineMessage
     public string Id { get; set; } = null!;
 
     /// <summary>
-    /// Expiration date of the prepared message, in Unix time. Expired prepared messages can no longer be used
+    /// Expiration date of the prepared message, in Unix time. Expired prepared messages can no longer be used.
     /// </summary>
     [JsonPropertyName(PropertyNames.ExpirationDate)]
     public int ExpirationDate { get; set; }

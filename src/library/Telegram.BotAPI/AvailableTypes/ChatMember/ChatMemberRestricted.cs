@@ -28,7 +28,7 @@ public class ChatMemberRestricted : ChatMember
     public bool IsMember { get; set; }
 
     /// <summary>
-    /// <em>True</em>, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues
+    /// <em>True</em>, if the user is allowed to send text messages, rich messages, contacts, giveaways, giveaway winners, invoices, locations and venues
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendMessages)]
     public bool CanSendMessages { get; set; }
@@ -124,7 +124,7 @@ public class ChatMemberRestricted : ChatMember
     public bool CanManageTopics { get; set; }
 
     /// <summary>
-    /// Date when restrictions will be lifted for this user; Unix time. If 0, then the user is restricted forever
+    /// Date when restrictions will be lifted for this user; Unix time. If 0, then the user is restricted forever.
     /// </summary>
     [JsonPropertyName(PropertyNames.UntilDate)]
     public int UntilDate { get; set; }

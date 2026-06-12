@@ -17,10 +17,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetManagedBotAccessSettings(
-        this ITelegramBotClient client,
-        SetManagedBotAccessSettingsArgs args
-    ) => client.SetManagedBotAccessSettingsAsync(args).GetAwaiter().GetResult();
+    public static bool SetManagedBotAccessSettings(this ITelegramBotClient client, SetManagedBotAccessSettingsArgs args) =>
+        client.SetManagedBotAccessSettingsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the access settings of a managed bot. Returns <em>True</em> on success.
@@ -31,22 +29,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetManagedBotAccessSettingsAsync(
-        this ITelegramBotClient client,
-        SetManagedBotAccessSettingsArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetManagedBotAccessSettingsAsync(this ITelegramBotClient client, SetManagedBotAccessSettingsArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetManagedBotAccessSettings,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetManagedBotAccessSettings, args, cancellationToken);
     }
 
     /// <summary>
@@ -59,16 +49,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetManagedBotAccessSettings(
-        this ITelegramBotClient client,
-        long userId,
-        bool isAccessRestricted,
-        IEnumerable<int>? addedUserIds = null
-    ) =>
-        client
-            .SetManagedBotAccessSettingsAsync(userId, isAccessRestricted, addedUserIds)
-            .GetAwaiter()
-            .GetResult();
+    public static bool SetManagedBotAccessSettings(this ITelegramBotClient client, long userId, bool isAccessRestricted, IEnumerable<int>? addedUserIds = null) =>
+        client.SetManagedBotAccessSettingsAsync(userId, isAccessRestricted, addedUserIds).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the access settings of a managed bot. Returns <em>True</em> on success.
@@ -81,13 +63,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetManagedBotAccessSettingsAsync(
-        this ITelegramBotClient client,
-        long userId,
-        bool isAccessRestricted,
-        IEnumerable<int>? addedUserIds = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetManagedBotAccessSettingsAsync(this ITelegramBotClient client, long userId, bool isAccessRestricted, IEnumerable<int>? addedUserIds = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -97,17 +73,13 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.UserId, userId },
-            { PropertyNames.IsAccessRestricted, isAccessRestricted },
+            { PropertyNames.IsAccessRestricted, isAccessRestricted }
         };
         if (addedUserIds is not null)
         {
             args.Add(PropertyNames.AddedUserIds, addedUserIds);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetManagedBotAccessSettings,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetManagedBotAccessSettings, args, cancellationToken);
     }
 }

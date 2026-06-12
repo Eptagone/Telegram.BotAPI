@@ -19,10 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMessageReaction(
-        this ITelegramBotClient client,
-        SetMessageReactionArgs args
-    ) => client.SetMessageReactionAsync(args).GetAwaiter().GetResult();
+    public static bool SetMessageReaction(this ITelegramBotClient client, SetMessageReactionArgs args) =>
+        client.SetMessageReactionAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to change the chosen reactions on a message. Service messages of some types can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Bots can't use paid reactions. Returns <em>True</em> on success.
@@ -33,22 +31,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetMessageReactionAsync(
-        this ITelegramBotClient client,
-        SetMessageReactionArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetMessageReactionAsync(this ITelegramBotClient client, SetMessageReactionArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetMessageReaction,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetMessageReaction, args, cancellationToken);
     }
 
     /// <summary>
@@ -62,13 +52,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMessageReaction(
-        this ITelegramBotClient client,
-        long chatId,
-        int messageId,
-        IEnumerable<ReactionType>? reaction = null,
-        bool? isBig = null
-    ) =>
+    public static bool SetMessageReaction(this ITelegramBotClient client, long chatId, int messageId, IEnumerable<ReactionType>? reaction = null, bool? isBig = null) =>
         client.SetMessageReactionAsync(chatId, messageId, reaction, isBig).GetAwaiter().GetResult();
 
     /// <summary>
@@ -83,14 +67,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetMessageReactionAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        int messageId,
-        IEnumerable<ReactionType>? reaction = null,
-        bool? isBig = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetMessageReactionAsync(this ITelegramBotClient client, long chatId, int messageId, IEnumerable<ReactionType>? reaction = null, bool? isBig = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -100,7 +77,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
         if (reaction is not null)
         {
@@ -111,11 +88,7 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.IsBig, isBig);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetMessageReaction,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetMessageReaction, args, cancellationToken);
     }
 
     /// <summary>
@@ -129,13 +102,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMessageReaction(
-        this ITelegramBotClient client,
-        string chatId,
-        int messageId,
-        IEnumerable<ReactionType>? reaction = null,
-        bool? isBig = null
-    ) =>
+    public static bool SetMessageReaction(this ITelegramBotClient client, string chatId, int messageId, IEnumerable<ReactionType>? reaction = null, bool? isBig = null) =>
         client.SetMessageReactionAsync(chatId, messageId, reaction, isBig).GetAwaiter().GetResult();
 
     /// <summary>
@@ -150,14 +117,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetMessageReactionAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        int messageId,
-        IEnumerable<ReactionType>? reaction = null,
-        bool? isBig = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetMessageReactionAsync(this ITelegramBotClient client, string chatId, int messageId, IEnumerable<ReactionType>? reaction = null, bool? isBig = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -167,7 +127,7 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
         if (reaction is not null)
         {
@@ -178,10 +138,6 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.IsBig, isBig);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetMessageReaction,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetMessageReaction, args, cancellationToken);
     }
 }

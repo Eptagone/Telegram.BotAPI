@@ -33,11 +33,7 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetWebhookAsync(
-        this ITelegramBotClient client,
-        SetWebhookArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetWebhookAsync(this ITelegramBotClient client, SetWebhookArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -52,7 +48,7 @@ public static partial class GettingUpdatesExtensions
     /// If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter <em>secret_token</em>. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="url">HTTPS URL to send updates to. Use an empty string to remove webhook integration</param>
+    /// <param name="url">HTTPS URL to send updates to. Use an empty string to remove webhook integration.</param>
     /// <param name="certificate">Upload your public key certificate so that the root certificate in use can be checked. See our <a href="https://core.telegram.org/bots/self-signed">self-signed guide</a> for details.</param>
     /// <param name="ipAddress">The fixed IP address which will be used to send webhook requests instead of the IP address resolved through DNS</param>
     /// <param name="maxConnections">The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to <em>40</em>. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput.</param>
@@ -62,35 +58,15 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetWebhook(
-        this ITelegramBotClient client,
-        string url,
-        InputFile? certificate = null,
-        string? ipAddress = null,
-        int? maxConnections = null,
-        IEnumerable<string>? allowedUpdates = null,
-        bool? dropPendingUpdates = null,
-        string? secretToken = null
-    ) =>
-        client
-            .SetWebhookAsync(
-                url,
-                certificate,
-                ipAddress,
-                maxConnections,
-                allowedUpdates,
-                dropPendingUpdates,
-                secretToken
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static bool SetWebhook(this ITelegramBotClient client, string url, InputFile? certificate = null, string? ipAddress = null, int? maxConnections = null, IEnumerable<string>? allowedUpdates = null, bool? dropPendingUpdates = null, string? secretToken = null) =>
+        client.SetWebhookAsync(url, certificate, ipAddress, maxConnections, allowedUpdates, dropPendingUpdates, secretToken).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized <see cref="Update"/>. In case of an unsuccessful request (a request with response <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</a> different from <em>2XY</em>), we will repeat the request and give up after a reasonable amount of attempts. Returns <em>True</em> on success.
     /// If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter <em>secret_token</em>. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="url">HTTPS URL to send updates to. Use an empty string to remove webhook integration</param>
+    /// <param name="url">HTTPS URL to send updates to. Use an empty string to remove webhook integration.</param>
     /// <param name="certificate">Upload your public key certificate so that the root certificate in use can be checked. See our <a href="https://core.telegram.org/bots/self-signed">self-signed guide</a> for details.</param>
     /// <param name="ipAddress">The fixed IP address which will be used to send webhook requests instead of the IP address resolved through DNS</param>
     /// <param name="maxConnections">The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to <em>40</em>. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput.</param>
@@ -101,17 +77,7 @@ public static partial class GettingUpdatesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetWebhookAsync(
-        this ITelegramBotClient client,
-        string url,
-        InputFile? certificate = null,
-        string? ipAddress = null,
-        int? maxConnections = null,
-        IEnumerable<string>? allowedUpdates = null,
-        bool? dropPendingUpdates = null,
-        string? secretToken = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetWebhookAsync(this ITelegramBotClient client, string url, InputFile? certificate = null, string? ipAddress = null, int? maxConnections = null, IEnumerable<string>? allowedUpdates = null, bool? dropPendingUpdates = null, string? secretToken = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -120,7 +86,7 @@ public static partial class GettingUpdatesExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.Url, url ?? throw new ArgumentNullException(nameof(url)) },
+            { PropertyNames.Url, url ?? throw new ArgumentNullException(nameof(url)) }
         };
         if (certificate is not null)
         {

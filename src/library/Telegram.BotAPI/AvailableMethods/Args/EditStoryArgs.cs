@@ -19,8 +19,7 @@ public class EditStoryArgs : AttachedFilesArgsBase
     /// <param name="content">Content of the story</param>
     public EditStoryArgs(string businessConnectionId, int storyId, InputStoryContent content)
     {
-        this.BusinessConnectionId =
-            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.StoryId = storyId;
         this.Content = content ?? throw new ArgumentNullException(nameof(content));
     }

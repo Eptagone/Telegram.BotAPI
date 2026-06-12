@@ -19,10 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatPermissions(
-        this ITelegramBotClient client,
-        SetChatPermissionsArgs args
-    ) => client.SetChatPermissionsAsync(args).GetAwaiter().GetResult();
+    public static bool SetChatPermissions(this ITelegramBotClient client, SetChatPermissionsArgs args) =>
+        client.SetChatPermissionsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the <em>can_restrict_members</em> administrator rights. Returns <em>True</em> on success.
@@ -33,22 +31,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatPermissionsAsync(
-        this ITelegramBotClient client,
-        SetChatPermissionsArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatPermissionsAsync(this ITelegramBotClient client, SetChatPermissionsArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetChatPermissions,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetChatPermissions, args, cancellationToken);
     }
 
     /// <summary>
@@ -61,16 +51,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatPermissions(
-        this ITelegramBotClient client,
-        long chatId,
-        ChatPermissions permissions,
-        bool? useIndependentChatPermissions = null
-    ) =>
-        client
-            .SetChatPermissionsAsync(chatId, permissions, useIndependentChatPermissions)
-            .GetAwaiter()
-            .GetResult();
+    public static bool SetChatPermissions(this ITelegramBotClient client, long chatId, ChatPermissions permissions, bool? useIndependentChatPermissions = null) =>
+        client.SetChatPermissionsAsync(chatId, permissions, useIndependentChatPermissions).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the <em>can_restrict_members</em> administrator rights. Returns <em>True</em> on success.
@@ -83,13 +65,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatPermissionsAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        ChatPermissions permissions,
-        bool? useIndependentChatPermissions = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatPermissionsAsync(this ITelegramBotClient client, long chatId, ChatPermissions permissions, bool? useIndependentChatPermissions = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -99,21 +75,14 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            {
-                PropertyNames.Permissions,
-                permissions ?? throw new ArgumentNullException(nameof(permissions))
-            },
+            { PropertyNames.Permissions, permissions ?? throw new ArgumentNullException(nameof(permissions)) }
         };
         if (useIndependentChatPermissions is not null)
         {
             args.Add(PropertyNames.UseIndependentChatPermissions, useIndependentChatPermissions);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetChatPermissions,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetChatPermissions, args, cancellationToken);
     }
 
     /// <summary>
@@ -126,16 +95,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetChatPermissions(
-        this ITelegramBotClient client,
-        string chatId,
-        ChatPermissions permissions,
-        bool? useIndependentChatPermissions = null
-    ) =>
-        client
-            .SetChatPermissionsAsync(chatId, permissions, useIndependentChatPermissions)
-            .GetAwaiter()
-            .GetResult();
+    public static bool SetChatPermissions(this ITelegramBotClient client, string chatId, ChatPermissions permissions, bool? useIndependentChatPermissions = null) =>
+        client.SetChatPermissionsAsync(chatId, permissions, useIndependentChatPermissions).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the <em>can_restrict_members</em> administrator rights. Returns <em>True</em> on success.
@@ -148,13 +109,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetChatPermissionsAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        ChatPermissions permissions,
-        bool? useIndependentChatPermissions = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetChatPermissionsAsync(this ITelegramBotClient client, string chatId, ChatPermissions permissions, bool? useIndependentChatPermissions = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -164,20 +119,13 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            {
-                PropertyNames.Permissions,
-                permissions ?? throw new ArgumentNullException(nameof(permissions))
-            },
+            { PropertyNames.Permissions, permissions ?? throw new ArgumentNullException(nameof(permissions)) }
         };
         if (useIndependentChatPermissions is not null)
         {
             args.Add(PropertyNames.UseIndependentChatPermissions, useIndependentChatPermissions);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.SetChatPermissions,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.SetChatPermissions, args, cancellationToken);
     }
 }

@@ -30,6 +30,12 @@ public class PollMedia
     public Document? Document { get; set; }
 
     /// <summary>
+    /// Optional. The HTTP link attached to the poll option
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Link)]
+    public Link? Link { get; set; }
+
+    /// <summary>
     /// Optional. Media is a live photo, information about the live photo
     /// </summary>
     [JsonPropertyName(PropertyNames.LivePhoto)]

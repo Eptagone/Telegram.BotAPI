@@ -31,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<File> GetFileAsync(
-        this ITelegramBotClient client,
-        string fileId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<File> GetFileAsync(this ITelegramBotClient client, string fileId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -44,7 +40,7 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.FileId, fileId ?? throw new ArgumentNullException(nameof(fileId)) },
+            { PropertyNames.FileId, fileId ?? throw new ArgumentNullException(nameof(fileId)) }
         };
 
         return client.CallMethodAsync<File>(MethodNames.GetFile, args, cancellationToken);

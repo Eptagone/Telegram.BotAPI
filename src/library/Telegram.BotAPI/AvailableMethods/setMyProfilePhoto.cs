@@ -19,10 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SetMyProfilePhoto(
-        this ITelegramBotClient client,
-        SetMyProfilePhotoArgs args
-    ) => client.SetMyProfilePhotoAsync(args).GetAwaiter().GetResult();
+    public static bool SetMyProfilePhoto(this ITelegramBotClient client, SetMyProfilePhotoArgs args) =>
+        client.SetMyProfilePhotoAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Changes the profile photo of the bot. Returns <em>True</em> on success.
@@ -33,11 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetMyProfilePhotoAsync(
-        this ITelegramBotClient client,
-        SetMyProfilePhotoArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetMyProfilePhotoAsync(this ITelegramBotClient client, SetMyProfilePhotoArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -67,11 +61,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SetMyProfilePhotoAsync(
-        this ITelegramBotClient client,
-        InputProfilePhoto photo,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> SetMyProfilePhotoAsync(this ITelegramBotClient client, InputProfilePhoto photo, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -80,7 +70,7 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) },
+            { PropertyNames.Photo, photo ?? throw new ArgumentNullException(nameof(photo)) }
         };
 
         return client.CallMethodAsync<bool>(MethodNames.SetMyProfilePhoto, args, cancellationToken);

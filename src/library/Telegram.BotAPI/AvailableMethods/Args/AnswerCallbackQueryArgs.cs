@@ -17,8 +17,7 @@ public class AnswerCallbackQueryArgs
     /// <param name="callbackQueryId">Unique identifier for the query to be answered</param>
     public AnswerCallbackQueryArgs(string callbackQueryId)
     {
-        this.CallbackQueryId =
-            callbackQueryId ?? throw new ArgumentNullException(nameof(callbackQueryId));
+        this.CallbackQueryId = callbackQueryId ?? throw new ArgumentNullException(nameof(callbackQueryId));
     }
 
     /// <summary>
@@ -28,7 +27,7 @@ public class AnswerCallbackQueryArgs
     public string CallbackQueryId { get; set; }
 
     /// <summary>
-    /// Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters
+    /// Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters.
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
     public string? Text { get; set; }

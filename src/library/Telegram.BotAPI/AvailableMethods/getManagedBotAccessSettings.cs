@@ -19,10 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static BotAccessSettings GetManagedBotAccessSettings(
-        this ITelegramBotClient client,
-        long userId
-    ) => client.GetManagedBotAccessSettingsAsync(userId).GetAwaiter().GetResult();
+    public static BotAccessSettings GetManagedBotAccessSettings(this ITelegramBotClient client, long userId) =>
+        client.GetManagedBotAccessSettingsAsync(userId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to get the access settings of a managed bot. Returns a <see cref="BotAccessSettings"/> object on success.
@@ -33,23 +31,18 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<BotAccessSettings> GetManagedBotAccessSettingsAsync(
-        this ITelegramBotClient client,
-        long userId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<BotAccessSettings> GetManagedBotAccessSettingsAsync(this ITelegramBotClient client, long userId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>() { { PropertyNames.UserId, userId } };
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.UserId, userId }
+        };
 
-        return client.CallMethodAsync<BotAccessSettings>(
-            MethodNames.GetManagedBotAccessSettings,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<BotAccessSettings>(MethodNames.GetManagedBotAccessSettings, args, cancellationToken);
     }
 }

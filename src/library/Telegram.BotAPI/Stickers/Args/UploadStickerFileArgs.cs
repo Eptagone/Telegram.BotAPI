@@ -21,8 +21,7 @@ public class UploadStickerFileArgs : AttachedFilesArgsBase
     {
         this.UserId = userId;
         this.Sticker = sticker ?? throw new ArgumentNullException(nameof(sticker));
-        this.StickerFormat =
-            stickerFormat ?? throw new ArgumentNullException(nameof(stickerFormat));
+        this.StickerFormat = stickerFormat ?? throw new ArgumentNullException(nameof(stickerFormat));
     }
 
     /// <summary>

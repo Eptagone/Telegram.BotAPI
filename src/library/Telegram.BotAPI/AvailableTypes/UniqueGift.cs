@@ -22,7 +22,7 @@ public class UniqueGift
     public string BaseName { get; set; } = null!;
 
     /// <summary>
-    /// Unique name of the gift. This name can be used in <em>https://t.me/nft/...</em> links and story areas
+    /// Unique name of the gift. This name can be used in <em>https://t.me/nft/...</em> links and story areas.
     /// </summary>
     [JsonPropertyName(PropertyNames.Name)]
     public string Name { get; set; } = null!;

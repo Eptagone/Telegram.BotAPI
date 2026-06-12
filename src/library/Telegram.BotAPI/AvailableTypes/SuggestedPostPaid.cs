@@ -16,7 +16,7 @@ public class SuggestedPostPaid
     public Message? SuggestedPostMessage { get; set; }
 
     /// <summary>
-    /// Currency in which the payment was made. Currently, one of “XTR” for Telegram Stars or “TON” for toncoins
+    /// Currency in which the payment was made. Currently, one of “XTR” for Telegram Stars or “TON” for toncoins.
     /// </summary>
     [JsonPropertyName(PropertyNames.Currency)]
     public string Currency { get; set; } = null!;

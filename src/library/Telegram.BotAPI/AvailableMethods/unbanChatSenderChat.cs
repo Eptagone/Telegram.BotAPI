@@ -18,11 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool UnbanChatSenderChat(
-        this ITelegramBotClient client,
-        long chatId,
-        long senderChatId
-    ) => client.UnbanChatSenderChatAsync(chatId, senderChatId).GetAwaiter().GetResult();
+    public static bool UnbanChatSenderChat(this ITelegramBotClient client, long chatId, long senderChatId) =>
+        client.UnbanChatSenderChatAsync(chatId, senderChatId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to unban a previously banned channel chat in a supergroup or channel. The bot must be an administrator for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
@@ -34,12 +31,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> UnbanChatSenderChatAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        long senderChatId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> UnbanChatSenderChatAsync(this ITelegramBotClient client, long chatId, long senderChatId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -49,14 +41,10 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.SenderChatId, senderChatId },
+            { PropertyNames.SenderChatId, senderChatId }
         };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.UnbanChatSenderChat,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.UnbanChatSenderChat, args, cancellationToken);
     }
 
     /// <summary>
@@ -68,11 +56,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool UnbanChatSenderChat(
-        this ITelegramBotClient client,
-        string chatId,
-        long senderChatId
-    ) => client.UnbanChatSenderChatAsync(chatId, senderChatId).GetAwaiter().GetResult();
+    public static bool UnbanChatSenderChat(this ITelegramBotClient client, string chatId, long senderChatId) =>
+        client.UnbanChatSenderChatAsync(chatId, senderChatId).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to unban a previously banned channel chat in a supergroup or channel. The bot must be an administrator for this to work and must have the appropriate administrator rights. Returns <em>True</em> on success.
@@ -84,12 +69,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> UnbanChatSenderChatAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        long senderChatId,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> UnbanChatSenderChatAsync(this ITelegramBotClient client, string chatId, long senderChatId, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -99,13 +79,9 @@ public static partial class AvailableMethodsExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
-            { PropertyNames.SenderChatId, senderChatId },
+            { PropertyNames.SenderChatId, senderChatId }
         };
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.UnbanChatSenderChat,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.UnbanChatSenderChat, args, cancellationToken);
     }
 }

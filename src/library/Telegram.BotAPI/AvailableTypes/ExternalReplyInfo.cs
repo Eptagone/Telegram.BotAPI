@@ -2,9 +2,9 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
+using Telegram.BotAPI.Stickers;
 using Telegram.BotAPI.Games;
 using Telegram.BotAPI.Payments;
-using Telegram.BotAPI.Stickers;
 
 namespace Telegram.BotAPI.AvailableTypes;
 

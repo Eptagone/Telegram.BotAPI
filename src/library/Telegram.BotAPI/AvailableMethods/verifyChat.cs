@@ -18,11 +18,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool VerifyChat(
-        this ITelegramBotClient client,
-        long chatId,
-        string? customDescription = null
-    ) => client.VerifyChatAsync(chatId, customDescription).GetAwaiter().GetResult();
+    public static bool VerifyChat(this ITelegramBotClient client, long chatId, string? customDescription = null) =>
+        client.VerifyChatAsync(chatId, customDescription).GetAwaiter().GetResult();
 
     /// <summary>
     /// Verifies a chat <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
@@ -34,19 +31,17 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> VerifyChatAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        string? customDescription = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> VerifyChatAsync(this ITelegramBotClient client, long chatId, string? customDescription = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        var args = new Dictionary<string, object>() { { PropertyNames.ChatId, chatId } };
+        var args = new Dictionary<string, object>()
+        {
+            { PropertyNames.ChatId, chatId }
+        };
         if (customDescription is not null)
         {
             args.Add(PropertyNames.CustomDescription, customDescription);
@@ -64,11 +59,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool VerifyChat(
-        this ITelegramBotClient client,
-        string chatId,
-        string? customDescription = null
-    ) => client.VerifyChatAsync(chatId, customDescription).GetAwaiter().GetResult();
+    public static bool VerifyChat(this ITelegramBotClient client, string chatId, string? customDescription = null) =>
+        client.VerifyChatAsync(chatId, customDescription).GetAwaiter().GetResult();
 
     /// <summary>
     /// Verifies a chat <a href="https://telegram.org/verify#third-party-verification">on behalf of the organization</a> which is represented by the bot. Returns <em>True</em> on success.
@@ -80,12 +72,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> VerifyChatAsync(
-        this ITelegramBotClient client,
-        string chatId,
-        string? customDescription = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> VerifyChatAsync(this ITelegramBotClient client, string chatId, string? customDescription = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -94,7 +81,7 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) },
+            { PropertyNames.ChatId, chatId ?? throw new ArgumentNullException(nameof(chatId)) }
         };
         if (customDescription is not null)
         {

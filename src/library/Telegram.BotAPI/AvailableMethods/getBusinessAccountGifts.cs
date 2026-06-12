@@ -19,10 +19,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static OwnedGifts GetBusinessAccountGifts(
-        this ITelegramBotClient client,
-        GetBusinessAccountGiftsArgs args
-    ) => client.GetBusinessAccountGiftsAsync(args).GetAwaiter().GetResult();
+    public static OwnedGifts GetBusinessAccountGifts(this ITelegramBotClient client, GetBusinessAccountGiftsArgs args) =>
+        client.GetBusinessAccountGiftsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
     /// Returns the gifts received and owned by a managed business account. Requires the <em>can_view_gifts_and_stars</em> business bot right. Returns <see cref="OwnedGifts"/> on success.
@@ -33,22 +31,14 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<OwnedGifts> GetBusinessAccountGiftsAsync(
-        this ITelegramBotClient client,
-        GetBusinessAccountGiftsArgs args,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<OwnedGifts> GetBusinessAccountGiftsAsync(this ITelegramBotClient client, GetBusinessAccountGiftsArgs args, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
             throw new ArgumentNullException(nameof(client));
         }
 
-        return client.CallMethodAsync<OwnedGifts>(
-            MethodNames.GetBusinessAccountGifts,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<OwnedGifts>(MethodNames.GetBusinessAccountGifts, args, cancellationToken);
     }
 
     /// <summary>
@@ -65,40 +55,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="excludeFromBlockchain">Pass <em>True</em> to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram</param>
     /// <param name="sortByPrice">Pass <em>True</em> to sort results by gift price instead of send date. Sorting is applied before pagination.</param>
     /// <param name="offset">Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results</param>
-    /// <param name="limit">The maximum number of gifts to be returned; 1-100. Defaults to 100</param>
+    /// <param name="limit">The maximum number of gifts to be returned; 1-100. Defaults to 100.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static OwnedGifts GetBusinessAccountGifts(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        bool? excludeUnsaved = null,
-        bool? excludeSaved = null,
-        bool? excludeUnlimited = null,
-        bool? excludeLimitedUpgradable = null,
-        bool? excludeLimitedNonUpgradable = null,
-        bool? excludeUnique = null,
-        bool? excludeFromBlockchain = null,
-        bool? sortByPrice = null,
-        string? offset = null,
-        int? limit = null
-    ) =>
-        client
-            .GetBusinessAccountGiftsAsync(
-                businessConnectionId,
-                excludeUnsaved,
-                excludeSaved,
-                excludeUnlimited,
-                excludeLimitedUpgradable,
-                excludeLimitedNonUpgradable,
-                excludeUnique,
-                excludeFromBlockchain,
-                sortByPrice,
-                offset,
-                limit
-            )
-            .GetAwaiter()
-            .GetResult();
+    public static OwnedGifts GetBusinessAccountGifts(this ITelegramBotClient client, string businessConnectionId, bool? excludeUnsaved = null, bool? excludeSaved = null, bool? excludeUnlimited = null, bool? excludeLimitedUpgradable = null, bool? excludeLimitedNonUpgradable = null, bool? excludeUnique = null, bool? excludeFromBlockchain = null, bool? sortByPrice = null, string? offset = null, int? limit = null) =>
+        client.GetBusinessAccountGiftsAsync(businessConnectionId, excludeUnsaved, excludeSaved, excludeUnlimited, excludeLimitedUpgradable, excludeLimitedNonUpgradable, excludeUnique, excludeFromBlockchain, sortByPrice, offset, limit).GetAwaiter().GetResult();
 
     /// <summary>
     /// Returns the gifts received and owned by a managed business account. Requires the <em>can_view_gifts_and_stars</em> business bot right. Returns <see cref="OwnedGifts"/> on success.
@@ -114,26 +76,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="excludeFromBlockchain">Pass <em>True</em> to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram</param>
     /// <param name="sortByPrice">Pass <em>True</em> to sort results by gift price instead of send date. Sorting is applied before pagination.</param>
     /// <param name="offset">Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results</param>
-    /// <param name="limit">The maximum number of gifts to be returned; 1-100. Defaults to 100</param>
+    /// <param name="limit">The maximum number of gifts to be returned; 1-100. Defaults to 100.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<OwnedGifts> GetBusinessAccountGiftsAsync(
-        this ITelegramBotClient client,
-        string businessConnectionId,
-        bool? excludeUnsaved = null,
-        bool? excludeSaved = null,
-        bool? excludeUnlimited = null,
-        bool? excludeLimitedUpgradable = null,
-        bool? excludeLimitedNonUpgradable = null,
-        bool? excludeUnique = null,
-        bool? excludeFromBlockchain = null,
-        bool? sortByPrice = null,
-        string? offset = null,
-        int? limit = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<OwnedGifts> GetBusinessAccountGiftsAsync(this ITelegramBotClient client, string businessConnectionId, bool? excludeUnsaved = null, bool? excludeSaved = null, bool? excludeUnlimited = null, bool? excludeLimitedUpgradable = null, bool? excludeLimitedNonUpgradable = null, bool? excludeUnique = null, bool? excludeFromBlockchain = null, bool? sortByPrice = null, string? offset = null, int? limit = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -142,11 +90,7 @@ public static partial class AvailableMethodsExtensions
 
         var args = new Dictionary<string, object>()
         {
-            {
-                PropertyNames.BusinessConnectionId,
-                businessConnectionId
-                    ?? throw new ArgumentNullException(nameof(businessConnectionId))
-            },
+            { PropertyNames.BusinessConnectionId, businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId)) }
         };
         if (excludeUnsaved is not null)
         {
@@ -189,10 +133,6 @@ public static partial class AvailableMethodsExtensions
             args.Add(PropertyNames.Limit, limit);
         }
 
-        return client.CallMethodAsync<OwnedGifts>(
-            MethodNames.GetBusinessAccountGifts,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<OwnedGifts>(MethodNames.GetBusinessAccountGifts, args, cancellationToken);
     }
 }

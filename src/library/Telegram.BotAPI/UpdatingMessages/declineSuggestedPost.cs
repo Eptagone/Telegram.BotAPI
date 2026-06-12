@@ -19,12 +19,8 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool DeclineSuggestedPost(
-        this ITelegramBotClient client,
-        long chatId,
-        int messageId,
-        string? comment = null
-    ) => client.DeclineSuggestedPostAsync(chatId, messageId, comment).GetAwaiter().GetResult();
+    public static bool DeclineSuggestedPost(this ITelegramBotClient client, long chatId, int messageId, string? comment = null) =>
+        client.DeclineSuggestedPostAsync(chatId, messageId, comment).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to decline a suggested post in a direct messages chat. The bot must have the 'can_manage_direct_messages' administrator right in the corresponding channel chat. Returns <em>True</em> on success.
@@ -37,13 +33,7 @@ public static partial class UpdatingMessagesExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> DeclineSuggestedPostAsync(
-        this ITelegramBotClient client,
-        long chatId,
-        int messageId,
-        string? comment = null,
-        CancellationToken cancellationToken = default
-    )
+    public static Task<bool> DeclineSuggestedPostAsync(this ITelegramBotClient client, long chatId, int messageId, string? comment = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -53,17 +43,13 @@ public static partial class UpdatingMessagesExtensions
         var args = new Dictionary<string, object>()
         {
             { PropertyNames.ChatId, chatId },
-            { PropertyNames.MessageId, messageId },
+            { PropertyNames.MessageId, messageId }
         };
         if (comment is not null)
         {
             args.Add(PropertyNames.Comment, comment);
         }
 
-        return client.CallMethodAsync<bool>(
-            MethodNames.DeclineSuggestedPost,
-            args,
-            cancellationToken
-        );
+        return client.CallMethodAsync<bool>(MethodNames.DeclineSuggestedPost, args, cancellationToken);
     }
 }

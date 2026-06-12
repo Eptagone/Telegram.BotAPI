@@ -100,7 +100,7 @@ public class CopyMessageArgs
     public int? VideoStartTimestamp { get; set; }
 
     /// <summary>
-    /// New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept
+    /// New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept.
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]
     public string? Caption { get; set; }
@@ -160,7 +160,7 @@ public class CopyMessageArgs
     public ReplyParameters? ReplyParameters { get; set; }
 
     /// <summary>
-    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user
+    /// Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove a reply keyboard or to force a reply from the user.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyMarkup)]
     public object? ReplyMarkup { get; set; }

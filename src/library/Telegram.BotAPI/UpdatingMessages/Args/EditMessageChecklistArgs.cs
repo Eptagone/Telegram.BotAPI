@@ -18,15 +18,9 @@ public class EditMessageChecklistArgs
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot in the format <em>@username</em></param>
     /// <param name="messageId">Unique identifier for the target message</param>
     /// <param name="checklist">A JSON-serialized object for the new checklist</param>
-    public EditMessageChecklistArgs(
-        string businessConnectionId,
-        long chatId,
-        int messageId,
-        InputChecklist checklist
-    )
+    public EditMessageChecklistArgs(string businessConnectionId, long chatId, int messageId, InputChecklist checklist)
     {
-        this.BusinessConnectionId =
-            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.ChatId = chatId;
         this.MessageId = messageId;
         this.Checklist = checklist ?? throw new ArgumentNullException(nameof(checklist));
@@ -39,15 +33,9 @@ public class EditMessageChecklistArgs
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot in the format <em>@username</em></param>
     /// <param name="messageId">Unique identifier for the target message</param>
     /// <param name="checklist">A JSON-serialized object for the new checklist</param>
-    public EditMessageChecklistArgs(
-        string businessConnectionId,
-        string chatId,
-        int messageId,
-        InputChecklist checklist
-    )
+    public EditMessageChecklistArgs(string businessConnectionId, string chatId, int messageId, InputChecklist checklist)
     {
-        this.BusinessConnectionId =
-            businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
+        this.BusinessConnectionId = businessConnectionId ?? throw new ArgumentNullException(nameof(businessConnectionId));
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.MessageId = messageId;
         this.Checklist = checklist ?? throw new ArgumentNullException(nameof(checklist));
