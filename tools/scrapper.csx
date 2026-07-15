@@ -1,5 +1,5 @@
 #nullable enable
-#r "nuget: AngleSharp, 1.1.0"
+#r "nuget: AngleSharp, 1.5.2"
 #load "constants.csx"
 #load "models.csx"
 

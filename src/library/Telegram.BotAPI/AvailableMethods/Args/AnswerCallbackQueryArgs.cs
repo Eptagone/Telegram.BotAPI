@@ -33,7 +33,7 @@ public class AnswerCallbackQueryArgs
     public string? Text { get; set; }
 
     /// <summary>
-    /// If <em>True</em>, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to <em>false</em>.
+    /// If <em>True</em>, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to <em>False</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowAlert)]
     public bool? ShowAlert { get; set; }

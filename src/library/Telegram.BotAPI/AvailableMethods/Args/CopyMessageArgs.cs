@@ -118,7 +118,7 @@ public class CopyMessageArgs
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em>, if the caption must be shown above the message media. Ignored if a new caption isn't specified.
+    /// Pass <em>True</em> if the caption must be shown above the message media. Ignored if a new caption isn't specified.
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
     public bool? ShowCaptionAboveMedia { get; set; }

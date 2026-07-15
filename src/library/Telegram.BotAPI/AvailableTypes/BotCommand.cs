@@ -31,4 +31,10 @@ public class BotCommand
     /// </summary>
     [JsonPropertyName(PropertyNames.Description)]
     public string Description { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the command sends an ephemeral message, which can be seen only by the sender of the message and the bot
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsEphemeral)]
+    public bool? IsEphemeral { get; set; }
 }

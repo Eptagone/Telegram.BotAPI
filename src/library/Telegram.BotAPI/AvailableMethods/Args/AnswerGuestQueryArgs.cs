@@ -3,13 +3,14 @@
 //* This file is auto-generated. Don't edit it manually!
 
 using Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
 /// Represents the arguments of the "AnswerGuestQuery" method.
 /// </summary>
-public class AnswerGuestQueryArgs
+public class AnswerGuestQueryArgs : AttachedFilesArgsBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="AnswerGuestQueryArgs"/> class.

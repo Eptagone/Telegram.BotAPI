@@ -3,13 +3,14 @@
 //* This file is auto-generated. Don't edit it manually!
 
 using Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
 /// Represents the arguments of the "SavePreparedInlineMessage" method.
 /// </summary>
-public class SavePreparedInlineMessageArgs
+public class SavePreparedInlineMessageArgs : AttachedFilesArgsBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="SavePreparedInlineMessageArgs"/> class.

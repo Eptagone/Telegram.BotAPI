@@ -62,6 +62,18 @@ public class SendContactArgs
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
+    /// For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReceiverUserId)]
+    public long? ReceiverUserId { get; set; }
+
+    /// <summary>
+    /// For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CallbackQueryId)]
+    public string? CallbackQueryId { get; set; }
+
+    /// <summary>
     /// Contact's phone number
     /// </summary>
     [JsonPropertyName(PropertyNames.PhoneNumber)]

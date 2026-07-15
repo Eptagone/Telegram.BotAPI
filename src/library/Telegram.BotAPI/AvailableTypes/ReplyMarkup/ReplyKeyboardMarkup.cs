@@ -25,19 +25,19 @@ public class ReplyKeyboardMarkup : ReplyMarkup
     public IEnumerable<IEnumerable<KeyboardButton>> Keyboard { get; set; }
 
     /// <summary>
-    /// Optional. Requests clients to always show the keyboard when the regular keyboard is hidden. Defaults to <em>false</em>, in which case the custom keyboard can be hidden and opened with a keyboard icon.
+    /// Optional. Requests clients to always show the keyboard when the regular keyboard is hidden. Defaults to <em>False</em>, in which case the custom keyboard can be hidden and opened with a keyboard icon.
     /// </summary>
     [JsonPropertyName(PropertyNames.IsPersistent)]
     public bool? IsPersistent { get; set; }
 
     /// <summary>
-    /// Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to <em>false</em>, in which case the custom keyboard is always of the same height as the app's standard keyboard.
+    /// Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to <em>False</em>, in which case the custom keyboard is always of the same height as the app's standard keyboard.
     /// </summary>
     [JsonPropertyName(PropertyNames.ResizeKeyboard)]
     public bool? ResizeKeyboard { get; set; }
 
     /// <summary>
-    /// Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to <em>false</em>.
+    /// Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to <em>False</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.OneTimeKeyboard)]
     public bool? OneTimeKeyboard { get; set; }

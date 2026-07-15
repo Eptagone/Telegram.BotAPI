@@ -80,6 +80,18 @@ public class SendVideoArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
+    /// For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReceiverUserId)]
+    public long? ReceiverUserId { get; set; }
+
+    /// <summary>
+    /// For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CallbackQueryId)]
+    public string? CallbackQueryId { get; set; }
+
+    /// <summary>
     /// Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Video)]
@@ -140,7 +152,7 @@ public class SendVideoArgs : AttachedFilesArgsBase
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em>, if the caption must be shown above the message media
+    /// Pass <em>True</em> if the caption must be shown above the message media
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
     public bool? ShowCaptionAboveMedia { get; set; }

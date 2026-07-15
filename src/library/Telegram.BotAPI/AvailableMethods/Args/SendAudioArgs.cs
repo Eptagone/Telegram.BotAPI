@@ -80,6 +80,18 @@ public class SendAudioArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
+    /// For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReceiverUserId)]
+    public long? ReceiverUserId { get; set; }
+
+    /// <summary>
+    /// For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CallbackQueryId)]
+    public string? CallbackQueryId { get; set; }
+
+    /// <summary>
     /// Audio file to send. Pass a file_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Audio)]

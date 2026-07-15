@@ -16,7 +16,7 @@ public class SendPaidMediaArgs : AttachedFilesArgsBase
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>. If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-25000</param>
-    /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
+    /// <param name="media">A JSON-serialized Array describing the media to be sent; up to 10 items</param>
     public SendPaidMediaArgs(long chatId, int starCount, IEnumerable<InputPaidMedia> media)
     {
         this.ChatId = chatId;
@@ -29,7 +29,7 @@ public class SendPaidMediaArgs : AttachedFilesArgsBase
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>. If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.</param>
     /// <param name="starCount">The number of Telegram Stars that must be paid to buy access to the media; 1-25000</param>
-    /// <param name="media">A JSON-serialized array describing the media to be sent; up to 10 items</param>
+    /// <param name="media">A JSON-serialized Array describing the media to be sent; up to 10 items</param>
     public SendPaidMediaArgs(string chatId, int starCount, IEnumerable<InputPaidMedia> media)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -68,7 +68,7 @@ public class SendPaidMediaArgs : AttachedFilesArgsBase
     public int StarCount { get; set; }
 
     /// <summary>
-    /// A JSON-serialized array describing the media to be sent; up to 10 items
+    /// A JSON-serialized Array describing the media to be sent; up to 10 items
     /// </summary>
     [JsonPropertyName(PropertyNames.Media)]
     public IEnumerable<InputPaidMedia> Media { get; set; }
@@ -98,7 +98,7 @@ public class SendPaidMediaArgs : AttachedFilesArgsBase
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em>, if the caption must be shown above the message media
+    /// Pass <em>True</em> if the caption must be shown above the message media
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
     public bool? ShowCaptionAboveMedia { get; set; }

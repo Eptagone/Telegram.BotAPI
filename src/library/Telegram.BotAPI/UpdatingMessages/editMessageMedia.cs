@@ -47,7 +47,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>.</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.</param>
-    /// <param name="media">A JSON-serialized object for a new media content of the message</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -62,7 +62,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>.</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.</param>
-    /// <param name="media">A JSON-serialized object for a new media content of the message</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
@@ -100,7 +100,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>.</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.</param>
-    /// <param name="media">A JSON-serialized object for a new media content of the message</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -115,7 +115,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>.</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.</param>
-    /// <param name="media">A JSON-serialized object for a new media content of the message</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
@@ -152,7 +152,7 @@ public static partial class UpdatingMessagesExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>
-    /// <param name="media">A JSON-serialized object for a new media content of the message</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -166,7 +166,7 @@ public static partial class UpdatingMessagesExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>
-    /// <param name="media">A JSON-serialized object for a new media content of the message</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="replyMarkup">A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>

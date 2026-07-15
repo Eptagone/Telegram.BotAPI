@@ -7,7 +7,7 @@ using Telegram.BotAPI.AvailableTypes;
 namespace Telegram.BotAPI.RichMessages;
 
 /// <summary>
-/// A block with a photo, corresponding to the HTML tag <em>&lt;photo&gt;</em>.
+/// A block with a photo, corresponding to the HTML tag <em>&lt;img&gt;</em>.
 /// </summary>
 public class RichBlockPhoto : RichBlock
 {

@@ -19,7 +19,7 @@ public class InputMediaLink : InputMedia
     }
 
     /// <summary>
-    /// Type of the result, must be <em>link</em>
+    /// Type of the media, must be <em>link</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public override string Type => "link";

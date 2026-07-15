@@ -15,7 +15,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaAudio> media)
     {
         this.ChatId = chatId;
@@ -26,7 +26,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaDocument> media)
     {
         this.ChatId = chatId;
@@ -37,7 +37,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaLivePhoto> media)
     {
         this.ChatId = chatId;
@@ -48,7 +48,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaPhoto> media)
     {
         this.ChatId = chatId;
@@ -59,7 +59,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(long chatId, IEnumerable<InputMediaVideo> media)
     {
         this.ChatId = chatId;
@@ -70,7 +70,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaAudio> media)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -81,7 +81,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaDocument> media)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -92,7 +92,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaLivePhoto> media)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -103,7 +103,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaPhoto> media)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -114,7 +114,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendMediaGroupArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="media">A JSON-serialized array describing messages to be sent, must include 2-10 items</param>
+    /// <param name="media">A JSON-serialized Array describing messages to be sent, must include 2-10 items</param>
     public SendMediaGroupArgs(string chatId, IEnumerable<InputMediaVideo> media)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -146,7 +146,7 @@ public class SendMediaGroupArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized array describing messages to be sent, must include 2-10 items
+    /// A JSON-serialized Array describing messages to be sent, must include 2-10 items
     /// </summary>
     [JsonPropertyName(PropertyNames.Media)]
     public object Media { get; set; }

@@ -47,7 +47,7 @@ public static partial class TelegramPassportExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier</param>
-    /// <param name="errors">A JSON-serialized array describing the errors</param>
+    /// <param name="errors">A JSON-serialized Array describing the errors</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -60,7 +60,7 @@ public static partial class TelegramPassportExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier</param>
-    /// <param name="errors">A JSON-serialized array describing the errors</param>
+    /// <param name="errors">A JSON-serialized Array describing the errors</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

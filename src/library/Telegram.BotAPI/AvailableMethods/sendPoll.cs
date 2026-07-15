@@ -59,12 +59,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em>.</param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
-    /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
-    /// <param name="allowsRevoting">Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
-    /// <param name="shuffleOptions">Pass <em>True</em>, if the poll options must be shown in random order</param>
-    /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
-    /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
-    /// <param name="membersOnly">Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
+    /// <param name="allowsMultipleAnswers">Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em></param>
+    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="shuffleOptions">Pass <em>True</em> if the poll options must be shown in random order</param>
+    /// <param name="allowAddingOptions">Pass <em>True</em> if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
+    /// <param name="hideResultsUntilCloses">Pass <em>True</em> if poll results must be shown only after the poll closes</param>
+    /// <param name="membersOnly">Pass <em>True</em> if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
     /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. Use “FT” as a country code to allow users with anonymous numbers to vote. If omitted or empty, then users from any country can participate in the poll.</param>
     /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
@@ -177,12 +177,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em>.</param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
-    /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
-    /// <param name="allowsRevoting">Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
-    /// <param name="shuffleOptions">Pass <em>True</em>, if the poll options must be shown in random order</param>
-    /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
-    /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
-    /// <param name="membersOnly">Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
+    /// <param name="allowsMultipleAnswers">Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em></param>
+    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="shuffleOptions">Pass <em>True</em> if the poll options must be shown in random order</param>
+    /// <param name="allowAddingOptions">Pass <em>True</em> if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
+    /// <param name="hideResultsUntilCloses">Pass <em>True</em> if poll results must be shown only after the poll closes</param>
+    /// <param name="membersOnly">Pass <em>True</em> if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
     /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. Use “FT” as a country code to allow users with anonymous numbers to vote. If omitted or empty, then users from any country can participate in the poll.</param>
     /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
@@ -400,12 +400,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em>.</param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
-    /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
-    /// <param name="allowsRevoting">Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
-    /// <param name="shuffleOptions">Pass <em>True</em>, if the poll options must be shown in random order</param>
-    /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
-    /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
-    /// <param name="membersOnly">Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
+    /// <param name="allowsMultipleAnswers">Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em></param>
+    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="shuffleOptions">Pass <em>True</em> if the poll options must be shown in random order</param>
+    /// <param name="allowAddingOptions">Pass <em>True</em> if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
+    /// <param name="hideResultsUntilCloses">Pass <em>True</em> if poll results must be shown only after the poll closes</param>
+    /// <param name="membersOnly">Pass <em>True</em> if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
     /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. Use “FT” as a country code to allow users with anonymous numbers to vote. If omitted or empty, then users from any country can participate in the poll.</param>
     /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>
@@ -518,12 +518,12 @@ public static partial class AvailableMethodsExtensions
     /// <param name="questionEntities">A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of <em>question_parse_mode</em>.</param>
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
-    /// <param name="allowsMultipleAnswers">Pass <em>True</em>, if the poll allows multiple answers, defaults to <em>False</em></param>
-    /// <param name="allowsRevoting">Pass <em>True</em>, if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
-    /// <param name="shuffleOptions">Pass <em>True</em>, if the poll options must be shown in random order</param>
-    /// <param name="allowAddingOptions">Pass <em>True</em>, if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
-    /// <param name="hideResultsUntilCloses">Pass <em>True</em>, if poll results must be shown only after the poll closes</param>
-    /// <param name="membersOnly">Pass <em>True</em>, if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
+    /// <param name="allowsMultipleAnswers">Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em></param>
+    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="shuffleOptions">Pass <em>True</em> if the poll options must be shown in random order</param>
+    /// <param name="allowAddingOptions">Pass <em>True</em> if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
+    /// <param name="hideResultsUntilCloses">Pass <em>True</em> if poll results must be shown only after the poll closes</param>
+    /// <param name="membersOnly">Pass <em>True</em> if voting is limited to users who have been members of the chat where the poll is being sent for more than 24 hours; for channel chats only</param>
     /// <param name="countryCodes">A JSON-serialized list of 0-12 two-letter <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes indicating the countries from which users can vote in the poll; for channel chats only. Use “FT” as a country code to allow users with anonymous numbers to vote. If omitted or empty, then users from any country can participate in the poll.</param>
     /// <param name="correctOptionIds">A JSON-serialized list of monotonically increasing 0-based identifiers of the correct answer options, required for polls in quiz mode</param>
     /// <param name="explanation">Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</param>

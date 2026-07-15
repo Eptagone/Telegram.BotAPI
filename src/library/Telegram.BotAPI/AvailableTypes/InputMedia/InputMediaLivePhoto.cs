@@ -21,7 +21,7 @@ public class InputMediaLivePhoto : InputMedia
     }
 
     /// <summary>
-    /// Type of the result, must be <em>live_photo</em>
+    /// Type of the media, must be <em>live_photo</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public override string Type => "live_photo";
@@ -57,7 +57,7 @@ public class InputMediaLivePhoto : InputMedia
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em>, if the caption must be shown above the message media
+    /// Optional. Pass <em>True</em> if the caption must be shown above the message media
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
     public bool? ShowCaptionAboveMedia { get; set; }

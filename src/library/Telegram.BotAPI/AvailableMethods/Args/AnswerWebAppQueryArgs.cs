@@ -3,13 +3,14 @@
 //* This file is auto-generated. Don't edit it manually!
 
 using Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
 /// <summary>
 /// Represents the arguments of the "AnswerWebAppQuery" method.
 /// </summary>
-public class AnswerWebAppQueryArgs
+public class AnswerWebAppQueryArgs : AttachedFilesArgsBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="AnswerWebAppQueryArgs"/> class.

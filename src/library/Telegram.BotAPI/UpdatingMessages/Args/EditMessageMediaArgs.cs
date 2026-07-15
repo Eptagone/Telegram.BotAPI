@@ -14,7 +14,7 @@ public class EditMessageMediaArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="EditMessageMediaArgs"/> class.
     /// </summary>
-    /// <param name="media">A JSON-serialized object for a new media content of the message</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     public EditMessageMediaArgs(InputMedia media)
     {
         this.Media = media ?? throw new ArgumentNullException(nameof(media));
@@ -45,7 +45,7 @@ public class EditMessageMediaArgs : AttachedFilesArgsBase
     public string? InlineMessageId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for a new media content of the message
+    /// A JSON-serialized object for the new media content of the message
     /// </summary>
     [JsonPropertyName(PropertyNames.Media)]
     public InputMedia Media { get; set; }

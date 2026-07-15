@@ -9,7 +9,7 @@ namespace Telegram.BotAPI.RichMessages;
 /// <summary>
 /// Represents the arguments of the "SendRichMessage" method.
 /// </summary>
-public class SendRichMessageArgs
+public class SendRichMessageArgs : AttachedFilesArgsBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="SendRichMessageArgs"/> class.
@@ -34,7 +34,7 @@ public class SendRichMessageArgs
     }
 
     /// <summary>
-    /// Unique identifier of the business connection on behalf of which the message will be sent
+    /// Unique identifier of the business connection on behalf of which the message will be sent. Bot can send rich messages on behalf of a business account only if the corresponding user can send rich messages.
     /// </summary>
     [JsonPropertyName(PropertyNames.BusinessConnectionId)]
     public string? BusinessConnectionId { get; set; }

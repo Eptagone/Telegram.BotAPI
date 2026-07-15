@@ -16,13 +16,13 @@ public class SuggestedPostPaid
     public Message? SuggestedPostMessage { get; set; }
 
     /// <summary>
-    /// Currency in which the payment was made. Currently, one of “XTR” for Telegram Stars or “TON” for toncoins.
+    /// Currency in which the payment was made. Currently, one of “XTR” for Telegram Stars or “TON” for TON grams.
     /// </summary>
     [JsonPropertyName(PropertyNames.Currency)]
     public string Currency { get; set; } = null!;
 
     /// <summary>
-    /// Optional. The amount of the currency that was received by the channel in nanotoncoins; for payments in toncoins only
+    /// Optional. The amount of the currency that was received by the channel in nanograms; for payments in TON grams only
     /// </summary>
     [JsonPropertyName(PropertyNames.Amount)]
     public int? Amount { get; set; }

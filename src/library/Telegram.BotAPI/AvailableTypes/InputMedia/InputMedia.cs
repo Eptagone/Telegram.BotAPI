@@ -25,7 +25,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public abstract class InputMedia
 {
     /// <summary>
-    /// Type of the result
+    /// Type of the media
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public abstract string Type { get; }

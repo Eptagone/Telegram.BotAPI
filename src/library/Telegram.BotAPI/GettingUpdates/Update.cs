@@ -168,4 +168,10 @@ public class Update
     /// </summary>
     [JsonPropertyName(PropertyNames.ManagedBot)]
     public ManagedBotUpdated? ManagedBot { get; set; }
+
+    /// <summary>
+    /// Optional. User payment subscription has changed
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Subscription)]
+    public BotSubscriptionUpdated? Subscription { get; set; }
 }

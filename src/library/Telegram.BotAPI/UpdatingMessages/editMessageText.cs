@@ -53,13 +53,14 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
+    /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message EditMessageText(this ITelegramBotClient client, long chatId, int messageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null) =>
-        client.EditMessageTextAsync(chatId, messageId, businessConnectionId, text, parseMode, entities, linkPreviewOptions, richMessage, replyMarkup).GetAwaiter().GetResult();
+    public static Message EditMessageText(this ITelegramBotClient client, long chatId, int messageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.EditMessageTextAsync(chatId, messageId, businessConnectionId, text, parseMode, entities, linkPreviewOptions, richMessage, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
@@ -72,13 +73,14 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
+    /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> EditMessageTextAsync(this ITelegramBotClient client, long chatId, int messageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> EditMessageTextAsync(this ITelegramBotClient client, long chatId, int messageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -118,6 +120,13 @@ public static partial class UpdatingMessagesExtensions
         {
             args.Add(PropertyNames.ReplyMarkup, replyMarkup);
         }
+        if (files is not null)
+        {
+            foreach (var file in files)
+            {
+                args.Add(file.Key, file.Value);
+            }
+        }
 
         return client.CallMethodAsync<Message>(MethodNames.EditMessageText, args, cancellationToken);
     }
@@ -133,13 +142,14 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
+    /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message EditMessageText(this ITelegramBotClient client, string chatId, int messageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null) =>
-        client.EditMessageTextAsync(chatId, messageId, businessConnectionId, text, parseMode, entities, linkPreviewOptions, richMessage, replyMarkup).GetAwaiter().GetResult();
+    public static Message EditMessageText(this ITelegramBotClient client, string chatId, int messageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.EditMessageTextAsync(chatId, messageId, businessConnectionId, text, parseMode, entities, linkPreviewOptions, richMessage, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
@@ -152,13 +162,14 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
+    /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> EditMessageTextAsync(this ITelegramBotClient client, string chatId, int messageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> EditMessageTextAsync(this ITelegramBotClient client, string chatId, int messageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -198,6 +209,13 @@ public static partial class UpdatingMessagesExtensions
         {
             args.Add(PropertyNames.ReplyMarkup, replyMarkup);
         }
+        if (files is not null)
+        {
+            foreach (var file in files)
+            {
+                args.Add(file.Key, file.Value);
+            }
+        }
 
         return client.CallMethodAsync<Message>(MethodNames.EditMessageText, args, cancellationToken);
     }
@@ -212,13 +230,14 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
+    /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool EditMessageText(this ITelegramBotClient client, string inlineMessageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null) =>
-        client.EditMessageTextAsync(inlineMessageId, businessConnectionId, text, parseMode, entities, linkPreviewOptions, richMessage, replyMarkup).GetAwaiter().GetResult();
+    public static bool EditMessageText(this ITelegramBotClient client, string inlineMessageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.EditMessageTextAsync(inlineMessageId, businessConnectionId, text, parseMode, entities, linkPreviewOptions, richMessage, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
@@ -230,13 +249,14 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
+    /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> EditMessageTextAsync(this ITelegramBotClient client, string inlineMessageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<bool> EditMessageTextAsync(this ITelegramBotClient client, string inlineMessageId, string? businessConnectionId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, LinkPreviewOptions? linkPreviewOptions = null, InputRichMessage? richMessage = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -274,6 +294,13 @@ public static partial class UpdatingMessagesExtensions
         if (replyMarkup is not null)
         {
             args.Add(PropertyNames.ReplyMarkup, replyMarkup);
+        }
+        if (files is not null)
+        {
+            foreach (var file in files)
+            {
+                args.Add(file.Key, file.Value);
+            }
         }
 
         return client.CallMethodAsync<bool>(MethodNames.EditMessageText, args, cancellationToken);

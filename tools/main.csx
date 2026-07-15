@@ -14,13 +14,22 @@ var definitions = await ScrapBotApiDefinitions();
 WriteLine();
 
 WriteLine("Mapping models...");
-var modelClasses = definitions.MapTypesIntoClasses();
+var modelClasses = definitions.MapTypesIntoClasses().ToList();
 WriteLine("Mapping extension methods...");
-var methodClasses = definitions.MapMethodsIntoClasses();
-WriteLine("Mapping constants...");
-var constants = definitions.MapConstantsIntoClasses();
-WriteLine();
-var classFiles = modelClasses.Concat(methodClasses).Concat(constants);
-WriteLine("Generating classes...");
-GenerateClasses(classFiles, ourpurPath);
-WriteLine("Done!");
+
+try
+{
+    var methodClasses = definitions.MapMethodsIntoClasses().ToList();
+    WriteLine("Mapping constants...");
+    var constants = definitions.MapConstantsIntoClasses().ToList();
+    WriteLine();
+    var classFiles = modelClasses.Concat(methodClasses).Concat(constants);
+    WriteLine("Generating classes...");
+    GenerateClasses(classFiles, ourpurPath);
+    WriteLine("Done!");
+}
+catch (Exception exp)
+{
+    WriteLine(exp.Message);
+    throw;
+}

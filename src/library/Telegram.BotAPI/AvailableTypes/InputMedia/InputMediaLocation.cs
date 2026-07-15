@@ -21,7 +21,7 @@ public class InputMediaLocation : InputMedia
     }
 
     /// <summary>
-    /// Type of the result, must be <em>location</em>
+    /// Type of the media, must be <em>location</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public override string Type => "location";

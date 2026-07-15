@@ -272,4 +272,10 @@ public class ChatFullInfo : Chat
     /// </summary>
     [JsonPropertyName(PropertyNames.GuardBot)]
     public User? GuardBot { get; set; }
+
+    /// <summary>
+    /// Optional. The <see cref="Community"/> to which the chat belongs
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Community)]
+    public Community? Community { get; set; }
 }

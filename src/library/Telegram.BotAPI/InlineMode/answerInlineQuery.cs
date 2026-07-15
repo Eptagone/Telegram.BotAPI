@@ -2,6 +2,8 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
+using Telegram.BotAPI.AvailableTypes;
+
 namespace Telegram.BotAPI.InlineMode;
 
 /// <summary>
@@ -44,7 +46,7 @@ public static partial class InlineModeExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineQueryId">Unique identifier for the answered query</param>
-    /// <param name="results">A JSON-serialized array of results for the inline query</param>
+    /// <param name="results">A JSON-serialized Array of results for the inline query</param>
     /// <param name="cacheTime">The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300.</param>
     /// <param name="isPersonal">Pass <em>True</em> if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query.</param>
     /// <param name="nextOffset">Pass the offset that a client should send in the next query with the same text to receive more results. Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes.</param>
@@ -60,7 +62,7 @@ public static partial class InlineModeExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineQueryId">Unique identifier for the answered query</param>
-    /// <param name="results">A JSON-serialized array of results for the inline query</param>
+    /// <param name="results">A JSON-serialized Array of results for the inline query</param>
     /// <param name="cacheTime">The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300.</param>
     /// <param name="isPersonal">Pass <em>True</em> if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query.</param>
     /// <param name="nextOffset">Pass the offset that a client should send in the next query with the same text to receive more results. Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes.</param>

@@ -22,13 +22,13 @@ public class UniqueGiftInfo
     public string Origin { get; set; } = null!;
 
     /// <summary>
-    /// Optional. For gifts bought from other users, the currency in which the payment for the gift was done. Currently, one of “XTR” for Telegram Stars or “TON” for toncoins.
+    /// Optional. For gifts bought from other users, the currency in which the payment for the gift was done. Currently, one of “XTR” for Telegram Stars or “TON” for TON grams.
     /// </summary>
     [JsonPropertyName(PropertyNames.LastResaleCurrency)]
     public string? LastResaleCurrency { get; set; }
 
     /// <summary>
-    /// Optional. For gifts bought from other users, the price paid for the gift in either Telegram Stars or nanotoncoins
+    /// Optional. For gifts bought from other users, the price paid for the gift in either Telegram Stars or nanograms
     /// </summary>
     [JsonPropertyName(PropertyNames.LastResaleAmount)]
     public int? LastResaleAmount { get; set; }

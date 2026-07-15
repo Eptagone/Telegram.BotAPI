@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.UpdatingMessages;
 /// <summary>
 /// Represents the arguments of the "EditMessageText" method.
 /// </summary>
-public class EditMessageTextArgs
+public class EditMessageTextArgs : AttachedFilesArgsBase
 {
     /// <summary>
     /// Unique identifier of the business connection on behalf of which the message to be edited was sent
@@ -61,7 +61,7 @@ public class EditMessageTextArgs
     public LinkPreviewOptions? LinkPreviewOptions { get; set; }
 
     /// <summary>
-    /// New rich content of the message; required if <em>text</em> isn't specified
+    /// New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.
     /// </summary>
     [JsonPropertyName(PropertyNames.RichMessage)]
     public InputRichMessage? RichMessage { get; set; }

@@ -7,13 +7,13 @@ namespace Telegram.BotAPI.InlineMode;
 /// <summary>
 /// Represents the arguments of the "AnswerInlineQuery" method.
 /// </summary>
-public class AnswerInlineQueryArgs
+public class AnswerInlineQueryArgs : AttachedFilesArgsBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="AnswerInlineQueryArgs"/> class.
     /// </summary>
     /// <param name="inlineQueryId">Unique identifier for the answered query</param>
-    /// <param name="results">A JSON-serialized array of results for the inline query</param>
+    /// <param name="results">A JSON-serialized Array of results for the inline query</param>
     public AnswerInlineQueryArgs(string inlineQueryId, IEnumerable<InlineQueryResult> results)
     {
         this.InlineQueryId = inlineQueryId ?? throw new ArgumentNullException(nameof(inlineQueryId));
@@ -27,7 +27,7 @@ public class AnswerInlineQueryArgs
     public string InlineQueryId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized array of results for the inline query
+    /// A JSON-serialized Array of results for the inline query
     /// </summary>
     [JsonPropertyName(PropertyNames.Results)]
     public IEnumerable<InlineQueryResult> Results { get; set; }

@@ -2,6 +2,8 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
+using Telegram.BotAPI.GettingUpdates;
+
 namespace Telegram.BotAPI.Payments;
 
 /// <summary>
@@ -33,7 +35,7 @@ public class AnswerShippingQueryArgs
     public bool Ok { get; set; }
 
     /// <summary>
-    /// Required if <em>ok</em> is <em>True</em>. A JSON-serialized array of available shipping options.
+    /// Required if <em>ok</em> is <em>True</em>. A JSON-serialized Array of available shipping options.
     /// </summary>
     [JsonPropertyName(PropertyNames.ShippingOptions)]
     public IEnumerable<ShippingOption>? ShippingOptions { get; set; }

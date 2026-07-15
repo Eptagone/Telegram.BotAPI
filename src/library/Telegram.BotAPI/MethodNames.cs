@@ -39,6 +39,7 @@ public static partial class MethodNames
     public const string DeleteBusinessMessages = "deleteBusinessMessages";
     public const string DeleteChatPhoto = "deleteChatPhoto";
     public const string DeleteChatStickerSet = "deleteChatStickerSet";
+    public const string DeleteEphemeralMessage = "deleteEphemeralMessage";
     public const string DeleteForumTopic = "deleteForumTopic";
     public const string DeleteMessage = "deleteMessage";
     public const string DeleteMessageReaction = "deleteMessageReaction";
@@ -50,6 +51,10 @@ public static partial class MethodNames
     public const string DeleteWebhook = "deleteWebhook";
     public const string EditChatInviteLink = "editChatInviteLink";
     public const string EditChatSubscriptionInviteLink = "editChatSubscriptionInviteLink";
+    public const string EditEphemeralMessageCaption = "editEphemeralMessageCaption";
+    public const string EditEphemeralMessageMedia = "editEphemeralMessageMedia";
+    public const string EditEphemeralMessageReplyMarkup = "editEphemeralMessageReplyMarkup";
+    public const string EditEphemeralMessageText = "editEphemeralMessageText";
     public const string EditForumTopic = "editForumTopic";
     public const string EditGeneralForumTopic = "editGeneralForumTopic";
     public const string EditMessageCaption = "editMessageCaption";

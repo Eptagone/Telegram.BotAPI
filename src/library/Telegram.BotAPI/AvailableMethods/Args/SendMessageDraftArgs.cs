@@ -15,7 +15,7 @@ public class SendMessageDraftArgs
     /// Initializes a new instance of the <see cref="SendMessageDraftArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target private chat</param>
-    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes of drafts with the same identifier are animated.</param>
+    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated.</param>
     public SendMessageDraftArgs(long chatId, int draftId)
     {
         this.ChatId = chatId;
@@ -35,7 +35,7 @@ public class SendMessageDraftArgs
     public int? MessageThreadId { get; set; }
 
     /// <summary>
-    /// Unique identifier of the message draft; must be non-zero. Changes of drafts with the same identifier are animated.
+    /// Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated.
     /// </summary>
     [JsonPropertyName(PropertyNames.DraftId)]
     public int DraftId { get; set; }

@@ -1,5 +1,5 @@
 #nullable enable
-#r "nuget: Humanizer.Core, 2.14.1"
+#r "nuget: Humanizer.Core, 3.0.10"
 #load "models.csx"
 #load "constants.csx"
 

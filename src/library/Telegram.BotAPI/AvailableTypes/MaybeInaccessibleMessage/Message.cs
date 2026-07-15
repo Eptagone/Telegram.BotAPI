@@ -16,7 +16,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class Message : MaybeInaccessibleMessage
 {
     /// <summary>
-    /// Unique message identifier inside this chat. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent.
+    /// Unique message identifier inside this chat; 0 for ephemeral messages. In specific instances (e.g., a message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent.
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageId)]
     public override int MessageId { get; set; }
@@ -64,6 +64,18 @@ public class Message : MaybeInaccessibleMessage
     public string? SenderTag { get; set; }
 
     /// <summary>
+    /// Optional. For ephemeral messages, the user who received the message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReceiverUser)]
+    public User? ReceiverUser { get; set; }
+
+    /// <summary>
+    /// Optional. For ephemeral messages, identifier of the ephemeral message inside this chat. The identifier may be reused for another ephemeral message after the message is deleted or expires.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.EphemeralMessageId)]
+    public int? EphemeralMessageId { get; set; }
+
+    /// <summary>
     /// Date the message was sent in Unix time. It is always a positive number, representing a valid date.
     /// </summary>
     [JsonPropertyName(PropertyNames.Date)]
@@ -106,7 +118,7 @@ public class Message : MaybeInaccessibleMessage
     public bool? IsAutomaticForward { get; set; }
 
     /// <summary>
-    /// Optional. For replies in the same chat and message thread, the original message. Note that the <see cref="Message"/> object in this field will not contain further <em>reply_to_message</em> fields even if it itself is a reply.
+    /// Optional. For replies in the same chat and message thread, the original message. Note that the <see cref="Message"/> object in this field will not contain further <em>reply_to_message</em> fields even if it itself is a reply. If the message is a reply to an ephemeral message, then this field may be omitted.
     /// </summary>
     [JsonPropertyName(PropertyNames.ReplyToMessage)]
     public Message? ReplyToMessage { get; set; }
@@ -548,6 +560,18 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.ChecklistTasksAdded)]
     public ChecklistTasksAdded? ChecklistTasksAdded { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: chat added to a <see cref="Community"/>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CommunityChatAdded)]
+    public CommunityChatAdded? CommunityChatAdded { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: chat removed from a <see cref="Community"/>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CommunityChatRemoved)]
+    public CommunityChatRemoved? CommunityChatRemoved { get; set; }
 
     /// <summary>
     /// Optional. Service message: the price for paid messages in the corresponding direct messages chat of a channel has changed

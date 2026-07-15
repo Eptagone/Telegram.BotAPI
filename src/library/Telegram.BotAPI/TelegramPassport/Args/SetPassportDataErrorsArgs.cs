@@ -13,7 +13,7 @@ public class SetPassportDataErrorsArgs
     /// Initializes a new instance of the <see cref="SetPassportDataErrorsArgs"/> class.
     /// </summary>
     /// <param name="userId">User identifier</param>
-    /// <param name="errors">A JSON-serialized array describing the errors</param>
+    /// <param name="errors">A JSON-serialized Array describing the errors</param>
     public SetPassportDataErrorsArgs(long userId, IEnumerable<PassportElementError> errors)
     {
         this.UserId = userId;
@@ -27,7 +27,7 @@ public class SetPassportDataErrorsArgs
     public long UserId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized array describing the errors
+    /// A JSON-serialized Array describing the errors
     /// </summary>
     [JsonPropertyName(PropertyNames.Errors)]
     public IEnumerable<PassportElementError> Errors { get; set; }

@@ -62,6 +62,18 @@ public class SendLocationArgs
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
+    /// For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReceiverUserId)]
+    public long? ReceiverUserId { get; set; }
+
+    /// <summary>
+    /// For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CallbackQueryId)]
+    public string? CallbackQueryId { get; set; }
+
+    /// <summary>
     /// Latitude of the location
     /// </summary>
     [JsonPropertyName(PropertyNames.Latitude)]
@@ -80,7 +92,7 @@ public class SendLocationArgs
     public float? HorizontalAccuracy { get; set; }
 
     /// <summary>
-    /// Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely
+    /// Period in seconds during which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>), must be between 60 and 86400, or 0x7FFFFFFF for live locations that can be edited indefinitely. Must be 0 for ephemeral messages.
     /// </summary>
     [JsonPropertyName(PropertyNames.LivePeriod)]
     public int? LivePeriod { get; set; }

@@ -13,7 +13,7 @@
         "program": "dotnet",
         "args": [
           "exec",
-          "${env:USERPROFILE}/.dotnet/tools/.store/dotnet-script/1.5.0/dotnet-script/1.5.0/tools/net8.0/any/dotnet-script.dll",
+          "${env:USERPROFILE}/.dotnet/tools/.store/dotnet-script/2.0.0/dotnet-script/2.0.0/tools/net8.0/any/dotnet-script.dll",
           "./main.csx"
         ],
       },

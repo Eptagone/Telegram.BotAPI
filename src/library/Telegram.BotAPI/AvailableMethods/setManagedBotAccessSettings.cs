@@ -44,8 +44,8 @@ public static partial class AvailableMethodsExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier of the managed bot whose access settings will be changed</param>
-    /// <param name="isAccessRestricted">Pass <em>True</em>, if only selected users can access the bot. The bot's owner can always access it.</param>
-    /// <param name="addedUserIds">A JSON-serialized list of up to 10 identifiers of users who will have access to the bot in addition to its owner. Ignored if <em>is_access_restricted</em> is false.</param>
+    /// <param name="isAccessRestricted">Pass <em>True</em> if only selected users can access the bot. The bot's owner can always access it.</param>
+    /// <param name="addedUserIds">A JSON-serialized list of up to 10 identifiers of users who will have access to the bot in addition to its owner. Ignored if <em>is_access_restricted</em> is <em>False</em>.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -57,8 +57,8 @@ public static partial class AvailableMethodsExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier of the managed bot whose access settings will be changed</param>
-    /// <param name="isAccessRestricted">Pass <em>True</em>, if only selected users can access the bot. The bot's owner can always access it.</param>
-    /// <param name="addedUserIds">A JSON-serialized list of up to 10 identifiers of users who will have access to the bot in addition to its owner. Ignored if <em>is_access_restricted</em> is false.</param>
+    /// <param name="isAccessRestricted">Pass <em>True</em> if only selected users can access the bot. The bot's owner can always access it.</param>
+    /// <param name="addedUserIds">A JSON-serialized list of up to 10 identifiers of users who will have access to the bot in addition to its owner. Ignored if <em>is_access_restricted</em> is <em>False</em>.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

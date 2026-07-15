@@ -80,6 +80,18 @@ public class SendPhotoArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
+    /// For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ReceiverUserId)]
+    public long? ReceiverUserId { get; set; }
+
+    /// <summary>
+    /// For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CallbackQueryId)]
+    public string? CallbackQueryId { get; set; }
+
+    /// <summary>
     /// Photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Photo)]
@@ -104,7 +116,7 @@ public class SendPhotoArgs : AttachedFilesArgsBase
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em>, if the caption must be shown above the message media
+    /// Pass <em>True</em> if the caption must be shown above the message media
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
     public bool? ShowCaptionAboveMedia { get; set; }

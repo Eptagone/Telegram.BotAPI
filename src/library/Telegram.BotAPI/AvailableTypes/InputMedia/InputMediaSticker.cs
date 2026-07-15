@@ -19,7 +19,7 @@ public class InputMediaSticker : InputMedia
     }
 
     /// <summary>
-    /// Type of the result, must be <em>sticker</em>
+    /// Type of the media, must be <em>sticker</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public override string Type => "sticker";

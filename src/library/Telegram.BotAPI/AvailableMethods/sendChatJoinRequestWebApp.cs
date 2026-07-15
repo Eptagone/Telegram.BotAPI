@@ -10,11 +10,11 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to process a received chat join request query by showing a Mini App to the user before deciding the outcome. Returns <em>True</em> on success.
+    /// Use this method to process a received chat join request query by showing a Mini App to the user before deciding the outcome. Call <a href="https://core.telegram.org/bots/api#answerchatjoinrequestquery">answerChatJoinRequestQuery</a> to resolve the join request query based on the user interaction with the Mini App. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatJoinRequestQueryId">Unique identifier of the join request query</param>
-    /// <param name="webAppUrl">The URL of the Mini App to be opened</param>
+    /// <param name="webAppUrl">An HTTPS URL of a Web App to be opened with additional data as specified in <a href="https://core.telegram.org/bots/webapps#initializing-mini-apps">Initializing Web Apps</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -22,11 +22,11 @@ public static partial class AvailableMethodsExtensions
         client.SendChatJoinRequestWebAppAsync(chatJoinRequestQueryId, webAppUrl).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to process a received chat join request query by showing a Mini App to the user before deciding the outcome. Returns <em>True</em> on success.
+    /// Use this method to process a received chat join request query by showing a Mini App to the user before deciding the outcome. Call <a href="https://core.telegram.org/bots/api#answerchatjoinrequestquery">answerChatJoinRequestQuery</a> to resolve the join request query based on the user interaction with the Mini App. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatJoinRequestQueryId">Unique identifier of the join request query</param>
-    /// <param name="webAppUrl">The URL of the Mini App to be opened</param>
+    /// <param name="webAppUrl">An HTTPS URL of a Web App to be opened with additional data as specified in <a href="https://core.telegram.org/bots/webapps#initializing-mini-apps">Initializing Web Apps</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

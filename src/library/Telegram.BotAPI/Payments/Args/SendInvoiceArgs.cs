@@ -110,7 +110,7 @@ public class SendInvoiceArgs
     public int? MaxTipAmount { get; set; }
 
     /// <summary>
-    /// A JSON-serialized array of suggested amounts of tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed <em>max_tip_amount</em>.
+    /// A JSON-serialized Array of suggested amounts of tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed <em>max_tip_amount</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.SuggestedTipAmounts)]
     public IEnumerable<int>? SuggestedTipAmounts { get; set; }

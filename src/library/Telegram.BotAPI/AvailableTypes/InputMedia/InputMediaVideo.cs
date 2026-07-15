@@ -19,7 +19,7 @@ public class InputMediaVideo : InputMedia
     }
 
     /// <summary>
-    /// Type of the result, must be <em>video</em>
+    /// Type of the media, must be <em>video</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public override string Type => "video";
@@ -67,7 +67,7 @@ public class InputMediaVideo : InputMedia
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em>, if the caption must be shown above the message media
+    /// Optional. Pass <em>True</em> if the caption must be shown above the message media
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
     public bool? ShowCaptionAboveMedia { get; set; }

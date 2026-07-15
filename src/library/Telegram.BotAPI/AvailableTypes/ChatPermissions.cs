@@ -100,7 +100,7 @@ public class ChatPermissions
     public bool? CanPinMessages { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the user is allowed to create forum topics. If omitted defaults to the value of can_pin_messages.
+    /// Optional. <em>True</em>, if the user is allowed to create forum topics. If omitted, defaults to the value of can_pin_messages.
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageTopics)]
     public bool? CanManageTopics { get; set; }

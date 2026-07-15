@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to get the last messages from the personal chat (i.e., the chat currently added to their profile) of a given user. On success, an array of <see cref="Message"/> objects is returned.
+    /// Use this method to get the last messages from the personal chat (i.e., the chat currently added to their profile) of a given user. On success, an Array of <see cref="Message"/> objects is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">Unique identifier for the target user</param>
@@ -24,7 +24,7 @@ public static partial class AvailableMethodsExtensions
         client.GetUserPersonalChatMessagesAsync(userId, limit).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to get the last messages from the personal chat (i.e., the chat currently added to their profile) of a given user. On success, an array of <see cref="Message"/> objects is returned.
+    /// Use this method to get the last messages from the personal chat (i.e., the chat currently added to their profile) of a given user. On success, an Array of <see cref="Message"/> objects is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">Unique identifier for the target user</param>

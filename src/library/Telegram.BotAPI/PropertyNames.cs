@@ -182,6 +182,9 @@ public static partial class PropertyNames
     public const string Commands = "commands";
     public const string Comment = "comment";
     public const string CommissionPerMille = "commission_per_mille";
+    public const string Community = "community";
+    public const string CommunityChatAdded = "community_chat_added";
+    public const string CommunityChatRemoved = "community_chat_removed";
     public const string CompletedByChat = "completed_by_chat";
     public const string CompletedByUser = "completed_by_user";
     public const string CompletionDate = "completion_date";
@@ -249,6 +252,7 @@ public static partial class PropertyNames
     public const string EmojiStatusCustomEmojiId = "emoji_status_custom_emoji_id";
     public const string EmojiStatusExpirationDate = "emoji_status_expiration_date";
     public const string Entities = "entities";
+    public const string EphemeralMessageId = "ephemeral_message_id";
     public const string ErrorMessage = "error_message";
     public const string Errors = "errors";
     public const string ExcludeFromBlockchain = "exclude_from_blockchain";
@@ -380,6 +384,7 @@ public static partial class PropertyNames
     public const string IsDirectMessages = "is_direct_messages";
     public const string IsDisabled = "is_disabled";
     public const string IsEnabled = "is_enabled";
+    public const string IsEphemeral = "is_ephemeral";
     public const string IsFirstRecurring = "is_first_recurring";
     public const string IsFlexible = "is_flexible";
     public const string IsFlipped = "is_flipped";
@@ -600,6 +605,8 @@ public static partial class PropertyNames
     public const string Reactions = "reactions";
     public const string Reason = "reason";
     public const string Receiver = "receiver";
+    public const string ReceiverUser = "receiver_user";
+    public const string ReceiverUserId = "receiver_user_id";
     public const string ReferenceName = "reference_name";
     public const string RefundedPayment = "refunded_payment";
     public const string RemainingCount = "remaining_count";
@@ -694,6 +701,7 @@ public static partial class PropertyNames
     public const string StreetLine1 = "street_line1";
     public const string StreetLine2 = "street_line2";
     public const string Style = "style";
+    public const string Subscription = "subscription";
     public const string SubscriptionExpirationDate = "subscription_expiration_date";
     public const string SubscriptionPeriod = "subscription_period";
     public const string SubscriptionPrice = "subscription_price";

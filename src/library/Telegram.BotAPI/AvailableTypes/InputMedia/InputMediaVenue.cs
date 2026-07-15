@@ -25,7 +25,7 @@ public class InputMediaVenue : InputMedia
     }
 
     /// <summary>
-    /// Type of the result, must be <em>venue</em>
+    /// Type of the media, must be <em>venue</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public override string Type => "venue";

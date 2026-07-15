@@ -1,5 +1,5 @@
 #nullable enable
-#r "nuget: Humanizer.Core, 2.14.1"
+#r "nuget: Humanizer.Core, 3.0.10"
 #load "constants.csx"
 #load "models.csx"
 
@@ -685,13 +685,19 @@ static IEnumerable<ClassDefinition> MapConstantsIntoClasses(this BotApiDefinitio
 }
 
 #region Utilities
+
 /// <summary>
 /// Check if the type or any of its properties has an attachment.
 /// </summary>
 /// <param name="typeName">The name of the type.</param>
 /// <param name="definitions">The definitions of the Telegram Bot API.</param>
-static bool HasAttachments(string typeName, BotApiDefinitions definitions)
+static bool HasAttachments(string typeName, BotApiDefinitions definitions, int deep = 10)
 {
+    // This is a temporary hotfix for a recursive bug
+    if (typeName.StartsWith("RichText") || typeName.StartsWith("InputRichBlock")) {
+        return false;
+    }
+
     if (char.IsLower(typeName[0]))
     {
         return false;
@@ -715,7 +721,7 @@ static bool HasAttachments(string typeName, BotApiDefinitions definitions)
 
     // If the type is a group, check if any of the types in the group has an attachment
     var group = definitions.TypeGroups.FirstOrDefault(g => g.Name == typeName);
-    return group != null && group.Types.Any(t => HasAttachments(t, definitions));
+    return group != null && deep > 0 && group.Types.Any(t => HasAttachments(t, definitions, deep - 1));
 }
 
 /// <summary>

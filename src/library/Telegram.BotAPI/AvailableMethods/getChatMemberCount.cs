@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to get the number of members in a chat. Returns <em>Int</em> on success.
+    /// Use this method to get the number of members in a chat. Returns <em>Integer</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel in the format <em>@username</em></param>
@@ -21,7 +21,7 @@ public static partial class AvailableMethodsExtensions
         client.GetChatMemberCountAsync(chatId).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to get the number of members in a chat. Returns <em>Int</em> on success.
+    /// Use this method to get the number of members in a chat. Returns <em>Integer</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel in the format <em>@username</em></param>
@@ -45,7 +45,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to get the number of members in a chat. Returns <em>Int</em> on success.
+    /// Use this method to get the number of members in a chat. Returns <em>Integer</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel in the format <em>@username</em></param>
@@ -56,7 +56,7 @@ public static partial class AvailableMethodsExtensions
         client.GetChatMemberCountAsync(chatId).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to get the number of members in a chat. Returns <em>Int</em> on success.
+    /// Use this method to get the number of members in a chat. Returns <em>Integer</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup or channel in the format <em>@username</em></param>

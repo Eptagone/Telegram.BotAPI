@@ -19,7 +19,7 @@ public class InputMediaAudio : InputMedia
     }
 
     /// <summary>
-    /// Type of the result, must be <em>audio</em>
+    /// Type of the media, must be <em>audio</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.Type)]
     public override string Type => "audio";

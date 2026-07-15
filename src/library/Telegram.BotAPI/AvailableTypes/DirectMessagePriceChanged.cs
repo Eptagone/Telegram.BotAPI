@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class DirectMessagePriceChanged
 {
     /// <summary>
-    /// <em>True</em>, if direct messages are enabled for the channel chat; false otherwise
+    /// <em>True</em>, if direct messages are enabled for the channel chat; <em>False</em> otherwise
     /// </summary>
     [JsonPropertyName(PropertyNames.AreDirectMessagesEnabled)]
     public bool AreDirectMessagesEnabled { get; set; }

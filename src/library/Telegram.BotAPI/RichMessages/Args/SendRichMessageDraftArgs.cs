@@ -7,14 +7,14 @@ namespace Telegram.BotAPI.RichMessages;
 /// <summary>
 /// Represents the arguments of the "SendRichMessageDraft" method.
 /// </summary>
-public class SendRichMessageDraftArgs
+public class SendRichMessageDraftArgs : AttachedFilesArgsBase
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="SendRichMessageDraftArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target private chat</param>
     /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated.</param>
-    /// <param name="richMessage">The partial message to be streamed</param>
+    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files isn't supported.</param>
     public SendRichMessageDraftArgs(long chatId, int draftId, InputRichMessage richMessage)
     {
         this.ChatId = chatId;
@@ -41,7 +41,7 @@ public class SendRichMessageDraftArgs
     public int DraftId { get; set; }
 
     /// <summary>
-    /// The partial message to be streamed
+    /// The partial message to be streamed. Direct upload of new files isn't supported.
     /// </summary>
     [JsonPropertyName(PropertyNames.RichMessage)]
     public InputRichMessage RichMessage { get; set; }
