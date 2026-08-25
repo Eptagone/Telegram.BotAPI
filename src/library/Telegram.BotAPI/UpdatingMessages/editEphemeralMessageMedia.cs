@@ -48,7 +48,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em></param>
     /// <param name="receiverUserId">Identifier of the user who received the message</param>
     /// <param name="ephemeralMessageId">Identifier of the ephemeral message to edit</param>
-    /// <param name="media">A JSON-serialized object for the new media content of the message. A new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL.</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -63,7 +63,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em></param>
     /// <param name="receiverUserId">Identifier of the user who received the message</param>
     /// <param name="ephemeralMessageId">Identifier of the ephemeral message to edit</param>
-    /// <param name="media">A JSON-serialized object for the new media content of the message. A new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL.</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -98,7 +98,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em></param>
     /// <param name="receiverUserId">Identifier of the user who received the message</param>
     /// <param name="ephemeralMessageId">Identifier of the ephemeral message to edit</param>
-    /// <param name="media">A JSON-serialized object for the new media content of the message. A new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL.</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -113,7 +113,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em></param>
     /// <param name="receiverUserId">Identifier of the user who received the message</param>
     /// <param name="ephemeralMessageId">Identifier of the ephemeral message to edit</param>
-    /// <param name="media">A JSON-serialized object for the new media content of the message. A new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL.</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>

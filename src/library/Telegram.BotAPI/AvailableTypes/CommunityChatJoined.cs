@@ -5,12 +5,12 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// Describes a service message about a chat or a bot being added to a community.
+/// Describes a service message about a chat being joined by a user from a community.
 /// </summary>
-public class CommunityChatAdded
+public class CommunityChatJoined
 {
     /// <summary>
-    /// The new community to which the chat or the bot belongs
+    /// The community from which the chat was joined
     /// </summary>
     [JsonPropertyName(PropertyNames.Community)]
     public Community Community { get; set; } = null!;

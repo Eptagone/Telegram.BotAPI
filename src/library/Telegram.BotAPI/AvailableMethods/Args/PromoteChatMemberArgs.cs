@@ -144,4 +144,10 @@ public class PromoteChatMemberArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageTags)]
     public bool? CanManageTags { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> if the administrator can manage chat welcome messages or directly send them in the case of bots
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanSendWelcomeMessages)]
+    public bool? CanSendWelcomeMessages { get; set; }
 }

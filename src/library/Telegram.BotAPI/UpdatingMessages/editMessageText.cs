@@ -53,7 +53,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -73,7 +73,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
@@ -142,7 +142,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -162,7 +162,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
@@ -230,7 +230,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -249,7 +249,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>

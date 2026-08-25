@@ -17,7 +17,7 @@ public class EditEphemeralMessageMediaArgs : AttachedFilesArgsBase
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em></param>
     /// <param name="receiverUserId">Identifier of the user who received the message</param>
     /// <param name="ephemeralMessageId">Identifier of the ephemeral message to edit</param>
-    /// <param name="media">A JSON-serialized object for the new media content of the message. A new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL.</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     public EditEphemeralMessageMediaArgs(long chatId, long receiverUserId, int ephemeralMessageId, InputMedia media)
     {
         this.ChatId = chatId;
@@ -32,7 +32,7 @@ public class EditEphemeralMessageMediaArgs : AttachedFilesArgsBase
     /// <param name="chatId">Unique identifier for the target chat or username of the target supergroup in the format <em>@username</em></param>
     /// <param name="receiverUserId">Identifier of the user who received the message</param>
     /// <param name="ephemeralMessageId">Identifier of the ephemeral message to edit</param>
-    /// <param name="media">A JSON-serialized object for the new media content of the message. A new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL.</param>
+    /// <param name="media">A JSON-serialized object for the new media content of the message</param>
     public EditEphemeralMessageMediaArgs(string chatId, long receiverUserId, int ephemeralMessageId, InputMedia media)
     {
         this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
@@ -60,7 +60,7 @@ public class EditEphemeralMessageMediaArgs : AttachedFilesArgsBase
     public int EphemeralMessageId { get; set; }
 
     /// <summary>
-    /// A JSON-serialized object for the new media content of the message. A new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL.
+    /// A JSON-serialized object for the new media content of the message
     /// </summary>
     [JsonPropertyName(PropertyNames.Media)]
     public InputMedia Media { get; set; }

@@ -5,8 +5,8 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// Describes a service message about a chat or a bot being removed from a community. Currently holds no information.
+/// This object represents a disabled button which does nothing. Currently holds no information.
 /// </summary>
-public class CommunityChatRemoved
+public class DisabledButton
 {
 }

@@ -3,6 +3,7 @@
 //* This file is auto-generated. Don't edit it manually!
 
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.GettingUpdates;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
@@ -15,7 +16,7 @@ public class SendMessageDraftArgs
     /// Initializes a new instance of the <see cref="SendMessageDraftArgs"/> class.
     /// </summary>
     /// <param name="chatId">Unique identifier for the target private chat</param>
-    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated.</param>
+    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.</param>
     public SendMessageDraftArgs(long chatId, int draftId)
     {
         this.ChatId = chatId;
@@ -35,7 +36,7 @@ public class SendMessageDraftArgs
     public int? MessageThreadId { get; set; }
 
     /// <summary>
-    /// Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated.
+    /// Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.
     /// </summary>
     [JsonPropertyName(PropertyNames.DraftId)]
     public int DraftId { get; set; }
@@ -57,4 +58,16 @@ public class SendMessageDraftArgs
     /// </summary>
     [JsonPropertyName(PropertyNames.Entities)]
     public IEnumerable<MessageEntity>? Entities { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> to show the user a button to stop further drafts. The bot will receive an <see cref="Update"/> “stopped_message_generation” if the user presses the button.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanStop)]
+    public bool? CanStop { get; set; }
+
+    /// <summary>
+    /// Pass <em>True</em> to keep the draft in the chat when the button is pressed. The draft will still disappear after a short time or if the bot sends a message. To fully preserve the partial draft, the bot should send it as a new message.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.KeepOnStop)]
+    public bool? KeepOnStop { get; set; }
 }

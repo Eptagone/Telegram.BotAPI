@@ -58,6 +58,12 @@ public class SendRichMessageArgs : AttachedFilesArgsBase
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
+    /// A JSON-serialized object containing the parameters of the ephemeral message to send
+    /// </summary>
+    [JsonPropertyName(PropertyNames.EphemeralMessageParameters)]
+    public EphemeralMessageParameters? EphemeralMessageParameters { get; set; }
+
+    /// <summary>
     /// The message to be sent
     /// </summary>
     [JsonPropertyName(PropertyNames.RichMessage)]

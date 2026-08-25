@@ -51,12 +51,13 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool EditEphemeralMessageCaption(this ITelegramBotClient client, long chatId, long receiverUserId, int ephemeralMessageId, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, ReplyMarkup? replyMarkup = null) =>
-        client.EditEphemeralMessageCaptionAsync(chatId, receiverUserId, ephemeralMessageId, caption, parseMode, captionEntities, replyMarkup).GetAwaiter().GetResult();
+    public static bool EditEphemeralMessageCaption(this ITelegramBotClient client, long chatId, long receiverUserId, int ephemeralMessageId, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, ReplyMarkup? replyMarkup = null) =>
+        client.EditEphemeralMessageCaptionAsync(chatId, receiverUserId, ephemeralMessageId, caption, parseMode, captionEntities, showCaptionAboveMedia, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit the caption of an ephemeral message. Note that it is not guaranteed that the user will receive the message edit event, especially if they are offline. On success, <em>True</em> is returned.
@@ -68,12 +69,13 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> EditEphemeralMessageCaptionAsync(this ITelegramBotClient client, long chatId, long receiverUserId, int ephemeralMessageId, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<bool> EditEphemeralMessageCaptionAsync(this ITelegramBotClient client, long chatId, long receiverUserId, int ephemeralMessageId, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -98,6 +100,10 @@ public static partial class UpdatingMessagesExtensions
         {
             args.Add(PropertyNames.CaptionEntities, captionEntities);
         }
+        if (showCaptionAboveMedia is not null)
+        {
+            args.Add(PropertyNames.ShowCaptionAboveMedia, showCaptionAboveMedia);
+        }
         if (replyMarkup is not null)
         {
             args.Add(PropertyNames.ReplyMarkup, replyMarkup);
@@ -116,12 +122,13 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool EditEphemeralMessageCaption(this ITelegramBotClient client, string chatId, long receiverUserId, int ephemeralMessageId, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, ReplyMarkup? replyMarkup = null) =>
-        client.EditEphemeralMessageCaptionAsync(chatId, receiverUserId, ephemeralMessageId, caption, parseMode, captionEntities, replyMarkup).GetAwaiter().GetResult();
+    public static bool EditEphemeralMessageCaption(this ITelegramBotClient client, string chatId, long receiverUserId, int ephemeralMessageId, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, ReplyMarkup? replyMarkup = null) =>
+        client.EditEphemeralMessageCaptionAsync(chatId, receiverUserId, ephemeralMessageId, caption, parseMode, captionEntities, showCaptionAboveMedia, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to edit the caption of an ephemeral message. Note that it is not guaranteed that the user will receive the message edit event, especially if they are offline. On success, <em>True</em> is returned.
@@ -133,12 +140,13 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> EditEphemeralMessageCaptionAsync(this ITelegramBotClient client, string chatId, long receiverUserId, int ephemeralMessageId, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<bool> EditEphemeralMessageCaptionAsync(this ITelegramBotClient client, string chatId, long receiverUserId, int ephemeralMessageId, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? showCaptionAboveMedia = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -162,6 +170,10 @@ public static partial class UpdatingMessagesExtensions
         if (captionEntities is not null)
         {
             args.Add(PropertyNames.CaptionEntities, captionEntities);
+        }
+        if (showCaptionAboveMedia is not null)
+        {
+            args.Add(PropertyNames.ShowCaptionAboveMedia, showCaptionAboveMedia);
         }
         if (replyMarkup is not null)
         {

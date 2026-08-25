@@ -53,4 +53,10 @@ public class ReplyKeyboardMarkup : ReplyMarkup
     /// </summary>
     [JsonPropertyName(PropertyNames.Selective)]
     public bool? Selective { get; set; }
+
+    /// <summary>
+    /// Optional. Pass <em>True</em> if the reply interface must be shown to the user, as if they had manually selected the bot's message and tapped 'Reply'
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ForceReply)]
+    public bool? ForceReply { get; set; }
 }

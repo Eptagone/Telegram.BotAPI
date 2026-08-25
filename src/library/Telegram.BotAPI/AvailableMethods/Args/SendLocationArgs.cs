@@ -62,16 +62,10 @@ public class SendLocationArgs
     public int? DirectMessagesTopicId { get; set; }
 
     /// <summary>
-    /// For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.
+    /// A JSON-serialized object containing the parameters of the ephemeral message to send
     /// </summary>
-    [JsonPropertyName(PropertyNames.ReceiverUserId)]
-    public long? ReceiverUserId { get; set; }
-
-    /// <summary>
-    /// For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any
-    /// </summary>
-    [JsonPropertyName(PropertyNames.CallbackQueryId)]
-    public string? CallbackQueryId { get; set; }
+    [JsonPropertyName(PropertyNames.EphemeralMessageParameters)]
+    public EphemeralMessageParameters? EphemeralMessageParameters { get; set; }
 
     /// <summary>
     /// Latitude of the location

@@ -53,8 +53,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="caption">Audio caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -72,8 +71,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendAudio(this ITelegramBotClient client, long chatId, InputFile audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendAudioAsync(chatId, audio, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, caption, parseMode, captionEntities, duration, performer, title, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendAudio(this ITelegramBotClient client, long chatId, InputFile audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendAudioAsync(chatId, audio, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, caption, parseMode, captionEntities, duration, performer, title, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent <see cref="Message"/> is returned. Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
@@ -85,8 +84,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="caption">Audio caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -105,7 +103,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendAudioAsync(this ITelegramBotClient client, long chatId, InputFile audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendAudioAsync(this ITelegramBotClient client, long chatId, InputFile audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -129,13 +127,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (caption is not null)
         {
@@ -207,8 +201,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="caption">Audio caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -227,8 +220,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendAudio(this ITelegramBotClient client, long chatId, string audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendAudioAsync(chatId, audio, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, caption, parseMode, captionEntities, duration, performer, title, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendAudio(this ITelegramBotClient client, long chatId, string audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendAudioAsync(chatId, audio, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, caption, parseMode, captionEntities, duration, performer, title, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent <see cref="Message"/> is returned. Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
@@ -240,8 +233,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="caption">Audio caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -261,7 +253,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendAudioAsync(this ITelegramBotClient client, long chatId, string audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendAudioAsync(this ITelegramBotClient client, long chatId, string audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -285,13 +277,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (caption is not null)
         {
@@ -370,8 +358,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="caption">Audio caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -389,8 +376,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendAudio(this ITelegramBotClient client, string chatId, InputFile audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendAudioAsync(chatId, audio, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, caption, parseMode, captionEntities, duration, performer, title, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendAudio(this ITelegramBotClient client, string chatId, InputFile audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendAudioAsync(chatId, audio, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, caption, parseMode, captionEntities, duration, performer, title, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent <see cref="Message"/> is returned. Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
@@ -402,8 +389,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="caption">Audio caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -422,7 +408,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendAudioAsync(this ITelegramBotClient client, string chatId, InputFile audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendAudioAsync(this ITelegramBotClient client, string chatId, InputFile audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -446,13 +432,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (caption is not null)
         {
@@ -524,8 +506,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="caption">Audio caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -544,8 +525,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendAudio(this ITelegramBotClient client, string chatId, string audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendAudioAsync(chatId, audio, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, caption, parseMode, captionEntities, duration, performer, title, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendAudio(this ITelegramBotClient client, string chatId, string audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendAudioAsync(chatId, audio, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, caption, parseMode, captionEntities, duration, performer, title, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent <see cref="Message"/> is returned. Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
@@ -557,8 +538,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="caption">Audio caption, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
@@ -578,7 +558,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendAudioAsync(this ITelegramBotClient client, string chatId, string audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendAudioAsync(this ITelegramBotClient client, string chatId, string audio, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, int? duration = null, string? performer = null, string? title = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -602,13 +582,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (caption is not null)
         {

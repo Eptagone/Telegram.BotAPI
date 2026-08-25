@@ -118,10 +118,16 @@ public class ChatMemberAdministrator : ChatMember
     public bool? CanManageDirectMessages { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the administrator can edit the tags of regular members; for groups and supergroups only. If omitted, defaults to the value of can_pin_messages.
+    /// Optional. <em>True</em>, if the administrator can edit the tags of regular members; for groups and supergroups only
     /// </summary>
     [JsonPropertyName(PropertyNames.CanManageTags)]
     public bool? CanManageTags { get; set; }
+
+    /// <summary>
+    /// <em>True</em>, if the administrator can manage chat welcome messages or directly send them in the case of bots
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CanSendWelcomeMessages)]
+    public bool CanSendWelcomeMessages { get; set; }
 
     /// <summary>
     /// Optional. Custom title for this user

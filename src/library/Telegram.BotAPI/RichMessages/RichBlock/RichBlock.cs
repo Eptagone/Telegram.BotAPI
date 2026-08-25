@@ -18,14 +18,17 @@ namespace Telegram.BotAPI.RichMessages;
 /// <item><description><see cref="RichBlockAnchor"/></description></item>
 /// <item><description><see cref="RichBlockList"/></description></item>
 /// <item><description><see cref="RichBlockBlockQuotation"/></description></item>
+/// <item><description><see cref="RichBlockExpandableBlockQuotation"/></description></item>
 /// <item><description><see cref="RichBlockPullQuotation"/></description></item>
 /// <item><description><see cref="RichBlockCollage"/></description></item>
 /// <item><description><see cref="RichBlockSlideshow"/></description></item>
 /// <item><description><see cref="RichBlockTable"/></description></item>
 /// <item><description><see cref="RichBlockDetails"/></description></item>
 /// <item><description><see cref="RichBlockMap"/></description></item>
+/// <item><description><see cref="RichBlockButtons"/></description></item>
 /// <item><description><see cref="RichBlockAnimation"/></description></item>
 /// <item><description><see cref="RichBlockAudio"/></description></item>
+/// <item><description><see cref="RichBlockDocument"/></description></item>
 /// <item><description><see cref="RichBlockPhoto"/></description></item>
 /// <item><description><see cref="RichBlockVideo"/></description></item>
 /// <item><description><see cref="RichBlockVoiceNote"/></description></item>

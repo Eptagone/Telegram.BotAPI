@@ -22,6 +22,24 @@ public class UniqueGiftInfo
     public string Origin { get; set; } = null!;
 
     /// <summary>
+    /// Optional. Text of the message that was added to the gift
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Text)]
+    public string? Text { get; set; }
+
+    /// <summary>
+    /// Optional. Special entities that appear in the text
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Entities)]
+    public IEnumerable<MessageEntity>? Entities { get; set; }
+
+    /// <summary>
+    /// Optional. <em>True</em>, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsPrivate)]
+    public bool? IsPrivate { get; set; }
+
+    /// <summary>
     /// Optional. For gifts bought from other users, the currency in which the payment for the gift was done. Currently, one of “XTR” for Telegram Stars or “TON” for TON grams.
     /// </summary>
     [JsonPropertyName(PropertyNames.LastResaleCurrency)]

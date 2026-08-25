@@ -3,6 +3,7 @@
 //* This file is auto-generated. Don't edit it manually!
 
 using Telegram.BotAPI.AvailableTypes;
+using Telegram.BotAPI.GettingUpdates;
 
 namespace Telegram.BotAPI.AvailableMethods;
 
@@ -46,32 +47,36 @@ public static partial class AvailableMethodsExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target private chat</param>
-    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated.</param>
+    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread</param>
     /// <param name="text">Text of the message to be sent, 0-4096 characters after entities parsing. Pass an empty text to show a “Thinking…” placeholder.</param>
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="canStop">Pass <em>True</em> to show the user a button to stop further drafts. The bot will receive an <see cref="Update"/> “stopped_message_generation” if the user presses the button.</param>
+    /// <param name="keepOnStop">Pass <em>True</em> to keep the draft in the chat when the button is pressed. The draft will still disappear after a short time or if the bot sends a message. To fully preserve the partial draft, the bot should send it as a new message.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SendMessageDraft(this ITelegramBotClient client, long chatId, int draftId, int? messageThreadId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null) =>
-        client.SendMessageDraftAsync(chatId, draftId, messageThreadId, text, parseMode, entities).GetAwaiter().GetResult();
+    public static bool SendMessageDraft(this ITelegramBotClient client, long chatId, int draftId, int? messageThreadId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, bool? canStop = null, bool? keepOnStop = null) =>
+        client.SendMessageDraftAsync(chatId, draftId, messageThreadId, text, parseMode, entities, canStop, keepOnStop).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to stream a partial message to a user while the message is being generated. Note that the streamed draft is ephemeral and acts as a temporary 30-second preview - once the output is finalized, you <strong>must</strong> call <a href="https://core.telegram.org/bots/api#sendmessage">sendMessage</a> with the complete message to persist it in the user's chat. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target private chat</param>
-    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated.</param>
+    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread</param>
     /// <param name="text">Text of the message to be sent, 0-4096 characters after entities parsing. Pass an empty text to show a “Thinking…” placeholder.</param>
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
+    /// <param name="canStop">Pass <em>True</em> to show the user a button to stop further drafts. The bot will receive an <see cref="Update"/> “stopped_message_generation” if the user presses the button.</param>
+    /// <param name="keepOnStop">Pass <em>True</em> to keep the draft in the chat when the button is pressed. The draft will still disappear after a short time or if the bot sends a message. To fully preserve the partial draft, the bot should send it as a new message.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SendMessageDraftAsync(this ITelegramBotClient client, long chatId, int draftId, int? messageThreadId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SendMessageDraftAsync(this ITelegramBotClient client, long chatId, int draftId, int? messageThreadId = null, string? text = null, string? parseMode = null, IEnumerable<MessageEntity>? entities = null, bool? canStop = null, bool? keepOnStop = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -98,6 +103,14 @@ public static partial class AvailableMethodsExtensions
         if (entities is not null)
         {
             args.Add(PropertyNames.Entities, entities);
+        }
+        if (canStop is not null)
+        {
+            args.Add(PropertyNames.CanStop, canStop);
+        }
+        if (keepOnStop is not null)
+        {
+            args.Add(PropertyNames.KeepOnStop, keepOnStop);
         }
 
         return client.CallMethodAsync<bool>(MethodNames.SendMessageDraft, args, cancellationToken);

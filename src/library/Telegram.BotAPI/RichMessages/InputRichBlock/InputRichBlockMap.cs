@@ -24,22 +24,22 @@ public class InputRichBlockMap : InputRichBlock
     public Location Location { get; set; } = null!;
 
     /// <summary>
-    /// Map zoom level; 0-24
+    /// Optional. Map zoom level; 0-24
     /// </summary>
     [JsonPropertyName(PropertyNames.Zoom)]
-    public int Zoom { get; set; }
+    public int? Zoom { get; set; }
 
     /// <summary>
-    /// Map width; 0-10000
+    /// Optional. Map width; 0-10000
     /// </summary>
     [JsonPropertyName(PropertyNames.Width)]
-    public int Width { get; set; }
+    public int? Width { get; set; }
 
     /// <summary>
-    /// Map height; 0-10000
+    /// Optional. Map height; 0-10000
     /// </summary>
     [JsonPropertyName(PropertyNames.Height)]
-    public int Height { get; set; }
+    public int? Height { get; set; }
 
     /// <summary>
     /// Optional. Caption of the block

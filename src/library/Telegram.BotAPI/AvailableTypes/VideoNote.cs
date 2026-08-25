@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object represents a <a href="https://telegram.org/blog/video-messages-and-telescope">video message</a> (available in Telegram apps as of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>).
+/// This object represents a <a href="https://telegram.org/blog/video-messages-and-telescope">video message</a>.
 /// </summary>
 public class VideoNote
 {

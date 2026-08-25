@@ -61,7 +61,7 @@ public class EditMessageTextArgs : AttachedFilesArgsBase
     public LinkPreviewOptions? LinkPreviewOptions { get; set; }
 
     /// <summary>
-    /// New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files isn't supported when an inline message is edited.
+    /// New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.
     /// </summary>
     [JsonPropertyName(PropertyNames.RichMessage)]
     public InputRichMessage? RichMessage { get; set; }

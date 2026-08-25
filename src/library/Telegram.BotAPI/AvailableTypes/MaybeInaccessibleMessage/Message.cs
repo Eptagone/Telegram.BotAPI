@@ -532,7 +532,7 @@ public class Message : MaybeInaccessibleMessage
     public PassportData? PassportData { get; set; }
 
     /// <summary>
-    /// Optional. Service message. A user in the chat triggered another user's proximity alert while sharing Live Location.
+    /// Optional. Service message: a user in the chat triggered another user's proximity alert while sharing Live Location
     /// </summary>
     [JsonPropertyName(PropertyNames.ProximityAlertTriggered)]
     public ProximityAlertTriggered? ProximityAlertTriggered { get; set; }
@@ -562,13 +562,19 @@ public class Message : MaybeInaccessibleMessage
     public ChecklistTasksAdded? ChecklistTasksAdded { get; set; }
 
     /// <summary>
-    /// Optional. Service message: chat added to a <see cref="Community"/>
+    /// Optional. Service message: chat or bot added to a <see cref="Community"/>
     /// </summary>
     [JsonPropertyName(PropertyNames.CommunityChatAdded)]
     public CommunityChatAdded? CommunityChatAdded { get; set; }
 
     /// <summary>
-    /// Optional. Service message: chat removed from a <see cref="Community"/>
+    /// Optional. Service message: chat was joined by a user from a <see cref="Community"/>
+    /// </summary>
+    [JsonPropertyName(PropertyNames.CommunityChatJoined)]
+    public CommunityChatJoined? CommunityChatJoined { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: chat or bot removed from a <see cref="Community"/>
     /// </summary>
     [JsonPropertyName(PropertyNames.CommunityChatRemoved)]
     public CommunityChatRemoved? CommunityChatRemoved { get; set; }

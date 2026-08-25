@@ -30,6 +30,7 @@ namespace Telegram.BotAPI.RichMessages;
 /// <item><description><see cref="RichTextHashtag"/></description></item>
 /// <item><description><see cref="RichTextCashtag"/></description></item>
 /// <item><description><see cref="RichTextBotCommand"/></description></item>
+/// <item><description><see cref="RichTextButton"/></description></item>
 /// <item><description><see cref="RichTextAnchor"/></description></item>
 /// <item><description><see cref="RichTextAnchorLink"/></description></item>
 /// <item><description><see cref="RichTextReference"/></description></item>

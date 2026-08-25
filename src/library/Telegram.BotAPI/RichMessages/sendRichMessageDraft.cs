@@ -2,6 +2,7 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
+using Telegram.BotAPI.GettingUpdates;
 using Telegram.BotAPI.AvailableTypes;
 
 namespace Telegram.BotAPI.RichMessages;
@@ -46,30 +47,34 @@ public static partial class RichMessagesExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target private chat</param>
-    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated.</param>
-    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files isn't supported.</param>
+    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.</param>
+    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL isn't supported.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread</param>
+    /// <param name="canStop">Pass <em>True</em> to show the user a button to stop further drafts. The bot will receive an <see cref="Update"/> “stopped_message_generation” if the user presses the button.</param>
+    /// <param name="keepOnStop">Pass <em>True</em> to keep the draft in the chat when the button is pressed. The draft will still disappear after a short time or if the bot sends a message. To fully preserve the partial draft, the bot should send it as a new message.</param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static bool SendRichMessageDraft(this ITelegramBotClient client, long chatId, int draftId, InputRichMessage richMessage, int? messageThreadId = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendRichMessageDraftAsync(chatId, draftId, richMessage, messageThreadId, files).GetAwaiter().GetResult();
+    public static bool SendRichMessageDraft(this ITelegramBotClient client, long chatId, int draftId, InputRichMessage richMessage, int? messageThreadId = null, bool? canStop = null, bool? keepOnStop = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendRichMessageDraftAsync(chatId, draftId, richMessage, messageThreadId, canStop, keepOnStop, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to stream a partial rich message to a user while the message is being generated. Note that the streamed draft is ephemeral and acts as a temporary 30-second preview - once the output is finalized, you <strong>must</strong> call <a href="https://core.telegram.org/bots/api#sendrichmessage">sendRichMessage</a> with the complete message to persist it in the user's chat. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target private chat</param>
-    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated.</param>
-    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files isn't supported.</param>
+    /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.</param>
+    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL isn't supported.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread</param>
+    /// <param name="canStop">Pass <em>True</em> to show the user a button to stop further drafts. The bot will receive an <see cref="Update"/> “stopped_message_generation” if the user presses the button.</param>
+    /// <param name="keepOnStop">Pass <em>True</em> to keep the draft in the chat when the button is pressed. The draft will still disappear after a short time or if the bot sends a message. To fully preserve the partial draft, the bot should send it as a new message.</param>
     /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<bool> SendRichMessageDraftAsync(this ITelegramBotClient client, long chatId, int draftId, InputRichMessage richMessage, int? messageThreadId = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<bool> SendRichMessageDraftAsync(this ITelegramBotClient client, long chatId, int draftId, InputRichMessage richMessage, int? messageThreadId = null, bool? canStop = null, bool? keepOnStop = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -85,6 +90,14 @@ public static partial class RichMessagesExtensions
         if (messageThreadId is not null)
         {
             args.Add(PropertyNames.MessageThreadId, messageThreadId);
+        }
+        if (canStop is not null)
+        {
+            args.Add(PropertyNames.CanStop, canStop);
+        }
+        if (keepOnStop is not null)
+        {
+            args.Add(PropertyNames.KeepOnStop, keepOnStop);
         }
         if (files is not null)
         {

@@ -174,4 +174,10 @@ public class Update
     /// </summary>
     [JsonPropertyName(PropertyNames.Subscription)]
     public BotSubscriptionUpdated? Subscription { get; set; }
+
+    /// <summary>
+    /// Optional. A user asked the bot to stop the generation of a message
+    /// </summary>
+    [JsonPropertyName(PropertyNames.StoppedMessageGeneration)]
+    public MessageGenerationStopped? StoppedMessageGeneration { get; set; }
 }

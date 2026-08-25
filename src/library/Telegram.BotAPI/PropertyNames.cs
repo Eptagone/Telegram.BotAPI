@@ -84,6 +84,7 @@ public static partial class PropertyNames
     public const string BusinessOpeningHours = "business_opening_hours";
     public const string Button = "button";
     public const string ButtonText = "button_text";
+    public const string Buttons = "buttons";
     public const string CacheTime = "cache_time";
     public const string CallbackData = "callback_data";
     public const string CallbackGame = "callback_game";
@@ -136,7 +137,9 @@ public static partial class PropertyNames
     public const string CanSendVideoNotes = "can_send_video_notes";
     public const string CanSendVideos = "can_send_videos";
     public const string CanSendVoiceNotes = "can_send_voice_notes";
+    public const string CanSendWelcomeMessages = "can_send_welcome_messages";
     public const string CanSetStickerSet = "can_set_sticker_set";
+    public const string CanStop = "can_stop";
     public const string CanTransferAndUpgradeGifts = "can_transfer_and_upgrade_gifts";
     public const string CanTransferStars = "can_transfer_stars";
     public const string CanViewGiftsAndStars = "can_view_gifts_and_stars";
@@ -184,6 +187,7 @@ public static partial class PropertyNames
     public const string CommissionPerMille = "commission_per_mille";
     public const string Community = "community";
     public const string CommunityChatAdded = "community_chat_added";
+    public const string CommunityChatJoined = "community_chat_joined";
     public const string CommunityChatRemoved = "community_chat_removed";
     public const string CompletedByChat = "completed_by_chat";
     public const string CompletedByUser = "completed_by_user";
@@ -231,6 +235,7 @@ public static partial class PropertyNames
     public const string DisableContentTypeDetection = "disable_content_type_detection";
     public const string DisableEditMessage = "disable_edit_message";
     public const string DisableNotification = "disable_notification";
+    public const string Disabled = "disabled";
     public const string Distance = "distance";
     public const string Document = "document";
     public const string DocumentFileId = "document_file_id";
@@ -253,6 +258,7 @@ public static partial class PropertyNames
     public const string EmojiStatusExpirationDate = "emoji_status_expiration_date";
     public const string Entities = "entities";
     public const string EphemeralMessageId = "ephemeral_message_id";
+    public const string EphemeralMessageParameters = "ephemeral_message_parameters";
     public const string ErrorMessage = "error_message";
     public const string Errors = "errors";
     public const string ExcludeFromBlockchain = "exclude_from_blockchain";
@@ -380,6 +386,7 @@ public static partial class PropertyNames
     public const string IsCanceled = "is_canceled";
     public const string IsChecked = "is_checked";
     public const string IsClosed = "is_closed";
+    public const string IsCompact = "is_compact";
     public const string IsDark = "is_dark";
     public const string IsDirectMessages = "is_direct_messages";
     public const string IsDisabled = "is_disabled";
@@ -418,6 +425,7 @@ public static partial class PropertyNames
     public const string Items = "items";
     public const string JoinByRequest = "join_by_request";
     public const string JoinToSendMessages = "join_to_send_messages";
+    public const string KeepOnStop = "keep_on_stop";
     public const string KeepOriginalDetails = "keep_original_details";
     public const string Keyboard = "keyboard";
     public const string Keywords = "keywords";
@@ -614,6 +622,7 @@ public static partial class PropertyNames
     public const string RemoveDate = "remove_date";
     public const string RemoveKeyboard = "remove_keyboard";
     public const string RemovedChatBoost = "removed_chat_boost";
+    public const string ReplaceCallbackQueryMessage = "replace_callback_query_message";
     public const string ReplyMarkup = "reply_markup";
     public const string ReplyParameters = "reply_parameters";
     public const string ReplyToChecklistTaskId = "reply_to_checklist_task_id";
@@ -695,6 +704,7 @@ public static partial class PropertyNames
     public const string StickerSetName = "sticker_set_name";
     public const string StickerType = "sticker_type";
     public const string Stickers = "stickers";
+    public const string StoppedMessageGeneration = "stopped_message_generation";
     public const string Story = "story";
     public const string StoryId = "story_id";
     public const string Street = "street";

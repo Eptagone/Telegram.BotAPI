@@ -34,6 +34,12 @@ public class RichBlockTable : RichBlock
     public bool? IsStriped { get; set; }
 
     /// <summary>
+    /// Optional. <em>True</em>, if table cells have smaller indents
+    /// </summary>
+    [JsonPropertyName(PropertyNames.IsCompact)]
+    public bool? IsCompact { get; set; }
+
+    /// <summary>
     /// Optional. Caption of the table
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]

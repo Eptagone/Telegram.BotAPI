@@ -2,38 +2,23 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
-using Telegram.BotAPI.Games;
+using Telegram.BotAPI.AvailableTypes;
 
-namespace Telegram.BotAPI.AvailableTypes;
+namespace Telegram.BotAPI.RichMessages;
 
 /// <summary>
-/// This object represents one button of an inline keyboard. Exactly one of the fields other than <em>text</em>, <em>icon_custom_emoji_id</em>, and <em>style</em> must be used to specify the type of the button.
+/// This object represents a button in a <see cref="RichMessage"/>. Exactly one of the fields other than <em>text</em> and <em>style</em> must be used to specify the type of the button.
 /// </summary>
-public class InlineKeyboardButton
+public class RichMessageButton
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="InlineKeyboardButton"/> class.
-    /// </summary>
-    /// <param name="text">Label text on the button</param>
-    public InlineKeyboardButton(string text)
-    {
-        this.Text = text ?? throw new ArgumentNullException(nameof(text));
-    }
-
-    /// <summary>
-    /// Label text on the button
+    /// Text of the button. May contain only plain text, <see cref="RichTextCustomEmoji"/> and <see cref="RichTextDateTime"/> entities.
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
-    public string Text { get; set; }
+    public RichText Text { get; set; } = null!;
 
     /// <summary>
-    /// Optional. Unique identifier of the custom emoji shown before the text of the button. Can only be used by bots that purchased additional usernames on <a href="https://fragment.com">Fragment</a> or in the messages directly sent by the bot to private, group and supergroup chats if the owner of the bot has a Telegram Premium subscription.
-    /// </summary>
-    [JsonPropertyName(PropertyNames.IconCustomEmojiId)]
-    public string? IconCustomEmojiId { get; set; }
-
-    /// <summary>
-    /// Optional. Style of the button. Must be one of “danger” (red), “success” (green) or “primary” (blue). If omitted, then an app-specific style is used.
+    /// Optional. Style of the button. Must be one of “danger” (red), “success” (green), “primary” (blue) or “link” (the button is shown as a regular link without borders). If omitted, then an app-specific style is used. The style “link” is allowed only for callback buttons.
     /// </summary>
     [JsonPropertyName(PropertyNames.Style)]
     public string? Style { get; set; }
@@ -69,7 +54,7 @@ public class InlineKeyboardButton
     public string? SwitchInlineQuery { get; set; }
 
     /// <summary>
-    /// Optional. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. May be empty, in which case only the bot's username will be inserted.<br /><br />This offers a quick way for the user to open your bot in inline mode in the same chat - good for selecting something from multiple options. Not supported in channels and for messages sent in channel direct messages chats and on behalf of a business account.
+    /// Optional. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. May be empty, in which case only the bot's username will be inserted. Not supported in channels and for messages sent in channel direct messages chats and on behalf of a business account.
     /// </summary>
     [JsonPropertyName(PropertyNames.SwitchInlineQueryCurrentChat)]
     public string? SwitchInlineQueryCurrentChat { get; set; }
@@ -81,22 +66,10 @@ public class InlineKeyboardButton
     public SwitchInlineQueryChosenChat? SwitchInlineQueryChosenChat { get; set; }
 
     /// <summary>
-    /// Optional. Description of the button that copies the specified text to the clipboard
+    /// Optional. A button that copies the specified text to the clipboard
     /// </summary>
     [JsonPropertyName(PropertyNames.CopyText)]
     public CopyTextButton? CopyText { get; set; }
-
-    /// <summary>
-    /// Optional. Description of the game that will be launched when the user presses the button.<br /><br /><strong>NOTE:</strong> This type of button <strong>must</strong> always be the first button in the first row.
-    /// </summary>
-    [JsonPropertyName(PropertyNames.CallbackGame)]
-    public CallbackGame? CallbackGame { get; set; }
-
-    /// <summary>
-    /// Optional. Specify <em>True</em>, to send a <a href="https://core.telegram.org/bots/api#payments">Pay button</a>. Substrings “⭐” and “XTR” in the buttons's text will be replaced with a Telegram Star icon.<br /><br /><strong>NOTE:</strong> This type of button <strong>must</strong> always be the first button in the first row and can only be used in invoice messages.
-    /// </summary>
-    [JsonPropertyName(PropertyNames.Pay)]
-    public bool? Pay { get; set; }
 
     /// <summary>
     /// Optional. If set, then the button is disabled and does nothing

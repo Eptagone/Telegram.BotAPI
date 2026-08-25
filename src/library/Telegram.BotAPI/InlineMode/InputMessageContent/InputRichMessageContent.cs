@@ -14,14 +14,14 @@ public class InputRichMessageContent : InputMessageContent
     /// <summary>
     /// Initializes a new instance of the <see cref="InputRichMessageContent"/> class.
     /// </summary>
-    /// <param name="richMessage">The message to be sent</param>
+    /// <param name="richMessage">The message to be sent. Only previously uploaded files may be used in the message.</param>
     public InputRichMessageContent(InputRichMessage richMessage)
     {
         this.RichMessage = richMessage ?? throw new ArgumentNullException(nameof(richMessage));
     }
 
     /// <summary>
-    /// The message to be sent
+    /// The message to be sent. Only previously uploaded files may be used in the message.
     /// </summary>
     [JsonPropertyName(PropertyNames.RichMessage)]
     public InputRichMessage RichMessage { get; set; }

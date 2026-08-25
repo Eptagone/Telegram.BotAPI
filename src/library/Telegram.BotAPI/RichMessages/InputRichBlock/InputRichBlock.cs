@@ -18,14 +18,17 @@ namespace Telegram.BotAPI.RichMessages;
 /// <item><description><see cref="InputRichBlockAnchor"/></description></item>
 /// <item><description><see cref="InputRichBlockList"/></description></item>
 /// <item><description><see cref="InputRichBlockBlockQuotation"/></description></item>
+/// <item><description><see cref="InputRichBlockExpandableBlockQuotation"/></description></item>
 /// <item><description><see cref="InputRichBlockPullQuotation"/></description></item>
 /// <item><description><see cref="InputRichBlockCollage"/></description></item>
 /// <item><description><see cref="InputRichBlockSlideshow"/></description></item>
 /// <item><description><see cref="InputRichBlockTable"/></description></item>
 /// <item><description><see cref="InputRichBlockDetails"/></description></item>
 /// <item><description><see cref="InputRichBlockMap"/></description></item>
+/// <item><description><see cref="InputRichBlockButtons"/></description></item>
 /// <item><description><see cref="InputRichBlockAnimation"/></description></item>
 /// <item><description><see cref="InputRichBlockAudio"/></description></item>
+/// <item><description><see cref="InputRichBlockDocument"/></description></item>
 /// <item><description><see cref="InputRichBlockPhoto"/></description></item>
 /// <item><description><see cref="InputRichBlockVideo"/></description></item>
 /// <item><description><see cref="InputRichBlockVoiceNote"/></description></item>

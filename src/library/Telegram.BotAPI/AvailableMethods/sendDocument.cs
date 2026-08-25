@@ -50,8 +50,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="caption">Document caption (may also be used when resending documents by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
@@ -67,8 +66,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendDocument(this ITelegramBotClient client, long chatId, InputFile document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendDocumentAsync(chatId, document, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, thumbnail, caption, parseMode, captionEntities, disableContentTypeDetection, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendDocument(this ITelegramBotClient client, long chatId, InputFile document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendDocumentAsync(chatId, document, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, thumbnail, caption, parseMode, captionEntities, disableContentTypeDetection, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send general files. On success, the sent <see cref="Message"/> is returned. Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
@@ -79,8 +78,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="caption">Document caption (may also be used when resending documents by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
@@ -97,7 +95,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendDocumentAsync(this ITelegramBotClient client, long chatId, InputFile document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendDocumentAsync(this ITelegramBotClient client, long chatId, InputFile document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -121,13 +119,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (thumbnail is not null)
         {
@@ -190,8 +184,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="caption">Document caption (may also be used when resending documents by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
@@ -208,8 +201,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendDocument(this ITelegramBotClient client, long chatId, string document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendDocumentAsync(chatId, document, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, thumbnail, caption, parseMode, captionEntities, disableContentTypeDetection, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendDocument(this ITelegramBotClient client, long chatId, string document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendDocumentAsync(chatId, document, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, thumbnail, caption, parseMode, captionEntities, disableContentTypeDetection, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send general files. On success, the sent <see cref="Message"/> is returned. Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
@@ -220,8 +213,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="caption">Document caption (may also be used when resending documents by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
@@ -239,7 +231,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendDocumentAsync(this ITelegramBotClient client, long chatId, string document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendDocumentAsync(this ITelegramBotClient client, long chatId, string document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -263,13 +255,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (thumbnail is not null)
         {
@@ -339,8 +327,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="caption">Document caption (may also be used when resending documents by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
@@ -356,8 +343,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendDocument(this ITelegramBotClient client, string chatId, InputFile document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendDocumentAsync(chatId, document, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, thumbnail, caption, parseMode, captionEntities, disableContentTypeDetection, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendDocument(this ITelegramBotClient client, string chatId, InputFile document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendDocumentAsync(chatId, document, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, thumbnail, caption, parseMode, captionEntities, disableContentTypeDetection, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send general files. On success, the sent <see cref="Message"/> is returned. Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
@@ -368,8 +355,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="caption">Document caption (may also be used when resending documents by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
@@ -386,7 +372,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendDocumentAsync(this ITelegramBotClient client, string chatId, InputFile document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendDocumentAsync(this ITelegramBotClient client, string chatId, InputFile document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, InputFile? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -410,13 +396,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (thumbnail is not null)
         {
@@ -479,8 +461,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="caption">Document caption (may also be used when resending documents by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
@@ -497,8 +478,8 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendDocument(this ITelegramBotClient client, string chatId, string document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendDocumentAsync(chatId, document, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, thumbnail, caption, parseMode, captionEntities, disableContentTypeDetection, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendDocument(this ITelegramBotClient client, string chatId, string document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendDocumentAsync(chatId, document, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, thumbnail, caption, parseMode, captionEntities, disableContentTypeDetection, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
     /// Use this method to send general files. On success, the sent <see cref="Message"/> is returned. Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
@@ -509,8 +490,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
     /// <param name="caption">Document caption (may also be used when resending documents by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
@@ -528,7 +508,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendDocumentAsync(this ITelegramBotClient client, string chatId, string document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendDocumentAsync(this ITelegramBotClient client, string chatId, string document, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, string? thumbnail = null, string? caption = null, string? parseMode = null, IEnumerable<MessageEntity>? captionEntities = null, bool? disableContentTypeDetection = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -552,13 +532,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (thumbnail is not null)
         {

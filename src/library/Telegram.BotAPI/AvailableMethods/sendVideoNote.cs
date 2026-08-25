@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendVideoNote" method.</param>
@@ -23,7 +23,7 @@ public static partial class AvailableMethodsExtensions
         client.SendVideoNoteAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendVideoNote" method.</param>
@@ -42,7 +42,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
@@ -50,8 +50,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="duration">Duration of sent video in seconds</param>
     /// <param name="length">Video width and height, i.e. diameter of the video message</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -65,11 +64,11 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideoNote(this ITelegramBotClient client, long chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendVideoNote(this ITelegramBotClient client, long chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
@@ -77,8 +76,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="duration">Duration of sent video in seconds</param>
     /// <param name="length">Video width and height, i.e. diameter of the video message</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -93,7 +91,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, long chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, long chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -117,13 +115,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (duration is not null)
         {
@@ -170,7 +164,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
@@ -178,8 +172,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="duration">Duration of sent video in seconds</param>
     /// <param name="length">Video width and height, i.e. diameter of the video message</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -194,11 +187,11 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideoNote(this ITelegramBotClient client, long chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendVideoNote(this ITelegramBotClient client, long chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
@@ -206,8 +199,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="duration">Duration of sent video in seconds</param>
     /// <param name="length">Video width and height, i.e. diameter of the video message</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -223,7 +215,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, long chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, long chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -247,13 +239,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (duration is not null)
         {
@@ -307,7 +295,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
@@ -315,8 +303,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="duration">Duration of sent video in seconds</param>
     /// <param name="length">Video width and height, i.e. diameter of the video message</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -330,11 +317,11 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideoNote(this ITelegramBotClient client, string chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
-        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
+    public static Message SendVideoNote(this ITelegramBotClient client, string chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null) =>
+        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
@@ -342,8 +329,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="duration">Duration of sent video in seconds</param>
     /// <param name="length">Video width and height, i.e. diameter of the video message</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -358,7 +344,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, string chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, string chatId, InputFile videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, int? duration = null, int? length = null, InputFile? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -382,13 +368,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (duration is not null)
         {
@@ -435,7 +417,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
@@ -443,8 +425,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="duration">Duration of sent video in seconds</param>
     /// <param name="length">Video width and height, i.e. diameter of the video message</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -459,11 +440,11 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Message SendVideoNote(this ITelegramBotClient client, string chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
-        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, receiverUserId, callbackQueryId, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
+    public static Message SendVideoNote(this ITelegramBotClient client, string chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null) =>
+        client.SendVideoNoteAsync(chatId, videoNote, businessConnectionId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, duration, length, thumbnail, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
-    /// As of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>, Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
@@ -471,8 +452,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat</param>
-    /// <param name="receiverUserId">For outgoing ephemeral messages, unique identifier of the user who will receive the message; for group and supergroup chats only. It is not guaranteed that the user will receive the message, especially if they are offline. See <a href="https://core.telegram.org/bots/api#ephemeral-messages-and-commands">ephemeral message sending</a> for more details.</param>
-    /// <param name="callbackQueryId">For outgoing ephemeral messages, identifier of the callback query which triggerred the message if any</param>
+    /// <param name="ephemeralMessageParameters">A JSON-serialized object containing the parameters of the ephemeral message to send</param>
     /// <param name="duration">Duration of sent video in seconds</param>
     /// <param name="length">Video width and height, i.e. diameter of the video message</param>
     /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -488,7 +468,7 @@ public static partial class AvailableMethodsExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
-    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, string chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, long? receiverUserId = null, string? callbackQueryId = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
+    public static Task<Message> SendVideoNoteAsync(this ITelegramBotClient client, string chatId, string videoNote, string? businessConnectionId = null, int? messageThreadId = null, int? directMessagesTopicId = null, EphemeralMessageParameters? ephemeralMessageParameters = null, int? duration = null, int? length = null, string? thumbnail = null, bool? disableNotification = null, bool? protectContent = null, bool? allowPaidBroadcast = null, string? messageEffectId = null, SuggestedPostParameters? suggestedPostParameters = null, ReplyParameters? replyParameters = null, ReplyMarkup? replyMarkup = null, IDictionary<string, InputFile>? files = null, CancellationToken cancellationToken = default)
     {
         if (client is null)
         {
@@ -512,13 +492,9 @@ public static partial class AvailableMethodsExtensions
         {
             args.Add(PropertyNames.DirectMessagesTopicId, directMessagesTopicId);
         }
-        if (receiverUserId is not null)
+        if (ephemeralMessageParameters is not null)
         {
-            args.Add(PropertyNames.ReceiverUserId, receiverUserId);
-        }
-        if (callbackQueryId is not null)
-        {
-            args.Add(PropertyNames.CallbackQueryId, callbackQueryId);
+            args.Add(PropertyNames.EphemeralMessageParameters, ephemeralMessageParameters);
         }
         if (duration is not null)
         {

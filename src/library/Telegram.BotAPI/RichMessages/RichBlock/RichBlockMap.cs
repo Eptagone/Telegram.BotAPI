@@ -24,7 +24,7 @@ public class RichBlockMap : RichBlock
     public Location Location { get; set; } = null!;
 
     /// <summary>
-    /// Map zoom level; 13-20
+    /// Map zoom level
     /// </summary>
     [JsonPropertyName(PropertyNames.Zoom)]
     public int Zoom { get; set; }

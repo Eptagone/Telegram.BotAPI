@@ -28,7 +28,7 @@ public class InputRichMessage
     public string? Markdown { get; set; }
 
     /// <summary>
-    /// Optional. List of media that are specified in the <em>markdown</em> or <em>html</em> fields using <em>tg://photo?id=</em>, <em>tg://video?id=</em>, and <em>tg://audio?id=</em> links
+    /// Optional. List of media that are specified in the <em>markdown</em> or <em>html</em> fields using <em>tg://photo?id=</em>, <em>tg://video?id=</em>, <em>tg://document?id=</em>, and <em>tg://audio?id=</em> links
     /// </summary>
     [JsonPropertyName(PropertyNames.Media)]
     public IEnumerable<InputRichMessageMedia>? Media { get; set; }

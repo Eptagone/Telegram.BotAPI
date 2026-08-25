@@ -23,4 +23,10 @@ public class InlineKeyboardMarkup : ReplyMarkup
     /// </summary>
     [JsonPropertyName(PropertyNames.InlineKeyboard)]
     public IEnumerable<IEnumerable<InlineKeyboardButton>> InlineKeyboard { get; set; }
+
+    /// <summary>
+    /// Optional. Pass <em>True</em> if the reply interface must be shown to the user, as if they had manually selected the bot's message and tapped 'Reply'. The value of the field can't be changed when the inline keyboard is edited.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.ForceReply)]
+    public bool? ForceReply { get; set; }
 }
