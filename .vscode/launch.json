@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Core Attach",
+      "type": "coreclr",
+      "request": "attach"
+    },
+    {
+      "name": "C#: Tests Debug",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/tests/Telegram.BotAPI.Tests/bin/Debug/net6.0/Telegram.BotAPI.Tests.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/tests/Telegram.BotAPI.Tests",
+      "console": "internalConsole",
+    },
+    {
+      "name": "C#: Scrapper Debug",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${env:TEMP}/tbapi_tools_main/main.dll",
+      "cwd": "${workspaceFolder}/tools",
+      "preLaunchTask": "Tools: Build scrapper"
+    },
+  ]
+}

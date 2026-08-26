@@ -1,7 +1,3 @@
-#nullable enable
-
-using System.Text.Json.Serialization;
-
 #region Bot API Models
 
 /// <summary>
@@ -158,7 +154,7 @@ public enum ClassModelType
     MethodArguments,
     MethodArgumentsWithAttachments,
     ExtensionMethods,
-    Constants
+    Constants,
 }
 
 /// <summary>

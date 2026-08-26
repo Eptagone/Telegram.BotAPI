@@ -14,7 +14,6 @@
     "source.organizeImports": "explicit"
   },
   "npm.packageManager": "pnpm",
-  "eslint.useFlatConfig": true,
   "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
   "js/ts.inlayHints.variableTypes.enabled": true,
   "js/ts.referencesCodeLens.enabled": true,

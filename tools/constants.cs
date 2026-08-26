@@ -1,5 +1,3 @@
-#nullable enable
-
 public static class ScriptConstants
 {
     public const string PROJECT_NAME = "Telegram.BotAPI";
