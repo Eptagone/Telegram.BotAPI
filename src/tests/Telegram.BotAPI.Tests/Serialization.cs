@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Telegram.BotAPI.InlineMode;
+using Telegram.BotAPI.RichMessages;
 using Telegram.BotAPI.UpdatingMessages;
 
 namespace Telegram.BotAPI.Tests;
@@ -96,5 +97,16 @@ public sealed class Serialization(ITestOutputHelper outputHelper)
                     ((InlineQueryResultArticle)deserializeResult).InputMessageContent
             ).MessageText
         );
+    }
+
+    [Fact]
+    public void DeserializeRichText()
+    {
+        var json =
+            """[{"type":"bold","text":"hi"},{"type":"italic","text":["a",{"type":"bold","text":"b"}]}]""";
+        var instances = JsonSerializer.Deserialize<RichText[]>(json);
+        var serializedInstances = JsonSerializer.Serialize(instances);
+
+        Assert.Equal(json, serializedInstances);
     }
 }
