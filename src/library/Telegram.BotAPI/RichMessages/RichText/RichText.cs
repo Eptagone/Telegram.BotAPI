@@ -38,7 +38,7 @@ namespace Telegram.BotAPI.RichMessages;
 /// </list>
 /// </summary>
 [JsonConverter(typeof(RichTextConverter))]
-public abstract class RichText
+public abstract partial class RichText
 {
     /// <summary>
     /// Type of the rich text
