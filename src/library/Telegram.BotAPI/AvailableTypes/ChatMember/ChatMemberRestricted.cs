@@ -76,7 +76,7 @@ public class ChatMemberRestricted : ChatMember
     public bool CanSendPolls { get; set; }
 
     /// <summary>
-    /// <em>True</em>, if the user is allowed to send animations, games, stickers and use inline bots
+    /// <em>True</em>, if the user is allowed to send animations, games, stickers, widgets and use inline bots
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendOtherMessages)]
     public bool CanSendOtherMessages { get; set; }

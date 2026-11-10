@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>10.3.1</Version>
+    <Version>10.4.0</Version>
     <PackageId>$(AssemblyName)</PackageId>
     <Authors>Quetzal Rivera</Authors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -10,7 +10,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Description>A very complete library to use Telegram Bot API in your NET project. Full
-      support for Bot API v10.3 (August 24, 2026).
+      support for Bot API v10.4 (November 9, 2026, 2026).
       - Contains all classes and methods available from the Bot API.
     </Description>
     <PackageTags>Telegram;Bot;API</PackageTags>
@@ -25,8 +25,11 @@
     <PackageProjectUrl>https://github.com/Eptagone/Telegram.BotAPI</PackageProjectUrl>
     <RepositoryType></RepositoryType>
     <AssemblyName>Telegram.BotAPI</AssemblyName>
-    <PackageReleaseNotes>Fix serialization/deserialization of RichText types when the value is a
-      plain text or an array of RichText instances</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade to Bot API 10.4
+      Breaking changes: The order of parameters in several methods has been changed because some
+      previously required parameters have become optional. Please review and update your method
+      calls.
+    </PackageReleaseNotes>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <PackageReadmeFile>README.md</PackageReadmeFile>

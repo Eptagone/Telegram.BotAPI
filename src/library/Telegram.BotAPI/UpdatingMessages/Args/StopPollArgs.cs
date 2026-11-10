@@ -14,7 +14,7 @@ public class StopPollArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="StopPollArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
     /// <param name="messageId">Identifier of the original message with the poll</param>
     public StopPollArgs(long chatId, int messageId)
     {
@@ -25,7 +25,7 @@ public class StopPollArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="StopPollArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
     /// <param name="messageId">Identifier of the original message with the poll</param>
     public StopPollArgs(string chatId, int messageId)
     {
@@ -40,7 +40,7 @@ public class StopPollArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object ChatId { get; set; }

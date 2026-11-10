@@ -26,6 +26,7 @@ namespace Telegram.BotAPI.RichMessages;
 /// <item><description><see cref="RichTextEmailAddress"/></description></item>
 /// <item><description><see cref="RichTextPhoneNumber"/></description></item>
 /// <item><description><see cref="RichTextBankCardNumber"/></description></item>
+/// <item><description><see cref="RichTextTonAddress"/></description></item>
 /// <item><description><see cref="RichTextMention"/></description></item>
 /// <item><description><see cref="RichTextHashtag"/></description></item>
 /// <item><description><see cref="RichTextCashtag"/></description></item>

@@ -2,6 +2,8 @@
 // Licensed under the MIT License, See LICENCE in the project root for license information.
 //* This file is auto-generated. Don't edit it manually!
 
+using Telegram.BotAPI.RichMessages;
+
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
@@ -10,7 +12,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class TextQuote
 {
     /// <summary>
-    /// Text of the quoted part of a message that is replied to by the given message
+    /// Text of the quoted part of a message that is replied to by the given message; may be empty if the quote was chosen from a rich message
     /// </summary>
     [JsonPropertyName(PropertyNames.Text)]
     public string Text { get; set; } = null!;
@@ -22,7 +24,13 @@ public class TextQuote
     public IEnumerable<MessageEntity>? Entities { get; set; }
 
     /// <summary>
-    /// Approximate quote position in the original message in UTF-16 code units as specified by the sender
+    /// Optional. Rich text of the quote if it was chosen from a <a href="https://core.telegram.org/bots/api#richmessage">rich message</a>. May contain only plain text, <see cref="RichTextBold"/>, <see cref="RichTextItalic"/>, <see cref="RichTextUnderline"/>, <see cref="RichTextStrikethrough"/>, <see cref="RichTextSpoiler"/>, <see cref="RichTextSubscript"/>, <see cref="RichTextSuperscript"/>, <see cref="RichTextDateTime"/>, <see cref="RichTextCustomEmoji"/>, <see cref="RichTextMathematicalExpression"/>, and arrays of them.
+    /// </summary>
+    [JsonPropertyName(PropertyNames.RichTexts)]
+    public IEnumerable<RichText>? RichTexts { get; set; }
+
+    /// <summary>
+    /// Approximate quote position in the original message in UTF-16 code units as specified by the sender. For quotes from rich messages, it is the position in the text formed by joining plain texts of all quotable texts of the message, separated by line feeds.
     /// </summary>
     [JsonPropertyName(PropertyNames.Position)]
     public int Position { get; set; }

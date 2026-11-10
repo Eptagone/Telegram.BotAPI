@@ -47,7 +47,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="giftId">Identifier of the gift; limited gifts can't be sent to channel chats</param>
     /// <param name="userId">Required if <em>chat_id</em> is not specified. Unique identifier of the target user who will receive the gift.</param>
-    /// <param name="chatId">Required if <em>user_id</em> is not specified. Unique identifier for the chat or username of the channel (in the format <em>@username</em>) that will receive the gift.</param>
+    /// <param name="chatId">Required if <em>user_id</em> is not specified. Unique identifier for the chat that will receive the gift or username of the channel in the format <em>@username</em>.</param>
     /// <param name="payForUpgrade">Pass <em>True</em> to pay for the gift upgrade from the bot's balance, thereby making the upgrade free for the receiver</param>
     /// <param name="text">Text that will be shown along with the gift; 0-128 characters</param>
     /// <param name="textParseMode">Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, “custom_emoji”, and “date_time” are ignored.</param>
@@ -64,7 +64,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="giftId">Identifier of the gift; limited gifts can't be sent to channel chats</param>
     /// <param name="userId">Required if <em>chat_id</em> is not specified. Unique identifier of the target user who will receive the gift.</param>
-    /// <param name="chatId">Required if <em>user_id</em> is not specified. Unique identifier for the chat or username of the channel (in the format <em>@username</em>) that will receive the gift.</param>
+    /// <param name="chatId">Required if <em>user_id</em> is not specified. Unique identifier for the chat that will receive the gift or username of the channel in the format <em>@username</em>.</param>
     /// <param name="payForUpgrade">Pass <em>True</em> to pay for the gift upgrade from the bot's balance, thereby making the upgrade free for the receiver</param>
     /// <param name="text">Text that will be shown along with the gift; 0-128 characters</param>
     /// <param name="textParseMode">Mode for parsing entities in the text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, “custom_emoji”, and “date_time” are ignored.</param>

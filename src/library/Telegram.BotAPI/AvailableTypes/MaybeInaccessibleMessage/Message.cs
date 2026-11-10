@@ -316,7 +316,13 @@ public class Message : MaybeInaccessibleMessage
     public Voice? Voice { get; set; }
 
     /// <summary>
-    /// Optional. Caption for the animation, audio, document, paid media, photo, video or voice
+    /// Optional. Message is an HTML widget, information about the widget
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Widget)]
+    public Widget? Widget { get; set; }
+
+    /// <summary>
+    /// Optional. Caption for the animation, audio, document, live photo, paid media, photo, video, voice, or widget
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]
     public string? Caption { get; set; }
@@ -328,7 +334,7 @@ public class Message : MaybeInaccessibleMessage
     public IEnumerable<MessageEntity>? CaptionEntities { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the caption must be shown above the message media
+    /// Optional. <em>True</em>, if the caption must be shown above the message media or the widget
     /// </summary>
     [JsonPropertyName(PropertyNames.ShowCaptionAboveMedia)]
     public bool? ShowCaptionAboveMedia { get; set; }
@@ -658,6 +664,12 @@ public class Message : MaybeInaccessibleMessage
     public PaidMessagePriceChanged? PaidMessagePriceChanged { get; set; }
 
     /// <summary>
+    /// Optional. Service message: the sender of the message used a link of the other user, which allows sending messages to the user without paying Telegram Stars
+    /// </summary>
+    [JsonPropertyName(PropertyNames.PaidMessagesWaived)]
+    public PaidMessagesWaived? PaidMessagesWaived { get; set; }
+
+    /// <summary>
     /// Optional. Service message: answer option was added to a poll
     /// </summary>
     [JsonPropertyName(PropertyNames.PollOptionAdded)]
@@ -698,6 +710,12 @@ public class Message : MaybeInaccessibleMessage
     /// </summary>
     [JsonPropertyName(PropertyNames.SuggestedPostRefunded)]
     public SuggestedPostRefunded? SuggestedPostRefunded { get; set; }
+
+    /// <summary>
+    /// Optional. Service message: a transfer with a TON wallet
+    /// </summary>
+    [JsonPropertyName(PropertyNames.TonWalletTransfer)]
+    public TonWalletTransfer? TonWalletTransfer { get; set; }
 
     /// <summary>
     /// Optional. Service message: video chat scheduled

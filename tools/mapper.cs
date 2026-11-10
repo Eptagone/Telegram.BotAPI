@@ -472,26 +472,27 @@ static class Mapper
                 IEnumerable<IEnumerable<ClassMethodParameterDefinition>> parametersCombinations =
                 [];
 
+                // Search which required parameter can be used to restrict the optional parameters combinations
+                TelegramMethodParameter? requiredParameter = null;
+                try
+                {
+                    requiredParameter = requiredTelegramParameters
+                        .Reverse()
+                        .FirstOrDefault(p =>
+                            p.Types.GroupTypes(definitions.TypeGroups).Count()
+                                % optionalParametersCombinations.Count()
+                                == 0
+                            || optionalParametersCombinations.Count()
+                                % p.Types.GroupTypes(definitions.TypeGroups).Count()
+                                == 0
+                        );
+                }
+                catch (Exception) { }
+
                 // Create all the possible combinations of required and optional parameters
                 // Optional parameters cannot have more than one combination, so if that is the case, use the required parameters combinations to restrict the optional parameters combinations.
-                if (optionalParametersCombinations.Count() > 1)
+                if (optionalParametersCombinations.Count() > 1 && requiredParameter != null)
                 {
-                    // Search which required parameter can be used to restrict the optional parameters combinations
-                    var requiredParameter =
-                        requiredTelegramParameters
-                            .Reverse()
-                            .FirstOrDefault(p =>
-                                p.Types.GroupTypes(definitions.TypeGroups).Count()
-                                    % optionalParametersCombinations.Count()
-                                    == 0
-                                || optionalParametersCombinations.Count()
-                                    % p.Types.GroupTypes(definitions.TypeGroups).Count()
-                                    == 0
-                            )
-                        ?? throw new Exception(
-                            $"Could not find a required parameter with the same count of types as the optional parameters in method {telegramMethod.Name}. There are no ways to restrict the optional parameters combinations."
-                        );
-
                     var buffer = new List<IEnumerable<ClassMethodParameterDefinition>>();
                     var discriminatingTypeNames = requiredParameter
                         .Types.GroupTypes(definitions.TypeGroups)

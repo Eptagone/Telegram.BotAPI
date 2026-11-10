@@ -45,8 +45,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat</param>
@@ -65,8 +65,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat</param>
@@ -128,8 +128,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat</param>
@@ -148,8 +148,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat</param>
@@ -211,8 +211,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat</param>
@@ -231,8 +231,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat</param>
@@ -294,8 +294,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat</param>
@@ -314,8 +314,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original message was sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageId">Message identifier in the chat specified in <em>from_chat_id</em></param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the message will be forwarded; required if the message is forwarded to a direct messages chat</param>

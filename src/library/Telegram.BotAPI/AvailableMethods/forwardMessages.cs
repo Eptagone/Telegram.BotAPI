@@ -45,8 +45,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an Array of <see cref="MessageId"/> of the sent messages is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the messages will be forwarded; required if the messages are forwarded to a direct messages chat</param>
@@ -62,8 +62,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an Array of <see cref="MessageId"/> of the sent messages is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the messages will be forwarded; required if the messages are forwarded to a direct messages chat</param>
@@ -110,8 +110,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an Array of <see cref="MessageId"/> of the sent messages is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the messages will be forwarded; required if the messages are forwarded to a direct messages chat</param>
@@ -127,8 +127,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an Array of <see cref="MessageId"/> of the sent messages is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the messages will be forwarded; required if the messages are forwarded to a direct messages chat</param>
@@ -175,8 +175,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an Array of <see cref="MessageId"/> of the sent messages is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the messages will be forwarded; required if the messages are forwarded to a direct messages chat</param>
@@ -192,8 +192,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an Array of <see cref="MessageId"/> of the sent messages is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the messages will be forwarded; required if the messages are forwarded to a direct messages chat</param>
@@ -240,8 +240,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an Array of <see cref="MessageId"/> of the sent messages is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the messages will be forwarded; required if the messages are forwarded to a direct messages chat</param>
@@ -257,8 +257,8 @@ public static partial class AvailableMethodsExtensions
     /// Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an Array of <see cref="MessageId"/> of the sent messages is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup or channel in the format <em>@username</em>)</param>
+    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em></param>
+    /// <param name="fromChatId">Unique identifier for the chat where the original messages were sent (or username of the target bot, supergroup, or channel in the format <em>@username</em>)</param>
     /// <param name="messageIds">A JSON-serialized list of 1-100 identifiers of messages in the chat <em>from_chat_id</em> to forward. The identifiers must be specified in a strictly increasing order.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only</param>
     /// <param name="directMessagesTopicId">Identifier of the direct messages topic to which the messages will be forwarded; required if the messages are forwarded to a direct messages chat</param>

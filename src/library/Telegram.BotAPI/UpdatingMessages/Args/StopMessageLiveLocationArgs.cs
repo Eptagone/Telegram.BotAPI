@@ -18,7 +18,7 @@ public class StopMessageLiveLocationArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>.
+    /// Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object? ChatId { get; set; }

@@ -14,44 +14,18 @@ public class SendAnimationArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendAnimationArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendAnimationArgs(long chatId, InputFile animation)
+    public SendAnimationArgs(InputFile animation)
     {
-        this.ChatId = chatId;
         this.Animation = animation ?? throw new ArgumentNullException(nameof(animation));
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="SendAnimationArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendAnimationArgs(long chatId, string animation)
+    public SendAnimationArgs(string animation)
     {
-        this.ChatId = chatId;
-        this.Animation = animation ?? throw new ArgumentNullException(nameof(animation));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendAnimationArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendAnimationArgs(string chatId, InputFile animation)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-        this.Animation = animation ?? throw new ArgumentNullException(nameof(animation));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendAnimationArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendAnimationArgs(string chatId, string animation)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Animation = animation ?? throw new ArgumentNullException(nameof(animation));
     }
 
@@ -62,10 +36,10 @@ public class SendAnimationArgs : AttachedFilesArgsBase
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

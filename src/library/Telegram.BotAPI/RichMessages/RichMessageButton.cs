@@ -18,7 +18,7 @@ public class RichMessageButton
     public RichText Text { get; set; } = null!;
 
     /// <summary>
-    /// Optional. Style of the button. Must be one of “danger” (red), “success” (green), “primary” (blue) or “link” (the button is shown as a regular link without borders). If omitted, then an app-specific style is used. The style “link” is allowed only for callback buttons.
+    /// Optional. Style of the button. Must be one of “danger”, “success”, “primary”, or “link” (the button is shown as a regular link without borders). Apps may use theme-specific colors for the button background and text based on the style. The style “link” is allowed only for callback buttons.
     /// </summary>
     [JsonPropertyName(PropertyNames.Style)]
     public string? Style { get; set; }

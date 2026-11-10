@@ -18,6 +18,7 @@ public static partial class MethodNames
     public const string AnswerPreCheckoutQuery = "answerPreCheckoutQuery";
     public const string AnswerShippingQuery = "answerShippingQuery";
     public const string AnswerWebAppQuery = "answerWebAppQuery";
+    public const string AnswerWidgetQuery = "answerWidgetQuery";
     public const string ApproveChatJoinRequest = "approveChatJoinRequest";
     public const string ApproveSuggestedPost = "approveSuggestedPost";
     public const string BanChatMember = "banChatMember";
@@ -36,6 +37,7 @@ public static partial class MethodNames
     public const string DeclineChatJoinRequest = "declineChatJoinRequest";
     public const string DeclineSuggestedPost = "declineSuggestedPost";
     public const string DeleteAllMessageReactions = "deleteAllMessageReactions";
+    public const string DeleteBusinessAccountGift = "deleteBusinessAccountGift";
     public const string DeleteBusinessMessages = "deleteBusinessMessages";
     public const string DeleteChatPhoto = "deleteChatPhoto";
     public const string DeleteChatStickerSet = "deleteChatStickerSet";
@@ -63,6 +65,8 @@ public static partial class MethodNames
     public const string EditMessageMedia = "editMessageMedia";
     public const string EditMessageReplyMarkup = "editMessageReplyMarkup";
     public const string EditMessageText = "editMessageText";
+    public const string EditMessageWidgetData = "editMessageWidgetData";
+    public const string EditSharedWidgetData = "editSharedWidgetData";
     public const string EditStory = "editStory";
     public const string EditUserStarSubscription = "editUserStarSubscription";
     public const string ExportChatInviteLink = "exportChatInviteLink";
@@ -78,6 +82,7 @@ public static partial class MethodNames
     public const string GetChatMember = "getChatMember";
     public const string GetChatMemberCount = "getChatMemberCount";
     public const string GetChatMenuButton = "getChatMenuButton";
+    public const string GetChatShareThemeBackdrops = "getChatShareThemeBackdrops";
     public const string GetCustomEmojiStickers = "getCustomEmojiStickers";
     public const string GetFile = "getFile";
     public const string GetForumTopicIconStickers = "getForumTopicIconStickers";
@@ -93,6 +98,7 @@ public static partial class MethodNames
     public const string GetMyStarBalance = "getMyStarBalance";
     public const string GetStarTransactions = "getStarTransactions";
     public const string GetStickerSet = "getStickerSet";
+    public const string GetUniqueGift = "getUniqueGift";
     public const string GetUpdates = "getUpdates";
     public const string GetUserChatBoosts = "getUserChatBoosts";
     public const string GetUserGifts = "getUserGifts";
@@ -143,11 +149,13 @@ public static partial class MethodNames
     public const string SendPoll = "sendPoll";
     public const string SendRichMessage = "sendRichMessage";
     public const string SendRichMessageDraft = "sendRichMessageDraft";
+    public const string SendSharedWidget = "sendSharedWidget";
     public const string SendSticker = "sendSticker";
     public const string SendVenue = "sendVenue";
     public const string SendVideo = "sendVideo";
     public const string SendVideoNote = "sendVideoNote";
     public const string SendVoice = "sendVoice";
+    public const string SendWidget = "sendWidget";
     public const string SetBusinessAccountBio = "setBusinessAccountBio";
     public const string SetBusinessAccountGiftSettings = "setBusinessAccountGiftSettings";
     public const string SetBusinessAccountName = "setBusinessAccountName";

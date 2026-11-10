@@ -14,44 +14,18 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
-    public SendVideoNoteArgs(long chatId, InputFile videoNote)
+    public SendVideoNoteArgs(InputFile videoNote)
     {
-        this.ChatId = chatId;
         this.VideoNote = videoNote ?? throw new ArgumentNullException(nameof(videoNote));
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
-    public SendVideoNoteArgs(long chatId, string videoNote)
+    public SendVideoNoteArgs(string videoNote)
     {
-        this.ChatId = chatId;
-        this.VideoNote = videoNote ?? throw new ArgumentNullException(nameof(videoNote));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
-    public SendVideoNoteArgs(string chatId, InputFile videoNote)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-        this.VideoNote = videoNote ?? throw new ArgumentNullException(nameof(videoNote));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendVideoNoteArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="videoNote">Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported.</param>
-    public SendVideoNoteArgs(string chatId, string videoNote)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.VideoNote = videoNote ?? throw new ArgumentNullException(nameof(videoNote));
     }
 
@@ -62,10 +36,10 @@ public class SendVideoNoteArgs : AttachedFilesArgsBase
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

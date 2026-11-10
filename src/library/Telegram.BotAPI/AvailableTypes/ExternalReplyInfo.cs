@@ -104,6 +104,12 @@ public class ExternalReplyInfo
     public Voice? Voice { get; set; }
 
     /// <summary>
+    /// Optional. Message is an HTML widget, information about the widget
+    /// </summary>
+    [JsonPropertyName(PropertyNames.Widget)]
+    public Widget? Widget { get; set; }
+
+    /// <summary>
     /// Optional. <em>True</em>, if the message media is covered by a spoiler animation
     /// </summary>
     [JsonPropertyName(PropertyNames.HasMediaSpoiler)]

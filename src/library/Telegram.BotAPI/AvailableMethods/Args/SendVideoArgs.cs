@@ -14,44 +14,18 @@ public class SendVideoArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVideoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendVideoArgs(long chatId, InputFile video)
+    public SendVideoArgs(InputFile video)
     {
-        this.ChatId = chatId;
         this.Video = video ?? throw new ArgumentNullException(nameof(video));
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVideoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendVideoArgs(long chatId, string video)
+    public SendVideoArgs(string video)
     {
-        this.ChatId = chatId;
-        this.Video = video ?? throw new ArgumentNullException(nameof(video));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendVideoArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendVideoArgs(string chatId, InputFile video)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-        this.Video = video ?? throw new ArgumentNullException(nameof(video));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendVideoArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="video">Video to send. Pass a file_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendVideoArgs(string chatId, string video)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Video = video ?? throw new ArgumentNullException(nameof(video));
     }
 
@@ -62,10 +36,10 @@ public class SendVideoArgs : AttachedFilesArgsBase
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

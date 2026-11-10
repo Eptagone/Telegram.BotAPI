@@ -14,25 +14,10 @@ public class SendContactArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendContactArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="phoneNumber">Contact's phone number</param>
     /// <param name="firstName">Contact's first name</param>
-    public SendContactArgs(long chatId, string phoneNumber, string firstName)
+    public SendContactArgs(string phoneNumber, string firstName)
     {
-        this.ChatId = chatId;
-        this.PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));
-        this.FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendContactArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="phoneNumber">Contact's phone number</param>
-    /// <param name="firstName">Contact's first name</param>
-    public SendContactArgs(string chatId, string phoneNumber, string firstName)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));
         this.FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
     }
@@ -44,10 +29,10 @@ public class SendContactArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

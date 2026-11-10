@@ -14,31 +14,12 @@ public class SendVenueArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVenueArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="latitude">Latitude of the venue</param>
     /// <param name="longitude">Longitude of the venue</param>
     /// <param name="title">Name of the venue</param>
     /// <param name="address">Address of the venue</param>
-    public SendVenueArgs(long chatId, float latitude, float longitude, string title, string address)
+    public SendVenueArgs(float latitude, float longitude, string title, string address)
     {
-        this.ChatId = chatId;
-        this.Latitude = latitude;
-        this.Longitude = longitude;
-        this.Title = title ?? throw new ArgumentNullException(nameof(title));
-        this.Address = address ?? throw new ArgumentNullException(nameof(address));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendVenueArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="latitude">Latitude of the venue</param>
-    /// <param name="longitude">Longitude of the venue</param>
-    /// <param name="title">Name of the venue</param>
-    /// <param name="address">Address of the venue</param>
-    public SendVenueArgs(string chatId, float latitude, float longitude, string title, string address)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Latitude = latitude;
         this.Longitude = longitude;
         this.Title = title ?? throw new ArgumentNullException(nameof(title));
@@ -52,10 +33,10 @@ public class SendVenueArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

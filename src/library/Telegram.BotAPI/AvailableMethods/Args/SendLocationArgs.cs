@@ -14,25 +14,10 @@ public class SendLocationArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendLocationArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="latitude">Latitude of the location</param>
     /// <param name="longitude">Longitude of the location</param>
-    public SendLocationArgs(long chatId, float latitude, float longitude)
+    public SendLocationArgs(float latitude, float longitude)
     {
-        this.ChatId = chatId;
-        this.Latitude = latitude;
-        this.Longitude = longitude;
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendLocationArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="latitude">Latitude of the location</param>
-    /// <param name="longitude">Longitude of the location</param>
-    public SendLocationArgs(string chatId, float latitude, float longitude)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Latitude = latitude;
         this.Longitude = longitude;
     }
@@ -44,10 +29,10 @@ public class SendLocationArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

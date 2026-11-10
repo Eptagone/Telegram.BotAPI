@@ -14,12 +14,10 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
     /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    public SendLivePhotoArgs(long chatId, InputFile livePhoto, InputFile photo)
+    public SendLivePhotoArgs(InputFile livePhoto, InputFile photo)
     {
-        this.ChatId = chatId;
         this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
         this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
     }
@@ -27,12 +25,10 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
     /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    public SendLivePhotoArgs(long chatId, InputFile livePhoto, string photo)
+    public SendLivePhotoArgs(InputFile livePhoto, string photo)
     {
-        this.ChatId = chatId;
         this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
         this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
     }
@@ -40,12 +36,10 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
     /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    public SendLivePhotoArgs(long chatId, string livePhoto, InputFile photo)
+    public SendLivePhotoArgs(string livePhoto, InputFile photo)
     {
-        this.ChatId = chatId;
         this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
         this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
     }
@@ -53,64 +47,10 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
     /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
     /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    public SendLivePhotoArgs(long chatId, string livePhoto, string photo)
+    public SendLivePhotoArgs(string livePhoto, string photo)
     {
-        this.ChatId = chatId;
-        this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
-        this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    public SendLivePhotoArgs(string chatId, InputFile livePhoto, InputFile photo)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-        this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
-        this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    public SendLivePhotoArgs(string chatId, InputFile livePhoto, string photo)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-        this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
-        this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    public SendLivePhotoArgs(string chatId, string livePhoto, InputFile photo)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-        this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
-        this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)</param>
-    /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    public SendLivePhotoArgs(string chatId, string livePhoto, string photo)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
         this.Photo = photo ?? throw new ArgumentNullException(nameof(photo));
     }
@@ -122,10 +62,10 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target channel (in the format <em>@channelusername</em>)
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

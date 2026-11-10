@@ -15,6 +15,8 @@ namespace Telegram.BotAPI.InlineMode;
 /// <item><description><see cref="InputVenueMessageContent"/></description></item>
 /// <item><description><see cref="InputContactMessageContent"/></description></item>
 /// <item><description><see cref="InputInvoiceMessageContent"/></description></item>
+/// <item><description><see cref="InputWidgetMessageContent"/></description></item>
+/// <item><description><see cref="InputSharedWidgetMessageContent"/></description></item>
 /// </list>
 /// </summary>
 [JsonConverter(typeof(InputMessageContentConverter))]

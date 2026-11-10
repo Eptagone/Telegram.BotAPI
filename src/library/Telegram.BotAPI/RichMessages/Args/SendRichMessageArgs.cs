@@ -14,22 +14,9 @@ public class SendRichMessageArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendRichMessageArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="richMessage">The message to be sent</param>
-    public SendRichMessageArgs(long chatId, InputRichMessage richMessage)
+    public SendRichMessageArgs(InputRichMessage richMessage)
     {
-        this.ChatId = chatId;
-        this.RichMessage = richMessage ?? throw new ArgumentNullException(nameof(richMessage));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendRichMessageArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="richMessage">The message to be sent</param>
-    public SendRichMessageArgs(string chatId, InputRichMessage richMessage)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.RichMessage = richMessage ?? throw new ArgumentNullException(nameof(richMessage));
     }
 
@@ -40,10 +27,10 @@ public class SendRichMessageArgs : AttachedFilesArgsBase
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

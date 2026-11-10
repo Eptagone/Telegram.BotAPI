@@ -14,44 +14,18 @@ public class SendVoiceArgs : AttachedFilesArgsBase
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVoiceArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendVoiceArgs(long chatId, InputFile voice)
+    public SendVoiceArgs(InputFile voice)
     {
-        this.ChatId = chatId;
         this.Voice = voice ?? throw new ArgumentNullException(nameof(voice));
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="SendVoiceArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendVoiceArgs(long chatId, string voice)
+    public SendVoiceArgs(string voice)
     {
-        this.ChatId = chatId;
-        this.Voice = voice ?? throw new ArgumentNullException(nameof(voice));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendVoiceArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendVoiceArgs(string chatId, InputFile voice)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
-        this.Voice = voice ?? throw new ArgumentNullException(nameof(voice));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendVoiceArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="voice">Audio file to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    public SendVoiceArgs(string chatId, string voice)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Voice = voice ?? throw new ArgumentNullException(nameof(voice));
     }
 
@@ -62,10 +36,10 @@ public class SendVoiceArgs : AttachedFilesArgsBase
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

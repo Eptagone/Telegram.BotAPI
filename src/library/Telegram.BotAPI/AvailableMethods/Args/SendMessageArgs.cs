@@ -14,22 +14,9 @@ public class SendMessageArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="SendMessageArgs"/> class.
     /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
     /// <param name="text">Text of the message to be sent, 1-4096 characters after entities parsing</param>
-    public SendMessageArgs(long chatId, string text)
+    public SendMessageArgs(string text)
     {
-        this.ChatId = chatId;
-        this.Text = text ?? throw new ArgumentNullException(nameof(text));
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SendMessageArgs"/> class.
-    /// </summary>
-    /// <param name="chatId">Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em></param>
-    /// <param name="text">Text of the message to be sent, 1-4096 characters after entities parsing</param>
-    public SendMessageArgs(string chatId, string text)
-    {
-        this.ChatId = chatId ?? throw new ArgumentNullException(nameof(chatId));
         this.Text = text ?? throw new ArgumentNullException(nameof(text));
     }
 
@@ -40,10 +27,10 @@ public class SendMessageArgs
     public string? BusinessConnectionId { get; set; }
 
     /// <summary>
-    /// Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>
+    /// Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>; required unless the message is sent as an ephemeral reply to a callback query
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
-    public object ChatId { get; set; }
+    public object? ChatId { get; set; }
 
     /// <summary>
     /// Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only

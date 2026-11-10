@@ -58,7 +58,7 @@ public class ChatPermissions
     public bool? CanSendPolls { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if the user is allowed to send animations, games, stickers and use inline bots
+    /// Optional. <em>True</em>, if the user is allowed to send animations, games, stickers, widgets and use inline bots
     /// </summary>
     [JsonPropertyName(PropertyNames.CanSendOtherMessages)]
     public bool? CanSendOtherMessages { get; set; }

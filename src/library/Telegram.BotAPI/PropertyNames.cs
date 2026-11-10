@@ -35,6 +35,7 @@ public static partial class PropertyNames
     public const string AllowChannelChats = "allow_channel_chats";
     public const string AllowGroupChats = "allow_group_chats";
     public const string AllowPaidBroadcast = "allow_paid_broadcast";
+    public const string AllowQueries = "allow_queries";
     public const string AllowSendingWithoutReply = "allow_sending_without_reply";
     public const string AllowUserChats = "allow_user_chats";
     public const string AllowedUpdates = "allowed_updates";
@@ -47,6 +48,7 @@ public static partial class PropertyNames
     public const string Animation = "animation";
     public const string AreDirectMessagesEnabled = "are_direct_messages_enabled";
     public const string Areas = "areas";
+    public const string Attributes = "attributes";
     public const string Audio = "audio";
     public const string AudioDuration = "audio_duration";
     public const string AudioFileId = "audio_file_id";
@@ -55,9 +57,12 @@ public static partial class PropertyNames
     public const string AuthorSignature = "author_signature";
     public const string AvailableReactions = "available_reactions";
     public const string Backdrop = "backdrop";
+    public const string Backdrops = "backdrops";
     public const string Background = "background";
+    public const string BackgroundBackdropId = "background_backdrop_id";
     public const string BackgroundColor = "background_color";
     public const string BackgroundCustomEmojiId = "background_custom_emoji_id";
+    public const string BackgroundNftAddress = "background_nft_address";
     public const string BankCardNumber = "bank_card_number";
     public const string BaseName = "base_name";
     public const string BigFileId = "big_file_id";
@@ -154,6 +159,7 @@ public static partial class PropertyNames
     public const string Chat = "chat";
     public const string ChatBackgroundSet = "chat_background_set";
     public const string ChatBoost = "chat_boost";
+    public const string ChatData = "chat_data";
     public const string ChatHasUsername = "chat_has_username";
     public const string ChatId = "chat_id";
     public const string ChatInstance = "chat_instance";
@@ -178,6 +184,7 @@ public static partial class PropertyNames
     public const string CloseDate = "close_date";
     public const string ClosingMinute = "closing_minute";
     public const string Codec = "codec";
+    public const string CollectionAddress = "collection_address";
     public const string Color = "color";
     public const string Colors = "colors";
     public const string Colspan = "colspan";
@@ -210,6 +217,8 @@ public static partial class PropertyNames
     public const string Currency = "currency";
     public const string CurrentLevelRating = "current_level_rating";
     public const string CustomDescription = "custom_description";
+    public const string CustomDescriptionEntities = "custom_description_entities";
+    public const string CustomDescriptionParseMode = "custom_description_parse_mode";
     public const string CustomEmojiId = "custom_emoji_id";
     public const string CustomEmojiIds = "custom_emoji_ids";
     public const string CustomEmojiStickerSetName = "custom_emoji_sticker_set_name";
@@ -256,6 +265,7 @@ public static partial class PropertyNames
     public const string EmojiList = "emoji_list";
     public const string EmojiStatusCustomEmojiId = "emoji_status_custom_emoji_id";
     public const string EmojiStatusExpirationDate = "emoji_status_expiration_date";
+    public const string Emojis = "emojis";
     public const string Entities = "entities";
     public const string EphemeralMessageId = "ephemeral_message_id";
     public const string EphemeralMessageParameters = "ephemeral_message_parameters";
@@ -362,6 +372,7 @@ public static partial class PropertyNames
     public const string IconColor = "icon_color";
     public const string IconCustomEmojiId = "icon_custom_emoji_id";
     public const string Id = "id";
+    public const string Index = "index";
     public const string InlineKeyboard = "inline_keyboard";
     public const string InlineMessageId = "inline_message_id";
     public const string InlineQuery = "inline_query";
@@ -416,6 +427,7 @@ public static partial class PropertyNames
     public const string IsRevoked = "is_revoked";
     public const string IsRtl = "is_rtl";
     public const string IsSaved = "is_saved";
+    public const string IsShared = "is_shared";
     public const string IsStarGiveaway = "is_star_giveaway";
     public const string IsStriped = "is_striped";
     public const string IsTopicMessage = "is_topic_message";
@@ -492,6 +504,7 @@ public static partial class PropertyNames
     public const string Mpeg4Height = "mpeg4_height";
     public const string Mpeg4Url = "mpeg4_url";
     public const string Mpeg4Width = "mpeg4_width";
+    public const string MsgHash = "msg_hash";
     public const string MyChatMember = "my_chat_member";
     public const string Name = "name";
     public const string NanostarAmount = "nanostar_amount";
@@ -510,6 +523,7 @@ public static partial class PropertyNames
     public const string NextLevelRating = "next_level_rating";
     public const string NextOffset = "next_offset";
     public const string NextTransferDate = "next_transfer_date";
+    public const string Nft = "nft";
     public const string Number = "number";
     public const string Offset = "offset";
     public const string Ok = "ok";
@@ -537,6 +551,7 @@ public static partial class PropertyNames
     public const string PaidMediaPayload = "paid_media_payload";
     public const string PaidMessagePriceChanged = "paid_message_price_changed";
     public const string PaidMessageStarCount = "paid_message_star_count";
+    public const string PaidMessagesWaived = "paid_messages_waived";
     public const string PaidStarCount = "paid_star_count";
     public const string ParentChat = "parent_chat";
     public const string ParseMode = "parse_mode";
@@ -544,6 +559,7 @@ public static partial class PropertyNames
     public const string Pay = "pay";
     public const string PayForUpgrade = "pay_for_upgrade";
     public const string Payload = "payload";
+    public const string PeerAddress = "peer_address";
     public const string PendingJoinRequestCount = "pending_join_request_count";
     public const string PendingUpdateCount = "pending_update_count";
     public const string Performer = "performer";
@@ -593,6 +609,8 @@ public static partial class PropertyNames
     public const string ProviderToken = "provider_token";
     public const string ProximityAlertRadius = "proximity_alert_radius";
     public const string ProximityAlertTriggered = "proximity_alert_triggered";
+    public const string PublicData = "public_data";
+    public const string PublicKey = "public_key";
     public const string PublisherChat = "publisher_chat";
     public const string PurchasedPaidMedia = "purchased_paid_media";
     public const string Qualities = "qualities";
@@ -605,6 +623,7 @@ public static partial class PropertyNames
     public const string QuoteEntities = "quote_entities";
     public const string QuoteParseMode = "quote_parse_mode";
     public const string QuotePosition = "quote_position";
+    public const string QuoteRichTexts = "quote_rich_texts";
     public const string Rarity = "rarity";
     public const string RarityPerMille = "rarity_per_mille";
     public const string Rating = "rating";
@@ -651,6 +670,7 @@ public static partial class PropertyNames
     public const string ReverseSide = "reverse_side";
     public const string RevokeMessages = "revoke_messages";
     public const string RichMessage = "rich_message";
+    public const string RichTexts = "rich_texts";
     public const string Rights = "rights";
     public const string RotationAngle = "rotation_angle";
     public const string Rowspan = "rowspan";
@@ -672,6 +692,8 @@ public static partial class PropertyNames
     public const string SenderUser = "sender_user";
     public const string SenderUserName = "sender_user_name";
     public const string SetName = "set_name";
+    public const string ShareTheme = "share_theme";
+    public const string SharedWidgetQuery = "shared_widget_query";
     public const string ShippingAddress = "shipping_address";
     public const string ShippingOptionId = "shipping_option_id";
     public const string ShippingOptions = "shipping_options";
@@ -683,6 +705,7 @@ public static partial class PropertyNames
     public const string ShowCaptionAboveMedia = "show_caption_above_media";
     public const string ShowGiftButton = "show_gift_button";
     public const string ShuffleOptions = "shuffle_options";
+    public const string SignData = "sign_data";
     public const string Size = "size";
     public const string SkipEntityDetection = "skip_entity_detection";
     public const string SlowModeDelay = "slow_mode_delay";
@@ -697,6 +720,7 @@ public static partial class PropertyNames
     public const string StartParameter = "start_parameter";
     public const string StartTimestamp = "start_timestamp";
     public const string State = "state";
+    public const string StateInit = "state_init";
     public const string Status = "status";
     public const string Sticker = "sticker";
     public const string StickerFileId = "sticker_file_id";
@@ -757,11 +781,15 @@ public static partial class PropertyNames
     public const string Timeout = "timeout";
     public const string Title = "title";
     public const string TitleEntities = "title_entities";
+    public const string TonWalletCard = "ton_wallet_card";
+    public const string TonWalletTransfer = "ton_wallet_transfer";
     public const string TopColor = "top_color";
     public const string TopicId = "topic_id";
     public const string TotalAmount = "total_amount";
     public const string TotalCount = "total_count";
     public const string TotalVoterCount = "total_voter_count";
+    public const string TraitType = "trait_type";
+    public const string TransactionId = "transaction_id";
     public const string TransactionType = "transaction_type";
     public const string Transactions = "transactions";
     public const string TransferStarCount = "transfer_star_count";
@@ -817,6 +845,8 @@ public static partial class PropertyNames
     public const string VoiceUrl = "voice_url";
     public const string VoterChat = "voter_chat";
     public const string VoterCount = "voter_count";
+    public const string Wallet = "wallet";
+    public const string WalletCard = "wallet_card";
     public const string WasRefunded = "was_refunded";
     public const string Watcher = "watcher";
     public const string WebApp = "web_app";
@@ -824,6 +854,10 @@ public static partial class PropertyNames
     public const string WebAppName = "web_app_name";
     public const string WebAppQueryId = "web_app_query_id";
     public const string WebAppUrl = "web_app_url";
+    public const string Widget = "widget";
+    public const string WidgetId = "widget_id";
+    public const string WidgetQuery = "widget_query";
+    public const string WidgetQueryId = "widget_query_id";
     public const string Width = "width";
     public const string WidthPercentage = "width_percentage";
     public const string WinnerCount = "winner_count";

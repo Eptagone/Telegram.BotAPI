@@ -13,7 +13,7 @@ public class StoryArea
     /// Position of the area
     /// </summary>
     [JsonPropertyName(PropertyNames.Position)]
-    public StoryAreaPosition Position { get; set; } = null!;
+    public AreaPosition Position { get; set; } = null!;
 
     /// <summary>
     /// Type of the area

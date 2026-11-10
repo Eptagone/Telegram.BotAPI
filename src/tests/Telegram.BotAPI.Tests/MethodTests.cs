@@ -10,7 +10,7 @@ public sealed class MethodTests
     {
         Assert.Throws<ArgumentNullException>(() =>
         {
-            AvailableMethodsExtensions.SendMessage(null, 0, "Hello World");
+            AvailableMethodsExtensions.SendMessage(null, "Hello World");
         });
     }
 }

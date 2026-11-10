@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.RichMessages;
 
 /// <summary>
-/// A block quotation, corresponding to the HTML tag <em>&lt;blockquote&gt;</em> with custom attribute <em>"collapsed"</em>.
+/// A block quotation, corresponding to the HTML tag <em>&lt;blockquote&gt;</em> with custom attribute <em>"expandable"</em>.
 /// </summary>
 public class RichBlockExpandableBlockQuotation : RichBlock
 {

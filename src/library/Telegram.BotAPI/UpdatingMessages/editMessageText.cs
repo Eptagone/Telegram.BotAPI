@@ -46,7 +46,7 @@ public static partial class UpdatingMessagesExtensions
     /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>.</param>
+    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="text">New text of the message, 1-4096 characters after entity parsing; required if <em>rich_message</em> isn't specified</param>
@@ -66,7 +66,7 @@ public static partial class UpdatingMessagesExtensions
     /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>.</param>
+    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="text">New text of the message, 1-4096 characters after entity parsing; required if <em>rich_message</em> isn't specified</param>
@@ -135,7 +135,7 @@ public static partial class UpdatingMessagesExtensions
     /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>.</param>
+    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="text">New text of the message, 1-4096 characters after entity parsing; required if <em>rich_message</em> isn't specified</param>
@@ -155,7 +155,7 @@ public static partial class UpdatingMessagesExtensions
     /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
-    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup or channel in the format <em>@username</em>.</param>
+    /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
     /// <param name="messageId">Required if <em>inline_message_id</em> is not specified. Identifier of the message to edit.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="text">New text of the message, 1-4096 characters after entity parsing; required if <em>rich_message</em> isn't specified</param>

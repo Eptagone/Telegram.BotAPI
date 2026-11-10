@@ -51,7 +51,7 @@ public class InlineKeyboardButton
     public string? CallbackData { get; set; }
 
     /// <summary>
-    /// Optional. Description of the <a href="https://core.telegram.org/bots/webapps">Web App</a> that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method <a href="https://core.telegram.org/bots/api#answerwebappquery">answerWebAppQuery</a>. Available only in private chats between a user and the bot. Not supported for messages sent on behalf of a business account.
+    /// Optional. Description of the <a href="https://core.telegram.org/bots/webapps">Web App</a> that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method <a href="https://core.telegram.org/bots/api#answerwebappquery">answerWebAppQuery</a>. Available only in private chats between a user and the bot. Not supported for messages sent on behalf of a business account and ephemeral messages.
     /// </summary>
     [JsonPropertyName(PropertyNames.WebApp)]
     public WebAppInfo? WebApp { get; set; }

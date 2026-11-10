@@ -104,6 +104,18 @@ public class Update
     public CallbackQuery? CallbackQuery { get; set; }
 
     /// <summary>
+    /// Optional. New incoming query from a widget in a message sent by the bot or via the bot
+    /// </summary>
+    [JsonPropertyName(PropertyNames.WidgetQuery)]
+    public WidgetQuery? WidgetQuery { get; set; }
+
+    /// <summary>
+    /// Optional. New incoming query from a forwarded message with a shared widget
+    /// </summary>
+    [JsonPropertyName(PropertyNames.SharedWidgetQuery)]
+    public SharedWidgetQuery? SharedWidgetQuery { get; set; }
+
+    /// <summary>
     /// Optional. New incoming shipping query. Only for invoices with flexible price.
     /// </summary>
     [JsonPropertyName(PropertyNames.ShippingQuery)]

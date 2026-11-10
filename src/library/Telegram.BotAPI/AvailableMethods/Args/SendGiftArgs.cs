@@ -27,7 +27,7 @@ public class SendGiftArgs
     public long? UserId { get; set; }
 
     /// <summary>
-    /// Required if <em>user_id</em> is not specified. Unique identifier for the chat or username of the channel (in the format <em>@username</em>) that will receive the gift.
+    /// Required if <em>user_id</em> is not specified. Unique identifier for the chat that will receive the gift or username of the channel in the format <em>@username</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChatId)]
     public object? ChatId { get; set; }
