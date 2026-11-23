@@ -7,7 +7,7 @@ using Telegram.BotAPI.Games;
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object represents an incoming callback query from a callback button in an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If the button that originated the query was attached to a message sent by the bot, the field <em>message</em> will be present. If the button was attached to a message sent via the bot (in <a href="https://core.telegram.org/bots/api#inline-mode">inline mode</a>), the field <em>inline_message_id</em> will be present. Exactly one of the fields <em>data</em> or <em>game_short_name</em> will be present.
+/// This object represents an incoming callback query from a callback button in an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a> or in a <a href="https://core.telegram.org/bots/api#richmessage">rich message</a>. If the button that originated the query belongs to a message sent by the bot, the field <em>message</em> will be present, unless the field <em>inline_message_id</em> is used instead as specified by the parameter <em>callback_query_mode</em> of the method <a href="https://core.telegram.org/bots/api#setmysettings">setMySettings</a>. If the button belongs to a message sent via the bot (in <a href="https://core.telegram.org/bots/api#inline-mode">inline mode</a>), the field <em>inline_message_id</em> will be present. Exactly one of the fields <em>data</em> or <em>game_short_name</em> will be present.
 /// </summary>
 public class CallbackQuery
 {
@@ -30,7 +30,7 @@ public class CallbackQuery
     public MaybeInaccessibleMessage? Message { get; set; }
 
     /// <summary>
-    /// Optional. Identifier of the message sent via the bot in inline mode, that originated the query
+    /// Optional. Identifier of the message sent via the bot in inline mode, that originated the query. Can also be present for messages sent by the bot, depending on the parameter <em>callback_query_mode</em> of the method <a href="https://core.telegram.org/bots/api#setmysettings">setMySettings</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.InlineMessageId)]
     public string? InlineMessageId { get; set; }

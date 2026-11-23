@@ -49,7 +49,7 @@ public class KeyboardButton
     public KeyboardButtonRequestChat? RequestChat { get; set; }
 
     /// <summary>
-    /// Optional. If specified, pressing the button will ask the user to create and share a bot that will be managed by the current bot. Available for bots that enabled management of other bots in the <a href="https://t.me/BotFather">@BotFather</a> Mini App. Available in private chats only.
+    /// Optional. If specified, pressing the button will ask the user to create and share a bot that will be managed by the current bot. Available for bots that enabled management of other bots in the <a href="https://t.me/BotFather">@BotFather</a> Mini App or using the parameter <em>can_manage_bots</em> of the method <a href="https://core.telegram.org/bots/api#setmysettings">setMySettings</a>. Available in private chats only.
     /// </summary>
     [JsonPropertyName(PropertyNames.RequestManagedBot)]
     public KeyboardButtonRequestManagedBot? RequestManagedBot { get; set; }

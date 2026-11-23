@@ -18,8 +18,8 @@ public class RichBlockExpandableBlockQuotation : RichBlock
     /// <summary>
     /// Content of the block
     /// </summary>
-    [JsonPropertyName(PropertyNames.Text)]
-    public RichText Text { get; set; } = null!;
+    [JsonPropertyName(PropertyNames.Blocks)]
+    public IEnumerable<RichBlock> Blocks { get; set; } = null!;
 
     /// <summary>
     /// Optional. Credit of the block

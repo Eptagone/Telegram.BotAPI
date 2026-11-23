@@ -95,12 +95,14 @@ public static partial class PropertyNames
     public const string CallbackGame = "callback_game";
     public const string CallbackQuery = "callback_query";
     public const string CallbackQueryId = "callback_query_id";
+    public const string CallbackQueryMode = "callback_query_mode";
     public const string CanAddWebPagePreviews = "can_add_web_page_previews";
     public const string CanBeEdited = "can_be_edited";
     public const string CanBeTransferred = "can_be_transferred";
     public const string CanBeUpgraded = "can_be_upgraded";
     public const string CanChangeGiftSettings = "can_change_gift_settings";
     public const string CanChangeInfo = "can_change_info";
+    public const string CanCommunicateWithBots = "can_communicate_with_bots";
     public const string CanConnectToBusiness = "can_connect_to_business";
     public const string CanConvertGiftsToStars = "can_convert_gifts_to_stars";
     public const string CanDeleteAllMessages = "can_delete_all_messages";
@@ -359,6 +361,7 @@ public static partial class PropertyNames
     public const string HasRestrictedVoiceAndVideoMessages =
         "has_restricted_voice_and_video_messages";
     public const string HasSpoiler = "has_spoiler";
+    public const string HasTopicSidebar = "has_topic_sidebar";
     public const string HasTopicsEnabled = "has_topics_enabled";
     public const string HasVisibleHistory = "has_visible_history";
     public const string Hash = "hash";
@@ -373,14 +376,17 @@ public static partial class PropertyNames
     public const string IconCustomEmojiId = "icon_custom_emoji_id";
     public const string Id = "id";
     public const string Index = "index";
+    public const string InlineFeedbackShareDenominator = "inline_feedback_share_denominator";
     public const string InlineKeyboard = "inline_keyboard";
     public const string InlineMessageId = "inline_message_id";
     public const string InlineQuery = "inline_query";
     public const string InlineQueryId = "inline_query_id";
+    public const string InlineQueryPlaceholder = "inline_query_placeholder";
     public const string InputFieldPlaceholder = "input_field_placeholder";
     public const string InputMessageContent = "input_message_content";
     public const string Intensity = "intensity";
     public const string InviteLink = "invite_link";
+    public const string Inviter = "inviter";
     public const string Invoice = "invoice";
     public const string InvoicePayload = "invoice_payload";
     public const string IpAddress = "ip_address";
@@ -512,6 +518,7 @@ public static partial class PropertyNames
     public const string NeedName = "need_name";
     public const string NeedPhoneNumber = "need_phone_number";
     public const string NeedShippingAddress = "need_shipping_address";
+    public const string NeedsInlineQueryLocation = "needs_inline_query_location";
     public const string NeedsRepainting = "needs_repainting";
     public const string NewChatMember = "new_chat_member";
     public const string NewChatMembers = "new_chat_members";

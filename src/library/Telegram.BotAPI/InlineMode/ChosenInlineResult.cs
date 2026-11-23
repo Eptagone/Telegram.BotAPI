@@ -24,7 +24,7 @@ public class ChosenInlineResult
     public User From { get; set; } = null!;
 
     /// <summary>
-    /// Optional. Sender location, only for bots that require user location
+    /// Optional. Sender location, only for bots that enabled user location requests via <a href="https://t.me/botfather">@BotFather</a> or using the parameter <em>needs_inline_query_location</em> of the method <a href="https://core.telegram.org/bots/api#setmysettings">setMySettings</a>
     /// </summary>
     [JsonPropertyName(PropertyNames.Location)]
     public Location? Location { get; set; }

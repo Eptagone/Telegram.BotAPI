@@ -178,6 +178,7 @@ public static partial class MethodNames
     public const string SetMyDescription = "setMyDescription";
     public const string SetMyName = "setMyName";
     public const string SetMyProfilePhoto = "setMyProfilePhoto";
+    public const string SetMySettings = "setMySettings";
     public const string SetMyShortDescription = "setMyShortDescription";
     public const string SetPassportDataErrors = "setPassportDataErrors";
     public const string SetStickerEmojiList = "setStickerEmojiList";

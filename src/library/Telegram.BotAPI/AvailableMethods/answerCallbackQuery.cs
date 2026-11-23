@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
+    /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a> or <a href="https://core.telegram.org/bots/api#richmessage">rich messages</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "AnswerCallbackQuery" method.</param>
@@ -23,7 +23,7 @@ public static partial class AvailableMethodsExtensions
         client.AnswerCallbackQueryAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
+    /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a> or <a href="https://core.telegram.org/bots/api#richmessage">rich messages</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "AnswerCallbackQuery" method.</param>
@@ -42,7 +42,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
+    /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a> or <a href="https://core.telegram.org/bots/api#richmessage">rich messages</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="callbackQueryId">Unique identifier for the query to be answered</param>
@@ -57,7 +57,7 @@ public static partial class AvailableMethodsExtensions
         client.AnswerCallbackQueryAsync(callbackQueryId, text, showAlert, url, cacheTime).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
+    /// Use this method to send answers to callback queries sent from <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboards</a> or <a href="https://core.telegram.org/bots/api#richmessage">rich messages</a>. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="callbackQueryId">Unique identifier for the query to be answered</param>

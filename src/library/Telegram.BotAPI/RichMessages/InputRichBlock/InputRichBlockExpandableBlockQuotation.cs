@@ -18,8 +18,8 @@ public class InputRichBlockExpandableBlockQuotation : InputRichBlock
     /// <summary>
     /// Content of the block
     /// </summary>
-    [JsonPropertyName(PropertyNames.Text)]
-    public RichText Text { get; set; } = null!;
+    [JsonPropertyName(PropertyNames.Blocks)]
+    public IEnumerable<InputRichBlock> Blocks { get; set; } = null!;
 
     /// <summary>
     /// Optional. Credit of the block
