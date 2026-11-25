@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.TelegramPassport;
 
 /// <summary>
-/// Represents an issue with the reverse side of a document. The error is considered resolved when the file with reverse side of the document changes.
+/// Represents an issue with the reverse side of a document. The error is considered resolved when the file with the reverse side of the document changes.
 /// </summary>
 public class PassportElementErrorReverseSide : PassportElementError
 {

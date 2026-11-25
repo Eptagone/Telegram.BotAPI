@@ -16,7 +16,7 @@ public class StoryAreaTypeWeather : StoryAreaType
     public override string Type => "weather";
 
     /// <summary>
-    /// Temperature, in degree Celsius
+    /// Temperature, in degrees Celsius
     /// </summary>
     [JsonPropertyName(PropertyNames.Temperature)]
     public float Temperature { get; set; }

@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.TelegramPassport;
 public class PassportData
 {
     /// <summary>
-    /// Array with information about documents and other Telegram Passport elements that was shared with the bot
+    /// Array with information shared with the bot about documents and other Telegram Passport elements
     /// </summary>
     [JsonPropertyName(PropertyNames.Data)]
     public IEnumerable<EncryptedPassportElement> Data { get; set; } = null!;

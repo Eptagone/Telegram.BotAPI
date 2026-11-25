@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object represent a list of gifts.
+/// This object represents a list of gifts.
 /// </summary>
 public class Gifts
 {

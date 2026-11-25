@@ -22,7 +22,7 @@ public class RichTextAnchorLink : RichText
     public RichText Text { get; set; } = null!;
 
     /// <summary>
-    /// The name of the anchor. If the name is empty, then the link brings back to the top of the message.
+    /// The name of the anchor. If the name is empty, then the link brings the user back to the top of the message.
     /// </summary>
     [JsonPropertyName(PropertyNames.AnchorName)]
     public string AnchorName { get; set; } = null!;

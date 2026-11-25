@@ -76,7 +76,7 @@ public class GiveawayWinners
     public bool? WasRefunded { get; set; }
 
     /// <summary>
-    /// Optional. Description of additional giveaway prize
+    /// Optional. Description of an additional giveaway prize
     /// </summary>
     [JsonPropertyName(PropertyNames.PrizeDescription)]
     public string? PrizeDescription { get; set; }

@@ -14,7 +14,7 @@ namespace Telegram.BotAPI.GettingUpdates;
 public class Update
 {
     /// <summary>
-    /// The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you're using <a href="https://core.telegram.org/bots/api#setwebhook">webhooks</a>, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.
+    /// The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you're using <a href="https://core.telegram.org/bots/api#setwebhook">webhooks</a>, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then the identifier of the next update will be chosen randomly instead of sequentially.
     /// </summary>
     [JsonPropertyName(PropertyNames.UpdateId)]
     public int UpdateId { get; set; }
@@ -80,7 +80,7 @@ public class Update
     public MessageReactionUpdated? MessageReaction { get; set; }
 
     /// <summary>
-    /// Optional. Reactions to a message with anonymous reactions were changed. The bot must be an administrator in the chat and must explicitly specify <em>"message_reaction_count"</em> in the list of <em>allowed_updates</em> to receive these updates. The updates are grouped and can be sent with delay up to a few minutes.
+    /// Optional. Reactions to a message with anonymous reactions were changed. The bot must be an administrator in the chat and must explicitly specify <em>"message_reaction_count"</em> in the list of <em>allowed_updates</em> to receive these updates. The updates are grouped and can be sent with a delay of up to a few minutes.
     /// </summary>
     [JsonPropertyName(PropertyNames.MessageReactionCount)]
     public MessageReactionCountUpdated? MessageReactionCount { get; set; }
@@ -134,7 +134,7 @@ public class Update
     public PaidMediaPurchased? PurchasedPaidMedia { get; set; }
 
     /// <summary>
-    /// Optional. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot.
+    /// Optional. New poll state. Bots receive only updates about manually stopped polls and polls which are sent by the bot.
     /// </summary>
     [JsonPropertyName(PropertyNames.Poll)]
     public Poll? Poll { get; set; }
@@ -176,7 +176,7 @@ public class Update
     public ChatBoostRemoved? RemovedChatBoost { get; set; }
 
     /// <summary>
-    /// Optional. A new bot was created to be managed by the bot, or token or owner of a managed bot was changed
+    /// Optional. A new bot was created to be managed by the bot, or the token or owner of a managed bot was changed
     /// </summary>
     [JsonPropertyName(PropertyNames.ManagedBot)]
     public ManagedBotUpdated? ManagedBot { get; set; }

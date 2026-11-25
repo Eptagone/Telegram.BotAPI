@@ -28,7 +28,7 @@ public class StoryAreaTypeSuggestedReaction : StoryAreaType
     public bool? IsDark { get; set; }
 
     /// <summary>
-    /// Optional. Pass <em>True</em> if reaction area corner is flipped
+    /// Optional. Pass <em>True</em> if the reaction area corner is flipped
     /// </summary>
     [JsonPropertyName(PropertyNames.IsFlipped)]
     public bool? IsFlipped { get; set; }

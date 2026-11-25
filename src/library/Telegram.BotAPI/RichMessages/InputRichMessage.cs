@@ -16,13 +16,13 @@ public class InputRichMessage
     public IEnumerable<InputRichBlock>? Blocks { get; set; }
 
     /// <summary>
-    /// Optional. Content of the rich message to send described using HTML formatting. See <a href="https://core.telegram.org/bots/api#rich-message-formatting-options">rich message formatting options</a> for more details. Use <em>media</em> field to specify the media used in the message.
+    /// Optional. Content of the rich message to send described using HTML formatting. See <a href="https://core.telegram.org/bots/api#rich-message-formatting-options">rich message formatting options</a> for more details. Use the <em>media</em> field to specify the media used in the message.
     /// </summary>
     [JsonPropertyName(PropertyNames.Html)]
     public string? Html { get; set; }
 
     /// <summary>
-    /// Optional. Content of the rich message to send described using Markdown formatting. See <a href="https://core.telegram.org/bots/api#rich-message-formatting-options">rich message formatting options</a> for more details. Use <em>media</em> field to specify the media used in the message.
+    /// Optional. Content of the rich message to send described using Markdown formatting. See <a href="https://core.telegram.org/bots/api#rich-message-formatting-options">rich message formatting options</a> for more details. Use the <em>media</em> field to specify the media used in the message.
     /// </summary>
     [JsonPropertyName(PropertyNames.Markdown)]
     public string? Markdown { get; set; }

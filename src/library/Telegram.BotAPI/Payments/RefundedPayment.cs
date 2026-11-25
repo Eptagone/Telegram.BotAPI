@@ -16,7 +16,7 @@ public class RefundedPayment
     public string Currency => "XTR";
 
     /// <summary>
-    /// Total refunded price in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a price of <em>US$ 1.45</em>, <em>total_amount = 145</em>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
+    /// Total refunded price in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a price of <em>US$ 1.45</em>, <em>total_amount = 145</em>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
     /// </summary>
     [JsonPropertyName(PropertyNames.TotalAmount)]
     public int TotalAmount { get; set; }

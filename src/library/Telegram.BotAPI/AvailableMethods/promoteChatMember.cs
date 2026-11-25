@@ -51,7 +51,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
     /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to <em>True</em> for promotions of channel administrators.</param>
     /// <param name="canPromoteMembers">Pass <em>True</em> if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)</param>
-    /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
+    /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change the chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
@@ -81,7 +81,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
     /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to <em>True</em> for promotions of channel administrators.</param>
     /// <param name="canPromoteMembers">Pass <em>True</em> if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)</param>
-    /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
+    /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change the chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
@@ -197,7 +197,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
     /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to <em>True</em> for promotions of channel administrators.</param>
     /// <param name="canPromoteMembers">Pass <em>True</em> if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)</param>
-    /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
+    /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change the chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>
@@ -227,7 +227,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="canManageVideoChats">Pass <em>True</em> if the administrator can manage video chats</param>
     /// <param name="canRestrictMembers">Pass <em>True</em> if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to <em>True</em> for promotions of channel administrators.</param>
     /// <param name="canPromoteMembers">Pass <em>True</em> if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)</param>
-    /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change chat title, photo and other settings</param>
+    /// <param name="canChangeInfo">Pass <em>True</em> if the administrator can change the chat title, photo and other settings</param>
     /// <param name="canInviteUsers">Pass <em>True</em> if the administrator can invite new users to the chat</param>
     /// <param name="canPostStories">Pass <em>True</em> if the administrator can post stories to the chat</param>
     /// <param name="canEditStories">Pass <em>True</em> if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</param>

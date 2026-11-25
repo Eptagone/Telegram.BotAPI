@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.UpdatingMessages;
 public static partial class UpdatingMessagesExtensions
 {
     /// <summary>
-    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "EditMessageReplyMarkup" method.</param>
@@ -23,7 +23,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageReplyMarkupAsync<TResult>(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "EditMessageReplyMarkup" method.</param>
@@ -42,7 +42,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -56,7 +56,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageReplyMarkupAsync(chatId, messageId, businessConnectionId, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -92,7 +92,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -106,7 +106,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageReplyMarkupAsync(chatId, messageId, businessConnectionId, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -142,7 +142,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>
@@ -155,7 +155,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageReplyMarkupAsync(inlineMessageId, businessConnectionId, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>

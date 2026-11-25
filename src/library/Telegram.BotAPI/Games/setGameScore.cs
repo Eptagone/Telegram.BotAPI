@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.Games;
 public static partial class GamesExtensions
 {
     /// <summary>
-    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
+    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Returns an error if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SetGameScore" method.</param>
@@ -23,7 +23,7 @@ public static partial class GamesExtensions
         client.SetGameScoreAsync<TResult>(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
+    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Returns an error if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SetGameScore" method.</param>
@@ -42,7 +42,7 @@ public static partial class GamesExtensions
     }
 
     /// <summary>
-    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
+    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Returns an error if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier</param>
@@ -58,7 +58,7 @@ public static partial class GamesExtensions
         client.SetGameScoreAsync(userId, score, chatId, messageId, force, disableEditMessage).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
+    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Returns an error if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier</param>
@@ -98,7 +98,7 @@ public static partial class GamesExtensions
     }
 
     /// <summary>
-    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
+    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Returns an error if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier</param>
@@ -113,7 +113,7 @@ public static partial class GamesExtensions
         client.SetGameScoreAsync(userId, score, inlineMessageId, force, disableEditMessage).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Returns an error, if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
+    /// Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Returns an error if the new score is not greater than the user's current score in the chat and <em>force</em> is <em>False</em>.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="userId">User identifier</param>

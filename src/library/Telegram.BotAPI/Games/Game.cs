@@ -7,7 +7,7 @@ using Telegram.BotAPI.AvailableTypes;
 namespace Telegram.BotAPI.Games;
 
 /// <summary>
-/// This object represents a game. Use BotFather to create and edit games, their short names will act as unique identifiers.
+/// This object represents a game. Use BotFather to create and edit games; their short names will act as unique identifiers.
 /// </summary>
 public class Game
 {

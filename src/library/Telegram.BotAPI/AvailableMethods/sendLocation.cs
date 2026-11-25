@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to send point on the map. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a point on the map. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendLocation" method.</param>
@@ -23,7 +23,7 @@ public static partial class AvailableMethodsExtensions
         client.SendLocationAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send point on the map. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a point on the map. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendLocation" method.</param>
@@ -42,7 +42,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to send point on the map. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a point on the map. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="latitude">Latitude of the location</param>
@@ -70,7 +70,7 @@ public static partial class AvailableMethodsExtensions
         client.SendLocationAsync(latitude, longitude, businessConnectionId, chatId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, horizontalAccuracy, livePeriod, heading, proximityAlertRadius, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send point on the map. On success, the sent <see cref="Message"/> is returned.
+    /// Use this method to send a point on the map. On success, the sent <see cref="Message"/> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="latitude">Latitude of the location</param>

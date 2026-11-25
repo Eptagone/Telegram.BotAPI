@@ -60,7 +60,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
     /// <param name="allowsMultipleAnswers">Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em></param>
-    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows changing the chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
     /// <param name="shuffleOptions">Pass <em>True</em> if the poll options must be shown in random order</param>
     /// <param name="allowAddingOptions">Pass <em>True</em> if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
     /// <param name="hideResultsUntilCloses">Pass <em>True</em> if poll results must be shown only after the poll closes</param>
@@ -178,7 +178,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
     /// <param name="allowsMultipleAnswers">Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em></param>
-    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows changing the chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
     /// <param name="shuffleOptions">Pass <em>True</em> if the poll options must be shown in random order</param>
     /// <param name="allowAddingOptions">Pass <em>True</em> if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
     /// <param name="hideResultsUntilCloses">Pass <em>True</em> if poll results must be shown only after the poll closes</param>
@@ -401,7 +401,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
     /// <param name="allowsMultipleAnswers">Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em></param>
-    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows changing the chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
     /// <param name="shuffleOptions">Pass <em>True</em> if the poll options must be shown in random order</param>
     /// <param name="allowAddingOptions">Pass <em>True</em> if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
     /// <param name="hideResultsUntilCloses">Pass <em>True</em> if poll results must be shown only after the poll closes</param>
@@ -519,7 +519,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="isAnonymous"><em>True</em>, if the poll needs to be anonymous, defaults to <em>True</em></param>
     /// <param name="type">Poll type, “quiz” or “regular”, defaults to “regular”</param>
     /// <param name="allowsMultipleAnswers">Pass <em>True</em> if the poll allows multiple answers, defaults to <em>False</em></param>
-    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
+    /// <param name="allowsRevoting">Pass <em>True</em> if the poll allows changing the chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls</param>
     /// <param name="shuffleOptions">Pass <em>True</em> if the poll options must be shown in random order</param>
     /// <param name="allowAddingOptions">Pass <em>True</em> if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes</param>
     /// <param name="hideResultsUntilCloses">Pass <em>True</em> if poll results must be shown only after the poll closes</param>

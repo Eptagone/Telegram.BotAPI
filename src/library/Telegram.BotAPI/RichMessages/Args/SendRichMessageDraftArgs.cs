@@ -16,7 +16,7 @@ public class SendRichMessageDraftArgs : AttachedFilesArgsBase
     /// </summary>
     /// <param name="chatId">Unique identifier for the target private chat</param>
     /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.</param>
-    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL isn't supported.</param>
+    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL aren't supported.</param>
     public SendRichMessageDraftArgs(long chatId, int draftId, InputRichMessage richMessage)
     {
         this.ChatId = chatId;
@@ -43,7 +43,7 @@ public class SendRichMessageDraftArgs : AttachedFilesArgsBase
     public int DraftId { get; set; }
 
     /// <summary>
-    /// The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL isn't supported.
+    /// The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL aren't supported.
     /// </summary>
     [JsonPropertyName(PropertyNames.RichMessage)]
     public InputRichMessage RichMessage { get; set; }

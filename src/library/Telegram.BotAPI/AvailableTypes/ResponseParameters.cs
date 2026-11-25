@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class ResponseParameters
 {
     /// <summary>
-    /// Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
+    /// Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
     /// </summary>
     [JsonPropertyName(PropertyNames.MigrateToChatId)]
     public long? MigrateToChatId { get; set; }

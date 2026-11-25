@@ -44,7 +44,7 @@ public static partial class StickersExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="sticker">File identifier of the sticker</param>
-    /// <param name="keywords">A JSON-serialized list of 0-20 search keywords for the sticker with total length of up to 64 characters</param>
+    /// <param name="keywords">A JSON-serialized list of 0-20 search keywords for the sticker with a total length of up to 64 characters</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
     /// <returns></returns>
@@ -56,7 +56,7 @@ public static partial class StickersExtensions
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="sticker">File identifier of the sticker</param>
-    /// <param name="keywords">A JSON-serialized list of 0-20 search keywords for the sticker with total length of up to 64 characters</param>
+    /// <param name="keywords">A JSON-serialized list of 0-20 search keywords for the sticker with a total length of up to 64 characters</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>

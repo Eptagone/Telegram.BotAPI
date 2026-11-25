@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to change settings of the bot. Settings that aren't specified remain unchanged. Returns <em>True</em> on success.
+    /// Use this method to change the settings of the bot. Settings that aren't specified remain unchanged. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SetMySettings" method.</param>
@@ -23,7 +23,7 @@ public static partial class AvailableMethodsExtensions
         client.SetMySettingsAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to change settings of the bot. Settings that aren't specified remain unchanged. Returns <em>True</em> on success.
+    /// Use this method to change the settings of the bot. Settings that aren't specified remain unchanged. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SetMySettings" method.</param>
@@ -42,7 +42,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to change settings of the bot. Settings that aren't specified remain unchanged. Returns <em>True</em> on success.
+    /// Use this method to change the settings of the bot. Settings that aren't specified remain unchanged. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="supportsInlineQueries">Pass <em>True</em> to enable <a href="https://core.telegram.org/bots/api#inline-mode">inline mode</a> for the bot or <em>False</em> to disable it</param>
@@ -67,7 +67,7 @@ public static partial class AvailableMethodsExtensions
         client.SetMySettingsAsync(supportsInlineQueries, inlineQueryPlaceholder, needsInlineQueryLocation, inlineFeedbackShareDenominator, canJoinGroups, canReadAllGroupMessages, canConnectToBusiness, canManageBots, supportsGuestQueries, supportsJoinRequestQueries, hasTopicsEnabled, allowsUsersToCreateTopics, hasTopicSidebar, canCommunicateWithBots, callbackQueryMode).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to change settings of the bot. Settings that aren't specified remain unchanged. Returns <em>True</em> on success.
+    /// Use this method to change the settings of the bot. Settings that aren't specified remain unchanged. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="supportsInlineQueries">Pass <em>True</em> to enable <a href="https://core.telegram.org/bots/api#inline-mode">inline mode</a> for the bot or <em>False</em> to disable it</param>

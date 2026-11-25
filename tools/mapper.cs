@@ -801,7 +801,11 @@ static class Mapper
                     }
                     else if (propName == "id" && parentName != null)
                     {
-                        if (parentName == "Chat" || parentName == "User")
+                        if (
+                            parentName == "Chat"
+                            || parentName == "User"
+                            || parentName == "BotFullInfo"
+                        )
                         {
                             return "long";
                         }

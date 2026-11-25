@@ -22,7 +22,7 @@ public class GetUpdatesArgs
     public int? Limit { get; set; }
 
     /// <summary>
-    /// Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive, short polling should be used for testing purposes only.
+    /// Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive; short polling should be used for testing purposes only.
     /// </summary>
     [JsonPropertyName(PropertyNames.Timeout)]
     public int? Timeout { get; set; }

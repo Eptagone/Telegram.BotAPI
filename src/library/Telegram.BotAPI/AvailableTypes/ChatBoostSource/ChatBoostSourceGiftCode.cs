@@ -16,7 +16,7 @@ public class ChatBoostSourceGiftCode : ChatBoostSource
     public override string Source => "gift_code";
 
     /// <summary>
-    /// User for which the gift code was created
+    /// User for whom the gift code was created
     /// </summary>
     [JsonPropertyName(PropertyNames.User)]
     public User User { get; set; } = null!;

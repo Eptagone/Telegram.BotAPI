@@ -7,7 +7,7 @@ using Telegram.BotAPI.AvailableTypes;
 namespace Telegram.BotAPI.InlineMode;
 
 /// <summary>
-/// Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead of the the voice message.
+/// Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead of the voice message.
 /// </summary>
 public class InlineQueryResultVoice : InlineQueryResult
 {

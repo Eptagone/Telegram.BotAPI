@@ -74,7 +74,7 @@ public class SendPaidMediaArgs : AttachedFilesArgsBase
     public IEnumerable<InputPaidMedia> Media { get; set; }
 
     /// <summary>
-    /// Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal processes.
+    /// Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user; use it for your internal processes.
     /// </summary>
     [JsonPropertyName(PropertyNames.Payload)]
     public string? Payload { get; set; }

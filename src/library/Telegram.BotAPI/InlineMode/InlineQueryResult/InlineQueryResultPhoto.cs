@@ -7,7 +7,7 @@ using Telegram.BotAPI.AvailableTypes;
 namespace Telegram.BotAPI.InlineMode;
 
 /// <summary>
-/// Represents a link to a photo. By default, this photo will be sent by the user with optional caption. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead of the photo.
+/// Represents a link to a photo. By default, this photo will be sent by the user with an optional caption. Alternatively, you can use <em>input_message_content</em> to send a message with the specified content instead of the photo.
 /// </summary>
 public class InlineQueryResultPhoto : InlineQueryResult
 {

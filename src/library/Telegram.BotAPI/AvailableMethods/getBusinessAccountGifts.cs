@@ -54,7 +54,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="excludeUnique">Pass <em>True</em> to exclude unique gifts</param>
     /// <param name="excludeFromBlockchain">Pass <em>True</em> to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram</param>
     /// <param name="sortByPrice">Pass <em>True</em> to sort results by gift price instead of send date. Sorting is applied before pagination.</param>
-    /// <param name="offset">Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results</param>
+    /// <param name="offset">Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results</param>
     /// <param name="limit">The maximum number of gifts to be returned; 1-100. Defaults to 100.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -75,7 +75,7 @@ public static partial class AvailableMethodsExtensions
     /// <param name="excludeUnique">Pass <em>True</em> to exclude unique gifts</param>
     /// <param name="excludeFromBlockchain">Pass <em>True</em> to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram</param>
     /// <param name="sortByPrice">Pass <em>True</em> to sort results by gift price instead of send date. Sorting is applied before pagination.</param>
-    /// <param name="offset">Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results</param>
+    /// <param name="offset">Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results</param>
     /// <param name="limit">The maximum number of gifts to be returned; 1-100. Defaults to 100.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>

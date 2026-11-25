@@ -64,13 +64,13 @@ public class Poll
     public bool AllowsMultipleAnswers { get; set; }
 
     /// <summary>
-    /// <em>True</em>, if the poll allows to change the chosen answer options
+    /// <em>True</em>, if the poll allows changing the chosen answer options
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowsRevoting)]
     public bool AllowsRevoting { get; set; }
 
     /// <summary>
-    /// <em>True</em> if voting is limited to users who have been members of the chat where the poll was originally sent for more than 24 hours
+    /// <em>True</em>, if voting is limited to users who have been members of the chat where the poll was originally sent for more than 24 hours
     /// </summary>
     [JsonPropertyName(PropertyNames.MembersOnly)]
     public bool MembersOnly { get; set; }

@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.TelegramPassport;
 
 /// <summary>
-/// Represents an issue with the translated version of a document. The error is considered resolved when a file with the document translation change.
+/// Represents an issue with the translated version of a document. The error is considered resolved when a file with the document translation changes.
 /// </summary>
 public class PassportElementErrorTranslationFiles : PassportElementError
 {

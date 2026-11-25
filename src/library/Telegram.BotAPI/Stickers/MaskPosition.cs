@@ -16,7 +16,7 @@ public class MaskPosition
     public string Point { get; set; } = null!;
 
     /// <summary>
-    /// Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. For example, choosing -1.0 will place mask just to the left of the default mask position.
+    /// Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. For example, choosing -1.0 will place the mask just to the left of the default mask position.
     /// </summary>
     [JsonPropertyName(PropertyNames.XShift)]
     public float XShift { get; set; }

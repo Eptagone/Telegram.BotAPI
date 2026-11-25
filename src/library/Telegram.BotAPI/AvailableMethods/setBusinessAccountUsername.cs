@@ -10,7 +10,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Changes the username of a managed business account. Requires the <em>can_change_username</em> business bot right. Returns <em>True</em> on success.
+    /// Changes the username of a managed business account. Requires the <em>can_edit_username</em> business bot right. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>
@@ -22,7 +22,7 @@ public static partial class AvailableMethodsExtensions
         client.SetBusinessAccountUsernameAsync(businessConnectionId, username).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Changes the username of a managed business account. Requires the <em>can_change_username</em> business bot right. Returns <em>True</em> on success.
+    /// Changes the username of a managed business account. Requires the <em>can_edit_username</em> business bot right. Returns <em>True</em> on success.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="businessConnectionId">Unique identifier of the business connection</param>

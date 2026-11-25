@@ -14,7 +14,7 @@ public class CreateInvoiceLinkArgs
     /// </summary>
     /// <param name="title">Product name, 1-32 characters</param>
     /// <param name="description">Product description, 1-255 characters</param>
-    /// <param name="payload">Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.</param>
+    /// <param name="payload">Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user; use it for your internal processes.</param>
     /// <param name="currency">Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a>. Pass “XTR” for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
     /// <param name="prices">Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</param>
     public CreateInvoiceLinkArgs(string title, string description, string payload, string currency, IEnumerable<LabeledPrice> prices)
@@ -45,7 +45,7 @@ public class CreateInvoiceLinkArgs
     public string Description { get; set; }
 
     /// <summary>
-    /// Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.
+    /// Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user; use it for your internal processes.
     /// </summary>
     [JsonPropertyName(PropertyNames.Payload)]
     public string Payload { get; set; }
@@ -69,25 +69,25 @@ public class CreateInvoiceLinkArgs
     public IEnumerable<LabeledPrice> Prices { get; set; }
 
     /// <summary>
-    /// The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user. Subscription price must no exceed 10000 Telegram Stars.
+    /// The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user. Subscription price must not exceed 10000 Telegram Stars.
     /// </summary>
     [JsonPropertyName(PropertyNames.SubscriptionPeriod)]
     public int? SubscriptionPeriod { get; set; }
 
     /// <summary>
-    /// The maximum accepted amount for tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of <em>US$ 1.45</em> pass <em>max_tip_amount = 145</em>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
+    /// The maximum accepted amount for tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of <em>US$ 1.45</em> pass <em>max_tip_amount = 145</em>. See the <em>exp</em> parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.MaxTipAmount)]
     public int? MaxTipAmount { get; set; }
 
     /// <summary>
-    /// A JSON-serialized Array of suggested amounts of tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed <em>max_tip_amount</em>.
+    /// A JSON-serialized Array of suggested amounts of tips in the <em>smallest units</em> of the currency (integer, <strong>not</strong> float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increasing order and must not exceed <em>max_tip_amount</em>.
     /// </summary>
     [JsonPropertyName(PropertyNames.SuggestedTipAmounts)]
     public IEnumerable<int>? SuggestedTipAmounts { get; set; }
 
     /// <summary>
-    /// JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.
+    /// JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of the required fields should be provided by the payment provider.
     /// </summary>
     [JsonPropertyName(PropertyNames.ProviderData)]
     public string? ProviderData { get; set; }

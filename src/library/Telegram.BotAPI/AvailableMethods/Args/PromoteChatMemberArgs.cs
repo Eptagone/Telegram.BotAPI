@@ -80,7 +80,7 @@ public class PromoteChatMemberArgs
     public bool? CanPromoteMembers { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> if the administrator can change chat title, photo and other settings
+    /// Pass <em>True</em> if the administrator can change the chat title, photo and other settings
     /// </summary>
     [JsonPropertyName(PropertyNames.CanChangeInfo)]
     public bool? CanChangeInfo { get; set; }

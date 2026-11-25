@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// No description available
+/// Describes the parameters of an ephemeral message to be sent.
 /// </summary>
 public class EphemeralMessageParameters
 {

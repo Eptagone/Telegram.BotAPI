@@ -418,7 +418,7 @@ public class Message : MaybeInaccessibleMessage
     public string? NewChatTitle { get; set; }
 
     /// <summary>
-    /// Optional. A chat photo was change to this value
+    /// Optional. A chat photo was changed to this value
     /// </summary>
     [JsonPropertyName(PropertyNames.NewChatPhoto)]
     public IEnumerable<PhotoSize>? NewChatPhoto { get; set; }
@@ -436,13 +436,13 @@ public class Message : MaybeInaccessibleMessage
     public bool? GroupChatCreated { get; set; }
 
     /// <summary>
-    /// Optional. Service message: the supergroup has been created. This field can't be received in a message coming through updates, because bot can't be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup.
+    /// Optional. Service message: the supergroup has been created. This field can't be received in a message coming through updates, because a bot can't be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to the very first message in a directly created supergroup.
     /// </summary>
     [JsonPropertyName(PropertyNames.SupergroupChatCreated)]
     public bool? SupergroupChatCreated { get; set; }
 
     /// <summary>
-    /// Optional. Service message: the channel has been created. This field can't be received in a message coming through updates, because bot can't be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel.
+    /// Optional. Service message: the channel has been created. This field can't be received in a message coming through updates, because a bot can't be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to the very first message in a channel.
     /// </summary>
     [JsonPropertyName(PropertyNames.ChannelChatCreated)]
     public bool? ChannelChatCreated { get; set; }
@@ -454,13 +454,13 @@ public class Message : MaybeInaccessibleMessage
     public MessageAutoDeleteTimerChanged? MessageAutoDeleteTimerChanged { get; set; }
 
     /// <summary>
-    /// Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
+    /// Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
     /// </summary>
     [JsonPropertyName(PropertyNames.MigrateToChatId)]
     public long? MigrateToChatId { get; set; }
 
     /// <summary>
-    /// Optional. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
+    /// Optional. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
     /// </summary>
     [JsonPropertyName(PropertyNames.MigrateFromChatId)]
     public long? MigrateFromChatId { get; set; }

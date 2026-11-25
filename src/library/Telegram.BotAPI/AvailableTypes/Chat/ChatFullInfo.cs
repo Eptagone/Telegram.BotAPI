@@ -112,7 +112,7 @@ public class ChatFullInfo : Chat
     public string? Bio { get; set; }
 
     /// <summary>
-    /// Optional. <em>True</em>, if privacy settings of the other party in the private chat allows to use <em>tg://user?id=&lt;user_id&gt;</em> links only in chats with the user
+    /// Optional. <em>True</em>, if the privacy settings of the other party in the private chat allow using <em>tg://user?id=&lt;user_id&gt;</em> links only in chats with the user
     /// </summary>
     [JsonPropertyName(PropertyNames.HasPrivateForwards)]
     public bool? HasPrivateForwards { get; set; }
@@ -232,7 +232,7 @@ public class ChatFullInfo : Chat
     public string? CustomEmojiStickerSetName { get; set; }
 
     /// <summary>
-    /// Optional. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.
+    /// Optional. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
     /// </summary>
     [JsonPropertyName(PropertyNames.LinkedChatId)]
     public long? LinkedChatId { get; set; }

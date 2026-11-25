@@ -25,7 +25,7 @@ public class SetStickerKeywordsArgs
     public string Sticker { get; set; }
 
     /// <summary>
-    /// A JSON-serialized list of 0-20 search keywords for the sticker with total length of up to 64 characters
+    /// A JSON-serialized list of 0-20 search keywords for the sticker with a total length of up to 64 characters
     /// </summary>
     [JsonPropertyName(PropertyNames.Keywords)]
     public IEnumerable<string>? Keywords { get; set; }

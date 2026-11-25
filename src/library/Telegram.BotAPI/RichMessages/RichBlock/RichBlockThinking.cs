@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.RichMessages;
 
 /// <summary>
-/// A block with a “Thinking…” placeholder, corresponding to the custom HTML tag <em>&lt;tg-thinking&gt;</em>. The block may be used only in <a href="https://core.telegram.org/bots/api#sendrichmessagedraft">sendRichMessageDraft</a>, therefore it can't be received in messages. See <a href="https://t.me/addemoji/AIActions"></a><a href="https://t.me/addemoji/AIActions">https://t.me/addemoji/AIActions</a> for examples of custom emoji that are recommended for usage in the block.
+/// A block with a “Thinking…” placeholder, corresponding to the custom HTML tag <em>&lt;tg-thinking&gt;</em>. The block may be used only in <a href="https://core.telegram.org/bots/api#sendrichmessagedraft">sendRichMessageDraft</a>; therefore, it can't be received in messages. See <a href="https://t.me/addemoji/AIActions"></a><a href="https://t.me/addemoji/AIActions">https://t.me/addemoji/AIActions</a> for examples of custom emoji that are recommended for usage in the block.
 /// </summary>
 public class RichBlockThinking : RichBlock
 {

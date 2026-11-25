@@ -22,7 +22,7 @@ public class Giveaway
     public int WinnersSelectionDate { get; set; }
 
     /// <summary>
-    /// The number of users which are supposed to be selected as winners of the giveaway
+    /// The number of users who are supposed to be selected as winners of the giveaway
     /// </summary>
     [JsonPropertyName(PropertyNames.WinnerCount)]
     public int WinnerCount { get; set; }
@@ -40,7 +40,7 @@ public class Giveaway
     public bool? HasPublicWinners { get; set; }
 
     /// <summary>
-    /// Optional. Description of additional giveaway prize
+    /// Optional. Description of an additional giveaway prize
     /// </summary>
     [JsonPropertyName(PropertyNames.PrizeDescription)]
     public string? PrizeDescription { get; set; }

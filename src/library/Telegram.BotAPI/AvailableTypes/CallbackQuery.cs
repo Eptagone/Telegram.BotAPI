@@ -42,7 +42,7 @@ public class CallbackQuery
     public string ChatInstance { get; set; } = null!;
 
     /// <summary>
-    /// Optional. Data associated with the callback button. Be aware that the message originated the query can contain no callback buttons with this data.
+    /// Optional. Data associated with the callback button. Be aware that the message that originated the query can contain no callback buttons with this data.
     /// </summary>
     [JsonPropertyName(PropertyNames.Data)]
     public string? Data { get; set; }

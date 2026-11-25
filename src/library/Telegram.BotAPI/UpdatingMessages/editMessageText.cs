@@ -13,7 +13,7 @@ namespace Telegram.BotAPI.UpdatingMessages;
 public static partial class UpdatingMessagesExtensions
 {
     /// <summary>
-    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "EditMessageText" method.</param>
@@ -24,7 +24,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageTextAsync<TResult>(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "EditMessageText" method.</param>
@@ -43,7 +43,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -53,7 +53,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL aren't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -63,7 +63,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageTextAsync(chatId, messageId, businessConnectionId, text, parseMode, entities, linkPreviewOptions, richMessage, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -73,7 +73,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL aren't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
@@ -132,7 +132,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -142,7 +142,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL aren't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -152,7 +152,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageTextAsync(chatId, messageId, businessConnectionId, text, parseMode, entities, linkPreviewOptions, richMessage, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -162,7 +162,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL aren't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
@@ -221,7 +221,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>
@@ -230,7 +230,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL aren't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -240,7 +240,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageTextAsync(inlineMessageId, businessConnectionId, text, parseMode, entities, linkPreviewOptions, richMessage, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit text, rich and <a href="https://core.telegram.org/bots/api#games">game</a> messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>
@@ -249,7 +249,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="parseMode">Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="entities">A JSON-serialized list of special entities that appear in message text, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="linkPreviewOptions">Link preview generation options for the message</param>
-    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.</param>
+    /// <param name="richMessage">New rich content of the message; required if <em>text</em> isn't specified. Direct upload of new files and explicit upload of files by a URL aren't supported when an inline message is edited.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="files">The files to upload.</param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>

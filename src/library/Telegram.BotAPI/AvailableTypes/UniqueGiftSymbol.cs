@@ -24,7 +24,7 @@ public class UniqueGiftSymbol
     public Sticker Sticker { get; set; } = null!;
 
     /// <summary>
-    /// The number of unique gifts that receive this model for every 1000 gifts upgraded
+    /// The number of unique gifts that receive this symbol for every 1000 gifts upgraded
     /// </summary>
     [JsonPropertyName(PropertyNames.RarityPerMille)]
     public int RarityPerMille { get; set; }

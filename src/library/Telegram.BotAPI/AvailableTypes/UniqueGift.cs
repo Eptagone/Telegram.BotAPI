@@ -52,7 +52,7 @@ public class UniqueGift
     public UniqueGiftBackdrop Backdrop { get; set; } = null!;
 
     /// <summary>
-    /// Optional. <em>True</em>, if the original regular gift was exclusively purchaseable by Telegram Premium subscribers
+    /// Optional. <em>True</em>, if the original regular gift was exclusively purchasable by Telegram Premium subscribers
     /// </summary>
     [JsonPropertyName(PropertyNames.IsPremium)]
     public bool? IsPremium { get; set; }

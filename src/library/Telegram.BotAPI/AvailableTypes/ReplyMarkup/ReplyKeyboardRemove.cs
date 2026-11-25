@@ -10,13 +10,13 @@ namespace Telegram.BotAPI.AvailableTypes;
 public class ReplyKeyboardRemove : ReplyMarkup
 {
     /// <summary>
-    /// Requests clients to remove the custom keyboard (user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use <em>one_time_keyboard</em> in <see cref="ReplyKeyboardMarkup"/>)
+    /// Requests clients to remove the custom keyboard (the user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use <em>one_time_keyboard</em> in <see cref="ReplyKeyboardMarkup"/>)
     /// </summary>
     [JsonPropertyName(PropertyNames.RemoveKeyboard)]
     public bool RemoveKeyboard => true;
 
     /// <summary>
-    /// Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the <em>text</em> of the <see cref="Message"/> object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.<br /><br /><em>Example:</em> A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet.
+    /// Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the <em>text</em> of the <see cref="Message"/> object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.<br /><br /><em>Example:</em> A user votes in a poll, and the bot returns a confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet.
     /// </summary>
     [JsonPropertyName(PropertyNames.Selective)]
     public bool? Selective { get; set; }

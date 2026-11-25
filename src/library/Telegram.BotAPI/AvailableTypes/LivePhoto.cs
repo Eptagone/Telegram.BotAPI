@@ -16,13 +16,13 @@ public class LivePhoto
     public IEnumerable<PhotoSize>? Photo { get; set; }
 
     /// <summary>
-    /// Identifier for the video file which can be used to download or reuse the file
+    /// Identifier for the video file, which can be used to download or reuse the file
     /// </summary>
     [JsonPropertyName(PropertyNames.FileId)]
     public string FileId { get; set; } = null!;
 
     /// <summary>
-    /// Unique identifier for the video file which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
+    /// Unique identifier for the video file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
     /// </summary>
     [JsonPropertyName(PropertyNames.FileUniqueId)]
     public string FileUniqueId { get; set; } = null!;
@@ -52,7 +52,7 @@ public class LivePhoto
     public string? MimeType { get; set; }
 
     /// <summary>
-    /// Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+    /// Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value.
     /// </summary>
     [JsonPropertyName(PropertyNames.FileSize)]
     public long? FileSize { get; set; }

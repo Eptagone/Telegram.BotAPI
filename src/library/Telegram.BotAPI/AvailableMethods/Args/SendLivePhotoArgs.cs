@@ -15,7 +15,7 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
     /// </summary>
     /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
+    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new photo using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
     public SendLivePhotoArgs(InputFile livePhoto, InputFile photo)
     {
         this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
@@ -26,7 +26,7 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
     /// </summary>
     /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
+    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new photo using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
     public SendLivePhotoArgs(InputFile livePhoto, string photo)
     {
         this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
@@ -37,7 +37,7 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
     /// </summary>
     /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
+    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new photo using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
     public SendLivePhotoArgs(string livePhoto, InputFile photo)
     {
         this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
@@ -48,7 +48,7 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     /// Initializes a new instance of the <see cref="SendLivePhotoArgs"/> class.
     /// </summary>
     /// <param name="livePhoto">Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
-    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
+    /// <param name="photo">The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new photo using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.</param>
     public SendLivePhotoArgs(string livePhoto, string photo)
     {
         this.LivePhoto = livePhoto ?? throw new ArgumentNullException(nameof(livePhoto));
@@ -92,19 +92,19 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     public object LivePhoto { get; set; }
 
     /// <summary>
-    /// The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.
+    /// The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new photo using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a>. Sending live photos by a URL is currently unsupported.
     /// </summary>
     [JsonPropertyName(PropertyNames.Photo)]
     public object Photo { get; set; }
 
     /// <summary>
-    /// Video caption (may also be used when resending videos by <em>file_id</em>), 0-1024 characters after entities parsing
+    /// Live photo caption (may also be used when resending live photos by <em>file_id</em>), 0-1024 characters after entities parsing
     /// </summary>
     [JsonPropertyName(PropertyNames.Caption)]
     public string? Caption { get; set; }
 
     /// <summary>
-    /// Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
+    /// Mode for parsing entities in the live photo caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.
     /// </summary>
     [JsonPropertyName(PropertyNames.ParseMode)]
     public string? ParseMode { get; set; }
@@ -122,7 +122,7 @@ public class SendLivePhotoArgs : AttachedFilesArgsBase
     public bool? ShowCaptionAboveMedia { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> if the video needs to be covered with a spoiler animation
+    /// Pass <em>True</em> if the live photo needs to be covered with a spoiler animation
     /// </summary>
     [JsonPropertyName(PropertyNames.HasSpoiler)]
     public bool? HasSpoiler { get; set; }

@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size; this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendAnimation" method.</param>
@@ -23,7 +23,7 @@ public static partial class AvailableMethodsExtensions
         client.SendAnimationAsync(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size; this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "SendAnimation" method.</param>
@@ -42,7 +42,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size; this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -54,8 +54,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="duration">Duration of sent animation in seconds</param>
     /// <param name="width">Animation width</param>
     /// <param name="height">Animation height</param>
-    /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    /// <param name="caption">Animation caption (may also be used when resending animation by <em>file_id</em>), 0-1024 characters after entities parsing</param>
+    /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="caption">Animation caption (may also be used when resending animations by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the animation caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media</param>
@@ -74,7 +74,7 @@ public static partial class AvailableMethodsExtensions
         client.SendAnimationAsync(animation, businessConnectionId, chatId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size; this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -86,8 +86,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="duration">Duration of sent animation in seconds</param>
     /// <param name="width">Animation width</param>
     /// <param name="height">Animation height</param>
-    /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    /// <param name="caption">Animation caption (may also be used when resending animation by <em>file_id</em>), 0-1024 characters after entities parsing</param>
+    /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="caption">Animation caption (may also be used when resending animations by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the animation caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media</param>
@@ -203,7 +203,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size; this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -215,8 +215,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="duration">Duration of sent animation in seconds</param>
     /// <param name="width">Animation width</param>
     /// <param name="height">Animation height</param>
-    /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    /// <param name="caption">Animation caption (may also be used when resending animation by <em>file_id</em>), 0-1024 characters after entities parsing</param>
+    /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="caption">Animation caption (may also be used when resending animations by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the animation caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media</param>
@@ -236,7 +236,7 @@ public static partial class AvailableMethodsExtensions
         client.SendAnimationAsync(animation, businessConnectionId, chatId, messageThreadId, directMessagesTopicId, ephemeralMessageParameters, duration, width, height, thumbnail, caption, parseMode, captionEntities, showCaptionAboveMedia, hasSpoiler, disableNotification, protectContent, allowPaidBroadcast, messageEffectId, suggestedPostParameters, replyParameters, replyMarkup, files).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+    /// Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent <see cref="Message"/> is returned. Bots can currently send animation files of up to 50 MB in size; this limit may be changed in the future.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="animation">Animation to send. Pass a file_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
@@ -248,8 +248,8 @@ public static partial class AvailableMethodsExtensions
     /// <param name="duration">Duration of sent animation in seconds</param>
     /// <param name="width">Animation width</param>
     /// <param name="height">Animation height</param>
-    /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
-    /// <param name="caption">Animation caption (may also be used when resending animation by <em>file_id</em>), 0-1024 characters after entities parsing</param>
+    /// <param name="thumbnail">Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass “attach://&lt;file_attach_name&gt;” if the thumbnail was uploaded using multipart/form-data under &lt;file_attach_name&gt;. <a href="https://core.telegram.org/bots/api#sending-files">More information on Sending Files »</a></param>
+    /// <param name="caption">Animation caption (may also be used when resending animations by <em>file_id</em>), 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the animation caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
     /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media</param>

@@ -14,7 +14,7 @@ public class EditMessageChecklistArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="EditMessageChecklistArgs"/> class.
     /// </summary>
-    /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
+    /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot in the format <em>@username</em></param>
     /// <param name="messageId">Unique identifier for the target message</param>
     /// <param name="checklist">A JSON-serialized object for the new checklist</param>
@@ -29,7 +29,7 @@ public class EditMessageChecklistArgs
     /// <summary>
     /// Initializes a new instance of the <see cref="EditMessageChecklistArgs"/> class.
     /// </summary>
-    /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message will be sent</param>
+    /// <param name="businessConnectionId">Unique identifier of the business connection on behalf of which the message to be edited was sent</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target bot in the format <em>@username</em></param>
     /// <param name="messageId">Unique identifier for the target message</param>
     /// <param name="checklist">A JSON-serialized object for the new checklist</param>
@@ -42,7 +42,7 @@ public class EditMessageChecklistArgs
     }
 
     /// <summary>
-    /// Unique identifier of the business connection on behalf of which the message will be sent
+    /// Unique identifier of the business connection on behalf of which the message to be edited was sent
     /// </summary>
     [JsonPropertyName(PropertyNames.BusinessConnectionId)]
     public string BusinessConnectionId { get; set; }

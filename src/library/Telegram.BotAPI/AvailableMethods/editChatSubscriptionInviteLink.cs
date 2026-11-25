@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.AvailableMethods;
 public static partial class AvailableMethodsExtensions
 {
     /// <summary>
-    /// Use this method to edit a subscription invite link created by the bot. The bot must have the <em>can_invite_users</em> administrator rights. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
+    /// Use this method to edit a subscription invite link created by the bot. The bot must have the <em>can_invite_users</em> administrator right. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel in the format <em>@username</em></param>
@@ -25,7 +25,7 @@ public static partial class AvailableMethodsExtensions
         client.EditChatSubscriptionInviteLinkAsync(chatId, inviteLink, name).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit a subscription invite link created by the bot. The bot must have the <em>can_invite_users</em> administrator rights. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
+    /// Use this method to edit a subscription invite link created by the bot. The bot must have the <em>can_invite_users</em> administrator right. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel in the format <em>@username</em></param>
@@ -56,7 +56,7 @@ public static partial class AvailableMethodsExtensions
     }
 
     /// <summary>
-    /// Use this method to edit a subscription invite link created by the bot. The bot must have the <em>can_invite_users</em> administrator rights. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
+    /// Use this method to edit a subscription invite link created by the bot. The bot must have the <em>can_invite_users</em> administrator right. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel in the format <em>@username</em></param>
@@ -69,7 +69,7 @@ public static partial class AvailableMethodsExtensions
         client.EditChatSubscriptionInviteLinkAsync(chatId, inviteLink, name).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit a subscription invite link created by the bot. The bot must have the <em>can_invite_users</em> administrator rights. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
+    /// Use this method to edit a subscription invite link created by the bot. The bot must have the <em>can_invite_users</em> administrator right. Returns the edited invite link as a <see cref="ChatInviteLink"/> object.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target chat or username of the target channel in the format <em>@username</em></param>

@@ -99,7 +99,7 @@ public class SendPollArgs
     public bool? AllowsMultipleAnswers { get; set; }
 
     /// <summary>
-    /// Pass <em>True</em> if the poll allows to change chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls
+    /// Pass <em>True</em> if the poll allows changing the chosen answer options, defaults to <em>False</em> for quizzes and to <em>True</em> for regular polls
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowsRevoting)]
     public bool? AllowsRevoting { get; set; }

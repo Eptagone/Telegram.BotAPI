@@ -5,12 +5,12 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object describes the rating of a user based on their Telegram Star spendings.
+/// This object describes the rating of a user based on their Telegram Star spending.
 /// </summary>
 public class UserRating
 {
     /// <summary>
-    /// Current level of the user, indicating their reliability when purchasing digital goods and services. A higher level suggests a more trustworthy customer; a negative level is likely reason for concern.
+    /// Current level of the user, indicating their reliability when purchasing digital goods and services. A higher level suggests a more trustworthy customer; a negative level is likely a reason for concern.
     /// </summary>
     [JsonPropertyName(PropertyNames.Level)]
     public int Level { get; set; }

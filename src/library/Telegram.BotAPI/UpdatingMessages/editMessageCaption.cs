@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.UpdatingMessages;
 public static partial class UpdatingMessagesExtensions
 {
     /// <summary>
-    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "EditMessageCaption" method.</param>
@@ -23,7 +23,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageCaptionAsync<TResult>(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "EditMessageCaption" method.</param>
@@ -42,7 +42,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -51,7 +51,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
-    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, live photo, paid media, photo, video and widget messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -60,7 +60,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageCaptionAsync(chatId, messageId, businessConnectionId, caption, parseMode, captionEntities, showCaptionAboveMedia, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -69,7 +69,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
-    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, live photo, paid media, photo, video and widget messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -116,7 +116,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -125,7 +125,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
-    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, live photo, paid media, photo, video and widget messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -134,7 +134,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageCaptionAsync(chatId, messageId, businessConnectionId, caption, parseMode, captionEntities, showCaptionAboveMedia, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -143,7 +143,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
-    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, live photo, paid media, photo, video and widget messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
@@ -190,7 +190,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>
@@ -198,7 +198,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
-    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, live photo, paid media, photo, video and widget messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>
     /// <exception cref="BotRequestException">Thrown if the request to the Telegram Bot API fails.</exception>
@@ -207,7 +207,7 @@ public static partial class UpdatingMessagesExtensions
         client.EditMessageCaptionAsync(inlineMessageId, businessConnectionId, caption, parseMode, captionEntities, showCaptionAboveMedia, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
+    /// Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within <strong>48 hours</strong> from the time they were sent.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>
@@ -215,7 +215,7 @@ public static partial class UpdatingMessagesExtensions
     /// <param name="caption">New caption of the message, 0-1024 characters after entities parsing</param>
     /// <param name="parseMode">Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api#formatting-options">formatting options</a> for more details.</param>
     /// <param name="captionEntities">A JSON-serialized list of special entities that appear in the caption, which can be specified instead of <em>parse_mode</em></param>
-    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, photo and video messages.</param>
+    /// <param name="showCaptionAboveMedia">Pass <em>True</em> if the caption must be shown above the message media. Supported only for animation, live photo, paid media, photo, video and widget messages.</param>
     /// <param name="replyMarkup">A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a></param>
     /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="client"/> is <c>null</c>.</exception>

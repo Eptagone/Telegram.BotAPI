@@ -12,7 +12,7 @@ namespace Telegram.BotAPI.UpdatingMessages;
 public static partial class UpdatingMessagesExtensions
 {
     /// <summary>
-    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
+    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "StopMessageLiveLocation" method.</param>
@@ -23,7 +23,7 @@ public static partial class UpdatingMessagesExtensions
         client.StopMessageLiveLocationAsync<TResult>(args).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
+    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="args">The arguments for the "StopMessageLiveLocation" method.</param>
@@ -42,7 +42,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
+    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -56,7 +56,7 @@ public static partial class UpdatingMessagesExtensions
         client.StopMessageLiveLocationAsync(chatId, messageId, businessConnectionId, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
+    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -92,7 +92,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
+    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -106,7 +106,7 @@ public static partial class UpdatingMessagesExtensions
         client.StopMessageLiveLocationAsync(chatId, messageId, businessConnectionId, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
+    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Required if <em>inline_message_id</em> is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format <em>@username</em>.</param>
@@ -142,7 +142,7 @@ public static partial class UpdatingMessagesExtensions
     }
 
     /// <summary>
-    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
+    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>
@@ -155,7 +155,7 @@ public static partial class UpdatingMessagesExtensions
         client.StopMessageLiveLocationAsync(inlineMessageId, businessConnectionId, replyMarkup).GetAwaiter().GetResult();
 
     /// <summary>
-    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned, otherwise <em>True</em> is returned.
+    /// Use this method to stop updating a live location message before <em>live_period</em> expires. On success, if the message is not an inline message, the edited <see cref="Message"/> is returned; otherwise, <em>True</em> is returned.
     /// </summary>
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="inlineMessageId">Required if <em>chat_id</em> and <em>message_id</em> are not specified. Identifier of the inline message.</param>

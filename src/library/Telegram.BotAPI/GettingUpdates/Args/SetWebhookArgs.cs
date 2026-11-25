@@ -45,7 +45,7 @@ public class SetWebhookArgs : AttachedFilesArgsBase
     public int? MaxConnections { get; set; }
 
     /// <summary>
-    /// A JSON-serialized list of the update types you want your bot to receive. For example, specify <em>["message", "edited_channel_post", "callback_query"]</em> to only receive updates of these types. See <see cref="Update"/> for a complete list of available update types. Specify an empty list to receive all update types except <em>chat_member</em>, <em>message_reaction</em>, and <em>message_reaction_count</em> (default). If not specified, the previous setting will be used.<br />Please note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.
+    /// A JSON-serialized list of the update types you want your bot to receive. For example, specify <em>["message", "edited_channel_post", "callback_query"]</em> to only receive updates of these types. See <see cref="Update"/> for a complete list of available update types. Specify an empty list to receive all update types except <em>chat_member</em>, <em>message_reaction</em>, and <em>message_reaction_count</em> (default). If not specified, the previous setting will be used.<br />Please note that this parameter doesn't affect updates created before the call to setWebhook, so unwanted updates may be received for a short period of time.
     /// </summary>
     [JsonPropertyName(PropertyNames.AllowedUpdates)]
     public IEnumerable<string>? AllowedUpdates { get; set; }

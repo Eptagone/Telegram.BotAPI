@@ -48,7 +48,7 @@ public static partial class RichMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target private chat</param>
     /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.</param>
-    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL isn't supported.</param>
+    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL aren't supported.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread</param>
     /// <param name="canStop">Pass <em>True</em> to show the user a button to stop further drafts. The bot will receive an <see cref="Update"/> “stopped_message_generation” if the user presses the button.</param>
     /// <param name="keepOnStop">Pass <em>True</em> to keep the draft in the chat when the button is pressed. The draft will still disappear after a short time or if the bot sends a message. To fully preserve the partial draft, the bot should send it as a new message.</param>
@@ -65,7 +65,7 @@ public static partial class RichMessagesExtensions
     /// <param name="client">The <see cref="ITelegramBotClient"/> instance.</param>
     /// <param name="chatId">Unique identifier for the target private chat</param>
     /// <param name="draftId">Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.</param>
-    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL isn't supported.</param>
+    /// <param name="richMessage">The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL aren't supported.</param>
     /// <param name="messageThreadId">Unique identifier for the target message thread</param>
     /// <param name="canStop">Pass <em>True</em> to show the user a button to stop further drafts. The bot will receive an <see cref="Update"/> “stopped_message_generation” if the user presses the button.</param>
     /// <param name="keepOnStop">Pass <em>True</em> to keep the draft in the chat when the button is pressed. The draft will still disappear after a short time or if the bot sends a message. To fully preserve the partial draft, the bot should send it as a new message.</param>

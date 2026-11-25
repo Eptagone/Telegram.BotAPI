@@ -46,7 +46,7 @@ public class ChatInviteLink
     public string? Name { get; set; }
 
     /// <summary>
-    /// Optional. Point in time (Unix timestamp) when the link will expire or has been expired
+    /// Optional. Point in time (Unix timestamp) when the link will expire or has expired
     /// </summary>
     [JsonPropertyName(PropertyNames.ExpireDate)]
     public int? ExpireDate { get; set; }

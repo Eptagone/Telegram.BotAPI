@@ -5,7 +5,7 @@
 namespace Telegram.BotAPI.AvailableTypes;
 
 /// <summary>
-/// This object represent a user's profile pictures.
+/// This object represents a user's profile pictures.
 /// </summary>
 public class UserProfilePhotos
 {

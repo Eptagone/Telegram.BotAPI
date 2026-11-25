@@ -16,7 +16,7 @@ public class ManagedBotUpdated
     public User User { get; set; } = null!;
 
     /// <summary>
-    /// Information about the bot. Token of the bot can be fetched using the method <a href="https://core.telegram.org/bots/api#getmanagedbottoken">getManagedBotToken</a>.
+    /// Information about the bot. The token of the bot can be fetched using the method <a href="https://core.telegram.org/bots/api#getmanagedbottoken">getManagedBotToken</a>.
     /// </summary>
     [JsonPropertyName(PropertyNames.Bot)]
     public User Bot { get; set; } = null!;

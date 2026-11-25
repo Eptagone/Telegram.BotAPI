@@ -34,7 +34,7 @@ public class Location
     public int? LivePeriod { get; set; }
 
     /// <summary>
-    /// Optional. The direction in which user is moving, in degrees; 1-360. For active live locations only.
+    /// Optional. The direction in which the user is moving, in degrees; 1-360. For active live locations only.
     /// </summary>
     [JsonPropertyName(PropertyNames.Heading)]
     public int? Heading { get; set; }

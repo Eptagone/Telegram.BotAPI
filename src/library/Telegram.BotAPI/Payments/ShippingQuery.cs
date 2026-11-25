@@ -30,7 +30,7 @@ public class ShippingQuery
     public string InvoicePayload { get; set; } = null!;
 
     /// <summary>
-    /// User specified shipping address
+    /// User-specified shipping address
     /// </summary>
     [JsonPropertyName(PropertyNames.ShippingAddress)]
     public ShippingAddress ShippingAddress { get; set; } = null!;
